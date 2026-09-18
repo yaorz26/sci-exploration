@@ -1,0 +1,14 @@
+dataset: codeforces
+split: rating-1200
+num_problems: 100
+num_candidates: 4
+max_rollouts: 16
+thought_depth: 4
+random_seed: 42
+timeout_seconds: 10
+generator_model: unset
+prm_model: unset
+use_code: true
+use_execution_feedback: true
+label_type: pass_rate
+verification_strategy: public_pass_rate

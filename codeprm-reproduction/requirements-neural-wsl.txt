@@ -1,0 +1,15 @@
+# WSL Ubuntu 22.04 / Python 3.10 neural CodePRM pilot
+--index-url https://download.pytorch.org/whl/cu124
+torch==2.6.0+cu124
+torchvision==0.21.0+cu124
+torchaudio==2.6.0+cu124
+--extra-index-url https://pypi.org/simple
+transformers==4.57.6
+datasets==3.6.0
+peft==0.20.0
+accelerate==1.14.0
+bitsandbytes==0.50.2
+sentencepiece==0.2.2
+safetensors==0.8.0
+scipy==1.15.3
+scikit-learn==1.7.2

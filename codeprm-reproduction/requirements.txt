@@ -1,0 +1,8 @@
+# The minimal offline milestone uses only Python's standard library.
+# Level-2 ridge PRM requires NumPy:
+numpy>=1.24
+# Optional later levels:
+# torch>=2.0
+# transformers>=4.40
+# datasets>=2.18
+# pyyaml>=6.0

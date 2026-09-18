@@ -1,0 +1,16 @@
+dataset: offline
+split: introductory
+num_problems: 20
+num_candidates: 4
+random_seed: 42
+timeout_seconds: 2
+generator_model: dolphin3:latest
+generator_backend: ollama
+ollama_endpoint: http://127.0.0.1:11434
+generation_timeout_seconds: 180
+generation_temperature: 0.7
+prm_model: none
+use_code: true
+use_execution_feedback: true
+label_type: pass_rate
+verification_strategy: public_pass_rate

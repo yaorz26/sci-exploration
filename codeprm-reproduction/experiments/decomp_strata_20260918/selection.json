@@ -1,0 +1,95 @@
+{
+  "experiment_id": "decomprl_20260918_stratified_v1",
+  "selection_status": "frozen_before_generation",
+  "selection_constraints": [
+    "Membership uses only statement text, starter API, source metadata, and public test count.",
+    "No private outcome, model output, or prior P3/P5 per-task result was used for membership.",
+    "Each selected row declares its source execution mode and every method uses that mode."
+  ],
+  "groups": [
+    {
+      "name": "simple_single_stage",
+      "target_count": 20,
+      "source_file": "data/processed/apps_train_introductory50_private_safe.json",
+      "selection_rule": "Unrun original holdout rows with one dominant transformation or formula and no required independent helper boundary.",
+      "selected": [
+        {"problem_id": "apps-train-2672", "execution_mode": "function", "rationale": "Fixed lookup and direct probability computation."},
+        {"problem_id": "apps-train-2673", "execution_mode": "function", "rationale": "One prescribed arithmetic formula."},
+        {"problem_id": "apps-train-2674", "execution_mode": "function", "rationale": "Sort once and format one selected value."},
+        {"problem_id": "apps-train-2678", "execution_mode": "function", "rationale": "Single left-to-right expression evaluation loop."},
+        {"problem_id": "apps-train-2680", "execution_mode": "function", "rationale": "One relative-speed calculation and time formatting."},
+        {"problem_id": "apps-train-2681", "execution_mode": "function", "rationale": "One recurrence until a scalar stopping condition."},
+        {"problem_id": "apps-train-2683", "execution_mode": "function", "rationale": "One aggregate followed by per-key arithmetic."},
+        {"problem_id": "apps-train-2685", "execution_mode": "function", "rationale": "Single substitution mapping over characters."},
+        {"problem_id": "apps-train-2686", "execution_mode": "function", "rationale": "One ordered character transformation."},
+        {"problem_id": "apps-train-2687", "execution_mode": "function", "rationale": "One list-formatting rule with edge cases."},
+        {"problem_id": "apps-train-2688", "execution_mode": "function", "rationale": "One scalar iteration with a repeated digit-square transform."},
+        {"problem_id": "apps-train-2690", "execution_mode": "function", "rationale": "One depth-tracking scan of parentheses."},
+        {"problem_id": "apps-train-2691", "execution_mode": "function", "rationale": "One scan for maximal numeric token."},
+        {"problem_id": "apps-train-2692", "execution_mode": "function", "rationale": "Direct implementation of one named sorting algorithm."},
+        {"problem_id": "apps-train-2694", "execution_mode": "function", "rationale": "One score accumulation rule."},
+        {"problem_id": "apps-train-2695", "execution_mode": "function", "rationale": "One frequency-pair consistency check."},
+        {"problem_id": "apps-train-2696", "execution_mode": "function", "rationale": "One repeated-substring decision."},
+        {"problem_id": "apps-train-2697", "execution_mode": "function", "rationale": "One character-boundary formatting scan."},
+        {"problem_id": "apps-train-2698", "execution_mode": "function", "rationale": "One grade-school array addition procedure."},
+        {"problem_id": "apps-train-2702", "execution_mode": "function", "rationale": "One frequency-difference computation."}
+      ]
+    },
+    {
+      "name": "medium_multi_stage",
+      "target_count": 20,
+      "source_file": "data/processed/apps_train_new_medium30_private_safe.json",
+      "selection_rule": "New unscored function rows with several transformations, but at least one coupled state or ambiguous helper boundary.",
+      "selected": [
+        {"problem_id": "apps-train-1636", "execution_mode": "function", "rationale": "Bound generation and product-sum search share a coupled global minimum table."},
+        {"problem_id": "apps-train-1637", "execution_mode": "function", "rationale": "Encoding requires stateful run processing and output rules."},
+        {"problem_id": "apps-train-1638", "execution_mode": "function", "rationale": "Palindrome search combines expansion state with global tie handling."},
+        {"problem_id": "apps-train-1639", "execution_mode": "function", "rationale": "Digit interleaving, stopping rules, and sequence selection are coupled."},
+        {"problem_id": "apps-train-1640", "execution_mode": "function", "rationale": "Character filtering, counting, comparison, and output ordering are distinct but coupled by the same counts."},
+        {"problem_id": "apps-train-1642", "execution_mode": "function", "rationale": "Factor decomposition and ordered-count aggregation share recursive state."},
+        {"problem_id": "apps-train-1643", "execution_mode": "function", "rationale": "Digit-bound handling and combinatorial counting require shared prefix state."},
+        {"problem_id": "apps-train-1644", "execution_mode": "function", "rationale": "Base91 character decoding uses paired parsing and stateful byte assembly."},
+        {"problem_id": "apps-train-1645", "execution_mode": "function", "rationale": "Square classification combines number-theoretic cases and a minimum search."},
+        {"problem_id": "apps-train-1646", "execution_mode": "function", "rationale": "Automorphic-number generation combines suffix tests with ordered enumeration."},
+        {"problem_id": "apps-train-1648", "execution_mode": "function", "rationale": "Ring state evolution and meeting detection share modular timing state."},
+        {"problem_id": "apps-train-1649", "execution_mode": "function", "rationale": "Transition-table handling and terminal-state policy are coupled in one FSM."},
+        {"problem_id": "apps-train-1650", "execution_mode": "function", "rationale": "Constrained digit generation and result summary require shared enumeration bounds."},
+        {"problem_id": "apps-train-1651", "execution_mode": "function", "rationale": "Consecutive-run detection and range formatting are coupled by boundary semantics."},
+        {"problem_id": "apps-train-1652", "execution_mode": "function", "rationale": "Unit decomposition, omission rules, and English joining rules interact."},
+        {"problem_id": "apps-train-1653", "execution_mode": "function", "rationale": "Recursive pair evaluation and digit formatting share numerical precision rules."},
+        {"problem_id": "apps-train-1654", "execution_mode": "function", "rationale": "Expression parsing, missing-digit search, and arithmetic validity are coupled."},
+        {"problem_id": "apps-train-1656", "execution_mode": "function", "rationale": "Subsequence dynamic programming updates depend on the full target state."},
+        {"problem_id": "apps-train-1660", "execution_mode": "function", "rationale": "Term tokenization, canonicalization, aggregation, and sorting are multi-stage but tightly coupled."},
+        {"problem_id": "apps-train-1664", "execution_mode": "function", "rationale": "Attack geometry and legal-move classification interact on each board square."}
+      ]
+    },
+    {
+      "name": "hard_naturally_decomposable",
+      "target_count": 20,
+      "source_file": "data/processed/apps_train_new_competition40_private_safe.json",
+      "selection_rule": "New unscored hard stdin rows with named processing stages and independently specifiable helper contracts.",
+      "selected": [
+        {"problem_id": "apps-train-2000", "execution_mode": "stdin", "rationale": "Classify two edge weights, construct an MST policy, then answer root-to-node path objectives."},
+        {"problem_id": "apps-train-2001", "execution_mode": "stdin", "rationale": "Decompose X into constructible blocks, assign separated values, then emit a valid array."},
+        {"problem_id": "apps-train-2003", "execution_mode": "stdin", "rationale": "Transform geometric inequalities to an ordering relation, then compute a longest chain."},
+        {"problem_id": "apps-train-2007", "execution_mode": "stdin", "rationale": "Implement a time-feasibility matcher and search the minimum feasible time."},
+        {"problem_id": "apps-train-2008", "execution_mode": "stdin", "rationale": "Identify binary runs, resolve their eventual states, then format the stabilized sequence."},
+        {"problem_id": "apps-train-2014", "execution_mode": "stdin", "rationale": "Derive the matrix value rule, build a rectangle prefix query helper, then process queries."},
+        {"problem_id": "apps-train-2016", "execution_mode": "stdin", "rationale": "Analyze graph structure under the no-immediate-backtrack rule, then aggregate reachable scores."},
+        {"problem_id": "apps-train-2018", "execution_mode": "stdin", "rationale": "Derive a partition criterion and apply it to the sequence construction/checking stage."},
+        {"problem_id": "apps-train-2020", "execution_mode": "stdin", "rationale": "Encode cyclic necklace constraints, count valid arrangements, then aggregate the requested result."},
+        {"problem_id": "apps-train-2023", "execution_mode": "stdin", "rationale": "Construct candidate permutations from remembered constraints and validate the phone-number condition."},
+        {"problem_id": "apps-train-2024", "execution_mode": "stdin", "rationale": "Parse click outcomes, simulate score-state transitions, then compute the final classification."},
+        {"problem_id": "apps-train-2026", "execution_mode": "stdin", "rationale": "Model timer transitions and combine the independent game-state cases."},
+        {"problem_id": "apps-train-2027", "execution_mode": "stdin", "rationale": "Maintain interval geometry after each falling stone and compute the surviving measure."},
+        {"problem_id": "apps-train-2030", "execution_mode": "stdin", "rationale": "Separate complete-graph route cost calculation from the final optimization over choices."},
+        {"problem_id": "apps-train-2032", "execution_mode": "stdin", "rationale": "Canonicalize rooted substructures and apply the tree-minimization recurrence."},
+        {"problem_id": "apps-train-2033", "execution_mode": "stdin", "rationale": "Root and encode each tree, then compare canonical representations."},
+        {"problem_id": "apps-train-2034", "execution_mode": "stdin", "rationale": "Compute geometric relations among points and aggregate the valid polygon contributions."},
+        {"problem_id": "apps-train-2036", "execution_mode": "stdin", "rationale": "Build bracket state transitions and answer tournament outcomes from that representation."},
+        {"problem_id": "apps-train-2037", "execution_mode": "stdin", "rationale": "Simulate elevator capacity/state rules and compute schedule completion time."},
+        {"problem_id": "apps-train-2038", "execution_mode": "stdin", "rationale": "Parse quantified conditions, evaluate their mathematical cases, and produce the requested decision."}
+      ]
+    }
+  ]
+}

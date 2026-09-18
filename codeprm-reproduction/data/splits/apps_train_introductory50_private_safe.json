@@ -1,0 +1,363 @@
+{
+  "input_file": "data\\raw\\apps_train_introductory50.json",
+  "input_sha256": "8a5c534b01db7984a4230e59d9c7c7bb40bc0a5ac5ad12669510ea85a917fc69",
+  "output_file": "data\\processed\\apps_train_introductory50_private_safe.json",
+  "output_sha256": "c68a5c43047bf07183af6311800e2f25c9bc6dbd499039c92de558a940c89cb2",
+  "visibility_policy": "remove a private test only when its non-empty whitespace-normalized input and output both occur in the question",
+  "input_rows": 50,
+  "retained_rows": 50,
+  "dropped_rows_without_private_test": 0,
+  "prompt_visible_private_tests_removed": 0,
+  "audit": [
+    {
+      "problem_id": "apps-train-2651",
+      "private_before": 6,
+      "prompt_visible_private_removed": 0,
+      "private_after": 6,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2652",
+      "private_before": 13,
+      "prompt_visible_private_removed": 0,
+      "private_after": 13,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2653",
+      "private_before": 2,
+      "prompt_visible_private_removed": 0,
+      "private_after": 2,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2654",
+      "private_before": 5,
+      "prompt_visible_private_removed": 0,
+      "private_after": 5,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2655",
+      "private_before": 3,
+      "prompt_visible_private_removed": 0,
+      "private_after": 3,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2656",
+      "private_before": 3,
+      "prompt_visible_private_removed": 0,
+      "private_after": 3,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2657",
+      "private_before": 2,
+      "prompt_visible_private_removed": 0,
+      "private_after": 2,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2658",
+      "private_before": 4,
+      "prompt_visible_private_removed": 0,
+      "private_after": 4,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2660",
+      "private_before": 5,
+      "prompt_visible_private_removed": 0,
+      "private_after": 5,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2661",
+      "private_before": 13,
+      "prompt_visible_private_removed": 0,
+      "private_after": 13,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2662",
+      "private_before": 3,
+      "prompt_visible_private_removed": 0,
+      "private_after": 3,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2663",
+      "private_before": 2,
+      "prompt_visible_private_removed": 0,
+      "private_after": 2,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2664",
+      "private_before": 3,
+      "prompt_visible_private_removed": 0,
+      "private_after": 3,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2665",
+      "private_before": 2,
+      "prompt_visible_private_removed": 0,
+      "private_after": 2,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2666",
+      "private_before": 1,
+      "prompt_visible_private_removed": 0,
+      "private_after": 1,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2667",
+      "private_before": 2,
+      "prompt_visible_private_removed": 0,
+      "private_after": 2,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2668",
+      "private_before": 4,
+      "prompt_visible_private_removed": 0,
+      "private_after": 4,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2669",
+      "private_before": 3,
+      "prompt_visible_private_removed": 0,
+      "private_after": 3,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2670",
+      "private_before": 3,
+      "prompt_visible_private_removed": 0,
+      "private_after": 3,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2671",
+      "private_before": 3,
+      "prompt_visible_private_removed": 0,
+      "private_after": 3,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2672",
+      "private_before": 3,
+      "prompt_visible_private_removed": 0,
+      "private_after": 3,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2673",
+      "private_before": 3,
+      "prompt_visible_private_removed": 0,
+      "private_after": 3,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2674",
+      "private_before": 3,
+      "prompt_visible_private_removed": 0,
+      "private_after": 3,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2675",
+      "private_before": 25,
+      "prompt_visible_private_removed": 0,
+      "private_after": 25,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2676",
+      "private_before": 10,
+      "prompt_visible_private_removed": 0,
+      "private_after": 10,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2677",
+      "private_before": 23,
+      "prompt_visible_private_removed": 0,
+      "private_after": 23,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2678",
+      "private_before": 2,
+      "prompt_visible_private_removed": 0,
+      "private_after": 2,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2679",
+      "private_before": 3,
+      "prompt_visible_private_removed": 0,
+      "private_after": 3,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2680",
+      "private_before": 4,
+      "prompt_visible_private_removed": 0,
+      "private_after": 4,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2681",
+      "private_before": 3,
+      "prompt_visible_private_removed": 0,
+      "private_after": 3,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2682",
+      "private_before": 1,
+      "prompt_visible_private_removed": 0,
+      "private_after": 1,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2683",
+      "private_before": 3,
+      "prompt_visible_private_removed": 0,
+      "private_after": 3,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2684",
+      "private_before": 12,
+      "prompt_visible_private_removed": 0,
+      "private_after": 12,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2685",
+      "private_before": 5,
+      "prompt_visible_private_removed": 0,
+      "private_after": 5,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2686",
+      "private_before": 3,
+      "prompt_visible_private_removed": 0,
+      "private_after": 3,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2687",
+      "private_before": 4,
+      "prompt_visible_private_removed": 0,
+      "private_after": 4,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2688",
+      "private_before": 3,
+      "prompt_visible_private_removed": 0,
+      "private_after": 3,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2689",
+      "private_before": 4,
+      "prompt_visible_private_removed": 0,
+      "private_after": 4,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2690",
+      "private_before": 3,
+      "prompt_visible_private_removed": 0,
+      "private_after": 3,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2691",
+      "private_before": 3,
+      "prompt_visible_private_removed": 0,
+      "private_after": 3,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2692",
+      "private_before": 2,
+      "prompt_visible_private_removed": 0,
+      "private_after": 2,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2694",
+      "private_before": 2,
+      "prompt_visible_private_removed": 0,
+      "private_after": 2,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2695",
+      "private_before": 5,
+      "prompt_visible_private_removed": 0,
+      "private_after": 5,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2696",
+      "private_before": 4,
+      "prompt_visible_private_removed": 0,
+      "private_after": 4,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2697",
+      "private_before": 2,
+      "prompt_visible_private_removed": 0,
+      "private_after": 2,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2698",
+      "private_before": 5,
+      "prompt_visible_private_removed": 0,
+      "private_after": 5,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2699",
+      "private_before": 13,
+      "prompt_visible_private_removed": 0,
+      "private_after": 13,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2700",
+      "private_before": 6,
+      "prompt_visible_private_removed": 0,
+      "private_after": 6,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2701",
+      "private_before": 3,
+      "prompt_visible_private_removed": 0,
+      "private_after": 3,
+      "retained": true
+    },
+    {
+      "problem_id": "apps-train-2702",
+      "private_before": 2,
+      "prompt_visible_private_removed": 0,
+      "private_after": 2,
+      "retained": true
+    }
+  ]
+}

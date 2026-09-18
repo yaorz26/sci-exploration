@@ -1,0 +1,29 @@
+{
+  "timestamp": "2026-09-04",
+  "status": "paused_by_user",
+  "dataset": "data/raw/apps_train_introductory50.json",
+  "dataset_sha256": "8a5c534b01db7984a4230e59d9c7c7bb40bc0a5ac5ad12669510ea85a917fc69",
+  "protocol": {
+    "model": "qwen2.5-coder:3b",
+    "backend": "ollama",
+    "num_problems": 50,
+    "num_candidates": 4,
+    "timeout_seconds": 2,
+    "public_private_policy": "first half of input_output examples is public; remainder is private"
+  },
+  "completed": {
+    "train20_three_seed_aggregate": "outputs/results/baseline_seed_summary_apps_train_intro20_qwen3b_seeds.json",
+    "train50_seed42": "outputs/results/baseline_apps_train_intro50_qwen3b_seed42.json",
+    "train50_seed42_feedback_records": 200,
+    "executor_regression": "passed"
+  },
+  "not_counted": {
+    "train50_seed43": "interrupted before completion; no complete result file",
+    "train50_seed44": "not started"
+  },
+  "resume_commands": [
+    "python scripts/run_baseline.py --config configs/ollama.yaml --num-problems 50 --seed 43 --apps-path data/raw/apps_train_introductory50.json --output-suffix apps_train_intro50_qwen3b_seed43",
+    "python scripts/run_baseline.py --config configs/ollama.yaml --num-problems 50 --seed 44 --apps-path data/raw/apps_train_introductory50.json --output-suffix apps_train_intro50_qwen3b_seed44",
+    "python scripts/aggregate_baseline_seeds.py --results outputs/results/baseline_apps_train_intro50_qwen3b_seed42.json outputs/results/baseline_apps_train_intro50_qwen3b_seed43.json outputs/results/baseline_apps_train_intro50_qwen3b_seed44.json --output-suffix apps_train_intro50_qwen3b_seeds"
+  ]
+}

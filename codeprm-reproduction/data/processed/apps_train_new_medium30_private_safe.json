@@ -1,0 +1,1826 @@
+[
+  {
+    "problem_id": "apps-train-1636",
+    "dataset": "APPS",
+    "source_problem_id": 1636,
+    "source_split": "train",
+    "difficulty": "interview",
+    "question": "A product-sum number is a natural number N which can be expressed as both the product and the sum of the same set of numbers.\n\nN = a1 × a2 × ... × ak = a1 + a2 + ... + ak\n\nFor example, 6 = 1 × 2 × 3 = 1 + 2 + 3.\n\nFor a given set of size, k, we shall call the smallest N with this property a minimal product-sum number. The minimal product-sum numbers for sets of size, k = 2, 3, 4, 5, and 6 are as follows.\n```\nk=2: 4 = 2 × 2 = 2 + 2\nk=3: 6 = 1 × 2 × 3 = 1 + 2 + 3\nk=4: 8 = 1 × 1 × 2 × 4 = 1 + 1 + 2 + 4\nk=5: 8 = 1 × 1 × 2 × 2 × 2 = 1 + 1 + 2 + 2 + 2\nk=6: 12 = 1 × 1 × 1 × 1 × 2 × 6 = 1 + 1 + 1 + 1 + 2 + 6\n```\n\nHence for 2 ≤ k ≤ 6, the sum of all the minimal product-sum numbers is 4+6+8+12 = 30; note that 8 is only counted once in the sum.\n\nYour task is to write an algorithm to compute the sum of all minimal product-sum numbers where 2 ≤ k ≤ n.\n\nCourtesy of ProjectEuler.net",
+    "starter_code": "\ndef productsum(n):\n\t",
+    "public_tests": [
+      {
+        "input": "[3]",
+        "output": "[10]"
+      },
+      {
+        "input": "[6]",
+        "output": "[30]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[12]",
+        "output": "[61]"
+      },
+      {
+        "input": "[2]",
+        "output": "[4]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-1637",
+    "dataset": "APPS",
+    "source_problem_id": 1637,
+    "source_split": "train",
+    "difficulty": "interview",
+    "question": "Motivation\n---------\n\nWhen compressing sequences of symbols, it is useful to have many equal symbols follow each other, because then they can be encoded with a run length encoding. For example, RLE encoding of `\"aaaabbbbbbbbbbbcccccc\"` would give something like `4a 11b 6c`.\n\n(Look [here](http://www.codewars.com/kata/run-length-encoding/) for learning more about the run-length-encoding.)\n\nOf course, RLE is interesting only if the string contains many identical consecutive characters. But what bout human readable text? Here comes the Burrows-Wheeler-Transformation.\n\nTransformation\n-------------\nThere even exists a transformation, which brings equal symbols closer together, it is called the **Burrows-Wheeler-Transformation**. The forward transformation works as follows: Let's say we have a sequence with length n, first write every shift of that string into a *n x n* matrix:\n```\nInput: \"bananabar\"\n\nb a n a n a b a r\nr b a n a n a b a\na r b a n a n a b\nb a r b a n a n a\na b a r b a n a n\nn a b a r b a n a\na n a b a r b a n\nn a n a b a r b a\na n a n a b a r b\n```\nThen we sort that matrix by its rows. The output of the transformation then is the **last column** and the **row index** in which the original string is in:\n```\n               .-.\na b a r b a n a n\na n a b a r b a n\na n a n a b a r b\na r b a n a n a b\nb a n a n a b a r <- 4\nb a r b a n a n a\nn a b a r b a n a\nn a n a b a r b a\nr b a n a n a b a\n               '-'\n\nOutput: (\"nnbbraaaa\", 4)\n```\n\n```if:java\nTo handle the two kinds of output data, we will use the preloaded class `BWT`, whose contract is the following:\n\n    public class BWT {\n        \n        public String s;\n        public int n;\n        \n        public BWT(String s, int n)\n        \n        @Override public String  toString()\n        @Override public boolean equals(Object o)\n        @Override public int     hashCode()\n    }\n\n```\n\nOf course we want to restore the original input, therefore you get the following hints:\n\n1. The output contains the last matrix column.\n2. The first column can be acquired by sorting the last column.\n3. **For every row of the table:** Symbols in the first column follow on symbols in the last column, in the same way they do in the input string.\n4. You don't need to reconstruct the whole table to get the input back.\n\nGoal\n----\n\nThe goal of this Kata is to write both, the `encode` and `decode` functions. Together they should work as the identity function on lists. (*Note:* For the empty input, the row number is ignored.)\n\nFurther studies\n--------------\nYou may have noticed that symbols are not always consecutive, but just in proximity, after the transformation. If you're interested in how to deal with that, you should have a look at [this Kata](http://www.codewars.com/kata/move-to-front-encoding/).",
+    "starter_code": "\ndef encode(s):\n\t",
+    "public_tests": [
+      {
+        "input": "['bananabar']",
+        "output": "[['nnbbraaaa', 4]]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['Humble Bundle']",
+        "output": "[['e emnllbduuHB', 2]]"
+      },
+      {
+        "input": "['Mellow Yellow']",
+        "output": "[['ww MYeelllloo', 1]]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-1638",
+    "dataset": "APPS",
+    "source_problem_id": 1638,
+    "source_split": "train",
+    "difficulty": "interview",
+    "question": "# Longest Palindromic Substring (Linear)\n\nA palindrome is a word, phrase, or sequence that reads the same backward as forward, e.g.,\n'madam' or 'racecar'. Even the letter 'x' is considered a palindrome. \n\nFor this Kata, you are given a string ```s```. Write a function that returns the longest _contiguous_ palindromic substring in ```s``` (it could be the entire string). In the event that there are multiple longest palindromic substrings, return the first to occur.\n\nI'm not trying to trick you here:\n- You can assume that all inputs are valid strings.\n- Only the letters a-z will be used, all lowercase (your solution should, in theory, extend to more than just the letters a-z though). \n\n**NOTE:** Quadratic asymptotic complexity _(O(N^2))_ or above will __NOT__ work here.\n\n-----\n\n## Examples\n\n### Basic Tests\n\n```\nInput: \"babad\"\nOutput: \"bab\"\n(Note: \"bab\" occurs before \"aba\")\n```\n```\nInput: \"abababa\"\nOutput: \"abababa\"\n```\n```\nInput: \"cbbd\"\nOutput: \"bb\"\n```\n\n### Edge Cases\n\n```\nInput: \"ab\"\nOutput: \"a\"\n```\n```\nInput: \"\"\nOutput: \"\"\n```\n-----\n\n## Testing\n\nAlong with the example tests given:\n\n - There are **500** tests using strings of length in range [1 - 1,000]\n - There are **50** tests using strings of length in range [1,000 - 10,000]\n - There are **5** tests using strings of length in range [10,000 - 100,000]\n \nAll test cases can be passed within 10 seconds, but non-linear solutions will time out every time. _Linear performance is essential_. \n\n## Good Luck!\n\n-----\n\nThis problem was inspired by [this](https://leetcode.com/problems/longest-palindromic-substring/) challenge on LeetCode. Except this is the performance version :^)",
+    "starter_code": "\ndef longest_palindrome(s):\n\t",
+    "public_tests": [
+      {
+        "input": "['babad']",
+        "output": "['bab']"
+      },
+      {
+        "input": "['madam']",
+        "output": "['madam']"
+      },
+      {
+        "input": "['dde']",
+        "output": "['dd']"
+      },
+      {
+        "input": "['ababbab']",
+        "output": "['babbab']"
+      },
+      {
+        "input": "['abababa']",
+        "output": "['abababa']"
+      },
+      {
+        "input": "['banana']",
+        "output": "['anana']"
+      },
+      {
+        "input": "['abba']",
+        "output": "['abba']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['cbbd']",
+        "output": "['bb']"
+      },
+      {
+        "input": "['zz']",
+        "output": "['zz']"
+      },
+      {
+        "input": "['dddd']",
+        "output": "['dddd']"
+      },
+      {
+        "input": "['']",
+        "output": "['']"
+      },
+      {
+        "input": "['abcdefghijklmnopqrstuvwxyz']",
+        "output": "['a']"
+      },
+      {
+        "input": "['ttaaftffftfaafatf']",
+        "output": "['aaftffftfaa']"
+      },
+      {
+        "input": "['bbaaacc']",
+        "output": "['aaa']"
+      },
+      {
+        "input": "['m']",
+        "output": "['m']"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-1639",
+    "dataset": "APPS",
+    "source_problem_id": 1639,
+    "source_split": "train",
+    "difficulty": "interview",
+    "question": "We have three numbers: ```123489, 5, and 67```.\nWith these numbers we form the list from their digits in this order ```[1, 5, 6, 2, 7, 3, 4, 8, 9]```.  It shouldn't take you long to figure out what to do to achieve this ordering.\n\nFurthermore, we want to put a limit to the number of terms of the above list.\n\nInstead of having 9 numbers, we only want 7, so we discard the two last numbers.\n\nSo, our list will be reduced to ```[1, 5, 6, 2, 7, 3, 4]``` (base list) \n\nWe form all the possible arrays, from the list above, and we calculate, for each array, the addition of their respective digits.\n\nSee the table below: we will put only some of them\n```\narray for the list      sum (terms of arrays)\n[1]                      1 # arrays with only one term (7 different arrays)\n[5]                      5\n[6]                      6\n[2]                      2\n[7]                      7\n[3]                      3\n[4]                      4\n\n[1, 5]                   6 # arrays with two terms (42 different arrays)\n[1, 6]                   7\n[1, 2]                   3\n[1, 7]                   8\n[1, 3]                   4\n[1, 4]                   5\n\n.....                   ...\n[1, 5, 6]               12 # arrays with three terms(210 different arrays)\n[1, 5, 2]                8 \n[1, 5, 7]               13 \n[1, 5, 3]                9 \n........                ...\n[1, 5, 6, 2]            14 # arrays with four terms(840 different arrays)\n[1, 5, 6, 7]            19 \n[1, 5, 6, 3]            15 \n[1, 5, 6, 4]            16 \n............            ..\n[1, 5, 6, 2, 7]         21 # arrays with five terms(2520 different arrays)\n[1, 5, 6, 2, 3]         17 \n[1, 5, 6, 2, 4]         18 \n[1, 5, 6, 7, 2]         21 \n...............         ..\n[1, 5, 6, 2, 7, 3]      24 # arrays with six terms(5040 different arrays)\n[1, 5, 6, 2, 7, 4]      25 \n[1, 5, 6, 2, 3, 7]      24 \n[1, 5, 6, 2, 3, 4]      21 \n..................      .. \n[1, 5, 6, 2, 7, 3, 4]   28 # arrays with seven terms(5040 different arrays)\n[1, 5, 6, 2, 7, 4, 3]   28   # arrays of max length = limit\n[1, 5, 6, 2, 3, 7, 4]   28 \n[1, 5, 6, 2, 3, 4, 7]   28 \n:::::::::::::::::::::::::::\nGreatT0talAdditions 328804 (GTA).(The total addition of the sum values corresponding to each permutation). A total 0f 13706 arrays, all of them different.\n```\nSo we say that for the three numbers, ```123489, 5, and 67``` with a limit = ```7```, the GTA value is ```328804```.\n\n\nLet's see now a case where we have digits occurring more than once. If we have a digit duplicated or more, just continue for the corresponding digit in turn of the next number. The result will be a list with no duplicated digits.\n\nFor the numbers: ```12348, 47, 3639 ``` with ``` limit = 8```  we will have the list ```[1, 4, 3, 2, 7, 6, 9, 8]``` (base list)\n\nWe should not have duplications in the permutations because there are no duplicated\ndigits in our base list.\n\nFor this case we have:\n```\nnumber of different array      number of terms the array has\n              8                                  1 \n             56                                  2 \n            336                                  3\n           1680                                  4\n           6720                                  5\n          20160                                  6\n          40320                                  7\n          40320                                  8\nGTA = 3836040 with a limit of eight terms\n```\nThe challenge: create the function ```gta()```, that receives a number that limits the amount of terms for the base list, ```limit```, and an uncertain number of integers that can have and will have different amount of digits that may have digits occuring more than once.\n\nJust to understand the structure of the function will be like: ```gta(limit, n1, n2, ...nk)```\n\nLet's see our functions with the examples shown above.\n``` python\n# case1\ngta(7, 123489, 5, 67) == 328804 # base_list = [1, 5, 6, 2, 7, 3, 4]\n\n# case2\ngta(8, 12348, 47, 3639) == 3836040 # base_list = [1, 4, 3, 2, 7, 6, 9, 8]\n```\nYou may assume that ```limit``` will be always lower or equal than the total available digits of all the numbers. The total available digits are all the digits of all the numbers. (E.g.the numbers ```12348, 47, 3639 ```have 8 available digits.)\nYou will always be receiving positive integers in an amount between 2 and 6.\n\nFor the tests ```limit <= 9``` (obviously).\n\nEnjoy it!!\n\n(Hint: the module itertools for python may be very useful, but there are many ways to solve it.)\n\n(The arrays [1, 5, 6] and [1, 6, 5] have the same elements but are different arrays. The order matters)",
+    "starter_code": "\ndef gta(limit, *args):\n\t",
+    "public_tests": [
+      {
+        "input": "[7, 123489, 5, 67]",
+        "output": "[328804]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[8, 12348, 47, 3639]",
+        "output": "[3836040]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-1640",
+    "dataset": "APPS",
+    "source_problem_id": 1640,
+    "source_split": "train",
+    "difficulty": "interview",
+    "question": "Given two strings s1 and s2, we want to visualize how different the two strings are.\nWe will only take into account the *lowercase* letters (a to z).\nFirst let us count the frequency of each *lowercase* letters in s1 and s2.\n\n`s1 = \"A aaaa bb c\"`\n\n`s2 = \"& aaa bbb c d\"`\n\n`s1 has 4 'a', 2 'b', 1 'c'`\n\n`s2 has 3 'a', 3 'b', 1 'c', 1 'd'`\n\nSo the maximum for 'a' in s1 and s2 is 4 from s1; the maximum for 'b' is 3 from s2.\nIn the following we will not consider letters when the maximum of their occurrences\nis less than or equal to 1.\n\nWe can resume the differences between s1 and s2 in the following string:\n`\"1:aaaa/2:bbb\"`\nwhere `1` in `1:aaaa` stands for string s1 and `aaaa` because the maximum for `a` is 4.\nIn the same manner `2:bbb` stands for string s2 and `bbb` because the maximum for `b` is 3.\n\nThe task is to produce a string in which each *lowercase* letters of s1 or s2 appears as many times as\nits maximum if this maximum is *strictly greater than 1*; these letters will be prefixed by the \nnumber of the string where they appear with their maximum value and `:`. \nIf the maximum is in s1 as well as in s2 the prefix is `=:`.\n\nIn the result, substrings (a substring is for example 2:nnnnn or 1:hhh; it contains the prefix) will be in decreasing order of their length and when they have the same length sorted in ascending lexicographic order (letters and digits - more precisely sorted by codepoint); the different groups will be separated by '/'. See examples and \"Example Tests\".\n\nHopefully other examples can make this clearer.\n\n```\ns1 = \"my&friend&Paul has heavy hats! &\"\ns2 = \"my friend John has many many friends &\"\nmix(s1, s2) --> \"2:nnnnn/1:aaaa/1:hhh/2:mmm/2:yyy/2:dd/2:ff/2:ii/2:rr/=:ee/=:ss\"\n\ns1 = \"mmmmm m nnnnn y&friend&Paul has heavy hats! &\"\ns2 = \"my frie n d Joh n has ma n y ma n y frie n ds n&\"\nmix(s1, s2) --> \"1:mmmmmm/=:nnnnnn/1:aaaa/1:hhh/2:yyy/2:dd/2:ff/2:ii/2:rr/=:ee/=:ss\"\n\ns1=\"Are the kids at home? aaaaa fffff\"\ns2=\"Yes they are here! aaaaa fffff\"\nmix(s1, s2) --> \"=:aaaaaa/2:eeeee/=:fffff/1:tt/2:rr/=:hh\"\n```\n# Note for Swift, R, PowerShell\nThe prefix `=:` is replaced by `E:`\n``` \ns1 = \"mmmmm m nnnnn y&friend&Paul has heavy hats! &\"\ns2 = \"my frie n d Joh n has ma n y ma n y frie n ds n&\"\nmix(s1, s2) --> \"1:mmmmmm/E:nnnnnn/1:aaaa/1:hhh/2:yyy/2:dd/2:ff/2:ii/2:rr/E:ee/E:ss\"\n```",
+    "starter_code": "\ndef mix(s1, s2):\n\t",
+    "public_tests": [
+      {
+        "input": "['Are they here', 'yes, they are here']",
+        "output": "['2:eeeee/2:yy/=:hh/=:rr']"
+      },
+      {
+        "input": "['looping is fun but dangerous', 'less dangerous than coding']",
+        "output": "['1:ooo/1:uuu/2:sss/=:nnn/1:ii/2:aa/2:dd/2:ee/=:gg']"
+      },
+      {
+        "input": "[' In many languages', \" there's a pair of functions\"]",
+        "output": "['1:aaa/1:nnn/1:gg/2:ee/2:ff/2:ii/2:oo/2:rr/2:ss/2:tt']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['Lords of the Fallen', 'gamekult']",
+        "output": "['1:ee/1:ll/1:oo']"
+      },
+      {
+        "input": "['codewars', 'codewars']",
+        "output": "['']"
+      },
+      {
+        "input": "['A generation must confront the looming ', 'codewarrs']",
+        "output": "['1:nnnnn/1:ooooo/1:tttt/1:eee/1:gg/1:ii/1:mm/=:rr']"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-1642",
+    "dataset": "APPS",
+    "source_problem_id": 1642,
+    "source_split": "train",
+    "difficulty": "interview",
+    "question": "## Task\n\nGiven a positive integer, `n`, return the number of possible ways such that `k` positive integers multiply to `n`. Order matters.\n\n**Examples**\n```\nn = 24\nk = 2\n(1, 24), (2, 12), (3, 8), (4, 6), (6, 4), (8, 3), (12, 2), (24, 1) -> 8\n\nn = 100\nk = 1\n100 -> 1\n\nn = 20\nk = 3\n(1, 1, 20), (1, 2, 10), (1, 4, 5), (1, 5, 4), (1, 10, 2), (1, 20, 1),\n(2, 1, 10), (2, 2, 5), (2, 5, 2), (2, 10, 1), (4, 1, 5), (4, 5, 1),\n(5, 1, 4), (5, 2, 2), (5, 4, 1), (10, 1, 2), (10, 2, 1), (20, 1, 1) -> 18\n```\n**Constraints**\n`1 <= n <= 500_000_000`\nand `1 <= k <= 1000`",
+    "starter_code": "\ndef multiply(n, k):\n\t",
+    "public_tests": [
+      {
+        "input": "[24, 2]",
+        "output": "[8]"
+      },
+      {
+        "input": "[100, 1]",
+        "output": "[1]"
+      },
+      {
+        "input": "[20, 3]",
+        "output": "[18]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[1, 2]",
+        "output": "[1]"
+      },
+      {
+        "input": "[1000000, 3]",
+        "output": "[784]"
+      },
+      {
+        "input": "[10, 2]",
+        "output": "[4]"
+      },
+      {
+        "input": "[36, 4]",
+        "output": "[100]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-1643",
+    "dataset": "APPS",
+    "source_problem_id": 1643,
+    "source_split": "train",
+    "difficulty": "interview",
+    "question": "You are given 2 numbers is `n` and `k`. You need to find the number of integers between 1 and n (inclusive) that contains exactly `k` non-zero digit.\n\nExample1 \n\n`\nalmost_everywhere_zero(100, 1) return 19`\n\nby following condition we have 19 numbers that have k = 1 digits( not count zero ) \n` [1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100]`\n\n\nExample2  \n\n`\nalmost_everywhere_zero(11, 2) return 1`\n\nwe have only `11` that has 2 digits(ten not count because zero is not count) \n` 11`\n\n\n\n\n\nconstrains\n\n\n`1≤n<pow(10,100)`\n\n\n`1≤k≤100`",
+    "starter_code": "\ndef almost_everywhere_zero(n, k):\n\t",
+    "public_tests": [
+      {
+        "input": "[100, 1]",
+        "output": "[19]"
+      },
+      {
+        "input": "[11, 2]",
+        "output": "[1]"
+      },
+      {
+        "input": "[20, 2]",
+        "output": "[9]"
+      },
+      {
+        "input": "[101, 2]",
+        "output": "[82]"
+      },
+      {
+        "input": "[10001, 2]",
+        "output": "[487]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[10001000, 2]",
+        "output": "[1729]"
+      },
+      {
+        "input": "[500309160, 2]",
+        "output": "[2604]"
+      },
+      {
+        "input": "[10000000000000000000000, 3]",
+        "output": "[1122660]"
+      },
+      {
+        "input": "[10000000000000000000000, 21]",
+        "output": "[2407217760893271902598]"
+      },
+      {
+        "input": "[1203, 4]",
+        "output": "[81]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-1644",
+    "dataset": "APPS",
+    "source_problem_id": 1644,
+    "source_split": "train",
+    "difficulty": "interview",
+    "question": "[BasE91](http://base91.sourceforge.net/) is a method for encoding binary as ASCII characters. It is more efficient than Base64 and needs 91 characters to represent the encoded data.\n\nThe following ASCII charakters are used:\n\n    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'\n    '!#$%&()*+,./:;<=>?@[]^_`{|}~\"'\n    \nCreate two functions that encode strings to basE91 string and decodes the other way round. \n\n    b91encode('test') = 'fPNKd'\n    b91decode('fPNKd') = 'test'\n    \n    b91decode('>OwJh>Io0Tv!8PE') = 'Hello World!'\n    b91encode('Hello World!') = '>OwJh>Io0Tv!8PE'\n    \nInput strings are valid.",
+    "starter_code": "\ndef b91decode(strng):\n\t",
+    "public_tests": [
+      {
+        "input": "['fPNKd']",
+        "output": "['test']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['>OwJh>Io0Tv!8PE']",
+        "output": "['Hello World!']"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-1645",
+    "dataset": "APPS",
+    "source_problem_id": 1645,
+    "source_split": "train",
+    "difficulty": "interview",
+    "question": "The task is simply stated. Given an integer n (3 < n < 10^(9)), find the length of the smallest list of [*perfect squares*](https://en.wikipedia.org/wiki/Square_number) which add up to n. Come up with the best algorithm you can; you'll need it!\n\nExamples:\n\nsum_of_squares(17) = 2  17 = 16 + 1 (4 and 1 are perfect squares).\nsum_of_squares(15) = 4  15 = 9 + 4 + 1 + 1. There is no way to represent 15 as the sum of three perfect squares.\nsum_of_squares(16) = 1  16 itself is a perfect square.\n\nTime constraints:\n\n5 easy (sample) test cases: n < 20\n\n5 harder test cases: 1000 < n < 15000\n\n5 maximally hard test cases: 5 * 1e8 < n < 1e9\n\n```if:java\n300 random maximally hard test cases: 1e8 < n < 1e9\n```\n```if:c#\n350 random maximally hard test cases: 1e8 < n < 1e9\n```\n```if:python\n15 random maximally hard test cases: 1e8 < n < 1e9\n```\n```if:ruby\n25  random maximally hard test cases: 1e8 < n < 1e9\n```\n```if:javascript\n100 random maximally hard test cases: 1e8 < n < 1e9\n```\n```if:crystal\n250 random maximally hard test cases: 1e8 < n < 1e9\n```\n```if:cpp\nRandom maximally hard test cases: 1e8 < n < 1e9\n```",
+    "starter_code": "\ndef sum_of_squares(n):\n\t",
+    "public_tests": [
+      {
+        "input": "[15]",
+        "output": "[4]"
+      },
+      {
+        "input": "[16]",
+        "output": "[1]"
+      },
+      {
+        "input": "[17]",
+        "output": "[2]"
+      },
+      {
+        "input": "[18]",
+        "output": "[2]"
+      },
+      {
+        "input": "[19]",
+        "output": "[3]"
+      },
+      {
+        "input": "[2017]",
+        "output": "[2]"
+      },
+      {
+        "input": "[1008]",
+        "output": "[4]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[3456]",
+        "output": "[3]"
+      },
+      {
+        "input": "[4000]",
+        "output": "[2]"
+      },
+      {
+        "input": "[12321]",
+        "output": "[1]"
+      },
+      {
+        "input": "[661915703]",
+        "output": "[4]"
+      },
+      {
+        "input": "[999887641]",
+        "output": "[1]"
+      },
+      {
+        "input": "[999950886]",
+        "output": "[3]"
+      },
+      {
+        "input": "[999951173]",
+        "output": "[2]"
+      },
+      {
+        "input": "[999998999]",
+        "output": "[4]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-1646",
+    "dataset": "APPS",
+    "source_problem_id": 1646,
+    "source_split": "train",
+    "difficulty": "interview",
+    "question": "This is a very simply formulated task. Let's call an integer number `N` 'green' if `N²` ends with all of the digits of `N`. Some examples:\n\n`5` is green, because `5² = 25` and `25` ends with `5`.\n\n`11` is not green, because `11² = 121` and `121` does not end with `11`.\n\n`376` is green, because `376² = 141376` and `141376` ends with `376`.\n\nYour task is to write a function `green` that returns `n`th green number, starting with `1` - `green (1) == 1`\n\n---\n\n## Data range\n\n```if:haskell\n`n <= 4000` for Haskell\n```\n```if:java\n`n <= 5000` for Java\n```\n```if:python\n`n <= 5000` for Python\n```\n```if:javascript\n`n <= 3000` for JavaScript\n\nReturn values should be `String`s, and should be exact. A BigNum library is recommended.\n```",
+    "starter_code": "\ndef green(n):\n\t",
+    "public_tests": [
+      {
+        "input": "[1]",
+        "output": "[1]"
+      },
+      {
+        "input": "[2]",
+        "output": "[5]"
+      },
+      {
+        "input": "[3]",
+        "output": "[6]"
+      },
+      {
+        "input": "[4]",
+        "output": "[25]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[12]",
+        "output": "[2890625]"
+      },
+      {
+        "input": "[13]",
+        "output": "[7109376]"
+      },
+      {
+        "input": "[100]",
+        "output": "[6188999442576576769103890995893380022607743740081787109376]"
+      },
+      {
+        "input": "[110]",
+        "output": "[9580863811000557423423230896109004106619977392256259918212890625]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-1647",
+    "dataset": "APPS",
+    "source_problem_id": 1647,
+    "source_split": "train",
+    "difficulty": "interview",
+    "question": "Create a function that takes a positive integer and returns the next bigger number that can be formed by rearranging its digits. For example:\n\n```\n12 ==> 21\n513 ==> 531\n2017 ==> 2071\n```\n\nIf the digits can't be rearranged to form a bigger number, return `-1` (or `nil` in Swift):\n\n```\n9 ==> -1\n111 ==> -1\n531 ==> -1\n```",
+    "starter_code": "\ndef next_bigger(n):\n\t",
+    "public_tests": [
+      {
+        "input": "[12]",
+        "output": "[21]"
+      },
+      {
+        "input": "[513]",
+        "output": "[531]"
+      },
+      {
+        "input": "[2017]",
+        "output": "[2071]"
+      },
+      {
+        "input": "[414]",
+        "output": "[441]"
+      },
+      {
+        "input": "[144]",
+        "output": "[414]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[123456789]",
+        "output": "[123456798]"
+      },
+      {
+        "input": "[1234567890]",
+        "output": "[1234567908]"
+      },
+      {
+        "input": "[9876543210]",
+        "output": "[-1]"
+      },
+      {
+        "input": "[9999999999]",
+        "output": "[-1]"
+      },
+      {
+        "input": "[59884848459853]",
+        "output": "[59884848483559]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-1648",
+    "dataset": "APPS",
+    "source_problem_id": 1648,
+    "source_split": "train",
+    "difficulty": "interview",
+    "question": "This is the performance version of [this kata](https://www.codewars.com/kata/59afff65f1c8274f270020f5).\n\n---\n\nImagine two rings with numbers on them. The inner ring spins clockwise and the outer ring spins anti-clockwise. We start with both rings aligned on 0 at the top, and on each move we spin each ring by 1. How many moves will it take before both rings show the same number at the top again?\n\nThe inner ring has integers from 0 to innerMax and the outer ring has integers from 0 to outerMax, where innerMax and outerMax are integers >= 1.\n\n```\ne.g. if innerMax is 2 and outerMax is 3 then after\n1 move: inner = 2, outer = 1\n2 moves: inner = 1, outer = 2\n3 moves: inner = 0, outer = 3\n4 moves: inner = 2, outer = 0\n5 moves: inner = 1, outer = 1\nTherefore it takes 5 moves for the two rings to reach the same number\nTherefore spinningRings(2, 3) = 5\n```\n```\ne.g. if innerMax is 3 and outerMax is 2 then after\n1 move: inner = 3, outer = 1\n2 moves: inner = 2, outer = 2\nTherefore it takes 2 moves for the two rings to reach the same number\nspinningRings(3, 2) = 2\n```\n\n---\n\nTest input range:\n\n- `100` tests with `1 <= innerMax, outerMax <= 10000`\n- `400` tests with `1 <= innerMax, outerMax <= 2^48`",
+    "starter_code": "\ndef spinning_rings(inner_max, outer_max):\n\t",
+    "public_tests": [
+      {
+        "input": "[5, 5]",
+        "output": "[3]"
+      },
+      {
+        "input": "[2, 10]",
+        "output": "[13]"
+      },
+      {
+        "input": "[10, 2]",
+        "output": "[10]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[7, 9]",
+        "output": "[4]"
+      },
+      {
+        "input": "[1, 1]",
+        "output": "[1]"
+      },
+      {
+        "input": "[16777216, 14348907]",
+        "output": "[23951671]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-1649",
+    "dataset": "APPS",
+    "source_problem_id": 1649,
+    "source_split": "train",
+    "difficulty": "interview",
+    "question": "Automatons, or Finite State Machines (FSM), are extremely useful to programmers when it comes to software design. You will be given a simplistic version of an FSM to code for a basic TCP session.\n\nThe outcome of this exercise will be to return the correct state of the TCP FSM based on the array of events given.\n\n---------------------------------\n\nThe input array of events will consist of one or more of the following strings:\n\n```\nAPP_PASSIVE_OPEN, APP_ACTIVE_OPEN, APP_SEND, APP_CLOSE, APP_TIMEOUT, RCV_SYN, RCV_ACK, RCV_SYN_ACK, RCV_FIN, RCV_FIN_ACK\n```\n\n---------------------------------\n\nThe states are as follows and should be returned in all capital letters as shown:\n\n```\nCLOSED, LISTEN, SYN_SENT, SYN_RCVD, ESTABLISHED, CLOSE_WAIT, LAST_ACK, FIN_WAIT_1, FIN_WAIT_2, CLOSING, TIME_WAIT\n```\n\n---------------------------------\n\nThe input will be an array of events. Your job is to traverse the FSM as determined by the events, and return the proper state as a string, all caps, as shown above.\n\nIf an event is not applicable to the current state, your code will return `\"ERROR\"`.\n\n### Action of each event upon each state:\n(the format is `INITIAL_STATE: EVENT -> NEW_STATE`)\n\n```\nCLOSED: APP_PASSIVE_OPEN -> LISTEN\nCLOSED: APP_ACTIVE_OPEN  -> SYN_SENT\nLISTEN: RCV_SYN          -> SYN_RCVD\nLISTEN: APP_SEND         -> SYN_SENT\nLISTEN: APP_CLOSE        -> CLOSED\nSYN_RCVD: APP_CLOSE      -> FIN_WAIT_1\nSYN_RCVD: RCV_ACK        -> ESTABLISHED\nSYN_SENT: RCV_SYN        -> SYN_RCVD\nSYN_SENT: RCV_SYN_ACK    -> ESTABLISHED\nSYN_SENT: APP_CLOSE      -> CLOSED\nESTABLISHED: APP_CLOSE   -> FIN_WAIT_1\nESTABLISHED: RCV_FIN     -> CLOSE_WAIT\nFIN_WAIT_1: RCV_FIN      -> CLOSING\nFIN_WAIT_1: RCV_FIN_ACK  -> TIME_WAIT\nFIN_WAIT_1: RCV_ACK      -> FIN_WAIT_2\nCLOSING: RCV_ACK         -> TIME_WAIT\nFIN_WAIT_2: RCV_FIN      -> TIME_WAIT\nTIME_WAIT: APP_TIMEOUT   -> CLOSED\nCLOSE_WAIT: APP_CLOSE    -> LAST_ACK\nLAST_ACK: RCV_ACK        -> CLOSED\n```\n\n![\"EFSM TCP\" ](http://theangelfallseries.com/img/EFSM_TCP.png)\n\n## Examples\n\n```\n[\"APP_PASSIVE_OPEN\", \"APP_SEND\", \"RCV_SYN_ACK\"] =>  \"ESTABLISHED\"\n\n[\"APP_ACTIVE_OPEN\"] =>  \"SYN_SENT\"\n\n[\"APP_ACTIVE_OPEN\", \"RCV_SYN_ACK\", \"APP_CLOSE\", \"RCV_FIN_ACK\", \"RCV_ACK\"] =>  \"ERROR\"\n```\n\n \n\nThis kata is similar to [Design a Simple Automaton (Finite State Machine)](https://www.codewars.com/kata/design-a-simple-automaton-finite-state-machine), and you may wish to try that kata before tackling this one.\n\nSee wikipedia page [Transmission Control Protocol]( http://en.wikipedia.org/wiki/Transmission_Control_Protocol)\nfor further details.\n\nSee http://www.medianet.kent.edu/techreports/TR2005-07-22-tcp-EFSM.pdf page 4, for the FSM diagram used for this kata.",
+    "starter_code": "\ndef traverse_TCP_states(events):\n\t",
+    "public_tests": [
+      {
+        "input": "[['APP_PASSIVE_OPEN', 'RCV_SYN', 'RCV_ACK', 'APP_CLOSE']]",
+        "output": "['FIN_WAIT_1']"
+      },
+      {
+        "input": "[['APP_PASSIVE_OPEN', 'RCV_SYN', 'RCV_ACK']]",
+        "output": "['ESTABLISHED']"
+      },
+      {
+        "input": "[['APP_PASSIVE_OPEN', 'RCV_SYN']]",
+        "output": "['SYN_RCVD']"
+      },
+      {
+        "input": "[['APP_PASSIVE_OPEN']]",
+        "output": "['LISTEN']"
+      },
+      {
+        "input": "[['APP_ACTIVE_OPEN', 'APP_CLOSE']]",
+        "output": "['CLOSED']"
+      },
+      {
+        "input": "[['APP_ACTIVE_OPEN', 'RCV_SYN', 'APP_CLOSE', 'RCV_FIN', 'RCV_ACK']]",
+        "output": "['TIME_WAIT']"
+      },
+      {
+        "input": "[['APP_ACTIVE_OPEN', 'RCV_SYN', 'APP_CLOSE', 'RCV_FIN', 'RCV_ACK', 'APP_TIMEOUT']]",
+        "output": "['CLOSED']"
+      },
+      {
+        "input": "[['RCV_SYN', 'RCV_ACK', 'APP_CLOSE']]",
+        "output": "['ERROR']"
+      },
+      {
+        "input": "[['APP_ACTIVE_OPEN', 'RCV_SYN', 'APP_CLOSE', 'RCV_ACK']]",
+        "output": "['FIN_WAIT_2']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[['APP_ACTIVE_OPEN', 'RCV_SYN_ACK', 'RCV_FIN']]",
+        "output": "['CLOSE_WAIT']"
+      },
+      {
+        "input": "[['APP_ACTIVE_OPEN', 'RCV_SYN_ACK', 'RCV_FIN', 'APP_CLOSE']]",
+        "output": "['LAST_ACK']"
+      },
+      {
+        "input": "[['APP_ACTIVE_OPEN']]",
+        "output": "['SYN_SENT']"
+      },
+      {
+        "input": "[['APP_PASSIVE_OPEN', 'APP_CLOSE']]",
+        "output": "['CLOSED']"
+      },
+      {
+        "input": "[['APP_ACTIVE_OPEN', 'RCV_SYN_ACK', 'APP_CLOSE']]",
+        "output": "['FIN_WAIT_1']"
+      },
+      {
+        "input": "[['APP_PASSIVE_OPEN', 'RCV_SYN', 'RCV_ACK', 'APP_PASSIVE_OPEN']]",
+        "output": "['ERROR']"
+      },
+      {
+        "input": "[['APP_PASSIVE_OPEN', 'RCV_SYN', 'RCV_ACK', 'APP_CLOSE', 'RCV_FIN_ACK', 'APP_TIMEOUT', 'APP_ACTIVE_OPEN', 'RCV_SYN', 'APP_CLOSE', 'RCV_FIN', 'RCV_ACK']]",
+        "output": "['TIME_WAIT']"
+      },
+      {
+        "input": "[['APP_PASSIVE_OPEN', 'RCV_SYN', 'RCV_ACK', 'APP_CLOSE', 'RCV_SYN']]",
+        "output": "['ERROR']"
+      },
+      {
+        "input": "[['APP_PASSIVE_OPEN', 'APP_CLOSE', 'RCV_SYN']]",
+        "output": "['ERROR']"
+      },
+      {
+        "input": "[['APP_PASSIVE_OPEN', 'RCV_SYN', 'RCV_ACK', 'APP_CLOSE', 'RCV_FIN']]",
+        "output": "['CLOSING']"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-1650",
+    "dataset": "APPS",
+    "source_problem_id": 1650,
+    "source_split": "train",
+    "difficulty": "interview",
+    "question": "We want to generate all the numbers of three digits where:\n\n- the sum of their digits is equal to 10.\n\n- their digits are in increasing order (the numbers may have two or more equal contiguous digits)\n\nThe numbers that fulfill the two above constraints are: ```118, 127, 136, 145, 226, 235, 244, 334```\n\nMake a function that receives two arguments:\n\n- the sum of digits value \n\n- the desired number of digits for the numbers\n\nThe function should output an array with three values: \\[1,2,3\\]\n\n1 - the total number of possible numbers\n\n2 - the minimum number\n\n3 - the maximum number\n\nThe example given above should be:\n\n```python\nfind_all(10, 3) == [8, 118, 334]\n```\n\nIf we have only one possible number as a solution, it should output a result like the one below:\n\n```python\nfind_all(27, 3) == [1, 999, 999]\n```\n\nIf there are no possible numbers, the function should output the empty array.\n\n```python\nfind_all(84, 4) == []\n```\n\nThe number of solutions climbs up when the number of digits increases.\n\n```python\nfind_all(35, 6) == [123, 116999, 566666]\n```\n\nFeatures of the random tests:\n\n* Number of tests: `112`\n* Sum of digits value between `20` and `65`\n* Amount of digits between `2` and `17`",
+    "starter_code": "\ndef find_all(sum_dig, digs):\n\t",
+    "public_tests": [
+      {
+        "input": "[10, 3]",
+        "output": "[[8, 118, 334]]"
+      },
+      {
+        "input": "[27, 3]",
+        "output": "[[1, 999, 999]]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[84, 4]",
+        "output": "[[]]"
+      },
+      {
+        "input": "[35, 6]",
+        "output": "[[123, 116999, 566666]]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-1651",
+    "dataset": "APPS",
+    "source_problem_id": 1651,
+    "source_split": "train",
+    "difficulty": "interview",
+    "question": "A format for expressing an ordered list of integers is to use a comma separated list of either\n\n* individual integers\n* or a range of integers denoted by the starting integer separated from the end integer in the range by a dash, '-'. The range includes all integers in the interval including both endpoints.  It is not considered a range unless it spans at least 3 numbers. For example \"12,13,15-17\"\n\nComplete the solution  so that it takes a list of integers in increasing order and returns a correctly formatted string in the range format. \n\n**Example:**\n\n```python\nsolution([-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20])\n# returns \"-6,-3-1,3-5,7-11,14,15,17-20\"\n```\n\n```C#\nRangeExtraction.Extract(new[] {-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20});\n# returns \"-6,-3-1,3-5,7-11,14,15,17-20\"\n```\n\n*Courtesy of rosettacode.org*",
+    "starter_code": "\ndef solution(args):\n\t",
+    "public_tests": [
+      {
+        "input": "[[-6, -3, -2, -1, 0, 1, 3, 4, 5, 7, 8, 9, 10, 11, 14, 15, 17, 18, 19, 20]]",
+        "output": "['-6,-3-1,3-5,7-11,14,15,17-20']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[[-3, -2, -1, 2, 10, 15, 16, 18, 19, 20]]",
+        "output": "['-3--1,2,10,15,16,18-20']"
+      },
+      {
+        "input": "[[1, 2, 3, 4, 5]]",
+        "output": "['1-5']"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-1652",
+    "dataset": "APPS",
+    "source_problem_id": 1652,
+    "source_split": "train",
+    "difficulty": "interview",
+    "question": "Your task in order to complete this Kata is to write a function which formats a duration, given as a number of seconds, in a human-friendly way.\n\nThe function must accept a non-negative integer. If it is zero, it just returns `\"now\"`. Otherwise,  the duration is expressed as a combination of `years`, `days`, `hours`, `minutes` and `seconds`.\n\nIt is much easier to understand with an example:\n\n```Fortran\nformatDuration (62)    // returns \"1 minute and 2 seconds\"\nformatDuration (3662)  // returns \"1 hour, 1 minute and 2 seconds\"\n```\n```python\nformat_duration(62)    # returns \"1 minute and 2 seconds\"\nformat_duration(3662)  # returns \"1 hour, 1 minute and 2 seconds\"\n```\n\n**For the purpose of this Kata, a year is 365 days and a day is 24 hours.**\n\nNote that spaces are important.\n\n### Detailed rules\n\nThe resulting expression is made of components like `4 seconds`, `1 year`, etc.  In general, a positive integer and one of the valid units of time, separated by a space. The unit of time is used in plural if the integer is greater than 1.\n\nThe components are separated by a comma and a space (`\", \"`). Except the last component, which is separated by `\" and \"`, just like it would be written in English. \n\nA more significant units of time will occur before than a least significant one. Therefore, `1 second and 1 year` is not correct, but `1 year and 1 second` is.\n\nDifferent components have different unit of times. So there is not repeated units like in `5 seconds and 1 second`.\n\nA component will not appear at all if its value happens to be zero.  Hence, `1 minute and 0 seconds` is not valid, but it should be just `1 minute`.\n\n A unit of time must be used \"as much as possible\". It means that the function should not return `61 seconds`, but `1 minute and 1 second` instead.  Formally, the duration specified by  of a component must not be greater than any valid more significant unit of time.",
+    "starter_code": "\ndef format_duration(seconds):\n\t",
+    "public_tests": [
+      {
+        "input": "[0]",
+        "output": "['now']"
+      },
+      {
+        "input": "[1]",
+        "output": "['1 second']"
+      },
+      {
+        "input": "[62]",
+        "output": "['1 minute and 2 seconds']"
+      },
+      {
+        "input": "[120]",
+        "output": "['2 minutes']"
+      },
+      {
+        "input": "[3600]",
+        "output": "['1 hour']"
+      },
+      {
+        "input": "[3662]",
+        "output": "['1 hour, 1 minute and 2 seconds']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[15731080]",
+        "output": "['182 days, 1 hour, 44 minutes and 40 seconds']"
+      },
+      {
+        "input": "[132030240]",
+        "output": "['4 years, 68 days, 3 hours and 4 minutes']"
+      },
+      {
+        "input": "[205851834]",
+        "output": "['6 years, 192 days, 13 hours, 3 minutes and 54 seconds']"
+      },
+      {
+        "input": "[253374061]",
+        "output": "['8 years, 12 days, 13 hours, 41 minutes and 1 second']"
+      },
+      {
+        "input": "[242062374]",
+        "output": "['7 years, 246 days, 15 hours, 32 minutes and 54 seconds']"
+      },
+      {
+        "input": "[101956166]",
+        "output": "['3 years, 85 days, 1 hour, 9 minutes and 26 seconds']"
+      },
+      {
+        "input": "[33243586]",
+        "output": "['1 year, 19 days, 18 hours, 19 minutes and 46 seconds']"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-1653",
+    "dataset": "APPS",
+    "source_problem_id": 1653,
+    "source_split": "train",
+    "difficulty": "interview",
+    "question": "This kata is a continuation of [Part 1](http://www.codewars.com/kata/the-fibfusc-function-part-1). The `fibfusc` function is defined recursively as follows:\n\n    fibfusc(0) = (1, 0)\n    fibfusc(1) = (0, 1)\n    fibfusc(2n) = ((x + y)(x - y), y(2x + 3y)), where (x, y) = fibfusc(n)\n    fibfusc(2n + 1) = (-y(2x + 3y), (x + 2y)(x + 4y)), where (x, y) = fibfusc(n)\n\nYour job is to produce the code for the `fibfusc` function. In this kata, your function will be tested with large values of n (up to 2000 bits), so you should be concerned about stack overflow and timeouts. Moreover, since the `fibfusc` function grows exponentially, your function should take an extra argument `num_digits` with a default value of `None`. When not `None`, `num_digits` takes a positive `int` value and the returned values shall be truncated to the last `num_digits` digits. \n\nFor example, let `n = 101`. With `num_digits` not set or set to `None`, `fibfusc` should return: \n`(-280571172992510140037611932413038677189525L, 734544867157818093234908902110449296423351L)`. If `num_digits = 12`, the function should return `(-38677189525L, 449296423351L)`. Notice in particular, that for any value of `n` greater than 1, `x` is negative, and the truncated value of `x` should also be negative.\n\nHint 1: Use modulo `10 ** num_digits` arithmetic to keep all intermediary results small.\n\nHint 2: Consider using an iterative [\"number climber\"](http://www.codewars.com/kata/number-climber) to avoid stack overflows.",
+    "starter_code": "\ndef fibfusc(n, num_digits=None):\n\t",
+    "public_tests": [
+      {
+        "input": "[0]",
+        "output": "[[1, 0]]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[1]",
+        "output": "[[0, 1]]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-1654",
+    "dataset": "APPS",
+    "source_problem_id": 1654,
+    "source_split": "train",
+    "difficulty": "interview",
+    "question": "To give credit where credit is due: This problem was taken from the ACMICPC-Northwest Regional Programming Contest. Thank you problem writers.\n\nYou are helping an archaeologist decipher some runes. He knows that this ancient society used a Base 10 system, and that they never start a number with a leading zero. He's figured out most of the digits as well as a few operators, but he needs your help to figure out the rest.\n\nThe professor will give you a simple math expression, of the form\n\n```\n[number][op][number]=[number]\n```\n\nHe has converted all of the runes he knows into digits. The only operators he knows are addition (`+`),subtraction(`-`), and multiplication (`*`), so those are the only ones that will appear. Each number will be in the range from -1000000 to 1000000, and will consist of only the digits 0-9, possibly a leading -, and maybe a few ?s. If there are ?s in an expression, they represent a digit rune that the professor doesn't know (never an operator, and never a leading -). All of the ?s in an expression will represent the same digit (0-9), and it won't be one of the other given digits in the expression. No number will begin with a 0 unless the number itself is  0, therefore 00 would not be a valid number. \n\nGiven an expression, figure out the value of the rune represented by the question mark. If more than one digit works, give the lowest one. If no digit works, well, that's bad news for the professor - it means that he's got some of his runes wrong. output -1 in that case.\n\nComplete the method to solve the expression to find the value of the unknown rune. The method takes a string as a paramater repressenting the expression and will return an int value representing the unknown rune or -1 if no such rune exists.\n\n~~~if:php\n**Most of the time, the professor will be able to figure out most of the runes himself, but sometimes, there may be exactly 1 rune present in the expression that the professor cannot figure out (resulting in all question marks where the digits are in the expression) so be careful ;)**\n~~~",
+    "starter_code": "\ndef solve_runes(runes):\n\t",
+    "public_tests": [
+      {
+        "input": "['123?45*?=?']",
+        "output": "[0]"
+      },
+      {
+        "input": "['?*123?45=?']",
+        "output": "[0]"
+      },
+      {
+        "input": "['??605*-63=-73???5']",
+        "output": "[1]"
+      },
+      {
+        "input": "['123?45+?=123?45']",
+        "output": "[0]"
+      },
+      {
+        "input": "['?8?170-1?6256=7?2?14']",
+        "output": "[9]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['?38???+595???=833444']",
+        "output": "[2]"
+      },
+      {
+        "input": "['123?45-?=123?45']",
+        "output": "[0]"
+      },
+      {
+        "input": "['-7715?5--484?00=-28?9?5']",
+        "output": "[6]"
+      },
+      {
+        "input": "['50685?--1?5630=652?8?']",
+        "output": "[4]"
+      },
+      {
+        "input": "['??+??=??']",
+        "output": "[-1]"
+      },
+      {
+        "input": "['-?56373--9216=-?47157']",
+        "output": "[8]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-1655",
+    "dataset": "APPS",
+    "source_problem_id": 1655,
+    "source_split": "train",
+    "difficulty": "interview",
+    "question": "```if:java\n___Note for Java users:___ Due to type checking in Java, inputs and outputs are formated quite differently in this language. See the footnotes of the description.\n\n\n```\n\nYou have the following lattice points with their corresponding coordinates and each one with an specific colour.\n\n ```\nPoint   [x ,  y]     Colour\n----------------------------\n  A     [ 3,  4]     Blue\n  B     [-7, -1]     Red\n  C     [ 7, -6]     Yellow\n  D     [ 2,  5]     Yellow\n  E     [ 1, -5]     Red\n  F     [-1,  4]     Red\n  G     [ 1,  7]     Red\n  H     [-3,  5]     Red\n  I     [-3, -5]     Blue\n  J     [ 4,  1]     Blue\n```\nWe want to count the triangles that have the three vertices with the same colour. The following picture shows the distribution of the points in the plane with the required triangles.\n\n![source: imgur.com](http://i.imgur.com/sP0l1i1.png)\n\nThe input that we will have for the field of lattice points described above is:\n\n```\n[[[3, -4], \"blue\"],  [[-7, -1], \"red\"], [[7, -6], \"yellow\"], [[2, 5], \"yellow\"],\n [[1, -5], \"red\"],   [[-1, 4], \"red\"],  [[1, 7], \"red\"],     [[-3, 5], \"red\"], \n [[-3, -5], \"blue\"], [[4, 1], \"blue\"] ]\n```\nWe see the following result from it:\n\n```\nColour   Amount of Triangles       Triangles\nYellow         0                    -------\nBlue           1                      AIJ\nRed            10                   BEF,BEG,BEH,BFG,BFH,BGH,EFG,EFH,EHG,FGH\n```\nAs we have 5 different points in red and each combination of 3 points that are not aligned.\n\nWe need a code that may give us the following information in order:\n\n```\n1) Total given points\n2) Total number of colours\n3) Total number of possible triangles\n4) and 5) The colour (or colours, sorted alphabetically) with the highest amount of triangles\n```\n\nIn Python our function will work like:\n\n```\n[10, 3, 11, [\"red\",10]]) == count_col_triang([[[3, -4], \"blue\"],  [[-7, -1], \"red\"], [[7, -6], \"yellow\"], [[2, 5], \"yellow\"], \n                                              [[1, -5], \"red\"],   [[-1, 4], \"red\"],  [[1, 7], \"red\"],     [[-3, 5], \"red\"],\n                                              [[-3, -5], \"blue\"], [[4, 1], \"blue\"] ])\n```\nIn the following case we have some points that are aligned and we have less triangles that can be formed:\n\n```\n[10, 3, 7, [\"red\", 6]] == count_col_triang([[[3, -4], \"blue\"],  [[-7, -1], \"red\"], [[7, -6], \"yellow\"], [[2, 5], \"yellow\"],\n                                            [[1, -5], \"red\"],   [[1, 1], \"red\"],   [[1, 7], \"red\"],     [[1, 4], \"red\"], \n                                            [[-3, -5], \"blue\"], [[4, 1], \"blue\"] ])\n```\nJust to see the change with the previous case we have this:\n\n![source: imgur.com](http://i.imgur.com/cCgO7ql.png)\n\nIn the special case that the list of points does not generate an even single triangle, the output will be like this case:\n\n```\n[9, 3, 0, []] == count_col_triang([[[1, -2], \"red\"], [[7, -6], \"yellow\"], [[2, 5], \"yellow\"], [[1, -5], \"red\"],\n                                  [[1, 1], \"red\"],   [[1, 7], \"red\"],     [[1, 4], \"red\"],    [[-3, -5], \"blue\"], \n                                  [[4, 1], \"blue\"] ])\n```\nIt will be this case:\n\n![source: imgur.com](http://i.imgur.com/VB7t7Ij.png)\n\nIf in the result we have two or more colours with the same maximum amount of triangles, the last list should be like (e.g)\n\n```\n[35, 6, 35, [\"blue\", \"red\", \"yellow\", 23]]     # having the names of the colours sorted alphabetically\n```\nFor the condition of three algined points A, B, C, you should know that the the following determinant should be 0.\n\n```\n | xA    yA    1|\n | xB    yB    1|    = 0\n | xC    yC    1|\n\n```\nAssumptions:\n\n- In the list you have unique points, so a point can have only one colour.\n\n- All the inputs are valid\n\nEnjoy it!\n\n````if:java\n---\n\n___For java users:___\n\nTwo immutable objects, `ColouredPoint` and `TriangleResult`, have been designed for you in the preloaded part. You will receive inputs as lists of ColouredPoint objects and will return a TriangleResult object. For the last one, you may note the organization of the arguments of the constructor which differs a bit from the description above.\n\nYou may find below the signatures of the available methods of these objects:\n\n````",
+    "starter_code": "\ndef count_col_triang(a):\n\t",
+    "public_tests": [
+      {
+        "input": "[[[[3, -4], 'blue'], [[-7, -1], 'red'], [[7, -6], 'yellow'], [[2, 5], 'yellow'], [[1, -5], 'red'], [[-1, 4], 'red'], [[1, 7], 'red'], [[-3, 5], 'red'], [[-3, -5], 'blue'], [[4, 1], 'blue']]]",
+        "output": "[[10, 3, 11, ['red', 10]]]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[[[[3, -4], 'blue'], [[-7, -1], 'red'], [[7, -6], 'yellow'], [[2, 5], 'yellow'], [[1, -5], 'red'], [[1, 1], 'red'], [[1, 7], 'red'], [[1, 4], 'red'], [[-3, -5], 'blue'], [[4, 1], 'blue']]]",
+        "output": "[[10, 3, 7, ['red', 6]]]"
+      },
+      {
+        "input": "[[[[1, -2], 'red'], [[7, -6], 'yellow'], [[2, 5], 'yellow'], [[1, -5], 'red'], [[1, 1], 'red'], [[1, 7], 'red'], [[1, 4], 'red'], [[-3, -5], 'blue'], [[4, 1], 'blue']]]",
+        "output": "[[9, 3, 0, []]]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-1656",
+    "dataset": "APPS",
+    "source_problem_id": 1656,
+    "source_split": "train",
+    "difficulty": "interview",
+    "question": "With your birthday coming up soon, your eccentric friend sent you a message to say \"happy birthday\":\n\n    hhhappyyyy biirrrrrthddaaaayyyyyyy to youuuu\n    hhapppyyyy biirtttthdaaay too youuu\n    happy birrrthdayy to youuu\n    happpyyyy birrtthdaaay tooooo youu\n\nAt first it looks like a song, but upon closer investigation, you realize that your friend hid the phrase \"happy birthday\" thousands of times inside his message. In fact, it contains it more than 2 million times! To thank him, you'd like to reply with exactly how many times it occurs.\n\nTo count all the occurences, the procedure is as follows: look through the paragraph and find a `'h'`; then find an `'a'` later in the paragraph; then find an `'p'` after that, and so on. Now count the number of ways in which you can choose letters in this way to make the full phrase.\n\nMore precisely, given a text string, you are to determine how many times the search string appears as a sub-sequence of that string.\n\nWrite a function called `countSubsequences` that takes two arguments: `needle`, the string to be search for and `haystack`, the string to search in. In our example, `\"happy birthday\"` is the needle and the birthday message is the haystack. The function should return the number of times `needle` occurs as a sub-sequence of `haystack`.  Spaces are also considered part of the needle.\n\nSince the answers can be very large, return only the last 8 digits of the answer in case it exceeds 8 digits. The answers to the test cases will all be shorter than 8 digits.",
+    "starter_code": "\ndef count_subsequences(a, b):\n\t",
+    "public_tests": [
+      {
+        "input": "['happy birthday', 'appyh appy birth day']",
+        "output": "[1]"
+      },
+      {
+        "input": "['happy birthday', 'hhaappyy bbiirrtthhddaayy']",
+        "output": "[2048]"
+      },
+      {
+        "input": "['happy birthday', 'happy holidays']",
+        "output": "[0]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['happy birthday', 'happy birthday']",
+        "output": "[1]"
+      },
+      {
+        "input": "['happy', 'hhhappy']",
+        "output": "[3]"
+      },
+      {
+        "input": "['happy birthday', 'hhhappyyyy biirrrrrthddaaaayyyyyyy to youuuu']",
+        "output": "[7680]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-1657",
+    "dataset": "APPS",
+    "source_problem_id": 1657,
+    "source_split": "train",
+    "difficulty": "interview",
+    "question": "This kata is  blatantly copied from  inspired by This Kata\nWelcome\n\nthis is the second in the series of the string iterations kata!\n\nHere we go!\n\n---------------------------------------------------------------------------------\n\nWe have a string s\n\nLet's say you start with this: \"String\"\n\nThe first thing you do is reverse it: \"gnirtS\"\n\nThen you will take the string from the 1st position and reverse it again: \"gStrin\"\n\nThen you will take the string from the 2nd position and reverse it again: \"gSnirt\"\n\nThen you will take the string from the 3rd position and reverse it again: \"gSntri\"\n\nContinue this pattern until you have done every single position, and then you will return the string you have created. For this particular string, you would return: \n\"gSntir\"\n\nnow,\n\nThe Task:\n\nIn this kata, we also have a number x\n\ntake that reversal function, and apply it to the string x times.\n\n\nreturn the result of the string after applying the reversal function to it x times.\n\n    example where s = \"String\" and x = 3:\n\n    after 0 iteration  s = \"String\"\n    after 1 iteration  s = \"gSntir\"\n    after 2 iterations s = \"rgiStn\"\n    after 3 iterations s = \"nrtgSi\"\n    \n    so you would return \"nrtgSi\".\n\n Note \n\nString lengths may exceed 2 million\n\n\nx exceeds a billion\n\n\nbe read to optimize\n\n\n\nif this is too hard, go here https://www.codewars.com/kata/string-%3E-n-iterations-%3E-string/java",
+    "starter_code": "\ndef string_func(s, n):\n\t",
+    "public_tests": [
+      {
+        "input": "['This is a string exemplification!', 0]",
+        "output": "['This is a string exemplification!']"
+      },
+      {
+        "input": "['String for test: incommensurability', 1]",
+        "output": "['ySttirliinbga rfuosrn etmemsotc:n i']"
+      },
+      {
+        "input": "['Ohh Man God Damn', 7]",
+        "output": "[' nGOnmohaadhMD  ']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['Ohh Man God Damnn', 19]",
+        "output": "['haG mnad MhO noDn']"
+      },
+      {
+        "input": "['I like it!', 1234]",
+        "output": "['iitkIl !e ']"
+      },
+      {
+        "input": "['codingisfornerdsyounerd', 10101010]",
+        "output": "['fonroisreinrddgdneyscou']"
+      },
+      {
+        "input": "['this_test_will_hurt_you', 12345678987654321]",
+        "output": "['tt_rt_swuhyeihiotl_su_l']"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-1658",
+    "dataset": "APPS",
+    "source_problem_id": 1658,
+    "source_split": "train",
+    "difficulty": "interview",
+    "question": "The aim is to calculate `exponential(x)` (written `exp(x)` in most math libraries) as an irreducible fraction, the numerator of this fraction having a given number of digits.\n\nWe call this function `expand`, it takes two parameters, `x` of which we want to evaluate the exponential, `digits` which is the required number of digits for the numerator. \n\nThe function `expand` will return an array of the form `[numerator, denominator]`; we stop the loop in the Taylor expansion (see references below) when the numerator has a number of digits `>=` the required number of digits\n\n# Examples:\n```\nexpand(1, 2) --> 65/24 (we will write this [65, 24] or (65, 24) in Haskell; \n65/24 ~ 2.708...)\n\nexpand(2, 5) --> [20947, 2835]\n\nexpand(3, 10) --> [7205850259, 358758400]\n\nexpand(1.5, 10) --> [36185315027,8074035200]\n```\n**Note**\n```expand(1,5) = [109601, 40320]``` is the same as ```expand(1, 6)```\n\n#Method:\nAs said above the way here is to use `Taylor expansion` of the exponential function though it is not always the best approximation by a rational.\n\n#References:\nhttps://en.wikipedia.org/wiki/Exponential_function#Formal_definition\n\nhttp://www.efunda.com/math/taylor_series/exponential.cfm",
+    "starter_code": "\ndef expand(x, digit):\n\t",
+    "public_tests": [
+      {
+        "input": "[1, 2]",
+        "output": "[[65, 24]]"
+      },
+      {
+        "input": "[1, 5]",
+        "output": "[[109601, 40320]]"
+      },
+      {
+        "input": "[1, 6]",
+        "output": "[[109601, 40320]]"
+      },
+      {
+        "input": "[10, 3]",
+        "output": "[[683, 3]]"
+      },
+      {
+        "input": "[10, 4]",
+        "output": "[[1933, 3]]"
+      },
+      {
+        "input": "[10, 40]",
+        "output": "[[1239343290542858204293897268755807211243, 56266098342252742161373730812700463]]"
+      },
+      {
+        "input": "[10, 39]",
+        "output": "[[1239343290542858204293897268755807211243, 56266098342252742161373730812700463]]"
+      },
+      {
+        "input": "[10, 38]",
+        "output": "[[1239343290542858204293897268755807211243, 56266098342252742161373730812700463]]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[1.5, 10]",
+        "output": "[[36185315027, 8074035200]]"
+      },
+      {
+        "input": "[1.6, 10]",
+        "output": "[[27425286391, 5537109375]]"
+      },
+      {
+        "input": "[1.7, 10]",
+        "output": "[[3933851989, 720000000]]"
+      },
+      {
+        "input": "[1.7, 12]",
+        "output": "[[22069373989681, 4032000000000]]"
+      },
+      {
+        "input": "[1.7, 15]",
+        "output": "[[1986362246947787, 362880000000000]]"
+      },
+      {
+        "input": "[1.8, 20]",
+        "output": "[[13246837419514181887, 2189687500000000000]]"
+      },
+      {
+        "input": "[2.0, 20]",
+        "output": "[[355236915407681299637, 48076088562799171875]]"
+      },
+      {
+        "input": "[1.95, 60]",
+        "output": "[[12382830214749612215651955187527316512224932853910667762866497, 1761755672416929554471321600000000000000000000000000000000000]]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-1659",
+    "dataset": "APPS",
+    "source_problem_id": 1659,
+    "source_split": "train",
+    "difficulty": "interview",
+    "question": "# How many ways can you make the sum of a number?\n\nFrom wikipedia: https://en.wikipedia.org/wiki/Partition_(number_theory)#\n\n>In number theory and combinatorics, a partition of a positive integer *n*, also called an *integer partition*, is a way of writing n as a sum of positive integers. Two sums that differ only in the order of their summands are considered the same partition. If order matters, the sum becomes a composition. For example, 4 can be partitioned in five distinct ways:\n```\n4\n3 + 1\n2 + 2\n2 + 1 + 1\n1 + 1 + 1 + 1\n```\n\n## Examples\n\n### Basic\n\n```python\nexp_sum(1) # 1\nexp_sum(2) # 2  -> 1+1 , 2\nexp_sum(3) # 3 -> 1+1+1, 1+2, 3\nexp_sum(4) # 5 -> 1+1+1+1, 1+1+2, 1+3, 2+2, 4\nexp_sum(5) # 7 -> 1+1+1+1+1, 1+1+1+2, 1+1+3, 1+2+2, 1+4, 5, 2+3\n\nexp_sum(10) # 42\n```\n\n### Explosive\n\n```python\nexp_sum(50) # 204226\nexp_sum(80) # 15796476\nexp_sum(100) # 190569292\n```\n\nSee [here](http://www.numericana.com/data/partition.htm) for more examples.",
+    "starter_code": "\ndef exp_sum(n):\n\t",
+    "public_tests": [
+      {
+        "input": "[1]",
+        "output": "[1]"
+      },
+      {
+        "input": "[2]",
+        "output": "[2]"
+      },
+      {
+        "input": "[3]",
+        "output": "[3]"
+      },
+      {
+        "input": "[4]",
+        "output": "[5]"
+      },
+      {
+        "input": "[5]",
+        "output": "[7]"
+      },
+      {
+        "input": "[20]",
+        "output": "[627]"
+      },
+      {
+        "input": "[30]",
+        "output": "[5604]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[40]",
+        "output": "[37338]"
+      },
+      {
+        "input": "[43]",
+        "output": "[63261]"
+      },
+      {
+        "input": "[60]",
+        "output": "[966467]"
+      },
+      {
+        "input": "[70]",
+        "output": "[4087968]"
+      },
+      {
+        "input": "[90]",
+        "output": "[56634173]"
+      },
+      {
+        "input": "[200]",
+        "output": "[3972999029388]"
+      },
+      {
+        "input": "[275]",
+        "output": "[1520980492851175]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-1660",
+    "dataset": "APPS",
+    "source_problem_id": 1660,
+    "source_split": "train",
+    "difficulty": "interview",
+    "question": "When we attended middle school were asked to simplify mathematical expressions like \"3x-yx+2xy-x\" (or usually bigger), and that was easy-peasy (\"2x+xy\"). But tell that to your pc and we'll see! \n\nWrite a function: `simplify`, that takes a string in input, representing a *multilinear non-constant polynomial in integers coefficients* (like `\"3x-zx+2xy-x\"`), and returns another string as output where the same expression has been simplified in the following way ( `->` means application of `simplify`):\n\n- All possible sums and subtraction of equivalent monomials (\"xy==yx\") has been done, e.g.: `\"cb+cba\" -> \"bc+abc\"`, `\"2xy-yx\" -> \"xy\"`, `\"-a+5ab+3a-c-2a\" -> \"-c+5ab\"`\n\n- All monomials appears in order of increasing number of variables, e.g.: `\"-abc+3a+2ac\" -> \"3a+2ac-abc\"`, `\"xyz-xz\" -> \"-xz+xyz\"`\n \n- If two monomials have the same number of variables, they appears in lexicographic order, e.g.: `\"a+ca-ab\" -> \"a-ab+ac\"`, `\"xzy+zby\" ->\"byz+xyz\"`\n  \n- There is no leading `+` sign if the first coefficient is positive, e.g.: `\"-y+x\" -> \"x-y\"`, but no restrictions for `-`:  `\"y-x\" ->\"-x+y\"`\n\n---\n\n__N.B.__ to keep it simplest, the string in input is restricted to represent only *multilinear non-constant polynomials*, so you won't find something like `-3+yx^2'. **Multilinear** means in this context: **of degree 1 on each variable**.\n\n**Warning**: the string in input can contain arbitrary variables represented by lowercase characters in the english alphabet.\n\n__Good Work :)__",
+    "starter_code": "\ndef simplify(poly):\n\t",
+    "public_tests": [
+      {
+        "input": "['dc+dcba']",
+        "output": "['cd+abcd']"
+      },
+      {
+        "input": "['2xy-yx']",
+        "output": "['xy']"
+      },
+      {
+        "input": "['-a+5ab+3a-c-2a']",
+        "output": "['-c+5ab']"
+      },
+      {
+        "input": "['-abc+3a+2ac']",
+        "output": "['3a+2ac-abc']"
+      },
+      {
+        "input": "['xyz-xz']",
+        "output": "['-xz+xyz']"
+      },
+      {
+        "input": "['a+ca-ab']",
+        "output": "['a-ab+ac']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['xzy+zby']",
+        "output": "['byz+xyz']"
+      },
+      {
+        "input": "['-y+x']",
+        "output": "['x-y']"
+      },
+      {
+        "input": "['y-x']",
+        "output": "['-x+y']"
+      },
+      {
+        "input": "['3a+b+4ac+bc-ab+3a-cb-a-a']",
+        "output": "['4a+b-ab+4ac']"
+      },
+      {
+        "input": "['+n-5hn+7tjhn-4nh-3n-6hnjt+2jhn+9hn']",
+        "output": "['-2n+2hjn+hjnt']"
+      },
+      {
+        "input": "['-8fk+5kv-4yk+7kf-qk+yqv-3vqy+4ky+4kf+yvqkf']",
+        "output": "['3fk-kq+5kv-2qvy+fkqvy']"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-1661",
+    "dataset": "APPS",
+    "source_problem_id": 1661,
+    "source_split": "train",
+    "difficulty": "interview",
+    "question": "# RoboScript #3 - Implement the RS2 Specification\n\n## Disclaimer\n\nThe story presented in this Kata Series is purely fictional; any resemblance to actual programming languages, products, organisations or people should be treated as purely coincidental.\n\n## About this Kata Series\n\nThis Kata Series is based on a fictional story about a computer scientist and engineer who owns a firm that sells a toy robot called MyRobot which can interpret its own (esoteric) programming language called RoboScript.  Naturally, this Kata Series deals with the software side of things (I'm afraid Codewars cannot test your ability to build a physical robot!).\n\n## Story\n\nLast time, you implemented the RS1 specification which allowed your customers to write more concise scripts for their robots by allowing them to simplify consecutive repeated commands by postfixing a non-negative integer onto the selected command.  For example, if your customers wanted to make their robot move 20 steps to the right, instead of typing `FFFFFFFFFFFFFFFFFFFF`, they could simply type `F20` which made their scripts more concise.  However, you later realised that this simplification wasn't enough.  What if a set of commands/moves were to be repeated?  The code would still appear cumbersome.  Take the program that makes the robot move in a snake-like manner, for example.  The shortened code for it was `F4LF4RF4RF4LF4LF4RF4RF4LF4LF4RF4RF4` which still contained a lot of repeated commands.\n\n## Task\n\nYour task is to allow your customers to further shorten their scripts and make them even more concise by implementing the newest specification of RoboScript (at the time of writing) that is RS2.  RS2 syntax is a superset of RS1 syntax which means that all valid RS1 code from the previous Kata of this Series should still work with your RS2 interpreter.  The only main addition in RS2 is that the customer should be able to group certain sets of commands using round brackets.  For example, the last example used in the previous Kata in this Series:\n\n\nLF5RF3RF3RF7\n \n\n... can be expressed in RS2 as:\n\n\nLF5(RF3)(RF3R)F7\n\n\nOr ... \n\n\n(L(F5(RF3))(((R(F3R)F7))))\n\n\nSimply put, your interpreter should be able to deal with nested brackets of any level.\n\nAnd of course, brackets are useless if you cannot use them to repeat a sequence of movements!  Similar to how individual commands can be postfixed by a non-negative integer to specify how many times to repeat that command, a sequence of commands grouped by round brackets `()` should also be repeated `n` times provided a non-negative integer is postfixed onto the brackets, like such:\n\n\n(SEQUENCE_OF_COMMANDS)n\n\n\n... is equivalent to ... \n\n\nSEQUENCE_OF_COMMANDS...SEQUENCE_OF_COMMANDS (repeatedly executed \"n\" times)\n\n\nFor example, this RS1 program:\n\n\nF4LF4RF4RF4LF4LF4RF4RF4LF4LF4RF4RF4\n\n\n... can be rewritten in RS2 as:\n\n\nF4L(F4RF4RF4LF4L)2F4RF4RF4\n\n\nOr:\n\n\nF4L((F4R)2(F4L)2)2(F4R)2F4\n\n\nAll 4 example tests have been included for you.  Good luck :D\n\n## Kata in this Series\n\n1. [RoboScript #1 - Implement Syntax Highlighting](https://www.codewars.com/kata/roboscript-number-1-implement-syntax-highlighting)\n2. [RoboScript #2 - Implement the RS1 Specification](https://www.codewars.com/kata/roboscript-number-2-implement-the-rs1-specification)\n3. **RoboScript #3 - Implement the RS2 Specification**\n4. [RoboScript #4 - RS3 Patterns to the Rescue](https://www.codewars.com/kata/594b898169c1d644f900002e)\n5. [RoboScript #5 - The Final Obstacle (Implement RSU)](https://www.codewars.com/kata/5a12755832b8b956a9000133)",
+    "starter_code": "\ndef execute(code):\n\t",
+    "public_tests": [
+      {
+        "input": "['LF5(RF3)(RF3R)F7']",
+        "output": "['    ****\\r\\n    *  *\\r\\n    *  *\\r\\n********\\r\\n    *   \\r\\n    *   ']"
+      },
+      {
+        "input": "['(L(F5(RF3))(((R(F3R)F7))))']",
+        "output": "['    ****\\r\\n    *  *\\r\\n    *  *\\r\\n********\\r\\n    *   \\r\\n    *   ']"
+      },
+      {
+        "input": "['F4L(F4RF4RF4LF4L)2F4RF4RF4']",
+        "output": "['    *****   *****   *****\\r\\n    *   *   *   *   *   *\\r\\n    *   *   *   *   *   *\\r\\n    *   *   *   *   *   *\\r\\n*****   *****   *****   *']"
+      },
+      {
+        "input": "['F4L((F4R)2(F4L)2)2(F4R)2F4']",
+        "output": "['    *****   *****   *****\\r\\n    *   *   *   *   *   *\\r\\n    *   *   *   *   *   *\\r\\n    *   *   *   *   *   *\\r\\n*****   *****   *****   *']"
+      },
+      {
+        "input": "['F2LF3L(F2)2LF5L(F3)2LF7L((F2)2)2L(F3)3L(F5)2']",
+        "output": "['*********  \\r\\n*       *  \\r\\n* ***** *  \\r\\n* *   * *  \\r\\n* *   * *  \\r\\n* * *** *  \\r\\n* *     *  \\r\\n* *******  \\r\\n*          \\r\\n***********']"
+      },
+      {
+        "input": "['F2LF3L(F2)2LF5L(F3)2LF7L(F4)2L((F3)1)3L(F5)2']",
+        "output": "['*********  \\r\\n*       *  \\r\\n* ***** *  \\r\\n* *   * *  \\r\\n* *   * *  \\r\\n* * *** *  \\r\\n* *     *  \\r\\n* *******  \\r\\n*          \\r\\n***********']"
+      },
+      {
+        "input": "['(F5RF5R(F3R)2)3']",
+        "output": "['******    \\r\\n     *    \\r\\n  ******  \\r\\n  *  * *  \\r\\n  * ******\\r\\n  **** * *\\r\\n    * ** *\\r\\n    **** *\\r\\n      *  *\\r\\n      ****']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['((F5R)2(F3R)2)3']",
+        "output": "['******    \\r\\n     *    \\r\\n  ******  \\r\\n  *  * *  \\r\\n  * ******\\r\\n  **** * *\\r\\n    * ** *\\r\\n    **** *\\r\\n      *  *\\r\\n      ****']"
+      },
+      {
+        "input": "['((F3LF3R)2FRF6L)2']",
+        "output": "['      **     **\\r\\n      **     **\\r\\n      **     **\\r\\n   *****  *****\\r\\n   *   *  *   *\\r\\n   *   *  *   *\\r\\n****   ****   *']"
+      },
+      {
+        "input": "['(F12)3']",
+        "output": "['*************************************']"
+      },
+      {
+        "input": "['(F4)13']",
+        "output": "['*****************************************************']"
+      },
+      {
+        "input": "['((F3)10(F2)11)10']",
+        "output": "['*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************']"
+      },
+      {
+        "input": "['FFF0F0LFL0FF((F5R0R)2(F3R)2)0RFR0FFF0FF0F0F0']",
+        "output": "['  *****\\r\\n  *    \\r\\n  *    \\r\\n***    ']"
+      },
+      {
+        "input": "['F0L0F0((F3R0LF3R0R0R)0FL0L0RF6F0L)2F0F0F0F0F0']",
+        "output": "['** \\r\\n * \\r\\n * \\r\\n * \\r\\n * \\r\\n * \\r\\n **\\r\\n  *\\r\\n  *\\r\\n  *\\r\\n  *\\r\\n  *\\r\\n  *']"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-1663",
+    "dataset": "APPS",
+    "source_problem_id": 1663,
+    "source_split": "train",
+    "difficulty": "interview",
+    "question": "In this Kata we focus on finding a sum S(n) which is the total number of divisors taken for all natural numbers less or equal to n. More formally, we investigate the sum of n components denoted by d(1) + d(2) + ... + d(n) in which for any i starting from 1 up to n the value of d(i) tells us how many distinct numbers divide i without a remainder. \n\nYour solution should work for possibly large values of n without a timeout.\nAssume n to be greater than zero and not greater than 999 999 999 999 999.\nBrute force approaches will not be feasible options in such cases. It is fairly simple to conclude that for every n>1 there holds a recurrence S(n) = S(n-1) + d(n) with initial case S(1) = 1.\n\nFor example:\nS(1) = 1\nS(2) = 3\nS(3) = 5\nS(4) = 8\nS(5) = 10\n\nBut is the fact useful anyway? If you find it is rather not, maybe this will help: \n\nTry to convince yourself that for any natural k, the number S(k) is the same as the number of pairs (m,n) that solve the inequality mn <= k in natural numbers.\nOnce it becomes clear, we can think of a partition of all the solutions into classes just by saying that a pair (m,n) belongs to the class indexed by n.\nThe question now arises if it is possible to count solutions of n-th class. If f(n) stands for the number of solutions that belong to n-th class, it means that S(k) = f(1) + f(2) + f(3) + ...\n\nThe reasoning presented above leads us to some kind of a formula for S(k), however not necessarily the most efficient one. Can you imagine that all the solutions to inequality mn <= k can be split using sqrt(k) as pivotal item?",
+    "starter_code": "\ndef count_divisors(n):\n\t",
+    "public_tests": [
+      {
+        "input": "[5]",
+        "output": "[10]"
+      },
+      {
+        "input": "[10]",
+        "output": "[27]"
+      },
+      {
+        "input": "[20]",
+        "output": "[66]"
+      },
+      {
+        "input": "[59]",
+        "output": "[249]"
+      },
+      {
+        "input": "[105]",
+        "output": "[510]"
+      },
+      {
+        "input": "[785]",
+        "output": "[5364]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[1001]",
+        "output": "[7077]"
+      },
+      {
+        "input": "[8009]",
+        "output": "[73241]"
+      },
+      {
+        "input": "[9999999999999]",
+        "output": "[300880375389561]"
+      },
+      {
+        "input": "[9999999999998]",
+        "output": "[300880375389537]"
+      },
+      {
+        "input": "[9999999999995]",
+        "output": "[300880375389493]"
+      },
+      {
+        "input": "[9999999949950]",
+        "output": "[300880373832097]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-1664",
+    "dataset": "APPS",
+    "source_problem_id": 1664,
+    "source_split": "train",
+    "difficulty": "interview",
+    "question": "# Task\n An `amazon` (also known as a queen+knight compound) is an imaginary chess piece that can move like a `queen` or a `knight` (or, equivalently, like a `rook`, `bishop`, or `knight`). The diagram below shows all squares which the amazon attacks from e4 (circles represent knight-like moves while crosses correspond to queen-like moves).\n\n ![](https://codefightsuserpics.s3.amazonaws.com/tasks/amazonCheckmate/img/amazon.png?_tm=1473934566013)\n\n Recently you've come across a diagram with only three pieces left on the board: a `white amazon`, `white king` and `black king`. \n \n It's black's move. You don't have time to determine whether the game is over or not, but you'd like to figure it out in your head. \n \n Unfortunately, the diagram is smudged and you can't see the position of the `black king`, so it looks like you'll have to check them all.\n\n Given the positions of white pieces on a standard chessboard, determine the number of possible black king's positions such that: \n\n* It's a checkmate (i.e. black's king is under amazon's \n attack and it cannot make a valid move);\n\n* It's a check (i.e. black's king is under amazon's attack \n but it can reach a safe square in one move);\n\n* It's a stalemate (i.e. black's king is on a safe square \n but it cannot make a valid move);\n\n* Black's king is on a safe square and it can make a valid move.\n\nNote that two kings cannot be placed on two adjacent squares (including two diagonally adjacent ones).\n\n# Example\n\n For `king = \"d3\" and amazon = \"e4\"`, the output should be `[5, 21, 0, 29]`.\n\n ![](https://codefightsuserpics.s3.amazonaws.com/tasks/amazonCheckmate/img/example1.png?_tm=1473934566299)\n\n `Red crosses` correspond to the `checkmate` positions, `orange pluses` refer to `checks` and `green circles` denote `safe squares`.\n\n For `king = \"a1\" and amazon = \"g5\"`, the output should be `[0, 29, 1, 29]`.\n\n ![](https://codefightsuserpics.s3.amazonaws.com/tasks/amazonCheckmate/img/example2.png?_tm=1473934566670)\n\n `Stalemate` position is marked by a `blue square`.\n\n# Input\n\n\n - String `king`\n\nPosition of white's king in chess notation.\n\n\n - String `amazon`\n\nPosition of white's amazon in the same notation.\n\nConstraints: `amazon ≠ king.`\n\n# Output\n\nAn array of four integers, each equal to the number of black's king positions corresponding to a specific situation. The integers should be presented in the same order as the situations were described, `i.e. 0 for checkmates, 1 for checks, etc`.",
+    "starter_code": "\ndef amazon_check_mate(king, amazon):\n\t",
+    "public_tests": [
+      {
+        "input": "['a1', 'g5']",
+        "output": "[[0, 29, 1, 29]]"
+      },
+      {
+        "input": "['a3', 'e4']",
+        "output": "[[1, 32, 1, 23]]"
+      },
+      {
+        "input": "['f3', 'f2']",
+        "output": "[[6, 11, 0, 38]]"
+      },
+      {
+        "input": "['b7', 'a8']",
+        "output": "[[0, 10, 0, 45]]"
+      },
+      {
+        "input": "['f7', 'd3']",
+        "output": "[[4, 28, 1, 21]]"
+      },
+      {
+        "input": "['g2', 'c3']",
+        "output": "[[9, 21, 0, 24]]"
+      },
+      {
+        "input": "['f3', 'c1']",
+        "output": "[[4, 18, 0, 32]]"
+      },
+      {
+        "input": "['d4', 'h8']",
+        "output": "[[0, 18, 0, 36]]"
+      },
+      {
+        "input": "['h6', 'a7']",
+        "output": "[[0, 22, 0, 35]]"
+      },
+      {
+        "input": "['a6', 'g3']",
+        "output": "[[3, 26, 1, 27]]"
+      },
+      {
+        "input": "['e1', 'b4']",
+        "output": "[[0, 27, 2, 28]]"
+      },
+      {
+        "input": "['f4', 'c4']",
+        "output": "[[3, 24, 0, 27]]"
+      },
+      {
+        "input": "['c3', 'e8']",
+        "output": "[[0, 25, 0, 29]]"
+      },
+      {
+        "input": "['b5', 'e5']",
+        "output": "[[0, 30, 0, 24]]"
+      },
+      {
+        "input": "['c8', 'g8']",
+        "output": "[[1, 19, 0, 37]]"
+      },
+      {
+        "input": "['a6', 'b5']",
+        "output": "[[5, 19, 1, 33]]"
+      },
+      {
+        "input": "['b3', 'e2']",
+        "output": "[[0, 24, 1, 29]]"
+      },
+      {
+        "input": "['b7', 'c3']",
+        "output": "[[9, 21, 0, 24]]"
+      },
+      {
+        "input": "['b5', 'b3']",
+        "output": "[[3, 17, 0, 34]]"
+      },
+      {
+        "input": "['a4', 'a6']",
+        "output": "[[2, 16, 0, 39]]"
+      },
+      {
+        "input": "['h2', 'a5']",
+        "output": "[[0, 25, 0, 32]]"
+      },
+      {
+        "input": "['b7', 'c1']",
+        "output": "[[2, 20, 0, 32]]"
+      },
+      {
+        "input": "['e6', 'e7']",
+        "output": "[[3, 14, 1, 37]]"
+      },
+      {
+        "input": "['a2', 'c6']",
+        "output": "[[9, 24, 0, 24]]"
+      },
+      {
+        "input": "['a6', 'e1']",
+        "output": "[[0, 24, 0, 33]]"
+      },
+      {
+        "input": "['e8', 'g7']",
+        "output": "[[0, 22, 0, 35]]"
+      },
+      {
+        "input": "['f5', 'f7']",
+        "output": "[[3, 16, 0, 35]]"
+      },
+      {
+        "input": "['h3', 'd8']",
+        "output": "[[0, 24, 0, 33]]"
+      },
+      {
+        "input": "['b1', 'f8']",
+        "output": "[[2, 23, 0, 32]]"
+      },
+      {
+        "input": "['c7', 'a2']",
+        "output": "[[2, 22, 0, 30]]"
+      },
+      {
+        "input": "['f1', 'a5']",
+        "output": "[[0, 24, 0, 33]]"
+      },
+      {
+        "input": "['g6', 'f3']",
+        "output": "[[7, 21, 0, 26]]"
+      },
+      {
+        "input": "['g2', 'c6']",
+        "output": "[[7, 23, 0, 24]]"
+      },
+      {
+        "input": "['d1', 'e1']",
+        "output": "[[2, 16, 0, 40]]"
+      },
+      {
+        "input": "['h6', 'b5']",
+        "output": "[[0, 27, 1, 29]]"
+      },
+      {
+        "input": "['e4', 'e8']",
+        "output": "[[1, 19, 0, 34]]"
+      },
+      {
+        "input": "['b6', 'd5']",
+        "output": "[[0, 28, 0, 26]]"
+      },
+      {
+        "input": "['b4', 'h8']",
+        "output": "[[0, 22, 0, 32]]"
+      },
+      {
+        "input": "['e5', 'b4']",
+        "output": "[[0, 24, 1, 29]]"
+      },
+      {
+        "input": "['g1', 'g6']",
+        "output": "[[3, 24, 1, 29]]"
+      },
+      {
+        "input": "['a3', 'a5']",
+        "output": "[[0, 19, 0, 38]]"
+      },
+      {
+        "input": "['g4', 'g3']",
+        "output": "[[6, 12, 0, 37]]"
+      },
+      {
+        "input": "['c4', 'e7']",
+        "output": "[[0, 26, 1, 27]]"
+      },
+      {
+        "input": "['d3', 'a3']",
+        "output": "[[2, 15, 0, 37]]"
+      },
+      {
+        "input": "['a2', 'e6']",
+        "output": "[[3, 28, 0, 26]]"
+      },
+      {
+        "input": "['f2', 'f3']",
+        "output": "[[7, 18, 0, 30]]"
+      },
+      {
+        "input": "['g4', 'b4']",
+        "output": "[[0, 26, 1, 27]]"
+      },
+      {
+        "input": "['a5', 'g2']",
+        "output": "[[0, 27, 0, 30]]"
+      },
+      {
+        "input": "['b7', 'b4']",
+        "output": "[[0, 24, 1, 29]]"
+      },
+      {
+        "input": "['a4', 'a7']",
+        "output": "[[0, 18, 0, 39]]"
+      },
+      {
+        "input": "['h7', 'a8']",
+        "output": "[[0, 21, 0, 36]]"
+      },
+      {
+        "input": "['a7', 'd7']",
+        "output": "[[0, 25, 0, 32]]"
+      },
+      {
+        "input": "['e4', 'a6']",
+        "output": "[[3, 21, 0, 30]]"
+      },
+      {
+        "input": "['e2', 'g1']",
+        "output": "[[0, 17, 0, 37]]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['e7', 'b2']",
+        "output": "[[0, 26, 0, 28]]"
+      },
+      {
+        "input": "['e5', 'f6']",
+        "output": "[[12, 10, 0, 33]]"
+      },
+      {
+        "input": "['b8', 'b2']",
+        "output": "[[0, 25, 0, 32]]"
+      },
+      {
+        "input": "['c7', 'e8']",
+        "output": "[[0, 18, 0, 36]]"
+      },
+      {
+        "input": "['e7', 'e5']",
+        "output": "[[0, 28, 0, 26]]"
+      },
+      {
+        "input": "['a5', 'b4']",
+        "output": "[[5, 19, 1, 33]]"
+      },
+      {
+        "input": "['d4', 'e8']",
+        "output": "[[1, 21, 0, 32]]"
+      },
+      {
+        "input": "['g7', 'h3']",
+        "output": "[[4, 18, 0, 32]]"
+      },
+      {
+        "input": "['a3', 'b5']",
+        "output": "[[0, 24, 2, 31]]"
+      },
+      {
+        "input": "['f5', 'e7']",
+        "output": "[[0, 22, 1, 31]]"
+      },
+      {
+        "input": "['d3', 'b7']",
+        "output": "[[1, 25, 0, 28]]"
+      },
+      {
+        "input": "['h1', 'e8']",
+        "output": "[[0, 25, 0, 34]]"
+      },
+      {
+        "input": "['g6', 'g1']",
+        "output": "[[0, 20, 1, 33]]"
+      },
+      {
+        "input": "['e6', 'c8']",
+        "output": "[[3, 15, 0, 36]]"
+      },
+      {
+        "input": "['c5', 'c8']",
+        "output": "[[2, 15, 0, 37]]"
+      },
+      {
+        "input": "['f4', 'b1']",
+        "output": "[[0, 22, 0, 32]]"
+      },
+      {
+        "input": "['g3', 'b8']",
+        "output": "[[0, 21, 0, 33]]"
+      },
+      {
+        "input": "['e2', 'a3']",
+        "output": "[[4, 18, 0, 32]]"
+      },
+      {
+        "input": "['c3', 'c6']",
+        "output": "[[7, 20, 0, 27]]"
+      },
+      {
+        "input": "['f1', 'c7']",
+        "output": "[[3, 26, 1, 27]]"
+      },
+      {
+        "input": "['a5', 'e1']",
+        "output": "[[0, 23, 0, 34]]"
+      },
+      {
+        "input": "['b7', 'g8']",
+        "output": "[[0, 21, 0, 33]]"
+      },
+      {
+        "input": "['g5', 'e8']",
+        "output": "[[0, 22, 1, 31]]"
+      },
+      {
+        "input": "['e4', 'f2']",
+        "output": "[[3, 19, 0, 32]]"
+      },
+      {
+        "input": "['b1', 'a4']",
+        "output": "[[0, 21, 0, 36]]"
+      },
+      {
+        "input": "['h3', 'e4']",
+        "output": "[[0, 31, 0, 26]]"
+      },
+      {
+        "input": "['g6', 'b2']",
+        "output": "[[0, 25, 0, 29]]"
+      },
+      {
+        "input": "['a7', 'c2']",
+        "output": "[[3, 26, 0, 28]]"
+      },
+      {
+        "input": "['e2', 'f8']",
+        "output": "[[2, 20, 0, 32]]"
+      },
+      {
+        "input": "['h5', 'd1']",
+        "output": "[[0, 23, 0, 34]]"
+      },
+      {
+        "input": "['h1', 'f3']",
+        "output": "[[4, 25, 0, 30]]"
+      },
+      {
+        "input": "['e5', 'f2']",
+        "output": "[[3, 21, 0, 30]]"
+      },
+      {
+        "input": "['f2', 'a7']",
+        "output": "[[0, 21, 0, 33]]"
+      },
+      {
+        "input": "['e4', 'g5']",
+        "output": "[[0, 22, 1, 31]]"
+      },
+      {
+        "input": "['d6', 'b3']",
+        "output": "[[3, 23, 0, 28]]"
+      },
+      {
+        "input": "['g4', 'a4']",
+        "output": "[[0, 22, 0, 32]]"
+      },
+      {
+        "input": "['a5', 'd6']",
+        "output": "[[3, 26, 0, 28]]"
+      },
+      {
+        "input": "['a8', 'd6']",
+        "output": "[[3, 28, 0, 28]]"
+      },
+      {
+        "input": "['a6', 'h1']",
+        "output": "[[0, 22, 0, 35]]"
+      },
+      {
+        "input": "['f4', 'c8']",
+        "output": "[[2, 21, 0, 31]]"
+      },
+      {
+        "input": "['d4', 'g3']",
+        "output": "[[3, 21, 0, 30]]"
+      },
+      {
+        "input": "['e7', 'a8']",
+        "output": "[[2, 18, 0, 34]]"
+      },
+      {
+        "input": "['g3', 'c8']",
+        "output": "[[2, 21, 0, 31]]"
+      },
+      {
+        "input": "['b2', 'h2']",
+        "output": "[[0, 21, 0, 33]]"
+      },
+      {
+        "input": "['a3', 'h1']",
+        "output": "[[1, 22, 0, 34]]"
+      },
+      {
+        "input": "['g6', 'e8']",
+        "output": "[[2, 18, 0, 34]]"
+      },
+      {
+        "input": "['e7', 'd3']",
+        "output": "[[4, 26, 0, 24]]"
+      },
+      {
+        "input": "['f4', 'g6']",
+        "output": "[[3, 19, 0, 32]]"
+      },
+      {
+        "input": "['h2', 'd6']",
+        "output": "[[3, 28, 0, 26]]"
+      },
+      {
+        "input": "['a8', 'e5']",
+        "output": "[[0, 34, 0, 25]]"
+      },
+      {
+        "input": "['c4', 'd8']",
+        "output": "[[1, 21, 0, 32]]"
+      },
+      {
+        "input": "['c4', 'b6']",
+        "output": "[[3, 19, 0, 32]]"
+      },
+      {
+        "input": "['d4', 'a6']",
+        "output": "[[2, 20, 0, 32]]"
+      },
+      {
+        "input": "['c6', 'd8']",
+        "output": "[[0, 18, 0, 36]]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-1665",
+    "dataset": "APPS",
+    "source_problem_id": 1665,
+    "source_split": "train",
+    "difficulty": "interview",
+    "question": "Complete the function/method (depending on the language) to return `true`/`True` when its argument is an array that has the same nesting structures and same corresponding length of nested arrays as the first array.\n\nFor example:\n\n```python\n# should return True\nsame_structure_as([ 1, 1, 1 ], [ 2, 2, 2 ] )\nsame_structure_as([ 1, [ 1, 1 ] ], [ 2, [ 2, 2 ] ] )\n\n# should return False \nsame_structure_as([ 1, [ 1, 1 ] ], [ [ 2, 2 ], 2 ] )\nsame_structure_as([ 1, [ 1, 1 ] ], [ [ 2 ], 2 ] )\n\n# should return True\nsame_structure_as([ [ [ ], [ ] ] ], [ [ [ ], [ ] ] ] )\n\n# should return False\nsame_structure_as([ [ [ ], [ ] ] ], [ [ 1, 1 ] ] )\n```\n\n~~~if:javascript\nFor your convenience, there is already a function 'isArray(o)' declared and defined that returns true if its argument is an array, false otherwise.\n~~~\n\n~~~if:php\nYou may assume that all arrays passed in will be non-associative.\n~~~",
+    "starter_code": "\ndef same_structure_as(a, b):\n\t",
+    "public_tests": [
+      {
+        "input": "[[1, [1, 1]], [[2, 2], 2]]",
+        "output": "[False]"
+      },
+      {
+        "input": "[[1, [1, 1]], [2, [2]]]",
+        "output": "[False]"
+      },
+      {
+        "input": "[[[[], []]], [[[], []]]]",
+        "output": "[True]"
+      },
+      {
+        "input": "[[[[], []]], [[1, 1]]]",
+        "output": "[False]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[[1, [[[1]]]], [2, [[[2]]]]]",
+        "output": "[True]"
+      },
+      {
+        "input": "[[], 1]",
+        "output": "[False]"
+      },
+      {
+        "input": "[[], {}]",
+        "output": "[False]"
+      },
+      {
+        "input": "[[1, '[', ']'], ['[', ']', 1]]",
+        "output": "[True]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-1666",
+    "dataset": "APPS",
+    "source_problem_id": 1666,
+    "source_split": "train",
+    "difficulty": "interview",
+    "question": "## Description\n\nGiven an array X of positive integers, its elements are to be transformed by running the following operation on them as many times as required:\n\n```if X[i] > X[j] then X[i] = X[i] - X[j]```\n\nWhen no more transformations are possible, return its sum (\"smallest possible sum\").\n\nFor instance, the successive transformation of the elements of input X = [6, 9, 21] is detailed below:\n```\nX_1 = [6, 9, 12] # -> X_1[2] = X[2] - X[1] = 21 - 9\nX_2 = [6, 9, 6]  # -> X_2[2] = X_1[2] - X_1[0] = 12 - 6\nX_3 = [6, 3, 6]  # -> X_3[1] = X_2[1] - X_2[0] = 9 - 6\nX_4 = [6, 3, 3]  # -> X_4[2] = X_3[2] - X_3[1] = 6 - 3\nX_5 = [3, 3, 3]  # -> X_5[1] = X_4[0] - X_4[1] = 6 - 3\n```\nThe returning output is the sum of the final transformation (here 9).\n\n## Example\n\n## Solution steps:\n\n## Additional notes:\n\nThere are performance tests consisted of very big numbers and arrays of size at least 30000. Please write an efficient algorithm to prevent timeout.",
+    "starter_code": "\ndef solution(a):\n\t",
+    "public_tests": [
+      {
+        "input": "[[6, 9, 21]]",
+        "output": "[9]"
+      },
+      {
+        "input": "[[9]]",
+        "output": "[9]"
+      },
+      {
+        "input": "[[30, 12]]",
+        "output": "[12]"
+      },
+      {
+        "input": "[[11, 22]]",
+        "output": "[22]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[[1, 21, 55]]",
+        "output": "[3]"
+      },
+      {
+        "input": "[[4, 16, 24]]",
+        "output": "[12]"
+      },
+      {
+        "input": "[[3, 13, 23, 7, 83]]",
+        "output": "[5]"
+      },
+      {
+        "input": "[[60, 12, 96, 48, 60, 24, 72, 36, 72, 72, 48]]",
+        "output": "[132]"
+      },
+      {
+        "input": "[[71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71, 71]]",
+        "output": "[923]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-1667",
+    "dataset": "APPS",
+    "source_problem_id": 1667,
+    "source_split": "train",
+    "difficulty": "interview",
+    "question": "# Unflatten a list (Harder than easy)\n\nThis is the harder version of Unflatten a list (Easy)\n\nSo you have again to build a method, that creates new arrays, that can be flattened!\n\n# Shorter: You have to unflatten a list/an array.\n\nYou get an array of integers and have to unflatten it by these rules:\n```\n- You have to do several runs. The depth is the number of runs, you have to do.\n- In every run you have to switch the direction. First run from left, next run from right. Next left...\nEvery run has these rules:\n- You start at the first number (from the direction).\n- Take for every number x the remainder of the division by the number of still available elements (from \n  this position!) to have the number for the next decision.\n- If the remainder-value is smaller than 3, take this number x (NOT the remainder-Value) direct\n  for the new array and continue with the next number.\n- If the remainder-value (e.g. 3) is greater than 2, take the next remainder-value-number (e.g. 3)\n  elements/numbers (inclusive the number x, NOT the remainder-value) as a sub-array in the new array.\n  Continue with the next number/element AFTER this taken elements/numbers.\n- Every sub-array in the array is independent and is only one element for the progress on the array. \n  For every sub-array you have to follow the same rules for unflatten it.\n  The direction is always the same as the actual run.\n```\n\nSounds complicated? Yeah, thats why, this is the harder version...\nMaybe an example will help.\n\n```\n Array: [4, 5, 1, 7, 1] Depth: 2 -> [[ 4, [ 5, 1, 7 ] ], 1]\n \nSteps: \nFirst run: (start from left side!)\n1. The first number is 4. The number is smaller than the number of remaining elements, so it is the remainder-value (4 / 5 -> remainder 4).\n   So 4 numbers (4, 5, 1, 7) are added as sub-array in the new array.\n2. The next number is 1. It is smaller than 3, so the 1 is added direct to the new array.\nNow we have --> [[4, 5, 1, 7], 1]\n\nSecond run: (start from right side!)\n1. The last number (first from other side) is 1. So the 1 is added direct to the new array.\n2. The next element is the sub-array. So we use the rules for this.\n2a.The last number is 7. There are 4 elements in the array. So for the next decision you have to\n   take the remainder from 7 / 4 -> 3. So 3 numbers (5, 1, 7) are added as sub-array in the \n   new array.\n2b.Now there is the 4 and only one element last in this array. 4 / 1 -> remainder 0. It is smaller\n   than 3. So the 4 is added direct to the new array.\nNow we have --> [[ 4, [ 5, 1, 7 ] ], 1]\n```\n\nThe given array will always contain numbers. There will only be numbers > 0.\n\n\nHave fun coding it and please don't forget to vote and rank this kata! :-) \n\nI have created other katas. Have a look if you like coding and challenges.",
+    "starter_code": "\ndef unflatten(flat_array, depth):\n\t",
+    "public_tests": [
+      {
+        "input": "[[4, 5, 1, 7, 1], 2]",
+        "output": "[[[4, [5, 1, 7]], 1]]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[[12, 1, 5, 3, 1, 55, 2, 3, 7, 8, 1], 3]",
+        "output": "[[12, 1, [5, [3, 1, 55], 2], [3, 7, 8], 1]]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  }
+]

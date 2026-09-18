@@ -1,0 +1,33 @@
+{
+  "experiment_id": "decomprl_20260918_stratified_v1",
+  "selection_status": "template_not_frozen",
+  "selection_constraints": [
+    "Use only task statement, starter API, source metadata, and public test count for membership.",
+    "Do not use private test outcomes, model outputs, or prior P3/P5 per-task results.",
+    "Each selected row must declare execution_mode as function or stdin and match the source row.",
+    "Every method uses the source row's declared execution mode."
+  ],
+  "groups": [
+    {
+      "name": "simple_single_stage",
+      "target_count": 20,
+      "source_file": "data/processed/apps_train_introductory50_private_safe.json",
+      "selection_rule": "Choose only previously unrun holdout-30 rows with one dominant transformation and no necessary helper boundary.",
+      "selected": []
+    },
+    {
+      "name": "medium_multi_stage",
+      "target_count": 20,
+      "source_file": "data/processed/apps_train_new_medium30_private_safe.json",
+      "selection_rule": "Choose newly fetched, unscored rows with multiple transformations but materially coupled stages or an ambiguous helper interface.",
+      "selected": []
+    },
+    {
+      "name": "hard_naturally_decomposable",
+      "target_count": 20,
+      "source_file": "data/processed/apps_train_new_competition40_private_safe.json",
+      "selection_rule": "Choose newly fetched, unscored hard stdin rows with at least two explicit stages and independently specifiable helper contracts.",
+      "selected": []
+    }
+  ]
+}

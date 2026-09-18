@@ -1,0 +1,43 @@
+{
+  "method": "M3_human",
+  "implementation_model": "qwen2.5-coder:7b",
+  "seed": 42,
+  "problems": 10,
+  "implementation_requests": 60,
+  "valid_implementations": 55,
+  "combinations": 60,
+  "composable_combinations": 60,
+  "unique_composable_combinations": 26,
+  "duplicate_combinations": 34,
+  "public_program_evaluations": 26,
+  "public_test_executions": 103,
+  "private_program_evaluations": 8,
+  "private_test_executions": 36,
+  "problems_with_candidate": 8,
+  "selected_public_pass": 3,
+  "selected_private_pass": 3,
+  "model_prompt_tokens": 26968,
+  "model_output_tokens": 4044,
+  "model_reported_seconds": 143.233,
+  "errors": {
+    "nested_function_definitions": 5,
+    "empty_implementation_pool": 2
+  },
+  "completed_problem_ids": [
+    "apps-train-2652",
+    "apps-train-2653",
+    "apps-train-2654",
+    "apps-train-2656",
+    "apps-train-2657",
+    "apps-train-2658",
+    "apps-train-2661",
+    "apps-train-2664",
+    "apps-train-2668",
+    "apps-train-2671"
+  ],
+  "elapsed_seconds": 150.926,
+  "outputs": {
+    "implementations": "D:\\yaorz\\research\\codeprm-reproduction\\data\\processed\\p3_m3_human_qwen25coder_7b_d1_i2_c8_seed42_v1_implementations.jsonl",
+    "recombinations": "D:\\yaorz\\research\\codeprm-reproduction\\data\\processed\\p3_m3_human_qwen25coder_7b_d1_i2_c8_seed42_v1_recombinations.jsonl"
+  }
+}

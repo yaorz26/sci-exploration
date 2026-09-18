@@ -1,0 +1,2199 @@
+
+===== PAGE 1 =====
+Efficient Grammar-Constrained Decoding via Parser Stack
+Classification
+YONGMIN LI, Peking University, China
+YIHONG DONG, Shanghai Jiao Tong University, China
+JIA LI, Tsinghua University, China
+GE LI✉, Peking University, China
+LLMs are widely used to generate structured output like source code or JSON. Grammar-constrained decoding
+(GCD) can guarantee the syntactic validity of the generated output, by masking out tokens that violate rules
+specified by a context-free grammar. However, the online computational overhead of existing GCD methods,
+with latency typically scaling linearly with vocabulary size, limits the throughput of LLMs, especially for
+models with large vocabularies. To address this issue, we propose PSC, a novel grammar-constrained decoding
+method. By combining acceptance conditions of all vocabulary tokens into a single classifier of the parser
+stack during preprocessing, PSC can compute the complete vocabulary mask by checking the parser stack
+exactly once per decoding step, with time complexity independent of the vocabulary size. Experiments show
+that PSC computes masks up to 700× faster than baselines on complex programming language grammars,
+and up to 30× faster for schema-conformant JSON; end-to-end LLM throughput with PSC approaches that of
+unconstrained decoding. We analyze the preprocessing overhead for preprocessing providers and decoding
+users, and provide a break-even point analysis to help users decide whether to do preprocessing by themselves.
+CCS Concepts: • Software and its engineering →Automatic programming; • Theory of computation
+→Grammars and context-free languages; • Computing methodologies →Artificial intelligence.
+Additional Key Words and Phrases: Code Generation, Language Model, Constrained Decoding, Context-Free
+Grammar, Grammar-Constrained Decoding
+ACM Reference Format:
+Yongmin Li, Yihong Dong, Jia Li, and Ge Li. 2026. Efficient Grammar-Constrained Decoding via Parser Stack
+Classification. 1, 1 (August 2026), 25 pages. https://doi.org/10.1145/nnnnnnn.nnnnnnn
+1
+Introduction
+In recent years, the ability for Large Language Models (LLMs) to generate structured output has
+been widely recognized and utilized [19, 23, 35]. (1) Source code can be viewed as structured
+output that adheres to the syntax of programming languages, and LLM-based coding assistants,
+such as GitHub Copilot [22] and Cursor [5], have been widely adopted by developers to assist in
+writing code to improve their productivity. (2) When LLMs are used as a tool, users often expect
+the generated output to conform to a specific format, such as Markdown or JSON with custom
+schemas [29, 32, 41]. All of these applications rely on the ability of LLMs to generate output that
+adheres to a specific syntax.
+Authors’ Contact Information: Yongmin Li, Key Laboratory of High Confidence Software Technology (PKU), MoE and
+School of Computer Science, Peking University, Beijing, China, liyongmin@pku.edu.cn; Yihong Dong, School of Computer
+Science, Shanghai Jiao Tong University, Shanghai, China, dongyh@sjtu.edu.cn; Jia Li, College of AI, Tsinghua University,
+Beijing, China, jia_li@mail.tsinghua.edu.cn; Ge Li, Key Laboratory of High Confidence Software Technology (PKU), MoE
+and School of Computer Science, Peking University, Beijing, China, lige@pku.edu.cn.
+This work is licensed under a Creative Commons Attribution 4.0 International License.
+© 2026 Copyright held by the owner/author(s).
+ACM XXXX-XXXX/2026/8-ART
+https://doi.org/10.1145/nnnnnnn.nnnnnnn
+, Vol. 1, No. 1, Article . Publication date: August 2026.
+arXiv:2608.03065v1  [cs.SE]  4 Aug 2026
+
+===== PAGE 2 =====
+2
+Yongmin Li, Yihong Dong, Jia Li, and Ge Li
+Predicted logits
+LLM
+Constrained logits
+Next token
+✓
+✗
+✗
+✓
+✓
+✓
+✗
+Mask
+Constraint
+(a) Decoding step in grammar-constrained decoding (GCD).
+Runtime ∝𝒱
+Vocabulary
+Token1
+✓
+…
+Tokenn
+✗
+Mask
+…
+Parser
+𝒱
+(b) Naive GCD implementation.
+Vocabulary
+Token1
+DFA1
+…
+…
+Tokenn
+DFAn
+Parser stack
+Mask
+Preprocessing
+Runtime is independent of 𝒱
+Combined DFA
+(c) Our GCD method PSC.
+Fig. 1. An illustration of grammar-constrained decoding, showing (a) the overall working process, (b) the
+naive implementation that directly simulates the PDA, and (c) our method PSC that precomputes the DFA
+and the valid token masks.
+However, generating in a structured format is complex, as it requires not only understanding
+the semantics of given input but also adhering to the specific grammars of target formats. Since
+language models are essentially probabilistic models, there is no guarantee that the generated
+output will always conform to the required grammar.
+To address this issue, grammar-constrained decoding (GCD) [21, 34, 36, 40] is proposed to ensure
+that the generated output always conforms to the specified context-free grammar. A GCD method
+works by incorporating a grammar checker into the decoding process, as shown in Figure 1a. At
+each decoding step, the checker determines which tokens in the vocabulary can be appended to
+the current prefix while not violating the grammar. The logits generated by the language model
+are then masked to only allow the valid tokens, and the next token is generated by sampling from
+the masked logits.
+The overhead of GCD is determined by the newly introduced step of validity calculation. A
+naive implementation, as shown in Figure 1b would require calling the parser for every token
+in the vocabulary to check its validity, resulting in a time complexity proportional to |V| per
+decoding step, where |V| is the vocabulary size. This can add significant overhead, especially for
+large vocabularies in modern language models, e.g. 128k tokens in Llama-3 [23], 151k tokens in
+Qwen series [8], or 262k tokens in Gemma 3 [19]. The overhead is particularly pronounced for
+smaller models, where the time taken by model inference is relatively small.
+To speed up GCD, various techniques have been proposed in the literature, summarized in
+Section 2.5. However, they cannot fundamentally change the O(|V|) worst-case time complexity.
+We propose a novel GCD method, Parser Stack Classification (PSC), that replaces the repetitive
+runtime parsing over the whole vocabulary with a one-time classification of the current parser
+stack, as shown in Figure 1c. The checking process of the parser can be seen as a function of both
+the token and the state of the parser, which is usually a stack. For each token, our method PSC
+constructs a finite-state automaton (FSA) that represents the exact requirements on the parser stack
+to accept that token, i.e., the FSA accepts a parser stack if and only if that token is accepted by a
+parser with that stack. All these FSAs can then be combined into a single FSA that classifies the
+parser stack into a finite number of classes, each corresponding to a different vocabulary mask.
+, Vol. 1, No. 1, Article . Publication date: August 2026.
+
+===== PAGE 3 =====
+Efficient Grammar-Constrained Decoding via Parser Stack Classification
+3
+During decoding, we only need to check the parser stack exactly once per decoding step to get the
+vocabulary mask, which is ready to be applied to the logits. This eliminates the need to call the
+parser for each token in the vocabulary, resulting in a significant speedup.
+We conduct extensive experiments on grammar-constrained decoding in Java, Go, SQL, and
+schema-conformant JSON to evaluate the efficiency of our method. Compared to the current state-
+of-the-art method, our method achieves up to 700 times speedup in mask computation on complex
+programming language grammars, and up to 30 times speedup for schema-conformant JSON
+generation. In the end-to-end decoding throughput experiments, the throughput of PSC approaches
+that of unconstrained decoding, and is significantly higher than the current state-of-the-art method,
+especially on smaller models and larger batch sizes.
+We also analyze the preprocessing overhead of PSC. It is small for simple grammars, but can
+be significant for complex grammars. Since the preprocessing results can be shared, the users
+are encouraged to use the preprocessing results provided by the model developers or other third
+parties when available, and only perform preprocessing by themselves when necessary. Before
+doing preprocessing by themselves, the users should consider the break-even point analysis by
+estimating the expected decoding usage to decide whether to do preprocessing by themselves.
+In summary, this paper makes the following contributions.
+• We propose a novel GCD method PSC that leverages finite-state automata to classify parser
+states to use the precomputed vocabulary mask, significantly reducing the time overhead of
+grammar-constrained decoding.
+• We provide a theoretical analysis of PSC, justifying its correctness and providing a theoretical
+foundation for future research on grammar-constrained decoding. Specifically, we prove that the set
+of the parser stacks that can accept a given token can be formally described as a regular language.
+• We demonstrate the efficiency of PSC through extensive experiments on grammar-constrained
+decoding in Java, Go, Python, and schema-conformant JSON, achieving significant speedup in
+mask computation compared to existing techniques; end-to-end decoding throughput with PSC
+approaches that of unconstrained decoding.
+• We analyze the preprocessing overhead of PSC for preprocessing providers and decoding users,
+and provide a break-even point analysis to help users decide whether to preprocess by themselves.
+2
+Background and Related Work
+We introduce the task of grammar-constrained decoding in this section, give definitions of the
+concepts and symbols used in the paper, and then review the related work. A symbol table is
+included in Table 1 for most important symbols used in this paper.
+2.1
+The Task: Grammar-Constrained Decoding
+Let Σ be the character set used by the language model, e.g. the Unicode. Given a prefix of tokens,
+the task of a language model is to generate the next-token distribution over the vocabulary V ⊂Σ+.
+For a language 𝐿⊆Σ∗, the task of constrained decoding aims to generate a sample in 𝐿from the
+language model. In each step, given prefix 𝑥∈Σ∗, it calculates the set of valid tokens in V, i.e.
+tokens that, when concatenated after 𝑥, become a prefix of some strings in 𝐿.
+𝑐(𝑥∈Σ∗) := {𝑣∈V|∃𝑦∈Σ∗,𝑥𝑣𝑦∈𝐿} .
+(1)
+When the language 𝐿is defined by a context-free grammar, the task is called grammar-constrained
+decoding [27, 30, 33, 40]. Determining whether a string is syntactically valid usually involves two
+phases: lexical analysis and syntax analysis1 [4]. In lexical analysis, the lexer T, usually modeled as
+1To ease the presentation, the step of lexical analysis is omitted in previous sections. The term “parser” in previous sections
+should be realized as the combination of the lexer and the parser defined here, and the term “parser stack” should be realized
+, Vol. 1, No. 1, Article . Publication date: August 2026.
+
+===== PAGE 4 =====
+4
+Yongmin Li, Yihong Dong, Jia Li, and Ge Li
+a deterministic finite-state transducer (FST) [4, 27, 33], transduces the text 𝑤∈Σ∗into a terminal
+sequence T (𝑤) ∈Γ∗, where Γ is the set of terminals. In syntax analysis, the parser P, usually
+modeled as a terminating deterministic push-down automaton (PDA) [4], determines whether a
+terminal sequence 𝑥∈Γ∗is valid, here written as 𝑥∈P. So we have
+𝑤∈𝐿⇐⇒T (𝑤) ∈P.
+(2)
+2.2
+Finite-State Transducer (FST)
+A finite-state transducer (FST) [4] T is defined by a finite set of states 𝑄, the input alphabet Σ, the
+output alphabet Γ, the start state 𝑞0 ∈𝑄, the final states 𝐹⊆𝑄, and transitions 𝛿: 𝑄× Σ𝜀→2Γ∗×𝑄.
+If 𝛿(𝑞,𝑎) ∋(𝑦,𝑞′), we write 𝑞
+𝑎:𝑦
+−−→
+T
+𝑞′. We write −→∗for consecutive transitions. For 𝑞∈𝑄, we write
+𝑞
+𝜀:𝜀
+−−→
+T
+∗𝑞. For 𝑞
+𝑠:𝑥
+−−→
+T
+∗𝑞′ and 𝑞′ 𝑡:𝑦
+−−→
+T 𝑞′′, we write 𝑞
+𝑠𝑡:𝑥𝑦
+−−−−→
+T
+∗𝑞′′.
+T is deterministic if, for all 𝑞∈𝑄, either (|𝛿(𝑞,𝑎)| ≤1, ∀𝑎∈Σ) and 𝛿(𝑞,𝜀) = ∅, or (𝛿(𝑞,𝑎) =
+∅, ∀𝑎∈Σ) and 𝛿(𝑞,𝜀) = 1. Informally, this means that from any state, for any given string, there is
+exactly one possible outcome.
+For 𝑤∈Σ∗,𝑞∈𝑄, we define T𝑞(𝑤) as
+
+𝑣∈Γ∗
+∃𝑞′ ∈𝐹,𝑞
+𝑤:𝑣
+−−→
+T
+∗𝑞′
+
+, meaning the possible out-
+comes when we feed 𝑤into T starting from the state 𝑞. When T is deterministic and 𝑣∈T (𝑤), we
+also write T (𝑤) = 𝑣. For𝑊⊆Σ∗, we define T𝑞(𝑊) as Ð
+𝑤∈𝑊T𝑞(𝑤). 𝑞defaults to 𝑞0 when omitted.
+We call a state 𝑞∈𝑄stable if the FST does not need to take any immediate action on 𝑞, i.e.
+𝛿(𝑞,𝜀) = ∅. If 𝑞
+𝑠:𝑡
+−−→
+T
+∗𝑞′ and 𝑞′ is stable, we also write 𝑞
+𝑠:𝑡
+==⇒
+T
+∗𝑞′.
+Given two FSTs S and T where the output alphabet of S is the input alphabet T, ΓS = ΣT, their
+composition is a new FST S ◦T by feeding the output of S into the input of T.
+2.3
+Finite-State Automaton (FSA)
+A finite-state automaton (FSA) A can be defined by removing all output labels from an FST. We
+say A accepts 𝑤∈Σ∗from state 𝑞if A𝑞(𝑤) ≠∅, and write 𝑤∈A𝑞, where 𝑞defaults to 𝑞0 when
+omitted. Two FSAs are equivalent if they accept the same language.
+A is deterministic if there is no 𝜀transition in 𝛿. Every nondeterministic FSA can be determinized
+into an equivalent deterministic FSA [24], and every deterministic FSA can be minimized into an
+equivalent deterministic FSA with the smallest number of states [24].
+The union of two FSAs A and B is a new FSA A ∪B that accepts any sequence that is accepted
+by either A or B. The concatenation of two FSAs A and B is a new FSA AB that accepts any
+sequence that can be split into two parts 𝑥= 𝑦𝑧, where A accepts the first part 𝑦and B accepts
+the second part 𝑧.
+2.4
+Push-Down Automaton (PDA)
+A push-down automaton (PDA) [4, 11, 24] P is defined by the input alphabet Γ, the stack alphabet
+Π, the initial stack 𝛾0 ∈Π2, the final states 𝐹⊆Π, and a finite set of transitions 𝛿: Π2 × Γ𝜀→2Π+.
+2 If 𝛿(𝛼,𝑎) ∋𝛽, we write 𝛼
+𝑎−→
+P 𝛽. If 𝛼
+𝑎−→
+P 𝛽, for any 𝛾∈Π∗, we also write 𝛼𝛾
+𝑎−→
+P 𝛽𝛾. We write −→∗
+for consecutive transitions. For 𝛾∈Π+, we write 𝛾
+𝜀−→
+P
+∗𝛾. If 𝛼
+𝑎−→
+P 𝛽, 𝛽
+𝑤−→
+P
+∗𝛾, we write 𝛼
+𝑎𝑤
+−−→
+P
+∗𝛾.
+as the concatenation of the lexer state and the parser state, which is a simple state without internal structure, and a stack,
+respectively.
+2Note that the definition of transitions here merges the states and the stack symbols in the traditional definition of PDA,
+but they are equivalent if we treat the stack top symbol as the state.
+, Vol. 1, No. 1, Article . Publication date: August 2026.
+
+===== PAGE 5 =====
+Efficient Grammar-Constrained Decoding via Parser Stack Classification
+5
+Table 1. Symbols and their meaning.
+Symbol
+Meaning
+𝜀
+empty string
+𝑎𝑏
+concatenation of strings 𝑎and 𝑏
+𝐴𝐵
+concatenation of languages 𝐴and 𝐵
+𝐴𝜀
+𝐴∪{𝜀}
+𝐴∗
+Kleene star of language 𝐴
+𝐴+
+𝐴∗\ {𝜀}
+Σ
+the character set (usually the Unicode) used by the language model
+Γ
+the terminal set of the grammar
+V
+the vocabulary of the language model, a finite subset of Σ+
+such that every string over Σ can be tokenized as a string over V
+T
+the lexing FST, transduces string over Σ to terminal sequence over Γ
+𝑄
+the finite set of states of the lexing FST T
+P
+the parsing PDA, accepts terminal sequences in the language
+Π
+the stack alphabet of the PDA
+𝑝
+𝑣:𝑥
+===⇒
+T
+∗𝑞
+successful transition of the lexing FST T from state 𝑝∈𝑄to stable state 𝑞∈𝑄
+when reading token 𝑣∈V and outputting terminal sequence 𝑥∈Γ∗
+𝛼
+𝑤==⇒
+P
+∗𝛽
+successful transition of the parsing PDA P from stack 𝛼∈Π∗to stable stack 𝛽∈Π∗
+when reading terminal sequence 𝑤∈Γ∗
+Informally, a PDA is deterministic, if from any stack, for any given string, there is exactly one
+possible outcome. P is deterministic if, for any 𝛼∈Π2, either (|𝛿(𝛼,𝑎)| ≤1, ∀𝑎∈Γ) and 𝛿(𝛼,𝜀) = ∅,
+or (𝛿(𝛼,𝑎) = ∅, ∀𝑎∈Γ) and |𝛿(𝛼,𝜀)| = 1.
+A deterministic PDA is terminating, if for any stack, it does not make an endless sequence
+of 𝜀-input transitions.3 Every deterministic PDA can be transformed into another equivalent
+deterministic terminating PDA [24, 38].
+We call a state 𝛽= 𝛽1 . . . 𝛽𝑛∈Π+ stable if 𝛽1 is a final state, i.e. 𝛽1 ∈𝐹, or the PDA is waiting to
+read one more symbol, i.e. ∃𝑎∈Γ,𝛿(𝛽1𝛽2,𝑎) ≠∅. If 𝛼
+𝑤−→
+P
+∗𝛽and 𝛽is stable, we also write 𝛼
+𝑤==⇒
+P
+∗𝛽.
+In practice, parser in a stable state is ready to consume the next input symbol, or has reached an
+accepting stack.
+We also write 𝑤∈P for 𝑤∈Γ∗if ∃𝑋∈𝐹,𝛾∈Π∗, such that 𝛾0
+𝑤==⇒
+P
+∗𝑋𝛾.
+2.5
+Related Work
+There are several types of existing techniques to speed up grammar-constrained decoding: vocabu-
+lary preprocessing, lexer preprocessing, and parser preprocessing.
+Vocabulary preprocessing [9, 30, 34] exploits the fact that the vocabulary is built by BPE [18, 37],
+and for each token, its prefix is also a token in the vocabulary. If the prefix token is rejected, then
+the longer token must also be rejected. So we can check the vocabulary hierarchically, and only
+check the tokens whose prefixes are not rejected.
+Lexer preprocessing [9, 30, 33, 40] maps each token to a terminal sequence during preprocessing,
+and then the parser is only called on the terminal sequences. This reduces the number of parser
+3The definition is slightly different in the cited references; nevertheless, their proof works on this definition.
+, Vol. 1, No. 1, Article . Publication date: August 2026.
+
+===== PAGE 6 =====
+6
+Yongmin Li, Yihong Dong, Jia Li, and Ge Li
+public class C {
+public static int gcd(int x, int y) {
+if (y == 0) return x
+
+top of the stack
+←−−−−−−−−−−−
+2
+79
+540
+483
+326
+406
+574
+11
+. . .
+(a) Example prefix and corresponding parser stack.
+✓
+…
+✗
+Mask
+…
+Parser
+;}\n
+;};\n
+Invalid because the second ‘;’ cannot 
+be handled at stack state 11.
+(b) How existing GCD methods handle the example
+prefix. Because the validity of context-dependent
+tokens depends on the deep structure of the parser
+stack, they need to run the parser at runtime.
+start
+. . .
+mask
+2
+79
+540
+483
+326
+406
+574
+11
+(c) PSC analyses the exact conditions of the PDA to ac-
+cept each token in preprocessing, so it can directly get
+the valid token mask by classifying the parser stack
+at runtime without repeated simulation. Only parts
+relevent to the example are shown.
+Fig. 2. An example of how PSC works during runtime decoding, compared with a naive GCD implementation.
+PSC’s improvement comes from exact analysis of the parser stack.
+calls, as different tokens may share the same terminal sequence. The mask can be precomputed for
+each terminal sequence, combined at runtime to get the valid token mask. Syncode [40] further
+approximates the terminal sequences by only considering the first 2 terminals of each token,
+removing the need for dynamic parsing using the lookaheads of the LR(1) parser at the cost of
+allowing certain invalid tokens to be accepted.
+Parser preprocessing [16, 33] classifies the vocabulary into three sets for each parser state:
+context-independent accepted, context-independent rejected, and context-dependent. This allows
+us to reduce the number of parser calls by only checking the context-dependent tokens.
+PSC is a novel parser preprocessing technique that eliminates all context-dependent tokens. As
+seen from the example in Figure 2, the validity of tokens often depends on the deep parser stack
+structure, so existing techniques cannot pre-classify them into context-independent accepted or
+rejected sets, and thus require multiple parser calls per decoding step. In constrast, we discover and
+prove that their acceptance conditions on the stack structure can be modeled with FSAs, so calling
+parsers are not needed at runtime. By further pre-combining the FSAs, we only need to check the
+parser state once per decoding step, which is the theoretical minimum for any GCD method.
+3
+PSC: Parser Stack Classification
+The preprocessing of the lexer T is described in Section 3.1, and the other parts of this section are
+dedicated to the preprocessing of the parser P.
+3.1
+Lexical Preprocessing
+Lexical preprocessing is not our focus in this paper, so we reuse the lexical preprocessing in
+GreatGramma [33], and conclude it here as a prelude to PSC.
+For token 𝑣∈V, lexer state 𝑞∈𝑄, if lexing the token 𝑣from state 𝑞using the lexer T generates
+the terminal sequence 𝑥∈Γ∗, and the lexer transits to a stable state 𝑝, i.e. 𝑞
+𝑣:𝑥
+===⇒
+T
+∗𝑝, we define the
+, Vol. 1, No. 1, Article . Publication date: August 2026.
+
+===== PAGE 7 =====
+Efficient Grammar-Constrained Decoding via Parser Stack Classification
+7
+set of realizable terminal sequences 𝑅𝑞(𝑣) as 𝑥𝑇𝑝, representing all possible terminal prefixes that can
+be generated from a string starting with 𝑣, where 𝑇𝑝is the finite set of all possible terminal prefixes
+from state 𝑝: T𝑝(Σ∗) = 𝑇𝑝T (Σ∗). 𝑅𝑞(𝑣) is computed for all 𝑞∈𝑄, 𝑣∈V during preprocessing.
+3.2
+Overview of Syntactic Preprocessing
+Given a valid prefix 𝑥∈Σ∗, we run the lexer T from its initial state 𝑞0 to produce a terminal
+sequence 𝑧∈Γ∗and another stable lexer state 𝑞, i.e. 𝑞0
+𝑥:𝑧
+===⇒
+T
+∗𝑞. We then run the parser P from its
+initial stack 𝛾0 to receive the terminal sequence 𝑧, generating another stable stack 𝛼, i.e. 𝛾0
+𝑧==⇒
+P
+∗𝛼.
+We now introduce the simplification of the condition in the GCD definition in Equations 1 and 2
+from previous work [33]. For any token 𝑣∈V, to determine whether 𝑣is valid, we can rewrite
+the condition in terms of realizable terminal sequences,
+∃𝑦∈Σ∗, T (𝑥𝑣𝑦) ∈P ⇐⇒∃𝑤∈𝑅𝑞(𝑣), ∃𝛽∈Π+, 𝛼
+𝑤==⇒
+P
+∗𝛽,
+(3)
+which means if the parser can reach a stable stack 𝛽from the current stack 𝛼by reading in any
+realizable terminal sequence 𝑤from 𝑅𝑞(𝑣). The simplification is based on the common assumption
+that, if the parser reads in a certain terminal sequence and enters a stable stack, then we do not
+need to worry about the rest of the input, and there always exists a terminal sequence produced by
+the lexer that can ensure the whole text is accepted.
+For 𝑤∈Γ∗, we define 𝑃𝑤(𝛼) for the calculation in the last step of Equation 3,
+𝑃𝑤∈Γ∗(𝛼∈Π+) :=
+
+𝛽∈Π+
+𝛼
+𝑤==⇒
+P
+∗𝛽
+
+.
+(4)
+How to efficiently calculate 𝑃𝑤(𝛼) is the key difference between PSC and previous methods.
+In existing work, the calculation of 𝑃𝑤is almost always dynamic: one has to calculate 𝑃𝑤(𝛼) for
+the current 𝛼and every possible 𝑤∈𝑅𝑞(V). While existing methods in Section 2.5 employ
+precomputation to optimize certain cases, they still fundamentally require worst-case O(|𝑅𝑞(V)|)
+time for dynamic parsing if correctness is not sacrificed.
+In this work, PSC proposes a totally different approach, modeling 𝑃𝑤as a deterministic finite-state
+transducer (FST), which reads the stack sequence 𝛼∈Π+, and then outputs the sequence 𝛽∈Π+ if
+the parser P can reach 𝛽from 𝛼by reading 𝑤, or rejects the input stack otherwise. In other words,
+the behavior of the parser P on any stack 𝛼by reading 𝑤is fully encoded in the FST 𝑃𝑤.
+This gives us several benefits. (1) Because each 𝑃𝑤reads and outputs a sequence of stack symbols,
+they can be composed to create larger FSTs: 𝑃𝑡◦𝑃𝑠= 𝑃𝑠𝑡. (2) Because the realizable terminal
+sequences are known during precomputation, the exact validity condition of each vocabulary is
+therefore known, their combinations can be precomputed, and we only need to go through the
+current stack once during runtime. (3) All possible masks can also be precomputed, eliminating the
+mask generation overhead during decoding.
+The challenge here is whether and how each 𝑃𝑤can be constructed as a deterministic FST. This
+is not straightforward because of the presence of 𝜀-transitions in the PDA P. To address this, we
+first construct 𝑃𝜀to handle all 𝜀-transitions, and then construct 𝑃𝑤for any 𝑤∈Γ∗based on 𝑃𝜀.
+3.3
+FST of 𝜀Transitions
+In this section, we construct the FST 𝑃𝜀. Its input should be a stack, and the output is its stabilized
+version, by repeatedly executing all needed 𝜀transitions on the stack. The start state is
+𝜀, and the final state is a special state Final. The set of all states is the minimum closure of the
+, Vol. 1, No. 1, Article . Publication date: August 2026.
+
+===== PAGE 8 =====
+8
+Yongmin Li, Yihong Dong, Jia Li, and Ge Li
+transitions defined below, where each state represents the current known stack top.
+∀𝑋∈Π,
+∀𝛼∈Π∗,
+𝛼
+𝑋:𝜀
+−−→
+𝑃𝜀
+𝛼𝑋,
+if |𝛼| < 2 and 𝛼[0] ∉𝐹P;
+(5a)
+∀𝛼∈Π∗,
+𝛼
+𝜀:𝛼
+−−→
+𝑃𝜀
+Final,
+if 𝛼[:2]
+𝑎−→
+P 𝛽, ∃𝑎∈Γ or 𝛼[0] ∈𝐹P;
+(5b)
+∀𝛼∈Π∗,
+𝛼
+𝜀:𝜀
+−−→
+𝑃𝜀𝛽𝛼[2:],
+if 𝛼[:2]
+𝜀−→
+P 𝛽;
+(5c)
+∀𝑋∈Π,
+Final
+𝑋:𝑋
+−−−→
+𝑃𝜀
+Final.
+(5d)
+There are four types of transitions in 𝑃𝜀. (5a) If one cannot determine whether the stack is stable
+from the stack top 𝛼, it transits to a new state by reading the next stack symbol. (5b) If the stack top
+𝛼is stable, it transits to the Final state to output the final stable stack. (5c) Otherwise, it simulates
+the transition of P on the current stack top 𝛼, and transits to a new state representing the new
+stack top after executing the 𝜀transition. (5d) In the Final state, it always outputs the input stack
+unchanged. We have the following theorem regarding the correctness of the construction above.
+Theorem 1. Equations 5 constructs a finite-state transducer 𝑃𝜀as defined in Equation 4.
+Proof. First we show that the states of 𝑃𝜀are finite, i.e., starting from the initial state 𝜀, only a
+finite number of new states are needed to construct a closure of all transitions. Consider the two
+equations that introduce new states: Equation 5a and Equation 5c. (5a) The length of its right-hand
+side is at most 2, so only a finite number of states are needed here. (5c) This is the only place that
+can introduce new states without length limit. However, because the parser P is terminating, by
+definition in Section 2.4, for any stack configuration, there will not be an endless sequence of 𝜀
+transitions, so this process can only introduce a finite number of new states before reaching a stable
+stack and transiting to Final.
+The correctness of Equations 5 can be naturally deduced by its construction, because it just
+simulates the behavior of the parser P with the current stack top, and only outputs stable stacks.
+□
+𝑃𝜀is an important building block in the construction of other 𝑃𝑤,𝑤∈Γ+. For any stack 𝛼, 𝑃𝜀(𝛼)
+gives the stabilized version of 𝛼, so the FST composed after 𝑃𝜀does not need to handle 𝜀transitions,
+and we can compose 𝑃𝜀after other FSTs to meet the stability requirement in the definition of 𝑃𝑤.
+3.4
+FST for Any Terminal Sequence
+After constructing 𝑃𝜀, the construction of 𝑃𝑤for any terminal sequence 𝑤∈Γ+ is direct. We first
+construct an FST ˜𝑃𝑎for every 𝑎∈Γ that simulates a single transition labeled 𝑎, i.e. outputting
+𝛽for the input stack 𝛼if 𝛼
+𝑎−→
+P 𝛽, i.e.,
+˜𝑃𝑎(𝛼∈Π+) :=
+
+𝛽∈Π+
+𝛼
+𝑎−→
+P 𝛽
+
+.
+(6)
+Note that the output stack is not required to be stable, so we add a tilde above 𝑃to indicate this
+difference from 𝑃𝑤. The start state is 𝜀, the final state is Final, and transitions are defined as follows.
+𝜀
+𝑋:𝜀
+−−→
+˜𝑃𝑎
+𝑋
+𝑌:𝜀
+−−→
+˜𝑃𝑎
+𝑋𝑌
+𝜀:𝛽
+−−→
+˜𝑃𝑎
+Final, ∀𝑋𝑌
+𝑎−→
+P 𝛽;
+Final
+𝑋:𝑋
+−−−→
+˜𝑃𝑎
+Final, ∀𝑋∈Π.
+(7)
+For any terminal sequence 𝑤= 𝑤1 . . .𝑤𝑛∈Γ+, the FST 𝑃𝑤can be constructed as follows.
+𝑃𝑤= 𝑃𝜀◦˜𝑃𝑤1 ◦𝑃𝜀◦· · · ◦𝑃𝜀◦˜𝑃𝑤𝑛◦𝑃𝜀.
+(8)
+, Vol. 1, No. 1, Article . Publication date: August 2026.
+
+===== PAGE 9 =====
+Efficient Grammar-Constrained Decoding via Parser Stack Classification
+9
+Intuitively, the input stack 𝛼, is first passed to 𝑃𝜀to get a stable stack, and then passed to ˜𝑃𝑤1 to get
+the stack after reading 𝑤1, and then passed to 𝑃𝜀to get the stabilized version, etc, until it is passed
+to ˜𝑃𝑤𝑛and stabilized with 𝑃𝜀.
+We have the following theorem regarding the correctness of the construction above.
+Theorem 2. The above construction of 𝑃𝑤meets the definition in Equation 4.
+Proof. The construction of ˜𝑃𝑎in Equations 7 simulates one 𝑎-labelled transition of the parser P
+on the current stack top, so it meets Equation 6.
+The process of the parser processing 𝑤= 𝑤1 . . .𝑤𝑛can be decomposed into a sequence of
+unconditional 𝜀-transitions, followed by 𝑤𝑖-labelled transitions, followed by another sequence
+of unconditional 𝜀-transitions. Each 𝑤𝑖-labelled transition is simulated by the corresponding ˜𝑃𝑤𝑖,
+and the unconditional 𝜀-transitions are handled by 𝑃𝜀. Therefore, the composition in Equation 8
+correctly simulates the parser P processing the terminal sequence 𝑤on the input stack 𝛼, and
+produces the stabilized output stack 𝛽if it exists.
+□
+When calculating the mask, we only care about whether 𝑃𝑤(𝛼) ≠∅. Removing all the output
+labels from 𝑃𝑤gives us a finite-state automaton, hereafter named 𝐴𝑤.
+3.5
+One-Pass FSA for Mask Selection
+After constructing 𝑃𝑤for all realizable terminal sequences 𝑤∈𝑅(V), we can now consider
+simplifying the constraint calculation over the whole vocabulary V. Recall Equation 1, combined
+with Equation 3 and 𝐴𝑤, we have the following equation,
+𝑐(𝑥∈Σ∗) =
+
+𝑣∈V
+∃𝑤∈𝑅𝑞(𝑣), 𝑃𝑤(𝛼) ≠∅
+	
+=
+
+𝑣∈V
+∃𝑤∈𝑅𝑞(𝑣), 𝛼∈𝐴𝑤
+	
+,
+where 𝑞and 𝛼as defined in Section 3.2 are only dependent on 𝑥.
+In 𝑐(𝑥), we want to know whether any of the 𝐴𝑤accepts 𝛼, where 𝑤∈𝑅𝑞(𝑣). This can be
+achieved by constructing the union of different 𝐴𝑤, i.e., Ð
+𝑤∈𝑅𝑞(𝑣) 𝐴𝑤.
+But to get the whole mask 𝑐(𝑥), we need to check for every 𝑣∈V, whether 𝛼is accepted by
+Ð
+𝑤∈𝑅𝑞(𝑣) 𝐴𝑤, which is inefficient. To address this issue, we can integrate the checking of 𝑣and 𝑞
+into the FSA. Introduce the notation 𝐼𝑎for an FSA that accepts only 𝑎once. For every 𝑞∈𝑄and
+𝑣∈V, we can concatenate 𝐼𝑞before Ð
+𝑤∈𝑅𝑞(𝑣) 𝐴𝑤to check whether the current state is 𝑞, and then
+concatenate 𝐼𝑣after Ð
+𝑤∈𝑅𝑞(𝑣) 𝐴𝑤to check whether the candidate token is 𝑣.
+By unioning the results for all 𝑣∈V and 𝑞∈𝑄, we construct an FSA A that accepts the
+sequence 𝑞𝛼𝑣only if 𝑣is a valid token for the lexer state 𝑞and stack 𝛼,
+A :=
+Ø
+𝑣∈V
+Ø
+𝑞∈𝑄
+Ø
+𝑤∈𝑅𝑞(𝑣)
+𝐼𝑞𝐴𝑤𝐼𝑣,
+𝑐(𝑥) = {𝑣∈V|𝑞𝛼𝑣∈A} ,
+(9)
+where A should be determinized and minimized. This gives us the following theorem.
+Theorem 3. All (lexer state, parser stack) pairs that accept a given token form a regular language.
+Proof. Because A is constructed as a FSA, the language recognized by A is regular. The language
+of all valid (lexer state, parser stack) pairs for a given token 𝑣∈V can be obtained by reversing
+the language recognized by A, taking the Brzozowski derivative [10] with respect to 𝑣, and then
+reversing it back. Since the class of regular languages is closed under these operations [24], the
+resulting language is also regular.
+□
+In Equation 9, we can precompute all possible result of 𝑐, i.e. all possible vocabulary masks, by
+considering acceptable vocabulary set A𝑠:=
+
+𝑣∈V
+𝑠
+𝑣−−→
+A 𝑓A
+
+for every state 𝑠in A where 𝑓A is
+the final state of A.
+, Vol. 1, No. 1, Article . Publication date: August 2026.
+
+===== PAGE 10 =====
+10
+Yongmin Li, Yihong Dong, Jia Li, and Ge Li
+We summarize the offline construction process of PSC in Algorithm 1, and the online execution
+process in Algorithm 2. In Algorithm 2, both the lexing step 2 and the parsing step 3 are standard
+in grammar-constrained decoding, and can be incrementally maintained. In Step 4, the FSA A is
+run on the stack 𝛼and the lexer state 𝑞to get the state 𝑠, only requiring O(|𝛼|) time. Step 5 can be
+precomputed to be O(1) at runtime.
+Algorithm 1 Offline constructon in PSC
+1: function OfflineConstruction(T, P, V)
+2:
+𝑃𝜀←EpsilonFST(P)
+3:
+for all 𝑎∈Γ do
+4:
+˜𝑃𝑎←TerminalFST(P,𝑎)
+5:
+for all 𝑤= 𝑤1 . . .𝑤𝑛∈𝑅(V) do
+6:
+𝑃𝑤←𝑃𝜀◦˜𝑃𝑤𝑛◦𝑃𝜀◦· · · ◦𝑃𝜀◦˜𝑃𝑤1 ◦𝑃𝜀
+7:
+𝐴𝑤←RemoveOutput(𝑃𝑤)
+8:
+A ←Ð
+𝑣∈V
+Ð
+𝑞∈𝑄
+Ð
+𝑤∈𝑅𝑞(𝑣) 𝐼𝑞𝐴𝑤𝐼𝑣
+9:
+A ←Minimize(A)
+10:
+return A
+Algorithm 2 Online execution of PSC
+1: function OnlineExecution(T, P, A,𝑥)
+2:
+𝑞T
+0
+𝑥:𝑧
+===⇒
+T
+∗𝑞
+3:
+𝛾0
+𝑧==⇒
+P
+∗𝛼
+4:
+𝑞A
+0
+𝑞𝛼
+==⇒
+A
+∗𝑠
+5:
+return A𝑠
+4
+Experiments
+In this section, we conduct experiments to answer the following research questions:
+(RQ1) Does PSC produce correct masks for grammar-constrained decoding?
+(RQ2) How much online overhead does PSC introduce?
+(RQ3) How does PSC affect the end-to-end decoding throughput?
+(RQ4) Does PSC improve the performance on downstream tasks?
+We design the experiments focusing on two main aspects:
+• (RQ1, RQ4) The usefulness of PSC. RQ1 checks its correctness, and RQ4 validates its usefulness
+in downstream tasks by replicating results from previous work. Note that all grammar-constrained
+decoding methods in principle compute the same valid token masks, so they should all produce
+correct masks if implemented correctly, and perform equally well on downstream tasks.
+• (RQ2, RQ3) The efficiency of PSC. RQ2 focuses on the online overhead of PSC, which is the
+main contribution of this paper, and RQ3 measures the end-to-end decoding throughput to show
+the overall impact of mask computation efficiency on decoding speed.
+4.1
+Experimental Setup
+In this section, we describe the experimental setup used to answer the research questions and
+evaluate PSC against several state-of-the-art grammar-constrained decoding (GCD) methods.
+Methodology. In RQ1, RQ2, and RQ3, we prepare the oracle sequences and use teacher-forcing
+during evaluation, i.e., we always use the oracle next token at each decoding step, to ensure that
+all methods are evaluated under the same conditions. This is important because the context
+and the length of the generated sequences can significantly affect the mask computation process,
+making it hard to fairly compare different methods otherwise.
+In RQ4, we evaluate the downstream task performance of PSC by letting the model generate
+tokens autoregressively without teacher-forcing.
+, Vol. 1, No. 1, Article . Publication date: August 2026.
+
+===== PAGE 11 =====
+Efficient Grammar-Constrained Decoding via Parser Stack Classification
+11
+Datasets. There is no standard benchmark for evaluating grammar-constrained decoding methods.
+We choose two representative tasks that require grammar-constrained decoding: code generation in
+Java, Go, and SQL, and JSON generation with specified JSON schemas. For each task, we construct
+the evaluation dataset, with 1000 samples for each programming language and 1000 schemas for
+schema-conformant JSON generation.
+For the Java, Go, and SQL datasets, we obtain their Lark grammars from the previous work
+Syncode [40]. Because the grammar formats for XGrammar and Formatron are different from
+Lark, we manually convert the Lark grammars to respective formats for each baseline. For each
+programming language, we take the first 1000 samples from the Stack dataset [26] that can be
+successfully parsed by the Lark parser to construct the evaluation dataset.
+For the JSON Schemas, we use the benchmark dataset MaskBench [3], an extension of JSON
+Schema Bench [20] by adding schema conformant and non-conformant JSON instances to each
+schema. We generate the Lark grammar from the JSON schemas using the script provided in
+MaskBench, and only use the schemas in MaskBench where the Lark parser can successfully parse
+all the conformant JSON instances and reject all the non-conformant JSON instances. We then
+randomly sample 1000 schemas for evaluation. There are a total of 1337 positive samples and 2072
+negative samples in the JSON dataset, and each schema has at least one positive sample and one
+negative sample.
+Baselines. We consider several recent state-of-the-art grammar-constrained decoding methods
+with open-source implementations as baselines, including XGrammar [16], GreatGramma [33],
+Formatron [39], and LLGuidance [30].
+• XGrammar [16] uses a character-level non-deterministic PDA4. For each state, it precomputes
+the context-independent accepted and rejected tokens, and only calls the parser for the context-
+dependent tokens. It also includes many optimizations to speed up the parsing process, such as
+expanding rule contexts to further reduce context-dependent tokens, and persistent execution
+stacks to reduce memory consumption.
+• GreatGramma [33] uses a lexer and a parser. It converts each token into all possible terminals
+sequences and reduces the number of parser calls by sharing the parser calls among tokens with the
+same terminal sequence. After computing the accepted terminal sequences, it maps them back to
+the original tokens. It also precomputes the context-dependent and context-independent terminal
+sequences for each parser state.
+• Formatron [39] uses an Earley parser. It dynamically identifies and eliminates invalid or
+redundant parser states during parsing, and also uses context-independent prefiltering to reduce
+the number of tokens that need to be checked by the parser.
+• LLGuidance [30] uses a lexer and an Earley parser. It organizes the vocabulary into a trie, and
+skips the whole subtree if the prefix token is rejected. It also leverages the lexer on the vocabulary
+to pre-identify the terminal sequences.
+There are other baselines not included in our experiments. Domino [9] and Koo et al.’s work [27]
+are excluded due to the lack of an open-source implementation. Pre3 [13] is excluded because
+it relies on unreleased code. Outlines [42] and llama.cpp [2] are excluded because they are too
+slow to practically evaluate on such a large dataset, which is aligned with the findings in previous
+work [33, 39]. Syncode [40] is excluded because it rejects the oracle token in too many cases,
+probably because of its buggy implementation of unlexed characters handling.
+Models. We evaluate three recent open-source LLM series with different vocabulary sizes:
+Llama 3.2 [23] (128k tokens), Qwen2.5 [8, 35] (151k tokens), Gemma 3 [19] (262k tokens). In
+4In the latest implementation that we use in the experiments, this has been changed to an Earley [17] parser.
+, Vol. 1, No. 1, Article . Publication date: August 2026.
+
+===== PAGE 12 =====
+12
+Yongmin Li, Yihong Dong, Jia Li, and Ge Li
+Table 2. How many samples are correctly processed by each method. The symbol X indicates the parser
+reports an error during mask calculation. Text in bold indicates the best performance, and text in underline
+indicates the second best performance.
+Model
+Method
+Grammar
+Java
+Go
+SQL
+JSON Schemas
+Llama 3
+XGrammar
+99.7%
+100.0%
+99.7%
+100.0%
+Formatron
+99.4%
+Xa
+67.0%
+Xa
+GreatGramma
+100.0%
+99.9%
+97.1%
+99.6%
+LLGuidance
+100.0%
+Xb
+99.9%
+99.9%
+PSC (Ours)
+100.0%
+99.9%
+99.9%
+99.6%
+Qwen2.5
+XGrammar
+99.7%
+100.0%
+99.7%
+100.0%
+Formatron
+99.4%
+Xa
+67.0%
+Xa
+GreatGramma
+100.0%
+99.9%
+97.2%
+99.6%
+LLGuidance
+100.0%
+Xb
+99.9%
+99.9%
+PSC (Ours)
+100.0%
+99.9%
+99.9%
+99.6%
+Gemma 3
+XGrammar
+99.7%
+100.0%
+99.7%
+100.0%
+Formatron
+100.0%
+Xa
+67.3%
+Xa
+GreatGramma
+100.0%
+99.9%
+97.2%
+99.6%
+LLGuidance
+94.0%
+Xb
+99.9%
+99.9%
+PSC (Ours)
+100.0%
+99.9%
+99.9%
+99.6%
+a Formatron stops responding on multiple samples, so we terminate the process.
+b LLGuidance reports ParserTooComplex error.
+RQ1 and RQ2, only the tokenizer is needed to calculate the mask given a prefix, so the model size
+does not affect the results. In RQ3 and RQ4, we state the model used in each experiment, which is
+always the smallest model in each series to highlight the overhead of constraint decoding, and we
+also include the results on Qwen2.5 7B in RQ3 to see the effect of model size on throughput.
+Implementation. We implement PSC in roughly 1100 lines of Python. Similar to previous work [33,
+40], we use the Lark parser[1] to construct the lexer and the LALR(1) parser from the grammar
+due to the one-to-one correspondence between the LR parsers and the DPDA [25]. As described in
+Section 3.1, we reuse the lexer construction in GreatGramma [33], which this is not our focus here.
+Execution environment. We conduct our experiments on a machine with 8 NVIDIA A100 GPUs
+(40 GB Memory), 2 Intel Xeon Gold 6348 CPUs (2.6GHz, 56 cores), and 512 GB RAM. To ensure
+fairness, we run all the experiments with a single GPU and a single CPU thread. For all the baselines,
+we use the latest versions of the respective libraries during the experiments. The environment
+configuration file for the libraries used in the experiments is included in the replication package.
+4.2
+RQ1: Correctness of Mask Computation
+Metrics. For each method, we measure the sample pass rate, i.e. the proportion of samples that
+are correctly processed by each method. Positive samples (including all programming language
+samples and some JSON samples) are counted as passed if they are not rejected, and negative
+samples (including some JSON samples) are counted as passed if they are rejected.
+, Vol. 1, No. 1, Article . Publication date: August 2026.
+
+===== PAGE 13 =====
+Efficient Grammar-Constrained Decoding via Parser Stack Classification
+13
+Results. The sample pass rates are shown in Table 2. PSC achieves a high pass rate across all
+grammars and models, very close to 100%. We analyze the error cases and find that they are all
+directly rejected by the GreatGramma lexer we adopt, but no error is caused by PSC itself.
+There are several reasons for the lexer rejections, mainly falling into two categories: (1) The lexer
+assumes that each Unicode character is contained within a single token, but some tokenizers may
+split a Unicode character across multiple tokens, causing the lexer to misinterpret the input. This
+issue can be fixed by improving the lexer implementation to properly handle Unicode characters.
+(2) The lexer is designed with a one-character lookahead, which may lead to misinterpretation
+of certain character sequences in some edge cases. This issue can be avoided by improving the
+grammar to better account for such sequences, but can only be fixed by fundamentally redesigning
+the lexer, which is out of the scope of this paper. But this kind of error is rare in practice.
+Most of the baselines also achieve high pass rates (mostly above 99%) on all the grammars and
+models, showing that existing GCD methods can generally produce correct masks. One of the
+exceptions is Formatron on SQL, which has a significantly lower pass rate (around 67%). After
+further investigation, we find that Formatron refuses to accept the column alias in the query,
+resulting in frequent rejections. The exact reason is unclear, but it is probably due to their buggy
+implementation of handling certain grammar constructs.
+Answer to RQ1: PSC produces correct masks for grammar-constrained decoding, achieving
+nearly 100% sample pass rate across all grammars and models tested.
+4.3
+RQ2: Overhead of Mask Computation
+Metrics. For each method, we measure the average overhead, i.e. the time of computing the
+CPU mask tensor at each decoding step. We ignore the time taken to transfer the mask to the GPU
+and apply it to the logits, because this is the same for all methods5.
+Results. The average overhead is shown in Table 3. PSC significantly outperforms all the baselines
+across all grammars and models, being 300 to 700 times faster on complex programming language
+grammars compared to the best baseline, LLGuidance, and generally 30 times faster on the relatively
+simple JSON schema grammar.
+The overhead of baselines is significantly larger on programming languages than that on JSON
+schemas. This is because they need to repeat the parsing process for many times per decoding step
+to compute the valid token masks, so their overhead increases when the parsing process becomes
+more expensive due to increased grammar complexity. In contrast, the overhead of PSC remains
+stable across different grammars, because it only needs to parse the current token and traverse the
+parser stack once per decoding step, making this overhead mostly negligible.
+The overhead of baselines is significantly larger on Gemma 3 than that on the other models6,
+because Gemma 3 has a much larger vocabulary than the other two models, and the time complexity
+of the baselines is roughly linear to the vocabulary size. In contrast, the performance of PSC is
+stable across different models, because its time complexity is independent of the vocabulary size.
+Answer to RQ2: PSC significantly reduces the overhead of mask computation in GCD,
+achieving a speedup of up to 700x on complex programming language grammars and 30x on
+simpler JSON schemas compared to the best baseline.
+5In PSC, one can preload all the mask tensors on the GPU memory before decoding begins, eliminating the transfer overhead.
+However, the transfer overhead is usually too small to justify the extra GPU memory usage.
+6The performance of LLGuidance on JSON Schemas is roughly the same across different models, probably because the
+grammar is simple enough that the vocabulary size does not significantly affect the performance.
+, Vol. 1, No. 1, Article . Publication date: August 2026.
+
+===== PAGE 14 =====
+14
+Yongmin Li, Yihong Dong, Jia Li, and Ge Li
+Table 3. Average overhead (microseconds) of computing the mask per token in GCD tasks using different
+methods. The symbol X indicates the parser reports an error during mask calculation. Text in bold indicates
+the best performance, and text in underline indicates the second best performance.
+Model
+Method
+Grammar
+Java
+Go
+SQL
+JSON Schemas
+Llama 3
+|V| = 128256
+XGrammar
+309514.2
+281500.9
+324663.6
+26257.6
+Formatron
+393540.4
+X
+303974.1
+X
+GreatGramma
+21402.8
+27220.9
+20954.5
+8556.2
+LLGuidance
+1352.4
+X
+826.1
+72.7
+PSC (Ours)
+2.4
+2.5
+2.6
+2.3
+Qwen2.5
+|V| = 151665
+XGrammar
+302421.9
+278333.4
+299968.6
+29470.0
+Formatron
+378921.0
+X
+253311.9
+X
+GreatGramma
+24570.9
+27649.8
+24053.9
+11038.4
+LLGuidance
+1408.2
+X
+865.2
+72.1
+PSC (Ours)
+2.4
+2.5
+2.5
+2.2
+Gemma 3
+|V| = 262145
+XGrammar
+649321.1
+458952.0
+416625.0
+54164.4
+Formatron
+696144.6
+X
+444810.0
+X
+GreatGramma
+43218.6
+48354.0
+40026.9
+25717.3
+LLGuidance
+1802.6
+X
+1180.8
+72.1
+PSC (Ours)
+2.3
+2.5
+2.4
+2.3
+4.4
+RQ3: End-to-End Throughput
+Settings. In this experiment, we run the actual model inference using the vLLM library [28], and
+measure the throughput, i.e., the number of tokens processed per second, of the entire decoding
+process, considering both the time taken by mask computation and model inference. This metric
+reflects the overall efficiency of each method in practical usage. We only consider the accepted
+samples of each method. We compare PSC with the fastest baseline LLGuidance in the previous
+section, and also include the throughput when not using any constraint decoding method as a
+reference, under various batch sizes of 1, 2, 4, ..., 256.
+We use the smallest models in the three model series to highlight the overhead of constraint
+decoding. On these models, the model inference time is relatively small, making the overhead
+of constraint decoding more pronounced. Specifically, we use Llama 3 1B, Qwen 2.5 0.5B, and
+Gemma 3 270M. We also include Qwen 2.5 7B to see the effect of model size on throughput.
+Results. The end-to-end throughput results on all datasets are present in Figures 3.
+On all datasets, PSC consistently outperforms LLGuidance across all models and batch sizes, and is
+very close to the performance of unconstrained decoding. The difference is more pronounced on the
+programming languages, where more complex grammar leads to higher overhead of LLGuidance.
+As the model size increases, the difference in throughput becomes smaller, because the model
+inference time becomes more dominant. However, since smaller models are less capable, grammar-
+constrained decoding is probably more useful for smaller models to ensure the syntactic correctness.
+As the batch size increases, the difference in throughput becomes larger, because the average
+model inference time per token decreases with larger batch sizes, indicating that the overhead
+introduced by constraint decoding becomes more pronounced at larger batch sizes.
+, Vol. 1, No. 1, Article . Publication date: August 2026.
+
+===== PAGE 15 =====
+Efficient Grammar-Constrained Decoding via Parser Stack Classification
+15
+Answer to RQ3: PSC can deliver significantly higher end-to-end throughput than existing
+GCD methods across different models and batch sizes, and its throughput approaches that of
+unconstrained decoding, especially on smaller models and larger batch sizes.
+4.5
+RQ4: Downstream Performance of Grammar-Constrained Decoding
+In this section, we evaluate the performance of PSC on downstream tasks that benefit from grammar-
+constrained decoding. Note that, in principle, all GCD methods calculate the same valid token
+masks, so their performance on downstream tasks should be similar, and we should observe similar
+downstream performance improvements over unconstrained decoding. To verify this, we mainly
+replicate the downstream experiments from Syncode [40], comparing PSC with unconstrained
+decoding.
+Settings. We evaluate three downstream tasks: Go generation, schema-conformant JSON gen-
+eration, and text-to-SQL generation. For each task, we compare grammar-constrained decoding
+using PSC (GCD) with unconstrained decoding (Standard). We use the same models as in previous
+experiments: Llama 3.2 1B, Qwen2.5 0.5B and Gemma 3 270M, and use instruct-tuned versions of
+the models for tasks with chat-style instructions. For most tasks, we use the pass@𝑘metric [14]
+for evaluation. When generating outputs, we use greedy decoding for pass@1, and sampling
+(temperature 1.0, no top-𝑝or top-𝑘filtering) for pass@𝑘where 𝑘> 1.
+4.5.1
+Go Generation.
+Settings. We use three datasets to evaluate the Go generation performance using GCD with
+PSC: (1) the Go subset of Multilingual HumanEval [6, 14] dataset (160 samples); (2) the MBGP [6]
+Gemma 3 270M
+Qwen2.5 0.5B
+Llama 3.2 1B
+Qwen2.5 7B
+Java
+1
+2
+4
+8
+16
+32
+64 128 256
+Batch size
+300
+600
+1200
+2400
+4800
+9600
+19200
+38400
+76800
+Throughput (token / s)
+Upper bound (uncostrained)
+LLGuidance
+PSC
+1
+2
+4
+8
+16
+32
+64 128 256
+Batch size
+300
+600
+1200
+2400
+4800
+9600
+19200
+38400
+76800
+Throughput (token / s)
+Upper bound (uncostrained)
+LLGuidance
+PSC
+1
+2
+4
+8
+16
+32
+64 128 256
+Batch size
+300
+600
+1200
+2400
+4800
+9600
+19200
+38400
+76800
+Throughput (token / s)
+Upper bound (uncostrained)
+LLGuidance
+PSC
+1
+2
+4
+8
+16
+32
+64 128 256
+Batch size
+80
+160
+320
+640
+1280
+2560
+5120
+10240
+20480
+Throughput (token / s)
+Upper bound (uncostrained)
+LLGuidance
+PSC
+Go
+1
+2
+4
+8
+16
+32
+64 128 256
+Batch size
+400
+800
+1600
+3200
+6400
+12800
+25600
+51200
+102400
+Throughput (token / s)
+Upper bound (uncostrained)
+PSC
+1
+2
+4
+8
+16
+32
+64 128 256
+Batch size
+400
+800
+1600
+3200
+6400
+12800
+25600
+51200
+102400
+Throughput (token / s)
+Upper bound (uncostrained)
+PSC
+1
+2
+4
+8
+16
+32
+64 128 256
+Batch size
+300
+600
+1200
+2400
+4800
+9600
+19200
+38400
+76800
+Throughput (token / s)
+Upper bound (uncostrained)
+PSC
+1
+2
+4
+8
+16
+32
+64 128 256
+Batch size
+80
+160
+320
+640
+1280
+2560
+5120
+10240
+20480
+Throughput (token / s)
+Upper bound (uncostrained)
+PSC
+SQL
+1
+2
+4
+8
+16
+32
+64 128 256
+Batch size
+300
+600
+1200
+2400
+4800
+9600
+19200
+38400
+76800
+Throughput (token / s)
+Upper bound (uncostrained)
+LLGuidance
+PSC
+1
+2
+4
+8
+16
+32
+64 128 256
+Batch size
+300
+600
+1200
+2400
+4800
+9600
+19200
+38400
+76800
+Throughput (token / s)
+Upper bound (uncostrained)
+LLGuidance
+PSC
+1
+2
+4
+8
+16
+32
+64 128 256
+Batch size
+300
+600
+1200
+2400
+4800
+9600
+19200
+38400
+76800
+Throughput (token / s)
+Upper bound (uncostrained)
+LLGuidance
+PSC
+1
+2
+4
+8
+16
+32
+64 128 256
+Batch size
+80
+160
+320
+640
+1280
+2560
+5120
+10240
+20480
+Throughput (token / s)
+Upper bound (uncostrained)
+LLGuidance
+PSC
+JSON
+Schemas
+1
+2
+4
+8
+16
+32
+64 128 256
+Batch size
+400
+800
+1600
+3200
+6400
+12800
+25600
+51200
+102400
+Throughput (token / s)
+Upper bound (uncostrained)
+LLGuidance
+PSC
+1
+2
+4
+8
+16
+32
+64 128 256
+Batch size
+400
+800
+1600
+3200
+6400
+12800
+25600
+51200
+102400
+Throughput (token / s)
+Upper bound (uncostrained)
+LLGuidance
+PSC
+1
+2
+4
+8
+16
+32
+64 128 256
+Batch size
+300
+600
+1200
+2400
+4800
+9600
+19200
+38400
+76800
+Throughput (token / s)
+Upper bound (uncostrained)
+LLGuidance
+PSC
+1
+2
+4
+8
+16
+32
+64 128 256
+Batch size
+80
+160
+320
+640
+1280
+2560
+5120
+10240
+20480
+Throughput (token / s)
+Upper bound (uncostrained)
+LLGuidance
+PSC
+Fig. 3. End-to-end throughput (tokens per second) on the different dataset using different methods on
+different models with various batch sizes.
+, Vol. 1, No. 1, Article . Publication date: August 2026.
+
+===== PAGE 16 =====
+16
+Yongmin Li, Yihong Dong, Jia Li, and Ge Li
+Table 4. The pass@𝑘scores (%) of different methods on Multilingual HumanEval Go dataset, MBGP dataset
+and McEval Go dataset using grammar-constrained decoding and unconstrained decoding (Standard). For
+grammar-constrained decoding, we use PSC with the Go grammar to compute the valid token masks.
+Method
+Multilingual HumanEval Go
+MBGP
+McEval Go
+pass@𝑘
+pass@𝑘
+pass@𝑘
+1
+3
+5
+10
+20
+50
+1
+3
+5
+10
+20
+50
+1
+3
+5
+10
+20
+50
+⊲Llama 3.2 1B
+Standard 5.6 4.0 5.4
+7.4
+9.3 11.9 13.1 7.3 10.2 14.9 20.2 27.8
+6.0
+7.8 11.0 15.4 18.6 22.0
+GCD
+5.6 4.7 6.3
+8.6 10.6 13.1 13.2 7.5 10.5 15.5 21.3 29.9
+6.0
+8.0 11.3 16.3 20.9 26.0
+⊲Qwen2.5 0.5B
+Standard 8.8 5.4 7.2
+9.9 12.4 15.6 13.7 9.3 12.6 18.0 24.1 32.5 12.0 11.2 14.7 19.2 24.2 34.0
+GCD
+8.8 6.0 7.9 10.5 13.2 16.3 14.0 9.3 12.8 18.3 24.5 32.6 12.0 11.6 15.5 20.6 25.9 34.0
+⊲Gemma 3 270M
+Standard 0.6 0.8 1.0
+1.3
+1.8
+2.5
+1.9 0.8
+1.3
+2.2
+3.6
+6.1
+4.0
+0.6
+0.9
+1.6
+2.6
+4.0
+GCD
+0.6 1.0 1.3
+1.9
+2.9
+5.0
+2.0 0.8
+1.3
+2.3
+3.7
+6.2
+4.0
+1.2
+1.7
+2.6
+3.6
+6.0
+dataset (939 samples from the MBPP [7] dataset ported from Python to Go); (3) and the Go subset
+of McEval [12] dataset (50 questions in Go).
+Results. The results are presented in Table 4. For all the models tested, grammar-constrained
+decoding with PSC using the Go grammar outperforms unconstrained decoding (Standard) on
+all three datasets. This confirms that grammar-constrained decoding can effectively improve the
+performance of LLMs on Go generation tasks.
+4.5.2
+JSON Generation.
+Settings. We use the JSON-Mode-Eval [31] dataset, which contains 100 samples of natural lan-
+guage instructions, each paired with a JSON schema and the corresponding correct JSON output.
+We slightly modify the dataset for our experiments7. The exact schemas used in our experiments
+are provided in the open-sourced code. We compare one additional method: grammar-constrained
+decoding using PSC with grammars generated from the JSON schemas (GCD + Schema). The
+generated JSON is considered correct if and only if it can be converted to a JSON object that exactly
+matches the oracle answer. For the unconstrained decoding, we strip the code block markers, e.g.
+```json ... ```, before checking the validity of the generated JSON.
+Results. The results are presented in Table 5. For all the models tested, grammar-constrained
+decoding using PSC with the grammar of the JSON schema (GCD + Schema) significantly outper-
+forms grammar-constrained decoding with only the JSON grammar (GCD), which outperforms
+unconstrained decoding (Standard). The improvement is especially significant on Llama 3.2 1B and
+Gemma 3 270M, with up to 10 points and 27 points absolute improvement in pass@1, respectively.
+This confirms that grammar-constrained decoding can effectively improve the performance of
+LLMs on schema-conformant JSON generation tasks.
+7The oracle answer of sample 39 simply copies the schema (which is valid JSON but clearly not the intended output), so
+we exclude this sample from evaluation. Our script (obtained from MaskBench [3], as described in Section 4.1) used to
+generate grammars from JSON schemas fails to generate a valid grammar for certain schemas. To address this, we replace
+the schemas of sample 19, 24, 27, 33, 45 and 72 with the equivalent schemas supported by our grammar generation script;
+the schemas of sample 1, 15, 22, 90 and 97 cannot be converted to equivalent schemas supported by our grammar generation
+script, so we only enforce the JSON grammar on these samples.
+, Vol. 1, No. 1, Article . Publication date: August 2026.
+
+===== PAGE 17 =====
+Efficient Grammar-Constrained Decoding via Parser Stack Classification
+17
+Table 5. The results of different methods using grammar-constrained decoding and unconstrained decoding
+(Standard) on schema-conformant JSON generation of the JSON-Mode-Eval dataset and text-to-SQL genera-
+tion of the Spider dataset. For grammar-constrained decoding, we use PSC to compute the valid token masks.
+The GCD method uses only the JSON grammar (not specific to the schema) or the SQL grammar, while the
+GCD + Schema method uses the grammar generated from the JSON schema.
+Model
+Method
+JSON-Mode-Eval
+Spider
+pass@𝑘(%)
+Execution accuracy(%)
+1
+3
+5
+10
+20
+50 Easy Medium Hard Extra Hard Overall
+Llama 3.2 1B
+Standard
+55.6 53.9 60.0 67.1 73.5 80.8 35.9
+25.3
+14.9
+6.6
+23.1
+GCD
+56.6 55.9 61.9 68.1 73.7 80.8 38.7
+27.8
+14.9
+6.6
+24.9
+GCD + Schema 68.7 70.9 74.2 78.0 81.4 84.8
+-
+-
+-
+-
+-
+Qwen2.5 0.5B
+Standard
+64.7 66.3 69.7 73.1 75.9 80.8 31.0
+24.0
+13.2
+6.6
+21.1
+GCD
+64.7 67.0 70.8 74.8 77.8 81.8 31.0
+24.2
+13.2
+6.6
+21.2
+GCD + Schema 67.7 69.8 73.0 77.2 81.2 85.9
+-
+-
+-
+-
+-
+Gemma 3 270M
+Standard
+28.3 31.3 33.5 36.1 38.9 44.4
+0.4
+0.4
+0.0
+0.6
+0.4
+GCD
+29.3 33.2 35.6 38.6 41.4 45.5
+1.6
+1.3
+0.6
+1.8
+1.4
+GCD + Schema 56.6 62.1 64.2 66.2 67.6 68.7
+-
+-
+-
+-
+-
+4.5.3
+Text-to-SQL Generation.
+Settings. We use the development set of Spider [43] dataset, containing 1,034 text-to-SQL samples,
+and construct the same prompts as in Syncode [40]. During the experiments, we fix8 the SQL
+grammar used in Syncode [40]. The fixed grammar is provided in the open-sourced code. We use
+the standard execution accuracy (Exec Acc) [44] metric in this experiment, which uses greedy
+decoding to generate 1 SQL query for each sample.
+Results. The results are presented in Table 5. For all the models tested, grammar-constrained
+decoding with PSC using the SQL grammar outperforms unconstrained decoding (Standard). This
+confirms that grammar-constrained decoding can effectively improve the performance of LLMs on
+text-to-SQL generation tasks.
+Answer to RQ4: Grammar-constrained decoding using PSC effectively improves the down-
+stream task performance of LLMs on Go generation, schema-conformant JSON generation,
+and text-to-SQL generation tasks.
+5
+Discussion
+In this section, we mainly discuss the preprocessing overhead of PSC, and analyze the applicability
+of PSC in practical scenarios. We split the users of PSC into two types: preprocessing providers
+who perform the preprocessing, and users who use the preprocessing results to perform grammar-
+constrained decoding. The preprocessing providers can be the same as or different from the users.
+For example, the preprocessing providers can be the model developers who preprocess for common
+grammars and share the results with users, or they can be the users themselves who preprocess for
+their specific grammars.
+5.1
+Overhead for Preprocessing Providers
+8We found that the SQL grammar used in Syncode [40] cannot parse the NOT operator in the boolean expressions, making
+some valid SQL queries unparsable. We fixed this issue by adding the NOT operator to the grammar.
+, Vol. 1, No. 1, Article . Publication date: August 2026.
+
+===== PAGE 18 =====
+18
+Yongmin Li, Yihong Dong, Jia Li, and Ge Li
+Table 6. Preprocessing overhead and break-even point for preprocessing against LLGuidance of PSC on
+different grammars. The break-even point for preprocessing indicates the total time (in seconds) the user
+needs to use PSC to amortize the preprocessing time compared to using LLGuidance.
+Metrics
+Model
+Grammar
+Java
+Go
+SQL
+JSON Schemas
+Time Used in
+Preprocessing (seconds)
+Llama 3
+466.9 1171.7 4662.7
+28.3
+Qwen2.5
+464.5 1166.8 4770.0
+28.6
+Gemma 3
+472.1 1362.2 1367.4
+53.2
+Memory Usage during
+Preprocessing (GiB)
+Llama 3
+40.8
+87.7
+255.3
+3.04
+Qwen2.5
+40.4
+86.6
+254.2
+3.13
+Gemma 3
+36.0
+88.8
+188.7
+5.95
+Break-even Point
+(seconds)
+Llama 3 1B
+146.6
+-
+2826.2
+25.1
+Qwen2.5 0.5B
+101.5
+-
+2760.7
+20.1
+Gemma 3 270M 67.2
+-
+508.5
+40.0
+Total time
+Total tokens
+generated
+Unconstrained
+7524.7 tokens/s
+LLGuidance
+3077.0 tokens/s
+PSC
+6553.1 tokens/s
+preprocessing
+28.3 s
+break-even
+25.1 s
+164.2k
+tokens
+Fig. 4. The break-even point of PSC versus LLGuidance,
+based on data from Llama 3.2 1B on JSON Schemas.
+Different colors represent different methods. The break-
+even point is where the two lines intersect, indicating
+the total time users need to use PSC to amortize the
+preprocessing time compared to using LLGuidance for
+doing the preprocessing by themselves.
+The preprocessing overhead of PSC includes
+the time and memory footprint of preprocess-
+ing. The preprocessing here includes all the
+steps described in Algorithm 1, as well as the
+precomputation of all the possible token masks
+for the DFA states. The raw results of prepro-
+cessing overhead are presented in Table 6.
+5.1.1
+Raw Results of Preprocessing Overhead.
+Results on JSON schemas. The average pre-
+processing time is around half to one minute
+per schema, and the memory footprint is
+around 3 GiB for Llama 3 and Qwen2.5, and
+around 6 GiB for Gemma 3. This is quite practi-
+cally reasonable, allowing for quick adaptation
+to new schemas.
+Results on programming language. The pre-
+processing time ranges from around 8 minutes
+for Java to around 1.3 hours for SQL. The mem-
+ory footprint ranges from around 40 GiB for
+Java to around 250 GiB for SQL.
+While the preprocessing overhead for programming language grammars is higher than that for
+JSON schemas, it is still acceptable as it is only needed once per grammar and vocabulary pair.
+The grammars of programming languages are typically stable, and the vocabulary is commonly
+shared by the same series of models, so the preprocessing only needs to be done infrequently by
+the preprocessing providers who have the necessary resources and expertise. As a demonstration,
+we provide all the preprocessing results used in our experiments in our replication package.
+5.1.2
+Applicability Analysis for Decoding Users to Preprocess.
+, Vol. 1, No. 1, Article . Publication date: August 2026.
+
+===== PAGE 19 =====
+Efficient Grammar-Constrained Decoding via Parser Stack Classification
+19
+Table 7. Runtime overhead of PSC on different grammars.
+Metrics
+Model
+Grammar
+Java
+Go
+SQL
+JSON Schemas
+Runtime memory for
+DFA A
+Llama 3
+162.8 MiB 752.2 MiB
+3.42 GiB
+296.8 KiB
+Qwen2.5
+165.2 MiB 763.4 MiB
+3.37 GiB
+284.6 KiB
+Gemma 3 124.3 MiB 932.9 MiB 1020.4 MiB
+288.7 KiB
+Runtime memory for
+precomputed masks
+Llama 3
+227.3 MiB
+1.68 GiB
+2.82 GiB
+1.84 MiB
+Qwen2.5
+264.5 MiB
+1.98 GiB
+3.33 GiB
+2.02 MiB
+Gemma 3 457.4 MiB
+6.32 GiB
+2.78 GiB
+3.31 MiB
+Disk Space of
+Preprocessing Results
+Llama 3
+13.27 MiB 28.16 MiB 58.95 MiB
+0.54 MiB
+Qwen2.5
+12.70 MiB 28.37 MiB 57.60 MiB
+0.51 MiB
+Gemma 3 13.13 MiB 33.52 MiB 24.04 MiB
+0.76 MiB
+Applicability analysis: preprocessing time. Sometimes the users of PSC may also need to perform
+the preprocessing themselves, for example when they want to use PSC for self-defined JSON schema.
+In this case, they should consider how much time they can save during decoding by using PSC
+compared to using other GCD methods, and compare it with the preprocessing time to decide
+whether to use PSC. We provide a break-even point analysis to help users make this decision,
+i.e., the total time users need to use PSC for decoding to make it more time-efficient than using
+LLGuidance, our fastest baseline in the experiments.
+The results are presented in Table 6. For JSON schemas, the preprocessing time is generally small,
+and the break-even point is roughly half minutes of decoding time. Therefore, doing preprocessing
+with PSC by users for new JSON schemas is generally recommended. For programmaing languages,
+though, the perprocessing time is higher (several minutes to more than an hour), so users may
+consider using the preprocessing results provided by the preprocessing providers, e.g. model
+developers or other users, to avoid the preprocessing overhead.
+Applicability analysis: memory usage. The memory usage during preprocessing is generally
+higher than that during decoding. But preprocessing can be performed on cloud instances with
+large memory capacity if needed. For example, AWS offers instances with 500 GiB of memory for
+on-demand usage at around 2.5 USD per hour. Also, the memory usage can potentially be reduced
+by optimizing the implementation, such as using more efficient data structures or algorithms.
+5.2
+Overhead for Decoding Users
+PSC has a runtime overhead for maintaining the parser stack and the token masks, as described in
+Section 3. The user also saves the preprocessing results on disk, which is also part of the overhead for
+users.9 Table 7 summarizes the runtime overhead of PSC for different grammars and models. Overall,
+the disk usage is generally small, and the runtime memory overhead is generally managable for
+practical applications. The runtime time overhead, as shown in Section 4.3, is generally negligible,
+making PSC a practical choice for grammar-constrained decoding in real-world applications.
+Takeaway: PSC preprocessing is affordable for preprocessing providers. Decoding users
+should consider the break-even point analysis when performing the preprocessing themselves.
+9The preprocessing results are compressed and loaded as needed using zstandard [15].
+, Vol. 1, No. 1, Article . Publication date: August 2026.
+
+===== PAGE 20 =====
+20
+Yongmin Li, Yihong Dong, Jia Li, and Ge Li
+5.3
+Threats to Validity
+In this section, we discuss potential threats to the validity of our experimental results.
+(1) Generality of grammars. PSC can only handle deterministic context-free grammars (DCFGs),
+and our theoretical analysis is based on DCFGs, while some existing methods can handle more
+general grammar formats, such as non-deterministic context-free grammars (CFGs). In our experi-
+ments, we only consider DCFGs for fair comparison. However, many practical grammars, such as
+most programming languages and JSON schemas, can be expressed as DCFGs.
+(2) Generality of tokenization. Different models may have different vocabulary that affect
+the performance of PSC and baselines. We mitigate this threat by using multiple LLM series with
+different vocabulary sizes and tokenization schemes. In addition, the online time complexity of
+PSC is independent of the vocabulary size, so it only affects the preprocessing overhead.
+(3) Generality of model sizes. Different-sized models may have different decoding throughputs
+that affect the relative performance of PSC and baselines. Generally, larger models have lower
+decoding throughput due to their increased computational requirements, making the through-
+put differences less significant. We try to mitigate this threat by evaluating the throughputs on
+Qwen2.5 7B in Section 4.4 in addition to the smaller models used in other experiments.
+(4) LLM randomness. The evaluation results in RQ4 might be effected by the randomness of
+LLMs. We mitigate this threat by using deterministic greedy decoding in pass@1, and using 50
+samples per question to calculate pass@𝑘for 𝑘> 1 to reduce the variance. When comparing PSC
+with unconstrained decoding, we use the same decoding settings for both methods with the same
+default prompts, so the relative improvement should not be significantly affected by randomness.
+(5) Data leakage. The evaluation results in RQ4 might be effected by data leakage in the
+training data of the LLMs. We try to mitigate the threat of data leakage by only comparing PSC
+with unconstrained decoding on the same model with the same decoding settings, so the relative
+improvement should not be significantly affected by data leakage.
+6
+Conclusion
+In this paper, we present PSC, a novel approach for grammar-constrained decoding. By constructing
+the exact requirements on the parser stack for each vocabulary token, PSC can determine the valid
+tokens at each decoding step by a single pass through the parser stack. Our experimental results
+demonstrate that PSC achieves significant speedup over existing methods, and the end-to-end
+throughput of PSC approaches that of unconstrained decoding. This makes PSC a practical choice
+for real-world applications that require grammar-constrained decoding.
+One limitation of PSC is that it requires preprocessing to construct the DFA for the given
+grammar and vocabulary. We provide a break-even point analysis to help users decide whether
+to do preprocessing by themselves, which depends on the expected decoding usage. In future, we
+plan to explore other types of grammars and constraints that can be efficiently handled by PSC,
+and other optimizations to further improve its efficiency and scalability.
+Acknowledgments
+This research is supported by the National Key R&D Program under Grant No. 2023YFB4503801,
+the National Natural Science Foundation of China under Grant No. 62192733, 62192730, 62192731,
+the Beijing Major Science and Technology Project under Contract no. Z251100008425005.
+This research is also supported by Tsinghua University - Keystone Electrical (Zhejiang) Co., Ltd.
+Joint Research Center for Embodied Multimodal Artificial Intelligence (JCEMAI) and the Beijing
+Natural Science Foundation under Grant No. 4264107.
+, Vol. 1, No. 1, Article . Publication date: August 2026.
+
+===== PAGE 21 =====
+Efficient Grammar-Constrained Decoding via Parser Stack Classification
+21
+Data Availability
+We open-source the code to facilitate reproducibility of our results at https://github.com/Gompyn/
+PSC. It includes the implementation of PSC, the datasets used in the experiments, the scripts to run
+the experiments and generate the results in the paper, and the preprocessing results built from the
+grammars used in our experiments.
+References
+[1] Lark - Parsing Library & Toolkit 2025. Lark - a Parsing Toolkit for Python. Lark - Parsing Library & Toolkit. https:
+//github.com/lark-parser/lark
+[2] ggml.ai [n. d.]. Llama.Cpp: LLM Inference in C/C++. ggml.ai. https://github.com/ggml-org/llama.cpp
+[3] [n. d.]. MaskBench. https://github.com/guidance-ai/jsonschemabench/tree/main/maskbench
+[4] Alfred V. Aho and Jeffrey D. Ullman. 1972. The Theory of Parsing, Translation, and Compiling. Prentice-Hall, Inc.
+[5] Anysphere Inc. [n. d.]. Cursor - The AI Code Editor. https://cursor.com/en
+[6] Ben Athiwaratkun, Sanjay Krishna Gouda, Zijian Wang, Xiaopeng Li, Yuchen Tian, Ming Tan, Wasi Uddin Ahmad,
+Shiqi Wang, Qing Sun, Mingyue Shang, Sujan Kumar Gonugondla, Hantian Ding, Varun Kumar, Nathan Fulton, Arash
+Farahani, Siddhartha Jain, Robert Giaquinto, Haifeng Qian, Murali Krishna Ramanathan, Ramesh Nallapati, Baishakhi
+Ray, Parminder Bhatia, Sudipta Sengupta, Dan Roth, and Bing Xiang. 2023. Multi-Lingual Evaluation of Code Generation
+Models. arXiv:2210.14868 [cs] doi:10.48550/arXiv.2210.14868
+[7] Jacob Austin, Augustus Odena, Maxwell Nye, Maarten Bosma, Henryk Michalewski, David Dohan, Ellen Jiang,
+Carrie Cai, Michael Terry, Quoc Le, and Charles Sutton. 2021. Program Synthesis with Large Language Models.
+arXiv:2108.07732 [cs.PL] doi:10.48550/arXiv.2108.07732
+[8] Jinze Bai, Shuai Bai, Yunfei Chu, Zeyu Cui, Kai Dang, Xiaodong Deng, Yang Fan, Wenbin Ge, Yu Han, Fei Huang,
+Binyuan Hui, Luo Ji, Mei Li, Junyang Lin, Runji Lin, Dayiheng Liu, Gao Liu, Chengqiang Lu, Keming Lu, Jianxin Ma,
+Rui Men, Xingzhang Ren, Xuancheng Ren, Chuanqi Tan, Sinan Tan, Jianhong Tu, Peng Wang, Shijie Wang, Wei Wang,
+Shengguang Wu, Benfeng Xu, Jin Xu, An Yang, Hao Yang, Jian Yang, Shusheng Yang, Yang Yao, Bowen Yu, Hongyi
+Yuan, Zheng Yuan, Jianwei Zhang, Xingxuan Zhang, Yichang Zhang, Zhenru Zhang, Chang Zhou, Jingren Zhou,
+Xiaohuan Zhou, and Tianhang Zhu. 2023. Qwen Technical Report. arXiv:2309.16609 [cs] doi:10.48550/arXiv.2309.16609
+[9] Luca Beurer-Kellner, Marc Fischer, and Martin Vechev. 2024. Guiding LLMs the Right Way: Fast, Non-Invasive
+Constrained Generation. In Proceedings of the 41st International Conference on Machine Learning (Vienna, Austria, 2024)
+(ICML’24). JMLR.org, Article 146.
+[10] Janusz A. Brzozowski. 1964. Derivatives of Regular Expressions. J. ACM 11, 4 (Oct. 1964), 481–494. doi:10.1145/321239.
+321249
+[11] Didier Caucal and Roland Monfort. 1991. On the Transition Graphs of Automata and Grammars. In Graph-Theoretic
+Concepts in Computer Science (Berlin, Heidelberg, 1991), Rolf H. Möhring (Ed.). Springer, 311–337. doi:10.1007/3-540-
+53832-1_51
+[12] Linzheng Chai, Shukai Liu, Jian Yang, Yuwei Yin, JinKe, given-i=JIAHENG family=LIU, given=JIAHENG, Tao Sun, Ge
+Zhang, Changyu Ren, Hongcheng Guo, Zekun Wang, Boyang Wang, Xianjie Wu, Bing Wang, Tongliang Li, Liqun Yang,
+Sufeng Duan, Zhaoxiang Zhang, and Zhoujun Li. 2025. McEval: Massively Multilingual Code Evaluation. In International
+Conference on Learning Representations (2025), Y. Yue, A. Garg, N. Peng, F. Sha, and R. Yu (Eds.), Vol. 2025. 87704–87730.
+https://proceedings.iclr.cc/paper_files/paper/2025/file/dad66bb085bab14fbca07cfa4271f00b-Paper-Conference.pdf
+[13] Junyi Chen, Shihao Bai, Zaijun Wang, Siyu Wu, Chuheng Du, Hailong Yang, Ruihao Gong, Shengzhong Liu, Fan Wu,
+and Guihai Chen. 2025. Pre^3: Enabling Deterministic Pushdown Automata for Faster Structured LLM Generation.
+In Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)
+(Vienna, Austria, 2025-07), Wanxiang Che, Joyce Nabende, Ekaterina Shutova, and Mohammad Taher Pilehvar (Eds.).
+Association for Computational Linguistics, 11253–11267. doi:10.18653/v1/2025.acl-long.551
+[14] Mark Chen, Jerry Tworek, Heewoo Jun, Qiming Yuan, Henrique Ponde de Oliveira Pinto, Jared Kaplan, Harri Edwards,
+Yuri Burda, Nicholas Joseph, Greg Brockman, Alex Ray, Raul Puri, Gretchen Krueger, Michael Petrov, Heidy Khlaaf,
+Girish Sastry, Pamela Mishkin, Brooke Chan, Scott Gray, Nick Ryder, Mikhail Pavlov, Alethea Power, Lukasz Kaiser,
+Mohammad Bavarian, Clemens Winter, Philippe Tillet, Felipe Petroski Such, Dave Cummings, Matthias Plappert,
+Fotios Chantzis, Elizabeth Barnes, Ariel Herbert-Voss, William Hebgen Guss, Alex Nichol, Alex Paino, Nikolas Tezak,
+Jie Tang, Igor Babuschkin, Suchir Balaji, Shantanu Jain, William Saunders, Christopher Hesse, Andrew N. Carr, Jan
+Leike, Josh Achiam, Vedant Misra, Evan Morikawa, Alec Radford, Matthew Knight, Miles Brundage, Mira Murati, Katie
+Mayer, Peter Welinder, Bob McGrew, Dario Amodei, Sam McCandlish, Ilya Sutskever, and Wojciech Zaremba. 2021.
+Evaluating Large Language Models Trained on Code. arXiv:2107.03374 [cs] doi:10.48550/arXiv.2107.03374
+, Vol. 1, No. 1, Article . Publication date: August 2026.
+
+===== PAGE 22 =====
+22
+Yongmin Li, Yihong Dong, Jia Li, and Ge Li
+[15] Yann Collet and Murray Kucherawy. 2021. Zstandard Compression and the ’application/zstd’ Media Type. RFC 8878.
+doi:10.17487/RFC8878
+[16] Yixin Dong, Charlie F. Ruan, Yaxing Cai, Ziyi Xu, Yilong Zhao, Ruihang Lai, and Tianqi Chen. 2025. XGrammar:
+Flexible and Efficient Structured Generation Engine for Large Language Models. In Eighth Conference on Machine
+Learning and Systems (2025). https://openreview.net/forum?id=rjQfX0YgDl
+[17] Jay Earley. 1970. An Efficient Context-Free Parsing Algorithm. (1970). doi:10.1145/362007.362035
+[18] Philip Gage. 1994. A New Algorithm for Data Compression. 12, 2 (1994), 23–38.
+[19] Gemma Team, Aishwarya Kamath, Johan Ferret, Shreya Pathak, Nino Vieillard, Ramona Merhej, Sarah Perrin, Tatiana
+Matejovicova, Alexandre Ramé, Morgane Rivière, Louis Rouillard, Thomas Mesnard, Geoffrey Cideron, Jean-bastien
+Grill, Sabela Ramos, Edouard Yvinec, Michelle Casbon, Etienne Pot, Ivo Penchev, Gaël Liu, Francesco Visin, Kathleen
+Kenealy, Lucas Beyer, Xiaohai Zhai, Anton Tsitsulin, Robert Busa-Fekete, Alex Feng, Noveen Sachdeva, Benjamin
+Coleman, Yi Gao, Basil Mustafa, Iain Barr, Emilio Parisotto, David Tian, Matan Eyal, Colin Cherry, Jan-Thorsten
+Peter, Danila Sinopalnikov, Surya Bhupatiraju, Rishabh Agarwal, Mehran Kazemi, Dan Malkin, Ravin Kumar, David
+Vilar, Idan Brusilovsky, Jiaming Luo, Andreas Steiner, Abe Friesen, Abhanshu Sharma, Abheesht Sharma, Adi Mayrav
+Gilady, Adrian Goedeckemeyer, Alaa Saade, Alex Feng, Alexander Kolesnikov, Alexei Bendebury, Alvin Abdagic, Amit
+Vadi, András György, André Susano Pinto, Anil Das, Ankur Bapna, Antoine Miech, Antoine Yang, Antonia Paterson,
+Ashish Shenoy, Ayan Chakrabarti, Bilal Piot, Bo Wu, Bobak Shahriari, Bryce Petrini, Charlie Chen, Charline Le Lan,
+Christopher A. Choquette-Choo, C. J. Carey, Cormac Brick, Daniel Deutsch, Danielle Eisenbud, Dee Cattle, Derek
+Cheng, Dimitris Paparas, Divyashree Shivakumar Sreepathihalli, Doug Reid, Dustin Tran, Dustin Zelle, Eric Noland,
+Erwin Huizenga, Eugene Kharitonov, Frederick Liu, Gagik Amirkhanyan, Glenn Cameron, Hadi Hashemi, Hanna
+Klimczak-Plucińska, Harman Singh, Harsh Mehta, Harshal Tushar Lehri, Hussein Hazimeh, Ian Ballantyne, Idan
+Szpektor, Ivan Nardini, Jean Pouget-Abadie, Jetha Chan, Joe Stanton, John Wieting, Jonathan Lai, Jordi Orbay, Joseph
+Fernandez, Josh Newlan, Ju-yeong Ji, Jyotinder Singh, Kat Black, Kathy Yu, Kevin Hui, Kiran Vodrahalli, Klaus Greff,
+Linhai Qiu, Marcella Valentine, Marina Coelho, Marvin Ritter, Matt Hoffman, Matthew Watson, Mayank Chaturvedi,
+Michael Moynihan, Min Ma, Nabila Babar, Natasha Noy, Nathan Byrd, Nick Roy, Nikola Momchev, Nilay Chauhan,
+Noveen Sachdeva, Oskar Bunyan, Pankil Botarda, Paul Caron, Paul Kishan Rubenstein, Phil Culliton, Philipp Schmid,
+Pier Giuseppe Sessa, Pingmei Xu, Piotr Stanczyk, Pouya Tafti, Rakesh Shivanna, Renjie Wu, Renke Pan, Reza Rokni,
+Rob Willoughby, Rohith Vallu, Ryan Mullins, Sammy Jerome, Sara Smoot, Sertan Girgin, Shariq Iqbal, Shashir Reddy,
+Shruti Sheth, Siim Põder, Sijal Bhatnagar, Sindhu Raghuram Panyam, Sivan Eiger, Susan Zhang, Tianqi Liu, Trevor
+Yacovone, Tyler Liechty, Uday Kalra, Utku Evci, Vedant Misra, Vincent Roseberry, Vlad Feinberg, Vlad Kolesnikov,
+Woohyun Han, Woosuk Kwon, Xi Chen, Yinlam Chow, Yuvein Zhu, Zichuan Wei, Zoltan Egyed, Victor Cotruta, Minh
+Giang, Phoebe Kirk, Anand Rao, Kat Black, Nabila Babar, Jessica Lo, Erica Moreira, Luiz Gustavo Martins, Omar
+Sanseviero, Lucas Gonzalez, Zach Gleicher, Tris Warkentin, Vahab Mirrokni, Evan Senter, Eli Collins, Joelle Barral,
+Zoubin Ghahramani, Raia Hadsell, Yossi Matias, D. Sculley, Slav Petrov, Noah Fiedel, Noam Shazeer, Oriol Vinyals,
+Jeff Dean, Demis Hassabis, Koray Kavukcuoglu, Clement Farabet, Elena Buchatskaya, Jean-Baptiste Alayrac, Rohan
+Anil, Dmitry, Lepikhin, Sebastian Borgeaud, Olivier Bachem, Armand Joulin, Alek Andreev, Cassidy Hardin, Robert
+Dadashi, and Léonard Hussenot. 2025. Gemma 3 Technical Report. arXiv:2503.19786 [cs] doi:10.48550/arXiv.2503.19786
+[20] Saibo Geng, Hudson Cooper, Michał Moskal, Samuel Jenkins, Julian Berman, Nathan Ranchin, Robert West, Eric
+Horvitz, and Harsha Nori. 2025. JSONSchemaBench: A Rigorous Benchmark of Structured Outputs for Language Models.
+arXiv:2501.10868 [cs] doi:10.48550/arXiv.2501.10868
+[21] Saibo Geng, Martin Josifoski, Maxime Peyrard, and Robert West. 2023. Grammar-Constrained Decoding for Structured
+NLP Tasks without Finetuning. In Proceedings of the 2023 Conference on Empirical Methods in Natural Language
+Processing (Singapore, 2023-12), Houda Bouamor, Juan Pino, and Kalika Bali (Eds.). Association for Computational
+Linguistics, 10932–10952. doi:10.18653/v1/2023.emnlp-main.674
+[22] GitHub. 2021. GitHub Copilot · Your AI Pair Programmer. https://github.com/features/copilot
+[23] Aaron Grattafiori, Abhimanyu Dubey, Abhinav Jauhri, Abhinav Pandey, Abhishek Kadian, Ahmad Al-Dahle, Aiesha
+Letman, Akhil Mathur, Alan Schelten, Alex Vaughan, Amy Yang, Angela Fan, Anirudh Goyal, Anthony Hartshorn, Aobo
+Yang, Archi Mitra, Archie Sravankumar, Artem Korenev, Arthur Hinsvark, Arun Rao, Aston Zhang, Aurelien Rodriguez,
+Austen Gregerson, Ava Spataru, Baptiste Roziere, Bethany Biron, Binh Tang, Bobbie Chern, Charlotte Caucheteux,
+Chaya Nayak, Chloe Bi, Chris Marra, Chris McConnell, Christian Keller, Christophe Touret, Chunyang Wu, Corinne
+Wong, Cristian Canton Ferrer, Cyrus Nikolaidis, Damien Allonsius, Daniel Song, Danielle Pintz, Danny Livshits, Danny
+Wyatt, David Esiobu, Dhruv Choudhary, Dhruv Mahajan, Diego Garcia-Olano, Diego Perino, Dieuwke Hupkes, Egor
+Lakomkin, Ehab AlBadawy, Elina Lobanova, Emily Dinan, Eric Michael Smith, Filip Radenovic, Francisco Guzmán,
+Frank Zhang, Gabriel Synnaeve, Gabrielle Lee, Georgia Lewis Anderson, Govind Thattai, Graeme Nail, Gregoire Mialon,
+Guan Pang, Guillem Cucurell, Hailey Nguyen, Hannah Korevaar, Hu Xu, Hugo Touvron, Iliyan Zarov, Imanol Arrieta
+Ibarra, Isabel Kloumann, Ishan Misra, Ivan Evtimov, Jack Zhang, Jade Copet, Jaewon Lee, Jan Geffert, Jana Vranes,
+Jason Park, Jay Mahadeokar, Jeet Shah, prefix=van der useprefix=false family=Linde, given=Jelmer, Jennifer Billock,
+, Vol. 1, No. 1, Article . Publication date: August 2026.
+
+===== PAGE 23 =====
+Efficient Grammar-Constrained Decoding via Parser Stack Classification
+23
+Jenny Hong, Jenya Lee, Jeremy Fu, Jianfeng Chi, Jianyu Huang, Jiawen Liu, Jie Wang, Jiecao Yu, Joanna Bitton, Joe
+Spisak, Jongsoo Park, Joseph Rocca, Joshua Johnstun, Joshua Saxe, Junteng Jia, Kalyan Vasuden Alwala, Karthik Prasad,
+Kartikeya Upasani, Kate Plawiak, Ke Li, Kenneth Heafield, Kevin Stone, Khalid El-Arini, Krithika Iyer, Kshitiz Malik,
+Kuenley Chiu, Kunal Bhalla, Kushal Lakhotia, Lauren Rantala-Yeary, prefix=van der useprefix=false family=Maaten,
+given=Laurens, Lawrence Chen, Liang Tan, Liz Jenkins, Louis Martin, Lovish Madaan, Lubo Malo, Lukas Blecher,
+Lukas Landzaat, prefix=de useprefix=false family=Oliveira, given=Luke, Madeline Muzzi, Mahesh Pasupuleti, Mannat
+Singh, Manohar Paluri, Marcin Kardas, Maria Tsimpoukelli, Mathew Oldham, Mathieu Rita, Maya Pavlova, Melanie
+Kambadur, Mike Lewis, Min Si, Mitesh Kumar Singh, Mona Hassan, Naman Goyal, Narjes Torabi, Nikolay Bashlykov,
+Nikolay Bogoychev, Niladri Chatterji, Ning Zhang, Olivier Duchenne, Onur Çelebi, Patrick Alrassy, Pengchuan Zhang,
+Pengwei Li, Petar Vasic, Peter Weng, Prajjwal Bhargava, Pratik Dubal, Praveen Krishnan, Punit Singh Koura, Puxin
+Xu, Qing He, Qingxiao Dong, Ragavan Srinivasan, Raj Ganapathy, Ramon Calderer, Ricardo Silveira Cabral, Robert
+Stojnic, Roberta Raileanu, Rohan Maheswari, Rohit Girdhar, Rohit Patel, Romain Sauvestre, Ronnie Polidoro, Roshan
+Sumbaly, Ross Taylor, Ruan Silva, Rui Hou, Rui Wang, Saghar Hosseini, Sahana Chennabasappa, Sanjay Singh, Sean
+Bell, Seohyun Sonia Kim, Sergey Edunov, Shaoliang Nie, Sharan Narang, Sharath Raparthy, Sheng Shen, Shengye Wan,
+Shruti Bhosale, Shun Zhang, Simon Vandenhende, Soumya Batra, Spencer Whitman, Sten Sootla, Stephane Collot,
+Suchin Gururangan, Sydney Borodinsky, Tamar Herman, Tara Fowler, Tarek Sheasha, Thomas Georgiou, Thomas
+Scialom, Tobias Speckbacher, Todor Mihaylov, Tong Xiao, Ujjwal Karn, Vedanuj Goswami, Vibhor Gupta, Vignesh
+Ramanathan, Viktor Kerkez, Vincent Gonguet, Virginie Do, Vish Vogeti, Vítor Albiero, Vladan Petrovic, Weiwei Chu,
+Wenhan Xiong, Wenyin Fu, Whitney Meers, Xavier Martinet, Xiaodong Wang, Xiaofang Wang, Xiaoqing Ellen Tan,
+Xide Xia, Xinfeng Xie, Xuchao Jia, Xuewei Wang, Yaelle Goldschlag, Yashesh Gaur, Yasmine Babaei, Yi Wen, Yiwen
+Song, Yuchen Zhang, Yue Li, Yuning Mao, Zacharie Delpierre Coudert, Zheng Yan, Zhengxing Chen, Zoe Papakipos,
+Aaditya Singh, Aayushi Srivastava, Abha Jain, Adam Kelsey, Adam Shajnfeld, Adithya Gangidi, Adolfo Victoria, Ahuva
+Goldstand, Ajay Menon, Ajay Sharma, Alex Boesenberg, Alexei Baevski, Allie Feinstein, Amanda Kallet, Amit Sangani,
+Amos Teo, Anam Yunus, Andrei Lupu, Andres Alvarado, Andrew Caples, Andrew Gu, Andrew Ho, Andrew Poulton,
+Andrew Ryan, Ankit Ramchandani, Annie Dong, Annie Franco, Anuj Goyal, Aparajita Saraf, Arkabandhu Chowdhury,
+Ashley Gabriel, Ashwin Bharambe, Assaf Eisenman, Azadeh Yazdan, Beau James, Ben Maurer, Benjamin Leonhardi,
+Bernie Huang, Beth Loyd, Beto De Paola, Bhargavi Paranjape, Bing Liu, Bo Wu, Boyu Ni, Braden Hancock, Bram Wasti,
+Brandon Spence, Brani Stojkovic, Brian Gamido, Britt Montalvo, Carl Parker, Carly Burton, Catalina Mejia, Ce Liu,
+Changhan Wang, Changkyu Kim, Chao Zhou, Chester Hu, Ching-Hsiang Chu, Chris Cai, Chris Tindal, Christoph
+Feichtenhofer, Cynthia Gao, Damon Civin, Dana Beaty, Daniel Kreymer, Daniel Li, David Adkins, David Xu, Davide
+Testuggine, Delia David, Devi Parikh, Diana Liskovich, Didem Foss, Dingkang Wang, Duc Le, Dustin Holland, Edward
+Dowling, Eissa Jamil, Elaine Montgomery, Eleonora Presani, Emily Hahn, Emily Wood, Eric-Tuan Le, Erik Brinkman,
+Esteban Arcaute, Evan Dunbar, Evan Smothers, Fei Sun, Felix Kreuk, Feng Tian, Filippos Kokkinos, Firat Ozgenel,
+Francesco Caggioni, Frank Kanayet, Frank Seide, Gabriela Medina Florez, Gabriella Schwarz, Gada Badeer, Georgia
+Swee, Gil Halpern, Grant Herman, Grigory Sizov, Guangyi, Zhang, Guna Lakshminarayanan, Hakan Inan, Hamid
+Shojanazeri, Han Zou, Hannah Wang, Hanwen Zha, Haroun Habeeb, Harrison Rudolph, Helen Suk, Henry Aspegren,
+Hunter Goldman, Hongyuan Zhan, Ibrahim Damlaj, Igor Molybog, Igor Tufanov, Ilias Leontiadis, Irina-Elena Veliche,
+Itai Gat, Jake Weissman, James Geboski, James Kohli, Janice Lam, Japhet Asher, Jean-Baptiste Gaya, Jeff Marcus,
+Jeff Tang, Jennifer Chan, Jenny Zhen, Jeremy Reizenstein, Jeremy Teboul, Jessica Zhong, Jian Jin, Jingyi Yang, Joe
+Cummings, Jon Carvill, Jon Shepard, Jonathan McPhie, Jonathan Torres, Josh Ginsburg, Junjie Wang, Kai Wu, Kam Hou
+U, Karan Saxena, Kartikay Khandelwal, Katayoun Zand, Kathy Matosich, Kaushik Veeraraghavan, Kelly Michelena,
+Keqian Li, Kiran Jagadeesh, Kun Huang, Kunal Chawla, Kyle Huang, Lailin Chen, Lakshya Garg, Lavender A, Leandro
+Silva, Lee Bell, Lei Zhang, Liangpeng Guo, Licheng Yu, Liron Moshkovich, Luca Wehrstedt, Madian Khabsa, Manav
+Avalani, Manish Bhatt, Martynas Mankus, Matan Hasson, Matthew Lennie, Matthias Reso, Maxim Groshev, Maxim
+Naumov, Maya Lathi, Meghan Keneally, Miao Liu, Michael L. Seltzer, Michal Valko, Michelle Restrepo, Mihir Patel, Mik
+Vyatskov, Mikayel Samvelyan, Mike Clark, Mike Macey, Mike Wang, Miquel Jubert Hermoso, Mo Metanat, Mohammad
+Rastegari, Munish Bansal, Nandhini Santhanam, Natascha Parks, Natasha White, Navyata Bawa, Nayan Singhal, Nick
+Egebo, Nicolas Usunier, Nikhil Mehta, Nikolay Pavlovich Laptev, Ning Dong, Norman Cheng, Oleg Chernoguz, Olivia
+Hart, Omkar Salpekar, Ozlem Kalinli, Parkin Kent, Parth Parekh, Paul Saab, Pavan Balaji, Pedro Rittner, Philip Bontrager,
+Pierre Roux, Piotr Dollar, Polina Zvyagina, Prashant Ratanchandani, Pritish Yuvraj, Qian Liang, Rachad Alao, Rachel
+Rodriguez, Rafi Ayub, Raghotham Murthy, Raghu Nayani, Rahul Mitra, Rangaprabhu Parthasarathy, Raymond Li,
+Rebekkah Hogan, Robin Battey, Rocky Wang, Russ Howes, Ruty Rinott, Sachin Mehta, Sachin Siby, Sai Jayesh Bondu,
+Samyak Datta, Sara Chugh, Sara Hunt, Sargun Dhillon, Sasha Sidorov, Satadru Pan, Saurabh Mahajan, Saurabh Verma,
+Seiji Yamamoto, Sharadh Ramaswamy, Shaun Lindsay, Shaun Lindsay, Sheng Feng, Shenghao Lin, Shengxin Cindy
+Zha, Shishir Patil, Shiva Shankar, Shuqiang Zhang, Shuqiang Zhang, Sinong Wang, Sneha Agarwal, Soji Sajuyigbe,
+Soumith Chintala, Stephanie Max, Stephen Chen, Steve Kehoe, Steve Satterfield, Sudarshan Govindaprasad, Sumit
+Gupta, Summer Deng, Sungmin Cho, Sunny Virk, Suraj Subramanian, Sy Choudhury, Sydney Goldman, Tal Remez,
+, Vol. 1, No. 1, Article . Publication date: August 2026.
+
+===== PAGE 24 =====
+24
+Yongmin Li, Yihong Dong, Jia Li, and Ge Li
+Tamar Glaser, Tamara Best, Thilo Koehler, Thomas Robinson, Tianhe Li, Tianjun Zhang, Tim Matthews, Timothy
+Chou, Tzook Shaked, Varun Vontimitta, Victoria Ajayi, Victoria Montanez, Vijai Mohan, Vinay Satish Kumar, Vishal
+Mangla, Vlad Ionescu, Vlad Poenaru, Vlad Tiberiu Mihailescu, Vladimir Ivanov, Wei Li, Wenchen Wang, Wenwen Jiang,
+Wes Bouaziz, Will Constable, Xiaocheng Tang, Xiaojian Wu, Xiaolan Wang, Xilun Wu, Xinbo Gao, Yaniv Kleinman,
+Yanjun Chen, Ye Hu, Ye Jia, Ye Qi, Yenda Li, Yilin Zhang, Ying Zhang, Yossi Adi, Youngjin Nam, Yu, Wang, Yu Zhao,
+Yuchen Hao, Yundi Qian, Yunlu Li, Yuzi He, Zach Rait, Zachary DeVito, Zef Rosnbrick, Zhaoduo Wen, Zhenyu Yang,
+Zhiwei Zhao, and Zhiyu Ma. 2024. The Llama 3 Herd of Models. arXiv:2407.21783 [cs] doi:10.48550/arXiv.2407.21783
+[24] John E. Hopcroft and Jeffrey D. Ullman. 1979. Introduction to Automata Theory, Languages, and Computation. Addison-
+Wesley.
+[25] Donald E. Knuth. 1965. On the Translation of Languages from Left to Right. 8, 6 (1965), 607–639. doi:10.1016/S0019-
+9958(65)90426-2
+[26] Denis Kocetkov, Raymond Li, Loubna Ben Allal, Jia Li, Chenghao Mou, Yacine Jernite, Margaret Mitchell, Car-
+los Muñoz Ferrandis, Sean Hughes, Thomas Wolf, Dzmitry Bahdanau, Leandro Von Werra, and prefix=de usepre-
+fix=false family=Vries, given=Harm. 2022. The Stack: 3 TB of Permissively Licensed Source Code. (2022).
+https:
+//openreview.net/forum?id=pxpbTdUEpD
+[27] Terry Koo, Frederick Liu, and Luheng He. 2024. Automata-Based Constraints for Language Model Decoding. In First
+Conference on Language Modeling (2024). https://openreview.net/forum?id=BDBdblmyzY
+[28] Woosuk Kwon, Zhuohan Li, Siyuan Zhuang, Ying Sheng, Lianmin Zheng, Cody Hao Yu, Joseph Gonzalez, Hao Zhang,
+and Ion Stoica. 2023. Efficient Memory Management for Large Language Model Serving with PagedAttention. In
+Proceedings of the 29th Symposium on Operating Systems Principles (New York, NY, USA, 2023-10-23) (SOSP ’23).
+Association for Computing Machinery, 611–626. doi:10.1145/3600006.3613165
+[29] Michael Xieyang Liu, Frederick Liu, Alexander J. Fiannaca, Terry Koo, Lucas Dixon, Michael Terry, and Carrie J. Cai.
+2024. "We Need Structured Output": Towards User-centered Constraints on Large Language Model Output. In Extended
+Abstracts of the CHI Conference on Human Factors in Computing Systems (Honolulu, HI, USA) (CHI EA ’24). Association
+for Computing Machinery, New York, NY, USA, Article 10, 9 pages. doi:10.1145/3613905.3650756
+[30] Michał Moskal, Harsha Nori, Hudson Cooper, and Loc Huynh. 2025. LLGuidance: Making Structured Outputs Go Brrr.
+https://guidance-ai.github.io/llguidance/llg-go-brrr
+[31] NousResearch. 2025. Json-Mode-Eval. https://huggingface.co/datasets/NousResearch/json-mode-eval
+[32] OpenAI. [n. d.]. Structured model outputs - OpenAI API. https://platform.openai.com
+[33] Kanghee Park, Timothy Zhou, and Loris D’Antoni. 2025. Flexible and Efficient Grammar-Constrained Decoding. In
+Forty-Second International Conference on Machine Learning (2025). https://openreview.net/forum?id=L6CYAzpO1k
+[34] Gabriel Poesia, Alex Polozov, Vu Le, Ashish Tiwari, Gustavo Soares, Christopher Meek, and Sumit Gulwani. 2021.
+Synchromesh: Reliable Code Generation from Pre-trained Language Models.
+https://openreview.net/forum?id=
+KmtVD97J43e
+[35] Qwen, An Yang, Baosong Yang, Beichen Zhang, Binyuan Hui, Bo Zheng, Bowen Yu, Chengyuan Li, Dayiheng Liu, Fei
+Huang, Haoran Wei, Huan Lin, Jian Yang, Jianhong Tu, Jianwei Zhang, Jianxin Yang, Jiaxi Yang, Jingren Zhou, Junyang
+Lin, Kai Dang, Keming Lu, Keqin Bao, Kexin Yang, Le Yu, Mei Li, Mingfeng Xue, Pei Zhang, Qin Zhu, Rui Men, Runji
+Lin, Tianhao Li, Tianyi Tang, Tingyu Xia, Xingzhang Ren, Xuancheng Ren, Yang Fan, Yang Su, Yichang Zhang, Yu
+Wan, Yuqiong Liu, Zeyu Cui, Zhenru Zhang, and Zihan Qiu. 2025. Qwen2.5 Technical Report. arXiv:2412.15115 [cs]
+doi:10.48550/arXiv.2412.15115
+[36] Torsten Scholak, Nathan Schucher, and Dzmitry Bahdanau. 2021. PICARD: Parsing Incrementally for Constrained
+Auto-Regressive Decoding from Language Models. In Proceedings of the 2021 Conference on Empirical Methods in
+Natural Language Processing (Online and Punta Cana, Dominican Republic, 2021-11), Marie-Francine Moens, Xuanjing
+Huang, Lucia Specia, and Scott Wen-tau Yih (Eds.). Association for Computational Linguistics, 9895–9901. doi:10.
+18653/v1/2021.emnlp-main.779
+[37] Rico Sennrich, Barry Haddow, and Alexandra Birch. 2016. Neural Machine Translation of Rare Words with Subword
+Units. In Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)
+(Berlin, Germany, 2016-08), Katrin Erk and Noah A. Smith (Eds.). Association for Computational Linguistics, 1715–1725.
+doi:10.18653/v1/P16-1162
+[38] Michael Sipser. 2013. Introduction to the Theory of Computation (third edition, international edition ed.). Cengage
+Learning.
+[39] Xintong Sun, Chi Wei, Minghao Tian, and Shiwen Ni. 2025. Earley-Driven Dynamic Pruning for Efficient Structured
+Decoding. In Forty-Second International Conference on Machine Learning (2025). https://openreview.net/forum?id=
+6hDNXCdTsE
+[40] Shubham Ugare, Tarun Suresh, Hangoo Kang, Sasa Misailovic, and Gagandeep Singh. 2025. SynCode: LLM Generation
+with Grammar Augmentation. (2025). https://openreview.net/forum?id=HiUZtgAPoH
+[41] vLLM Team. [n. d.]. Structured Outputs - vLLM. https://docs.vllm.ai/en/stable/features/structured_outputs.html
+, Vol. 1, No. 1, Article . Publication date: August 2026.
+
+===== PAGE 25 =====
+Efficient Grammar-Constrained Decoding via Parser Stack Classification
+25
+[42] Brandon T. Willard and Rémi Louf. 2023. Efficient Guided Generation for Large Language Models. arXiv:2307.09702 [cs]
+doi:10.48550/arXiv.2307.09702
+[43] Tao Yu, Rui Zhang, Kai Yang, Michihiro Yasunaga, Dongxu Wang, Zifan Li, James Ma, Irene Li, Qingning Yao, Shanelle
+Roman, Zilin Zhang, and Dragomir Radev. 2018. Spider: A Large-Scale Human-Labeled Dataset for Complex and
+Cross-Domain Semantic Parsing and Text-to-SQL Task. In Proceedings of the 2018 Conference on Empirical Methods in
+Natural Language Processing, Ellen Riloff, David Chiang, Julia Hockenmaier, and Jun’ichi Tsujii (Eds.). Association for
+Computational Linguistics, Brussels, Belgium, 3911–3921. doi:10.18653/v1/D18-1425
+[44] Ruiqi Zhong, Tao Yu, and Dan Klein. 2020. Semantic Evaluation for Text-to-SQL with Distilled Test Suites. In Proceedings
+of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP), Bonnie Webber, Trevor Cohn,
+Yulan He, and Yang Liu (Eds.). Association for Computational Linguistics, Online, 396–411. doi:10.18653/v1/2020.emnlp-
+main.29
+, Vol. 1, No. 1, Article . Publication date: August 2026.

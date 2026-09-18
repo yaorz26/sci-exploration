@@ -1,0 +1,65 @@
+{
+  "protocol": {
+    "dataset": "APPS train Introductory 50, seed 42 candidate pool",
+    "model": "Qwen2.5-Coder 3B",
+    "split": "first 37 problems train / last 13 problems test",
+    "candidates_per_problem": 4,
+    "strict_label": "mean private pass rate of two generated continuations per thought prefix",
+    "records": 1196,
+    "nodes": 598,
+    "epochs": 3,
+    "score_activation": "sigmoid"
+  },
+  "label_validation": {
+    "bad_nodes": 0,
+    "continuations_per_node_min": 2,
+    "continuations_per_node_max": 2
+  },
+  "methods": [
+    {
+      "name": "soft_continuation_input",
+      "label_field": "step_label",
+      "loss": "mse",
+      "step_mse": 0.24840581853916488,
+      "step_mae": 0.4193567465356428,
+      "step_spearman": -0.1042261478576616,
+      "continuation_prefix_private_pass_rate": 0.4371794871794871,
+      "original_candidate_private_pass_rate": 0.514102564102564,
+      "public_neural_tiebreak_private_pass_rate": 0.6256410256410256
+    },
+    {
+      "name": "binary_continuation_input",
+      "label_field": "binary_step_label",
+      "loss": "bce",
+      "step_mse": 0.16703201243093738,
+      "step_mae": 0.26250562912378556,
+      "step_spearman": 0.18726684372331198,
+      "continuation_prefix_private_pass_rate": 0.4371794871794871,
+      "original_candidate_private_pass_rate": 0.4371794871794871
+    },
+    {
+      "name": "soft_deployment_aligned_input",
+      "label_field": "step_label",
+      "loss": "mse",
+      "input_code_and_feedback": "original source candidate",
+      "candidate_thought_prefix_steps": 3,
+      "step_mse": 0.24645719674534589,
+      "step_mae": 0.41723574225170507,
+      "step_spearman": -0.1548741987620063,
+      "continuation_prefix_private_pass_rate": 0.45641025641025634,
+      "original_candidate_private_pass_rate": 0.45641025641025634,
+      "public_neural_tiebreak_private_pass_rate": 0.6064102564102564
+    }
+  ],
+  "fixed_baselines": {
+    "first_candidate_private_pass_rate": 0.5333333333333333,
+    "first_candidate_pass_at_1": 0.38461538461538464,
+    "public_selection_private_pass_rate": 0.6833333333333333,
+    "public_selection_pass_at_1": 0.5384615384615384
+  },
+  "decision": {
+    "status": "no_go_for_three_seed_replication_of_current_neural_configuration",
+    "reason": "No tested neural objective or input alignment exceeds the first-candidate baseline, and public feedback remains materially stronger.",
+    "next_required_change": "increase continuation repetitions per node and expand problem-level training data before rerunning multi-seed neural experiments"
+  }
+}

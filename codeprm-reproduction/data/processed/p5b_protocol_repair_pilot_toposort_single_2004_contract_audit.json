@@ -1,0 +1,69 @@
+{
+  "summary": {
+    "allow_forward_dependencies": true,
+    "decomposition_valid": 1,
+    "implementations_audited": 3,
+    "error_counts": {},
+    "rows_with_errors": 0
+  },
+  "rows": [
+    {
+      "problem_id": "apps-train-2004",
+      "decomposition_index": 0,
+      "function_name": "find_max_number",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "get_max_digit_index"
+      ],
+      "called_dependencies": [
+        "get_max_digit_index"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-2004",
+      "decomposition_index": 0,
+      "function_name": "get_max_digit_index",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "enumerate",
+        "int"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-2004",
+      "decomposition_index": 0,
+      "function_name": "solve",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "find_max_number",
+        "input",
+        "print"
+      ],
+      "called_dependencies": [
+        "find_max_number"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [
+        "input",
+        "print"
+      ],
+      "sys_io": [],
+      "is_helper": false
+    }
+  ]
+}

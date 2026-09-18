@@ -1,0 +1,1888 @@
+{
+  "evaluator_policy": "normalized token comparison; numeric tokens math.isclose(rel_tol=1e-6, abs_tol=1e-6); function outputs literal comparison",
+  "post_selection_diagnostic": true,
+  "data": "D:\\yaorz\\research\\codeprm-reproduction\\data\\processed\\apps_stratified60_20260918.json",
+  "inputs": [
+    "D:\\yaorz\\research\\codeprm-reproduction\\data\\processed\\p5b_simple20_m1_plan_qwen25coder_7b_n2_seed42_v1_evaluations.jsonl"
+  ],
+  "problems": 20,
+  "pool_oracle_full_pass": 14,
+  "private_program_evaluations": 35,
+  "private_test_executions": 112,
+  "by_problem": {
+    "apps-train-2672": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 0,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2672:c0",
+          "code_hash": "08578854d5389405353d6d64b45e59ddbdea82e9825b6f35756ac069c48cc8c1",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 3,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "['0.33']",
+                "actual": "'0.10'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.075039
+              },
+              {
+                "passed": 0,
+                "expected": "['0.33']",
+                "actual": "'0.10'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.066517
+              },
+              {
+                "passed": 0,
+                "expected": "['0.28']",
+                "actual": "'0.20'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.106708
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.250629,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2672:c1",
+          "code_hash": "500f30ca0da0fdbb69ebd70c775002400a11e7e600304f468bc4b43744aca5fb",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 3,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "['0.33']",
+                "actual": "'0.10'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.093072
+              },
+              {
+                "passed": 0,
+                "expected": "['0.33']",
+                "actual": "'0.10'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.080281
+              },
+              {
+                "passed": 0,
+                "expected": "['0.28']",
+                "actual": "'0.20'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.091613
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.26718,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        }
+      ],
+      "pool_oracle_full_pass": false
+    },
+    "apps-train-2673": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 2,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2673:c0",
+          "code_hash": "441e59eb3ed032cbb0828d876f1db2b180065411c3883d90b7bacc44f0852637",
+          "private": {
+            "split": "private",
+            "passed": 3,
+            "total": 3,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "[118.8]",
+                "actual": "118.8\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.119455
+              },
+              {
+                "passed": 1,
+                "expected": "[69.7]",
+                "actual": "69.7\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.062787
+              },
+              {
+                "passed": 1,
+                "expected": "[0.0]",
+                "actual": "0.0\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.075576
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.260112,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        },
+        {
+          "candidate_id": "apps-train-2673:c1",
+          "code_hash": "f843fe9db043dbc31eacde97d2ecb182b6841d6fd8bb2d532ce9e654274b7153",
+          "private": {
+            "split": "private",
+            "passed": 3,
+            "total": 3,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "[118.8]",
+                "actual": "118.8\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.102386
+              },
+              {
+                "passed": 1,
+                "expected": "[69.7]",
+                "actual": "69.7\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.090157
+              },
+              {
+                "passed": 1,
+                "expected": "[0.0]",
+                "actual": "0.0\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.072622
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.267711,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        }
+      ],
+      "pool_oracle_full_pass": true
+    },
+    "apps-train-2674": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 2,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2674:c0",
+          "code_hash": "7f111af7d2fbc9af76359a6b82b524f36f7233715cc76e5f553a05213b1f7c02",
+          "private": {
+            "split": "private",
+            "passed": 3,
+            "total": 3,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['a***b***o***u***t']",
+                "actual": "'a***b***o***u***t'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.074438
+              },
+              {
+                "passed": 1,
+                "expected": "['c***o***d***e']",
+                "actual": "'c***o***d***e'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.069667
+              },
+              {
+                "passed": 1,
+                "expected": "['L***e***t***s']",
+                "actual": "'L***e***t***s'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.077998
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.224545,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        },
+        {
+          "candidate_id": "apps-train-2674:c1",
+          "code_hash": "80d2739e3a4127d35caaaa4a62e8937cd0ec37e607c748589730d32471495e92",
+          "private": {
+            "split": "private",
+            "passed": 3,
+            "total": 3,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['a***b***o***u***t']",
+                "actual": "'a***b***o***u***t'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.070441
+              },
+              {
+                "passed": 1,
+                "expected": "['c***o***d***e']",
+                "actual": "'c***o***d***e'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.067812
+              },
+              {
+                "passed": 1,
+                "expected": "['L***e***t***s']",
+                "actual": "'L***e***t***s'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.091786
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.231889,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        }
+      ],
+      "pool_oracle_full_pass": true
+    },
+    "apps-train-2678": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 1,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2678:c0",
+          "code_hash": "b9794f563730bb5c64bc9a09afb8087c6c92f6bf8386746627d53dfc63b37aca",
+          "private": {
+            "split": "private",
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "[None]",
+                "actual": "None\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.069201
+              },
+              {
+                "passed": 1,
+                "expected": "[None]",
+                "actual": "None\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.098194
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.16874,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        },
+        {
+          "candidate_id": "apps-train-2678:c1",
+          "code_hash": "166c5e4e0dba243dd557564c04d58258ca3f1296836521a51ec296e2e8f00846",
+          "private": {
+            "split": "private",
+            "passed": 1,
+            "total": 2,
+            "pass_rate": 0.5,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[None]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-jjne2u1q\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-jjne2u1q\\candidate.py\", line 42, in no_order\n    stack.insert(0, num1 % num2)\n                    ~~~~~^~~~~~\nZeroDivisionError: float modulo by zero\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-jjne2u1q\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-jjne2u1q\\candidate.py\", line 42, in no_order\n    stack.insert(0, num1 % num2)\n                    ~~~~~^~~~~~\nZeroDivisionError: float modulo by zero",
+                "timeout": false,
+                "duration_seconds": 0.092039
+              },
+              {
+                "passed": 1,
+                "expected": "[None]",
+                "actual": "None\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.062905
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.15614,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        }
+      ],
+      "pool_oracle_full_pass": true
+    },
+    "apps-train-2680": {
+      "candidate_count": 2,
+      "unique_candidate_count": 1,
+      "private_full_pass_candidates": 0,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2680:c0",
+          "code_hash": "6642cad8e0d5ecd02b078ec2e188ffef5ec987cc40e5587764fdf2c6e7914013",
+          "private": {
+            "split": "private",
+            "passed": 3,
+            "total": 4,
+            "pass_rate": 0.75,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "[[2, 50, 46]]",
+                "actual": "[2, 50, 46]\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.05645
+              },
+              {
+                "passed": 1,
+                "expected": "[[0, 3, 2]]",
+                "actual": "[0, 3, 2]\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.074883
+              },
+              {
+                "passed": 0,
+                "expected": "[[18, 20, 0]]",
+                "actual": "[18, 19, 59]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.054917
+              },
+              {
+                "passed": 1,
+                "expected": "[None]",
+                "actual": "None\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.056774
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.24565,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        }
+      ],
+      "pool_oracle_full_pass": false
+    },
+    "apps-train-2681": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 2,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2681:c0",
+          "code_hash": "7576325e3b8774dfe2c7d950177513bc2ad019db29b9761bacb7167228250449",
+          "private": {
+            "split": "private",
+            "passed": 3,
+            "total": 3,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "[2]",
+                "actual": "2\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.121515
+              },
+              {
+                "passed": 1,
+                "expected": "[2]",
+                "actual": "2\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.068468
+              },
+              {
+                "passed": 1,
+                "expected": "[3]",
+                "actual": "3\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.064203
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.256382,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        },
+        {
+          "candidate_id": "apps-train-2681:c1",
+          "code_hash": "b189c2d560fdce35bf681a09367827e8a8048b8b84951aae81edbd0bb7d23c70",
+          "private": {
+            "split": "private",
+            "passed": 3,
+            "total": 3,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "[2]",
+                "actual": "2\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.151025
+              },
+              {
+                "passed": 1,
+                "expected": "[2]",
+                "actual": "2\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.060435
+              },
+              {
+                "passed": 1,
+                "expected": "[3]",
+                "actual": "3\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.066366
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.280072,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        }
+      ],
+      "pool_oracle_full_pass": true
+    },
+    "apps-train-2683": {
+      "candidate_count": 2,
+      "unique_candidate_count": 1,
+      "private_full_pass_candidates": 1,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2683:c0",
+          "code_hash": "45632c5efd16c9a03400c4af929d660def18bd8ccd525c0ed472f3079ea883ef",
+          "private": {
+            "split": "private",
+            "passed": 3,
+            "total": 3,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "[{'A': -17.2, 'B': -32.2, 'C': -47.2, 'D': 95.8, 'E': 0.8}]",
+                "actual": "{'A': -17.2, 'B': -32.2, 'C': -47.2, 'D': 95.8, 'E': 0.8}\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.065892
+              },
+              {
+                "passed": 1,
+                "expected": "[{'A': 232.6, 'B': 141.6, 'C': -19.4, 'D': -131.4, 'E': -223.4}]",
+                "actual": "{'A': 232.6, 'B': 141.6, 'C': -19.4, 'D': -131.4, 'E': -223.4}\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.06595
+              },
+              {
+                "passed": 1,
+                "expected": "[{'A': -6421468.75, 'B': -5948771.75, 'C': -6438868.75, 'D': -6301969.75, 'E': 42495717.25, 'F': -4503092.75, 'G': -6441812.75, 'H': -6439732.75}]",
+                "actual": "{'A': -6421468.75, 'B': -5948771.75, 'C': -6438868.75, 'D': -6301969.75, 'E': 42495717.25, 'F': -4503092.75, 'G': -6441812.75, 'H': -6439732.75}\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.082777
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.216544,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        }
+      ],
+      "pool_oracle_full_pass": true
+    },
+    "apps-train-2685": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 0,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2685:c0",
+          "code_hash": "9de2f95d2964f25adf81fd79d5c52d9f29db956230314e2b6e1f7983243272b3",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 5,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "['djofd eqdvn lfdqjga']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-pof3z94e\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-pof3z94e\\candidate.py\", line 4, in keyword_cipher\n    mapping = {original: keyword[i] for i, original in enumerate(alphabet)}\n                         ~~~~~~~^^^\nIndexError: string index out of range\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-pof3z94e\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-pof3z94e\\candidate.py\", line 4, in keyword_cipher\n    mapping = {original: keyword[i] for i, original in enumerate(alphabet)}\n                         ~~~~~~~^^^\nIndexError: string index out of range",
+                "timeout": false,
+                "duration_seconds": 0.082706
+              },
+              {
+                "passed": 0,
+                "expected": "['dlja esqa']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-fd1t78xu\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-fd1t78xu\\candidate.py\", line 4, in keyword_cipher\n    mapping = {original: keyword[i] for i, original in enumerate(alphabet)}\n                         ~~~~~~~^^^\nIndexError: string index out of range\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-fd1t78xu\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-fd1t78xu\\candidate.py\", line 4, in keyword_cipher\n    mapping = {original: keyword[i] for i, original in enumerate(alphabet)}\n                         ~~~~~~~^^^\nIndexError: string index out of range",
+                "timeout": false,
+                "duration_seconds": 0.115874
+              },
+              {
+                "passed": 0,
+                "expected": "['ocprvcil']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-aawyhe_n\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-aawyhe_n\\candidate.py\", line 4, in keyword_cipher\n    mapping = {original: keyword[i] for i, original in enumerate(alphabet)}\n                         ~~~~~~~^^^\nIndexError: string index out of range\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-aawyhe_n\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-aawyhe_n\\candidate.py\", line 4, in keyword_cipher\n    mapping = {original: keyword[i] for i, original in enumerate(alphabet)}\n                         ~~~~~~~^^^\nIndexError: string index out of range",
+                "timeout": false,
+                "duration_seconds": 0.065603
+              },
+              {
+                "passed": 0,
+                "expected": "['mks twm tdpss']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-66yc7oyt\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-66yc7oyt\\candidate.py\", line 4, in keyword_cipher\n    mapping = {original: keyword[i] for i, original in enumerate(alphabet)}\n                         ~~~~~~~^^^\nIndexError: string index out of range\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-66yc7oyt\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-66yc7oyt\\candidate.py\", line 4, in keyword_cipher\n    mapping = {original: keyword[i] for i, original in enumerate(alphabet)}\n                         ~~~~~~~^^^\nIndexError: string index out of range",
+                "timeout": false,
+                "duration_seconds": 0.061808
+              },
+              {
+                "passed": 0,
+                "expected": "['raqr']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-2st22eo_\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-2st22eo_\\candidate.py\", line 4, in keyword_cipher\n    mapping = {original: keyword[i] for i, original in enumerate(alphabet)}\n                         ~~~~~~~^^^\nIndexError: string index out of range\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-2st22eo_\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-2st22eo_\\candidate.py\", line 4, in keyword_cipher\n    mapping = {original: keyword[i] for i, original in enumerate(alphabet)}\n                         ~~~~~~~^^^\nIndexError: string index out of range",
+                "timeout": false,
+                "duration_seconds": 0.058879
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.387799,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2685:c1",
+          "code_hash": "5328a0b884f17a747fb6769cef1b9fa0c785dbadefcb16352a91f14d4bd7ea60",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 5,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "['djofd eqdvn lfdqjga']",
+                "actual": "'fqumf gwfvt hmfwqnj'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.111136
+              },
+              {
+                "passed": 0,
+                "expected": "['dlja esqa']",
+                "actual": "'lsqi fewi'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.062118
+              },
+              {
+                "passed": 0,
+                "expected": "['ocprvcil']",
+                "actual": "'hgykigsv'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.124866
+              },
+              {
+                "passed": 0,
+                "expected": "['mks twm tdpss']",
+                "actual": "'tsj ywt ymwjj'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.090502
+              },
+              {
+                "passed": 0,
+                "expected": "['raqr']",
+                "actual": "'xiwx'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.107095
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.499035,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        }
+      ],
+      "pool_oracle_full_pass": false
+    },
+    "apps-train-2686": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 2,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2686:c0",
+          "code_hash": "1eb27d07d91630990e9a642bc1485db3e2c10c641eb32d7e721ea0709027f549",
+          "private": {
+            "split": "private",
+            "passed": 3,
+            "total": 3,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['Ifmmp xpsmE']",
+                "actual": "'Ifmmp xpsmE'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.082734
+              },
+              {
+                "passed": 1,
+                "expected": "['Epht']",
+                "actual": "'Epht'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.069639
+              },
+              {
+                "passed": 1,
+                "expected": "['A']",
+                "actual": "'A'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.064611
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.218895,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        },
+        {
+          "candidate_id": "apps-train-2686:c1",
+          "code_hash": "9c4ed1437d6af97abd81800456a18dd9d7271e37ad1f63d784b90c54c825b918",
+          "private": {
+            "split": "private",
+            "passed": 3,
+            "total": 3,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['Ifmmp xpsmE']",
+                "actual": "'Ifmmp xpsmE'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.06716
+              },
+              {
+                "passed": 1,
+                "expected": "['Epht']",
+                "actual": "'Epht'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.053529
+              },
+              {
+                "passed": 1,
+                "expected": "['A']",
+                "actual": "'A'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.062588
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.185774,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        }
+      ],
+      "pool_oracle_full_pass": true
+    },
+    "apps-train-2687": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 1,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2687:c0",
+          "code_hash": "8c5fa104afbdede375e8be96f73180d9633cfbae0fd722d664e47a3dcd06b5ac",
+          "private": {
+            "split": "private",
+            "passed": 3,
+            "total": 4,
+            "pass_rate": 0.75,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['one and two']",
+                "actual": "'one and two'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.062856
+              },
+              {
+                "passed": 1,
+                "expected": "['']",
+                "actual": "''\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.052353
+              },
+              {
+                "passed": 1,
+                "expected": "['']",
+                "actual": "''\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.050754
+              },
+              {
+                "passed": 0,
+                "expected": "['']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-f65gdd8b\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-f65gdd8b\\candidate.py\", line 7, in format_words\n    return \", \".join(words[:-1]) + \" and \" + words[-1]\n                                             ~~~~~^^^^\nIndexError: list index out of range\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-f65gdd8b\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-f65gdd8b\\candidate.py\", line 7, in format_words\n    return \", \".join(words[:-1]) + \" and \" + words[-1]\n                                             ~~~~~^^^^\nIndexError: list index out of range",
+                "timeout": false,
+                "duration_seconds": 0.05866
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.227,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2687:c1",
+          "code_hash": "7ebd392296507c1388f7d89fe17d463d8a59a95a341c47f753d7ca9596fb0a15",
+          "private": {
+            "split": "private",
+            "passed": 4,
+            "total": 4,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['one and two']",
+                "actual": "'one and two'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.052176
+              },
+              {
+                "passed": 1,
+                "expected": "['']",
+                "actual": "''\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.064551
+              },
+              {
+                "passed": 1,
+                "expected": "['']",
+                "actual": "''\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.058851
+              },
+              {
+                "passed": 1,
+                "expected": "['']",
+                "actual": "''\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.059824
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.23803,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        }
+      ],
+      "pool_oracle_full_pass": true
+    },
+    "apps-train-2688": {
+      "candidate_count": 0,
+      "unique_candidate_count": 0,
+      "private_full_pass_candidates": 0,
+      "candidate_results": [],
+      "pool_oracle_full_pass": false
+    },
+    "apps-train-2690": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 0,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2690:c0",
+          "code_hash": "00ab4d25b48d0bd07f4c106546da49588b1e41e4640fddaa1b1832ebef46dc52",
+          "private": {
+            "split": "private",
+            "passed": 2,
+            "total": 3,
+            "pass_rate": 0.6666666666666666,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['a']",
+                "actual": "'a'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.092617
+              },
+              {
+                "passed": 0,
+                "expected": "['hello example  something']",
+                "actual": "'hello example  here something'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.062288
+              },
+              {
+                "passed": 1,
+                "expected": "['  ']",
+                "actual": "'  '\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.064691
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.221465,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2690:c1",
+          "code_hash": "7e81eb034ffbf8f0e8e513b5fdd3003d2145ac98b505595435759bde4bc82ec2",
+          "private": {
+            "split": "private",
+            "passed": 2,
+            "total": 3,
+            "pass_rate": 0.6666666666666666,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['a']",
+                "actual": "'a'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.058153
+              },
+              {
+                "passed": 0,
+                "expected": "['hello example  something']",
+                "actual": "'hello example  here something'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.057836
+              },
+              {
+                "passed": 1,
+                "expected": "['  ']",
+                "actual": "'  '\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.096558
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.214249,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        }
+      ],
+      "pool_oracle_full_pass": false
+    },
+    "apps-train-2691": {
+      "candidate_count": 2,
+      "unique_candidate_count": 1,
+      "private_full_pass_candidates": 1,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2691:c0",
+          "code_hash": "6be68473e5fb4096afca628ceff8db0e7d661da47c92e5b5aa6c6499d7ce412e",
+          "private": {
+            "split": "private",
+            "passed": 3,
+            "total": 3,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "[61]",
+                "actual": "61\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.065148
+              },
+              {
+                "passed": 1,
+                "expected": "[42]",
+                "actual": "42\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.099143
+              },
+              {
+                "passed": 1,
+                "expected": "[85]",
+                "actual": "85\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.101422
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.267783,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        }
+      ],
+      "pool_oracle_full_pass": true
+    },
+    "apps-train-2692": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 2,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2692:c0",
+          "code_hash": "508805fb8c66e01ea1456ab49569558a62123636b27162bc5a674050c366113e",
+          "private": {
+            "split": "private",
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "[[]]",
+                "actual": "[]\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.087227
+              },
+              {
+                "passed": 1,
+                "expected": "[[[1, 3, 3, 4, 7, 2], [1, 3, 3, 4, 2, 7], [1, 3, 3, 2, 4, 7], [1, 3, 2, 3, 4, 7], [1, 2, 3, 3, 4, 7]]]",
+                "actual": "[[1, 3, 3, 4, 7, 2], [1, 3, 3, 4, 2, 7], [1, 3, 3, 2, 4, 7], [1, 3, 2, 3, 4, 7], [1, 2, 3, 3, 4, 7]]\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.156345
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.245237,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        },
+        {
+          "candidate_id": "apps-train-2692:c1",
+          "code_hash": "008578e89aacf1272ef781df0bc2e522a786a562719196d251fdd90c2a127792",
+          "private": {
+            "split": "private",
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "[[]]",
+                "actual": "[]\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.109473
+              },
+              {
+                "passed": 1,
+                "expected": "[[[1, 3, 3, 4, 7, 2], [1, 3, 3, 4, 2, 7], [1, 3, 3, 2, 4, 7], [1, 3, 2, 3, 4, 7], [1, 2, 3, 3, 4, 7]]]",
+                "actual": "[[1, 3, 3, 4, 7, 2], [1, 3, 3, 4, 2, 7], [1, 3, 3, 2, 4, 7], [1, 3, 2, 3, 4, 7], [1, 2, 3, 3, 4, 7]]\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.064267
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.175129,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        }
+      ],
+      "pool_oracle_full_pass": true
+    },
+    "apps-train-2694": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 2,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2694:c0",
+          "code_hash": "0d1b4fe2c1ad596e2b5d75602601dea1f5ddb2e893de24594e7ff3101c1657e5",
+          "private": {
+            "split": "private",
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['Super happy!']",
+                "actual": "'Super happy!'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.058914
+              },
+              {
+                "passed": 1,
+                "expected": "['Happy!']",
+                "actual": "'Happy!'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.063281
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.123688,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        },
+        {
+          "candidate_id": "apps-train-2694:c1",
+          "code_hash": "91053f78b2e86b75c41bb1f4599c413e149a7403e0039383d60c0a17a01442f5",
+          "private": {
+            "split": "private",
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['Super happy!']",
+                "actual": "'Super happy!'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.070942
+              },
+              {
+                "passed": 1,
+                "expected": "['Happy!']",
+                "actual": "'Happy!'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.051298
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.123442,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        }
+      ],
+      "pool_oracle_full_pass": true
+    },
+    "apps-train-2695": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 2,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2695:c0",
+          "code_hash": "6f87b18ba96662d700d27220ce518a81616e37abf0982259ebe850688db0af62",
+          "private": {
+            "split": "private",
+            "passed": 5,
+            "total": 5,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "[False]",
+                "actual": "False\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.077325
+              },
+              {
+                "passed": 1,
+                "expected": "[True]",
+                "actual": "True\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.050107
+              },
+              {
+                "passed": 1,
+                "expected": "[True]",
+                "actual": "True\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.074623
+              },
+              {
+                "passed": 1,
+                "expected": "[False]",
+                "actual": "False\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.072545
+              },
+              {
+                "passed": 1,
+                "expected": "[False]",
+                "actual": "False\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.054037
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.331719,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        },
+        {
+          "candidate_id": "apps-train-2695:c1",
+          "code_hash": "552638c176ddc71ff6967802d9b64f42cfb7e822139e3e2301e385e119d27c90",
+          "private": {
+            "split": "private",
+            "passed": 5,
+            "total": 5,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "[False]",
+                "actual": "False\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.103989
+              },
+              {
+                "passed": 1,
+                "expected": "[True]",
+                "actual": "True\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.061436
+              },
+              {
+                "passed": 1,
+                "expected": "[True]",
+                "actual": "True\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.097353
+              },
+              {
+                "passed": 1,
+                "expected": "[False]",
+                "actual": "False\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.097123
+              },
+              {
+                "passed": 1,
+                "expected": "[False]",
+                "actual": "False\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.072428
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.435944,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        }
+      ],
+      "pool_oracle_full_pass": true
+    },
+    "apps-train-2696": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 1,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2696:c0",
+          "code_hash": "75772f2d9b6ad37342051c393123f7fd1a18f109bfa68902199ac9bd372f55ea",
+          "private": {
+            "split": "private",
+            "passed": 4,
+            "total": 4,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "[True]",
+                "actual": "True\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.050073
+              },
+              {
+                "passed": 1,
+                "expected": "[False]",
+                "actual": "False\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.073719
+              },
+              {
+                "passed": 1,
+                "expected": "[True]",
+                "actual": "True\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.060299
+              },
+              {
+                "passed": 1,
+                "expected": "[True]",
+                "actual": "True\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.094864
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.281644,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        },
+        {
+          "candidate_id": "apps-train-2696:c1",
+          "code_hash": "ac8e46d8b07beff4d78d537be52f291649a1a17903c82b7078dafbfdd3cb7960",
+          "private": {
+            "split": "private",
+            "passed": 3,
+            "total": 4,
+            "pass_rate": 0.75,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "[True]",
+                "actual": "True\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.093588
+              },
+              {
+                "passed": 1,
+                "expected": "[False]",
+                "actual": "False\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.100905
+              },
+              {
+                "passed": 1,
+                "expected": "[True]",
+                "actual": "True\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.11576
+              },
+              {
+                "passed": 0,
+                "expected": "[True]",
+                "actual": "False\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.092641
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.405543,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        }
+      ],
+      "pool_oracle_full_pass": true
+    },
+    "apps-train-2697": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 2,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2697:c0",
+          "code_hash": "3e6f9f580dceae5e2cfb77023bbfabecebb827625ea47ce64660717b30cef3ae",
+          "private": {
+            "split": "private",
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['camel Case']",
+                "actual": "'camel Case'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.087599
+              },
+              {
+                "passed": 1,
+                "expected": "['break Camel Case']",
+                "actual": "'break Camel Case'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.073948
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.163186,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        },
+        {
+          "candidate_id": "apps-train-2697:c1",
+          "code_hash": "8a9bf248a1b3e4c4548b40830a65cdf921cadcb4cf5097a3ed777e192f07b8e3",
+          "private": {
+            "split": "private",
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['camel Case']",
+                "actual": "'camel Case'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.113761
+              },
+              {
+                "passed": 1,
+                "expected": "['break Camel Case']",
+                "actual": "'break Camel Case'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.201367
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.316491,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        }
+      ],
+      "pool_oracle_full_pass": true
+    },
+    "apps-train-2698": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 0,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2698:c0",
+          "code_hash": "a07c8d62d7773881e4303e875cdf7cd1d3d7991451a06389e0e4fb3d43e66ebf",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 5,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[[]]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-7p8vfo8o\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-7p8vfo8o\\candidate.py\", line 3, in sum_arrays\n    num1 = int(''.join(map(str, array1)))\nValueError: invalid literal for int() with base 10: ''\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-7p8vfo8o\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-7p8vfo8o\\candidate.py\", line 3, in sum_arrays\n    num1 = int(''.join(map(str, array1)))\nValueError: invalid literal for int() with base 10: ''",
+                "timeout": false,
+                "duration_seconds": 0.106858
+              },
+              {
+                "passed": 0,
+                "expected": "[[0]]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-8vcun179\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-8vcun179\\candidate.py\", line 4, in sum_arrays\n    num2 = int(''.join(map(str, array2)))\nValueError: invalid literal for int() with base 10: ''\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-8vcun179\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-8vcun179\\candidate.py\", line 4, in sum_arrays\n    num2 = int(''.join(map(str, array2)))\nValueError: invalid literal for int() with base 10: ''",
+                "timeout": false,
+                "duration_seconds": 0.12132
+              },
+              {
+                "passed": 0,
+                "expected": "[[1, 2]]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-q6d21gug\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-q6d21gug\\candidate.py\", line 3, in sum_arrays\n    num1 = int(''.join(map(str, array1)))\nValueError: invalid literal for int() with base 10: ''\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-q6d21gug\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-q6d21gug\\candidate.py\", line 3, in sum_arrays\n    num1 = int(''.join(map(str, array1)))\nValueError: invalid literal for int() with base 10: ''",
+                "timeout": false,
+                "duration_seconds": 0.202964
+              },
+              {
+                "passed": 0,
+                "expected": "[[1, 4, 5]]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-rj8fzx93\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-rj8fzx93\\candidate.py\", line 4, in sum_arrays\n    num2 = int(''.join(map(str, array2)))\nValueError: invalid literal for int() with base 10: ''\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-rj8fzx93\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-rj8fzx93\\candidate.py\", line 4, in sum_arrays\n    num2 = int(''.join(map(str, array2)))\nValueError: invalid literal for int() with base 10: ''",
+                "timeout": false,
+                "duration_seconds": 0.252341
+              },
+              {
+                "passed": 0,
+                "expected": "[[]]",
+                "actual": "[0]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.071525
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.758796,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2698:c1",
+          "code_hash": "09bd00fe582c6a3997ad013ad58bdcce6e3969429a8da78237e1ad8a3427b209",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 5,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[[]]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-26qf7dr_\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-26qf7dr_\\candidate.py\", line 12, in sum_arrays\n    int1 = array_to_int(array1)\n  File \"D:\\Temp\\codeprm-26qf7dr_\\candidate.py\", line 3, in array_to_int\n    return int(''.join(map(str, array)))\nValueError: invalid literal for int() with base 10: ''\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-26qf7dr_\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-26qf7dr_\\candidate.py\", line 12, in sum_arrays\n    int1 = array_to_int(array1)\n  File \"D:\\Temp\\codeprm-26qf7dr_\\candidate.py\", line 3, in array_to_int\n    return int(''.join(map(str, array)))\nValueError: invalid literal for int() with base 10: ''",
+                "timeout": false,
+                "duration_seconds": 0.081405
+              },
+              {
+                "passed": 0,
+                "expected": "[[0]]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-i3xc7od1\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-i3xc7od1\\candidate.py\", line 13, in sum_arrays\n    int2 = array_to_int(array2)\n  File \"D:\\Temp\\codeprm-i3xc7od1\\candidate.py\", line 3, in array_to_int\n    return int(''.join(map(str, array)))\nValueError: invalid literal for int() with base 10: ''\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-i3xc7od1\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-i3xc7od1\\candidate.py\", line 13, in sum_arrays\n    int2 = array_to_int(array2)\n  File \"D:\\Temp\\codeprm-i3xc7od1\\candidate.py\", line 3, in array_to_int\n    return int(''.join(map(str, array)))\nValueError: invalid literal for int() with base 10: ''",
+                "timeout": false,
+                "duration_seconds": 0.083075
+              },
+              {
+                "passed": 0,
+                "expected": "[[1, 2]]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-qjcr347v\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-qjcr347v\\candidate.py\", line 12, in sum_arrays\n    int1 = array_to_int(array1)\n  File \"D:\\Temp\\codeprm-qjcr347v\\candidate.py\", line 3, in array_to_int\n    return int(''.join(map(str, array)))\nValueError: invalid literal for int() with base 10: ''\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-qjcr347v\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-qjcr347v\\candidate.py\", line 12, in sum_arrays\n    int1 = array_to_int(array1)\n  File \"D:\\Temp\\codeprm-qjcr347v\\candidate.py\", line 3, in array_to_int\n    return int(''.join(map(str, array)))\nValueError: invalid literal for int() with base 10: ''",
+                "timeout": false,
+                "duration_seconds": 0.114329
+              },
+              {
+                "passed": 0,
+                "expected": "[[1, 4, 5]]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-fctscajq\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-fctscajq\\candidate.py\", line 13, in sum_arrays\n    int2 = array_to_int(array2)\n  File \"D:\\Temp\\codeprm-fctscajq\\candidate.py\", line 3, in array_to_int\n    return int(''.join(map(str, array)))\nValueError: invalid literal for int() with base 10: ''\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-fctscajq\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-fctscajq\\candidate.py\", line 13, in sum_arrays\n    int2 = array_to_int(array2)\n  File \"D:\\Temp\\codeprm-fctscajq\\candidate.py\", line 3, in array_to_int\n    return int(''.join(map(str, array)))\nValueError: invalid literal for int() with base 10: ''",
+                "timeout": false,
+                "duration_seconds": 0.215788
+              },
+              {
+                "passed": 0,
+                "expected": "[[]]",
+                "actual": "[0]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.079489
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.578081,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        }
+      ],
+      "pool_oracle_full_pass": false
+    },
+    "apps-train-2702": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 2,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2702:c0",
+          "code_hash": "0fd6fd96d920ec7b1ceef3bea1499c16f0e640edaa2185cdd679a7e87dc69f58",
+          "private": {
+            "split": "private",
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "[4]",
+                "actual": "4\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.087441
+              },
+              {
+                "passed": 1,
+                "expected": "[1]",
+                "actual": "1\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.070932
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.159801,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        },
+        {
+          "candidate_id": "apps-train-2702:c1",
+          "code_hash": "7e4a1f03866a1b3ed4cf1088a46773dae056464b002ab97c618348f065908d4f",
+          "private": {
+            "split": "private",
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "[4]",
+                "actual": "4\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.124013
+              },
+              {
+                "passed": 1,
+                "expected": "[1]",
+                "actual": "1\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.202192
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.327845,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        }
+      ],
+      "pool_oracle_full_pass": true
+    }
+  }
+}

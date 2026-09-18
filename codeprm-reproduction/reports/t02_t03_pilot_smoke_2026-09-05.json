@@ -1,0 +1,18 @@
+{
+  "status": "pipeline_smoke_passed",
+  "input": "data/processed/codeprm_step_records_train50_seed42_proxy.jsonl",
+  "input_records": 1122,
+  "train_records": 807,
+  "test_records": 315,
+  "train_problems": 37,
+  "test_problems": 13,
+  "label_source": "candidate_private_pass_rate_proxy",
+  "exact_step_label": false,
+  "model": "Qwen2.5-Coder-3B-Instruct",
+  "quantization": "4-bit NF4",
+  "lora_rank": 8,
+  "smoke_steps": 2,
+  "test_mse_after_smoke": 3.7275303643324906,
+  "checkpoint": "outputs/neural_pilot/train50_seed42_smoke",
+  "interpretation": "training and checkpoint interfaces work; no performance claim from two steps"
+}

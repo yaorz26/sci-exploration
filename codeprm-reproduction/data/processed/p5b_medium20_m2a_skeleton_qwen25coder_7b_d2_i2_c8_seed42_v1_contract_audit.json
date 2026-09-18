@@ -1,0 +1,3420 @@
+{
+  "summary": {
+    "allow_forward_dependencies": false,
+    "decomposition_valid": 28,
+    "implementations_audited": 173,
+    "error_counts": {
+      "declared_dependency_not_called": 78
+    },
+    "rows_with_errors": 78
+  },
+  "rows": [
+    {
+      "problem_id": "apps-train-1636",
+      "decomposition_index": 0,
+      "function_name": "is_product_sum",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "eval",
+        "map",
+        "sum"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1636",
+      "decomposition_index": 0,
+      "function_name": "is_product_sum",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1636",
+      "decomposition_index": 0,
+      "function_name": "generate_factors",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:find_minimal_product_sum,is_product_sum"
+      ],
+      "calls": [
+        "range"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "find_minimal_product_sum",
+        "is_product_sum"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1636",
+      "decomposition_index": 0,
+      "function_name": "generate_factors",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:find_minimal_product_sum,is_product_sum"
+      ],
+      "calls": [
+        "range"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "find_minimal_product_sum",
+        "is_product_sum"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1636",
+      "decomposition_index": 0,
+      "function_name": "productsum",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:generate_factors,is_product_sum"
+      ],
+      "calls": [
+        "find_minimal_product_sum",
+        "range",
+        "set",
+        "sum"
+      ],
+      "called_dependencies": [
+        "find_minimal_product_sum"
+      ],
+      "missing_dependencies": [
+        "generate_factors",
+        "is_product_sum"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1636",
+      "decomposition_index": 0,
+      "function_name": "productsum",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:generate_factors,is_product_sum"
+      ],
+      "calls": [
+        "find_minimal_product_sum",
+        "range",
+        "set",
+        "sum"
+      ],
+      "called_dependencies": [
+        "find_minimal_product_sum"
+      ],
+      "missing_dependencies": [
+        "generate_factors",
+        "is_product_sum"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1636",
+      "decomposition_index": 1,
+      "function_name": "is_product_sum_number",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1636",
+      "decomposition_index": 1,
+      "function_name": "is_product_sum_number",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "eval",
+        "map",
+        "sum"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1636",
+      "decomposition_index": 1,
+      "function_name": "generate_factors",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:find_minimal_product_sum,is_product_sum_number"
+      ],
+      "calls": [
+        "generate_factors",
+        "range"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "find_minimal_product_sum",
+        "is_product_sum_number"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1636",
+      "decomposition_index": 1,
+      "function_name": "generate_factors",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:find_minimal_product_sum,is_product_sum_number"
+      ],
+      "calls": [
+        "generate_factors",
+        "range"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "find_minimal_product_sum",
+        "is_product_sum_number"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1636",
+      "decomposition_index": 1,
+      "function_name": "productsum",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:generate_factors,is_product_sum_number"
+      ],
+      "calls": [
+        "find_minimal_product_sum",
+        "range",
+        "set",
+        "sum"
+      ],
+      "called_dependencies": [
+        "find_minimal_product_sum"
+      ],
+      "missing_dependencies": [
+        "generate_factors",
+        "is_product_sum_number"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1638",
+      "decomposition_index": 0,
+      "function_name": "expand_around_center",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "len"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1638",
+      "decomposition_index": 0,
+      "function_name": "expand_around_center",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "len"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1638",
+      "decomposition_index": 0,
+      "function_name": "find_longest_palindrome",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "expand_around_center",
+        "find_longest_palindrome",
+        "max"
+      ],
+      "called_dependencies": [
+        "expand_around_center"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1638",
+      "decomposition_index": 0,
+      "function_name": "find_longest_palindrome",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:expand_around_center"
+      ],
+      "calls": [
+        "len"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "expand_around_center"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1638",
+      "decomposition_index": 0,
+      "function_name": "longest_palindrome",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:find_longest_palindrome"
+      ],
+      "calls": [
+        "expand_around_center",
+        "len",
+        "max",
+        "range"
+      ],
+      "called_dependencies": [
+        "expand_around_center"
+      ],
+      "missing_dependencies": [
+        "find_longest_palindrome"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1638",
+      "decomposition_index": 0,
+      "function_name": "longest_palindrome",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:find_longest_palindrome"
+      ],
+      "calls": [
+        "expand_around_center",
+        "len",
+        "max",
+        "range"
+      ],
+      "called_dependencies": [
+        "expand_around_center"
+      ],
+      "missing_dependencies": [
+        "find_longest_palindrome"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1638",
+      "decomposition_index": 1,
+      "function_name": "expand_around_center",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "len"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1638",
+      "decomposition_index": 1,
+      "function_name": "expand_around_center",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "len"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1638",
+      "decomposition_index": 1,
+      "function_name": "find_longest_palindrome",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "expand_around_center",
+        "len",
+        "max",
+        "range"
+      ],
+      "called_dependencies": [
+        "expand_around_center"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1638",
+      "decomposition_index": 1,
+      "function_name": "find_longest_palindrome",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "expand_around_center",
+        "len",
+        "max",
+        "range"
+      ],
+      "called_dependencies": [
+        "expand_around_center"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1638",
+      "decomposition_index": 1,
+      "function_name": "longest_palindrome",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:find_longest_palindrome"
+      ],
+      "calls": [
+        "expand_around_center",
+        "len",
+        "max",
+        "range"
+      ],
+      "called_dependencies": [
+        "expand_around_center"
+      ],
+      "missing_dependencies": [
+        "find_longest_palindrome"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1638",
+      "decomposition_index": 1,
+      "function_name": "longest_palindrome",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:find_longest_palindrome"
+      ],
+      "calls": [
+        "expand_around_center",
+        "len",
+        "max",
+        "range"
+      ],
+      "called_dependencies": [
+        "expand_around_center"
+      ],
+      "missing_dependencies": [
+        "find_longest_palindrome"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1639",
+      "decomposition_index": 0,
+      "function_name": "extract_digits",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "map",
+        "set",
+        "sorted",
+        "str"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1639",
+      "decomposition_index": 0,
+      "function_name": "extract_digits",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "map",
+        "set",
+        "sorted",
+        "str"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1639",
+      "decomposition_index": 0,
+      "function_name": "generate_combinations",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:extract_digits"
+      ],
+      "calls": [
+        "combinations",
+        "range"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "extract_digits"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1639",
+      "decomposition_index": 0,
+      "function_name": "generate_combinations",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:extract_digits"
+      ],
+      "calls": [
+        "combinations",
+        "range"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "extract_digits"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1639",
+      "decomposition_index": 0,
+      "function_name": "calculate_sums",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:extract_digits,generate_combinations"
+      ],
+      "calls": [
+        "sum"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "extract_digits",
+        "generate_combinations"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1639",
+      "decomposition_index": 0,
+      "function_name": "calculate_sums",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:extract_digits,generate_combinations"
+      ],
+      "calls": [
+        "sum"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "extract_digits",
+        "generate_combinations"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1639",
+      "decomposition_index": 0,
+      "function_name": "gta",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "calculate_sums",
+        "extract_digits",
+        "generate_combinations",
+        "sum"
+      ],
+      "called_dependencies": [
+        "calculate_sums",
+        "extract_digits",
+        "generate_combinations"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1639",
+      "decomposition_index": 0,
+      "function_name": "gta",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "calculate_sums",
+        "extract_digits",
+        "generate_combinations",
+        "sum"
+      ],
+      "called_dependencies": [
+        "calculate_sums",
+        "extract_digits",
+        "generate_combinations"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1639",
+      "decomposition_index": 1,
+      "function_name": "extract_digits",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "map",
+        "set",
+        "sorted",
+        "str"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1639",
+      "decomposition_index": 1,
+      "function_name": "extract_digits",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "map",
+        "set",
+        "sorted",
+        "str"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1639",
+      "decomposition_index": 1,
+      "function_name": "generate_permutations",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:extract_digits"
+      ],
+      "calls": [
+        "permutations",
+        "range"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "extract_digits"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1639",
+      "decomposition_index": 1,
+      "function_name": "generate_permutations",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:extract_digits"
+      ],
+      "calls": [
+        "permutations",
+        "range"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "extract_digits"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1639",
+      "decomposition_index": 1,
+      "function_name": "calculate_sums",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:extract_digits,generate_permutations"
+      ],
+      "calls": [
+        "sum"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "extract_digits",
+        "generate_permutations"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1639",
+      "decomposition_index": 1,
+      "function_name": "calculate_sums",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:extract_digits,generate_permutations"
+      ],
+      "calls": [
+        "int",
+        "map",
+        "sum"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "extract_digits",
+        "generate_permutations"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1639",
+      "decomposition_index": 1,
+      "function_name": "gta",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "calculate_sums",
+        "extract_digits",
+        "generate_permutations",
+        "sum"
+      ],
+      "called_dependencies": [
+        "calculate_sums",
+        "extract_digits",
+        "generate_permutations"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1639",
+      "decomposition_index": 1,
+      "function_name": "gta",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "calculate_sums",
+        "extract_digits",
+        "generate_permutations",
+        "sum"
+      ],
+      "called_dependencies": [
+        "calculate_sums",
+        "extract_digits",
+        "generate_permutations"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1640",
+      "decomposition_index": 0,
+      "function_name": "count_frequencies",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1640",
+      "decomposition_index": 0,
+      "function_name": "count_frequencies",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "Counter"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1640",
+      "decomposition_index": 0,
+      "function_name": "filter_frequencies",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:count_frequencies"
+      ],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "count_frequencies"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1640",
+      "decomposition_index": 0,
+      "function_name": "filter_frequencies",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:count_frequencies"
+      ],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "count_frequencies"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1640",
+      "decomposition_index": 0,
+      "function_name": "format_result",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:count_frequencies,filter_frequencies"
+      ],
+      "calls": [
+        "len",
+        "sorted"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "count_frequencies",
+        "filter_frequencies"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1640",
+      "decomposition_index": 0,
+      "function_name": "format_result",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:count_frequencies,filter_frequencies"
+      ],
+      "calls": [
+        "len",
+        "sorted"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "count_frequencies",
+        "filter_frequencies"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1640",
+      "decomposition_index": 0,
+      "function_name": "mix",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "count_frequencies",
+        "filter_frequencies",
+        "format_result"
+      ],
+      "called_dependencies": [
+        "count_frequencies",
+        "filter_frequencies",
+        "format_result"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1640",
+      "decomposition_index": 0,
+      "function_name": "mix",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "count_frequencies",
+        "filter_frequencies",
+        "format_result"
+      ],
+      "called_dependencies": [
+        "count_frequencies",
+        "filter_frequencies",
+        "format_result"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1640",
+      "decomposition_index": 1,
+      "function_name": "count_frequencies",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1640",
+      "decomposition_index": 1,
+      "function_name": "count_frequencies",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "Counter"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1640",
+      "decomposition_index": 1,
+      "function_name": "filter_frequencies",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:count_frequencies"
+      ],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "count_frequencies"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1640",
+      "decomposition_index": 1,
+      "function_name": "filter_frequencies",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:count_frequencies"
+      ],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "count_frequencies"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1640",
+      "decomposition_index": 1,
+      "function_name": "format_result",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:count_frequencies,filter_frequencies"
+      ],
+      "calls": [
+        "len",
+        "sorted"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "count_frequencies",
+        "filter_frequencies"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1640",
+      "decomposition_index": 1,
+      "function_name": "format_result",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:count_frequencies,filter_frequencies"
+      ],
+      "calls": [
+        "len",
+        "sorted"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "count_frequencies",
+        "filter_frequencies"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1640",
+      "decomposition_index": 1,
+      "function_name": "mix",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "count_frequencies",
+        "filter_frequencies",
+        "format_result"
+      ],
+      "called_dependencies": [
+        "count_frequencies",
+        "filter_frequencies",
+        "format_result"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1640",
+      "decomposition_index": 1,
+      "function_name": "mix",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "count_frequencies",
+        "filter_frequencies",
+        "format_result"
+      ],
+      "called_dependencies": [
+        "count_frequencies",
+        "filter_frequencies",
+        "format_result"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1642",
+      "decomposition_index": 0,
+      "function_name": "count_factors",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "int",
+        "range"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1642",
+      "decomposition_index": 0,
+      "function_name": "count_factors",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "int",
+        "range"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1642",
+      "decomposition_index": 0,
+      "function_name": "partition",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:count_factors"
+      ],
+      "calls": [
+        "partition",
+        "range",
+        "sum"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "count_factors"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1642",
+      "decomposition_index": 0,
+      "function_name": "partition",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:count_factors"
+      ],
+      "calls": [
+        "partition",
+        "range",
+        "sum"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "count_factors"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1642",
+      "decomposition_index": 0,
+      "function_name": "multiply",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:count_factors"
+      ],
+      "calls": [
+        "partition"
+      ],
+      "called_dependencies": [
+        "partition"
+      ],
+      "missing_dependencies": [
+        "count_factors"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1642",
+      "decomposition_index": 0,
+      "function_name": "multiply",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:count_factors,partition"
+      ],
+      "calls": [
+        "multiply",
+        "range",
+        "sum"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "count_factors",
+        "partition"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1642",
+      "decomposition_index": 1,
+      "function_name": "count_factors",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "int",
+        "range"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1642",
+      "decomposition_index": 1,
+      "function_name": "count_factors",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "int",
+        "range"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1642",
+      "decomposition_index": 1,
+      "function_name": "count_partitions",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:count_factors"
+      ],
+      "calls": [
+        "count_partitions",
+        "range",
+        "sum"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "count_factors"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1642",
+      "decomposition_index": 1,
+      "function_name": "count_partitions",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:count_factors"
+      ],
+      "calls": [
+        "count_partitions"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "count_factors"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1642",
+      "decomposition_index": 1,
+      "function_name": "multiply",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:count_factors"
+      ],
+      "calls": [
+        "count_partitions"
+      ],
+      "called_dependencies": [
+        "count_partitions"
+      ],
+      "missing_dependencies": [
+        "count_factors"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1643",
+      "decomposition_index": 0,
+      "function_name": "count_non_zero_digits",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "str",
+        "sum"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1643",
+      "decomposition_index": 0,
+      "function_name": "count_non_zero_digits",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "str",
+        "sum"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1643",
+      "decomposition_index": 0,
+      "function_name": "count_numbers_with_k_non_zero_digits",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "count_non_zero_digits",
+        "range"
+      ],
+      "called_dependencies": [
+        "count_non_zero_digits"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1643",
+      "decomposition_index": 0,
+      "function_name": "count_numbers_with_k_non_zero_digits",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "count_non_zero_digits",
+        "range"
+      ],
+      "called_dependencies": [
+        "count_non_zero_digits"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1643",
+      "decomposition_index": 0,
+      "function_name": "almost_everywhere_zero",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:count_non_zero_digits"
+      ],
+      "calls": [
+        "count_numbers_with_k_non_zero_digits"
+      ],
+      "called_dependencies": [
+        "count_numbers_with_k_non_zero_digits"
+      ],
+      "missing_dependencies": [
+        "count_non_zero_digits"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1643",
+      "decomposition_index": 1,
+      "function_name": "count_non_zero_digits",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "str",
+        "sum"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1643",
+      "decomposition_index": 1,
+      "function_name": "count_non_zero_digits",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "str",
+        "sum"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1643",
+      "decomposition_index": 1,
+      "function_name": "almost_everywhere_zero",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "count_non_zero_digits",
+        "range"
+      ],
+      "called_dependencies": [
+        "count_non_zero_digits"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1644",
+      "decomposition_index": 0,
+      "function_name": "b91encode",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "enumerate",
+        "len"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1644",
+      "decomposition_index": 0,
+      "function_name": "b91decode",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:b91encode"
+      ],
+      "calls": [
+        "bytes",
+        "enumerate"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "b91encode"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1644",
+      "decomposition_index": 0,
+      "function_name": "b91decode",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:b91encode"
+      ],
+      "calls": [
+        "bytes",
+        "enumerate"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "b91encode"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1644",
+      "decomposition_index": 1,
+      "function_name": "b91encode",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "enumerate",
+        "len"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1644",
+      "decomposition_index": 1,
+      "function_name": "b91decode",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:b91encode"
+      ],
+      "calls": [
+        "bytes",
+        "enumerate"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "b91encode"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1644",
+      "decomposition_index": 1,
+      "function_name": "b91decode",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:b91encode"
+      ],
+      "calls": [
+        "bytes",
+        "enumerate"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "b91encode"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1645",
+      "decomposition_index": 0,
+      "function_name": "is_perfect_square",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "int"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1645",
+      "decomposition_index": 0,
+      "function_name": "is_perfect_square",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "int"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1645",
+      "decomposition_index": 0,
+      "function_name": "find_smallest_square",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "is_perfect_square"
+      ],
+      "called_dependencies": [
+        "is_perfect_square"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1645",
+      "decomposition_index": 0,
+      "function_name": "find_smallest_square",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "int",
+        "is_perfect_square"
+      ],
+      "called_dependencies": [
+        "is_perfect_square"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1645",
+      "decomposition_index": 0,
+      "function_name": "count_squares",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:is_perfect_square"
+      ],
+      "calls": [
+        "find_smallest_square"
+      ],
+      "called_dependencies": [
+        "find_smallest_square"
+      ],
+      "missing_dependencies": [
+        "is_perfect_square"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1645",
+      "decomposition_index": 0,
+      "function_name": "count_squares",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:is_perfect_square"
+      ],
+      "calls": [
+        "find_smallest_square"
+      ],
+      "called_dependencies": [
+        "find_smallest_square"
+      ],
+      "missing_dependencies": [
+        "is_perfect_square"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1645",
+      "decomposition_index": 0,
+      "function_name": "sum_of_squares",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:find_smallest_square,is_perfect_square"
+      ],
+      "calls": [
+        "count_squares"
+      ],
+      "called_dependencies": [
+        "count_squares"
+      ],
+      "missing_dependencies": [
+        "find_smallest_square",
+        "is_perfect_square"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1645",
+      "decomposition_index": 0,
+      "function_name": "sum_of_squares",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:count_squares"
+      ],
+      "calls": [
+        "find_smallest_square",
+        "is_perfect_square",
+        "sum_of_squares"
+      ],
+      "called_dependencies": [
+        "find_smallest_square",
+        "is_perfect_square"
+      ],
+      "missing_dependencies": [
+        "count_squares"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1645",
+      "decomposition_index": 1,
+      "function_name": "is_perfect_square",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "int"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1645",
+      "decomposition_index": 1,
+      "function_name": "is_perfect_square",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "int"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1645",
+      "decomposition_index": 1,
+      "function_name": "sum_of_squares",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:is_perfect_square"
+      ],
+      "calls": [
+        "find_smallest_squares",
+        "len"
+      ],
+      "called_dependencies": [
+        "find_smallest_squares"
+      ],
+      "missing_dependencies": [
+        "is_perfect_square"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1645",
+      "decomposition_index": 1,
+      "function_name": "sum_of_squares",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:is_perfect_square"
+      ],
+      "calls": [
+        "find_smallest_squares",
+        "len"
+      ],
+      "called_dependencies": [
+        "find_smallest_squares"
+      ],
+      "missing_dependencies": [
+        "is_perfect_square"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1646",
+      "decomposition_index": 0,
+      "function_name": "is_green",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "str"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1646",
+      "decomposition_index": 0,
+      "function_name": "is_green",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "str"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1646",
+      "decomposition_index": 0,
+      "function_name": "count_green_numbers",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "is_green"
+      ],
+      "called_dependencies": [
+        "is_green"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1646",
+      "decomposition_index": 0,
+      "function_name": "count_green_numbers",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "is_green"
+      ],
+      "called_dependencies": [
+        "is_green"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1646",
+      "decomposition_index": 0,
+      "function_name": "find_green_number",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:count_green_numbers"
+      ],
+      "calls": [
+        "is_green"
+      ],
+      "called_dependencies": [
+        "is_green"
+      ],
+      "missing_dependencies": [
+        "count_green_numbers"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1646",
+      "decomposition_index": 0,
+      "function_name": "find_green_number",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:count_green_numbers"
+      ],
+      "calls": [
+        "is_green"
+      ],
+      "called_dependencies": [
+        "is_green"
+      ],
+      "missing_dependencies": [
+        "count_green_numbers"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1646",
+      "decomposition_index": 0,
+      "function_name": "green",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:count_green_numbers,is_green"
+      ],
+      "calls": [
+        "find_green_number"
+      ],
+      "called_dependencies": [
+        "find_green_number"
+      ],
+      "missing_dependencies": [
+        "count_green_numbers",
+        "is_green"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1646",
+      "decomposition_index": 0,
+      "function_name": "green",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:count_green_numbers,is_green"
+      ],
+      "calls": [
+        "find_green_number"
+      ],
+      "called_dependencies": [
+        "find_green_number"
+      ],
+      "missing_dependencies": [
+        "count_green_numbers",
+        "is_green"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1646",
+      "decomposition_index": 1,
+      "function_name": "is_green",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "str"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1646",
+      "decomposition_index": 1,
+      "function_name": "is_green",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "str"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1646",
+      "decomposition_index": 1,
+      "function_name": "find_next_green",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "is_green"
+      ],
+      "called_dependencies": [
+        "is_green"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1646",
+      "decomposition_index": 1,
+      "function_name": "find_next_green",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "is_green"
+      ],
+      "called_dependencies": [
+        "is_green"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1646",
+      "decomposition_index": 1,
+      "function_name": "count_green_numbers",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "find_next_green",
+        "is_green"
+      ],
+      "called_dependencies": [
+        "find_next_green",
+        "is_green"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1646",
+      "decomposition_index": 1,
+      "function_name": "count_green_numbers",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "find_next_green",
+        "is_green"
+      ],
+      "called_dependencies": [
+        "find_next_green",
+        "is_green"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1646",
+      "decomposition_index": 1,
+      "function_name": "green",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:count_green_numbers"
+      ],
+      "calls": [
+        "find_next_green",
+        "is_green"
+      ],
+      "called_dependencies": [
+        "find_next_green",
+        "is_green"
+      ],
+      "missing_dependencies": [
+        "count_green_numbers"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1646",
+      "decomposition_index": 1,
+      "function_name": "green",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:count_green_numbers"
+      ],
+      "calls": [
+        "find_next_green",
+        "is_green"
+      ],
+      "called_dependencies": [
+        "find_next_green",
+        "is_green"
+      ],
+      "missing_dependencies": [
+        "count_green_numbers"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1648",
+      "decomposition_index": 0,
+      "function_name": "calculate_lcm",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "abs",
+        "gcd"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1648",
+      "decomposition_index": 0,
+      "function_name": "calculate_gcd",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:calculate_lcm"
+      ],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "calculate_lcm"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1648",
+      "decomposition_index": 0,
+      "function_name": "calculate_gcd",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:calculate_lcm"
+      ],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "calculate_lcm"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1648",
+      "decomposition_index": 0,
+      "function_name": "spinning_rings",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:calculate_gcd"
+      ],
+      "calls": [
+        "calculate_lcm"
+      ],
+      "called_dependencies": [
+        "calculate_lcm"
+      ],
+      "missing_dependencies": [
+        "calculate_gcd"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1648",
+      "decomposition_index": 0,
+      "function_name": "spinning_rings",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:calculate_gcd"
+      ],
+      "calls": [
+        "calculate_lcm"
+      ],
+      "called_dependencies": [
+        "calculate_lcm"
+      ],
+      "missing_dependencies": [
+        "calculate_gcd"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1648",
+      "decomposition_index": 1,
+      "function_name": "gcd",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1648",
+      "decomposition_index": 1,
+      "function_name": "gcd",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1648",
+      "decomposition_index": 1,
+      "function_name": "lcm",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "abs",
+        "gcd"
+      ],
+      "called_dependencies": [
+        "gcd"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1648",
+      "decomposition_index": 1,
+      "function_name": "lcm",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "abs",
+        "gcd"
+      ],
+      "called_dependencies": [
+        "gcd"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1648",
+      "decomposition_index": 1,
+      "function_name": "spinning_rings",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:gcd"
+      ],
+      "calls": [
+        "lcm"
+      ],
+      "called_dependencies": [
+        "lcm"
+      ],
+      "missing_dependencies": [
+        "gcd"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1648",
+      "decomposition_index": 1,
+      "function_name": "spinning_rings",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:gcd"
+      ],
+      "calls": [
+        "lcm"
+      ],
+      "called_dependencies": [
+        "lcm"
+      ],
+      "missing_dependencies": [
+        "gcd"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1649",
+      "decomposition_index": 0,
+      "function_name": "is_valid_event",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1649",
+      "decomposition_index": 0,
+      "function_name": "is_valid_event",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1649",
+      "decomposition_index": 0,
+      "function_name": "get_next_state",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "is_valid_event"
+      ],
+      "called_dependencies": [
+        "is_valid_event"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1649",
+      "decomposition_index": 0,
+      "function_name": "get_next_state",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "is_valid_event"
+      ],
+      "called_dependencies": [
+        "is_valid_event"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1649",
+      "decomposition_index": 0,
+      "function_name": "traverse_TCP_states",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "get_next_state",
+        "is_valid_event"
+      ],
+      "called_dependencies": [
+        "get_next_state",
+        "is_valid_event"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1649",
+      "decomposition_index": 0,
+      "function_name": "traverse_TCP_states",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "get_next_state",
+        "is_valid_event"
+      ],
+      "called_dependencies": [
+        "get_next_state",
+        "is_valid_event"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1649",
+      "decomposition_index": 1,
+      "function_name": "is_valid_event",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1649",
+      "decomposition_index": 1,
+      "function_name": "is_valid_event",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1649",
+      "decomposition_index": 1,
+      "function_name": "get_next_state",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "is_valid_event"
+      ],
+      "called_dependencies": [
+        "is_valid_event"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1649",
+      "decomposition_index": 1,
+      "function_name": "get_next_state",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "is_valid_event"
+      ],
+      "called_dependencies": [
+        "is_valid_event"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1649",
+      "decomposition_index": 1,
+      "function_name": "traverse_TCP_states",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "get_next_state",
+        "is_valid_event"
+      ],
+      "called_dependencies": [
+        "get_next_state",
+        "is_valid_event"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1649",
+      "decomposition_index": 1,
+      "function_name": "traverse_TCP_states",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "get_next_state",
+        "is_valid_event"
+      ],
+      "called_dependencies": [
+        "get_next_state",
+        "is_valid_event"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1650",
+      "decomposition_index": 0,
+      "function_name": "is_valid_number",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "int",
+        "sorted",
+        "str",
+        "sum"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1650",
+      "decomposition_index": 0,
+      "function_name": "is_valid_number",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "int",
+        "sorted",
+        "str",
+        "sum"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1650",
+      "decomposition_index": 0,
+      "function_name": "generate_numbers",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "is_valid_number",
+        "len",
+        "max",
+        "min",
+        "range"
+      ],
+      "called_dependencies": [
+        "is_valid_number"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1650",
+      "decomposition_index": 0,
+      "function_name": "find_all",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "generate_numbers",
+        "is_valid_number",
+        "len",
+        "max",
+        "min"
+      ],
+      "called_dependencies": [
+        "generate_numbers",
+        "is_valid_number"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1650",
+      "decomposition_index": 0,
+      "function_name": "find_all",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "generate_numbers",
+        "is_valid_number",
+        "len",
+        "max",
+        "min"
+      ],
+      "called_dependencies": [
+        "generate_numbers",
+        "is_valid_number"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1650",
+      "decomposition_index": 1,
+      "function_name": "is_valid_number",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "int",
+        "sorted",
+        "str",
+        "sum"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1650",
+      "decomposition_index": 1,
+      "function_name": "is_valid_number",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "int",
+        "sorted",
+        "str",
+        "sum"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1650",
+      "decomposition_index": 1,
+      "function_name": "generate_numbers",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "is_valid_number",
+        "len",
+        "max",
+        "min",
+        "range"
+      ],
+      "called_dependencies": [
+        "is_valid_number"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1650",
+      "decomposition_index": 1,
+      "function_name": "find_all",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "generate_numbers",
+        "is_valid_number",
+        "len",
+        "max",
+        "min"
+      ],
+      "called_dependencies": [
+        "generate_numbers",
+        "is_valid_number"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1650",
+      "decomposition_index": 1,
+      "function_name": "find_all",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "generate_numbers",
+        "is_valid_number",
+        "len",
+        "max",
+        "min"
+      ],
+      "called_dependencies": [
+        "generate_numbers",
+        "is_valid_number"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1652",
+      "decomposition_index": 0,
+      "function_name": "seconds_to_minutes",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1652",
+      "decomposition_index": 0,
+      "function_name": "seconds_to_minutes",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1652",
+      "decomposition_index": 0,
+      "function_name": "minutes_to_hours",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:seconds_to_minutes"
+      ],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "seconds_to_minutes"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1652",
+      "decomposition_index": 0,
+      "function_name": "minutes_to_hours",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:seconds_to_minutes"
+      ],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "seconds_to_minutes"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1652",
+      "decomposition_index": 0,
+      "function_name": "hours_to_days",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:minutes_to_hours,seconds_to_minutes"
+      ],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "minutes_to_hours",
+        "seconds_to_minutes"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1652",
+      "decomposition_index": 0,
+      "function_name": "hours_to_days",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:minutes_to_hours,seconds_to_minutes"
+      ],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "minutes_to_hours",
+        "seconds_to_minutes"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1652",
+      "decomposition_index": 0,
+      "function_name": "format_duration",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:hours_to_days,minutes_to_hours"
+      ],
+      "calls": [
+        "len",
+        "seconds_to_minutes"
+      ],
+      "called_dependencies": [
+        "seconds_to_minutes"
+      ],
+      "missing_dependencies": [
+        "hours_to_days",
+        "minutes_to_hours"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1652",
+      "decomposition_index": 0,
+      "function_name": "format_duration",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:hours_to_days,minutes_to_hours"
+      ],
+      "calls": [
+        "len",
+        "seconds_to_minutes"
+      ],
+      "called_dependencies": [
+        "seconds_to_minutes"
+      ],
+      "missing_dependencies": [
+        "hours_to_days",
+        "minutes_to_hours"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1652",
+      "decomposition_index": 1,
+      "function_name": "seconds_to_minutes",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1652",
+      "decomposition_index": 1,
+      "function_name": "seconds_to_minutes",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1652",
+      "decomposition_index": 1,
+      "function_name": "minutes_to_hours",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:seconds_to_minutes"
+      ],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "seconds_to_minutes"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1652",
+      "decomposition_index": 1,
+      "function_name": "minutes_to_hours",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:seconds_to_minutes"
+      ],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "seconds_to_minutes"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1652",
+      "decomposition_index": 1,
+      "function_name": "hours_to_days",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:minutes_to_hours,seconds_to_minutes"
+      ],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "minutes_to_hours",
+        "seconds_to_minutes"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1652",
+      "decomposition_index": 1,
+      "function_name": "hours_to_days",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:minutes_to_hours,seconds_to_minutes"
+      ],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "minutes_to_hours",
+        "seconds_to_minutes"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1652",
+      "decomposition_index": 1,
+      "function_name": "format_duration",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:hours_to_days,minutes_to_hours"
+      ],
+      "calls": [
+        "len",
+        "seconds_to_minutes"
+      ],
+      "called_dependencies": [
+        "seconds_to_minutes"
+      ],
+      "missing_dependencies": [
+        "hours_to_days",
+        "minutes_to_hours"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1652",
+      "decomposition_index": 1,
+      "function_name": "format_duration",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:hours_to_days,minutes_to_hours"
+      ],
+      "calls": [
+        "len",
+        "seconds_to_minutes"
+      ],
+      "called_dependencies": [
+        "seconds_to_minutes"
+      ],
+      "missing_dependencies": [
+        "hours_to_days",
+        "minutes_to_hours"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1660",
+      "decomposition_index": 0,
+      "function_name": "parse_poly",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "defaultdict",
+        "int",
+        "len",
+        "sorted"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1660",
+      "decomposition_index": 0,
+      "function_name": "parse_poly",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "defaultdict",
+        "int",
+        "sorted"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1660",
+      "decomposition_index": 0,
+      "function_name": "sort_monomials",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:parse_poly"
+      ],
+      "calls": [
+        "len",
+        "sorted"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "parse_poly"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1660",
+      "decomposition_index": 0,
+      "function_name": "sort_monomials",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:parse_poly"
+      ],
+      "calls": [
+        "len",
+        "sorted"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "parse_poly"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1660",
+      "decomposition_index": 0,
+      "function_name": "combine_like_terms",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:parse_poly,sort_monomials"
+      ],
+      "calls": [
+        "defaultdict",
+        "sorted"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "parse_poly",
+        "sort_monomials"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1660",
+      "decomposition_index": 0,
+      "function_name": "combine_like_terms",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:parse_poly,sort_monomials"
+      ],
+      "calls": [
+        "sorted",
+        "tuple"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "parse_poly",
+        "sort_monomials"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1660",
+      "decomposition_index": 0,
+      "function_name": "simplify",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "combine_like_terms",
+        "parse_poly",
+        "sort_monomials"
+      ],
+      "called_dependencies": [
+        "combine_like_terms",
+        "parse_poly",
+        "sort_monomials"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1660",
+      "decomposition_index": 0,
+      "function_name": "simplify",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "combine_like_terms",
+        "parse_poly",
+        "sort_monomials"
+      ],
+      "called_dependencies": [
+        "combine_like_terms",
+        "parse_poly",
+        "sort_monomials"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1660",
+      "decomposition_index": 1,
+      "function_name": "parse_poly",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1660",
+      "decomposition_index": 1,
+      "function_name": "parse_poly",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "int"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1660",
+      "decomposition_index": 1,
+      "function_name": "sort_monomials",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:parse_poly"
+      ],
+      "calls": [
+        "len",
+        "sorted"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "parse_poly"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1660",
+      "decomposition_index": 1,
+      "function_name": "sort_monomials",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:parse_poly"
+      ],
+      "calls": [
+        "len",
+        "sorted"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "parse_poly"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1660",
+      "decomposition_index": 1,
+      "function_name": "combine_like_terms",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:parse_poly,sort_monomials"
+      ],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "parse_poly",
+        "sort_monomials"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1660",
+      "decomposition_index": 1,
+      "function_name": "combine_like_terms",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:parse_poly,sort_monomials"
+      ],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "parse_poly",
+        "sort_monomials"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-1660",
+      "decomposition_index": 1,
+      "function_name": "simplify",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "combine_like_terms",
+        "parse_poly",
+        "sort_monomials"
+      ],
+      "called_dependencies": [
+        "combine_like_terms",
+        "parse_poly",
+        "sort_monomials"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-1660",
+      "decomposition_index": 1,
+      "function_name": "simplify",
+      "implementation_index": 1,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "combine_like_terms",
+        "parse_poly",
+        "sort_monomials"
+      ],
+      "called_dependencies": [
+        "combine_like_terms",
+        "parse_poly",
+        "sort_monomials"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": false
+    }
+  ]
+}

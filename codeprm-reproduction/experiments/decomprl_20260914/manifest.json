@@ -1,0 +1,92 @@
+{
+  "experiment_id": "decomprl_20260914_mechanism_v1",
+  "created_at": "2026-09-14",
+  "purpose": "Prompt-only modular decomposition mechanism smoke before any RL",
+  "source_file": "data/raw/apps_train_introductory50.json",
+  "source_sha256": "8a5c534b01db7984a4230e59d9c7c7bb40bc0a5ac5ad12669510ea85a917fc69",
+  "split_type": "custom_APPS_train_split_not_official_test",
+  "development": {
+    "selection": "source indices 0..19",
+    "problem_ids": [
+      "apps-train-2651", "apps-train-2652", "apps-train-2653", "apps-train-2654", "apps-train-2655",
+      "apps-train-2656", "apps-train-2657", "apps-train-2658", "apps-train-2660", "apps-train-2661",
+      "apps-train-2662", "apps-train-2663", "apps-train-2664", "apps-train-2665", "apps-train-2666",
+      "apps-train-2667", "apps-train-2668", "apps-train-2669", "apps-train-2670", "apps-train-2671"
+    ]
+  },
+  "holdout": {
+    "selection": "source indices 20..49",
+    "problem_ids": [
+      "apps-train-2672", "apps-train-2673", "apps-train-2674", "apps-train-2675", "apps-train-2676",
+      "apps-train-2677", "apps-train-2678", "apps-train-2679", "apps-train-2680", "apps-train-2681",
+      "apps-train-2682", "apps-train-2683", "apps-train-2684", "apps-train-2685", "apps-train-2686",
+      "apps-train-2687", "apps-train-2688", "apps-train-2689", "apps-train-2690", "apps-train-2691",
+      "apps-train-2692", "apps-train-2694", "apps-train-2695", "apps-train-2696", "apps-train-2697",
+      "apps-train-2698", "apps-train-2699", "apps-train-2700", "apps-train-2701", "apps-train-2702"
+    ]
+  },
+  "protocol": {
+    "models": {
+      "mechanism": "qwen2.5-coder:3b",
+      "inference_baseline": "qwen2.5-coder:7b",
+      "decomposition_selected_for_dev": "qwen2.5-coder:7b",
+      "implementation_selected_for_dev": "qwen2.5-coder:7b",
+      "decomposition_rejected_for_dev": "qwen2.5-coder:3b"
+    },
+    "seeds": [42, 43, 44],
+    "decomposition_protocols": ["json", "skeleton"],
+    "decompositions_per_problem": 2,
+    "implementations_per_function": 2,
+    "max_functions": 4,
+    "max_combinations_per_decomposition": 16,
+    "generation_token_budgets": [2048, 4096, 8192],
+    "selection_tests": "public_only",
+    "final_tests": "private_only_after_selection",
+    "tie_break": "lowest_candidate_index_after_highest_public_pass_rate",
+    "execution_timeout_seconds": 10
+  },
+  "prompt_versions": {
+    "decomposition": "m2_contract_v4_2to4",
+    "implementation": "m2_function_scope_v2",
+    "whole_program": "m0_m1_api_contract_v1"
+  },
+  "milestones": {
+    "P0": "passed: source hash and development20/holdout30 split frozen",
+    "P1_3b_json": "failed gate: 18/20 valid and 19/20 exact entrypoint",
+    "P1_7b_json": "passed after offline validator correction: 20/20 valid, entrypoint, DAG",
+    "P1_7b_skeleton": "format caveat: 20/20 parse after fence normalization, 0/20 raw-valid",
+    "P2": "passed: AST composition fixtures and leakage checks",
+    "P3_smoke_dev3": "passed: M0/M1/M2a/M2b end-to-end with public-only selection",
+    "P3_dev20": "passed: M0/M1/M2a/M2b development-20 mechanism comparison complete",
+    "M3_human_review": "passed: blind scores and human decompositions completed on sampled 10 development problems",
+    "M3_human_execution": "passed: 8/10 candidate coverage, 3/10 private full pass",
+    "go_no_go": "No-Go for local RL under current prompt, budget, and introductory split",
+    "P5_medium_hard": "completed: audited Interview-30 slice fetched; function-only Interview-25 comparison completed with 10s per-test and 10s per-candidate budgets",
+    "P5_data": {
+      "source": "HuggingFace APPS train, difficulty=interview, limit=30",
+      "source_file": "data/raw/apps_train_interview30.json",
+      "source_sha256": "9ca668bd9faab2e9dc81bc22b02c37cf8c7720a96afbc9e982a6feb5d1aed17d",
+      "modular_file": "data/raw/apps_train_interview_function25.json",
+      "modular_sha256": "eb925da12427cd40c15e124dc3e5a848f2bd32309e12cad4fbe294a9f1138dc6",
+      "rows": 30,
+      "function_rows": 25,
+      "stdin_rows_excluded_from_modular_comparison": 5,
+      "exclusion_rule": "execution_mode=stdin; determined before seeing experiment outcomes"
+    },
+    "P5_protocol": {
+      "models": "qwen2.5-coder:7b via local Ollama",
+      "seed": 42,
+      "whole_program_candidates": 2,
+      "decompositions_per_problem": 2,
+      "implementations_per_function": 2,
+      "max_combinations_per_decomposition": 8,
+      "per_test_timeout_seconds": 10,
+      "candidate_timeout_seconds": 10,
+      "selection": "public-only highest pass rate; deterministic index tie-break",
+      "private": "selected candidate only; full-pool private audit post hoc"
+    },
+    "P5_report": "reports/p5_interview_function25_analysis_20260917.md",
+    "P6": "skipped by pre-registered No-Go: M2a/M2b did not beat M1 and candidate-pool oracle did not improve"
+  },
+  "status": "P0-P5 passed; P5 Interview function25 found no stable modular advantage; RL remains No-Go; prompt-only mechanism, not paper-scale DecompRL"
+}

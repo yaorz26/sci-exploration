@@ -1,0 +1,1856 @@
+
+===== PAGE 1 =====
+FunPRM: Function-as-Step Process Reward Model with Meta Reward
+Correction for Code Generation
+Ruiyi Zhang 1 Peijia Qin 1 Qi Cao 1 Eric Xue 1 Pengtao Xie 1
+Abstract
+Code generation is a core application of large lan-
+guage models (LLMs), yet LLMs still frequently
+fail on complex programming tasks. Given its
+success in mathematical reasoning, test-time scal-
+ing approaches such as Process Reward Model
+(PRM)-based Best-of-N selection offer a promis-
+ing way to improve performance. However, ex-
+isting PRMs remain ineffective for code genera-
+tion due to the lack of meaningful step decom-
+position in code and the noise of Monte Carlo-
+estimated partial-solution correctness scores (re-
+wards). To address these challenges, we propose
+FunPRM. FunPRM prompts LLMs to encourage
+modular code generation organized into functions,
+with functions treated as PRM reasoning steps.
+Furthermore, FunPRM introduces a novel meta-
+learning-based reward correction mechanism that
+leverages clean final-solution rewards obtained
+via a unit-test-based evaluation system to purify
+noisy partial-solution rewards. Experiments on
+LiveCodeBench and BigCodeBench demonstrate
+that FunPRM consistently outperforms existing
+test-time scaling methods across five base LLMs,
+notably achieving state-of-the-art performance on
+LiveCodeBench when combined with O4-mini.
+Furthermore, FunPRM produces code that is more
+readable and reusable for developers.
+1. Introduction
+Code generation has become one of the most widely used
+and economically significant applications of large language
+models (LLMs) (Huang et al., 2025; Appel et al., 2026).
+However, even state-of-the-art LLMs frequently hallucinate
+and make observable errors (Jiang et al., 2025), largely due
+to the complexity of multi-step reasoning required for non-
+trivial programming tasks (Yu et al., 2025). Since LLMs
+often produce both correct and incorrect solutions when
+1University of California, San Diego. Correspondence to: Peng-
+tao Xie <p1xie@ucsd.edu>.
+Preprint. February 2, 2026.
+sampled multiple times, effective Best-of-N solution selec-
+tion strategies can substantially improve performance (Wang
+et al., 2024b). Among these approaches, Process Reward
+Model (PRM)-based selection has gained popularity (Light-
+man et al., 2024). Rather than evaluating only the final
+solution, PRMs assess whether intermediate reasoning steps
+of LLMs make progress toward a correct solution. This
+step-level evaluation enables PRMs to more precisely dis-
+criminate between promising and flawed solutions, mak-
+ing them well suited for Best-of-N selection. PRMs have
+demonstrated strong effectiveness in reasoning tasks, such
+as mathematical problem solving (Lightman et al., 2024)
+and multimodal question answering (Cao et al., 2025), mak-
+ing them a promising direction for enhancing LLM-based
+code generation.
+Despite this potential, two challenges prevent existing PRMs
+from being effectively used for coding. First, most PRMs
+require LLM-generated solutions to be separated into mean-
+ingful reasoning steps. Unlike LLM solutions to mathemati-
+cal problems, which naturally decompose into explicit rea-
+soning steps under Chain-of-Thought (CoT) prompting (Wei
+et al., 2022), LLM-generated code lacks an obvious defini-
+tion of such “steps.” Prior work often treats each line of code
+as a step, which can lead to hundreds of steps for certain
+programs, significantly increasing computation cost. (Wang
+et al., 2024b; He et al., 2025). Second, it is difficult to
+efficiently obtain the ground-truth correctness scores for
+partial solutions, which serve as labels to train PRMs. Some
+works use human-labeled scores, which are costly to obtain
+at large scale (Lightman et al., 2024). Others rely on Monte
+Carlo-based methods to automatically obtain such scores,
+typically by estimating the likelihood that a partial solution
+leads to a correct final solution via sampling (Wang et al.,
+2024a; Luo et al., 2024). Despite the reduced cost, scores
+obtained from Monte Carlo sampling can be quite noisy and
+ultimately reduce PRM performance.
+To address these challenges, we propose FunPRM, a pro-
+cess reward model tailored to code generation. Firstly, we
+prompt LLMs to generate modular code that organizes log-
+ically independent operations into separate functions, and
+treat each function as a “step” for PRM. As illustrated in
+Figure 1 with an example of computing the median of two
+arrays, the first step is the main function, which outlines a
+1
+arXiv:2601.22249v1  [cs.LG]  29 Jan 2026
+
+===== PAGE 2 =====
+FunPRM
+Baseline Prompt 
+You are an expert Python programmer.
+LLM Generated Code
+ 
+def main(nums1, nums2):
+    # Always binary-search the smaller array
+    if len(nums1) > len(nums2):
+        nums1, nums2 = nums2, nums1
+    m, n = len(nums1), len(nums2)
+    total = m + n
+    half = (total + 1) // 2 
+    # size of left partition
+    lo, hi = 0, m
+    while lo <= hi:
+        i = (lo + hi) // 2 # cut in nums1
+        j = half – i # cut in nums2
+   
+   # Boundary values around the cuts
+   # (use sentinels)
+        aL = float("-inf") if i == 0 else nums1[i-1]
+        aR = float("inf") if i == m else nums1[i]
+        bL = float("-inf") if j == 0 else nums2[j-1]
+        bR = float("inf") if j == n else nums2[j]
+   # Valid partition found
+        if aL <= bR and bL <= aR:
+            if total % 2 == 1:
+                return float(max(aL, bL))
+            return (max(aL, bL) + min(aR, bR)) / 2.0
+   
+   # Move cut in nums1
+        elif aL > bR:
+            hi = i – 1
+ # i too large
+        else:
+            lo = i + 1
+ # i too small
+Median of Two Sorted Arrays
+Given two sorted arrays nums1 and nums2, return the median of the combined sorted array, in O(log(min(m, n))) time.
+Baseline Method 🧐
+Chain-of-Function Prompt 
+(1) Extract logic into separate methods when operations can be isolated…
+(2) Place high-level solving functions first… (3) Add a docstring at each function…
+Step 1
+Orchestrates the solution using 
+binary search on the smaller array.
+This function manages the high-
+level loop:
+(1) Ensures binary search over the 
+smaller array for 
+O(log(min(m,n))) efficiency. 
+(2) Calculates the partition indices i
+(for nums1) and j (for nums2).
+(3) Fetches values and evaluates if 
+the partition is the correct 
+median cut.
+(4) Adjusts the search range (lo, hi) 
+based on the evaluation.
+def main(nums1, nums2):
+    if len(nums1) > len(nums2):
+        return main(nums2, nums1)
+    m, n = len(nums1), len(nums2)
+    total_len = m + n
+    half_len = (total_len + 1) // 2
+    lo, hi = 0, m
+    while lo <= hi:
+        i = (lo + hi) // 2
+        j = half_len - i
+        aL, aR, bL, bR = get_part_val(nums1,nums2,i,j)
+        result = eval_part(aL, aR, bL, bR, total_len)
+        if isinstance(result, float):
+            return result
+        elif result == "LEFT":
+            hi = i - 1
+        else:
+            lo = i + 1
+Step 2
+Retrieves the four boundary values 
+surrounding the partition cuts. Handles 
+edge cases where the cut is at the 
+very start (0) or end (len) of an array 
+by returning negative or positive 
+inﬁnity.
+def get_part_val(A, B, i, j):
+    aL = A[i - 1] if i > 0 else float('-inf')
+    aR = A[i]     if i < len(A) else float('inf')
+    bL = B[j - 1] if j > 0 else float('-inf')
+    bR = B[j]     if j < len(B) else float('inf')
+    return aL, aR, bL, bR
+Step 3
+Determines if the current partition is the 
+median or if we need to search 
+elsewhere.
+def eval_part(aL, aR, bL, bR, total_len):
+    if aL <= bR and bL <= aR:
+        if total_len % 2 == 1:
+            return float(max(aL, bL))
+        return (max(aL, bL) + min(aR, bR)) / 2.0
+    if aL > bR:
+        return "LEFT"
+    return "RIGHT"
+FunPRM 😎
+⛓💥
+🎯
+📥
+🧩
+❓
+Figure 1. Comparison of generated code between the baseline method and FunPRM. FunPRM prompts LLMs to encourage them
+generate modular code organized into multiple functions with accompanying docstrings. These functions serve as reasoning steps for the
+process reward model while simultaneously improving code readability for human developers.
+high-level strategy based on binary search. The second step
+implements a helper function to compute boundary values
+for a partition, and the third step checks whether the cur-
+rent partition is the median. Secondly, FunPRM introduces
+a meta-learning-based reward correction mechanism. We
+observe that, although Monte Carlo-estimated correctness
+scores (rewards) for partial solutions are noisy, the correct-
+ness of final solutions to a coding problem can be reliably
+determined by a unit-test-based evaluation system. Lever-
+aging this property, we propose a bi-level meta-learning
+scheme that uses clean final-solution rewards to purify noisy
+rewards for partial solutions. Specifically, we first train the
+PRM using Monte Carlo-estimated rewards for partial so-
+lutions and perform a one-step gradient update. We then
+evaluate the updated PRM on final solutions and use the
+resulting loss to compute gradients with respect to the noisy
+partial-solution rewards, which are subsequently optimized
+to improve their quality.
+Our key contributions are as follows:
+• We propose FunPRM, a process reward model tailored
+to code generation. FunPRM prompts LLMs to en-
+courage the use of functions in generated code and
+treats functions as reasoning steps for PRM evaluation.
+In addition, leveraging clean final-solution rewards,
+FunPRM introduces a meta-learning-based reward cor-
+rection mechanism to denoise Monte Carlo-sampled
+partial-solution rewards used for PRM training.
+• We evaluate FunPRM on two large-scale code gener-
+ation benchmarks under Best-of-N selection, where
+it consistently outperforms a wide range of test-time
+scaling baselines in terms of pass@1 across five base
+LLMs. Notably, when combined with OpenAI O4-
+mini (High), FunPRM achieves state-of-the-art perfor-
+mance on LiveCodeBench with 80.9 pass@1. Human
+evaluations further show that FunPRM-generated code
+is preferred by developers in terms of readability and
+reusability.
+2
+
+===== PAGE 3 =====
+FunPRM
+60
+65
+70
+75
+80
+85
+Pass@1
+FunPRM
+O4-mini (High)
+Gemini-2.5-Pro-06-05
+O4-mini (Medium)
+O3 (High)
+DeepSeek-R1
+Gemini-2.5-Pro-05-06
+EXAONE-4.0
+O3-mini (High)
+O4-mini (Low)
+80.9
+77.1
+72.5
+71.8
+71.8
+68.7
+67.2
+66.0
+62.6
+62.6
+LiveCodeBench Leaderboard
+FunPRM
+OpenAI
+Google
+DeepSeek
+EXAONE
+Figure 2. Leaderboard results on LiveCodeBench (2025-02-
+01–present) for FunPRM and other LLMs. FunPRM achieves
+state-of-the-art performance when using OpenAI O4-mini (High)
+as the base LLM.
+2. Related Works
+Process Reward Models
+Process Reward Models (PRMs)
+have been widely studied for improving the reasoning ca-
+pabilities of large language models (LLMs), particularly in
+mathematical domains. Lightman et al. (2024) is among
+the first to introduce PRMs trained using human-annotated
+step-wise reward data. To reduce the cost of human anno-
+tation, MiPS (Wang et al., 2024b) proposes a Monte Carlo
+(MC) sampling-based approach for automatic stepwise re-
+ward labeling, enabling performance gains through best-
+of-N selection. OmegaPRM (Luo et al., 2024) introduces
+an MCTS-based automatic labeling strategy and improves
+base LLM performance via reinforcement learning. ReST-
+MCTS (Zhang et al., 2024) further integrates PRM labeling
+with reinforcement learning of the base LLM, forming a
+self-training framework. DreamPRM addresses data qual-
+ity issues in PRM training through a meta-learning-based
+domain reweighting approach (Cao et al., 2025).
+Test-Time Approaches for Code Generation
+Due to the
+free-form nature of code generation, some test-time scaling
+(TTS) methods, such as majority voting, are not directly ap-
+plicable to coding tasks (Wang et al., 2023). Self-Certainty
+proposes using the model’s confidence over generated code
+as a criterion for best-of-N selection (Kang et al., 2025).
+MiPS and Skywork-PRM extend PRM-based test-time scal-
+ing to coding by adopting strategies similar to those used in
+mathematical reasoning, treating each line of code as a rea-
+soning step (He et al., 2025; Wang et al., 2024b). Recently,
+LLM-as-a-Judge has been applied to test-time scaling of
+LLMs (Zhou et al., 2025), including applications to code
+generation (Qin et al., 2026), often incurring inference cost
+that scales quadratically with the number of candidate so-
+lutions due to pairwise comparisons. In parallel, execution-
+feedback-enhanced agentic TTS frameworks have gained
+popularity in code generation, leveraging multi-round gen-
+eration and repeated code execution with additional public
+test cases to guide iterative refinement. Reflexion converts
+execution feedback into textual guidance for iterative code
+refinement (Shinn et al., 2023), while LDB collects step-by-
+step execution feedback to provide fine-grained supervision
+signals (Zhong et al., 2024). ORPS treats each round of
+code generation and execution as a reasoning step for PRM-
+guided decoding (Yu et al., 2025). CodePRM introduces
+an explicit planning stage prior to code generation, treating
+natural-language plans as PRM steps and incorporating code
+execution feedback into the reward model input (Li et al.,
+2025b). Despite its name, CodePRM does not conform
+to the standard definition of a process reward model, as it
+cannot directly score partial solutions, since code execution
+feedback is unavailable for partial programs.
+Meta Label Correction
+Meta-learning has been widely
+adopted for correcting corrupted labels, particularly in com-
+puter vision. M-SLC is among the first methods to formulate
+label correction as a meta-learning problem, learning a train-
+able label corrector using a small set of clean labels (Wu
+et al., 2020). EMLC extends this line of work by introducing
+a novel meta-gradient approximation and a teacher model
+to further improve label correction performance (Taraday &
+Baskin, 2023). DMLP further integrates a label-free repre-
+sentation learning phase into the meta-learning framework,
+enhancing robustness to noisy supervision (Tu et al., 2023).
+More recently, RobPicker introduces a unified framework
+for label correction and data reweighting in segmentation
+tasks (Hosseini et al., 2025). However, to the best of our
+knowledge, no prior work has explored label correction
+methods for improving the training and effectiveness of
+process reward models.
+3. Preliminaries
+Definitions
+We first introduce the standard formulation
+of Process Reward Models (PRMs) for test-time scaling
+in multi-step reasoning tasks (Wang et al., 2024b). Given
+a reasoning dataset D = {(x, y)}, a base LLM (policy
+model) takes the input x as the initial state s0 and iteratively
+generates a reasoning trajectory τ = (s0, s1, . . . , sT ) ac-
+cording to its policy πθ(st+1 | st). Here, sT corresponds
+to the final solution generated by the model, while each
+intermediate state st represents a partial solution that is a
+prefix of the final solution, as commonly produced under
+Chain-of-Thought (CoT) prompting. A PRM fϕ assigns a
+scalar correctness score (reward) to each partial solution,
+rt = fϕ(st), reflecting the likelihood that the reasoning
+trajectory up to step t will lead to a correct final answer.
+3
+
+===== PAGE 4 =====
+FunPRM
+Given a trained PRM, Best-of-N test-time scaling selects
+the solution with the highest aggregated reward, typically
+computed by averaging rewards across steps:
+fϕ(τ) = 1
+T
+T
+X
+t=1
+fϕ(st).
+(1)
+Training of Process Reward Models
+A central challenge
+in training Process Reward Models (PRMs) is the absence
+of ground-truth correctness scores rt for partial solutions.
+Early work addresses this issue by relying on human anno-
+tators to manually label these scores (Lightman et al., 2024),
+but this approach is prohibitively expensive at scale. As a re-
+sult, Monte Carlo (MC)-based strategies that automatically
+estimate partial-solution rewards have become popular (Luo
+et al., 2024; Cao et al., 2025). Given a partial solution st,
+the MC estimator uses the base LLM to sample K complete
+solutions:
+s(k)
+T
+∼πθ(· | st),
+k = 1, . . . , K.
+(2)
+It then computes the fraction r′
+t of these K solutions whose
+final predicted labels match the ground-truth label y, and
+uses this value as a Monte Carlo estimate of the partial-
+solution reward rt. The PRM, typically implemented as a
+text classification model, is trained to regress these estimated
+rewards using a mean squared error loss.
+4. Method
+In this section, we describe the proposed FunPRM frame-
+work in detail. FunPRM is a Process Reward Model tai-
+lored for code generation, which defines reasoning steps at
+the level of functions and incorporates a reward correction
+mechanism to improve the quality of training signals.
+4.1. Functions in Code as PRM Steps
+To address the first challenge discussed above—the lack of
+a natural step decomposition in code—we propose a Chain-
+of-Function prompting strategy. This strategy encourages
+LLMs to generate modular code organized into functions,
+allowing each function to serve as a reasoning step for the
+PRM. Concretely, the prompt guides the LLM to group log-
+ically independent code blocks into separate functions, with
+higher-level functions (e.g., the main function) appearing
+first. In addition, the prompt encourages the model to write
+docstrings at the beginning of each function, which act as
+high-level specifications for the corresponding implementa-
+tions.
+The prompt template is shown in Figure 3, and an exam-
+ple of the resulting code is illustrated in Figure 1. In the
+first step, the main function outlines the overall strategy by
+using a binary search partition to locate the correct split be-
+tween two sorted arrays. The second step, get part val,
+You will be given a question (problem specifica-
+tion) and will generate a correct Python program
+that matches the specification and passes all tests.
+Follow the code organization guidelines below:
+Logic decomposition: Extract logic into separate
+functions when operations are repeated or when
+complex calculations can be isolated.
+Function organization: Place high-level solving
+functions first (e.g., main()). Follow with helper
+functions that implement specific subtasks. Avoid
+nested functions; keep all functions at the top
+level.
+Docstrings in each function: Add a docstring
+using triple quotes at the beginning of each func-
+tion. Main methods should explain the approach,
+algorithm choice, strategy, and key steps; helper
+methods should explain their specific logic and
+purpose.
+Example demonstration: The following exam-
+ple illustrates the code structure and docstring
+style only. Solve the actual problem, not the ex-
+ample algorithm.
+[Few-shot examples]
+Figure 3. Chain-of-Function system prompt. The prompt en-
+courages function-level logic decomposition, top-down function
+organization, and descriptive docstrings to produce clearly defined
+PRM reasoning steps in generated code.
+computes the four boundary elements around a candidate
+partition, using sentinel values to handle edge cases. The
+third step, eval part, checks whether the partition satis-
+fies the ordering invariant and determines whether the search
+should proceed to the left or right. By defining reasoning
+steps at the function level, this formulation yields a clear
+and semantically meaningful notion of PRM steps, enabling
+effective PRM training and inference while producing mod-
+ular code with improved readability and reusability.
+4.2. Automatic Reward Correction with Meta Learning
+To improve the quality of Monte Carlo-sampled PRM train-
+ing data, we propose a meta-learning-based reward correc-
+tion framework that explicitly denoises correctness scores
+(rewards) for partial solutions. In coding tasks, we can
+leverage a private unit-test evaluation system E to obtain
+clean and reliable final-solution rewards rT = E(sT ) once
+the LLM completes code generation and produces a final
+solution. These rewards provide high-quality supervision
+signals that are generally unavailable in mathematical rea-
+4
+
+===== PAGE 5 =====
+FunPRM
+Noisy Partial-Solution Reward
+ 
+Clean Final-Solution Reward
+ 
+   One-step Updated PRM
+     PRM
+Meta-Loss
+Loss
+Parameter 
+Update
+Meta Reward Correction
+1
+2
+?
+1
+2
+3
+🔥
+❄
+Gradient Computation
+Monte Carlo-based Reward Estimation
+ 
+1
+2
+✓
+✗
+✓
+Initialization
+0.66
+Figure 4. Meta-learning-based reward correction framework
+in FunPRM. Noisy partial-solution rewards (correctness scores)
+are initialized via Monte Carlo sampling. The PRM parameters
+are first updated using these noisy partial-solution rewards through
+a one-step gradient descent. The updated PRM is then evaluated
+on clean final-solution reward data to compute a meta loss, which
+is used to optimize the partial-solution rewards from the previous
+stage.
+soning tasks, where a solution sT is typically deemed correct
+if it contains the ground-truth answer y. This assumption,
+however, is imperfect, as incorrect reasoning steps may still
+occasionally lead to a correct final answer (Turpin et al.,
+2023). FunPRM exploits this distinctive property of coding
+problems to improve the quality of partial-solution rewards
+and, in turn, the effectiveness of PRM training.
+For each trajectory τ = (s1, s2, . . . , sT ) in the set of tra-
+jectories T generated by an LLM as candidate solutions
+to a coding dataset, we consider two sources of super-
+vision.
+The first is a clean meta-dataset of final solu-
+tions (Sm, R) = {(sT (τ), rT (τ)) | τ ∈T }, where final-
+solution rewards are obtained from a unit-test evaluation
+system. The second is a noisy dataset of partial solutions
+(Sn, bR) = {(st(τ), ˆrt(τ)) | τ ∈T , t < T(τ)}, where
+partial-solution rewards (correctness scores) are estimated
+via Monte Carlo-sampling. Since Monte Carlo-estimated
+partial rewards are noisy, we introduce a lightweight, train-
+able reward-correction table gθ to refine bR. The correction
+table adds a learnable residual to each partial-solution re-
+ward, followed by clamping the corrected value to the range
+[0, 1]. We adopt a reward-correction table rather than a
+parametric network because coding datasets are typically
+small, making overparameterized models prone to overfit-
+ting. This design enables adaptive correction of noisy partial
+rewards guided by PRM performance on clean final-solution
+rewards.
+The proposed reward-correction table is optimized using a
+meta-learning framework. First, the PRM fϕ is trained on
+the partial-solution dataset Sn using the current corrected
+rewards gθ( bR). The PRM parameters ϕ are updated to ˆϕ by
+minimizing the training loss with a single gradient descent
+step:
+ˆϕ = ϕ −η∇ϕL
+
+fϕ(Sn), gθ( bR)
+
+,
+(3)
+where η denotes the learning rate. Note that the updated
+parameters ˆϕ depend implicitly on the reward-correction
+parameters θ through the corrected partial-solution rewards
+gθ( bR). Given this one-step update, we next evaluate the
+updated PRM f ˆϕ on the clean meta-dataset (Sm, R) of final
+solutions and define the following meta-objective over the
+reward-correction parameters θ:
+min
+θ
+L
+
+f ˆϕ(Sm), R
+
+.
+(4)
+Because the meta-loss depends on ˆϕ and, through the inner
+update, implicitly on θ, minimizing this objective encour-
+ages corrected partial-solution rewards that lead to PRM
+parameters generalizing well to clean final-solution rewards.
+In practice, computing the gradient of Eq. 4 with respect to θ
+involves second-order derivatives. To reduce computational
+overhead, we adopt a finite-difference approximation to esti-
+mate the meta-gradient (Liu et al., 2019; Choe et al., 2023),
+with details provided in Appendix A. Through this meta-
+learning procedure, FunPRM progressively refines noisy
+partial-solution rewards, yielding denoised training signals
+that improve PRM robustness and downstream performance
+in test-time scaling. An overview of the reward correction
+process is illustrated in Figure 4.
+5. Results
+5.1. Experimental Settings
+Datasets
+We evaluate FunPRM primarily on Live-
+CodeBench (LCB) (Jain et al., 2025) and BigCodeBench
+(BCB) (Zhuo et al., 2025).
+We use two other pro-
+gramming datasets, HumanEval+ (Chen et al., 2021) and
+MBPP+ (Austin et al., 2021) for domain generalization ex-
+periments, evaluated by EvalPlus system (Liu et al., 2023).
+5
+
+===== PAGE 6 =====
+FunPRM
+Table 1. Performance comparison of FunPRM and baseline
+methods across Easy, Medium, and Hard difficulty levels on
+LiveCodeBench (2025-02-01 – present). Results include top-
+performing LLMs from the leaderboard and test-time scaling meth-
+ods applied to O4-mini (High), with results reported as pass@1
+(%). Bold values indicate the best performance in each column.
+Model
+Easy
+Medium
+Hard
+Overall
+(31)
+(39)
+(61)
+(131)
+Top LLMs on LiveCodeBench Leaderboard
+Gemini-2.5
+100
+82.1
+52.5
+72.5
+O3 (High)
+100
+71.8
+57.4
+71.8
+DeepSeek-R1
+99.7
+77.7
+47.2
+68.7
+O4-mini (High)
+100
+89.7
+57.4
+77.1
+Test-time Scaling Methods (O4-mini)
+Self-Certainty
+100
+86.5
+59.8
+77.3
+ORM
+100
+89.7
+62.3
+79.4
+Skywork-PRM
+100
+87.2
+59.8
+78.1
+FunPRM
+100
+92.3
+63.9
+80.9
+All settings used in this work ensure no overlap between
+training and evaluation data. More detailed descriptions of
+these datasets and their usage are provided in Appendix B.
+Training Settings
+We adopt Qwen-2.5-Coder-7B (Qwen
+et al., 2024) as the backbone for FunPRM under a generative
+process reward model setting (Zhang et al., 2025a), as de-
+tailed in Appendix C. During training, only the LoRA layers
+of the PRM are updated (Hu et al., 2022). Additional details
+on generating PRM training data, PRM training settings and
+hyperparameters are provided in Appendix D.
+Test-time Settings
+For test-time scaling, we use OpenAI
+O4-mini (OpenAI, 2025) with high reasoning effort, Qwen3-
+Coder-30B-A3B (Yang et al., 2025), GPT-4o-mini (OpenAI,
+2024), DeepSeek-Coder (Guo et al., 2024), and Qwen2.5-
+7B-Coder (Qwen et al., 2024) as the base (policy) model.
+For each problem, the base LLM generates eight candidate
+solutions, from which FunPRM selects the final output.
+Baselines
+We compare FunPRM against three alternative
+test-time scaling (TTS) approaches: Self-Certainty (Kang
+et al., 2025), Outcome Reward Models (ORMs) (Cobbe
+et al., 2021; Uesato et al., 2022), and Skywork-PRM (He
+et al., 2025). In addition, we report results for several strong
+LLMs on LiveCodeBench leaderboard without test-time
+scaling. We focus our comparisons on Best-of-N test-time
+scaling baselines that perform a single round of code gener-
+ation without using test-case information at inference time.
+In contrast, agentic, multi-round, execution-enhanced ap-
+proaches (Li et al., 2025b; Yu et al., 2025; Li et al., 2025a)
+are not directly comparable for two reasons: (i) they incur
+substantially higher inference cost due to multi-round gen-
+eration and repeated code execution, and (ii) they rely on
+public test-case information that is not consistently available
+in benchmark problem statements, such as MBPP (Austin
+et al., 2021) and BigCodeBench (Zhuo et al., 2025). We
+present more details of these baselines in Appendix E.
+5.2. FunPRM Achieves Top-1 Performance on
+LiveCodeBench with a State-of-the-Art Base LLM
+The results of FunPRM with OpenAI O4-mini (High) and
+the baselines are reported in Figure 2 and Table 1. Fun-
+PRM outperforms all leading proprietary models on the
+LiveCodeBench leaderboard in terms of pass@1 percent-
+age, validating the effectiveness of test-time scaling (TTS)
+in substantially pushing the performance frontier even for
+already high-performing LLMs. We further compare Fun-
+PRM with other TTS methods under the same base model,
+O4-mini (High), where FunPRM consistently achieves the
+best performance, highlighting the advantages of its test-
+time scaling strategy. In summary, the state-of-the-art results
+of FunPRM demonstrate the effectiveness of the proposed
+approach when combined with strong base LLMs.
+5.3. Benchmarking Evaluation of FunPRM
+We conduct a comprehensive evaluation of FunPRM against
+multiple test-time scaling baselines across four popular base
+LLMs on both LiveCodeBench and BigCodeBench. As
+shown in Table 2, FunPRM outperforms all baseline meth-
+ods in terms of overall performance across all four base
+models and both benchmarks. These results demonstrate
+the robustness of FunPRM when paired with different base
+LLMs and applied to diverse styles of coding tasks. Fun-
+PRM surpasses the Self-Certainty baseline, indicating the
+necessity of a learned reward model compared to simpler
+heuristic-based test-time scaling strategies. It also outper-
+forms outcome reward model (ORM)-based scaling, high-
+lighting the advantage of decomposing code generation into
+intermediate steps and assigning rewards at a finer gran-
+ularity, and underscoring the importance of the proposed
+Chain-of-Function (CoF) formulation. In addition, Fun-
+PRM outperforms Skywork-PRM, demonstrating the ef-
+fectiveness of the meta-learning-based reward correction
+mechanism. We further report results on individual subsets,
+where FunPRM achieves the best performance in 18 out of
+20 settings, showcasing its strong and consistent capability
+across coding tasks with varying difficulty levels.
+5.4. Domain Generalization
+In this section, we examine whether FunPRM generalizes to
+other coding datasets when applied directly to HumanEval+
+and MBPP+ without additional training. As shown in Fig-
+ure 5, FunPRM continues to improve the performance of
+the base LLM through test-time scaling on these bench-
+6
+
+===== PAGE 7 =====
+FunPRM
+Table 2. Performance comparison of test-time scaling methods on LiveCodeBench (2024-08-01 – present) and BigCodeBench
+across different base models. LiveCodeBench results are reported as pass@1 (%) on Easy (110), Medium (141), and Hard (203) subsets,
+together with the Overall score on all 454 problems. BigCodeBench results are reported as pass@1 (%) on Easy (292) and Hard (48)
+subsets, along with the Overall score on all 340 problems. Best results within each base-model block are shown in bold.
+LiveCodeBench
+BigCodeBench
+Method
+Easy
+Medium
+Hard
+Overall
+Easy
+Hard
+Overall
+(110)
+(141)
+(203)
+(454)
+(292)
+(48)
+(340)
+Base Model: Qwen3-30B-A3B
+Base
+87.05
+31.65
+4.93
+33.12
+48.92
+30.24
+46.29
+Self-Certainty
+83.64
+24.82
+2.46
+29.07
+49.74
+31.25
+47.06
+ORM
+88.18
+34.68
+7.39
+35.44
+49.74
+29.17
+46.76
+Skywork-PRM
+89.09
+32.62
+4.93
+33.92
+48.29
+31.08
+45.88
+FunPRM
+88.18
+36.17
+8.37
+36.34
+50.51
+32.43
+47.94
+Base Model: GPT-4o-mini
+Base
+78.18
+18.90
+3.90
+27.50
+44.20
+27.08
+41.80
+Self-Certainty
+79.09
+22.70
+4.43
+28.19
+44.26
+22.92
+41.18
+ORM
+78.18
+23.58
+4.80
+28.40
+43.23
+25.00
+40.59
+Skywork-PRM
+80.00
+24.82
+4.93
+29.30
+44.56
+27.08
+42.06
+FunPRM
+80.91
+24.82
+5.42
+29.74
+45.89
+31.25
+43.82
+Base Model: DeepSeek-Coder-33B-Instruct
+Base
+54.55
+12.68
+1.91
+18.00
+44.10
+21.09
+40.90
+Self-Certainty
+50.00
+9.93
+0.99
+15.64
+41.03
+20.00
+37.93
+ORM
+57.27
+12.68
+1.91
+18.67
+43.84
+20.83
+40.59
+Skywork-PRM
+57.27
+14.89
+1.97
+19.40
+44.18
+20.00
+40.69
+FunPRM
+63.64
+15.60
+2.46
+21.37
+48.06
+25.71
+44.83
+Base Model: Qwen2.5-7B-Coder
+Base
+54.77
+8.33
+2.28
+16.87
+37.79
+27.08
+36.30
+Self-Certainty
+57.27
+5.67
+0.99
+16.08
+35.28
+27.08
+34.10
+ORM
+58.30
+9.31
+2.28
+18.03
+40.30
+31.25
+39.04
+Skywork-PRM
+59.09
+10.64
+2.46
+18.72
+38.68
+29.17
+37.35
+FunPRM
+63.64
+9.22
+2.96
+19.60
+41.12
+31.25
+39.71
+HumanEval+
+MBPP+
+65
+70
+75
+80
+85
+Pass@1 (%)
+80.95
+67.13
+82.32
+68.52
+Base (Qwen2.5-7B-Coder)
+FunPRM
+Figure 5. Domain generalization results of FunPRM on Hu-
+manEval+ and MBPP+. FunPRM consistently improves pass@1
+over the base Qwen2.5-7B-Coder model, indicating improved code
+generation quality across both benchmarks.
+marks. This result suggests that FunPRM learns to assign
+meaningful rewards to coding tasks with diverse formats,
+demonstrating an ability to assess Python code quality rather
+than overfitting to a specific benchmark or platform, and
+highlighting its strong domain generalization capability.
+5.5. Human Evaluation
+A key advantage of FunPRM is its modular coding style
+induced by the Chain-of-Function prompting strategy. To
+evaluate this property, we conduct a human study comparing
+the code quality generated by FunPRM and the base LLM.
+We randomly sample 100 problems from LiveCodeBench
+for which both FunPRM and the baseline produce correct
+solutions, and 100 problems for which both produce in-
+correct solutions. Three graduate-level computer science
+researchers independently indicate their preference between
+the two generations. For correct solutions, evaluators focus
+on code readability, while for incorrect solutions they as-
+sess reusability and ease of fixing. As shown in Figure 7,
+FunPRM is consistently preferred over the base model in
+7
+
+===== PAGE 8 =====
+FunPRM
+1
+2
+3
+4
+5
+Number of Steps
+0
+10
+20
+30
+40
+50
+Percentage (%)
+12.1
+42.7
+36.3
+8.1
+0.8
+Easy
+1
+2
+3
+4
+5
+Number of Steps
+0
+10
+20
+30
+40
+50
+16.6
+38.5
+21.8
+16.6
+6.4
+Medium
+1
+2
+3
+4
+5
+Number of Steps
+0
+10
+20
+30
+40
+50
+21.3
+31.3
+21.7
+10.8
+14.8
+Hard
+Figure 6. Distribution of the number of PRM steps defined by FunPRM. Results are obtained from O4-mini (High)-generated code on
+LiveCodeBench across easy, medium, and hard categories.
+Correct
+Incorrect
+40
+45
+50
+55
+60
+Preference Count
+45.8
+46.2
+54.2
+53.8
+Base (Qwen2.5-7B-Coder)
+FunPRM
+Figure 7. Human evaluation of code quality for FunPRM and
+the base LLM (Qwen2.5-7B-Coder). The results report the num-
+ber of coder preferences for problems where both methods produce
+correct solutions (left) and incorrect solutions (right).
+both settings, highlighting its superior code quality from a
+human perspective. We show more examples of FunPRM
+generated code in Appendix F.
+5.6. Ablation Study
+In this section, we conduct an ablation study to examine
+the contributions of the Chain-of-Function (CoF) prompting
+strategy and the meta reward correction (MRC) mechanism
+in FunPRM. We compare the full model against two ab-
+lation variants: (1) FunPRM without Chain-of-Function
+(CoF) prompting, which effectively degenerates into a gen-
+erative outcome reward model (Zhang et al., 2025a), and
+(2) FunPRM without meta reward correction (MRC), which
+is trained on CoF trajectories using standard Monte Carlo-
+sampled labels. As shown in Table 3, FunPRM consistently
+outperforms both ablation variants, demonstrating the effec-
+tiveness of both the CoF formulation and the meta-learning-
+based reward correction framework.
+5.7. Distribution of PRM Steps
+Figure 6 shows the distribution of the number of PRM steps
+across different difficulty levels. Specifically, the code is
+generated by O4-mini (High) on LiveCodeBench for easy,
+Table 3. Ablation results on LiveCodeBench (2025-02-01 –
+present). Performance comparison between FunPRM and its
+ablation variants.
+Easy
+Medium
+Hard
+Overall
+(31)
+(39)
+(61)
+(131)
+FunPRM w/o CoF
+100
+89.7
+63.9
+80.1
+FunPRM w/o MRC
+100
+92.3
+62.3
+80.2
+FunPRM
+100
+92.3
+63.9
+80.9
+medium, and hard problems. We observe that as problem
+difficulty increases, the number of steps (i.e., generated
+functions) generally increases, indicating that harder prob-
+lems typically require longer chains of logic to solve. At the
+same time, despite this shift in the distribution, some hard
+problems are solved using only a single function. This ob-
+servation highlights that coding task complexity can remain
+high even when the solution consists of only a few lines of
+code.
+6. Conclusion
+In this work, we introduce FunPRM, a Process Reward
+Model for LLM-based code generation. FunPRM treats
+functions as intermediate reasoning steps via a novel Chain-
+of-Function prompting scheme, enabling effective step de-
+composition for PRM training and inference in code gen-
+eration tasks. We further propose a meta-learning-based
+reward correction framework that leverages clean unit-test-
+evaluated final-solution rewards to purify noisy Monte
+Carlo-estimated partial-solution rewards. Extensive experi-
+ments across LiveCodeBench and BigCodeBench demon-
+strate that FunPRM consistently outperforms existing test-
+time scaling baselines across multiple base LLMs. When
+combined with a strong base model, FunPRM achieves state-
+of-the-art performance on LiveCodeBench. Together, these
+results highlight FunPRM as a practical and effective ap-
+proach for improving test-time scaling in LLM-based code
+generation.
+8
+
+===== PAGE 9 =====
+FunPRM
+7. Impact Statements
+In this work, we introduce FunPRM, a Process Reward
+Model for LLM-based code generation that can be used to
+better guide code generation at test time. This direction
+can improve the reliability and usefulness of code genera-
+tion systems, potentially increasing developer productivity
+and lowering barriers to programming by enabling faster
+prototyping and iteration. However, LLM-generated code
+may still be incorrect or unsafe, and using it without careful
+inspection can lead to serious harms such as security vul-
+nerabilities, data leakage, or unintended system behavior.
+These risks may be exacerbated by automation bias and
+rapid iteration workflows. Responsible deployment should
+therefore incorporate safeguards such as code review, auto-
+mated testing, and sandboxed execution that restrict system
+access before running generated programs, especially in
+high-stakes or sensitive environments.
+References
+Appel, R., Massenkoff, M., and McCrory, P.
+An-
+thropic economic index report: Economic primitives,
+2026.
+URL www.anthropic.com/research/
+anthropic-economic-index-january-2026-report.
+Austin, J., Odena, A., Nye, M., Bosma, M., Michalewski,
+H., Dohan, D., Jiang, E., Cai, C., Terry, M., Le, Q., et al.
+Program synthesis with large language models. arXiv
+preprint arXiv:2108.07732, 2021.
+Cao, Q., Wang, R., Zhang, R., Somayajula, S. A., and Xie, P.
+DreamPRM: Domain-reweighted process reward model
+for multimodal reasoning. In The Thirty-ninth Annual
+Conference on Neural Information Processing Systems,
+2025. URL https://openreview.net/forum?
+id=ZyiBk1ZinG.
+Chen, M., Tworek, J., Jun, H., Yuan, Q., Pond´e, H., Kaplan,
+J., Edwards, H., Burda, Y., Joseph, N., Brockman, G.,
+Ray, A., Puri, R., Krueger, G., Petrov, M., Khlaaf, H.,
+Sastry, G., Mishkin, P., Chan, B., Gray, S., Ryder, N.,
+Pavlov, M., Power, A., Kaiser, L., Bavarian, M., Winter,
+C., Tillet, P., Such, F. P., Cummings, D. W., Plappert, M.,
+Chantzis, F., Barnes, E., Herbert-Voss, A., Guss, W. H.,
+Nichol, A., Babuschkin, I., Balaji, S., Jain, S., Carr, A.,
+Leike, J., Achiam, J., Misra, V., Morikawa, E., Radford,
+A., Knight, M. M., Brundage, M., Murati, M., Mayer,
+K., Welinder, P., McGrew, B., Amodei, D., McCandlish,
+S., Sutskever, I., and Zaremba, W. Evaluating large lan-
+guage models trained on code. ArXiv, abs/2107.03374,
+2021.
+URL https://api.semanticscholar.
+org/CorpusID:235755472.
+Choe, S. K., Neiswanger, W., Xie, P., and Xing, E. Betty:
+An automatic differentiation library for multilevel op-
+timization. In The Eleventh International Conference
+on Learning Representations, 2023. URL https://
+openreview.net/forum?id=LV_MeMS38Q9.
+Cobbe, K., Kosaraju, V., Bavarian, M., Chen, M., Jun, H.,
+Kaiser, L., Plappert, M., Tworek, J., Hilton, J., Nakano,
+R., Hesse, C., and Schulman, J. Training verifiers to
+solve math word problems.
+ArXiv, abs/2110.14168,
+2021.
+URL https://api.semanticscholar.
+org/CorpusID:239998651.
+Comanici, G. et al. Gemini 2.5: Pushing the frontier with ad-
+vanced reasoning, multimodality, long context, and next
+generation agentic capabilities. ArXiv, abs/2507.06261,
+2025.
+URL https://api.semanticscholar.
+org/CorpusID:280151524.
+Guo, D., Zhu, Q., Yang, D., Xie, Z., Dong, K., Zhang,
+W., Chen, G., Bi, X., Wu, Y., Li, Y. K., Luo, F.,
+Xiong, Y., and Liang, W.
+Deepseek-coder: When
+the large language model meets programming - the
+rise of code intelligence.
+ArXiv, abs/2401.14196,
+2024.
+URL https://api.semanticscholar.
+org/CorpusID:267211867.
+Guo, D., Yang, D., Zhang, H., et al. Deepseek-r1 incen-
+tivizes reasoning in llms through reinforcement learn-
+ing.
+Nature, 645:633–638, 2025.
+doi:
+10.1038/
+s41586-025-09422-z. URL https://doi.org/10.
+1038/s41586-025-09422-z.
+He, J., Liu, J., Liu, C., Yan, R., Wang, C., Cheng, P., Zhang,
+X., Zhang, F., Xu, J., Shen, W., Li, S., Zeng, L., Wei,
+T., Cheng, C., An, B., Liu, Y., and Zhou, Y. Skywork
+open reasoner 1 technical report. ArXiv, abs/2505.22312,
+2025.
+URL https://api.semanticscholar.
+org/CorpusID:278959882.
+Hosseini, R., Liang, Y., Singh, D., Rahmani, H., Choe,
+S., Lee, J., Xu, M., Segal, E., Zou, J., Williamson,
+J., Grotjahn, D. A., Villa, E., and Xie, P. Robpicker:
+A meta learning framework for robust identifica-
+tion of macromolecules in cryo-electron tomograms.
+bioRxiv, 2025.
+doi:
+10.1101/2025.09.16.676650.
+URL
+https://www.biorxiv.org/content/
+early/2025/09/19/2025.09.16.676650.
+Hu, E. J., yelong shen, Wallis, P., Allen-Zhu, Z., Li, Y.,
+Wang, S., Wang, L., and Chen, W. LoRA: Low-rank adap-
+tation of large language models. In International Confer-
+ence on Learning Representations, 2022. URL https:
+//openreview.net/forum?id=nZeVKeeFYf9.
+Huang, S., Seethor, B., Durmus, E., Handa, K., Mc-
+Cain, M., Stern, M., and Ganguli, D.
+How ai
+is transforming work at anthropic, 2025.
+URL
+https://anthropic.com/research/
+how-ai-is-transforming-work-at-anthropic/.
+9
+
+===== PAGE 10 =====
+FunPRM
+Jain, N., Han, K., Gu, A., Li, W.-D., Yan, F., Zhang, T.,
+Wang, S., Solar-Lezama, A., Sen, K., and Stoica, I. Live-
+codebench: Holistic and contamination free evaluation
+of large language models for code. In The Thirteenth
+International Conference on Learning Representations,
+2025. URL https://openreview.net/forum?
+id=chfJJYC3iL.
+Jiang, J., Wang, F., Shen, J., Kim, S., and Kim, S. A survey
+on large language models for code generation. ACM
+Trans. Softw. Eng. Methodol., July 2025. ISSN 1049-
+331X. doi: 10.1145/3747588. URL https://doi.
+org/10.1145/3747588. Just Accepted.
+Kang, Z., Zhao, X., and Song, D.
+Scalable best-of-n
+selection for large language models via self-certainty.
+In The Thirty-ninth Annual Conference on Neural In-
+formation Processing Systems, 2025.
+URL https:
+//openreview.net/forum?id=29FRqmVQK8.
+Kingma,
+D. P. and Ba,
+J.
+Adam:
+A method
+for stochastic optimization.
+CoRR, abs/1412.6980,
+2014.
+URL https://api.semanticscholar.
+org/CorpusID:6628106.
+LG AI Research. Exaone 4.0: Unified large language mod-
+els integrating non-reasoning and reasoning modes. arXiv
+preprint arXiv:2507.11407, 2025.
+Li, D., Cao, S., Cao, C., Li, X., Tan, S., Keutzer, K., Xing,
+J., Gonzalez, J. E., and Stoica, I. S*: Test time scaling for
+code generation. In Christodoulopoulos, C., Chakraborty,
+T., Rose, C., and Peng, V. (eds.), Findings of the Asso-
+ciation for Computational Linguistics: EMNLP 2025,
+pp. 15964–15978, Suzhou, China, November 2025a. As-
+sociation for Computational Linguistics. ISBN 979-8-
+89176-335-7. doi: 10.18653/v1/2025.findings-emnlp.
+865. URL https://aclanthology.org/2025.
+findings-emnlp.865/.
+Li, Q., Dai, X., Li, X., Zhang, W., Wang, Y., Tang, R.,
+and Yu, Y. CodePRM: Execution feedback-enhanced
+process reward model for code generation. In Che, W.,
+Nabende, J., Shutova, E., and Pilehvar, M. T. (eds.),
+Findings of the Association for Computational Linguis-
+tics: ACL 2025, pp. 8169–8182, Vienna, Austria, July
+2025b. Association for Computational Linguistics. ISBN
+979-8-89176-256-5. doi: 10.18653/v1/2025.findings-acl.
+428. URL https://aclanthology.org/2025.
+findings-acl.428/.
+Lightman, H., Kosaraju, V., Burda, Y., Edwards, H., Baker,
+B., Lee, T., Leike, J., Schulman, J., Sutskever, I., and
+Cobbe, K. Let’s verify step by step. In The Twelfth
+International Conference on Learning Representations,
+2024. URL https://openreview.net/forum?
+id=v8L0pN6EOi.
+Liu, H., Simonyan, K., and Yang, Y.
+DARTS: Differ-
+entiable architecture search. In International Confer-
+ence on Learning Representations, 2019. URL https:
+//openreview.net/forum?id=S1eYHoC5FX.
+Liu, J., Xia, C. S., Wang, Y., and ZHANG, L. Is your code
+generated by chatGPT really correct? rigorous evaluation
+of large language models for code generation. In Thirty-
+seventh Conference on Neural Information Processing
+Systems, 2023. URL https://openreview.net/
+forum?id=1qvx610Cu7.
+Luo, L., Liu, Y., Liu, R., Phatale, S., Lara, H., Li, Y., Shu,
+L., Zhu, Y., Meng, L., Sun, J., and Rastogi, A.
+Im-
+prove mathematical reasoning in language models by au-
+tomated process supervision. ArXiv, abs/2406.06592,
+2024.
+URL https://api.semanticscholar.
+org/CorpusID:270379625.
+OpenAI.
+Gpt-4o system card.
+ArXiv, abs/2410.21276,
+2024.
+URL https://api.semanticscholar.
+org/CorpusID:273662196.
+OpenAI.
+Openai
+o3
+and
+o4-mini
+system
+card.
+https://openai.com/index/
+o3-o4-mini-system-card/, 2025.
+Accessed:
+2025-12-15.
+Qin, P., Zhang, R., and Xie, P.
+BidoRA: Bi-level
+optimization-based weight-decomposed low-rank adapta-
+tion. Transactions on Machine Learning Research, 2025.
+ISSN 2835-8856.
+URL https://openreview.
+net/forum?id=v2xCm3VYl4.
+Qin, P., Zhang, R., Cao, Q., and Xie, P.
+Daj: Data-
+reweighted LLM judge for test-time scaling in code gener-
+ation, 2026. URL https://github.com/t2ance/
+DAJ/blob/master/DAJ.pdf.
+Qwen, Yang, A., Yang, B., Zhang, B., Hui, B., Zheng,
+B., Yu, B., Li, C., Liu, D., Huang, F., Dong, G.,
+Wei, H., Lin, H., Yang, J., Tu, J., Zhang, J., Yang,
+J., Yang, J., Zhou, J., Lin, J., Dang, K., Lu, K., Bao,
+K., Yang, K., Yu, L., Li, M., Xue, M., Zhang, P.,
+Zhu, Q., Men, R., Lin, R., Li, T., Xia, T., Ren, X.,
+Ren, X., Fan, Y., Su, Y., Zhang, Y.-C., Wan, Y., Liu,
+Y., Cui, Z., Zhang, Z., Qiu, Z., Quan, S., and Wang,
+Z. Qwen2.5 technical report. ArXiv, abs/2412.15115,
+2024.
+URL https://api.semanticscholar.
+org/CorpusID:274859421.
+Shinn, N., Cassano, F., Gopinath, A., Narasimhan, K. R.,
+and Yao, S. Reflexion: language agents with verbal rein-
+forcement learning. In Thirty-seventh Conference on Neu-
+ral Information Processing Systems, 2023. URL https:
+//openreview.net/forum?id=vAElhFcKW6.
+10
+
+===== PAGE 11 =====
+FunPRM
+Taraday, M. K. and Baskin, C. Enhanced meta label cor-
+rection for coping with label corruption. In Proceedings
+of the IEEE/CVF International Conference on Computer
+Vision (ICCV), pp. 16295–16304, October 2023.
+Tu, Y., Zhang, B., Li, Y., Liu, L., Li, J., Zhang, J.,
+Wang, Y., Wang, C., and Zhao, C. R.
+Learning
+from noisy labels with decoupled meta label puri-
+fier.
+2023 IEEE/CVF Conference on Computer Vi-
+sion and Pattern Recognition (CVPR), pp. 19934–19943,
+2023.
+URL https://api.semanticscholar.
+org/CorpusID:256846984.
+Turpin, M., Michael, J., Perez, E., and Bowman, S. R. Lan-
+guage models don’t always say what they think: Un-
+faithful explanations in chain-of-thought prompting. In
+Thirty-seventh Conference on Neural Information Pro-
+cessing Systems, 2023. URL https://openreview.
+net/forum?id=bzs4uPLXvi.
+Uesato, J., Kushman, N., Kumar, R., Song, F., Siegel,
+N., Wang, L., Creswell, A., Irving, G., and Hig-
+gins, I.
+Solving math word problems with process-
+and outcome-based feedback. ArXiv, abs/2211.14275,
+2022.
+URL https://api.semanticscholar.
+org/CorpusID:254017497.
+Wang, P., Li, L., Shao, Z., Xu, R., Dai, D., Li, Y.,
+Chen, D., Wu, Y., and Sui, Z.
+Math-shepherd: Ver-
+ify and reinforce LLMs step-by-step without human an-
+notations.
+In Ku, L.-W., Martins, A., and Srikumar,
+V. (eds.), Proceedings of the 62nd Annual Meeting of
+the Association for Computational Linguistics (Volume
+1: Long Papers), pp. 9426–9439, Bangkok, Thailand,
+August 2024a. Association for Computational Linguis-
+tics. doi: 10.18653/v1/2024.acl-long.510. URL https:
+//aclanthology.org/2024.acl-long.510/.
+Wang, X., Wei, J., Schuurmans, D., Le, Q. V., Chi,
+E. H., Narang, S., Chowdhery, A., and Zhou, D. Self-
+consistency improves chain of thought reasoning in lan-
+guage models. In The Eleventh International Confer-
+ence on Learning Representations, 2023. URL https:
+//openreview.net/forum?id=1PL1NIMMrw.
+Wang, Z., Li, Y., Wu, Y., Luo, L., Hou, L., Yu, H., and
+Shang, J. Multi-step problem solving through a verifier:
+An empirical analysis on model-induced process super-
+vision. In Al-Onaizan, Y., Bansal, M., and Chen, Y.-N.
+(eds.), Findings of the Association for Computational Lin-
+guistics: EMNLP 2024, pp. 7309–7319, Miami, Florida,
+USA, November 2024b. Association for Computational
+Linguistics.
+doi:
+10.18653/v1/2024.findings-emnlp.
+429. URL https://aclanthology.org/2024.
+findings-emnlp.429/.
+Wei, J., Wang, X., Schuurmans, D., Bosma, M., brian ichter,
+Xia, F., Chi, E. H., Le, Q. V., and Zhou, D. Chain of
+thought prompting elicits reasoning in large language
+models. In Oh, A. H., Agarwal, A., Belgrave, D., and Cho,
+K. (eds.), Advances in Neural Information Processing
+Systems, 2022. URL https://openreview.net/
+forum?id=_VjQlMeSB_J.
+Wu, Y., Shu, J., Xie, Q., Zhao, Q., and Meng, D. Learn-
+ing to purify noisy labels via meta soft label correc-
+tor.
+In AAAI Conference on Artificial Intelligence,
+2020.
+URL https://api.semanticscholar.
+org/CorpusID:220936263.
+Yang, A., Li, A., Yang, B., Zhang, B., Hui, B., Zheng, B.,
+Yu, B., Gao, C., Huang, C., Lv, C., Zheng, C., Liu, D.,
+Zhou, F., Huang, F., Hu, F., Ge, H., Wei, H., Lin, H.,
+Tang, J., Yang, J., Tu, J., Zhang, J., Yang, J., Yang, J.,
+Zhou, J., Zhou, J., Lin, J., Dang, K., Bao, K., Yang, K.,
+Yu, L., Deng, L.-C., Li, M., Xue, M., Li, M., Zhang, P.,
+Wang, P., Zhu, Q., Men, R., Gao, R., Liu, S.-Q., Luo, S.,
+Li, T., Tang, T., Yin, W., Ren, X., Wang, X., Zhang, X.,
+Ren, X., Fan, Y., Su, Y., Zhang, Y.-C., Zhang, Y., Wan,
+Y., Liu, Y., Wang, Z., Cui, Z., Zhang, Z., Zhou, Z., and
+Qiu, Z. Qwen3 technical report. ArXiv, abs/2505.09388,
+2025.
+URL https://api.semanticscholar.
+org/CorpusID:278602855.
+Yu, Z., Gu, W., Wang, Y., Jiang, X., Zeng, Z., Wang, J., Ye,
+W., and Zhang, S. Reasoning through execution: Uni-
+fying process and outcome rewards for code generation.
+In Forty-second International Conference on Machine
+Learning, 2025. URL https://openreview.net/
+forum?id=pLQtovjXiw.
+Zhang, D., Zhoubian, S., Hu, Z., Yue, Y., Dong, Y., and
+Tang, J. ReST-MCTS*: LLM self-training via process
+reward guided tree search. In The Thirty-eighth Annual
+Conference on Neural Information Processing Systems,
+2024. URL https://openreview.net/forum?
+id=8rcFOqEud5.
+Zhang, L., Hosseini, A., Bansal, H., Kazemi, M., Ku-
+mar, A., and Agarwal, R. Generative verifiers: Reward
+modeling as next-token prediction. In The Thirteenth
+International Conference on Learning Representations,
+2025a. URL https://openreview.net/forum?
+id=Ccwp4tFEtE.
+Zhang, R., Somayajula, S. A., and Xie, P.
+Tapweight:
+Reweighting pretraining objectives for task-adaptive
+pretraining.
+Transactions on Machine Learning Re-
+search, 2025b.
+ISSN 2835-8856.
+URL https://
+openreview.net/forum?id=DCCw2CEVFS.
+Zhong, L., Wang, Z., and Shang, J.
+Debug like a hu-
+man: A large language model debugger via verifying
+11
+
+===== PAGE 12 =====
+FunPRM
+runtime execution step by step.
+In Ku, L.-W., Mar-
+tins, A., and Srikumar, V. (eds.), Findings of the Asso-
+ciation for Computational Linguistics: ACL 2024, pp.
+851–870, Bangkok, Thailand, August 2024. Association
+for Computational Linguistics. doi: 10.18653/v1/2024.
+findings-acl.49.
+URL https://aclanthology.
+org/2024.findings-acl.49/.
+Zhou, Y., Xu, A., Wang, P., Xiong, C., and Joty, S. Eval-
+uating judges as evaluators: The JETTS benchmark of
+LLM-as-judges as test-time scaling evaluators. In Forty-
+second International Conference on Machine Learning,
+2025. URL https://openreview.net/forum?
+id=CgJEHynkJt.
+Zhuo, T. Y., Chien, V. M., Chim, J., Hu, H., Yu, W.,
+Widyasari, R., Yusuf, I. N. B., Zhan, H., He, J., Paul,
+I., Brunner, S., GONG, C., Hoang, J., Zebaze, A. R.,
+Hong, X., Li, W.-D., Kaddour, J., Xu, M., Zhang, Z., Ya-
+dav, P., Jain, N., Gu, A., Cheng, Z., Liu, J., Liu, Q., Wang,
+Z., Lo, D., Hui, B., Muennighoff, N., Fried, D., Du, X.,
+de Vries, H., and Werra, L. V. Bigcodebench: Benchmark-
+ing code generation with diverse function calls and com-
+plex instructions. In The Thirteenth International Confer-
+ence on Learning Representations, 2025. URL https:
+//openreview.net/forum?id=YrycTjllL0.
+12
+
+===== PAGE 13 =====
+FunPRM
+A. Approximation of Meta-Gradient
+Here, we detail an efficient approximation of the meta-gradient in Eq. 4. For notational convenience, we denote the inner loss
+on the noisy partial-solution data in Eq. 3 as Ln(ϕ, θ)=L
+
+fϕ(Sn), gθ( bR)
+
+, and the meta loss on the clean final-solution
+data in Eq. 4 as Lm(θ) = L
+
+f ˆϕ(Sm), R
+
+. With the one-step inner update ˆϕ = ϕ −η∇ϕLn(ϕ, θ), the meta loss Lm(θ)
+depends on θ implicitly through ˆϕ. Differentiating w.r.t. θ yields
+∇θLm = −η
+ ∇ˆϕLm
+⊤∇2
+θ,ϕLn(ϕ, θ),
+which contains an expensive mixed Hessian–vector product. Following DARTS (Liu et al., 2019), we avoid explicit Hessian
+computation via finite differences. Let v = ∇ˆϕLm and define perturbed parameters ϕ± = ϕ ± αv for a small α > 0. Then
+the required product is approximated by
+∇2
+θ,ϕLn(ϕ, θ) v ≈∇θLn(ϕ+, θ) −∇θLn(ϕ−, θ)
+2α
+.
+Substituting back gives the practical meta-gradient estimator
+∇θLm ≈−η ∇θLn(ϕ+, θ) −∇θLn(ϕ−, θ)
+2α
+,
+which requires only two backward passes through Ln at ϕ+ and ϕ−and avoids forming second-order derivatives explicitly.
+This approximation has been widely adopted in bi-level optimization (Qin et al., 2025) and multi-level optimization (Zhang
+et al., 2025b) based machine learning methods.
+B. Datasets
+LiveCodeBench
+LiveCodeBench (LCB) is a comprehensive and contamination-free benchmark for code generation with
+large language models (Jain et al., 2025). It continuously collects newly released programming problems from competitive
+programming platforms such as LeetCode, AtCoder, and Codeforces. Each problem is associated with a publication
+timestamp and categorized into three difficulty levels: easy, medium, and hard. In our experiments, we use 601 problems
+published before 2024-08-01 as the training split for FunPRM and 454 problems published after 2024-08-01 as the primary
+test set. For the state-of-the-art leaderboard comparison with O4-mini (High) as the base LLM, we additionally report results
+on a smaller evaluation set of 131 problems published after 2025-02-01, which is a subset of the primary test set, due to
+computational cost constraints. LiveCodeBench has released multiple dataset versions, and we use the latest version (v6) in
+this study.
+BigCodeBench
+BigCodeBench (BCB) is a benchmark designed to evaluate LLMs on practical and challenging real-world
+coding tasks, in contrast to the more isolated programming exercises in earlier benchmarks (Zhuo et al., 2025). BCB requires
+LLMs to invoke multiple function calls as tools drawn from 139 libraries spanning seven domains. The benchmark contains
+1,140 problems, which are categorized into two difficulty levels: easy and hard1. For BCB, we use 800 problems as training
+data for FunPRM and the remaining 340 problems as the test split, consisting of 292 easy problems and 48 hard problems.
+HumanEval and MBPP
+HumanEval is one of the earliest coding benchmarks and consists of 164 programming problems,
+each specified by a function signature, a docstring, and a set of unit tests (Chen et al., 2021). The task for the language model
+is to complete the function given its signature and docstring. MBPP contains 974 crowd-sourced Python programming
+problems designed to be solvable by entry-level programmers, among which 427 problems are hand-verified (Austin et al.,
+2021). Each problem includes a task description, a reference solution, and three automated test cases. In this work, we
+evaluate on the enhanced EvalPlus versions of these benchmarks, commonly referred to as HumanEval+ and MBPP+ (Liu
+et al., 2023). Compared to the training benchmarks, LiveCodeBench and BigCodeBench, HumanEval and MBPP are easier
+and typically involve shorter solutions with a single function, representing a modest domain shift. We do not perform any
+additional training on these datasets; instead, we directly apply FunPRM trained on LiveCodeBench and BigCodeBench to
+evaluate its domain generalization capability.
+1https://huggingface.co/blog/terryyz/bigcodebench-hard
+13
+
+===== PAGE 14 =====
+FunPRM
+System Prompt: You are an advanced AI assistant designed to serve as a process supervision model for coding prob-
+lems. The programming problem is described in <problem>...</problem>, and the solution to be evaluated
+(which may be partial or complete) is provided in <code>...</code>. Your role is to assess whether the code
+and reasoning expressed so far are correct with respect to the requirements stated in <problem>...</problem>.
+For each step, respond with + if you believe the solution is correct up to and including the given
+<code>...</code>, and respond with - if you detect any issues, errors, or incorrect logic up to this point.
+Only respond with + or -. Do not provide any additional explanations, comments, or justifications. Your task is
+strictly to verify the correctness of the solution prefix provided so far.
+Figure 8. System prompt used for the generative process reward model. The model is instructed to evaluate partial or complete code
+solutions, and to output a binary correctness signal (+/-) indicating whether the solution prefix satisfies the problem requirements up to
+the current step.
+C. Generative Reward Model
+Generative reward models use pretrained large language models as backbones and leverage their next-token prediction
+probabilities to compute reward signals (Zhang et al., 2025a). Typically, such models employ carefully designed prompts
+that instruct the LLM to verify the correctness of a candidate solution and output designated tokens, whose generative
+probabilities are then interpreted as reward scores. FunPRM adopts a generative reward model as its backbone, using the
+prompt shown in Figure 8.
+Given the model outputs, we compute the PRM score using the generative probabilities of the designated tokens, specifically
+r =
+p+
+p+ + p−,
+where p+ and p−denote the probabilities of the positive and negative verification tokens, respectively.
+D. Training Settings
+During the training of FunPRM, we use O4-mini-low (OpenAI, 2025), Qwen3-Coder-30B-A3B (Yang et al., 2025), and
+DeepSeek-Coder (Guo et al., 2024) to generate Chain-of-Function (CoF) trajectories for PRM training. We employ multiple
+models from different organizations with varying capabilities to ensure diversity in coding styles within the training
+data, thereby improving the generalizability of the PRM. We then use Qwen3-Coder-30B-A3B (Yang et al., 2025) to
+generate Monte Carlo (MC)-sampled rewards for partial solutions, following the strategies used in prior work (Wang et al.,
+2024a;b), which are subsequently used for training the process reward model. These MC-estimated rewards are used only as
+initialization for the optimizable reward parameters, which are later refined under the FunPRM framework.
+We train FunPRM using the Adam optimizer (Kingma & Ba, 2014) with a learning rate of 10−4, a meta-learning rate of
+10−3, a weight decay of 10−3, and a batch size of 16. Training is conducted for 20,000 iterations on two NVIDIA A100
+GPUs. We train the PRM using bfloat16 (bf16) precision. LoRA is applied with rank r = 8, scaling factor α = 16, and
+dropout rate 0.05, targeting the query, key, value, and output projection layers of the transformer (Hu et al., 2022).
+E. Baselines
+Test-time Scaling Baselines
+Self-Certainty is proposed to address the limitation that self-consistency cannot be applied to
+open-ended generation tasks (Kang et al., 2025). It leverages the inherent probability distrfibution of LLMs and selects
+the candidate solution with the highest divergence between the predicted token distribution and a uniform distribution. A
+distribution that diverges significantly from uniform indicates a more peaked—and thus more certain—prediction. Outcome
+Reward Models (ORMs) assign a single reward to the entire generated solution rather than step-wise rewards (Cobbe et al.,
+2021; Uesato et al., 2022). Concretely, we implement an ORM using Qwen-2.5-Coder-7B as the backbone and replace its
+final language-model head with a classification head to output a scalar reward score. This model is trained on the same
+training problems used for FunPRM, but only on final solutions, without using partial-solution data. Skywork-PRM-7B is a
+process reward model that can be applied to both mathematical reasoning and coding tasks (He et al., 2025). It is fine-tuned
+14
+
+===== PAGE 15 =====
+FunPRM
+from a Qwen-2.5-7B model, and the PRM is open-sourced2.
+LLM Baselines
+In addition, we report results for strong proprietary and open-weight LLMs on LiveCodeBench without
+test-time scaling. The baselines reported in Table 1 include O4-mini (High) (OpenAI, 2025), a reasoning model optimized
+for strong coding and STEM performance; Gemini-2.5 (Comanici et al., 2025), a flagship multimodal model family designed
+for strong general reasoning and code generation; DeepSeek-R1 (Guo et al., 2025), an open-weight reasoning model
+trained for competitive step-by-step reasoning and coding; as well as O3 (High) (OpenAI, 2025), a higher-capability variant
+of OpenAI’s O3 reasoning series intended for more challenging reasoning tasks. Additional LLM baselines shown in
+Figure 2 include EXAONE-4.0 (LG AI Research, 2025), a recent open-weight LLM emphasizing reasoning and multilingual
+capabilities, and O3-mini (OpenAI, 2025), a smaller reasoning-focused model designed for improved efficiency.
+F. Case Study
+In this section, we present qualitative examples comparing code generated by a base LLM and by FunPRM to provide an
+intuitive understanding of Chain-of-Function-style generation. We first consider a LeetCode-style coding problem shown in
+Figure 9, which requires repeatedly transforming a string and querying a specific character position. The corresponding
+solutions generated by the base LLM and FunPRM are shown in Figure 11. While the baseline solution implements all
+logic within a single function, the FunPRM-generated solution decomposes the computation into helper functions with clear
+docstrings, explicitly separating string transformation from the main control flow. As required by the LeetCode format, both
+solutions are wrapped within a Solution class.
+We further examine an AtCoder-style coding problem in Figure 10, which asks whether a target sequence appears at
+least twice as distinct subsequences within a given array under large input constraints. The base LLM solution shown in
+Figure 12 implements the logic in a monolithic main function, directly computing the earliest and latest matching positions.
+In contrast, the FunPRM-generated solution in Figure 13 modularizes the algorithm into dedicated helper functions for
+computing earliest and latest subsequence matches, each accompanied by descriptive docstrings.
+2https://huggingface.co/Skywork/Skywork-o1-Open-PRM-Qwen-2.5-7B
+15
+
+===== PAGE 16 =====
+FunPRM
+Problem.
+Alice and Bob are playing a game. Initially, Alice has a string word = "a". You are given a positive integer k.
+Bob asks Alice to repeat the following operation forever:
+Generate a new string by changing each character in word to its next character in the English alphabet, and append
+it to the original word.
+For example, performing the operation on "c" generates "cd", and performing the operation on "zb" generates
+"zbac". Return the value of the k-th character in word, after enough operations have been done for word to have
+at least k characters. Note that the character "z" can be changed to "a" in the operation.
+Figure 9. Example of a LeetCode-style coding problem. The task involves repeatedly transforming a string by appending a character-
+shifted copy of itself and requires determining the k-th character in the resulting string after sufficient iterations.
+Problem.
+There is a sequence A = (A1, . . . , AN). Determine whether there are at least two subsequences of A that match the
+sequence B = (B1, . . . , BM). Two subsequences are distinguished if they are taken from different positions, even if
+they coincide as sequences.
+Subsequence.
+A subsequence of A is a sequence obtained by removing zero or more elements from A and leaving the remaining
+elements in their original order.
+Input.
+The input is given from Standard Input in the following format:
+N M
+A1 A2 . . . AN
+B1 B2 . . . BM
+Output.
+If there are at least two subsequences of A that match B, print Yes. Otherwise, print No.
+Constraints.
+1 ≤M ≤N ≤2 × 105
+1 ≤Ai ≤109
+1 ≤Bi ≤109
+All input values are integers.
+Figure 10. Example of an AtCoder-style coding problem. The task asks whether a target sequence appears at least twice as distinct
+subsequences within a given array, requiring efficient reasoning over subsequence matching under large input constraints.
+16
+
+===== PAGE 17 =====
+FunPRM
+Baseline Code Solution.
+class Solution:
+def kthCharacter(self, k:
+int) -> str:
+# Start with the initial word
+word = "a
+# Keep expanding until we have at least k characters
+while len(word) < k:
+# Build the transformed string
+transformed = []
+for c in word:
+# Compute next character in a cyclic manner
+next char = chr((ord(c) - ord(’a’) + 1) % 26 + ord(’a’))
+transformed.append(next char)
+# Append to the original word
+word += "".join(transformed)
+# Return the k-th character (1-based index)
+return word[k-1]
+FunPRM Generated Code Solution.
+class Solution:
+def kthCharacter(self, k:
+int) -> str:
+"""
+Simulate iterative string doubling by appending next-letter transformation
+( next transform())
+until length >= k.
+Return the k-th character (1-indexed).
+"""
+word = "a"
+while len(word) < k:
+word += self. next transform(word)
+return word[k - 1]
+def
+next transform(self, s:
+str) -> str:
+"""
+Return string formed by shifting each character of s to its next letter,
+wrapping ’z’ to ’a’.
+ord(’a’) = 97, ord(’z’) = 122
+"""
+res = []
+for ch in s:
+code = ord(ch) + 1
+if code > ord(’z’):
+code = ord(’a’)
+res.append(chr(code))
+return "".join(res)
+Figure 11. Comparison of baseline and FunPRM-generated solutions for a LeetCode-style problem. The baseline solution implements
+the string expansion logic inline within a single function, while the FunPRM-generated solution decomposes the logic into functions.
+17
+
+===== PAGE 18 =====
+FunPRM
+Baseline Code Solution.
+import sys
+import threading
+def main():
+input = sys.stdin.readline
+N, M = map(int, input().split())
+A = list(map(int, input().split()))
+B = list(map(int, input().split()))
+# Compute the earliest positions L[k] in A matching B[0..k]
+L = [0] * M
+ptr = 0
+for i, a in enumerate(A):
+if ptr < M and a == B[ptr]:
+L[ptr] = i
+ptr += 1
+if ptr == M:
+break
+if ptr < M:
+# B cannot be matched even once
+print("No")
+return
+# Compute the latest positions R[k] in A matching B[k..M-1]
+R = [0] * M
+ptr = M - 1
+for i in range(N - 1, -1, -1):
+if ptr >= 0 and A[i] == B[ptr]:
+R[ptr] = i
+ptr -= 1
+if ptr < 0:
+break
+if ptr >= 0:
+# Safe guard if backward scan fails
+print("No")
+return
+# If any L[k] < R[k], two distinct subsequences exist
+for k in range(M):
+if L[k] < R[k]:
+print("Yes")
+return
+# Otherwise the matching positions are unique
+print("No")
+Figure 12. Baseline solution for an AtCoder-style coding problem. The code checks whether a target sequence appears at least twice
+as distinct subsequences by computing the earliest and latest matching positions of each element and verifying whether multiple valid
+matchings exist.
+18
+
+===== PAGE 19 =====
+FunPRM
+FunPRM Generated Code Solution.
+def main():
+"""
+Determines whether there are at least two distinct subsequences of A that equal
+B.
+The approach computes the earliest and latest possible index matches of B as a
+subsequence of A.
+If B cannot be matched at all, the answer is "No".
+If any position in the earliest match is strictly earlier than the corresponding
+position in the latest match, then multiple distinct subsequences exist.
+"""
+input = sys.stdin.readline
+N, M = map(int, input().split())
+A = list(map(int, input().split()))
+B = list(map(int, input().split()))
+L = find earliest positions(A, B)
+if L is None:
+print("No")
+return
+R = find latest positions(A, B)
+for k in range(M):
+if L[k] < R[k]:
+print("Yes")
+return
+print("No")
+def find earliest positions(A, B):
+"""
+Greedily matches B as a subsequence of A using the earliest possible indices.
+Returns a list L where L[k] is the index in A matching B[k], or None if B
+is not a subsequence of A.
+"""
+N, M = len(A), len(B)
+L = [0] * M
+j = 0
+for k in range(M):
+while j < N and A[j] != B[k]:
+j += 1
+if j == N:
+return None
+L[k] = j
+j += 1
+return L
+def find latest positions(A, B):
+"""
+Greedily matches B as a subsequence of A using the latest possible indices.
+Returns a list R where R[k] is the index in A matching B[k].
+Assumes that
+B is a subsequence of A.
+"""
+N, M = len(A), len(B)
+R = [0] * M
+j = N - 1
+for k in range(M - 1, -1, -1):
+while j >= 0 and A[j] != B[k]:
+j -= 1
+R[k] = j
+j -= 1
+return R
+Figure 13. FunPRM-generated solution for an AtCoder-style coding problem. The solution decomposes the logic into functions ,
+separately computing the earliest and latest subsequence matches to determine whether multiple valid subsequences exist.
+19

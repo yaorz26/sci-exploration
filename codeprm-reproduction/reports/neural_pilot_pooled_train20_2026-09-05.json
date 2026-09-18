@@ -1,0 +1,87 @@
+{
+  "protocol": {
+    "dataset": "APPS train Introductory 20",
+    "model": "Qwen2.5-Coder 3B",
+    "training_data": "seed42 + seed43 + seed44 exact continuation records",
+    "training_records": 536,
+    "held_out_records": 180,
+    "training_problems": 15,
+    "held_out_problems": 5,
+    "label": "continuation private pass-rate mean",
+    "continuations_per_node": 2,
+    "candidates_per_problem": 2,
+    "max_steps": 3,
+    "epochs": 3,
+    "score_activation": "sigmoid",
+    "interpretation": "exploratory; underpowered train20 pooled pilot"
+  },
+  "held_out_training_metrics": {
+    "step_mse": 0.21450831951388877,
+    "step_mae": 0.3952766624796722
+  },
+  "per_seed_evaluation": [
+    {
+      "seed": 42,
+      "step_mse": 0.22575477125226626,
+      "step_mae": 0.40789608425564244,
+      "step_spearman": 0.1567659214289893,
+      "candidate_selected_private_pass_rate": 0.5333333333333333,
+      "first_candidate_private_pass_rate": 0.4666666666666667,
+      "public_selection_private_pass_rate": 0.6333333333333333,
+      "candidate_selected_pass_at_1": 0.4,
+      "first_candidate_pass_at_1": 0.4
+    },
+    {
+      "seed": 43,
+      "step_mse": 0.2324847952359253,
+      "step_mae": 0.40057576497395825,
+      "step_spearman": 0.16663663669424122,
+      "candidate_selected_private_pass_rate": 0.4,
+      "first_candidate_private_pass_rate": 0.4,
+      "public_selection_private_pass_rate": 0.6333333333333333,
+      "candidate_selected_pass_at_1": 0.4,
+      "first_candidate_pass_at_1": 0.4
+    },
+    {
+      "seed": 44,
+      "step_mse": 0.18436694125886327,
+      "step_mae": 0.3761644151475697,
+      "step_spearman": -0.07148702639543232,
+      "candidate_selected_private_pass_rate": 0.4333333333333333,
+      "first_candidate_private_pass_rate": 0.3333333333333333,
+      "public_selection_private_pass_rate": 0.6333333333333333,
+      "candidate_selected_pass_at_1": 0.2,
+      "first_candidate_pass_at_1": 0.2
+    }
+  ],
+  "aggregate": {
+    "candidate_selected_private_pass_rate": {
+      "mean": 0.45555555555555555,
+      "sample_sd": 0.06938886664887108
+    },
+    "first_candidate_private_pass_rate": {
+      "mean": 0.39999999999999997,
+      "sample_sd": 0.06666666666666668
+    },
+    "public_selection_private_pass_rate": {
+      "mean": 0.6333333333333333,
+      "sample_sd": 0.0
+    },
+    "step_mse": {
+      "mean": 0.21420216924901828,
+      "sample_sd": 0.026056264652162882
+    },
+    "step_mae": {
+      "mean": 0.39487875479239015,
+      "sample_sd": 0.0166152535295951
+    },
+    "step_spearman": {
+      "mean": 0.08397184390926606,
+      "sample_sd": 0.1347217615022595
+    },
+    "selection_gain_vs_first": {
+      "mean": 0.05555555555555555,
+      "sample_sd": 0.02886751345948129
+    }
+  }
+}
