@@ -22,6 +22,7 @@ import argparse
 import hashlib
 import itertools
 import json
+import random
 import sys
 import time
 from collections import Counter, defaultdict
@@ -34,7 +35,7 @@ if str(ROOT) not in sys.path:
 
 from src.data_loader import load_problems  # noqa: E402
 from src.decomposition import decomposition_from_dict, validate_decomposition  # noqa: E402
-from src.modular import evaluate_split  # noqa: E402
+from src.modular import evaluate_split, parse_implementation  # noqa: E402
 from src.recombination import compose_program  # noqa: E402
 
 
@@ -46,6 +47,9 @@ def main() -> None:
     parser.add_argument("--output", required=True)
     parser.add_argument("--summary-output", default=None)
     parser.add_argument("--max-combinations", type=int, default=0, help="0 means no cap: the full cartesian product")
+    parser.add_argument("--sample", type=int, default=0, help="If >0, randomly sample this many combinations per decomposition (fixed seed)")
+    parser.add_argument("--sample-seed", type=int, default=42)
+    parser.add_argument("--allow-nested-functions", action="store_true")
     parser.add_argument("--timeout", type=float, default=10.0)
     parser.add_argument("--candidate-timeout", type=float, default=10.0)
     parser.add_argument("--allow-forward-dependencies", action="store_true")
@@ -73,22 +77,44 @@ def main() -> None:
             decompositions[(problem_id, int(record.get("candidate_index", 0)))] = decomposition
 
     implementation_pools: dict[tuple[str, int, str], list[dict[str, Any]]] = defaultdict(list)
+    signatures: dict[tuple[str, int, str], str] = {}
+    for (pid, di), decomposition in decompositions.items():
+        for spec in decomposition.functions:
+            signatures[(pid, di, spec.name)] = spec.signature
+    recovered = 0
     for line in _resolve(args.implementations).read_text(encoding="utf-8").splitlines():
         if not line.strip():
             continue
         record = json.loads(line)
+        key = (
+            str(record.get("problem_id")),
+            int(record.get("decomposition_index", 0)),
+            str(record.get("function_name")),
+        )
         if record.get("code"):
-            key = (
-                str(record.get("problem_id")),
-                int(record.get("decomposition_index", 0)),
-                str(record.get("function_name")),
-            )
             implementation_pools[key].append(record)
+        elif args.allow_nested_functions and record.get("raw_response"):
+            recovered_code, info = parse_implementation(
+                str(record["raw_response"]),
+                key[2],
+                signatures.get(key),
+                allow_nested_functions=True,
+            )
+            if recovered_code is not None:
+                recovered_record = dict(record)
+                recovered_record["code"] = recovered_code
+                recovered_record["parse"] = info
+                recovered_record["recovered_by_relaxed_reparse"] = True
+                implementation_pools[key].append(recovered_record)
+                recovered += 1
 
     summary: dict[str, Any] = {
         "mode": "full_combination_space_replay",
         "calls_model": False,
         "max_combinations_cap": args.max_combinations or None,
+        "sample": args.sample or None,
+        "sample_seed": args.sample_seed if args.sample else None,
+        "allow_nested_functions": args.allow_nested_functions,
         "allow_forward_dependencies": args.allow_forward_dependencies,
         "per_test_timeout_seconds": args.timeout,
         "candidate_timeout_seconds": args.candidate_timeout,
@@ -102,6 +128,7 @@ def main() -> None:
         "public_program_evaluations": 0,
         "public_test_executions": 0,
         "empty_implementation_pool": 0,
+        "recovered_by_relaxed_reparse": recovered,
         "compose_errors": Counter(),
         "problems_with_candidate": 0,
         "selected_public_pass": 0,
@@ -135,13 +162,13 @@ def main() -> None:
                     space *= len(pool)
                 space_here += space
 
-                for combination_index, choices in enumerate(itertools.product(*pools)):
-                    if args.max_combinations and combination_index >= args.max_combinations:
-                        break
+                for combination_index, choices in _iter_choices(pools, args):
                     summary["combinations"] += 1
                     candidate_id = f"{problem_id}:d{decomposition_index}:c{combination_index}"
                     impl_map = {name: choice["code"] for name, choice in zip(names, choices)}
-                    code, compose_meta = compose_program(decomposition, impl_map, problem)
+                    code, compose_meta = compose_program(
+                        decomposition, impl_map, problem, allow_nested_functions=args.allow_nested_functions
+                    )
                     candidate: dict[str, Any] = {
                         "candidate_id": candidate_id,
                         "problem_id": problem_id,
@@ -233,6 +260,26 @@ def main() -> None:
         "problems", "combinations", "composable_combinations", "unique_composable_combinations",
         "problems_with_candidate", "selected_public_pass", "selected_private_pass", "elapsed_seconds",
     )}, indent=2))
+
+
+def _iter_choices(pools, args):
+    """Yield (original_combination_index, choices).
+
+    Order of precedence: random sample (fixed seed) > cap > full enumeration.
+    The original product index is preserved in the candidate id so any sampled
+    run stays traceable to the full cartesian product.
+    """
+    all_combos = list(itertools.product(*pools))
+    total = len(all_combos)
+    if args.sample and total > args.sample:
+        rng = random.Random(args.sample_seed)
+        indices = sorted(rng.sample(range(total), args.sample))
+    elif args.max_combinations:
+        indices = list(range(min(args.max_combinations, total)))
+    else:
+        indices = list(range(total))
+    for i in indices:
+        yield i, all_combos[i]
 
 
 def _resolve(value: str) -> Path:

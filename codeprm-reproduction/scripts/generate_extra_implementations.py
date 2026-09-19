@@ -34,7 +34,7 @@ if str(ROOT) not in sys.path:
 
 from src.data_loader import load_problems  # noqa: E402
 from src.decomposition import decomposition_from_dict, validate_decomposition  # noqa: E402
-from src.modular import ImplementationGenerator  # noqa: E402
+from src.modular import ImplementationGenerator, parse_implementation  # noqa: E402
 
 RETRY_SEED_SHIFT = 1000
 
@@ -50,22 +50,27 @@ def main() -> None:
     parser.add_argument("--k", type=int, default=8)
     parser.add_argument("--prompt-variant", default="repair_v1", choices=["baseline", "repair_v1"])
     parser.add_argument("--retries", type=int, default=1)
+    parser.add_argument("--allow-nested", action="store_true",
+                        help="Accept implementations that define helper functions inside the target body (protocol option A1)")
     parser.add_argument("--limit", type=int, default=0, help="Only process the first N problems (smoke testing); 0 means all")
     args = parser.parse_args()
 
     data_path = _resolve(args.data)
     problems = {str(item["problem_id"]): item for item in load_problems(data_path)}
 
-    # 已有实现：决定从哪个序号开始补
+    # 已有实现：决定从哪个序号开始补。同时保留全部原始记录（含被严格规则拒绝的），
+    # 以便在 A1 放宽口径下先尝试恢复，恢复不了再调用模型。
     existing: dict[tuple[str, int, str], set[int]] = defaultdict(set)
+    source_records: dict[tuple[str, int, str, int], dict] = {}
     for line in _resolve(args.implementations).read_text(encoding="utf-8").splitlines():
         if not line.strip():
             continue
         r = json.loads(line)
+        key3 = (str(r.get("problem_id")), int(r.get("decomposition_index", 0)), str(r.get("function_name")))
+        idx = int(r.get("implementation_index", 0))
+        source_records[(key3[0], key3[1], key3[2], idx)] = r
         if r.get("code"):
-            existing[(str(r.get("problem_id")), int(r.get("decomposition_index", 0)), str(r.get("function_name")))].add(
-                int(r.get("implementation_index", 0))
-            )
+            existing[key3].add(idx)
 
     decompositions: list[tuple[str, int, object]] = []
     for line in _resolve(args.decompositions).read_text(encoding="utf-8").splitlines():
@@ -132,11 +137,45 @@ def main() -> None:
                     key = (pid, di, target.name, idx)
                     if key in done_keys:
                         continue
+                    # A1：先用放宽口径尝试恢复被严格规则拒绝的历史记录（不调用模型）
+                    if args.allow_nested:
+                        src = source_records.get(key)
+                        if src is not None and src.get("raw_response"):
+                            recovered_code, info = parse_implementation(
+                                str(src["raw_response"]), target.name, target.signature,
+                                allow_nested_functions=True,
+                            )
+                            if recovered_code is not None:
+                                record = {
+                                    "problem_id": pid,
+                                    "function_name": target.name,
+                                    "implementation_index": idx,
+                                    "generator_model": src.get("generator_model"),
+                                    "seed": src.get("seed"),
+                                    "prompt_chars": src.get("prompt_chars"),
+                                    "prompt_variant": src.get("prompt_variant"),
+                                    "allow_nested_functions": True,
+                                    "usage": src.get("usage") or {},
+                                    "raw_response": src.get("raw_response"),
+                                    "parse": info,
+                                    "code": recovered_code,
+                                    "decomposition_index": di,
+                                    "attempt": -1,
+                                    "recovered_from": "p5b_relaxed_reparse",
+                                }
+                                stats["recovered"] += 1
+                                handle.write(json.dumps(record, ensure_ascii=False) + "\n")
+                                handle.flush()
+                                done_keys.add(key)
+                                continue
                     record = None
                     for attempt in range(args.retries + 1):
                         gen = generator if attempt == 0 else retry_generator
                         try:
-                            record = gen.generate(problem, d, target, idx, args.prompt_variant)
+                            record = gen.generate(
+                                problem, d, target, idx, args.prompt_variant,
+                                allow_nested_functions=args.allow_nested,
+                            )
                         except Exception as exc:  # 网络/服务异常：计一次失败，继续
                             stats["request_error"] += 1
                             record = {
@@ -176,6 +215,7 @@ def main() -> None:
         "seed": args.seed,
         "k": args.k,
         "prompt_variant": args.prompt_variant,
+        "allow_nested_functions": args.allow_nested,
         "retries": args.retries,
         "data": str(data_path),
         "decompositions": str(_resolve(args.decompositions)),
@@ -187,6 +227,7 @@ def main() -> None:
         "invalid": stats["invalid"],
         "retry_attempts": stats["retry"],
         "valid_after_retry": stats["valid_after_retry"],
+        "recovered_by_relaxed_reparse": stats["recovered"],
         "request_errors": stats["request_error"],
         "model_prompt_tokens": prompt_tokens,
         "model_output_tokens": output_tokens,
