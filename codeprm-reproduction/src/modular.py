@@ -44,6 +44,7 @@ class ImplementationGenerator:
         target: FunctionSpec,
         implementation_index: int,
         prompt_variant: str = "baseline",
+        allow_nested_functions: bool = False,
     ) -> dict[str, Any]:
         seed = self.seed + implementation_index + _stable_offset(target.name)
         prompt = build_implementation_prompt(problem, decomposition, target, prompt_variant)
@@ -59,7 +60,9 @@ class ImplementationGenerator:
             },
         }
         raw, usage = self._request(payload)
-        code, parse_info = parse_implementation(raw, target.name, target.signature)
+        code, parse_info = parse_implementation(
+            raw, target.name, target.signature, allow_nested_functions=allow_nested_functions
+        )
         return {
             "problem_id": problem.get("problem_id"),
             "function_name": target.name,
@@ -68,6 +71,7 @@ class ImplementationGenerator:
             "seed": seed,
             "prompt_chars": len(prompt),
             "prompt_variant": prompt_variant,
+            "allow_nested_functions": allow_nested_functions,
             "usage": usage,
             "raw_response": raw,
             "parse": parse_info,
@@ -145,6 +149,7 @@ def parse_implementation(
     raw: str,
     expected_name: str,
     expected_signature: str | None = None,
+    allow_nested_functions: bool = False,
 ) -> tuple[str | None, dict[str, Any]]:
     source = _strip_fences(str(raw or ""))
     try:
@@ -169,7 +174,7 @@ def parse_implementation(
         node.name for node in ast.walk(matches[0])
         if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node is not matches[0]
     ]
-    if nested:
+    if nested and not allow_nested_functions:
         return None, {
             "syntax_valid": True,
             "target_found": True,
@@ -187,7 +192,10 @@ def parse_implementation(
     # standard-library calls may need them when the functions are assembled.
     normalized_nodes = [*imports, matches[0]]
     normalized = ast.unparse(ast.Module(body=normalized_nodes, type_ignores=[])).strip() + "\n"
-    return normalized, {"syntax_valid": True, "target_found": True, "normalized": source != raw.strip()}
+    info: dict[str, Any] = {"syntax_valid": True, "target_found": True, "normalized": source != raw.strip()}
+    if nested:
+        info["nested_functions"] = nested
+    return normalized, info
 
 
 def _signature_shape(signature: str) -> tuple[Any, ...]:
@@ -292,8 +300,11 @@ def assemble_and_evaluate(
     implementations: dict[str, str],
     problem: dict[str, Any],
     timeout_seconds: float = 10.0,
+    allow_nested_functions: bool = False,
 ) -> dict[str, Any]:
-    code, compose_meta = compose_program(decomposition, implementations, problem)
+    code, compose_meta = compose_program(
+        decomposition, implementations, problem, allow_nested_functions=allow_nested_functions
+    )
     record: dict[str, Any] = {"compose": compose_meta, "code": code}
     if code is not None:
         # Selection receives only this public result. Private evaluation is

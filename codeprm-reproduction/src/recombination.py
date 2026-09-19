@@ -14,12 +14,18 @@ def compose_program(
     decomposition: Decomposition,
     implementations: dict[str, str],
     problem: dict[str, Any] | None = None,
+    allow_nested_functions: bool = False,
 ) -> tuple[str | None, dict[str, Any]]:
     """Compose implementations using the decomposition signatures.
 
     An implementation may be a complete ``def`` or a function-body snippet.
     Complete definitions must retain the decomposed function's argument shape;
     the output always uses the decomposition's declared signature.
+
+    When ``allow_nested_functions`` is true, an implementation may define helper
+    functions inside its own body (the model sometimes re-implements a declared
+    dependency inline instead of calling it). The composed program is still valid
+    Python; the nested definitions are recorded in the metadata.
     """
     problem = problem or {}
     specs = {item.name: item for item in decomposition.functions}
@@ -40,16 +46,22 @@ def compose_program(
     imports: list[ast.stmt] = []
     definitions: dict[str, ast.FunctionDef | ast.AsyncFunctionDef] = {}
     parse_errors: list[str] = []
+    nested_seen: list[str] = []
     for name in ordered:
         spec = specs[name]
         try:
             signature_node = _signature_node(spec)
-            body, extracted_imports = _implementation_body(implementations[name], spec)
+            body, extracted_imports = _implementation_body(
+                implementations[name], spec, allow_nested_functions=allow_nested_functions
+            )
             imports.extend(extracted_imports)
             if not body:
                 raise ValueError("empty function body")
             signature_node.body = body
             definitions[name] = signature_node
+            for node in ast.walk(signature_node):
+                if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node is not signature_node:
+                    nested_seen.append(f"{name}.{node.name}")
         except (SyntaxError, ValueError, TypeError) as exc:
             parse_errors.append(f"{name}:{type(exc).__name__}:{exc}")
     if parse_errors:
@@ -88,6 +100,8 @@ def compose_program(
         return None, _metadata(["composed_syntax_error"], len(definitions), len(deduped_imports))
     metadata = _metadata(errors, len(definitions), len(deduped_imports))
     metadata.update({"syntax_valid": syntax_valid, "api_preserved": api_preserved, "function_order": names})
+    if nested_seen:
+        metadata["nested_definitions"] = nested_seen
     return (code if not errors else None), metadata
 
 
@@ -106,7 +120,11 @@ def _signature_node(spec: FunctionSpec) -> ast.FunctionDef:
     return node
 
 
-def _implementation_body(source: str, spec: FunctionSpec) -> tuple[list[ast.stmt], list[ast.stmt]]:
+def _implementation_body(
+    source: str,
+    spec: FunctionSpec,
+    allow_nested_functions: bool = False,
+) -> tuple[list[ast.stmt], list[ast.stmt]]:
     source = _strip_fences(str(source or ""))
     if not source.strip():
         raise ValueError("empty implementation")
@@ -129,7 +147,7 @@ def _implementation_body(source: str, spec: FunctionSpec) -> tuple[list[ast.stmt
         if any(node not in {*imports, target} for node in tree.body):
             raise ValueError("extra_top_level_statements")
         nested = [node.name for node in ast.walk(target) if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node is not target]
-        if nested:
+        if nested and not allow_nested_functions:
             raise ValueError("undeclared_nested_functions:" + ",".join(nested))
         if _argument_shape(target.args) != _argument_shape(_signature_node(spec).args):
             raise ValueError(f"signature_mismatch:{spec.name}")
