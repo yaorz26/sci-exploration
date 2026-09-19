@@ -1,0 +1,1263 @@
+{
+  "evaluator_policy": "normalized token comparison; numeric tokens math.isclose(rel_tol=1e-6, abs_tol=1e-6); function outputs literal comparison",
+  "post_selection_diagnostic": true,
+  "note": "summary view; per-test detail omitted. Re-run scripts/replay_untested_combinations.py for full detail.",
+  "method_tag": "p5b_hard20_m2b_json_qwen25coder_7b_d2_i2_c8_seed42_v4_full_space_oracle",
+  "data": "D:\\yaorz\\research\\codeprm-reproduction\\data\\processed\\apps_stratified60_20260918.json",
+  "decompositions": "D:\\yaorz\\research\\codeprm-reproduction\\data\\processed\\p5b_hard20_m2b_json_qwen25coder_7b_d2_i2_c8_seed42_v1_decompositions.jsonl",
+  "implementations": "D:\\yaorz\\research\\codeprm-reproduction\\data\\processed\\p5b_hard20_m2b_json_qwen25coder_7b_d2_i2_c8_seed42_v1_implementations.jsonl",
+  "original_oracle": "D:\\yaorz\\research\\codeprm-reproduction\\data\\processed\\p5b_hard20_m2b_json_qwen25coder_7b_d2_i2_c8_seed42_v1_pool_oracle.json",
+  "workers": 4,
+  "per_test_timeout_seconds": 10.0,
+  "candidate_timeout_seconds": 10.0,
+  "problems": 19,
+  "space_total": 232,
+  "already_evaluated_total": 208,
+  "new_total": 24,
+  "new_private_evaluations": 24,
+  "new_private_test_executions": 224,
+  "new_full_pass": 0,
+  "original_pool_oracle_full_pass": 0,
+  "full_space_pool_oracle_full_pass": 0,
+  "empty_implementation_pool": 14,
+  "verification": {
+    "checked": 13,
+    "matched": 13,
+    "mismatched": 0,
+    "details": [
+      {
+        "problem_id": "apps-train-2001",
+        "candidate_id": "apps-train-2001:d0:c0",
+        "recorded_full_pass": false,
+        "replayed_full_pass": false,
+        "match": true
+      },
+      {
+        "problem_id": "apps-train-2014",
+        "candidate_id": "apps-train-2014:d0:c0",
+        "recorded_full_pass": false,
+        "replayed_full_pass": false,
+        "match": true
+      },
+      {
+        "problem_id": "apps-train-2007",
+        "candidate_id": "apps-train-2007:d0:c0",
+        "recorded_full_pass": false,
+        "replayed_full_pass": false,
+        "match": true
+      },
+      {
+        "problem_id": "apps-train-2018",
+        "candidate_id": "apps-train-2018:d0:c0",
+        "recorded_full_pass": false,
+        "replayed_full_pass": false,
+        "match": true
+      },
+      {
+        "problem_id": "apps-train-2020",
+        "candidate_id": "apps-train-2020:d1:c0",
+        "recorded_full_pass": false,
+        "replayed_full_pass": false,
+        "match": true
+      },
+      {
+        "problem_id": "apps-train-2023",
+        "candidate_id": "apps-train-2023:d0:c0",
+        "recorded_full_pass": false,
+        "replayed_full_pass": false,
+        "match": true
+      },
+      {
+        "problem_id": "apps-train-2027",
+        "candidate_id": "apps-train-2027:d0:c0",
+        "recorded_full_pass": false,
+        "replayed_full_pass": false,
+        "match": true
+      },
+      {
+        "problem_id": "apps-train-2030",
+        "candidate_id": "apps-train-2030:d0:c0",
+        "recorded_full_pass": false,
+        "replayed_full_pass": false,
+        "match": true
+      },
+      {
+        "problem_id": "apps-train-2032",
+        "candidate_id": "apps-train-2032:d0:c0",
+        "recorded_full_pass": false,
+        "replayed_full_pass": false,
+        "match": true
+      },
+      {
+        "problem_id": "apps-train-2037",
+        "candidate_id": "apps-train-2037:d0:c0",
+        "recorded_full_pass": false,
+        "replayed_full_pass": false,
+        "match": true
+      },
+      {
+        "problem_id": "apps-train-2038",
+        "candidate_id": "apps-train-2038:d0:c0",
+        "recorded_full_pass": false,
+        "replayed_full_pass": false,
+        "match": true
+      },
+      {
+        "problem_id": "apps-train-2003",
+        "candidate_id": "apps-train-2003:d1:c0",
+        "recorded_full_pass": false,
+        "replayed_full_pass": false,
+        "match": true
+      },
+      {
+        "problem_id": "apps-train-2036",
+        "candidate_id": "apps-train-2036:d1:c0",
+        "recorded_full_pass": false,
+        "replayed_full_pass": false,
+        "match": true
+      }
+    ]
+  },
+  "elapsed_seconds": 206.879,
+  "by_problem": [
+    {
+      "problem_id": "apps-train-2000",
+      "space": 0,
+      "already_evaluated": 0,
+      "newly_evaluated": 0,
+      "private_full_pass_candidates": 0,
+      "pool_oracle_full_pass": false,
+      "original_pool_oracle_full_pass": false,
+      "candidates_compact": []
+    },
+    {
+      "problem_id": "apps-train-2001",
+      "space": 8,
+      "already_evaluated": 2,
+      "newly_evaluated": 0,
+      "private_full_pass_candidates": 0,
+      "pool_oracle_full_pass": false,
+      "original_pool_oracle_full_pass": false,
+      "candidates_compact": [
+        {
+          "candidate_id": "apps-train-2001:d0:c0",
+          "code_hash": "a8c6db60a9e31176d9e01903a2649e59f580a3d33cf4beccea78c0583f80d32d",
+          "full_pass": false,
+          "private_passed": 1,
+          "private_total": 10,
+          "private_pass_rate": 0.1,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2001:d0:c2",
+          "code_hash": "55a35bd7c9045055ea43261828b61dba0a59f52c32db87a7be2421b1f40b6857",
+          "full_pass": false,
+          "private_passed": 1,
+          "private_total": 10,
+          "private_pass_rate": 0.1,
+          "private_budget_exhausted": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-train-2003",
+      "space": 16,
+      "already_evaluated": 8,
+      "newly_evaluated": 8,
+      "private_full_pass_candidates": 0,
+      "pool_oracle_full_pass": false,
+      "original_pool_oracle_full_pass": false,
+      "candidates_compact": [
+        {
+          "candidate_id": "apps-train-2003:d1:c0",
+          "code_hash": "6c5da4510c79310572ab0ccb35fdcdb803f8d4d5fd65ebf5c7c66dbffc231214",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 10,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2003:d1:c1",
+          "code_hash": "42fafbbf02ac9207e3fd3ff548c7347e0a453b5e2186d08d3e9ad34a4a2c9663",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 10,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2003:d1:c2",
+          "code_hash": "a3dd72dc3fb8bef82b170c322c7123499c116a7f1e6270a858b9b16fdd09217a",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 10,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2003:d1:c3",
+          "code_hash": "d4fec46f34e0d6e428dc51232bd0b6b59a5ccb5a37f7e036090749e897b71a06",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 10,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2003:d1:c4",
+          "code_hash": "a75a2899ff4314905c647339f6a947cf94e73fc4cc14bff4f22aeb3066497efb",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 10,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2003:d1:c5",
+          "code_hash": "6b401cbf61a30a1e95807d7554dd35d1e13342cc86bfe2c5ad6eb51d1eeac356",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 10,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2003:d1:c6",
+          "code_hash": "2197f6eba7b5934526a12ba4d663c55b66c2fb7f8df8888699ed8d12a066a142",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 10,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2003:d1:c7",
+          "code_hash": "59e617d769617d26a2cb72a6036a237ba97a0e2a268d2b11908be9ba63d37ac7",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 10,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2003:d1:c8",
+          "code_hash": "d650ae966ea6b4c46a1c388cb2b2288a9367f5d2ff3d6e91414d440d11fd8ca1",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 10,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": true
+        },
+        {
+          "candidate_id": "apps-train-2003:d1:c9",
+          "code_hash": "c64e7bec5b4890c415cf6da2a9bafe7ee08d312b32b5f52fe093c2735f89d25b",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 10,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": true
+        },
+        {
+          "candidate_id": "apps-train-2003:d1:c10",
+          "code_hash": "edde86ee05810fe9ef8cdf744de49d8ef8746176545d174401c31413ff8ee53f",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 10,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": true
+        },
+        {
+          "candidate_id": "apps-train-2003:d1:c11",
+          "code_hash": "1b55f1cf1548ad50af4bd60bb834cbe790e26d9e310e256d9c701a288eaa0b65",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 10,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": true
+        },
+        {
+          "candidate_id": "apps-train-2003:d1:c12",
+          "code_hash": "0568f3f5493f2bb360b2b77c5e529e1baf6fdc932eed24152f70447af8487102",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 10,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": true
+        },
+        {
+          "candidate_id": "apps-train-2003:d1:c13",
+          "code_hash": "2537337e9c4291584f4f0b11d2836941638959d2f40123617973792d8c881e8c",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 10,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": true
+        },
+        {
+          "candidate_id": "apps-train-2003:d1:c14",
+          "code_hash": "469e12490a108722e77d702c380feb4308456dc3307430b58597afc90d46b432",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 10,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": true
+        },
+        {
+          "candidate_id": "apps-train-2003:d1:c15",
+          "code_hash": "e06793ede52b6f886b8356bd1d24887787525406b4e423182104c4c31113f657",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 10,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": true
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-train-2007",
+      "space": 8,
+      "already_evaluated": 1,
+      "newly_evaluated": 0,
+      "private_full_pass_candidates": 0,
+      "pool_oracle_full_pass": false,
+      "original_pool_oracle_full_pass": false,
+      "candidates_compact": [
+        {
+          "candidate_id": "apps-train-2007:d0:c0",
+          "code_hash": "2deffd691429cfad2594b22366d22196a6eeee8ca86ac228c543eb9d5af8298b",
+          "full_pass": false,
+          "private_passed": 3,
+          "private_total": 10,
+          "private_pass_rate": 0.3,
+          "private_budget_exhausted": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-train-2008",
+      "space": 0,
+      "already_evaluated": 0,
+      "newly_evaluated": 0,
+      "private_full_pass_candidates": 0,
+      "pool_oracle_full_pass": false,
+      "original_pool_oracle_full_pass": false,
+      "candidates_compact": []
+    },
+    {
+      "problem_id": "apps-train-2014",
+      "space": 24,
+      "already_evaluated": 12,
+      "newly_evaluated": 0,
+      "private_full_pass_candidates": 0,
+      "pool_oracle_full_pass": false,
+      "original_pool_oracle_full_pass": false,
+      "candidates_compact": [
+        {
+          "candidate_id": "apps-train-2014:d0:c0",
+          "code_hash": "baeb30c841556e452ec785ce917a2500d704995d81c74be4303ad6d1e04aa2e2",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2014:d0:c1",
+          "code_hash": "23cf9081df5f8a2ba9bddb0c9dee153146345d234e8fa8bd34d8b0ed5d508464",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2014:d0:c2",
+          "code_hash": "20ff600042a2a4ff48b0aaa3463dc481b0c1a9f2e52d659e0d013360bb554df5",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2014:d0:c3",
+          "code_hash": "6e9a890090c4b7bcc8b05e6f7b7539bcb2288fadfa79b95243feef4d56695635",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2014:d0:c4",
+          "code_hash": "404cc32b405556b038b12f9b0d3b05db514db81bf19cd36a98be16bcdb1abf75",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2014:d0:c5",
+          "code_hash": "d04dbd01355228a6be017ec7f0b48dfc34885c7509a281a8bf7b65b7af5f96de",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2014:d0:c6",
+          "code_hash": "54a80152cf1f6394ca271ededf4359e9d14a8d6942b9ad3470e452382cb06bce",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2014:d0:c7",
+          "code_hash": "e59c04c6073932a009d3a65d0bfcb1f5e47dae18c2270c5a50cc14dee004bcab",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2014:d1:c0",
+          "code_hash": "197d945c37947b366b7af8d296d08aeb8e1ea055db441ad23570c650de3d3a96",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2014:d1:c2",
+          "code_hash": "3a037d19e920a503a4d86e350eb555e50e8b799429eaf5cef2d02f9161a21c97",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2014:d1:c4",
+          "code_hash": "c3a5e765cae43bda3382246e3156b07fddbbce879d4d96212658674c6b375f65",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2014:d1:c6",
+          "code_hash": "e1a34a25e6445565aff09952536629a105991da48c3807def3ff0254d1cb6abd",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-train-2016",
+      "space": 0,
+      "already_evaluated": 0,
+      "newly_evaluated": 0,
+      "private_full_pass_candidates": 0,
+      "pool_oracle_full_pass": false,
+      "original_pool_oracle_full_pass": false,
+      "candidates_compact": []
+    },
+    {
+      "problem_id": "apps-train-2018",
+      "space": 20,
+      "already_evaluated": 10,
+      "newly_evaluated": 0,
+      "private_full_pass_candidates": 0,
+      "pool_oracle_full_pass": false,
+      "original_pool_oracle_full_pass": false,
+      "candidates_compact": [
+        {
+          "candidate_id": "apps-train-2018:d0:c0",
+          "code_hash": "debd9fe32b0e469b4dfa3ba1355e818cc87b540815985a2cc914c5cba4f87282",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2018:d0:c1",
+          "code_hash": "41cbc947df0ab337272d4e26c2bb420e45b8810ebfc3c04402e84eae2a74d4a5",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2018:d1:c0",
+          "code_hash": "92aab6bb41e523f2608641aca30c7351cdd0fabf6198e0966294a200834d615b",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2018:d1:c1",
+          "code_hash": "536c3065e7e38cd3d25ba3075d490dc7bb50baa2e83fd9186190802bae9c06bc",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2018:d1:c2",
+          "code_hash": "b7cb5938047779622cb4988f26140d7c918651ed40265efda4ea981cb5b9983d",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2018:d1:c3",
+          "code_hash": "32f08507abead88780663bf61d7edcad92ec5bcfb08eed55aba6cebead582066",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2018:d1:c4",
+          "code_hash": "4d5f1ece21fa7ea7d2f8e1fd06a2c60f249c9602af3d914c49852d2b83d8df9d",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2018:d1:c5",
+          "code_hash": "72c0c23ae87880081ac40046a3a6dd4d7ef735dca197a41bb998e2e3000658cc",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2018:d1:c6",
+          "code_hash": "f259e0f6dabb4197cbef392a246a654218f5e11147f04f5a02f55f2168492255",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2018:d1:c7",
+          "code_hash": "60d0eaf0d89fd760e368b70aa0225b96109dccf8e021e5a1fae2508183bfea14",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-train-2020",
+      "space": 8,
+      "already_evaluated": 4,
+      "newly_evaluated": 0,
+      "private_full_pass_candidates": 0,
+      "pool_oracle_full_pass": false,
+      "original_pool_oracle_full_pass": false,
+      "candidates_compact": [
+        {
+          "candidate_id": "apps-train-2020:d1:c0",
+          "code_hash": "779a6b70b2f8086fb4c1d68a284c4156db940e6d02c8a94b306eb52f39d9c4a8",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2020:d1:c1",
+          "code_hash": "345936c5205721c7acc8d8130eb6897829e4b0dcdd078a0c2d02528f987e9aeb",
+          "full_pass": false,
+          "private_passed": 3,
+          "private_total": 9,
+          "private_pass_rate": 0.3333333333333333,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2020:d1:c2",
+          "code_hash": "8a482801ed6c1b3b715afe6044ca5349bcc70d4194a9aed2cc41f24263d01541",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2020:d1:c3",
+          "code_hash": "a5843b47571868280a1faa61935fedbe093506479aa5e9f6e5969633840590da",
+          "full_pass": false,
+          "private_passed": 3,
+          "private_total": 9,
+          "private_pass_rate": 0.3333333333333333,
+          "private_budget_exhausted": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-train-2023",
+      "space": 32,
+      "already_evaluated": 2,
+      "newly_evaluated": 0,
+      "private_full_pass_candidates": 0,
+      "pool_oracle_full_pass": false,
+      "original_pool_oracle_full_pass": false,
+      "candidates_compact": [
+        {
+          "candidate_id": "apps-train-2023:d0:c0",
+          "code_hash": "ec408a86177ca0916f845d2a85a0a0776f028dc375cabe7e9dfcb0396df4e061",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2023:d1:c0",
+          "code_hash": "5e423031711d39301cad283ad9212665999bc377a64e3fd17dfe493753fd443c",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-train-2026",
+      "space": 0,
+      "already_evaluated": 0,
+      "newly_evaluated": 0,
+      "private_full_pass_candidates": 0,
+      "pool_oracle_full_pass": false,
+      "original_pool_oracle_full_pass": false,
+      "candidates_compact": []
+    },
+    {
+      "problem_id": "apps-train-2027",
+      "space": 24,
+      "already_evaluated": 6,
+      "newly_evaluated": 0,
+      "private_full_pass_candidates": 0,
+      "pool_oracle_full_pass": false,
+      "original_pool_oracle_full_pass": false,
+      "candidates_compact": [
+        {
+          "candidate_id": "apps-train-2027:d0:c0",
+          "code_hash": "0e7135d29cbd9729623a65523664bb49c2d93c38077b1e475f606d8cf26d40d9",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 7,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2027:d0:c1",
+          "code_hash": "b5f7d757fa461bbae90680e93969211cd81be6a3326f29001eb80c907b55df2f",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 7,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2027:d1:c0",
+          "code_hash": "3c0ba80bcfa0d7457cc3a7008d1c53a55676c0c0ec1822112b8950f9fa53e3a0",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 7,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2027:d1:c1",
+          "code_hash": "5cbe9688be8efc031070d96f6d3297424483f9aa3689d71586146b824e7674c2",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 7,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2027:d1:c4",
+          "code_hash": "4c630476a6a2042ec8cd7065a010b1f452513c920a2de90bb04d087bafcb54f0",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 7,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2027:d1:c5",
+          "code_hash": "652a934fd37b4c4613778b5f1ddfc048dedcda7c82b824655fa9af30fdc8d326",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 7,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-train-2030",
+      "space": 20,
+      "already_evaluated": 5,
+      "newly_evaluated": 0,
+      "private_full_pass_candidates": 0,
+      "pool_oracle_full_pass": false,
+      "original_pool_oracle_full_pass": false,
+      "candidates_compact": [
+        {
+          "candidate_id": "apps-train-2030:d0:c0",
+          "code_hash": "4709cee6cd0abc378790991917bc0205284a6faef8b878464135012c45d622af",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2030:d0:c1",
+          "code_hash": "a8590ff5a76c6177832c3328adf9d5afdc2d209384fb7f0e610cbd862690e5d4",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2030:d0:c2",
+          "code_hash": "29d5e0560f38ec73bae102df6e6150ceee956a3013b44e896f226416f16bdb7a",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2030:d0:c3",
+          "code_hash": "7da9512fc9ed585c8c2564a18ef92db792f6b8a355d55e41f95ee0956f58ca4f",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2030:d1:c0",
+          "code_hash": "8e7209a62b56091ec3ce2a900574c5afcc7959982fac8acabee9ddacf108b098",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-train-2032",
+      "space": 8,
+      "already_evaluated": 8,
+      "newly_evaluated": 0,
+      "private_full_pass_candidates": 0,
+      "pool_oracle_full_pass": false,
+      "original_pool_oracle_full_pass": false,
+      "candidates_compact": [
+        {
+          "candidate_id": "apps-train-2032:d0:c0",
+          "code_hash": "f82ade2d55ca6be4db300b500d8866843869e21a05835ea40db1a088ed16ef16",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2032:d0:c1",
+          "code_hash": "9dac84135e3d0f716a916909b57842e2513d324316957cc2e50da68066bbe928",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2032:d0:c2",
+          "code_hash": "e7c42187438185062989bd2129df2988bc3b5b554d8e8254da29ae759c426567",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2032:d0:c3",
+          "code_hash": "3cd2d75b6a816b9b1c5be42f5dc2f18d45b8c88ee693e412e4c129d5f2901c86",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2032:d0:c4",
+          "code_hash": "a94ee41f9ba42bbc1c681fcf7ead6359ae08aa37c8ea295a215fa15a20802998",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2032:d0:c5",
+          "code_hash": "94bdf09244736f368d122e992beda20fb0efe1b9d6b8621321e4d6e6271e905a",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2032:d0:c6",
+          "code_hash": "ff5f46d88a216faa8ac1a5502b6939ffb02caf1d2487d584dfe8308ae373d2d3",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2032:d0:c7",
+          "code_hash": "8053ae779f2bdde8bd920e32272633a5d5471ada2b8b34297a55bb1b73f78f9d",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-train-2033",
+      "space": 0,
+      "already_evaluated": 0,
+      "newly_evaluated": 0,
+      "private_full_pass_candidates": 0,
+      "pool_oracle_full_pass": false,
+      "original_pool_oracle_full_pass": false,
+      "candidates_compact": []
+    },
+    {
+      "problem_id": "apps-train-2034",
+      "space": 0,
+      "already_evaluated": 0,
+      "newly_evaluated": 0,
+      "private_full_pass_candidates": 0,
+      "pool_oracle_full_pass": false,
+      "original_pool_oracle_full_pass": false,
+      "candidates_compact": []
+    },
+    {
+      "problem_id": "apps-train-2036",
+      "space": 32,
+      "already_evaluated": 12,
+      "newly_evaluated": 16,
+      "private_full_pass_candidates": 0,
+      "pool_oracle_full_pass": false,
+      "original_pool_oracle_full_pass": false,
+      "candidates_compact": [
+        {
+          "candidate_id": "apps-train-2036:d0:c0",
+          "code_hash": "102450dcb50500ac1e5e6feb3776f592eb7089906ad9309dd56388ffea53f77d",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2036:d0:c1",
+          "code_hash": "66cc86b8065a7cf6d9255be30f7fae108b13caaefd3726934102fa580a89b34a",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2036:d0:c2",
+          "code_hash": "ee9524af09f4fc1937e64f62cf0ee9ea2826c8394cf8701d504fde01a2749dc7",
+          "full_pass": false,
+          "private_passed": 1,
+          "private_total": 9,
+          "private_pass_rate": 0.1111111111111111,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2036:d0:c3",
+          "code_hash": "234bd100667b6fff771bf95d067143033b5020feb84025397156b1de2ab7c8e7",
+          "full_pass": false,
+          "private_passed": 1,
+          "private_total": 9,
+          "private_pass_rate": 0.1111111111111111,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2036:d0:c4",
+          "code_hash": "d38a2d53aea921f12df4353e7c4ec55c1d8f5b5730f1493307ad40de6dc09dd6",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2036:d0:c5",
+          "code_hash": "e5851e22d080ff02a5a84019f624c409d0f36d65a2265ff22b7486d740ff26ef",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2036:d0:c6",
+          "code_hash": "d99f0502f5576091e7871bba15e3b85d4c79eaef43cdda5f4c7199f7c994c7b7",
+          "full_pass": false,
+          "private_passed": 3,
+          "private_total": 9,
+          "private_pass_rate": 0.3333333333333333,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2036:d0:c7",
+          "code_hash": "c8f1098d7a363ae0d2485bfc8227de5121c4ba099ed627aabba681f6d665d803",
+          "full_pass": false,
+          "private_passed": 3,
+          "private_total": 9,
+          "private_pass_rate": 0.3333333333333333,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2036:d1:c0",
+          "code_hash": "919431ed64a4be3e2db870087bfc0afd5aa81623242415d4158d14e33769833b",
+          "full_pass": false,
+          "private_passed": 1,
+          "private_total": 9,
+          "private_pass_rate": 0.1111111111111111,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2036:d1:c2",
+          "code_hash": "415d36db6916f948f75a1be3638bdcf9c16a8be819d491d9542a0ac46ab37055",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2036:d1:c4",
+          "code_hash": "aad19f9035c339bfbc4a8bd91bcbbf86215e7a5a7cc6bf4b05748a12407889a0",
+          "full_pass": false,
+          "private_passed": 1,
+          "private_total": 9,
+          "private_pass_rate": 0.1111111111111111,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2036:d1:c6",
+          "code_hash": "3f6c568185a7e140f1daf308c7e3e30d461a558e1703e9b55f008bc627a3eec8",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2036:d0:c0",
+          "code_hash": "22553d27a1b9520580ab2bb8e23304557a267b08d682b951e79d8b893c7b1214",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": true
+        },
+        {
+          "candidate_id": "apps-train-2036:d0:c1",
+          "code_hash": "2be1e311d9e8bdf0270e1097660fb742571754ab8147f683aef4a9682310c3ae",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": true
+        },
+        {
+          "candidate_id": "apps-train-2036:d0:c2",
+          "code_hash": "f33a9903a139d85875e94432c47b1d6643a66b8142e2097ef1f10fce81c3b96e",
+          "full_pass": false,
+          "private_passed": 1,
+          "private_total": 9,
+          "private_pass_rate": 0.1111111111111111,
+          "private_budget_exhausted": true
+        },
+        {
+          "candidate_id": "apps-train-2036:d0:c3",
+          "code_hash": "0a2790ce81a88f1d76ca65774281d244a82276de9b5d68f240fdd0fc80583c38",
+          "full_pass": false,
+          "private_passed": 1,
+          "private_total": 9,
+          "private_pass_rate": 0.1111111111111111,
+          "private_budget_exhausted": true
+        },
+        {
+          "candidate_id": "apps-train-2036:d0:c4",
+          "code_hash": "189a2d6477976980cca4e2bb9c72d8f6b0b5c3ffd8d8985e5a60ba96d9f44cbb",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2036:d0:c5",
+          "code_hash": "5ee22a26c5a61a994814f7c5ae16460cb4e3efd7b5f2a1d0e62d8d20bd61765f",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2036:d0:c6",
+          "code_hash": "74c0f03eb7b7f9083ce183f5e5ac1161185120c7c49cc326cc29491c96b4f89b",
+          "full_pass": false,
+          "private_passed": 3,
+          "private_total": 9,
+          "private_pass_rate": 0.3333333333333333,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2036:d0:c7",
+          "code_hash": "d7c6c11ff86f1645a4ad654b7c017f81acd3b78d46b56cd82440da8c9b131ed2",
+          "full_pass": false,
+          "private_passed": 3,
+          "private_total": 9,
+          "private_pass_rate": 0.3333333333333333,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2036:d0:c8",
+          "code_hash": "22553d27a1b9520580ab2bb8e23304557a267b08d682b951e79d8b893c7b1214",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2036:d0:c9",
+          "code_hash": "2be1e311d9e8bdf0270e1097660fb742571754ab8147f683aef4a9682310c3ae",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2036:d0:c10",
+          "code_hash": "f33a9903a139d85875e94432c47b1d6643a66b8142e2097ef1f10fce81c3b96e",
+          "full_pass": false,
+          "private_passed": 1,
+          "private_total": 9,
+          "private_pass_rate": 0.1111111111111111,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2036:d0:c11",
+          "code_hash": "0a2790ce81a88f1d76ca65774281d244a82276de9b5d68f240fdd0fc80583c38",
+          "full_pass": false,
+          "private_passed": 1,
+          "private_total": 9,
+          "private_pass_rate": 0.1111111111111111,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2036:d0:c12",
+          "code_hash": "189a2d6477976980cca4e2bb9c72d8f6b0b5c3ffd8d8985e5a60ba96d9f44cbb",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2036:d0:c13",
+          "code_hash": "5ee22a26c5a61a994814f7c5ae16460cb4e3efd7b5f2a1d0e62d8d20bd61765f",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2036:d0:c14",
+          "code_hash": "74c0f03eb7b7f9083ce183f5e5ac1161185120c7c49cc326cc29491c96b4f89b",
+          "full_pass": false,
+          "private_passed": 3,
+          "private_total": 9,
+          "private_pass_rate": 0.3333333333333333,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2036:d0:c15",
+          "code_hash": "d7c6c11ff86f1645a4ad654b7c017f81acd3b78d46b56cd82440da8c9b131ed2",
+          "full_pass": false,
+          "private_passed": 3,
+          "private_total": 9,
+          "private_pass_rate": 0.3333333333333333,
+          "private_budget_exhausted": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-train-2037",
+      "space": 16,
+      "already_evaluated": 6,
+      "newly_evaluated": 0,
+      "private_full_pass_candidates": 0,
+      "pool_oracle_full_pass": false,
+      "original_pool_oracle_full_pass": false,
+      "candidates_compact": [
+        {
+          "candidate_id": "apps-train-2037:d0:c0",
+          "code_hash": "60f7fa9b9d2f69feffaed0d5a28b4dad903187f919f3b84495e292adefab7880",
+          "full_pass": false,
+          "private_passed": 1,
+          "private_total": 9,
+          "private_pass_rate": 0.1111111111111111,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2037:d0:c1",
+          "code_hash": "08bbea5206c6c377ffacbeff0329b204e295278d5352db0581b049fd05ae3383",
+          "full_pass": false,
+          "private_passed": 1,
+          "private_total": 9,
+          "private_pass_rate": 0.1111111111111111,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2037:d0:c2",
+          "code_hash": "23354054c6dcbacb8ea888425b30fe0e7ed24e0da0a15505977a4d43efbb7e6f",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2037:d0:c3",
+          "code_hash": "d035b854261e55f976a5a71dabe17d5be212e7dd351d2fdb00d3c4b5d5d20b8c",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2037:d1:c0",
+          "code_hash": "eacb73f634aa48f879c2b7e5b65bfe39f9b6b977ff3c5007472b908642bed42b",
+          "full_pass": false,
+          "private_passed": 2,
+          "private_total": 9,
+          "private_pass_rate": 0.2222222222222222,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2037:d1:c2",
+          "code_hash": "e61bbb37db1ff70266a2921f4640754ca90e00653feae8fea7fd47eeb67b6b8d",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 9,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-train-2038",
+      "space": 16,
+      "already_evaluated": 4,
+      "newly_evaluated": 0,
+      "private_full_pass_candidates": 0,
+      "pool_oracle_full_pass": false,
+      "original_pool_oracle_full_pass": false,
+      "candidates_compact": [
+        {
+          "candidate_id": "apps-train-2038:d0:c0",
+          "code_hash": "d19ec8d84ed532b45af84bb34945b5ec9cbdac90c9e10325f618c6dbce98fb1e",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 8,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2038:d0:c2",
+          "code_hash": "310af359b69e1dd151e2858213cadf1e2956c62d47c9bdd2dc5f99ef471f3522",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 8,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2038:d0:c4",
+          "code_hash": "dcdef9a890c55c657809d7d181323d9d038d55d154d22bf7902d7e91ee02f9ee",
+          "full_pass": false,
+          "private_passed": 0,
+          "private_total": 8,
+          "private_pass_rate": 0.0,
+          "private_budget_exhausted": false
+        },
+        {
+          "candidate_id": "apps-train-2038:d0:c6",
+          "code_hash": "4f724bcca5d3fbd97d39dfb5a77d3daadcfce6dd8a485da109126c3eee1ccf96",
+          "full_pass": false,
+          "private_passed": 2,
+          "private_total": 8,
+          "private_pass_rate": 0.25,
+          "private_budget_exhausted": false
+        }
+      ]
+    }
+  ]
+}
