@@ -99,10 +99,27 @@ def main() -> None:
     progress = progress_path.open("w", encoding="utf-8")
     done_keys: set[tuple[str, int, str, int]] = set()
     if output_path.exists():
-        for line in output_path.read_text(encoding="utf-8").splitlines():
-            if line.strip():
+        # 断点续跑：只保留能完整解析的行；若上次被中断且末尾有被截断的半行，
+        # 该行会被丢弃并重写文件，避免续写时产生拼接损坏。
+        raw_lines = output_path.read_text(encoding="utf-8").splitlines()
+        kept_lines: list[str] = []
+        dropped = 0
+        for line in raw_lines:
+            if not line.strip():
+                continue
+            try:
                 r = json.loads(line)
-                done_keys.add((str(r.get("problem_id")), int(r.get("decomposition_index", 0)), str(r.get("function_name")), int(r.get("implementation_index", 0))))
+                done_keys.add((
+                    str(r.get("problem_id")),
+                    int(r.get("decomposition_index", 0)),
+                    str(r.get("function_name")),
+                    int(r.get("implementation_index", 0)),
+                ))
+                kept_lines.append(line)
+            except json.JSONDecodeError:
+                dropped += 1
+        if dropped or len(kept_lines) != len([l for l in raw_lines if l.strip()]):
+            output_path.write_text("\n".join(kept_lines) + ("\n" if kept_lines else ""), encoding="utf-8")
 
     generator = ImplementationGenerator(model=args.model, seed=args.seed)
     retry_generator = ImplementationGenerator(model=args.model, seed=args.seed + RETRY_SEED_SHIFT)
