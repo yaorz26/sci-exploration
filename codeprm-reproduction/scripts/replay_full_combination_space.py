@@ -48,6 +48,7 @@ def main() -> None:
     parser.add_argument("--summary-output", default=None)
     parser.add_argument("--max-combinations", type=int, default=0, help="0 means no cap: the full cartesian product")
     parser.add_argument("--sample", type=int, default=0, help="If >0, randomly sample this many combinations per decomposition (fixed seed)")
+    parser.add_argument("--sample-per-problem", type=int, default=0, help="If >0, randomly sample this many combinations per problem across all its decompositions (preregistration semantics)")
     parser.add_argument("--sample-seed", type=int, default=42)
     parser.add_argument("--allow-nested-functions", action="store_true")
     parser.add_argument("--timeout", type=float, default=10.0)
@@ -113,7 +114,8 @@ def main() -> None:
         "calls_model": False,
         "max_combinations_cap": args.max_combinations or None,
         "sample": args.sample or None,
-        "sample_seed": args.sample_seed if args.sample else None,
+        "sample_per_problem": args.sample_per_problem or None,
+        "sample_seed": args.sample_seed if (args.sample or args.sample_per_problem) else None,
         "allow_nested_functions": args.allow_nested_functions,
         "allow_forward_dependencies": args.allow_forward_dependencies,
         "per_test_timeout_seconds": args.timeout,
@@ -149,10 +151,14 @@ def main() -> None:
             public_cache: dict[str, tuple[dict[str, Any], str]] = {}
             space_here = 0
 
-            for (current_id, decomposition_index), decomposition in sorted(decompositions.items()):
-                if current_id != problem_id:
-                    continue
-                names = [item.name for item in decomposition.functions]
+            problem_decompositions = [
+                (decomposition_index, decomposition, [item.name for item in decomposition.functions])
+                for (current_id, decomposition_index), decomposition in sorted(decompositions.items())
+                if current_id == problem_id
+            ]
+            # 先收集该题全部可用分解的所有组合，再统一按题采样（预注册口径：64 个/题）
+            problem_combos: list[tuple[int, list[str], Any, int, tuple]] = []
+            for decomposition_index, decomposition, names in problem_decompositions:
                 pools = [implementation_pools.get((problem_id, decomposition_index, name), []) for name in names]
                 if any(not pool for pool in pools):
                     summary["empty_implementation_pool"] += 1
@@ -161,8 +167,19 @@ def main() -> None:
                 for pool in pools:
                     space *= len(pool)
                 space_here += space
+                if args.sample_per_problem:
+                    for combination_index, choices in enumerate(itertools.product(*pools)):
+                        problem_combos.append((decomposition_index, names, decomposition, combination_index, choices))
+                else:
+                    for combination_index, choices in _iter_choices(pools, args):
+                        problem_combos.append((decomposition_index, names, decomposition, combination_index, choices))
 
-                for combination_index, choices in _iter_choices(pools, args):
+            if args.sample_per_problem and len(problem_combos) > args.sample_per_problem:
+                rng = random.Random(args.sample_seed)
+                keep = sorted(rng.sample(range(len(problem_combos)), args.sample_per_problem))
+                problem_combos = [problem_combos[i] for i in keep]
+
+            for decomposition_index, names, decomposition, combination_index, choices in problem_combos:
                     summary["combinations"] += 1
                     candidate_id = f"{problem_id}:d{decomposition_index}:c{combination_index}"
                     impl_map = {name: choice["code"] for name, choice in zip(names, choices)}

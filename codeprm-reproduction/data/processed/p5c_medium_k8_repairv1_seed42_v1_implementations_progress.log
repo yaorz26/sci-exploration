@@ -1,11 +1,31 @@
-[16:22:15] start model=qwen2.5-coder:7b k=8 variant=repair_v1 decompositions=28 todo=579
-[16:23:16] problem apps-train-1636 done; requests=24 elapsed=60s
-[16:24:17] problem apps-train-1636 done; requests=49 elapsed=122s
-[16:24:18] progress requests=50/579 valid=50 invalid=0 retried_ok=0 out_tokens=5170 elapsed=123s
-[16:25:08] problem apps-train-1638 done; requests=67 elapsed=172s
-[16:26:07] problem apps-train-1638 done; requests=85 elapsed=231s
-[16:26:23] progress requests=100/579 valid=100 invalid=0 retried_ok=0 out_tokens=10442 elapsed=248s
-[16:26:33] problem apps-train-1639 done; requests=109 elapsed=258s
-[16:27:00] problem apps-train-1639 done; requests=133 elapsed=285s
-[16:27:26] progress requests=150/579 valid=150 invalid=0 retried_ok=0 out_tokens=12806 elapsed=310s
-[16:27:39] problem apps-train-1640 done; requests=157 elapsed=324s
+[08:52:28] start model=qwen2.5-coder:7b k=8 variant=repair_v1 decompositions=28 todo=579
+[08:52:28] problem apps-train-1636 done; requests=0 elapsed=0s
+[08:52:28] problem apps-train-1636 done; requests=0 elapsed=0s
+[08:52:28] problem apps-train-1638 done; requests=0 elapsed=0s
+[08:52:28] problem apps-train-1638 done; requests=0 elapsed=0s
+[08:52:28] problem apps-train-1639 done; requests=0 elapsed=0s
+[08:52:28] problem apps-train-1639 done; requests=0 elapsed=0s
+[08:52:28] problem apps-train-1640 done; requests=0 elapsed=0s
+[08:52:28] problem apps-train-1640 done; requests=0 elapsed=0s
+[08:52:28] problem apps-train-1642 done; requests=0 elapsed=0s
+[08:52:28] problem apps-train-1642 done; requests=0 elapsed=0s
+[08:52:28] problem apps-train-1643 done; requests=0 elapsed=0s
+[08:52:28] problem apps-train-1643 done; requests=0 elapsed=0s
+[08:52:28] problem apps-train-1644 done; requests=0 elapsed=0s
+[08:52:28] problem apps-train-1644 done; requests=0 elapsed=0s
+[08:52:28] problem apps-train-1645 done; requests=0 elapsed=0s
+[08:52:28] problem apps-train-1645 done; requests=0 elapsed=0s
+[08:52:28] problem apps-train-1646 done; requests=0 elapsed=0s
+[08:52:28] problem apps-train-1646 done; requests=0 elapsed=0s
+[08:52:28] problem apps-train-1648 done; requests=0 elapsed=0s
+[08:52:28] problem apps-train-1648 done; requests=0 elapsed=0s
+[08:52:28] problem apps-train-1649 done; requests=0 elapsed=0s
+[08:52:28] problem apps-train-1649 done; requests=0 elapsed=0s
+[08:52:28] problem apps-train-1650 done; requests=0 elapsed=0s
+[08:52:28] problem apps-train-1650 done; requests=0 elapsed=0s
+[08:52:40] problem apps-train-1652 done; requests=1 elapsed=12s
+[08:53:34] problem apps-train-1652 done; requests=25 elapsed=66s
+[08:54:26] problem apps-train-1660 done; requests=49 elapsed=118s
+[08:54:29] progress requests=50/579 valid=50 invalid=0 retried_ok=0 out_tokens=4968 elapsed=121s
+[08:55:11] problem apps-train-1660 done; requests=73 elapsed=163s
+[08:55:11] finished requests=73 valid=73 invalid=0 valid_after_retry=0 out_tokens=6820
