@@ -1,0 +1,21 @@
+{
+  "time": "2026-10-11T12:35:00Z",
+  "event_id": "d1-resource-accounting-and-role-change-20261011T123500Z",
+  "kind": "decision",
+  "phase": "governance+resources",
+  "stage": "D1-resource-accounting",
+  "status": "complete",
+  "summary": "登记两项经实测确认的资源事实：① 本地 Ollama 生成（本机 qwen2.5-coder:7b）不消耗旧约 98/100 的 API 额度——该额度指历史 API 调用，本地运行是另一资源；本轮已实际用本地模型发出 1 次生成请求与 3 次诊断探针，付费调用为 0。② 每臂 6500 token 的提示预算不足以承载‘输出完整文件’接口：三题剩余分别为 −5692、−551、−22241 token。两项均由本轮实验直接测出。",
+  "decision": "按用户 2026-10-11 指令变更协作模式：助手角色改为‘可提出自己想法的计划执行者’，由另一 agent 作决策；助手不再要求用户本人在选项间拍板，改为提供可执行的决策简报。",
+  "evidence_kind": "artifact",
+  "evidence": [
+    "experiments/d1_G4_fullfile_interface_v1_20261011/run_summary.json",
+    "experiments/d1_G4_fullfile_interface_v1_20261011/stage_result.json",
+    "experiments/d1_G4_fullfile_interface_v1_20261011/diagnostic.json"
+  ],
+  "approval_required": false,
+  "supersedes": [],
+  "budget": "本地模型调用 1 次 + 3 次探针；付费调用 0；API 额度未动",
+  "uncertainty": "本地模型的资源边界（显存/时间）未系统测量；‘本地不耗额度’的结论仅基于本轮与 10-11 G4 批次，未逐一核对历史脚本的调用端点",
+  "next": "向决策方提交三件决策简报（G3 人工依赖、G4 协议与资源、T2 编码口径）；助手按批准项执行"
+}

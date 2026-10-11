@@ -12,4 +12,4 @@ M05的两输入columns=[[2,1],[a,b]]与[[1,2],[a,b]]经键排序helper都输出[
 
 方向审查：停止增加同类排序缺陷，转P35定向回查真实M2入口提示/门槛的可见信息及恢复限制。若实际入口可以访问原payload、重新计算甚至不用helper，则分解比较属于具体生成流程，不是严格受限的单向组件组合实验；必须依实际源码与保存请求区分已执行与仅模板。
 
-原始证据：codeprm-reproduction/experiments/d1_interface_information_recovery_v1_20261008/；执行python -B -X utf8 scripts/d1/probe_interface_information_recovery.py。模型/API新增0、累计约98/100，人工0；原20题307记录、标签、切分与旧成绩保持。
+原始证据：decomposition-bench/experiments/d1_interface_information_recovery_v1_20261008/；执行python -B -X utf8 scripts/d1/probe_interface_information_recovery.py。模型/API新增0、累计约98/100，人工0；原20题307记录、标签、切分与旧成绩保持。

@@ -1,6 +1,6 @@
 # P83结果：可评价的真实项目包源码任务
 
-产物：真实父版本项目源码、统一外部功能需求、对任意工作区可运行的评价器。候选在 `codeprm-reproduction/experiments/d1_runnable_repository_task_v2_20261009/candidate/`；未预给拆分方案，不含合并答案或变更测试。研究池候选，不是正式数据集。
+产物：真实父版本项目源码、统一外部功能需求、对任意工作区可运行的评价器。候选在 `decomposition-bench/experiments/d1_runnable_repository_task_v2_20261009/candidate/`；未预给拆分方案，不含合并答案或变更测试。研究池候选，不是正式数据集。
 
 四固定工作区的一批32项API诊断：父版本1/8，完整合并版8/8，只更新sources版5/8，更新sources/templates但core旧版7/8。模型0、人工0、正式三轴/split null；Python3.13.7/PyYAML6.0.3/Windows。逐项结果为实验目录的 `parent_actual.json`、`complete_actual.json`、`source_only_actual.json`、`core_omission_actual.json`，冻结代码和控制预测先于执行保存于 `freeze_before_execution.json`。
 

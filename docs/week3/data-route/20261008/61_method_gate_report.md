@@ -18,4 +18,4 @@ run_allin_pipeline.same_signature先确认入口片段只有预定顶层函数�
 
 模型/API/下载0、人工0、无新隐藏/正式成绩、原流程代码未改。下一项P28在独立候选门槛中仅忽略入口参数注解，保留名称/个数/参数种类/默认值等约束；用公开正常表示与真实调用方式改变对照，以及P9保存helper失败验证。若不能保持约束，不扩复杂修补，记录失败并换路。
 
-证据：`codeprm-reproduction/experiments/d1_method_gate_v1_20261008/{pre_execution_freeze.json,gate_and_public_results.json,summary.json}`及六份代码/入口。脚本`scripts/d1/probe_method_gate.py`，命令`python -B -X utf8 scripts/d1/probe_method_gate.py`。
+证据：`decomposition-bench/experiments/d1_method_gate_v1_20261008/{pre_execution_freeze.json,gate_and_public_results.json,summary.json}`及六份代码/入口。脚本`scripts/d1/probe_method_gate.py`，命令`python -B -X utf8 scripts/d1/probe_method_gate.py`。

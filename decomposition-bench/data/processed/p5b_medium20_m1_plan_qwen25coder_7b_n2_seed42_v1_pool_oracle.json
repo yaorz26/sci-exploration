@@ -1,0 +1,3302 @@
+{
+  "evaluator_policy": "normalized token comparison; numeric tokens math.isclose(rel_tol=1e-6, abs_tol=1e-6); function outputs literal comparison",
+  "post_selection_diagnostic": true,
+  "data": "D:\\yaorz\\research\\decomposition-bench\\data\\processed\\apps_stratified60_20260918.json",
+  "inputs": [
+    "D:\\yaorz\\research\\decomposition-bench\\data\\processed\\p5b_medium20_m1_plan_qwen25coder_7b_n2_seed42_v1_evaluations.jsonl"
+  ],
+  "problems": 20,
+  "pool_oracle_full_pass": 4,
+  "private_program_evaluations": 37,
+  "private_test_executions": 250,
+  "by_problem": {
+    "apps-train-1636": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 0,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-1636:c0",
+          "code_hash": "fd1ef1c416a428a60cd4d01eac60e9d8d0c70bc536dfde3d3aa0c819489c477f",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[61]",
+                "actual": "",
+                "stderr": "",
+                "error_type": "timeout",
+                "message": "",
+                "timeout": true,
+                "duration_seconds": 10.270234
+              },
+              {
+                "passed": 0,
+                "expected": "[4]",
+                "actual": "",
+                "stderr": "candidate execution budget exhausted before this test started",
+                "error_type": "candidate_budget_exhausted",
+                "message": "candidate execution budget exhausted",
+                "timeout": true,
+                "duration_seconds": 0.0
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 10.271456,
+            "budget_exhausted": true
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-1636:c1",
+          "code_hash": "83de632611bdb3aae421cf3a4120b0716acdffaca24c0f8586e43de22d2f3854",
+          "private": {
+            "split": "private",
+            "passed": 1,
+            "total": 2,
+            "pass_rate": 0.5,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[61]",
+                "actual": "44\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.135024
+              },
+              {
+                "passed": 1,
+                "expected": "[4]",
+                "actual": "4\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.141643
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.277994,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        }
+      ],
+      "pool_oracle_full_pass": false
+    },
+    "apps-train-1637": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 0,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-1637:c0",
+          "code_hash": "62f88a2e4be14ccd855d043ab5dd8d5082e7059e7fc3e25a909e4af00921a7a2",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[['e emnllbduuHB', 2]]",
+                "actual": "('e emnllbduuHB', 2)\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.063958
+              },
+              {
+                "passed": 0,
+                "expected": "[['ww MYeelllloo', 1]]",
+                "actual": "('ww MYeelllloo', 1)\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.115024
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.180598,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-1637:c1",
+          "code_hash": "5656e6458d33379a05f9b84bfbbe7f45a45c7b1da294ec528396da5ec44e6a31",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[['e emnllbduuHB', 2]]",
+                "actual": "('e emnllbduuHB', 2)\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.067035
+              },
+              {
+                "passed": 0,
+                "expected": "[['ww MYeelllloo', 1]]",
+                "actual": "('ww MYeelllloo', 1)\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.059337
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.127631,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        }
+      ],
+      "pool_oracle_full_pass": false
+    },
+    "apps-train-1638": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 2,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-1638:c0",
+          "code_hash": "26052ef0747ac496289684b5ce64b0d0343ea96afe7d9ac1cb938eb878c4e2b5",
+          "private": {
+            "split": "private",
+            "passed": 8,
+            "total": 8,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['bb']",
+                "actual": "'bb'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.203036
+              },
+              {
+                "passed": 1,
+                "expected": "['zz']",
+                "actual": "'zz'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.075833
+              },
+              {
+                "passed": 1,
+                "expected": "['dddd']",
+                "actual": "'dddd'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.06305
+              },
+              {
+                "passed": 1,
+                "expected": "['']",
+                "actual": "''\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.072616
+              },
+              {
+                "passed": 1,
+                "expected": "['a']",
+                "actual": "'a'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.154137
+              },
+              {
+                "passed": 1,
+                "expected": "['aaftffftfaa']",
+                "actual": "'aaftffftfaa'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.229183
+              },
+              {
+                "passed": 1,
+                "expected": "['aaa']",
+                "actual": "'aaa'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.070673
+              },
+              {
+                "passed": 1,
+                "expected": "['m']",
+                "actual": "'m'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.056563
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.931281,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        },
+        {
+          "candidate_id": "apps-train-1638:c1",
+          "code_hash": "7bf04f95d745281636412c3a6031484944ee7a890e336ceeba2d507d25158fba",
+          "private": {
+            "split": "private",
+            "passed": 8,
+            "total": 8,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['bb']",
+                "actual": "'bb'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.090675
+              },
+              {
+                "passed": 1,
+                "expected": "['zz']",
+                "actual": "'zz'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.076562
+              },
+              {
+                "passed": 1,
+                "expected": "['dddd']",
+                "actual": "'dddd'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.078935
+              },
+              {
+                "passed": 1,
+                "expected": "['']",
+                "actual": "''\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.078757
+              },
+              {
+                "passed": 1,
+                "expected": "['a']",
+                "actual": "'a'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.05397
+              },
+              {
+                "passed": 1,
+                "expected": "['aaftffftfaa']",
+                "actual": "'aaftffftfaa'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.065377
+              },
+              {
+                "passed": 1,
+                "expected": "['aaa']",
+                "actual": "'aaa'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.07868
+              },
+              {
+                "passed": 1,
+                "expected": "['m']",
+                "actual": "'m'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.073417
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.601926,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        }
+      ],
+      "pool_oracle_full_pass": true
+    },
+    "apps-train-1639": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 0,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-1639:c0",
+          "code_hash": "4bd2ae7354b32e375a200451b1407d42ca6e8ca2e2ed17a25455b14b534ecee8",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[3836040]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-pvr7owoi\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-pvr7owoi\\candidate.py\", line 8, in gta\n    for r in range(1, limit + 1):\n                      ~~~~~~^~~\nTypeError: can only concatenate list (not \"int\") to list\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-pvr7owoi\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-pvr7owoi\\candidate.py\", line 8, in gta\n    for r in range(1, limit + 1):\n                      ~~~~~~^~~\nTypeError: can only concatenate list (not \"int\") to list",
+                "timeout": false,
+                "duration_seconds": 0.075386
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.076047,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-1639:c1",
+          "code_hash": "9ddc74fe52e1918fc3bcd3624ead4cbdfa7465d195444db752b80f72fe44a43f",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[3836040]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-evu0wima\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-evu0wima\\candidate.py\", line 9, in gta\n    for r in range(1, limit + 1):\n                      ~~~~~~^~~\nTypeError: can only concatenate list (not \"int\") to list\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-evu0wima\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-evu0wima\\candidate.py\", line 9, in gta\n    for r in range(1, limit + 1):\n                      ~~~~~~^~~\nTypeError: can only concatenate list (not \"int\") to list",
+                "timeout": false,
+                "duration_seconds": 0.075657
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.076499,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        }
+      ],
+      "pool_oracle_full_pass": false
+    },
+    "apps-train-1640": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 0,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-1640:c0",
+          "code_hash": "fa19e1c503e89849adfc48b82c04ebcac37fa719b29dc32b0e34c86a908d879b",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 3,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "['1:ee/1:ll/1:oo']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-np2laood\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-np2laood\\candidate.py\", line 15, in mix\n    max_counts = max_frequency(counts1, counts2)\nTypeError: mix.<locals>.max_frequency() takes 1 positional argument but 2 were given\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-np2laood\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-np2laood\\candidate.py\", line 15, in mix\n    max_counts = max_frequency(counts1, counts2)\nTypeError: mix.<locals>.max_frequency() takes 1 positional argument but 2 were given",
+                "timeout": false,
+                "duration_seconds": 0.07163
+              },
+              {
+                "passed": 0,
+                "expected": "['']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-r92zt7i_\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-r92zt7i_\\candidate.py\", line 15, in mix\n    max_counts = max_frequency(counts1, counts2)\nTypeError: mix.<locals>.max_frequency() takes 1 positional argument but 2 were given\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-r92zt7i_\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-r92zt7i_\\candidate.py\", line 15, in mix\n    max_counts = max_frequency(counts1, counts2)\nTypeError: mix.<locals>.max_frequency() takes 1 positional argument but 2 were given",
+                "timeout": false,
+                "duration_seconds": 0.075367
+              },
+              {
+                "passed": 0,
+                "expected": "['1:nnnnn/1:ooooo/1:tttt/1:eee/1:gg/1:ii/1:mm/=:rr']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-cdy_q404\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-cdy_q404\\candidate.py\", line 15, in mix\n    max_counts = max_frequency(counts1, counts2)\nTypeError: mix.<locals>.max_frequency() takes 1 positional argument but 2 were given\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-cdy_q404\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-cdy_q404\\candidate.py\", line 15, in mix\n    max_counts = max_frequency(counts1, counts2)\nTypeError: mix.<locals>.max_frequency() takes 1 positional argument but 2 were given",
+                "timeout": false,
+                "duration_seconds": 0.08055
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.229809,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-1640:c1",
+          "code_hash": "64c48972440ece65589937ae2e960e251e25e64486ee3eca1c7b7f649e99152d",
+          "private": {
+            "split": "private",
+            "passed": 1,
+            "total": 3,
+            "pass_rate": 0.3333333333333333,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "['1:ee/1:ll/1:oo']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-wjz01w26\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-wjz01w26\\candidate.py\", line 11, in mix\n    for c, freq in sorted(max_freq.items(), key=lambda x: (-len(x[1]), x[0])):\n                   ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Temp\\codeprm-wjz01w26\\candidate.py\", line 11, in <lambda>\n    for c, freq in sorted(max_freq.items(), key=lambda x: (-len(x[1]), x[0])):\n                                                            ~~~^^^^^^\nTypeError: object of type 'int' has no len()\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-wjz01w26\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-wjz01w26\\candidate.py\", line 11, in mix\n    for c, freq in sorted(max_freq.items(), key=lambda x: (-len(x[1]), x[0])):\n                   ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Temp\\codeprm-wjz01w26\\candidate.py\", line 11, in <lambda>\n    for c, freq in sorted(max_freq.items(), key=lambda x: (-len(x[1]), x[0])):\n                                                            ~~~^^^^^^\nTypeError: object of type 'int' has no len()",
+                "timeout": false,
+                "duration_seconds": 0.085097
+              },
+              {
+                "passed": 1,
+                "expected": "['']",
+                "actual": "''\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.079871
+              },
+              {
+                "passed": 0,
+                "expected": "['1:nnnnn/1:ooooo/1:tttt/1:eee/1:gg/1:ii/1:mm/=:rr']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-395opb6a\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-395opb6a\\candidate.py\", line 11, in mix\n    for c, freq in sorted(max_freq.items(), key=lambda x: (-len(x[1]), x[0])):\n                   ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Temp\\codeprm-395opb6a\\candidate.py\", line 11, in <lambda>\n    for c, freq in sorted(max_freq.items(), key=lambda x: (-len(x[1]), x[0])):\n                                                            ~~~^^^^^^\nTypeError: object of type 'int' has no len()\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-395opb6a\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-395opb6a\\candidate.py\", line 11, in mix\n    for c, freq in sorted(max_freq.items(), key=lambda x: (-len(x[1]), x[0])):\n                   ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Temp\\codeprm-395opb6a\\candidate.py\", line 11, in <lambda>\n    for c, freq in sorted(max_freq.items(), key=lambda x: (-len(x[1]), x[0])):\n                                                            ~~~^^^^^^\nTypeError: object of type 'int' has no len()",
+                "timeout": false,
+                "duration_seconds": 0.076849
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.244253,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        }
+      ],
+      "pool_oracle_full_pass": false
+    },
+    "apps-train-1642": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 0,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-1642:c0",
+          "code_hash": "172637bc67b395a966a298b7d40dea4188b9ded451130334d4c621cf20e5e0d6",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 4,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[1]",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.073217
+              },
+              {
+                "passed": 0,
+                "expected": "[784]",
+                "actual": "",
+                "stderr": "",
+                "error_type": "timeout",
+                "message": "",
+                "timeout": true,
+                "duration_seconds": 10.262668
+              },
+              {
+                "passed": 0,
+                "expected": "[4]",
+                "actual": "",
+                "stderr": "candidate execution budget exhausted before this test started",
+                "error_type": "candidate_budget_exhausted",
+                "message": "candidate execution budget exhausted",
+                "timeout": true,
+                "duration_seconds": 0.0
+              },
+              {
+                "passed": 0,
+                "expected": "[100]",
+                "actual": "",
+                "stderr": "candidate execution budget exhausted before this test started",
+                "error_type": "candidate_budget_exhausted",
+                "message": "candidate execution budget exhausted",
+                "timeout": true,
+                "duration_seconds": 0.0
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 10.337221,
+            "budget_exhausted": true
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-1642:c1",
+          "code_hash": "f3ea44e3bad2c69355fb5d1d1d11321ba7d496c8868371a03c226b210407a648",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 4,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[1]",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.110685
+              },
+              {
+                "passed": 0,
+                "expected": "[784]",
+                "actual": "",
+                "stderr": "",
+                "error_type": "timeout",
+                "message": "",
+                "timeout": true,
+                "duration_seconds": 10.196465
+              },
+              {
+                "passed": 0,
+                "expected": "[4]",
+                "actual": "",
+                "stderr": "candidate execution budget exhausted before this test started",
+                "error_type": "candidate_budget_exhausted",
+                "message": "candidate execution budget exhausted",
+                "timeout": true,
+                "duration_seconds": 0.0
+              },
+              {
+                "passed": 0,
+                "expected": "[100]",
+                "actual": "",
+                "stderr": "candidate execution budget exhausted before this test started",
+                "error_type": "candidate_budget_exhausted",
+                "message": "candidate execution budget exhausted",
+                "timeout": true,
+                "duration_seconds": 0.0
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 10.308499,
+            "budget_exhausted": true
+          },
+          "full_pass": false
+        }
+      ],
+      "pool_oracle_full_pass": false
+    },
+    "apps-train-1643": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 0,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-1643:c0",
+          "code_hash": "608a8c6ff6d5dd9e3dd1c977f67357a888c7b1a0530dc778870cb33643e4517f",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 5,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[1729]",
+                "actual": "81\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 1.403736
+              },
+              {
+                "passed": 0,
+                "expected": "[2604]",
+                "actual": "",
+                "stderr": "",
+                "error_type": "timeout",
+                "message": "",
+                "timeout": true,
+                "duration_seconds": 8.912903
+              },
+              {
+                "passed": 0,
+                "expected": "[1122660]",
+                "actual": "",
+                "stderr": "candidate execution budget exhausted before this test started",
+                "error_type": "candidate_budget_exhausted",
+                "message": "candidate execution budget exhausted",
+                "timeout": true,
+                "duration_seconds": 0.0
+              },
+              {
+                "passed": 0,
+                "expected": "[2407217760893271902598]",
+                "actual": "",
+                "stderr": "candidate execution budget exhausted before this test started",
+                "error_type": "candidate_budget_exhausted",
+                "message": "candidate execution budget exhausted",
+                "timeout": true,
+                "duration_seconds": 0.0
+              },
+              {
+                "passed": 0,
+                "expected": "[81]",
+                "actual": "",
+                "stderr": "candidate execution budget exhausted before this test started",
+                "error_type": "candidate_budget_exhausted",
+                "message": "candidate execution budget exhausted",
+                "timeout": true,
+                "duration_seconds": 0.0
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 10.318003,
+            "budget_exhausted": true
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-1643:c1",
+          "code_hash": "d1c3a043300675c94ebfff1479f306d47621b29ab62ea25cd07b603def8468fc",
+          "private": {
+            "split": "private",
+            "passed": 1,
+            "total": 5,
+            "pass_rate": 0.2,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "[1729]",
+                "actual": "1729\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 3.240517
+              },
+              {
+                "passed": 0,
+                "expected": "[2604]",
+                "actual": "",
+                "stderr": "",
+                "error_type": "timeout",
+                "message": "",
+                "timeout": true,
+                "duration_seconds": 7.070192
+              },
+              {
+                "passed": 0,
+                "expected": "[1122660]",
+                "actual": "",
+                "stderr": "candidate execution budget exhausted before this test started",
+                "error_type": "candidate_budget_exhausted",
+                "message": "candidate execution budget exhausted",
+                "timeout": true,
+                "duration_seconds": 0.0
+              },
+              {
+                "passed": 0,
+                "expected": "[2407217760893271902598]",
+                "actual": "",
+                "stderr": "candidate execution budget exhausted before this test started",
+                "error_type": "candidate_budget_exhausted",
+                "message": "candidate execution budget exhausted",
+                "timeout": true,
+                "duration_seconds": 0.0
+              },
+              {
+                "passed": 0,
+                "expected": "[81]",
+                "actual": "",
+                "stderr": "candidate execution budget exhausted before this test started",
+                "error_type": "candidate_budget_exhausted",
+                "message": "candidate execution budget exhausted",
+                "timeout": true,
+                "duration_seconds": 0.0
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 10.312252,
+            "budget_exhausted": true
+          },
+          "full_pass": false
+        }
+      ],
+      "pool_oracle_full_pass": false
+    },
+    "apps-train-1644": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 0,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-1644:c0",
+          "code_hash": "dd5ac792bc143d0af00ca5678df2f39b621719b4dcf6e1a9ce569dc5ee1a0918",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "['Hello World!']",
+                "actual": "'o\\x08D\\x190\\t\\x0c\\x00J\\x0fC3U#\\x04'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.097508
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.098716,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-1644:c1",
+          "code_hash": "8a028415a96853dc07f03ded777a7f421b38fa1436f425fa16ed8c884e02b507",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "['Hello World!']",
+                "actual": "',¿ÜÄ'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.079632
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.080549,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        }
+      ],
+      "pool_oracle_full_pass": false
+    },
+    "apps-train-1645": {
+      "candidate_count": 2,
+      "unique_candidate_count": 1,
+      "private_full_pass_candidates": 0,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-1645:c0",
+          "code_hash": "d0d4e2390bf0d1cff73d7798fa6db7bd36d6584742e5503a0cef33569720946e",
+          "private": {
+            "split": "private",
+            "passed": 3,
+            "total": 8,
+            "pass_rate": 0.375,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "[3]",
+                "actual": "3\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.095901
+              },
+              {
+                "passed": 1,
+                "expected": "[2]",
+                "actual": "2\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.095251
+              },
+              {
+                "passed": 1,
+                "expected": "[1]",
+                "actual": "1\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.144246
+              },
+              {
+                "passed": 0,
+                "expected": "[4]",
+                "actual": "",
+                "stderr": "",
+                "error_type": "timeout",
+                "message": "",
+                "timeout": true,
+                "duration_seconds": 10.452297
+              },
+              {
+                "passed": 0,
+                "expected": "[1]",
+                "actual": "",
+                "stderr": "candidate execution budget exhausted before this test started",
+                "error_type": "candidate_budget_exhausted",
+                "message": "candidate execution budget exhausted",
+                "timeout": true,
+                "duration_seconds": 0.0
+              },
+              {
+                "passed": 0,
+                "expected": "[3]",
+                "actual": "",
+                "stderr": "candidate execution budget exhausted before this test started",
+                "error_type": "candidate_budget_exhausted",
+                "message": "candidate execution budget exhausted",
+                "timeout": true,
+                "duration_seconds": 0.0
+              },
+              {
+                "passed": 0,
+                "expected": "[2]",
+                "actual": "",
+                "stderr": "candidate execution budget exhausted before this test started",
+                "error_type": "candidate_budget_exhausted",
+                "message": "candidate execution budget exhausted",
+                "timeout": true,
+                "duration_seconds": 0.0
+              },
+              {
+                "passed": 0,
+                "expected": "[4]",
+                "actual": "",
+                "stderr": "candidate execution budget exhausted before this test started",
+                "error_type": "candidate_budget_exhausted",
+                "message": "candidate execution budget exhausted",
+                "timeout": true,
+                "duration_seconds": 0.0
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 10.79033,
+            "budget_exhausted": true
+          },
+          "full_pass": false
+        }
+      ],
+      "pool_oracle_full_pass": false
+    },
+    "apps-train-1646": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 0,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-1646:c0",
+          "code_hash": "03201e32db26547c63345485fb9a7738469618f8b9b9bbf4e87d1fb9f1a9cc02",
+          "private": {
+            "split": "private",
+            "passed": 2,
+            "total": 4,
+            "pass_rate": 0.5,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "[2890625]",
+                "actual": "2890625\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.779452
+              },
+              {
+                "passed": 1,
+                "expected": "[7109376]",
+                "actual": "7109376\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 1.505437
+              },
+              {
+                "passed": 0,
+                "expected": "[6188999442576576769103890995893380022607743740081787109376]",
+                "actual": "",
+                "stderr": "",
+                "error_type": "timeout",
+                "message": "",
+                "timeout": true,
+                "duration_seconds": 7.932903
+              },
+              {
+                "passed": 0,
+                "expected": "[9580863811000557423423230896109004106619977392256259918212890625]",
+                "actual": "",
+                "stderr": "candidate execution budget exhausted before this test started",
+                "error_type": "candidate_budget_exhausted",
+                "message": "candidate execution budget exhausted",
+                "timeout": true,
+                "duration_seconds": 0.0
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 10.219984,
+            "budget_exhausted": true
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-1646:c1",
+          "code_hash": "a9e8a1903a53432181956097a5138c833439b29ce8d5874b1c48ec1553a6e7f4",
+          "private": {
+            "split": "private",
+            "passed": 2,
+            "total": 4,
+            "pass_rate": 0.5,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "[2890625]",
+                "actual": "2890625\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.600118
+              },
+              {
+                "passed": 1,
+                "expected": "[7109376]",
+                "actual": "7109376\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 1.444743
+              },
+              {
+                "passed": 0,
+                "expected": "[6188999442576576769103890995893380022607743740081787109376]",
+                "actual": "",
+                "stderr": "",
+                "error_type": "timeout",
+                "message": "",
+                "timeout": true,
+                "duration_seconds": 8.266053
+              },
+              {
+                "passed": 0,
+                "expected": "[9580863811000557423423230896109004106619977392256259918212890625]",
+                "actual": "",
+                "stderr": "candidate execution budget exhausted before this test started",
+                "error_type": "candidate_budget_exhausted",
+                "message": "candidate execution budget exhausted",
+                "timeout": true,
+                "duration_seconds": 0.0
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 10.31267,
+            "budget_exhausted": true
+          },
+          "full_pass": false
+        }
+      ],
+      "pool_oracle_full_pass": false
+    },
+    "apps-train-1648": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 0,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-1648:c0",
+          "code_hash": "63a1806f2582f01ab14fb51cea914b4e48a01a4d09770106a006e9e718a92316",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 3,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[4]",
+                "actual": "40\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.086878
+              },
+              {
+                "passed": 0,
+                "expected": "[1]",
+                "actual": "2\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.092238
+              },
+              {
+                "passed": 0,
+                "expected": "[23951671]",
+                "actual": "240734743229036\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.132803
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.314394,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-1648:c1",
+          "code_hash": "d00e11d4d310644533a8ba88e2f979203d2239aaa0d5a13c32fd2d936b9b252b",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 3,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[4]",
+                "actual": "40\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.07798
+              },
+              {
+                "passed": 0,
+                "expected": "[1]",
+                "actual": "2\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.088311
+              },
+              {
+                "passed": 0,
+                "expected": "[23951671]",
+                "actual": "240734743229036\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.090674
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.259076,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        }
+      ],
+      "pool_oracle_full_pass": false
+    },
+    "apps-train-1649": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 2,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-1649:c0",
+          "code_hash": "2ca122e21d2aab64091cd0b9e8b777f8a82323f469bd1473c9763d5fc8639eff",
+          "private": {
+            "split": "private",
+            "passed": 10,
+            "total": 10,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['CLOSE_WAIT']",
+                "actual": "'CLOSE_WAIT'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.082783
+              },
+              {
+                "passed": 1,
+                "expected": "['LAST_ACK']",
+                "actual": "'LAST_ACK'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.063907
+              },
+              {
+                "passed": 1,
+                "expected": "['SYN_SENT']",
+                "actual": "'SYN_SENT'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.070938
+              },
+              {
+                "passed": 1,
+                "expected": "['CLOSED']",
+                "actual": "'CLOSED'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.077316
+              },
+              {
+                "passed": 1,
+                "expected": "['FIN_WAIT_1']",
+                "actual": "'FIN_WAIT_1'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.071706
+              },
+              {
+                "passed": 1,
+                "expected": "['ERROR']",
+                "actual": "'ERROR'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.067228
+              },
+              {
+                "passed": 1,
+                "expected": "['TIME_WAIT']",
+                "actual": "'TIME_WAIT'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.076243
+              },
+              {
+                "passed": 1,
+                "expected": "['ERROR']",
+                "actual": "'ERROR'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.123245
+              },
+              {
+                "passed": 1,
+                "expected": "['ERROR']",
+                "actual": "'ERROR'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.072889
+              },
+              {
+                "passed": 1,
+                "expected": "['CLOSING']",
+                "actual": "'CLOSING'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.083621
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.797634,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        },
+        {
+          "candidate_id": "apps-train-1649:c1",
+          "code_hash": "92cb31e083b2d178b4644e8d972f1c17013ac6d7e9255e03939f86df90413603",
+          "private": {
+            "split": "private",
+            "passed": 10,
+            "total": 10,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['CLOSE_WAIT']",
+                "actual": "'CLOSE_WAIT'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.06721
+              },
+              {
+                "passed": 1,
+                "expected": "['LAST_ACK']",
+                "actual": "'LAST_ACK'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.084712
+              },
+              {
+                "passed": 1,
+                "expected": "['SYN_SENT']",
+                "actual": "'SYN_SENT'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.061876
+              },
+              {
+                "passed": 1,
+                "expected": "['CLOSED']",
+                "actual": "'CLOSED'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.06856
+              },
+              {
+                "passed": 1,
+                "expected": "['FIN_WAIT_1']",
+                "actual": "'FIN_WAIT_1'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.07547
+              },
+              {
+                "passed": 1,
+                "expected": "['ERROR']",
+                "actual": "'ERROR'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.063453
+              },
+              {
+                "passed": 1,
+                "expected": "['TIME_WAIT']",
+                "actual": "'TIME_WAIT'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.066887
+              },
+              {
+                "passed": 1,
+                "expected": "['ERROR']",
+                "actual": "'ERROR'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.102066
+              },
+              {
+                "passed": 1,
+                "expected": "['ERROR']",
+                "actual": "'ERROR'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.088956
+              },
+              {
+                "passed": 1,
+                "expected": "['CLOSING']",
+                "actual": "'CLOSING'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.09025
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.777831,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        }
+      ],
+      "pool_oracle_full_pass": true
+    },
+    "apps-train-1650": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 2,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-1650:c0",
+          "code_hash": "e3d821ea4118c6c1369ae2761a0768b4ab83d34701d8d247d3067517ce722ed0",
+          "private": {
+            "split": "private",
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "[[]]",
+                "actual": "[]\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.071146
+              },
+              {
+                "passed": 1,
+                "expected": "[[123, 116999, 566666]]",
+                "actual": "[123, 116999, 566666]\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.717486
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.78981,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        },
+        {
+          "candidate_id": "apps-train-1650:c1",
+          "code_hash": "9ecca23170cd68e4932ee580b38c546e0f767e8c7c45994544d29a08b31ee766",
+          "private": {
+            "split": "private",
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "[[]]",
+                "actual": "[]\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.087339
+              },
+              {
+                "passed": 1,
+                "expected": "[[123, 116999, 566666]]",
+                "actual": "[123, 116999, 566666]\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.629338
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.718501,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        }
+      ],
+      "pool_oracle_full_pass": true
+    },
+    "apps-train-1651": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 0,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-1651:c0",
+          "code_hash": "10acd479752b349231f0bf2804e8d409bcb5b3a1d47ae3ca643b1b7d306f94eb",
+          "private": {
+            "split": "private",
+            "passed": 1,
+            "total": 2,
+            "pass_rate": 0.5,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "['-3--1,2,10,15,16,18-20']",
+                "actual": "'-3--1,2,10,15-16,18-20'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.064579
+              },
+              {
+                "passed": 1,
+                "expected": "['1-5']",
+                "actual": "'1-5'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.087624
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.153602,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-1651:c1",
+          "code_hash": "4cede90903b959e766451e7ffc74285a444521a11393d9cbef36b916a6a89f7a",
+          "private": {
+            "split": "private",
+            "passed": 1,
+            "total": 2,
+            "pass_rate": 0.5,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "['-3--1,2,10,15,16,18-20']",
+                "actual": "'-3--1,2,10,15-16,18-20'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.086124
+              },
+              {
+                "passed": 1,
+                "expected": "['1-5']",
+                "actual": "'1-5'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.102407
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.190027,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        }
+      ],
+      "pool_oracle_full_pass": false
+    },
+    "apps-train-1652": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 2,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-1652:c0",
+          "code_hash": "098e18dc54d0a02e614737c3fd4f36eb2e636b012b4af53021761c9c1d154760",
+          "private": {
+            "split": "private",
+            "passed": 7,
+            "total": 7,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['182 days, 1 hour, 44 minutes and 40 seconds']",
+                "actual": "'182 days, 1 hour, 44 minutes and 40 seconds'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.074349
+              },
+              {
+                "passed": 1,
+                "expected": "['4 years, 68 days, 3 hours and 4 minutes']",
+                "actual": "'4 years, 68 days, 3 hours and 4 minutes'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.077522
+              },
+              {
+                "passed": 1,
+                "expected": "['6 years, 192 days, 13 hours, 3 minutes and 54 seconds']",
+                "actual": "'6 years, 192 days, 13 hours, 3 minutes and 54 seconds'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.109632
+              },
+              {
+                "passed": 1,
+                "expected": "['8 years, 12 days, 13 hours, 41 minutes and 1 second']",
+                "actual": "'8 years, 12 days, 13 hours, 41 minutes and 1 second'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.112073
+              },
+              {
+                "passed": 1,
+                "expected": "['7 years, 246 days, 15 hours, 32 minutes and 54 seconds']",
+                "actual": "'7 years, 246 days, 15 hours, 32 minutes and 54 seconds'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.099614
+              },
+              {
+                "passed": 1,
+                "expected": "['3 years, 85 days, 1 hour, 9 minutes and 26 seconds']",
+                "actual": "'3 years, 85 days, 1 hour, 9 minutes and 26 seconds'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.071391
+              },
+              {
+                "passed": 1,
+                "expected": "['1 year, 19 days, 18 hours, 19 minutes and 46 seconds']",
+                "actual": "'1 year, 19 days, 18 hours, 19 minutes and 46 seconds'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.074093
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.623887,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        },
+        {
+          "candidate_id": "apps-train-1652:c1",
+          "code_hash": "8c043d82a87ea074be96c809ddfc3b63b715a510b259a5f87e09da9156b36f0f",
+          "private": {
+            "split": "private",
+            "passed": 7,
+            "total": 7,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['182 days, 1 hour, 44 minutes and 40 seconds']",
+                "actual": "'182 days, 1 hour, 44 minutes and 40 seconds'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.061506
+              },
+              {
+                "passed": 1,
+                "expected": "['4 years, 68 days, 3 hours and 4 minutes']",
+                "actual": "'4 years, 68 days, 3 hours and 4 minutes'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.06075
+              },
+              {
+                "passed": 1,
+                "expected": "['6 years, 192 days, 13 hours, 3 minutes and 54 seconds']",
+                "actual": "'6 years, 192 days, 13 hours, 3 minutes and 54 seconds'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.0601
+              },
+              {
+                "passed": 1,
+                "expected": "['8 years, 12 days, 13 hours, 41 minutes and 1 second']",
+                "actual": "'8 years, 12 days, 13 hours, 41 minutes and 1 second'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.064683
+              },
+              {
+                "passed": 1,
+                "expected": "['7 years, 246 days, 15 hours, 32 minutes and 54 seconds']",
+                "actual": "'7 years, 246 days, 15 hours, 32 minutes and 54 seconds'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.061676
+              },
+              {
+                "passed": 1,
+                "expected": "['3 years, 85 days, 1 hour, 9 minutes and 26 seconds']",
+                "actual": "'3 years, 85 days, 1 hour, 9 minutes and 26 seconds'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.058969
+              },
+              {
+                "passed": 1,
+                "expected": "['1 year, 19 days, 18 hours, 19 minutes and 46 seconds']",
+                "actual": "'1 year, 19 days, 18 hours, 19 minutes and 46 seconds'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.068311
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.440857,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        }
+      ],
+      "pool_oracle_full_pass": true
+    },
+    "apps-train-1653": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 0,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-1653:c0",
+          "code_hash": "9d918e0513311f8697b595bfa503a804effc7c00b5bf3c4b44aa97fbcd73212d",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[[0, 1]]",
+                "actual": "(0, 1)\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.069805
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.070842,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-1653:c1",
+          "code_hash": "0e002231152193b1fe1b213e7908c64728a2a98cc23b8c1d516ecc505049ee2f",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[[0, 1]]",
+                "actual": "(0, 1)\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.062065
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.062862,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        }
+      ],
+      "pool_oracle_full_pass": false
+    },
+    "apps-train-1654": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 0,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-1654:c0",
+          "code_hash": "be9bbeecd01ab87aac3dcfb4291e52c9e45d8aa6ee90e771f50ca33c6f8d696b",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 6,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[2]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-i3ofoba8\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-i3ofoba8\\candidate.py\", line 11, in solve_runes\n    equation = Eq(eval(expression), 0)\n                  ~~~~^^^^^^^^^^^^\n  File \"<string>\", line 1\n    unknown38unknownunknownunknown+595unknownunknownunknown=833444\n                                     ^\nSyntaxError: invalid decimal literal\n",
+                "error_type": "syntax_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-i3ofoba8\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-i3ofoba8\\candidate.py\", line 11, in solve_runes\n    equation = Eq(eval(expression), 0)\n                  ~~~~^^^^^^^^^^^^\n  File \"<string>\", line 1\n    unknown38unknownunknownunknown+595unknownunknownunknown=833444\n                                     ^\nSyntaxError: invalid decimal literal",
+                "timeout": false,
+                "duration_seconds": 0.743811
+              },
+              {
+                "passed": 0,
+                "expected": "[0]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-kqiqti00\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-kqiqti00\\candidate.py\", line 11, in solve_runes\n    equation = Eq(eval(expression), 0)\n                  ~~~~^^^^^^^^^^^^\n  File \"<string>\", line 1\n    123unknown45-unknown=123unknown45\n      ^\nSyntaxError: invalid decimal literal\n",
+                "error_type": "syntax_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-kqiqti00\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-kqiqti00\\candidate.py\", line 11, in solve_runes\n    equation = Eq(eval(expression), 0)\n                  ~~~~^^^^^^^^^^^^\n  File \"<string>\", line 1\n    123unknown45-unknown=123unknown45\n      ^\nSyntaxError: invalid decimal literal",
+                "timeout": false,
+                "duration_seconds": 0.550696
+              },
+              {
+                "passed": 0,
+                "expected": "[6]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-e98zvx7x\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-e98zvx7x\\candidate.py\", line 11, in solve_runes\n    equation = Eq(eval(expression), 0)\n                  ~~~~^^^^^^^^^^^^\n  File \"<string>\", line 1\n    -7715unknown5--484unknown00=-28unknown9unknown5\n        ^\nSyntaxError: invalid decimal literal\n",
+                "error_type": "syntax_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-e98zvx7x\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-e98zvx7x\\candidate.py\", line 11, in solve_runes\n    equation = Eq(eval(expression), 0)\n                  ~~~~^^^^^^^^^^^^\n  File \"<string>\", line 1\n    -7715unknown5--484unknown00=-28unknown9unknown5\n        ^\nSyntaxError: invalid decimal literal",
+                "timeout": false,
+                "duration_seconds": 0.568423
+              },
+              {
+                "passed": 0,
+                "expected": "[4]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-q021l7z1\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-q021l7z1\\candidate.py\", line 11, in solve_runes\n    equation = Eq(eval(expression), 0)\n                  ~~~~^^^^^^^^^^^^\n  File \"<string>\", line 1\n    50685unknown--1unknown5630=652unknown8unknown\n        ^\nSyntaxError: invalid decimal literal\n",
+                "error_type": "syntax_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-q021l7z1\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-q021l7z1\\candidate.py\", line 11, in solve_runes\n    equation = Eq(eval(expression), 0)\n                  ~~~~^^^^^^^^^^^^\n  File \"<string>\", line 1\n    50685unknown--1unknown5630=652unknown8unknown\n        ^\nSyntaxError: invalid decimal literal",
+                "timeout": false,
+                "duration_seconds": 0.601497
+              },
+              {
+                "passed": 0,
+                "expected": "[-1]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-b2n8w9sq\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-b2n8w9sq\\candidate.py\", line 11, in solve_runes\n    equation = Eq(eval(expression), 0)\n                  ~~~~^^^^^^^^^^^^\n  File \"<string>\", line 1\n    unknownunknown+unknownunknown=unknownunknown\n                                 ^\nSyntaxError: invalid syntax\n",
+                "error_type": "syntax_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-b2n8w9sq\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-b2n8w9sq\\candidate.py\", line 11, in solve_runes\n    equation = Eq(eval(expression), 0)\n                  ~~~~^^^^^^^^^^^^\n  File \"<string>\", line 1\n    unknownunknown+unknownunknown=unknownunknown\n                                 ^\nSyntaxError: invalid syntax",
+                "timeout": false,
+                "duration_seconds": 0.732794
+              },
+              {
+                "passed": 0,
+                "expected": "[8]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-ol5xakak\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-ol5xakak\\candidate.py\", line 11, in solve_runes\n    equation = Eq(eval(expression), 0)\n                  ~~~~^^^^^^^^^^^^\n  File \"<string>\", line 1\n    -unknown56373--9216=-unknown47157\n                       ^\nSyntaxError: invalid syntax\n",
+                "error_type": "syntax_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-ol5xakak\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-ol5xakak\\candidate.py\", line 11, in solve_runes\n    equation = Eq(eval(expression), 0)\n                  ~~~~^^^^^^^^^^^^\n  File \"<string>\", line 1\n    -unknown56373--9216=-unknown47157\n                       ^\nSyntaxError: invalid syntax",
+                "timeout": false,
+                "duration_seconds": 0.606088
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 3.808503,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-1654:c1",
+          "code_hash": "a2816743065e95b3fca0b0797a8992dc00e2188b5419ed6cf638b97d4600e17e",
+          "private": {
+            "split": "private",
+            "passed": 1,
+            "total": 6,
+            "pass_rate": 0.16666666666666666,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[2]",
+                "actual": "-1\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.551686
+              },
+              {
+                "passed": 0,
+                "expected": "[0]",
+                "actual": "-1\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.57516
+              },
+              {
+                "passed": 0,
+                "expected": "[6]",
+                "actual": "-1\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.579322
+              },
+              {
+                "passed": 0,
+                "expected": "[4]",
+                "actual": "-1\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.684662
+              },
+              {
+                "passed": 1,
+                "expected": "[-1]",
+                "actual": "-1\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.586766
+              },
+              {
+                "passed": 0,
+                "expected": "[8]",
+                "actual": "-1\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.594226
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 3.576935,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        }
+      ],
+      "pool_oracle_full_pass": false
+    },
+    "apps-train-1656": {
+      "candidate_count": 0,
+      "unique_candidate_count": 0,
+      "private_full_pass_candidates": 0,
+      "candidate_results": [],
+      "pool_oracle_full_pass": false
+    },
+    "apps-train-1660": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 0,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-1660:c0",
+          "code_hash": "d4f30ad6949017c1b5082314484d1fd090ca640aeb5a922b4fc901da5ca9f3ef",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 6,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "['byz+xyz']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-0se9ng2b\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-0se9ng2b\\candidate.py\", line 14, in simplify\n    coefficients[''.join(sorted(monomial))] += int(coeff)\n                                               ~~~^^^^^^^\nValueError: invalid literal for int() with base 10: '+'\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-0se9ng2b\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-0se9ng2b\\candidate.py\", line 14, in simplify\n    coefficients[''.join(sorted(monomial))] += int(coeff)\n                                               ~~~^^^^^^^\nValueError: invalid literal for int() with base 10: '+'",
+                "timeout": false,
+                "duration_seconds": 0.078629
+              },
+              {
+                "passed": 0,
+                "expected": "['x-y']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-bqzmo56f\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-bqzmo56f\\candidate.py\", line 14, in simplify\n    coefficients[''.join(sorted(monomial))] += int(coeff)\n                                               ~~~^^^^^^^\nValueError: invalid literal for int() with base 10: '+'\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-bqzmo56f\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-bqzmo56f\\candidate.py\", line 14, in simplify\n    coefficients[''.join(sorted(monomial))] += int(coeff)\n                                               ~~~^^^^^^^\nValueError: invalid literal for int() with base 10: '+'",
+                "timeout": false,
+                "duration_seconds": 0.090836
+              },
+              {
+                "passed": 0,
+                "expected": "['-x+y']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-80ixr5_l\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-80ixr5_l\\candidate.py\", line 25, in simplify\n    if coeff > 0 and result:\n       ^^^^^^^^^\nTypeError: '>' not supported between instances of 'str' and 'int'\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-80ixr5_l\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-80ixr5_l\\candidate.py\", line 25, in simplify\n    if coeff > 0 and result:\n       ^^^^^^^^^\nTypeError: '>' not supported between instances of 'str' and 'int'",
+                "timeout": false,
+                "duration_seconds": 0.078285
+              },
+              {
+                "passed": 0,
+                "expected": "['4a+b-ab+4ac']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-3xuw3swg\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-3xuw3swg\\candidate.py\", line 14, in simplify\n    coefficients[''.join(sorted(monomial))] += int(coeff)\n                                               ~~~^^^^^^^\nValueError: invalid literal for int() with base 10: '+'\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-3xuw3swg\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-3xuw3swg\\candidate.py\", line 14, in simplify\n    coefficients[''.join(sorted(monomial))] += int(coeff)\n                                               ~~~^^^^^^^\nValueError: invalid literal for int() with base 10: '+'",
+                "timeout": false,
+                "duration_seconds": 0.075301
+              },
+              {
+                "passed": 0,
+                "expected": "['-2n+2hjn+hjnt']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-_h4dk6md\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-_h4dk6md\\candidate.py\", line 14, in simplify\n    coefficients[''.join(sorted(monomial))] += int(coeff)\n                                               ~~~^^^^^^^\nValueError: invalid literal for int() with base 10: '+'\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-_h4dk6md\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-_h4dk6md\\candidate.py\", line 14, in simplify\n    coefficients[''.join(sorted(monomial))] += int(coeff)\n                                               ~~~^^^^^^^\nValueError: invalid literal for int() with base 10: '+'",
+                "timeout": false,
+                "duration_seconds": 0.069332
+              },
+              {
+                "passed": 0,
+                "expected": "['3fk-kq+5kv-2qvy+fkqvy']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-1lxrow2k\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-1lxrow2k\\candidate.py\", line 14, in simplify\n    coefficients[''.join(sorted(monomial))] += int(coeff)\n                                               ~~~^^^^^^^\nValueError: invalid literal for int() with base 10: '+'\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-1lxrow2k\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-1lxrow2k\\candidate.py\", line 14, in simplify\n    coefficients[''.join(sorted(monomial))] += int(coeff)\n                                               ~~~^^^^^^^\nValueError: invalid literal for int() with base 10: '+'",
+                "timeout": false,
+                "duration_seconds": 0.083899
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.481832,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-1660:c1",
+          "code_hash": "7be475fd34854c522eab4a6daeec792c50e206a2900614d08d4506f5f9254399",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 6,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "['byz+xyz']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-b905fcfl\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-b905fcfl\\candidate.py\", line 7, in simplify\n    monomials = [(int(coeff if coeff else 1), ''.join(sorted(monomial))) for coeff, monomial in monomials]\n                  ~~~^^^^^^^^^^^^^^^^^^^^^^^\nValueError: invalid literal for int() with base 10: '+'\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-b905fcfl\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-b905fcfl\\candidate.py\", line 7, in simplify\n    monomials = [(int(coeff if coeff else 1), ''.join(sorted(monomial))) for coeff, monomial in monomials]\n                  ~~~^^^^^^^^^^^^^^^^^^^^^^^\nValueError: invalid literal for int() with base 10: '+'",
+                "timeout": false,
+                "duration_seconds": 0.0844
+              },
+              {
+                "passed": 0,
+                "expected": "['x-y']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-oldonsp3\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-oldonsp3\\candidate.py\", line 7, in simplify\n    monomials = [(int(coeff if coeff else 1), ''.join(sorted(monomial))) for coeff, monomial in monomials]\n                  ~~~^^^^^^^^^^^^^^^^^^^^^^^\nValueError: invalid literal for int() with base 10: '-'\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-oldonsp3\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-oldonsp3\\candidate.py\", line 7, in simplify\n    monomials = [(int(coeff if coeff else 1), ''.join(sorted(monomial))) for coeff, monomial in monomials]\n                  ~~~^^^^^^^^^^^^^^^^^^^^^^^\nValueError: invalid literal for int() with base 10: '-'",
+                "timeout": false,
+                "duration_seconds": 0.065497
+              },
+              {
+                "passed": 0,
+                "expected": "['-x+y']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-5yp_kxhp\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-5yp_kxhp\\candidate.py\", line 7, in simplify\n    monomials = [(int(coeff if coeff else 1), ''.join(sorted(monomial))) for coeff, monomial in monomials]\n                  ~~~^^^^^^^^^^^^^^^^^^^^^^^\nValueError: invalid literal for int() with base 10: '-'\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-5yp_kxhp\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-5yp_kxhp\\candidate.py\", line 7, in simplify\n    monomials = [(int(coeff if coeff else 1), ''.join(sorted(monomial))) for coeff, monomial in monomials]\n                  ~~~^^^^^^^^^^^^^^^^^^^^^^^\nValueError: invalid literal for int() with base 10: '-'",
+                "timeout": false,
+                "duration_seconds": 0.06547
+              },
+              {
+                "passed": 0,
+                "expected": "['4a+b-ab+4ac']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-cli1009j\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-cli1009j\\candidate.py\", line 7, in simplify\n    monomials = [(int(coeff if coeff else 1), ''.join(sorted(monomial))) for coeff, monomial in monomials]\n                  ~~~^^^^^^^^^^^^^^^^^^^^^^^\nValueError: invalid literal for int() with base 10: '+'\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-cli1009j\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-cli1009j\\candidate.py\", line 7, in simplify\n    monomials = [(int(coeff if coeff else 1), ''.join(sorted(monomial))) for coeff, monomial in monomials]\n                  ~~~^^^^^^^^^^^^^^^^^^^^^^^\nValueError: invalid literal for int() with base 10: '+'",
+                "timeout": false,
+                "duration_seconds": 0.063488
+              },
+              {
+                "passed": 0,
+                "expected": "['-2n+2hjn+hjnt']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-u7lnnlpq\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-u7lnnlpq\\candidate.py\", line 7, in simplify\n    monomials = [(int(coeff if coeff else 1), ''.join(sorted(monomial))) for coeff, monomial in monomials]\n                  ~~~^^^^^^^^^^^^^^^^^^^^^^^\nValueError: invalid literal for int() with base 10: '+'\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-u7lnnlpq\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-u7lnnlpq\\candidate.py\", line 7, in simplify\n    monomials = [(int(coeff if coeff else 1), ''.join(sorted(monomial))) for coeff, monomial in monomials]\n                  ~~~^^^^^^^^^^^^^^^^^^^^^^^\nValueError: invalid literal for int() with base 10: '+'",
+                "timeout": false,
+                "duration_seconds": 0.069404
+              },
+              {
+                "passed": 0,
+                "expected": "['3fk-kq+5kv-2qvy+fkqvy']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-hc7ckwg5\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-hc7ckwg5\\candidate.py\", line 7, in simplify\n    monomials = [(int(coeff if coeff else 1), ''.join(sorted(monomial))) for coeff, monomial in monomials]\n                  ~~~^^^^^^^^^^^^^^^^^^^^^^^\nValueError: invalid literal for int() with base 10: '-'\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-hc7ckwg5\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-hc7ckwg5\\candidate.py\", line 7, in simplify\n    monomials = [(int(coeff if coeff else 1), ''.join(sorted(monomial))) for coeff, monomial in monomials]\n                  ~~~^^^^^^^^^^^^^^^^^^^^^^^\nValueError: invalid literal for int() with base 10: '-'",
+                "timeout": false,
+                "duration_seconds": 0.066548
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.420163,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        }
+      ],
+      "pool_oracle_full_pass": false
+    },
+    "apps-train-1664": {
+      "candidate_count": 2,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 0,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-1664:c0",
+          "code_hash": "ef57dfed58319ed5ddf000a40ff0ca394dbc431fd4a1b36e4a06e2f69f9153f9",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 54,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[[0, 26, 0, 28]]",
+                "actual": "[0, 20, 0, 14]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.062685
+              },
+              {
+                "passed": 0,
+                "expected": "[[12, 10, 0, 33]]",
+                "actual": "[0, 10, 0, 18]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.056167
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 25, 0, 32]]",
+                "actual": "[0, 17, 0, 22]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.060771
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 18, 0, 36]]",
+                "actual": "[0, 11, 0, 23]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.061046
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 28, 0, 26]]",
+                "actual": "[0, 16, 0, 18]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.065202
+              },
+              {
+                "passed": 0,
+                "expected": "[[5, 19, 1, 33]]",
+                "actual": "[0, 13, 0, 25]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.070681
+              },
+              {
+                "passed": 0,
+                "expected": "[[1, 21, 0, 32]]",
+                "actual": "[0, 11, 0, 17]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.061044
+              },
+              {
+                "passed": 0,
+                "expected": "[[4, 18, 0, 32]]",
+                "actual": "[0, 12, 0, 24]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.05849
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 24, 2, 31]]",
+                "actual": "[0, 15, 0, 23]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.07183
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 22, 1, 31]]",
+                "actual": "[0, 11, 0, 19]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.069918
+              },
+              {
+                "passed": 0,
+                "expected": "[[1, 25, 0, 28]]",
+                "actual": "[0, 13, 0, 17]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.065816
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 25, 0, 34]]",
+                "actual": "[0, 19, 0, 21]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.082104
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 20, 1, 33]]",
+                "actual": "[0, 15, 0, 19]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.066239
+              },
+              {
+                "passed": 0,
+                "expected": "[[3, 15, 0, 36]]",
+                "actual": "[0, 8, 0, 22]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.061076
+              },
+              {
+                "passed": 0,
+                "expected": "[[2, 15, 0, 37]]",
+                "actual": "[0, 8, 0, 22]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.07149
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 22, 0, 32]]",
+                "actual": "[0, 15, 0, 15]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.097232
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 21, 0, 33]]",
+                "actual": "[0, 16, 0, 18]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.06337
+              },
+              {
+                "passed": 0,
+                "expected": "[[4, 18, 0, 32]]",
+                "actual": "[0, 12, 0, 22]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.073009
+              },
+              {
+                "passed": 0,
+                "expected": "[[7, 20, 0, 27]]",
+                "actual": "[0, 16, 0, 14]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.06346
+              },
+              {
+                "passed": 0,
+                "expected": "[[3, 26, 1, 27]]",
+                "actual": "[0, 21, 0, 17]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.073382
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 23, 0, 34]]",
+                "actual": "[0, 19, 0, 19]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.062666
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 21, 0, 33]]",
+                "actual": "[0, 13, 0, 23]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.06227
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 22, 1, 31]]",
+                "actual": "[0, 12, 0, 22]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.058038
+              },
+              {
+                "passed": 0,
+                "expected": "[[3, 19, 0, 32]]",
+                "actual": "[0, 11, 0, 17]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.073406
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 21, 0, 36]]",
+                "actual": "[0, 13, 0, 26]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.064649
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 31, 0, 26]]",
+                "actual": "[0, 20, 0, 18]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.081653
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 25, 0, 29]]",
+                "actual": "[0, 18, 0, 16]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.065458
+              },
+              {
+                "passed": 0,
+                "expected": "[[3, 26, 0, 28]]",
+                "actual": "[0, 17, 0, 22]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.063179
+              },
+              {
+                "passed": 0,
+                "expected": "[[2, 20, 0, 32]]",
+                "actual": "[0, 18, 0, 16]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.075897
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 23, 0, 34]]",
+                "actual": "[0, 19, 0, 19]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.07245
+              },
+              {
+                "passed": 0,
+                "expected": "[[4, 25, 0, 30]]",
+                "actual": "[0, 16, 0, 24]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.067905
+              },
+              {
+                "passed": 0,
+                "expected": "[[3, 21, 0, 30]]",
+                "actual": "[0, 13, 0, 15]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.06826
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 21, 0, 33]]",
+                "actual": "[0, 16, 0, 18]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.059971
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 22, 1, 31]]",
+                "actual": "[0, 11, 0, 17]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.065574
+              },
+              {
+                "passed": 0,
+                "expected": "[[3, 23, 0, 28]]",
+                "actual": "[0, 13, 0, 17]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.069511
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 22, 0, 32]]",
+                "actual": "[0, 16, 0, 18]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.063642
+              },
+              {
+                "passed": 0,
+                "expected": "[[3, 26, 0, 28]]",
+                "actual": "[0, 18, 0, 20]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.069907
+              },
+              {
+                "passed": 0,
+                "expected": "[[3, 28, 0, 28]]",
+                "actual": "[0, 20, 0, 20]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.062921
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 22, 0, 35]]",
+                "actual": "[0, 17, 0, 21]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.067901
+              },
+              {
+                "passed": 0,
+                "expected": "[[2, 21, 0, 31]]",
+                "actual": "[0, 15, 0, 15]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.064259
+              },
+              {
+                "passed": 0,
+                "expected": "[[3, 21, 0, 30]]",
+                "actual": "[0, 13, 0, 15]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.064649
+              },
+              {
+                "passed": 0,
+                "expected": "[[2, 18, 0, 34]]",
+                "actual": "[0, 11, 0, 23]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.064915
+              },
+              {
+                "passed": 0,
+                "expected": "[[2, 21, 0, 31]]",
+                "actual": "[0, 17, 0, 17]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.064695
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 21, 0, 33]]",
+                "actual": "[0, 14, 0, 22]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.080033
+              },
+              {
+                "passed": 0,
+                "expected": "[[1, 22, 0, 34]]",
+                "actual": "[0, 16, 0, 22]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.073744
+              },
+              {
+                "passed": 0,
+                "expected": "[[2, 18, 0, 34]]",
+                "actual": "[0, 11, 0, 23]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.067267
+              },
+              {
+                "passed": 0,
+                "expected": "[[4, 26, 0, 24]]",
+                "actual": "[0, 18, 0, 16]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.062024
+              },
+              {
+                "passed": 0,
+                "expected": "[[3, 19, 0, 32]]",
+                "actual": "[0, 12, 0, 18]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.058981
+              },
+              {
+                "passed": 0,
+                "expected": "[[3, 28, 0, 26]]",
+                "actual": "[0, 25, 0, 14]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.063334
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 34, 0, 25]]",
+                "actual": "[0, 25, 0, 15]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.069182
+              },
+              {
+                "passed": 0,
+                "expected": "[[1, 21, 0, 32]]",
+                "actual": "[0, 11, 0, 19]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.063662
+              },
+              {
+                "passed": 0,
+                "expected": "[[3, 19, 0, 32]]",
+                "actual": "[0, 12, 0, 18]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.058129
+              },
+              {
+                "passed": 0,
+                "expected": "[[2, 20, 0, 32]]",
+                "actual": "[0, 11, 0, 17]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.06079
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 18, 0, 36]]",
+                "actual": "[0, 9, 0, 21]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.084197
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 3.67214,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-1664:c1",
+          "code_hash": "81731464160d8d536bc6b5d85273727619e705ae1658e8d450e4ba9ff6c1c6a6",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 54,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[[0, 26, 0, 28]]",
+                "actual": "[0, 27, 0, 31]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.075626
+              },
+              {
+                "passed": 0,
+                "expected": "[[12, 10, 0, 33]]",
+                "actual": "[7, 21, 0, 30]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.056893
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 25, 0, 32]]",
+                "actual": "[0, 25, 0, 34]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.057268
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 18, 0, 36]]",
+                "actual": "[0, 21, 0, 37]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.068578
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 28, 0, 26]]",
+                "actual": "[0, 30, 0, 28]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.069788
+              },
+              {
+                "passed": 0,
+                "expected": "[[5, 19, 1, 33]]",
+                "actual": "[1, 25, 0, 33]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.064889
+              },
+              {
+                "passed": 0,
+                "expected": "[[1, 21, 0, 32]]",
+                "actual": "[0, 24, 0, 34]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.075018
+              },
+              {
+                "passed": 0,
+                "expected": "[[4, 18, 0, 32]]",
+                "actual": "[2, 22, 0, 34]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.070082
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 24, 2, 31]]",
+                "actual": "[1, 26, 0, 32]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.065569
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 22, 1, 31]]",
+                "actual": "[1, 25, 0, 32]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.066799
+              },
+              {
+                "passed": 0,
+                "expected": "[[1, 25, 0, 28]]",
+                "actual": "[0, 27, 0, 31]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.062063
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 25, 0, 34]]",
+                "actual": "[0, 25, 0, 35]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.06051
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 20, 1, 33]]",
+                "actual": "[0, 21, 0, 37]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.066768
+              },
+              {
+                "passed": 0,
+                "expected": "[[3, 15, 0, 36]]",
+                "actual": "[2, 20, 0, 36]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.069994
+              },
+              {
+                "passed": 0,
+                "expected": "[[2, 15, 0, 37]]",
+                "actual": "[2, 20, 0, 36]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.066032
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 22, 0, 32]]",
+                "actual": "[0, 22, 0, 36]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.084596
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 21, 0, 33]]",
+                "actual": "[0, 23, 0, 35]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.070502
+              },
+              {
+                "passed": 0,
+                "expected": "[[4, 18, 0, 32]]",
+                "actual": "[2, 22, 0, 34]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.062123
+              },
+              {
+                "passed": 0,
+                "expected": "[[7, 20, 0, 27]]",
+                "actual": "[7, 23, 0, 28]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.062689
+              },
+              {
+                "passed": 0,
+                "expected": "[[3, 26, 1, 27]]",
+                "actual": "[3, 26, 0, 30]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.08035
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 23, 0, 34]]",
+                "actual": "[0, 24, 0, 35]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.076526
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 21, 0, 33]]",
+                "actual": "[0, 23, 0, 35]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.066314
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 22, 1, 31]]",
+                "actual": "[0, 23, 0, 35]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.067522
+              },
+              {
+                "passed": 0,
+                "expected": "[[3, 19, 0, 32]]",
+                "actual": "[3, 22, 0, 33]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.063334
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 21, 0, 36]]",
+                "actual": "[0, 23, 0, 36]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.068076
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 31, 0, 26]]",
+                "actual": "[0, 33, 0, 26]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.085498
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 25, 0, 29]]",
+                "actual": "[0, 25, 0, 33]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.076243
+              },
+              {
+                "passed": 0,
+                "expected": "[[3, 26, 0, 28]]",
+                "actual": "[3, 26, 0, 30]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.068944
+              },
+              {
+                "passed": 0,
+                "expected": "[[2, 20, 0, 32]]",
+                "actual": "[2, 22, 0, 34]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.071942
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 23, 0, 34]]",
+                "actual": "[0, 24, 0, 35]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.074815
+              },
+              {
+                "passed": 0,
+                "expected": "[[4, 25, 0, 30]]",
+                "actual": "[4, 26, 0, 30]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.124185
+              },
+              {
+                "passed": 0,
+                "expected": "[[3, 21, 0, 30]]",
+                "actual": "[3, 24, 0, 31]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.066999
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 21, 0, 33]]",
+                "actual": "[0, 23, 0, 35]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.069613
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 22, 1, 31]]",
+                "actual": "[1, 25, 0, 32]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.06299
+              },
+              {
+                "passed": 0,
+                "expected": "[[3, 23, 0, 28]]",
+                "actual": "[3, 24, 0, 31]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.068634
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 22, 0, 32]]",
+                "actual": "[0, 22, 0, 36]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.055444
+              },
+              {
+                "passed": 0,
+                "expected": "[[3, 26, 0, 28]]",
+                "actual": "[3, 28, 0, 28]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.082976
+              },
+              {
+                "passed": 0,
+                "expected": "[[3, 28, 0, 28]]",
+                "actual": "[3, 29, 0, 28]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.086831
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 22, 0, 35]]",
+                "actual": "[0, 23, 0, 36]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.099238
+              },
+              {
+                "passed": 0,
+                "expected": "[[2, 21, 0, 31]]",
+                "actual": "[2, 21, 0, 35]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.079413
+              },
+              {
+                "passed": 0,
+                "expected": "[[3, 21, 0, 30]]",
+                "actual": "[3, 24, 0, 31]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.133523
+              },
+              {
+                "passed": 0,
+                "expected": "[[2, 18, 0, 34]]",
+                "actual": "[0, 22, 0, 36]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.074183
+              },
+              {
+                "passed": 0,
+                "expected": "[[2, 21, 0, 31]]",
+                "actual": "[2, 21, 0, 35]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.078133
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 21, 0, 33]]",
+                "actual": "[0, 21, 0, 37]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.074593
+              },
+              {
+                "passed": 0,
+                "expected": "[[1, 22, 0, 34]]",
+                "actual": "[0, 23, 0, 36]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.068659
+              },
+              {
+                "passed": 0,
+                "expected": "[[2, 18, 0, 34]]",
+                "actual": "[0, 22, 0, 36]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.071581
+              },
+              {
+                "passed": 0,
+                "expected": "[[4, 26, 0, 24]]",
+                "actual": "[3, 29, 0, 26]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.106744
+              },
+              {
+                "passed": 0,
+                "expected": "[[3, 19, 0, 32]]",
+                "actual": "[3, 22, 0, 33]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.078397
+              },
+              {
+                "passed": 0,
+                "expected": "[[3, 28, 0, 26]]",
+                "actual": "[3, 29, 0, 27]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.05958
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 34, 0, 25]]",
+                "actual": "[0, 34, 0, 26]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.073014
+              },
+              {
+                "passed": 0,
+                "expected": "[[1, 21, 0, 32]]",
+                "actual": "[0, 24, 0, 34]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.074585
+              },
+              {
+                "passed": 0,
+                "expected": "[[3, 19, 0, 32]]",
+                "actual": "[3, 22, 0, 33]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.061104
+              },
+              {
+                "passed": 0,
+                "expected": "[[2, 20, 0, 32]]",
+                "actual": "[2, 21, 0, 35]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.067242
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 18, 0, 36]]",
+                "actual": "[0, 21, 0, 37]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.067069
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 4.001849,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        }
+      ],
+      "pool_oracle_full_pass": false
+    }
+  }
+}

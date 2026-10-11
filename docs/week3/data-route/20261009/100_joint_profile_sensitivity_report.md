@@ -18,4 +18,4 @@ P45初报告有一处数量口误：储备9题5画像、3画像重复，故单�
 
 方向审查：停止重复画像统计，不继续换聚类名掩盖稀疏。下一P47解决P44新离散候选的评测实质缺口：原稿称json_equal但实际是Python ==，并未对上游API直接验证空输入默认值。先核对来源及评分类型口径，候选未通过则留研究池，不填原20标签空格。
 
-证据：`codeprm-reproduction/experiments/d1_joint_profile_sensitivity_v1_20261009/summary.json`及追加判读`interpretation_clarification.json`。来源/组件删除为不同情景，不是独立复现；作者标签人工0、模型/API/任务求值/private读取0。
+证据：`decomposition-bench/experiments/d1_joint_profile_sensitivity_v1_20261009/summary.json`及追加判读`interpretation_clarification.json`。来源/组件删除为不同情景，不是独立复现；作者标签人工0、模型/API/任务求值/private读取0。

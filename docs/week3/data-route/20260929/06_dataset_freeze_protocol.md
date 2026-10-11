@@ -1,6 +1,6 @@
 # WP5 数据冻结协议（ClassEval v1）
 
-日期：2026-09-29 ｜ 冻结清单：`codeprm-reproduction/data/splits/classeval_v1/frozen_manifest.json`
+日期：2026-09-29 ｜ 冻结清单：`decomposition-bench/data/splits/classeval_v1/frozen_manifest.json`
 
 ## 一、冻结了什么
 

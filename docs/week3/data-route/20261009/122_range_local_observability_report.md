@@ -6,7 +6,7 @@ B01六个新合法锚点上，按片段顺序展开和把展开结果逆序的�
 
 例如输入`3-1,2`，正常展开为`[3,2,1,2]`，逆序展开为`[2,1,2,3]`，最终都为`[1,2,2,3]`。中间次序不同由最终排序消除。因而强顺序契约会把一个整体合法方案判错。对本阶段固定的`sorted(expand(payload))`接口，数值多重集合相同既是终值正确的必要条件也是充分条件；这不是对任意helper角色的普遍必要性，因为合法程序可以使用其他表示、恢复原输入或没有这个helper。这里的理由来自整数排序保留多重集合，有限八锚点只作诊断验证，非全语法覆盖证明。
 
-原始证据在`codeprm-reproduction/experiments/d1_range_local_observability_v1_20261009/eight_anchors_and_programs_frozen.json`、`execution_result.json`、`worker.stdout.txt`和`summary.json`。执行命令为`python -B -X utf8 scripts/d1/probe_range_local_observability.py`，可信本地子进程20秒/1MiB上限，不是OS安全沙箱。没有导入来源库、原测试、curator或评分器；通过数指新手算的精确整数诊断，不是原数据集成绩。模型/API/下载/private0、人工0。
+原始证据在`decomposition-bench/experiments/d1_range_local_observability_v1_20261009/eight_anchors_and_programs_frozen.json`、`execution_result.json`、`worker.stdout.txt`和`summary.json`。执行命令为`python -B -X utf8 scripts/d1/probe_range_local_observability.py`，可信本地子进程20秒/1MiB上限，不是OS安全沙箱。没有导入来源库、原测试、curator或评分器；通过数指新手算的精确整数诊断，不是原数据集成绩。模型/API/下载/private0、人工0。
 
 阶段审查：排除了“整体任务必然要求展开helper采用原片段次序”；在本接口上，多重集合契约检出了去重错误，不能称其对任何未知拆法都充分。三程序共享解析基础，不是三个独立oracle；原作者yes初标、20题/307记录/开发储备切分均未修改。
 

@@ -18,10 +18,10 @@
 
 ## 文件与执行
 
-代码：codeprm-reproduction/scripts/d1/budgeted_generation.py、check_budgeted_generation.py。
-证据：codeprm-reproduction/experiments/d1_total_budget_simulation_v1_20261008/summary.json及各合成场景的完整请求、响应、账本。
+代码：decomposition-bench/scripts/d1/budgeted_generation.py、check_budgeted_generation.py。
+证据：decomposition-bench/experiments/d1_total_budget_simulation_v1_20261008/summary.json及各合成场景的完整请求、响应、账本。
 
-从D:/yaorz/research/codeprm-reproduction执行：
+从D:/yaorz/research/decomposition-bench执行：
 
     python scripts/d1/check_budgeted_generation.py
 

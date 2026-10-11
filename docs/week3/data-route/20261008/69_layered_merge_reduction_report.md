@@ -12,4 +12,4 @@ F03公开规则要求同一键的所有候选均为对象才递归合并。它�
 
 下一项P32研究：带有首候选原值、全对象标记及递归子摘要的中间记录是否可结合？只保存最终合并值及全对象标记是否仍会发生两个不同前缀不可区分的碰撞？先冻结碰撞及嵌套锚点，再检查新摘要，不再次求值旧实现。
 
-原始证据：`codeprm-reproduction/experiments/d1_layered_merge_reduction_v1_20261008/`；脚本：`codeprm-reproduction/scripts/d1/probe_layered_merge_reduction.py`。旧机器输出与首锚点未覆盖。
+原始证据：`decomposition-bench/experiments/d1_layered_merge_reduction_v1_20261008/`；脚本：`decomposition-bench/scripts/d1/probe_layered_merge_reduction.py`。旧机器输出与首锚点未覆盖。

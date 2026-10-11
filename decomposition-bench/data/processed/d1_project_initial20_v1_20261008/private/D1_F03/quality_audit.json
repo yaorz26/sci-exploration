@@ -1,0 +1,1111 @@
+{
+  "task_id": "D1_F03",
+  "oracle_disagreements": 0,
+  "implementations": {
+    "starter": {
+      "cases": 14,
+      "passed": 0,
+      "all_pass": false,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "a": 1,
+                "x": {
+                  "p": 2,
+                  "q": 4
+                },
+                "b": 3
+              }
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "public_2",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "x": {
+                  "a": 1
+                },
+                "z": null
+              }
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_1",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {}
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_2",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "a": 1
+              }
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_3",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "x": null
+              }
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_4",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "x": {
+                  "a": 1
+                }
+              }
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_5",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "x": [
+                  1
+                ]
+              }
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_6",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "x": {
+                  "b": 2
+                }
+              }
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_7",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "a": {
+                  "x": {
+                    "z": 1,
+                    "y": 2
+                  }
+                }
+              }
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_8",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "x": {
+                  "p": 1
+                }
+              }
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_9",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "x": {
+                  "p": 1,
+                  "q": 3
+                }
+              }
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_10",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "a": false,
+                "b": 0
+              }
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_11",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "x": {
+                  "a": null,
+                  "b": []
+                }
+              }
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_12",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "a": 1,
+                "b": 2
+              }
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        }
+      ],
+      "execution_seconds": 0.061649500001294655,
+      "captured_output_bytes": 2350
+    },
+    "alternate": {
+      "cases": 14,
+      "passed": 14,
+      "all_pass": true,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "public_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_3",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_4",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_5",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_6",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_7",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_8",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_9",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_10",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_11",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_12",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        }
+      ],
+      "execution_seconds": 0.06165519999922253,
+      "captured_output_bytes": 1169
+    },
+    "reference": {
+      "cases": 14,
+      "passed": 0,
+      "all_pass": false,
+      "results": [],
+      "execution_error": "process_error",
+      "stderr_tail": "Traceback (most recent call last):\r\n  File \"D:\\yaorz\\research\\decomposition-bench\\scripts\\d1\\evaluate_candidate.py\", line 40, in <module>\r\n    main()\r\n    ~~~~^^\r\n  File \"D:\\yaorz\\research\\decomposition-bench\\scripts\\d1\\evaluate_candidate.py\", line 20, in main\r\n    specification.loader.exec_module(module)\r\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^\r\n  File \"<frozen importlib._bootstrap_external>\", line 1026, in exec_module\r\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\r\n  File \"D:\\yaorz\\research\\decomposition-bench\\data\\processed\\d1_project_initial20_v1_20261008\\private\\D1_F03\\reference.py\", line 4, in <module>\r\n    from task_specs_snapshot import layers_reference\r\nImportError: cannot import name 'layers_reference' from 'task_specs_snapshot' (D:\\yaorz\\research\\decomposition-bench\\data\\processed\\d1_project_initial20_v1_20261008\\private\\_curator\\task_specs_snapshot.py). Did you mean: 'pairs_reference'?\r\n",
+      "execution_seconds": 0.08178349999980128,
+      "captured_output_bytes": 954
+    },
+    "wrong_empty": {
+      "cases": 14,
+      "passed": 0,
+      "all_pass": false,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "a": 1,
+                "x": {
+                  "p": 2,
+                  "q": 4
+                },
+                "b": 3
+              }
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "public_2",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "x": {
+                  "a": 1
+                },
+                "z": null
+              }
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_1",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {}
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_2",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "a": 1
+              }
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_3",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "x": null
+              }
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_4",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "x": {
+                  "a": 1
+                }
+              }
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_5",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "x": [
+                  1
+                ]
+              }
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_6",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "x": {
+                  "b": 2
+                }
+              }
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_7",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "a": {
+                  "x": {
+                    "z": 1,
+                    "y": 2
+                  }
+                }
+              }
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_8",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "x": {
+                  "p": 1
+                }
+              }
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_9",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "x": {
+                  "p": 1,
+                  "q": 3
+                }
+              }
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_10",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "a": false,
+                "b": 0
+              }
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_11",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "x": {
+                  "a": null,
+                  "b": []
+                }
+              }
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_12",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "a": 1,
+                "b": 2
+              }
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        }
+      ],
+      "execution_seconds": 0.061010900000837864,
+      "captured_output_bytes": 2084
+    },
+    "wrong_drop_last": {
+      "cases": 14,
+      "passed": 1,
+      "all_pass": false,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "a": 1,
+                "x": {
+                  "p": 2,
+                  "q": 4
+                },
+                "b": 3
+              }
+            },
+            "actual": {
+              "value": {
+                "a": 1,
+                "x": {
+                  "p": 2,
+                  "q": 4
+                }
+              }
+            }
+          }
+        },
+        {
+          "case_id": "public_2",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "x": {
+                  "a": 1
+                },
+                "z": null
+              }
+            },
+            "actual": {
+              "value": {
+                "x": {
+                  "a": 1
+                }
+              }
+            }
+          }
+        },
+        {
+          "case_id": "hidden_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_2",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "a": 1
+              }
+            },
+            "actual": {
+              "value": {}
+            }
+          }
+        },
+        {
+          "case_id": "hidden_3",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "x": null
+              }
+            },
+            "actual": {
+              "value": {}
+            }
+          }
+        },
+        {
+          "case_id": "hidden_4",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "x": {
+                  "a": 1
+                }
+              }
+            },
+            "actual": {
+              "value": {}
+            }
+          }
+        },
+        {
+          "case_id": "hidden_5",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "x": [
+                  1
+                ]
+              }
+            },
+            "actual": {
+              "value": {}
+            }
+          }
+        },
+        {
+          "case_id": "hidden_6",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "x": {
+                  "b": 2
+                }
+              }
+            },
+            "actual": {
+              "value": {}
+            }
+          }
+        },
+        {
+          "case_id": "hidden_7",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "a": {
+                  "x": {
+                    "z": 1,
+                    "y": 2
+                  }
+                }
+              }
+            },
+            "actual": {
+              "value": {}
+            }
+          }
+        },
+        {
+          "case_id": "hidden_8",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "x": {
+                  "p": 1
+                }
+              }
+            },
+            "actual": {
+              "value": {}
+            }
+          }
+        },
+        {
+          "case_id": "hidden_9",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "x": {
+                  "p": 1,
+                  "q": 3
+                }
+              }
+            },
+            "actual": {
+              "value": {}
+            }
+          }
+        },
+        {
+          "case_id": "hidden_10",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "a": false,
+                "b": 0
+              }
+            },
+            "actual": {
+              "value": {
+                "a": false
+              }
+            }
+          }
+        },
+        {
+          "case_id": "hidden_11",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "x": {
+                  "a": null,
+                  "b": []
+                }
+              }
+            },
+            "actual": {
+              "value": {}
+            }
+          }
+        },
+        {
+          "case_id": "hidden_12",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "a": 1,
+                "b": 2
+              }
+            },
+            "actual": {
+              "value": {
+                "a": 1
+              }
+            }
+          }
+        }
+      ],
+      "execution_seconds": 0.061898800000562915,
+      "captured_output_bytes": 2093
+    },
+    "wrong_public_lookup": {
+      "cases": 14,
+      "passed": 2,
+      "all_pass": false,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "public_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_1",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {}
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_2",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "a": 1
+              }
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_3",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "x": null
+              }
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_4",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "x": {
+                  "a": 1
+                }
+              }
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_5",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "x": [
+                  1
+                ]
+              }
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_6",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "x": {
+                  "b": 2
+                }
+              }
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_7",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "a": {
+                  "x": {
+                    "z": 1,
+                    "y": 2
+                  }
+                }
+              }
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_8",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "x": {
+                  "p": 1
+                }
+              }
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_9",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "x": {
+                  "p": 1,
+                  "q": 3
+                }
+              }
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_10",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "a": false,
+                "b": 0
+              }
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_11",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "x": {
+                  "a": null,
+                  "b": []
+                }
+              }
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_12",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": {
+                "a": 1,
+                "b": 2
+              }
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        }
+      ],
+      "execution_seconds": 0.08136060000106227,
+      "captured_output_bytes": 1949
+    }
+  },
+  "reference_repeats": [
+    {
+      "cases": 14,
+      "passed": 0,
+      "all_pass": false,
+      "results": [],
+      "execution_error": "process_error",
+      "stderr_tail": "Traceback (most recent call last):\r\n  File \"D:\\yaorz\\research\\decomposition-bench\\scripts\\d1\\evaluate_candidate.py\", line 40, in <module>\r\n    main()\r\n    ~~~~^^\r\n  File \"D:\\yaorz\\research\\decomposition-bench\\scripts\\d1\\evaluate_candidate.py\", line 20, in main\r\n    specification.loader.exec_module(module)\r\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^\r\n  File \"<frozen importlib._bootstrap_external>\", line 1026, in exec_module\r\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\r\n  File \"D:\\yaorz\\research\\decomposition-bench\\data\\processed\\d1_project_initial20_v1_20261008\\private\\D1_F03\\reference.py\", line 4, in <module>\r\n    from task_specs_snapshot import layers_reference\r\nImportError: cannot import name 'layers_reference' from 'task_specs_snapshot' (D:\\yaorz\\research\\decomposition-bench\\data\\processed\\d1_project_initial20_v1_20261008\\private\\_curator\\task_specs_snapshot.py). Did you mean: 'pairs_reference'?\r\n",
+      "execution_seconds": 0.08120679999956337,
+      "captured_output_bytes": 954
+    },
+    {
+      "cases": 14,
+      "passed": 0,
+      "all_pass": false,
+      "results": [],
+      "execution_error": "process_error",
+      "stderr_tail": "Traceback (most recent call last):\r\n  File \"D:\\yaorz\\research\\decomposition-bench\\scripts\\d1\\evaluate_candidate.py\", line 40, in <module>\r\n    main()\r\n    ~~~~^^\r\n  File \"D:\\yaorz\\research\\decomposition-bench\\scripts\\d1\\evaluate_candidate.py\", line 20, in main\r\n    specification.loader.exec_module(module)\r\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^\r\n  File \"<frozen importlib._bootstrap_external>\", line 1026, in exec_module\r\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\r\n  File \"D:\\yaorz\\research\\decomposition-bench\\data\\processed\\d1_project_initial20_v1_20261008\\private\\D1_F03\\reference.py\", line 4, in <module>\r\n    from task_specs_snapshot import layers_reference\r\nImportError: cannot import name 'layers_reference' from 'task_specs_snapshot' (D:\\yaorz\\research\\decomposition-bench\\data\\processed\\d1_project_initial20_v1_20261008\\private\\_curator\\task_specs_snapshot.py). Did you mean: 'pairs_reference'?\r\n",
+      "execution_seconds": 0.12313750000066648,
+      "captured_output_bytes": 954
+    },
+    {
+      "cases": 14,
+      "passed": 0,
+      "all_pass": false,
+      "results": [],
+      "execution_error": "process_error",
+      "stderr_tail": "Traceback (most recent call last):\r\n  File \"D:\\yaorz\\research\\decomposition-bench\\scripts\\d1\\evaluate_candidate.py\", line 40, in <module>\r\n    main()\r\n    ~~~~^^\r\n  File \"D:\\yaorz\\research\\decomposition-bench\\scripts\\d1\\evaluate_candidate.py\", line 20, in main\r\n    specification.loader.exec_module(module)\r\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^\r\n  File \"<frozen importlib._bootstrap_external>\", line 1026, in exec_module\r\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\r\n  File \"D:\\yaorz\\research\\decomposition-bench\\data\\processed\\d1_project_initial20_v1_20261008\\private\\D1_F03\\reference.py\", line 4, in <module>\r\n    from task_specs_snapshot import layers_reference\r\nImportError: cannot import name 'layers_reference' from 'task_specs_snapshot' (D:\\yaorz\\research\\decomposition-bench\\data\\processed\\d1_project_initial20_v1_20261008\\private\\_curator\\task_specs_snapshot.py). Did you mean: 'pairs_reference'?\r\n",
+      "execution_seconds": 0.08127569999851403,
+      "captured_output_bytes": 954
+    }
+  ],
+  "reference_stable_3": false,
+  "starter_fails": true,
+  "alternate_passes": true,
+  "wrong_implementations_rejected": true,
+  "quality_pass": false
+}

@@ -16,7 +16,7 @@
 | 数据集许可证 | **mit**（HF 元数据） |
 | 最后更新 | 数据集 2024-08-26；仓库 2024-10-24 |
 | 原始文件 | `data/test-00000-of-00001-5c45fa6e45572491.parquet`，**499,568 字节（0.48 MiB）** |
-| 本地落盘 | `D:\yaorz\research\codeprm-reproduction\data\raw\classeval\data\...` |
+| 本地落盘 | `D:\yaorz\research\decomposition-bench\data\raw\classeval\data\...` |
 | SHA-256 | `ac2f490a8fa0ca63d8b6d166821ca430a382dc04611209e2067a2714cc89df2a` |
 | 下载时间（UTC） | 2026-09-28T07:0x |
 
@@ -101,18 +101,18 @@
 | `ClassEval_70` | 3/3 通过 | 0.61 / 0.62 / 0.62 秒 |
 | `ClassEval_87` | 3/3 通过 | 0.73 / 0.69 / 0.64 秒 |
 
-**汇总：3/3 题全部通过、3 次全一致。** 机器产物：`codeprm-reproduction/experiments/wp2_classeval/classeval_smoke_manifest.json`。
+**汇总：3/3 题全部通过、3 次全一致。** 机器产物：`decomposition-bench/experiments/wp2_classeval/classeval_smoke_manifest.json`。
 
 ## 六、环境、网络、落盘
 
 | 项目 | 结果 |
 | --- | --- |
 | 环境模式 | **Windows 原生 Python 即可**（官方 README 建议 conda + Python 3.8+，本次实测用既有 3.13 venv 直接跑通；若正式使用建议按官方建议单独建环境） |
-| 现有环境 | `codeprm-reproduction/.venvs/bigcodebench_fast0/`（复用；正式立项时另建 `classeval` 专用 venv） |
+| 现有环境 | `decomposition-bench/.venvs/bigcodebench_fast0/`（复用；正式立项时另建 `classeval` 专用 venv） |
 | 新增下载 | **0.48 MiB**（数据） |
 | 是否需要 Docker | **否** |
 | 网络 | 仅下载时需要；运行测试不需要联网（实测） |
-| 落盘路径 | `D:\yaorz\research\codeprm-reproduction\data\raw\classeval\`（D 盘） |
+| 落盘路径 | `D:\yaorz\research\decomposition-bench\data\raw\classeval\`（D 盘） |
 | 清理方法 | 删除该目录即可；无外部服务、无容器 |
 
 ## 七、可拆分性、污染、限制

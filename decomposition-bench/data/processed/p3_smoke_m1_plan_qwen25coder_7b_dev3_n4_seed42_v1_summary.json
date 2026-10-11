@@ -1,0 +1,32 @@
+{
+  "method": "plan",
+  "model": "qwen2.5-coder:7b",
+  "seed": 42,
+  "candidate_budget_per_problem": 4,
+  "problems": 3,
+  "generation_requests": 12,
+  "valid_generations": 12,
+  "unique_valid_generations": 12,
+  "duplicate_generations": 0,
+  "public_program_evaluations": 12,
+  "public_test_executions": 76,
+  "private_program_evaluations": 3,
+  "private_test_executions": 21,
+  "problems_with_candidate": 3,
+  "selected_public_pass": 1,
+  "selected_private_pass": 1,
+  "model_prompt_tokens": 6108,
+  "model_output_tokens": 3064,
+  "model_reported_seconds": 69.426,
+  "errors": {},
+  "completed_problem_ids": [
+    "apps-train-2651",
+    "apps-train-2652",
+    "apps-train-2653"
+  ],
+  "elapsed_seconds": 75.532,
+  "outputs": {
+    "generations": "data\\processed\\p3_smoke_m1_plan_qwen25coder_7b_dev3_n4_seed42_v1_generations.jsonl",
+    "evaluations": "data\\processed\\p3_smoke_m1_plan_qwen25coder_7b_dev3_n4_seed42_v1_evaluations.jsonl"
+  }
+}

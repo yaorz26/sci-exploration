@@ -31,4 +31,4 @@ P19目标达到：通用占位的预算疑问推进到正确代码文本，存�
 
 接着P20检验任务状态与方案状态分布。在C03现方案中，两个helper为纯调用键和求和，全部缓存/计数状态位于入口；B05/C03入口占代码文本token比例也不同。有状态任务不必等价于helper之间共享可变状态。以相同两个helper数构建状态在入口、状态封装helper、状态跨helper传递三种合法结构，先冻结后比较外部行为，明确任务级标签和计划级特征的边界，不挑一个“唯一正确拆法”。
 
-证据：`codeprm-reproduction/experiments/d1_valid_text_budget_v1_20261008/{summary.json,rows.json,given_transcripts.json,P9_saved_output_audit.json,measurement_review.json}`及四份改名代码；失败`experiments/d1_valid_text_budget_import_failure_20261008.json`。程序`scripts/d1/measure_valid_text_budget.py`，实际命令`python -B -X utf8 scripts/d1/measure_valid_text_budget.py`，复现不得覆盖原输出。
+证据：`decomposition-bench/experiments/d1_valid_text_budget_v1_20261008/{summary.json,rows.json,given_transcripts.json,P9_saved_output_audit.json,measurement_review.json}`及四份改名代码；失败`experiments/d1_valid_text_budget_import_failure_20261008.json`。程序`scripts/d1/measure_valid_text_budget.py`，实际命令`python -B -X utf8 scripts/d1/measure_valid_text_budget.py`，复现不得覆盖原输出。

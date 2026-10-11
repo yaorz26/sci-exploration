@@ -1,0 +1,32 @@
+{
+  "method": "plan",
+  "model": "qwen2.5-coder:7b",
+  "seed": 42,
+  "candidate_budget_per_problem": 2,
+  "problems": 30,
+  "generation_requests": 6,
+  "valid_generations": 6,
+  "unique_valid_generations": 6,
+  "duplicate_generations": 0,
+  "public_program_evaluations": 6,
+  "public_test_executions": 74,
+  "private_program_evaluations": 3,
+  "private_test_executions": 39,
+  "problems_with_candidate": 3,
+  "selected_public_pass": 0,
+  "selected_private_pass": 1,
+  "model_prompt_tokens": 3714,
+  "model_output_tokens": 1755,
+  "model_reported_seconds": 62.9448944,
+  "errors": {},
+  "completed_problem_ids": [
+    "apps-train-1603",
+    "apps-train-1604",
+    "apps-train-1605"
+  ],
+  "elapsed_seconds": 688.794,
+  "outputs": {
+    "generations": "data\\processed\\p5_interview30_m1_plan_qwen25coder_7b_n2_seed42_v3_generations.jsonl",
+    "evaluations": "data\\processed\\p5_interview30_m1_plan_qwen25coder_7b_n2_seed42_v3_evaluations.jsonl"
+  }
+}

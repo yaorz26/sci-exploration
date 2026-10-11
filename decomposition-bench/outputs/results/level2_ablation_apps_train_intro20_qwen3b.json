@@ -1,0 +1,90 @@
+{
+  "summary": [
+    {
+      "method": "normal_prm",
+      "train_mse": 0.0005636277909531341,
+      "train_problems": 15,
+      "test_problems": 5,
+      "pass_rate": 0.26666666666666666,
+      "pass_at_1": 0.2,
+      "selected_candidates": [
+        1,
+        2,
+        1,
+        3,
+        0
+      ]
+    },
+    {
+      "method": "code_only_prm",
+      "train_mse": 0.00017582261209941286,
+      "train_problems": 15,
+      "test_problems": 5,
+      "pass_rate": 0.3333333333333333,
+      "pass_at_1": 0.2,
+      "selected_candidates": [
+        3,
+        2,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "method": "codeprm_soft_label",
+      "train_mse": 0.00015265145317439584,
+      "train_problems": 15,
+      "test_problems": 5,
+      "pass_rate": 0.3333333333333333,
+      "pass_at_1": 0.2,
+      "selected_candidates": [
+        3,
+        2,
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "method": "codeprm_binary_label",
+      "train_mse": 0.00015655136848582876,
+      "train_problems": 15,
+      "test_problems": 5,
+      "pass_rate": 0.26666666666666666,
+      "pass_at_1": 0.2,
+      "selected_candidates": [
+        0,
+        2,
+        0,
+        1,
+        0
+      ]
+    }
+  ],
+  "split": {
+    "train": [
+      "apps-train-2651",
+      "apps-train-2652",
+      "apps-train-2653",
+      "apps-train-2654",
+      "apps-train-2655",
+      "apps-train-2656",
+      "apps-train-2657",
+      "apps-train-2658",
+      "apps-train-2660",
+      "apps-train-2661",
+      "apps-train-2662",
+      "apps-train-2663",
+      "apps-train-2664",
+      "apps-train-2665",
+      "apps-train-2666"
+    ],
+    "test": [
+      "apps-train-2667",
+      "apps-train-2668",
+      "apps-train-2669",
+      "apps-train-2670",
+      "apps-train-2671"
+    ]
+  }
+}

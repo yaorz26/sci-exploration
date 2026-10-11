@@ -1,0 +1,24 @@
+{
+  "time": "2026-10-11T14:40:00Z",
+  "event_id": "d1-doc-reorganization-restart-20261011T144000Z",
+  "kind": "decision",
+  "phase": "governance",
+  "stage": "restart-doc-consolidation",
+  "status": "complete",
+  "summary": "按用户选择「B. 文档重理 + 重新审定研究目标」执行前半部分：新建唯一入口 PROJECT_ENTRY.md（127 行，给人看，含现状/已有/欠缺/五项决策清单）；给三份旧入口（当前情况总结.md、docs/week2/研究总览、docs/week3/10.2研究总览）加归档标记，正文一字未改；重写根 README.md，清除对已删除文件（PROJECT_MEMORY.md、00-通俗完整汇报协议.md）的引用，并替换掉停留在 9 月的旧「一句话结论」。同时修复 RESEARCH_PLAN.md v5 第四节的字面 'n' 'n' 破损。",
+  "decision": "入口文件收敛为一份：PROJECT_ENTRY.md 是唯一人读入口；机器可读状态仍以 .research-state/ 下三份文件加账本为准。研究目标的重审定尚未进行，需用户/决策方在五项决策上给出选择。",
+  "evidence_kind": "artifact",
+  "evidence": [
+    "PROJECT_ENTRY.md",
+    "README.md",
+    "当前情况总结.md",
+    "docs/week2/研究总览_当前结论与后续方向.md",
+    "docs/week3/10.2研究总览_自9.14以来全过程与当前状态.md",
+    ".research-state/RESEARCH_PLAN.md"
+  ],
+  "approval_required": false,
+  "supersedes": [],
+  "budget": "零模型调用；未新增实验；未改动任何研究证据或冻结候选",
+  "uncertainty": "研究目标尚未重定；五项决策未回复前不启动新实验；旧入口文件仅加标记，其内容仍停留在原日期",
+  "next": "等待五项决策（题目/主问题是否改、终点等级、数据集是否算成果、可投入资源、20 题去留）；据回复重写工作计划"
+}

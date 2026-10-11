@@ -102,5 +102,5 @@
 ## 九、产物
 
 - 本文件 `04_wp1_venue_search_and_gap_update.md`
-- 脚本 `codeprm-reproduction/scripts/fast0_bigcodebench/wp1_evocodebench_repos_and_lca_metrics.py`
+- 脚本 `decomposition-bench/scripts/fast0_bigcodebench/wp1_evocodebench_repos_and_lca_metrics.py`
 - 依据的本地文本：`archive/pdftext/09_MoT.txt`

@@ -4,7 +4,7 @@
 
 本目录存放**无文档引用、可再生成**的中间产物，从 `tmp/` 和 `.tmp/` 移入。移入前已确认：
 
-- `docs/`、`codeprm-reproduction/reports/`、`codeprm-reproduction/scripts/`、`src/`、`configs/` 中均无对这些路径的引用（2026-09-18 grep 核查）。
+- `docs/`、`decomposition-bench/reports/`、`decomposition-bench/scripts/`、`src/`、`configs/` 中均无对这些路径的引用（2026-09-18 grep 核查）。
 
 ## 内容清单
 

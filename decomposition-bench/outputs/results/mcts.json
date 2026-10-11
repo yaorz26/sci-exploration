@@ -1,0 +1,511 @@
+{
+  "summary": [
+    {
+      "method": "base",
+      "num_problems": 20,
+      "pass_rate": 0.325,
+      "pass_at_1": 0.3
+    },
+    {
+      "method": "bon",
+      "num_problems": 20,
+      "pass_rate": 1.0,
+      "pass_at_1": 1.0
+    },
+    {
+      "method": "mcts",
+      "num_problems": 20,
+      "pass_rate": 1.0,
+      "pass_at_1": 1.0
+    },
+    {
+      "method": "gvr_mcts",
+      "num_problems": 20,
+      "pass_rate": 1.0,
+      "pass_at_1": 1.0
+    }
+  ],
+  "problems": [
+    {
+      "problem_id": "offline-001",
+      "method": "base",
+      "selected_candidate": 0,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-002",
+      "method": "base",
+      "selected_candidate": 0,
+      "private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-003",
+      "method": "base",
+      "selected_candidate": 0,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-004",
+      "method": "base",
+      "selected_candidate": 0,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-005",
+      "method": "base",
+      "selected_candidate": 0,
+      "private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-006",
+      "method": "base",
+      "selected_candidate": 0,
+      "private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-007",
+      "method": "base",
+      "selected_candidate": 0,
+      "private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-008",
+      "method": "base",
+      "selected_candidate": 0,
+      "private_pass_rate": 0.5
+    },
+    {
+      "problem_id": "offline-009",
+      "method": "base",
+      "selected_candidate": 0,
+      "private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-010",
+      "method": "base",
+      "selected_candidate": 0,
+      "private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-011",
+      "method": "base",
+      "selected_candidate": 0,
+      "private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-012",
+      "method": "base",
+      "selected_candidate": 0,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-013",
+      "method": "base",
+      "selected_candidate": 0,
+      "private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-014",
+      "method": "base",
+      "selected_candidate": 0,
+      "private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-015",
+      "method": "base",
+      "selected_candidate": 0,
+      "private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-016",
+      "method": "base",
+      "selected_candidate": 0,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-017",
+      "method": "base",
+      "selected_candidate": 0,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-018",
+      "method": "base",
+      "selected_candidate": 0,
+      "private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-019",
+      "method": "base",
+      "selected_candidate": 0,
+      "private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-020",
+      "method": "base",
+      "selected_candidate": 0,
+      "private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-001",
+      "method": "bon",
+      "selected_candidate": 0,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-002",
+      "method": "bon",
+      "selected_candidate": 2,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-003",
+      "method": "bon",
+      "selected_candidate": 0,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-004",
+      "method": "bon",
+      "selected_candidate": 0,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-005",
+      "method": "bon",
+      "selected_candidate": 2,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-006",
+      "method": "bon",
+      "selected_candidate": 3,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-007",
+      "method": "bon",
+      "selected_candidate": 1,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-008",
+      "method": "bon",
+      "selected_candidate": 3,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-009",
+      "method": "bon",
+      "selected_candidate": 1,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-010",
+      "method": "bon",
+      "selected_candidate": 1,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-011",
+      "method": "bon",
+      "selected_candidate": 1,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-012",
+      "method": "bon",
+      "selected_candidate": 0,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-013",
+      "method": "bon",
+      "selected_candidate": 1,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-014",
+      "method": "bon",
+      "selected_candidate": 3,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-015",
+      "method": "bon",
+      "selected_candidate": 2,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-016",
+      "method": "bon",
+      "selected_candidate": 0,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-017",
+      "method": "bon",
+      "selected_candidate": 0,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-018",
+      "method": "bon",
+      "selected_candidate": 2,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-019",
+      "method": "bon",
+      "selected_candidate": 1,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-020",
+      "method": "bon",
+      "selected_candidate": 1,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-001",
+      "method": "mcts",
+      "selected_candidate": 0,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-002",
+      "method": "mcts",
+      "selected_candidate": 2,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-003",
+      "method": "mcts",
+      "selected_candidate": 0,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-004",
+      "method": "mcts",
+      "selected_candidate": 0,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-005",
+      "method": "mcts",
+      "selected_candidate": 2,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-006",
+      "method": "mcts",
+      "selected_candidate": 3,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-007",
+      "method": "mcts",
+      "selected_candidate": 1,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-008",
+      "method": "mcts",
+      "selected_candidate": 3,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-009",
+      "method": "mcts",
+      "selected_candidate": 1,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-010",
+      "method": "mcts",
+      "selected_candidate": 1,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-011",
+      "method": "mcts",
+      "selected_candidate": 1,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-012",
+      "method": "mcts",
+      "selected_candidate": 0,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-013",
+      "method": "mcts",
+      "selected_candidate": 1,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-014",
+      "method": "mcts",
+      "selected_candidate": 3,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-015",
+      "method": "mcts",
+      "selected_candidate": 2,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-016",
+      "method": "mcts",
+      "selected_candidate": 0,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-017",
+      "method": "mcts",
+      "selected_candidate": 0,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-018",
+      "method": "mcts",
+      "selected_candidate": 2,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-019",
+      "method": "mcts",
+      "selected_candidate": 1,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-020",
+      "method": "mcts",
+      "selected_candidate": 1,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-001",
+      "method": "gvr_mcts",
+      "selected_candidate": 0,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-002",
+      "method": "gvr_mcts",
+      "selected_candidate": 2,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-003",
+      "method": "gvr_mcts",
+      "selected_candidate": 0,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-004",
+      "method": "gvr_mcts",
+      "selected_candidate": 0,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-005",
+      "method": "gvr_mcts",
+      "selected_candidate": 2,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-006",
+      "method": "gvr_mcts",
+      "selected_candidate": 3,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-007",
+      "method": "gvr_mcts",
+      "selected_candidate": 1,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-008",
+      "method": "gvr_mcts",
+      "selected_candidate": 3,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-009",
+      "method": "gvr_mcts",
+      "selected_candidate": 1,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-010",
+      "method": "gvr_mcts",
+      "selected_candidate": 1,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-011",
+      "method": "gvr_mcts",
+      "selected_candidate": 1,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-012",
+      "method": "gvr_mcts",
+      "selected_candidate": 0,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-013",
+      "method": "gvr_mcts",
+      "selected_candidate": 1,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-014",
+      "method": "gvr_mcts",
+      "selected_candidate": 3,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-015",
+      "method": "gvr_mcts",
+      "selected_candidate": 2,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-016",
+      "method": "gvr_mcts",
+      "selected_candidate": 0,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-017",
+      "method": "gvr_mcts",
+      "selected_candidate": 0,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-018",
+      "method": "gvr_mcts",
+      "selected_candidate": 2,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-019",
+      "method": "gvr_mcts",
+      "selected_candidate": 1,
+      "private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-020",
+      "method": "gvr_mcts",
+      "selected_candidate": 1,
+      "private_pass_rate": 1.0
+    }
+  ],
+  "rollouts": 8
+}

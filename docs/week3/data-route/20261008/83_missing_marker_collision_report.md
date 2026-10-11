@@ -10,4 +10,4 @@ B06允许查询返回任意JSON值；路径缺失、未给default时则返回{er
 
 阶段审查：两个观测碰撞及默认干预区分竞争解释，未知/分支推断口径保留；不是模型效果。方向审查：停止继续增加任意JSON标记反例，转P39核对这些新测量边界相对功能级评测文献的贡献，以免已有研究已覆盖同一框架却被当成创新。主问题A和数据集拟成果定位保持，不用文献检索替代模型效果证据。
 
-证据：codeprm-reproduction/experiments/d1_missing_marker_collision_v1_20261008/的first_hand_collision/inputs_and_relations/pre_execution_freeze/input_results/relation_results/summary与提取函数；执行python -B -X utf8 scripts/d1/probe_missing_marker_collision.py。原20题307记录/作者初标/历史成绩不改，模型调用约98/100、人工0。
+证据：decomposition-bench/experiments/d1_missing_marker_collision_v1_20261008/的first_hand_collision/inputs_and_relations/pre_execution_freeze/input_results/relation_results/summary与提取函数；执行python -B -X utf8 scripts/d1/probe_missing_marker_collision.py。原20题307记录/作者初标/历史成绩不改，模型调用约98/100、人工0。

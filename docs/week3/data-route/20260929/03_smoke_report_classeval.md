@@ -6,9 +6,9 @@
 产物与机器记录：
 
 - 协议：`03_smoke_protocol.md`
-- 逐版本 manifest：`codeprm-reproduction/experiments/wp3_classeval/03_smoke_manifest{,_v2_deps,_v3_env,_v4_envfix}.json`
-- 全量回归：`codeprm-reproduction/experiments/wp4a_classeval_regression/full100_regression.json`、`rerun_failed_round2.json`
-- 脚本：`codeprm-reproduction/scripts/wp3_classeval/run_smoke.py`、`run_full_regression.py`、`rerun_failed_round2.py`、`wsl_py310_check.py`、`wsl_py310_run.sh`
+- 逐版本 manifest：`decomposition-bench/experiments/wp3_classeval/03_smoke_manifest{,_v2_deps,_v3_env,_v4_envfix}.json`
+- 全量回归：`decomposition-bench/experiments/wp4a_classeval_regression/full100_regression.json`、`rerun_failed_round2.json`
+- 脚本：`decomposition-bench/scripts/wp3_classeval/run_smoke.py`、`run_full_regression.py`、`rerun_failed_round2.py`、`wsl_py310_check.py`、`wsl_py310_run.sh`
 
 ---
 

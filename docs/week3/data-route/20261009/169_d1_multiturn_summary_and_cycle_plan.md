@@ -73,8 +73,8 @@
 
 上述成对蓝图未执行，170号审查改为统一需求、不预给答案拆法的真实项目任务。现有两项可运行研究池成果：
 
-- confuse来源目录解析：父源码、统一需求、任意项目工作区评价器；完整8/8，source-only5/8、core遗漏7/8；保留原三文件的单模块兼容实现同样8/8，局部排除原补丁组织偏好。候选在 `codeprm-reproduction/experiments/d1_runnable_repository_task_v2_20261009/candidate/`。
-- cachetools过期报告：真实父/feature提交恢复，任务和评价器实际区分返回信息与存储释放；父返回0/5状态5/5，完整5/5，report-only返回5/5状态1/5。进一步发现消费生成器后才观察会掩盖调用时点，在不修改原任务/评分的情况下另存调用完成条款，接纳即时生成器、拒延迟清理。当前修订候选在 `codeprm-reproduction/experiments/d1_repository_expiry_timing_amendment_v1_20261009/candidate/`。
+- confuse来源目录解析：父源码、统一需求、任意项目工作区评价器；完整8/8，source-only5/8、core遗漏7/8；保留原三文件的单模块兼容实现同样8/8，局部排除原补丁组织偏好。候选在 `decomposition-bench/experiments/d1_runnable_repository_task_v2_20261009/candidate/`。
+- cachetools过期报告：真实父/feature提交恢复，任务和评价器实际区分返回信息与存储释放；父返回0/5状态5/5，完整5/5，report-only返回5/5状态1/5。进一步发现消费生成器后才观察会掩盖调用时点，在不修改原任务/评分的情况下另存调用完成条款，接纳即时生成器、拒延迟清理。当前修订候选在 `decomposition-bench/experiments/d1_repository_expiry_timing_amendment_v1_20261009/candidate/`。
 
 预算适用边界：真实confuse全包输入13935、三个完整模块11246，均超原6500总token及8192上下文；按需求API提取父上下文1982，加给定正确patch1400合计3382可容纳且严格复原代码。固定两阶段四轮重发上下文输入8025、三阶段五轮10004，均超6500。这个结果否决具体重复输入路线，不是全部拆分或模型效果；不据此推断旧失败根因。
 

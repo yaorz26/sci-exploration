@@ -40,7 +40,7 @@
 
 ## 五、落盘与清理方案（若将来保留才需要）
 
-- 落盘：`D:\yaorz\research\codeprm-reproduction\data\raw\deveval\`（D 盘，约 1.5--2.4 GB）；
+- 落盘：`D:\yaorz\research\decomposition-bench\data\raw\deveval\`（D 盘，约 1.5--2.4 GB）；
 - 清理：删除该目录 + conda env。
 
 ## 六、评分表（15 项，0/1/2；`?`＝未核实）

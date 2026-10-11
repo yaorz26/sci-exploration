@@ -8,6 +8,6 @@
 
 计数澄清：脚本原字段`solve_calls`/`new_solve_calls=8`沿用了行为求值命名，但实际执行的是两`fn(data)`方案函数各四次，不是`solve(payload)`入口。已另存`evaluation_unit_clarification.json`：实际solve入口0、方案函数求值8、来源4；原字段/原输出不覆盖。契约8solve上限据实际口径读为八个方案行为求值，这项口径偏差保留，不混入P61—P63的54次实际solve入口。
 
-原始证据在`codeprm-reproduction/experiments/d1_keyed_tie_v1_20261009/four_inputs_and_tie_predictions_frozen.json`、原stdout/stderr、`two_execution_results.json`、`summary.json`及上述澄清。命令`python -B -X utf8 scripts/d1/probe_keyed_tie.py`；可信进程20秒/1MiB，模型/API/下载/旧六例/原测试/private0。
+原始证据在`decomposition-bench/experiments/d1_keyed_tie_v1_20261009/four_inputs_and_tie_predictions_frozen.json`、原stdout/stderr、`two_execution_results.json`、`summary.json`及上述澄清。命令`python -B -X utf8 scripts/d1/probe_keyed_tie.py`；可信进程20秒/1MiB，模型/API/下载/旧六例/原测试/private0。
 
 阶段审查：排除了“来源与builtin总返回同代表”，两个合法差异支持避免来源实现定义唯一预期。仅绝对key相同还不足以判合法，输出须来自原输入且保持整数类型。方向审查：下一项只用保存输入/返回，冻结成员、类型及极值键错误控制，验证一个未来限定域比较规则；不扩所有key或刷新现有候选，不再运行两个已通过方案。

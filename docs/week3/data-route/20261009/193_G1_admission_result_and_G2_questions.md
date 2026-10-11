@@ -1,6 +1,6 @@
 # G1纳入条件与G2问题选择
 
-按192号顺序三审计划执行一次只读核对，G1完成；未新增行为、模型、下载或人工。原任务/评分不改，本阶段只算必要设计支撑。原始结果：`codeprm-reproduction/experiments/d1_G1_task_admission_v1_20261009/task_admission_and_gaps.json`。
+按192号顺序三审计划执行一次只读核对，G1完成；未新增行为、模型、下载或人工。原任务/评分不改，本阶段只算必要设计支撑。原始结果：`decomposition-bench/experiments/d1_G1_task_admission_v1_20261009/task_admission_and_gaps.json`。
 
 ## 两项候选的可用范围
 

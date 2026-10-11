@@ -4,7 +4,7 @@ import statistics
 from collections import OrderedDict
 from pathlib import Path
 
-ROOT = Path(r"D:\yaorz\research\codeprm-reproduction")
+ROOT = Path(r"D:\yaorz\research\decomposition-bench")
 FB = ROOT / "data/processed/feedback_records_apps_train_intro50_qwen3b_seed42.jsonl"
 
 by_problem = OrderedDict()

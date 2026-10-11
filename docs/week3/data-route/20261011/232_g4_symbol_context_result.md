@@ -15,7 +15,7 @@
 
 原始实验目录：
 
-`codeprm-reproduction/experiments/d1_G4_symbol_context_pair_v1_20261011/`
+`decomposition-bench/experiments/d1_G4_symbol_context_pair_v1_20261011/`
 
 冻结计划与三轮事前审查：该目录 `PLAN.md`、`REVIEWS.md`。
 

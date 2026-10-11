@@ -1,0 +1,3594 @@
+{
+  "evaluator_policy": "normalized token comparison; numeric tokens math.isclose(rel_tol=1e-6, abs_tol=1e-6); function outputs literal comparison",
+  "post_selection_diagnostic": true,
+  "data": "D:\\yaorz\\research\\decomposition-bench\\data\\processed\\apps_stratified60_20260918.json",
+  "inputs": [
+    "D:\\yaorz\\research\\decomposition-bench\\data\\processed\\p5b_simple20_m2a_skeleton_qwen25coder_7b_d2_i2_c8_seed42_v1_recombinations.jsonl"
+  ],
+  "problems": 20,
+  "pool_oracle_full_pass": 10,
+  "private_program_evaluations": 65,
+  "private_test_executions": 232,
+  "by_problem": {
+    "apps-train-2672": {
+      "candidate_count": 16,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 0,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2672:d0:c0",
+          "code_hash": "48f637f4839746c293f645dff780986f16799f66468c4b71ea459dc52107fcdf",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 3,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "['0.33']",
+                "actual": "'0.10'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.082434
+              },
+              {
+                "passed": 0,
+                "expected": "['0.33']",
+                "actual": "'0.10'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.069556
+              },
+              {
+                "passed": 0,
+                "expected": "['0.28']",
+                "actual": "'0.20'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.080528
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.234917,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2672:d1:c0",
+          "code_hash": "1ade93693a5adafc86bcd099e16a625fe83593e3ccd53d3bce559c2d043c0358",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 3,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "['0.33']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-yfhwgnvl\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-yfhwgnvl\\candidate.py\", line 21, in color_probability\n    return f'{probability:.2f}'\n             ^^^^^^^^^^^^^^^^^\nValueError: Unknown format code 'f' for object of type 'str'\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-yfhwgnvl\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-yfhwgnvl\\candidate.py\", line 21, in color_probability\n    return f'{probability:.2f}'\n             ^^^^^^^^^^^^^^^^^\nValueError: Unknown format code 'f' for object of type 'str'",
+                "timeout": false,
+                "duration_seconds": 0.097978
+              },
+              {
+                "passed": 0,
+                "expected": "['0.33']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-zna4e_0h\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-zna4e_0h\\candidate.py\", line 21, in color_probability\n    return f'{probability:.2f}'\n             ^^^^^^^^^^^^^^^^^\nValueError: Unknown format code 'f' for object of type 'str'\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-zna4e_0h\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-zna4e_0h\\candidate.py\", line 21, in color_probability\n    return f'{probability:.2f}'\n             ^^^^^^^^^^^^^^^^^\nValueError: Unknown format code 'f' for object of type 'str'",
+                "timeout": false,
+                "duration_seconds": 0.079925
+              },
+              {
+                "passed": 0,
+                "expected": "['0.28']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-c_pkd1t5\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-c_pkd1t5\\candidate.py\", line 21, in color_probability\n    return f'{probability:.2f}'\n             ^^^^^^^^^^^^^^^^^\nValueError: Unknown format code 'f' for object of type 'str'\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-c_pkd1t5\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-c_pkd1t5\\candidate.py\", line 21, in color_probability\n    return f'{probability:.2f}'\n             ^^^^^^^^^^^^^^^^^\nValueError: Unknown format code 'f' for object of type 'str'",
+                "timeout": false,
+                "duration_seconds": 0.077015
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.257326,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        }
+      ],
+      "pool_oracle_full_pass": false
+    },
+    "apps-train-2673": {
+      "candidate_count": 0,
+      "unique_candidate_count": 0,
+      "private_full_pass_candidates": 0,
+      "candidate_results": [],
+      "pool_oracle_full_pass": false
+    },
+    "apps-train-2674": {
+      "candidate_count": 16,
+      "unique_candidate_count": 4,
+      "private_full_pass_candidates": 4,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2674:d0:c0",
+          "code_hash": "4e5235bfe5bb492a82b50d0212ea5328fbd46f744c81cfe0a9c473b6cf5dfcc1",
+          "private": {
+            "split": "private",
+            "passed": 3,
+            "total": 3,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['a***b***o***u***t']",
+                "actual": "'a***b***o***u***t'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.076116
+              },
+              {
+                "passed": 1,
+                "expected": "['c***o***d***e']",
+                "actual": "'c***o***d***e'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.075271
+              },
+              {
+                "passed": 1,
+                "expected": "['L***e***t***s']",
+                "actual": "'L***e***t***s'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.075993
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.229659,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        },
+        {
+          "candidate_id": "apps-train-2674:d0:c1",
+          "code_hash": "02f05eb3fd7f8a634edcd205eb584897a67fef21afe98ee005dec60b9d94f841",
+          "private": {
+            "split": "private",
+            "passed": 3,
+            "total": 3,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['a***b***o***u***t']",
+                "actual": "'a***b***o***u***t'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.087922
+              },
+              {
+                "passed": 1,
+                "expected": "['c***o***d***e']",
+                "actual": "'c***o***d***e'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.085403
+              },
+              {
+                "passed": 1,
+                "expected": "['L***e***t***s']",
+                "actual": "'L***e***t***s'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.08288
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.25845,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        },
+        {
+          "candidate_id": "apps-train-2674:d1:c0",
+          "code_hash": "daec8a5b44dc40871387a88b3a8b1683353b09a4a4937b4f5bb870d8d7fb1202",
+          "private": {
+            "split": "private",
+            "passed": 3,
+            "total": 3,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['a***b***o***u***t']",
+                "actual": "'a***b***o***u***t'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.085624
+              },
+              {
+                "passed": 1,
+                "expected": "['c***o***d***e']",
+                "actual": "'c***o***d***e'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.070905
+              },
+              {
+                "passed": 1,
+                "expected": "['L***e***t***s']",
+                "actual": "'L***e***t***s'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.074279
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.233029,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        },
+        {
+          "candidate_id": "apps-train-2674:d1:c1",
+          "code_hash": "b5810ec1ffc4d48363c96a6c6144429a1c61c78e6fc2b53b5d8bd62b69981e09",
+          "private": {
+            "split": "private",
+            "passed": 3,
+            "total": 3,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['a***b***o***u***t']",
+                "actual": "'a***b***o***u***t'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.071731
+              },
+              {
+                "passed": 1,
+                "expected": "['c***o***d***e']",
+                "actual": "'c***o***d***e'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.084371
+              },
+              {
+                "passed": 1,
+                "expected": "['L***e***t***s']",
+                "actual": "'L***e***t***s'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.08362
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.242114,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        }
+      ],
+      "pool_oracle_full_pass": true
+    },
+    "apps-train-2678": {
+      "candidate_count": 12,
+      "unique_candidate_count": 6,
+      "private_full_pass_candidates": 2,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2678:d0:c0",
+          "code_hash": "055dcae54171a8605440e830837d0e44a6488df6f576e85d2434f74280a96613",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[None]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-3vr6r36v\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-3vr6r36v\\candidate.py\", line 47, in no_order\n    tokens = parse_equation(equation)\n  File \"D:\\Temp\\codeprm-3vr6r36v\\candidate.py\", line 11, in parse_equation\n    tokens.append(int(current_number))\n                  ~~~^^^^^^^^^^^^^^^^\nValueError: invalid literal for int() with base 10: '1 20'\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-3vr6r36v\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-3vr6r36v\\candidate.py\", line 47, in no_order\n    tokens = parse_equation(equation)\n  File \"D:\\Temp\\codeprm-3vr6r36v\\candidate.py\", line 11, in parse_equation\n    tokens.append(int(current_number))\n                  ~~~^^^^^^^^^^^^^^^^\nValueError: invalid literal for int() with base 10: '1 20'",
+                "timeout": false,
+                "duration_seconds": 0.083428
+              },
+              {
+                "passed": 0,
+                "expected": "[None]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-94zyuhsr\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-94zyuhsr\\candidate.py\", line 47, in no_order\n    tokens = parse_equation(equation)\n  File \"D:\\Temp\\codeprm-94zyuhsr\\candidate.py\", line 11, in parse_equation\n    tokens.append(int(current_number))\n                  ~~~^^^^^^^^^^^^^^^^\nValueError: invalid literal for int() with base 10: '6 9'\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-94zyuhsr\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-94zyuhsr\\candidate.py\", line 47, in no_order\n    tokens = parse_equation(equation)\n  File \"D:\\Temp\\codeprm-94zyuhsr\\candidate.py\", line 11, in parse_equation\n    tokens.append(int(current_number))\n                  ~~~^^^^^^^^^^^^^^^^\nValueError: invalid literal for int() with base 10: '6 9'",
+                "timeout": false,
+                "duration_seconds": 0.089943
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.174622,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2678:d0:c1",
+          "code_hash": "542bef9e313ac5bece02a33732fd9cbf85225efa24f85eaa62fcd8217b42420d",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[None]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-_fonysqj\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-_fonysqj\\candidate.py\", line 47, in no_order\n    tokens = parse_equation(equation)\n  File \"D:\\Temp\\codeprm-_fonysqj\\candidate.py\", line 11, in parse_equation\n    tokens.append(int(current_number))\n                  ~~~^^^^^^^^^^^^^^^^\nValueError: invalid literal for int() with base 10: '1 20'\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-_fonysqj\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-_fonysqj\\candidate.py\", line 47, in no_order\n    tokens = parse_equation(equation)\n  File \"D:\\Temp\\codeprm-_fonysqj\\candidate.py\", line 11, in parse_equation\n    tokens.append(int(current_number))\n                  ~~~^^^^^^^^^^^^^^^^\nValueError: invalid literal for int() with base 10: '1 20'",
+                "timeout": false,
+                "duration_seconds": 0.087627
+              },
+              {
+                "passed": 0,
+                "expected": "[None]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-apysg4te\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-apysg4te\\candidate.py\", line 47, in no_order\n    tokens = parse_equation(equation)\n  File \"D:\\Temp\\codeprm-apysg4te\\candidate.py\", line 11, in parse_equation\n    tokens.append(int(current_number))\n                  ~~~^^^^^^^^^^^^^^^^\nValueError: invalid literal for int() with base 10: '6 9'\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-apysg4te\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-apysg4te\\candidate.py\", line 47, in no_order\n    tokens = parse_equation(equation)\n  File \"D:\\Temp\\codeprm-apysg4te\\candidate.py\", line 11, in parse_equation\n    tokens.append(int(current_number))\n                  ~~~^^^^^^^^^^^^^^^^\nValueError: invalid literal for int() with base 10: '6 9'",
+                "timeout": false,
+                "duration_seconds": 0.088658
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.177977,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2678:d0:c2",
+          "code_hash": "6fdc693babffedf6a986cfb491f1c9fb59263ab8c00267cebd6b400209ca14ee",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[None]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-zzdoecyn\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-zzdoecyn\\candidate.py\", line 45, in no_order\n    return evaluate_expression(tokens)\n  File \"D:\\Temp\\codeprm-zzdoecyn\\candidate.py\", line 24, in evaluate_expression\n    next_token = tokens[i + 1]\n                 ~~~~~~^^^^^^^\nIndexError: list index out of range\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-zzdoecyn\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-zzdoecyn\\candidate.py\", line 45, in no_order\n    return evaluate_expression(tokens)\n  File \"D:\\Temp\\codeprm-zzdoecyn\\candidate.py\", line 24, in evaluate_expression\n    next_token = tokens[i + 1]\n                 ~~~~~~^^^^^^^\nIndexError: list index out of range",
+                "timeout": false,
+                "duration_seconds": 0.09113
+              },
+              {
+                "passed": 0,
+                "expected": "[None]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-jzbaxto1\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-jzbaxto1\\candidate.py\", line 45, in no_order\n    return evaluate_expression(tokens)\n  File \"D:\\Temp\\codeprm-jzbaxto1\\candidate.py\", line 24, in evaluate_expression\n    next_token = tokens[i + 1]\n                 ~~~~~~^^^^^^^\nIndexError: list index out of range\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-jzbaxto1\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-jzbaxto1\\candidate.py\", line 45, in no_order\n    return evaluate_expression(tokens)\n  File \"D:\\Temp\\codeprm-jzbaxto1\\candidate.py\", line 24, in evaluate_expression\n    next_token = tokens[i + 1]\n                 ~~~~~~^^^^^^^\nIndexError: list index out of range",
+                "timeout": false,
+                "duration_seconds": 0.08068
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.173216,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2678:d0:c3",
+          "code_hash": "d7ec88e2ac00422bff5bb14a90a14b9a7176ed301801fa71206beea48eb53041",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[None]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-tx39x6zh\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-tx39x6zh\\candidate.py\", line 45, in no_order\n    return evaluate_expression(tokens)\n  File \"D:\\Temp\\codeprm-tx39x6zh\\candidate.py\", line 24, in evaluate_expression\n    next_token = int(tokens[i + 1])\nValueError: invalid literal for int() with base 10: '%'\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-tx39x6zh\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-tx39x6zh\\candidate.py\", line 45, in no_order\n    return evaluate_expression(tokens)\n  File \"D:\\Temp\\codeprm-tx39x6zh\\candidate.py\", line 24, in evaluate_expression\n    next_token = int(tokens[i + 1])\nValueError: invalid literal for int() with base 10: '%'",
+                "timeout": false,
+                "duration_seconds": 0.077236
+              },
+              {
+                "passed": 0,
+                "expected": "[None]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-x2g9tiu_\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-x2g9tiu_\\candidate.py\", line 45, in no_order\n    return evaluate_expression(tokens)\n  File \"D:\\Temp\\codeprm-x2g9tiu_\\candidate.py\", line 24, in evaluate_expression\n    next_token = int(tokens[i + 1])\nValueError: invalid literal for int() with base 10: '*'\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-x2g9tiu_\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-x2g9tiu_\\candidate.py\", line 45, in no_order\n    return evaluate_expression(tokens)\n  File \"D:\\Temp\\codeprm-x2g9tiu_\\candidate.py\", line 24, in evaluate_expression\n    next_token = int(tokens[i + 1])\nValueError: invalid literal for int() with base 10: '*'",
+                "timeout": false,
+                "duration_seconds": 0.078008
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.156854,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2678:d1:c0",
+          "code_hash": "222a7a1a1bb834a50a0fe245033889dc43cb4b69ec7f319ba310121870d01393",
+          "private": {
+            "split": "private",
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "[None]",
+                "actual": "None\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.079341
+              },
+              {
+                "passed": 1,
+                "expected": "[None]",
+                "actual": "None\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.075063
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.156004,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        },
+        {
+          "candidate_id": "apps-train-2678:d1:c1",
+          "code_hash": "11e9477ec2dea15ee09a84be77afc4101ac7142bf44800125bccee8264bee7dd",
+          "private": {
+            "split": "private",
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "[None]",
+                "actual": "None\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.086921
+              },
+              {
+                "passed": 1,
+                "expected": "[None]",
+                "actual": "None\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.072069
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.160291,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        }
+      ],
+      "pool_oracle_full_pass": true
+    },
+    "apps-train-2680": {
+      "candidate_count": 16,
+      "unique_candidate_count": 3,
+      "private_full_pass_candidates": 0,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2680:d0:c0",
+          "code_hash": "d6a280a0b18bdbf51ae724223b701883215376f75185dbe88f908f6af3d96c1a",
+          "private": {
+            "split": "private",
+            "passed": 1,
+            "total": 4,
+            "pass_rate": 0.25,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[[2, 50, 46]]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-nccl7qdq\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-nccl7qdq\\candidate.py\", line 25, in race\n    hours, minutes, seconds = convert_seconds_to_hms(time_difference_seconds)\n                              ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Temp\\codeprm-nccl7qdq\\candidate.py\", line 13, in convert_seconds_to_hms\n    hours = seconds // 3600\n            ~~~~~~~~^^~~~~~\nTypeError: unsupported operand type(s) for //: 'list' and 'int'\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-nccl7qdq\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-nccl7qdq\\candidate.py\", line 25, in race\n    hours, minutes, seconds = convert_seconds_to_hms(time_difference_seconds)\n                              ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Temp\\codeprm-nccl7qdq\\candidate.py\", line 13, in convert_seconds_to_hms\n    hours = seconds // 3600\n            ~~~~~~~~^^~~~~~\nTypeError: unsupported operand type(s) for //: 'list' and 'int'",
+                "timeout": false,
+                "duration_seconds": 0.077847
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 3, 2]]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-7byhm9rt\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-7byhm9rt\\candidate.py\", line 25, in race\n    hours, minutes, seconds = convert_seconds_to_hms(time_difference_seconds)\n                              ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Temp\\codeprm-7byhm9rt\\candidate.py\", line 13, in convert_seconds_to_hms\n    hours = seconds // 3600\n            ~~~~~~~~^^~~~~~\nTypeError: unsupported operand type(s) for //: 'list' and 'int'\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-7byhm9rt\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-7byhm9rt\\candidate.py\", line 25, in race\n    hours, minutes, seconds = convert_seconds_to_hms(time_difference_seconds)\n                              ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Temp\\codeprm-7byhm9rt\\candidate.py\", line 13, in convert_seconds_to_hms\n    hours = seconds // 3600\n            ~~~~~~~~^^~~~~~\nTypeError: unsupported operand type(s) for //: 'list' and 'int'",
+                "timeout": false,
+                "duration_seconds": 0.08443
+              },
+              {
+                "passed": 0,
+                "expected": "[[18, 20, 0]]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-olwdn6ly\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-olwdn6ly\\candidate.py\", line 25, in race\n    hours, minutes, seconds = convert_seconds_to_hms(time_difference_seconds)\n                              ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Temp\\codeprm-olwdn6ly\\candidate.py\", line 13, in convert_seconds_to_hms\n    hours = seconds // 3600\n            ~~~~~~~~^^~~~~~\nTypeError: unsupported operand type(s) for //: 'list' and 'int'\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-olwdn6ly\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-olwdn6ly\\candidate.py\", line 25, in race\n    hours, minutes, seconds = convert_seconds_to_hms(time_difference_seconds)\n                              ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Temp\\codeprm-olwdn6ly\\candidate.py\", line 13, in convert_seconds_to_hms\n    hours = seconds // 3600\n            ~~~~~~~~^^~~~~~\nTypeError: unsupported operand type(s) for //: 'list' and 'int'",
+                "timeout": false,
+                "duration_seconds": 0.086779
+              },
+              {
+                "passed": 1,
+                "expected": "[None]",
+                "actual": "None\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.081784
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.333894,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2680:d1:c0",
+          "code_hash": "4797e2c3bd6f6252551ff3c52fb20db9aba6dbfc1ea399247ff3ce73af525d26",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 4,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[[2, 50, 46]]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-7rhmgg_9\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-7rhmgg_9\\candidate.py\", line 25, in race\n    h, m, s = convert_seconds_to_hms(time_difference)\n              ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"D:\\Temp\\codeprm-7rhmgg_9\\candidate.py\", line 13, in convert_seconds_to_hms\n    hours = seconds // 3600\n            ~~~~~~~~^^~~~~~\nTypeError: unsupported operand type(s) for //: 'list' and 'int'\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-7rhmgg_9\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-7rhmgg_9\\candidate.py\", line 25, in race\n    h, m, s = convert_seconds_to_hms(time_difference)\n              ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"D:\\Temp\\codeprm-7rhmgg_9\\candidate.py\", line 13, in convert_seconds_to_hms\n    hours = seconds // 3600\n            ~~~~~~~~^^~~~~~\nTypeError: unsupported operand type(s) for //: 'list' and 'int'",
+                "timeout": false,
+                "duration_seconds": 0.084062
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 3, 2]]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-1rn9zpb_\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-1rn9zpb_\\candidate.py\", line 25, in race\n    h, m, s = convert_seconds_to_hms(time_difference)\n              ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"D:\\Temp\\codeprm-1rn9zpb_\\candidate.py\", line 13, in convert_seconds_to_hms\n    hours = seconds // 3600\n            ~~~~~~~~^^~~~~~\nTypeError: unsupported operand type(s) for //: 'list' and 'int'\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-1rn9zpb_\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-1rn9zpb_\\candidate.py\", line 25, in race\n    h, m, s = convert_seconds_to_hms(time_difference)\n              ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"D:\\Temp\\codeprm-1rn9zpb_\\candidate.py\", line 13, in convert_seconds_to_hms\n    hours = seconds // 3600\n            ~~~~~~~~^^~~~~~\nTypeError: unsupported operand type(s) for //: 'list' and 'int'",
+                "timeout": false,
+                "duration_seconds": 0.082982
+              },
+              {
+                "passed": 0,
+                "expected": "[[18, 20, 0]]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-03974ymw\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-03974ymw\\candidate.py\", line 25, in race\n    h, m, s = convert_seconds_to_hms(time_difference)\n              ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"D:\\Temp\\codeprm-03974ymw\\candidate.py\", line 13, in convert_seconds_to_hms\n    hours = seconds // 3600\n            ~~~~~~~~^^~~~~~\nTypeError: unsupported operand type(s) for //: 'list' and 'int'\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-03974ymw\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-03974ymw\\candidate.py\", line 25, in race\n    h, m, s = convert_seconds_to_hms(time_difference)\n              ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"D:\\Temp\\codeprm-03974ymw\\candidate.py\", line 13, in convert_seconds_to_hms\n    hours = seconds // 3600\n            ~~~~~~~~^^~~~~~\nTypeError: unsupported operand type(s) for //: 'list' and 'int'",
+                "timeout": false,
+                "duration_seconds": 0.08961
+              },
+              {
+                "passed": 0,
+                "expected": "[None]",
+                "actual": "[-1, -1, -1]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.082183
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.342498,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2680:d1:c1",
+          "code_hash": "4418b97ff08f16b89de540ffdd2864d0cd4a914fe2f1eebc08ac578ed0f2d106",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 4,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[[2, 50, 46]]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-w1s7zarx\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-w1s7zarx\\candidate.py\", line 25, in race\n    return convert_seconds_to_hms(time_difference)\n  File \"D:\\Temp\\codeprm-w1s7zarx\\candidate.py\", line 13, in convert_seconds_to_hms\n    hours = seconds // 3600\n            ~~~~~~~~^^~~~~~\nTypeError: unsupported operand type(s) for //: 'list' and 'int'\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-w1s7zarx\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-w1s7zarx\\candidate.py\", line 25, in race\n    return convert_seconds_to_hms(time_difference)\n  File \"D:\\Temp\\codeprm-w1s7zarx\\candidate.py\", line 13, in convert_seconds_to_hms\n    hours = seconds // 3600\n            ~~~~~~~~^^~~~~~\nTypeError: unsupported operand type(s) for //: 'list' and 'int'",
+                "timeout": false,
+                "duration_seconds": 0.088261
+              },
+              {
+                "passed": 0,
+                "expected": "[[0, 3, 2]]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-2a_qastd\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-2a_qastd\\candidate.py\", line 25, in race\n    return convert_seconds_to_hms(time_difference)\n  File \"D:\\Temp\\codeprm-2a_qastd\\candidate.py\", line 13, in convert_seconds_to_hms\n    hours = seconds // 3600\n            ~~~~~~~~^^~~~~~\nTypeError: unsupported operand type(s) for //: 'list' and 'int'\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-2a_qastd\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-2a_qastd\\candidate.py\", line 25, in race\n    return convert_seconds_to_hms(time_difference)\n  File \"D:\\Temp\\codeprm-2a_qastd\\candidate.py\", line 13, in convert_seconds_to_hms\n    hours = seconds // 3600\n            ~~~~~~~~^^~~~~~\nTypeError: unsupported operand type(s) for //: 'list' and 'int'",
+                "timeout": false,
+                "duration_seconds": 0.08701
+              },
+              {
+                "passed": 0,
+                "expected": "[[18, 20, 0]]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-27lobleg\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-27lobleg\\candidate.py\", line 25, in race\n    return convert_seconds_to_hms(time_difference)\n  File \"D:\\Temp\\codeprm-27lobleg\\candidate.py\", line 13, in convert_seconds_to_hms\n    hours = seconds // 3600\n            ~~~~~~~~^^~~~~~\nTypeError: unsupported operand type(s) for //: 'list' and 'int'\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-27lobleg\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-27lobleg\\candidate.py\", line 25, in race\n    return convert_seconds_to_hms(time_difference)\n  File \"D:\\Temp\\codeprm-27lobleg\\candidate.py\", line 13, in convert_seconds_to_hms\n    hours = seconds // 3600\n            ~~~~~~~~^^~~~~~\nTypeError: unsupported operand type(s) for //: 'list' and 'int'",
+                "timeout": false,
+                "duration_seconds": 0.094825
+              },
+              {
+                "passed": 0,
+                "expected": "[None]",
+                "actual": "[-1, -1, -1]\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.087091
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.361048,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        }
+      ],
+      "pool_oracle_full_pass": false
+    },
+    "apps-train-2681": {
+      "candidate_count": 0,
+      "unique_candidate_count": 0,
+      "private_full_pass_candidates": 0,
+      "candidate_results": [],
+      "pool_oracle_full_pass": false
+    },
+    "apps-train-2683": {
+      "candidate_count": 0,
+      "unique_candidate_count": 0,
+      "private_full_pass_candidates": 0,
+      "candidate_results": [],
+      "pool_oracle_full_pass": false
+    },
+    "apps-train-2685": {
+      "candidate_count": 16,
+      "unique_candidate_count": 12,
+      "private_full_pass_candidates": 0,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2685:d0:c0",
+          "code_hash": "8b816e5136d0cc0796f1fa9ec42b40fc8e2959ac0c73a723bdbf5b5de51c84d4",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 5,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "['djofd eqdvn lfdqjga']",
+                "actual": "'alphabravocharlie'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.089251
+              },
+              {
+                "passed": 0,
+                "expected": "['dlja esqa']",
+                "actual": "'omease'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.092894
+              },
+              {
+                "passed": 0,
+                "expected": "['ocprvcil']",
+                "actual": "'basecamp'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.08262
+              },
+              {
+                "passed": 0,
+                "expected": "['mks twm tdpss']",
+                "actual": "'onetwothree'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.077549
+              },
+              {
+                "passed": 0,
+                "expected": "['raqr']",
+                "actual": "'est'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.06834
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.414962,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2685:d0:c1",
+          "code_hash": "2a0842d221d0eb5a14bdedb6283c8f3dfc0d01021544549e0b5bbfb4db8a84ac",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 5,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "['djofd eqdvn lfdqjga']",
+                "actual": "'alphabravocharlie'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.067216
+              },
+              {
+                "passed": 0,
+                "expected": "['dlja esqa']",
+                "actual": "'omease'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.064284
+              },
+              {
+                "passed": 0,
+                "expected": "['ocprvcil']",
+                "actual": "'basecamp'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.06354
+              },
+              {
+                "passed": 0,
+                "expected": "['mks twm tdpss']",
+                "actual": "'onetwothree'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.064481
+              },
+              {
+                "passed": 0,
+                "expected": "['raqr']",
+                "actual": "'est'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.067613
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.331065,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2685:d0:c2",
+          "code_hash": "5635e9e9cd2bc255b213f9a2f90fe9cf26acd99abc699b05a7ac417e37b88c3c",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 5,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "['djofd eqdvn lfdqjga']",
+                "actual": "'42169451842115694182101'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.070102
+              },
+              {
+                "passed": 0,
+                "expected": "['dlja esqa']",
+                "actual": "'16151401'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.073768
+              },
+              {
+                "passed": 0,
+                "expected": "['ocprvcil']",
+                "actual": "'76203061618'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.068726
+              },
+              {
+                "passed": 0,
+                "expected": "['mks twm tdpss']",
+                "actual": "'161581922161911088'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.067845
+              },
+              {
+                "passed": 0,
+                "expected": "['raqr']",
+                "actual": "'7203'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.064629
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.349121,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2685:d0:c3",
+          "code_hash": "2fe2fb426ddd3d41c97f8e4ea8bbaab3853aad93c6ca3c5c987d767d8199b48a",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 5,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "['djofd eqdvn lfdqjga']",
+                "actual": "'42169451842115694182101'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.067394
+              },
+              {
+                "passed": 0,
+                "expected": "['dlja esqa']",
+                "actual": "'16151401'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.067996
+              },
+              {
+                "passed": 0,
+                "expected": "['ocprvcil']",
+                "actual": "'76203061618'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.074899
+              },
+              {
+                "passed": 0,
+                "expected": "['mks twm tdpss']",
+                "actual": "'161581922161911088'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.069178
+              },
+              {
+                "passed": 0,
+                "expected": "['raqr']",
+                "actual": "'7203'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.062236
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.345454,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2685:d0:c4",
+          "code_hash": "ea9275ecd7fdfcf1551bed9443604250657a18ae03235990368be97f64370efe",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 5,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "['djofd eqdvn lfdqjga']",
+                "actual": "'alphabravocharlie'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.068751
+              },
+              {
+                "passed": 0,
+                "expected": "['dlja esqa']",
+                "actual": "'omease'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.074653
+              },
+              {
+                "passed": 0,
+                "expected": "['ocprvcil']",
+                "actual": "'basecamp'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.066399
+              },
+              {
+                "passed": 0,
+                "expected": "['mks twm tdpss']",
+                "actual": "'onetwothree'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.061735
+              },
+              {
+                "passed": 0,
+                "expected": "['raqr']",
+                "actual": "'est'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.073339
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.349106,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2685:d0:c5",
+          "code_hash": "03b47152a77ed3802700b69afa0c2c6e5e191e2c2a006be3c1a9737c5ff3b0d9",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 5,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "['djofd eqdvn lfdqjga']",
+                "actual": "'alphabravocharlie'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.069911
+              },
+              {
+                "passed": 0,
+                "expected": "['dlja esqa']",
+                "actual": "'omease'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.07205
+              },
+              {
+                "passed": 0,
+                "expected": "['ocprvcil']",
+                "actual": "'basecamp'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.057636
+              },
+              {
+                "passed": 0,
+                "expected": "['mks twm tdpss']",
+                "actual": "'onetwothree'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.058193
+              },
+              {
+                "passed": 0,
+                "expected": "['raqr']",
+                "actual": "'est'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.066677
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.328014,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2685:d0:c6",
+          "code_hash": "dd2f5a202b0cc6956fd0fecf33f1827022dcb4eb70127e36aa055a2b3a7d4802",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 5,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "['djofd eqdvn lfdqjga']",
+                "actual": "'42169451842115694182101'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.061737
+              },
+              {
+                "passed": 0,
+                "expected": "['dlja esqa']",
+                "actual": "'16151401'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.064141
+              },
+              {
+                "passed": 0,
+                "expected": "['ocprvcil']",
+                "actual": "'76203061618'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.072367
+              },
+              {
+                "passed": 0,
+                "expected": "['mks twm tdpss']",
+                "actual": "'161581922161911088'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.060657
+              },
+              {
+                "passed": 0,
+                "expected": "['raqr']",
+                "actual": "'7203'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.063044
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.325331,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2685:d0:c7",
+          "code_hash": "9302f47907b09df4cb0a5a5b125446b3485807caee2f14e700b2d2bb98405070",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 5,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "['djofd eqdvn lfdqjga']",
+                "actual": "'42169451842115694182101'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.064151
+              },
+              {
+                "passed": 0,
+                "expected": "['dlja esqa']",
+                "actual": "'16151401'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.063914
+              },
+              {
+                "passed": 0,
+                "expected": "['ocprvcil']",
+                "actual": "'76203061618'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.068884
+              },
+              {
+                "passed": 0,
+                "expected": "['mks twm tdpss']",
+                "actual": "'161581922161911088'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.063735
+              },
+              {
+                "passed": 0,
+                "expected": "['raqr']",
+                "actual": "'7203'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.066474
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.331501,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2685:d1:c0",
+          "code_hash": "e48e7a7d5716ad92e5502390a99f28ae747bfe87e5d7a3c0d040a04f624a9406",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 5,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "['djofd eqdvn lfdqjga']",
+                "actual": "'alpha bravo charlie'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.068856
+              },
+              {
+                "passed": 0,
+                "expected": "['dlja esqa']",
+                "actual": "'Home Base'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.088929
+              },
+              {
+                "passed": 0,
+                "expected": "['ocprvcil']",
+                "actual": "'basecamp'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.066267
+              },
+              {
+                "passed": 0,
+                "expected": "['mks twm tdpss']",
+                "actual": "'one two three'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.062396
+              },
+              {
+                "passed": 0,
+                "expected": "['raqr']",
+                "actual": "'Test'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.07388
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.363868,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2685:d1:c1",
+          "code_hash": "4f23c124682b6848a5b0ab4e3ebfeea8e911805372ccd9f58a29426617122410",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 5,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "['djofd eqdvn lfdqjga']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-tot04aml\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-tot04aml\\candidate.py\", line 31, in keyword_cipher\n    encryption_key = create_encryption_key(keyword, remaining_letters)\nTypeError: create_encryption_key() takes 1 positional argument but 2 were given\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-tot04aml\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-tot04aml\\candidate.py\", line 31, in keyword_cipher\n    encryption_key = create_encryption_key(keyword, remaining_letters)\nTypeError: create_encryption_key() takes 1 positional argument but 2 were given",
+                "timeout": false,
+                "duration_seconds": 0.070995
+              },
+              {
+                "passed": 0,
+                "expected": "['dlja esqa']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-sv08zr07\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-sv08zr07\\candidate.py\", line 31, in keyword_cipher\n    encryption_key = create_encryption_key(keyword, remaining_letters)\nTypeError: create_encryption_key() takes 1 positional argument but 2 were given\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-sv08zr07\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-sv08zr07\\candidate.py\", line 31, in keyword_cipher\n    encryption_key = create_encryption_key(keyword, remaining_letters)\nTypeError: create_encryption_key() takes 1 positional argument but 2 were given",
+                "timeout": false,
+                "duration_seconds": 0.071705
+              },
+              {
+                "passed": 0,
+                "expected": "['ocprvcil']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-jcbvkegt\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-jcbvkegt\\candidate.py\", line 31, in keyword_cipher\n    encryption_key = create_encryption_key(keyword, remaining_letters)\nTypeError: create_encryption_key() takes 1 positional argument but 2 were given\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-jcbvkegt\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-jcbvkegt\\candidate.py\", line 31, in keyword_cipher\n    encryption_key = create_encryption_key(keyword, remaining_letters)\nTypeError: create_encryption_key() takes 1 positional argument but 2 were given",
+                "timeout": false,
+                "duration_seconds": 0.069587
+              },
+              {
+                "passed": 0,
+                "expected": "['mks twm tdpss']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-p87474wk\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-p87474wk\\candidate.py\", line 31, in keyword_cipher\n    encryption_key = create_encryption_key(keyword, remaining_letters)\nTypeError: create_encryption_key() takes 1 positional argument but 2 were given\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-p87474wk\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-p87474wk\\candidate.py\", line 31, in keyword_cipher\n    encryption_key = create_encryption_key(keyword, remaining_letters)\nTypeError: create_encryption_key() takes 1 positional argument but 2 were given",
+                "timeout": false,
+                "duration_seconds": 0.072439
+              },
+              {
+                "passed": 0,
+                "expected": "['raqr']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-3pb4sz18\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-3pb4sz18\\candidate.py\", line 31, in keyword_cipher\n    encryption_key = create_encryption_key(keyword, remaining_letters)\nTypeError: create_encryption_key() takes 1 positional argument but 2 were given\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-3pb4sz18\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-3pb4sz18\\candidate.py\", line 31, in keyword_cipher\n    encryption_key = create_encryption_key(keyword, remaining_letters)\nTypeError: create_encryption_key() takes 1 positional argument but 2 were given",
+                "timeout": false,
+                "duration_seconds": 0.069316
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.35799,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2685:d1:c2",
+          "code_hash": "e14607dcc76fbda622a51f69dad82af766ac5bc85b0f7d43fd136f10084f99b5",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 5,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "['djofd eqdvn lfdqjga']",
+                "actual": "'alpha bravo charlie'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.059105
+              },
+              {
+                "passed": 0,
+                "expected": "['dlja esqa']",
+                "actual": "'Home Base'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.059005
+              },
+              {
+                "passed": 0,
+                "expected": "['ocprvcil']",
+                "actual": "'basecamp'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.060321
+              },
+              {
+                "passed": 0,
+                "expected": "['mks twm tdpss']",
+                "actual": "'one two three'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.058406
+              },
+              {
+                "passed": 0,
+                "expected": "['raqr']",
+                "actual": "'Test'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.06001
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.300741,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2685:d1:c3",
+          "code_hash": "83f84ff972b53442eedcaf7a0bc820e6c71a1c116a27f739f9bafe9a0b63d37b",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 5,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "['djofd eqdvn lfdqjga']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-u7pv3agk\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-u7pv3agk\\candidate.py\", line 25, in keyword_cipher\n    encryption_key = create_encryption_key(keyword, remaining_letters)\nTypeError: create_encryption_key() takes 1 positional argument but 2 were given\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-u7pv3agk\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-u7pv3agk\\candidate.py\", line 25, in keyword_cipher\n    encryption_key = create_encryption_key(keyword, remaining_letters)\nTypeError: create_encryption_key() takes 1 positional argument but 2 were given",
+                "timeout": false,
+                "duration_seconds": 0.067814
+              },
+              {
+                "passed": 0,
+                "expected": "['dlja esqa']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-0wd_9lih\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-0wd_9lih\\candidate.py\", line 25, in keyword_cipher\n    encryption_key = create_encryption_key(keyword, remaining_letters)\nTypeError: create_encryption_key() takes 1 positional argument but 2 were given\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-0wd_9lih\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-0wd_9lih\\candidate.py\", line 25, in keyword_cipher\n    encryption_key = create_encryption_key(keyword, remaining_letters)\nTypeError: create_encryption_key() takes 1 positional argument but 2 were given",
+                "timeout": false,
+                "duration_seconds": 0.083863
+              },
+              {
+                "passed": 0,
+                "expected": "['ocprvcil']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-hb928agz\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-hb928agz\\candidate.py\", line 25, in keyword_cipher\n    encryption_key = create_encryption_key(keyword, remaining_letters)\nTypeError: create_encryption_key() takes 1 positional argument but 2 were given\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-hb928agz\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-hb928agz\\candidate.py\", line 25, in keyword_cipher\n    encryption_key = create_encryption_key(keyword, remaining_letters)\nTypeError: create_encryption_key() takes 1 positional argument but 2 were given",
+                "timeout": false,
+                "duration_seconds": 0.069731
+              },
+              {
+                "passed": 0,
+                "expected": "['mks twm tdpss']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-tcq32lz5\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-tcq32lz5\\candidate.py\", line 25, in keyword_cipher\n    encryption_key = create_encryption_key(keyword, remaining_letters)\nTypeError: create_encryption_key() takes 1 positional argument but 2 were given\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-tcq32lz5\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-tcq32lz5\\candidate.py\", line 25, in keyword_cipher\n    encryption_key = create_encryption_key(keyword, remaining_letters)\nTypeError: create_encryption_key() takes 1 positional argument but 2 were given",
+                "timeout": false,
+                "duration_seconds": 0.074377
+              },
+              {
+                "passed": 0,
+                "expected": "['raqr']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-mgs1bo62\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-mgs1bo62\\candidate.py\", line 25, in keyword_cipher\n    encryption_key = create_encryption_key(keyword, remaining_letters)\nTypeError: create_encryption_key() takes 1 positional argument but 2 were given\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-mgs1bo62\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-mgs1bo62\\candidate.py\", line 25, in keyword_cipher\n    encryption_key = create_encryption_key(keyword, remaining_letters)\nTypeError: create_encryption_key() takes 1 positional argument but 2 were given",
+                "timeout": false,
+                "duration_seconds": 0.066762
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.366355,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        }
+      ],
+      "pool_oracle_full_pass": false
+    },
+    "apps-train-2686": {
+      "candidate_count": 12,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 1,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2686:d0:c0",
+          "code_hash": "71fdd8e3dfea418c0bd857cd57efa488a6fcf6ee9892dec04caf61290e4425c0",
+          "private": {
+            "split": "private",
+            "passed": 3,
+            "total": 3,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['Ifmmp xpsmE']",
+                "actual": "'Ifmmp xpsmE'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.06966
+              },
+              {
+                "passed": 1,
+                "expected": "['Epht']",
+                "actual": "'Epht'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.075063
+              },
+              {
+                "passed": 1,
+                "expected": "['A']",
+                "actual": "'A'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.061964
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.208632,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        },
+        {
+          "candidate_id": "apps-train-2686:d0:c1",
+          "code_hash": "4629654c98bd55eb8c97d7b8e6ccc3a1b0d36ec6d2608b53ef956a23730e6c6d",
+          "private": {
+            "split": "private",
+            "passed": 2,
+            "total": 3,
+            "pass_rate": 0.6666666666666666,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "['Ifmmp xpsmE']",
+                "actual": "'Ifmmp XpsmE'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.061931
+              },
+              {
+                "passed": 1,
+                "expected": "['Epht']",
+                "actual": "'Epht'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.064114
+              },
+              {
+                "passed": 1,
+                "expected": "['A']",
+                "actual": "'A'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.062265
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.190325,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        }
+      ],
+      "pool_oracle_full_pass": true
+    },
+    "apps-train-2687": {
+      "candidate_count": 16,
+      "unique_candidate_count": 12,
+      "private_full_pass_candidates": 0,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2687:d0:c0",
+          "code_hash": "6994bdb4b96b1c51168cf931ef05ac334f154d72f9ddc7b01023151d2309d69f",
+          "private": {
+            "split": "private",
+            "passed": 3,
+            "total": 4,
+            "pass_rate": 0.75,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['one and two']",
+                "actual": "'one and two'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.065304
+              },
+              {
+                "passed": 1,
+                "expected": "['']",
+                "actual": "''\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.063973
+              },
+              {
+                "passed": 0,
+                "expected": "['']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-zny7q18o\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-zny7q18o\\candidate.py\", line 16, in format_words\n    filtered_words = filter_empty(words)\n  File \"D:\\Temp\\codeprm-zny7q18o\\candidate.py\", line 4, in filter_empty\n    return [word for word in words if word != '']\n                             ^^^^^\nTypeError: 'NoneType' object is not iterable\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-zny7q18o\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-zny7q18o\\candidate.py\", line 16, in format_words\n    filtered_words = filter_empty(words)\n  File \"D:\\Temp\\codeprm-zny7q18o\\candidate.py\", line 4, in filter_empty\n    return [word for word in words if word != '']\n                             ^^^^^\nTypeError: 'NoneType' object is not iterable",
+                "timeout": false,
+                "duration_seconds": 0.072446
+              },
+              {
+                "passed": 1,
+                "expected": "['']",
+                "actual": "''\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.066095
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.270358,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2687:d0:c1",
+          "code_hash": "f9967eca24ec792328b3d6b93dcc9bb0a1896248bc26b3eafccf330da50881bb",
+          "private": {
+            "split": "private",
+            "passed": 3,
+            "total": 4,
+            "pass_rate": 0.75,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['one and two']",
+                "actual": "'one and two'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.068071
+              },
+              {
+                "passed": 1,
+                "expected": "['']",
+                "actual": "''\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.081638
+              },
+              {
+                "passed": 0,
+                "expected": "['']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-slpcsd8k\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-slpcsd8k\\candidate.py\", line 16, in format_words\n    words = filter_empty(words)\n  File \"D:\\Temp\\codeprm-slpcsd8k\\candidate.py\", line 4, in filter_empty\n    return [word for word in words if word != '']\n                             ^^^^^\nTypeError: 'NoneType' object is not iterable\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-slpcsd8k\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-slpcsd8k\\candidate.py\", line 16, in format_words\n    words = filter_empty(words)\n  File \"D:\\Temp\\codeprm-slpcsd8k\\candidate.py\", line 4, in filter_empty\n    return [word for word in words if word != '']\n                             ^^^^^\nTypeError: 'NoneType' object is not iterable",
+                "timeout": false,
+                "duration_seconds": 0.071088
+              },
+              {
+                "passed": 1,
+                "expected": "['']",
+                "actual": "''\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.077388
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.300839,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2687:d0:c4",
+          "code_hash": "d7adbb72b640b077df8e14e7a88b336d49b9cfcf782a1a3feb1e5ef6d2485935",
+          "private": {
+            "split": "private",
+            "passed": 3,
+            "total": 4,
+            "pass_rate": 0.75,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['one and two']",
+                "actual": "'one and two'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.067632
+              },
+              {
+                "passed": 1,
+                "expected": "['']",
+                "actual": "''\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.07865
+              },
+              {
+                "passed": 0,
+                "expected": "['']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-_asdjb8y\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-_asdjb8y\\candidate.py\", line 16, in format_words\n    filtered_words = filter_empty(words)\n  File \"D:\\Temp\\codeprm-_asdjb8y\\candidate.py\", line 4, in filter_empty\n    return [word for word in words if word]\n                             ^^^^^\nTypeError: 'NoneType' object is not iterable\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-_asdjb8y\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-_asdjb8y\\candidate.py\", line 16, in format_words\n    filtered_words = filter_empty(words)\n  File \"D:\\Temp\\codeprm-_asdjb8y\\candidate.py\", line 4, in filter_empty\n    return [word for word in words if word]\n                             ^^^^^\nTypeError: 'NoneType' object is not iterable",
+                "timeout": false,
+                "duration_seconds": 0.079103
+              },
+              {
+                "passed": 1,
+                "expected": "['']",
+                "actual": "''\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.078126
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.307026,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2687:d0:c5",
+          "code_hash": "20b6c4a08bd949677815da5ed7dd4f12ac5bfeed55b14217abd9ff70c8d121b2",
+          "private": {
+            "split": "private",
+            "passed": 3,
+            "total": 4,
+            "pass_rate": 0.75,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['one and two']",
+                "actual": "'one and two'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.072942
+              },
+              {
+                "passed": 1,
+                "expected": "['']",
+                "actual": "''\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.068757
+              },
+              {
+                "passed": 0,
+                "expected": "['']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-ek0n4pxi\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-ek0n4pxi\\candidate.py\", line 16, in format_words\n    words = filter_empty(words)\n  File \"D:\\Temp\\codeprm-ek0n4pxi\\candidate.py\", line 4, in filter_empty\n    return [word for word in words if word]\n                             ^^^^^\nTypeError: 'NoneType' object is not iterable\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-ek0n4pxi\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-ek0n4pxi\\candidate.py\", line 16, in format_words\n    words = filter_empty(words)\n  File \"D:\\Temp\\codeprm-ek0n4pxi\\candidate.py\", line 4, in filter_empty\n    return [word for word in words if word]\n                             ^^^^^\nTypeError: 'NoneType' object is not iterable",
+                "timeout": false,
+                "duration_seconds": 0.077719
+              },
+              {
+                "passed": 1,
+                "expected": "['']",
+                "actual": "''\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.070632
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.293185,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2687:d1:c0",
+          "code_hash": "1022ce0b5821aaa9c4f6cf333f2440c9220422fcaebad3d90184c9275d55aced",
+          "private": {
+            "split": "private",
+            "passed": 3,
+            "total": 4,
+            "pass_rate": 0.75,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['one and two']",
+                "actual": "'one and two'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.070249
+              },
+              {
+                "passed": 1,
+                "expected": "['']",
+                "actual": "''\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.077022
+              },
+              {
+                "passed": 0,
+                "expected": "['']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-s9eqnwm_\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-s9eqnwm_\\candidate.py\", line 16, in format_words\n    filtered_words = filter_empty(words)\n  File \"D:\\Temp\\codeprm-s9eqnwm_\\candidate.py\", line 4, in filter_empty\n    return [word for word in words if word != '']\n                             ^^^^^\nTypeError: 'NoneType' object is not iterable\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-s9eqnwm_\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-s9eqnwm_\\candidate.py\", line 16, in format_words\n    filtered_words = filter_empty(words)\n  File \"D:\\Temp\\codeprm-s9eqnwm_\\candidate.py\", line 4, in filter_empty\n    return [word for word in words if word != '']\n                             ^^^^^\nTypeError: 'NoneType' object is not iterable",
+                "timeout": false,
+                "duration_seconds": 0.092205
+              },
+              {
+                "passed": 1,
+                "expected": "['']",
+                "actual": "''\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.08252
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.324615,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2687:d1:c1",
+          "code_hash": "44fa507f534b190daf68ce73385b672200726186ef2b82b41a6ca5d30eae80f4",
+          "private": {
+            "split": "private",
+            "passed": 3,
+            "total": 4,
+            "pass_rate": 0.75,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['one and two']",
+                "actual": "'one and two'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.084815
+              },
+              {
+                "passed": 1,
+                "expected": "['']",
+                "actual": "''\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.09004
+              },
+              {
+                "passed": 0,
+                "expected": "['']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-cagfrbzi\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-cagfrbzi\\candidate.py\", line 16, in format_words\n    words = filter_empty(words)\n  File \"D:\\Temp\\codeprm-cagfrbzi\\candidate.py\", line 4, in filter_empty\n    return [word for word in words if word != '']\n                             ^^^^^\nTypeError: 'NoneType' object is not iterable\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-cagfrbzi\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-cagfrbzi\\candidate.py\", line 16, in format_words\n    words = filter_empty(words)\n  File \"D:\\Temp\\codeprm-cagfrbzi\\candidate.py\", line 4, in filter_empty\n    return [word for word in words if word != '']\n                             ^^^^^\nTypeError: 'NoneType' object is not iterable",
+                "timeout": false,
+                "duration_seconds": 0.098086
+              },
+              {
+                "passed": 1,
+                "expected": "['']",
+                "actual": "''\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.078797
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.35537,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2687:d1:c2",
+          "code_hash": "386e6067589d828d5a0bf642f6ff0094d0d2e1da61291a581642ecfbbca31d9a",
+          "private": {
+            "split": "private",
+            "passed": 3,
+            "total": 4,
+            "pass_rate": 0.75,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['one and two']",
+                "actual": "'one and two'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.075715
+              },
+              {
+                "passed": 1,
+                "expected": "['']",
+                "actual": "''\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.076318
+              },
+              {
+                "passed": 0,
+                "expected": "['']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-0mvdnlfa\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-0mvdnlfa\\candidate.py\", line 15, in format_words\n    filtered_words = filter_empty(words)\n  File \"D:\\Temp\\codeprm-0mvdnlfa\\candidate.py\", line 4, in filter_empty\n    return [word for word in words if word != '']\n                             ^^^^^\nTypeError: 'NoneType' object is not iterable\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-0mvdnlfa\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-0mvdnlfa\\candidate.py\", line 15, in format_words\n    filtered_words = filter_empty(words)\n  File \"D:\\Temp\\codeprm-0mvdnlfa\\candidate.py\", line 4, in filter_empty\n    return [word for word in words if word != '']\n                             ^^^^^\nTypeError: 'NoneType' object is not iterable",
+                "timeout": false,
+                "duration_seconds": 0.085573
+              },
+              {
+                "passed": 1,
+                "expected": "['']",
+                "actual": "''\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.072188
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.312977,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2687:d1:c3",
+          "code_hash": "26dec67923122ec8924453d9bec6c09e41104c6612378029a0276d62b6a959e2",
+          "private": {
+            "split": "private",
+            "passed": 3,
+            "total": 4,
+            "pass_rate": 0.75,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['one and two']",
+                "actual": "'one and two'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.076532
+              },
+              {
+                "passed": 1,
+                "expected": "['']",
+                "actual": "''\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.079045
+              },
+              {
+                "passed": 0,
+                "expected": "['']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-a5eem3sh\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-a5eem3sh\\candidate.py\", line 15, in format_words\n    words = filter_empty(words)\n  File \"D:\\Temp\\codeprm-a5eem3sh\\candidate.py\", line 4, in filter_empty\n    return [word for word in words if word != '']\n                             ^^^^^\nTypeError: 'NoneType' object is not iterable\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-a5eem3sh\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-a5eem3sh\\candidate.py\", line 15, in format_words\n    words = filter_empty(words)\n  File \"D:\\Temp\\codeprm-a5eem3sh\\candidate.py\", line 4, in filter_empty\n    return [word for word in words if word != '']\n                             ^^^^^\nTypeError: 'NoneType' object is not iterable",
+                "timeout": false,
+                "duration_seconds": 0.079327
+              },
+              {
+                "passed": 1,
+                "expected": "['']",
+                "actual": "''\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.072504
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.310342,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2687:d1:c4",
+          "code_hash": "94f69da8c07d3aac482a26157dd02884559658688bcd6273c4f125fe1aaf4ec7",
+          "private": {
+            "split": "private",
+            "passed": 3,
+            "total": 4,
+            "pass_rate": 0.75,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['one and two']",
+                "actual": "'one and two'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.070471
+              },
+              {
+                "passed": 1,
+                "expected": "['']",
+                "actual": "''\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.067439
+              },
+              {
+                "passed": 0,
+                "expected": "['']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-7a0r_iy7\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-7a0r_iy7\\candidate.py\", line 16, in format_words\n    filtered_words = filter_empty(words)\n  File \"D:\\Temp\\codeprm-7a0r_iy7\\candidate.py\", line 4, in filter_empty\n    return [word for word in words if word]\n                             ^^^^^\nTypeError: 'NoneType' object is not iterable\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-7a0r_iy7\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-7a0r_iy7\\candidate.py\", line 16, in format_words\n    filtered_words = filter_empty(words)\n  File \"D:\\Temp\\codeprm-7a0r_iy7\\candidate.py\", line 4, in filter_empty\n    return [word for word in words if word]\n                             ^^^^^\nTypeError: 'NoneType' object is not iterable",
+                "timeout": false,
+                "duration_seconds": 0.081242
+              },
+              {
+                "passed": 1,
+                "expected": "['']",
+                "actual": "''\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.0744
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.296364,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2687:d1:c5",
+          "code_hash": "ada0fa87df398beac2d4948fac5ccb0b3f86157c28d0910c76ebdb18a5ab02da",
+          "private": {
+            "split": "private",
+            "passed": 3,
+            "total": 4,
+            "pass_rate": 0.75,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['one and two']",
+                "actual": "'one and two'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.071197
+              },
+              {
+                "passed": 1,
+                "expected": "['']",
+                "actual": "''\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.063599
+              },
+              {
+                "passed": 0,
+                "expected": "['']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-80e_pde6\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-80e_pde6\\candidate.py\", line 16, in format_words\n    words = filter_empty(words)\n  File \"D:\\Temp\\codeprm-80e_pde6\\candidate.py\", line 4, in filter_empty\n    return [word for word in words if word]\n                             ^^^^^\nTypeError: 'NoneType' object is not iterable\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-80e_pde6\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-80e_pde6\\candidate.py\", line 16, in format_words\n    words = filter_empty(words)\n  File \"D:\\Temp\\codeprm-80e_pde6\\candidate.py\", line 4, in filter_empty\n    return [word for word in words if word]\n                             ^^^^^\nTypeError: 'NoneType' object is not iterable",
+                "timeout": false,
+                "duration_seconds": 0.072915
+              },
+              {
+                "passed": 1,
+                "expected": "['']",
+                "actual": "''\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.069294
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.28045,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2687:d1:c6",
+          "code_hash": "1807ef7f5c31307e70d521578357ed35d50c065905b34179d0108cbc73f0ef00",
+          "private": {
+            "split": "private",
+            "passed": 3,
+            "total": 4,
+            "pass_rate": 0.75,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['one and two']",
+                "actual": "'one and two'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.073708
+              },
+              {
+                "passed": 1,
+                "expected": "['']",
+                "actual": "''\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.072887
+              },
+              {
+                "passed": 0,
+                "expected": "['']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-y_ave5lm\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-y_ave5lm\\candidate.py\", line 15, in format_words\n    filtered_words = filter_empty(words)\n  File \"D:\\Temp\\codeprm-y_ave5lm\\candidate.py\", line 4, in filter_empty\n    return [word for word in words if word]\n                             ^^^^^\nTypeError: 'NoneType' object is not iterable\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-y_ave5lm\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-y_ave5lm\\candidate.py\", line 15, in format_words\n    filtered_words = filter_empty(words)\n  File \"D:\\Temp\\codeprm-y_ave5lm\\candidate.py\", line 4, in filter_empty\n    return [word for word in words if word]\n                             ^^^^^\nTypeError: 'NoneType' object is not iterable",
+                "timeout": false,
+                "duration_seconds": 0.085726
+              },
+              {
+                "passed": 1,
+                "expected": "['']",
+                "actual": "''\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.077044
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.313307,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2687:d1:c7",
+          "code_hash": "27fe481865b0bbda1635f55e4f54501b7be4005fc7f845b71d4981257dc1a94d",
+          "private": {
+            "split": "private",
+            "passed": 3,
+            "total": 4,
+            "pass_rate": 0.75,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['one and two']",
+                "actual": "'one and two'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.073674
+              },
+              {
+                "passed": 1,
+                "expected": "['']",
+                "actual": "''\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.068335
+              },
+              {
+                "passed": 0,
+                "expected": "['']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-z5fn84lz\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-z5fn84lz\\candidate.py\", line 15, in format_words\n    words = filter_empty(words)\n  File \"D:\\Temp\\codeprm-z5fn84lz\\candidate.py\", line 4, in filter_empty\n    return [word for word in words if word]\n                             ^^^^^\nTypeError: 'NoneType' object is not iterable\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-z5fn84lz\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-z5fn84lz\\candidate.py\", line 15, in format_words\n    words = filter_empty(words)\n  File \"D:\\Temp\\codeprm-z5fn84lz\\candidate.py\", line 4, in filter_empty\n    return [word for word in words if word]\n                             ^^^^^\nTypeError: 'NoneType' object is not iterable",
+                "timeout": false,
+                "duration_seconds": 0.07853
+              },
+              {
+                "passed": 1,
+                "expected": "['']",
+                "actual": "''\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.068175
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.291222,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        }
+      ],
+      "pool_oracle_full_pass": false
+    },
+    "apps-train-2688": {
+      "candidate_count": 0,
+      "unique_candidate_count": 0,
+      "private_full_pass_candidates": 0,
+      "candidate_results": [],
+      "pool_oracle_full_pass": false
+    },
+    "apps-train-2690": {
+      "candidate_count": 16,
+      "unique_candidate_count": 4,
+      "private_full_pass_candidates": 0,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2690:d0:c0",
+          "code_hash": "e308b6b1be16de690e1d821131fc5772e60276bfed689757633328edc2a04c6b",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 3,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "['a']",
+                "actual": "",
+                "stderr": "",
+                "error_type": "timeout",
+                "message": "",
+                "timeout": true,
+                "duration_seconds": 10.411995
+              },
+              {
+                "passed": 0,
+                "expected": "['hello example  something']",
+                "actual": "",
+                "stderr": "candidate execution budget exhausted before this test started",
+                "error_type": "candidate_budget_exhausted",
+                "message": "candidate execution budget exhausted",
+                "timeout": true,
+                "duration_seconds": 0.0
+              },
+              {
+                "passed": 0,
+                "expected": "['  ']",
+                "actual": "",
+                "stderr": "candidate execution budget exhausted before this test started",
+                "error_type": "candidate_budget_exhausted",
+                "message": "candidate execution budget exhausted",
+                "timeout": true,
+                "duration_seconds": 0.0
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 10.412715,
+            "budget_exhausted": true
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2690:d0:c4",
+          "code_hash": "e63920c3728ca2ee8ca78d815abefd9705735a1696d571a5fdafb5e23d1ba8c8",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 3,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "['a']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-8795k9vk\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-8795k9vk\\candidate.py\", line 22, in remove_parentheses\n    s = extract_substring(s, 0, start) + extract_substring(s, end + 1, len(s))\n        ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"D:\\Temp\\codeprm-8795k9vk\\candidate.py\", line 15, in extract_substring\n    return s[:start] + s[end:]\n                       ~^^^^^^\nTypeError: slice indices must be integers or None or have an __index__ method\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-8795k9vk\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-8795k9vk\\candidate.py\", line 22, in remove_parentheses\n    s = extract_substring(s, 0, start) + extract_substring(s, end + 1, len(s))\n        ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"D:\\Temp\\codeprm-8795k9vk\\candidate.py\", line 15, in extract_substring\n    return s[:start] + s[end:]\n                       ~^^^^^^\nTypeError: slice indices must be integers or None or have an __index__ method",
+                "timeout": false,
+                "duration_seconds": 0.095361
+              },
+              {
+                "passed": 0,
+                "expected": "['hello example  something']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-erpw9yfv\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-erpw9yfv\\candidate.py\", line 22, in remove_parentheses\n    s = extract_substring(s, 0, start) + extract_substring(s, end + 1, len(s))\n        ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"D:\\Temp\\codeprm-erpw9yfv\\candidate.py\", line 15, in extract_substring\n    return s[:start] + s[end:]\n                       ~^^^^^^\nTypeError: slice indices must be integers or None or have an __index__ method\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-erpw9yfv\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-erpw9yfv\\candidate.py\", line 22, in remove_parentheses\n    s = extract_substring(s, 0, start) + extract_substring(s, end + 1, len(s))\n        ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"D:\\Temp\\codeprm-erpw9yfv\\candidate.py\", line 15, in extract_substring\n    return s[:start] + s[end:]\n                       ~^^^^^^\nTypeError: slice indices must be integers or None or have an __index__ method",
+                "timeout": false,
+                "duration_seconds": 0.074029
+              },
+              {
+                "passed": 0,
+                "expected": "['  ']",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-man4neey\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-man4neey\\candidate.py\", line 19, in remove_parentheses\n    start, end = find_parentheses(s)\n    ^^^^^^^^^^\nValueError: too many values to unpack (expected 2)\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-man4neey\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-man4neey\\candidate.py\", line 19, in remove_parentheses\n    start, end = find_parentheses(s)\n    ^^^^^^^^^^\nValueError: too many values to unpack (expected 2)",
+                "timeout": false,
+                "duration_seconds": 0.069018
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.240831,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2690:d1:c0",
+          "code_hash": "e7f4fc92209af00fd57dd11d0ef427349aed59aa97b9441311319ba3cfcf34a8",
+          "private": {
+            "split": "private",
+            "passed": 1,
+            "total": 3,
+            "pass_rate": 0.3333333333333333,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "['a']",
+                "actual": "'a(b'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.070903
+              },
+              {
+                "passed": 0,
+                "expected": "['hello example  something']",
+                "actual": "'hello example (words something'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.060406
+              },
+              {
+                "passed": 1,
+                "expected": "['  ']",
+                "actual": "'  '\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.060809
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.194427,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2690:d1:c2",
+          "code_hash": "81117625a9f49c849e7308eb56dd2a3bf2e1f2f8356e45599939e97c32d6accf",
+          "private": {
+            "split": "private",
+            "passed": 1,
+            "total": 3,
+            "pass_rate": 0.3333333333333333,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "['a']",
+                "actual": "'a(b'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.065806
+              },
+              {
+                "passed": 0,
+                "expected": "['hello example  something']",
+                "actual": "'hello example (words something'\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.064894
+              },
+              {
+                "passed": 1,
+                "expected": "['  ']",
+                "actual": "'  '\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.065317
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.198017,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        }
+      ],
+      "pool_oracle_full_pass": false
+    },
+    "apps-train-2691": {
+      "candidate_count": 16,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 1,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2691:d0:c0",
+          "code_hash": "aa242bbfcc1579a603ce556847b3e60b65ca4b151017deebb0f5e6b7554bfec8",
+          "private": {
+            "split": "private",
+            "passed": 3,
+            "total": 3,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "[61]",
+                "actual": "61\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.059678
+              },
+              {
+                "passed": 1,
+                "expected": "[42]",
+                "actual": "42\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.05964
+              },
+              {
+                "passed": 1,
+                "expected": "[85]",
+                "actual": "85\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.058851
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.179925,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        },
+        {
+          "candidate_id": "apps-train-2691:d0:c4",
+          "code_hash": "0e8728f579d90c8b0f95112ff60cdb29a7e6959827ec5483b513a389d7c913d4",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 3,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[61]",
+                "actual": "6185\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.060667
+              },
+              {
+                "passed": 0,
+                "expected": "[42]",
+                "actual": "742165\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.067925
+              },
+              {
+                "passed": 0,
+                "expected": "[85]",
+                "actual": "1885\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.070273
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.200981,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        }
+      ],
+      "pool_oracle_full_pass": true
+    },
+    "apps-train-2692": {
+      "candidate_count": 16,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 2,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2692:d0:c0",
+          "code_hash": "d41d378700284a7045f12c092e4eba90b11cc02a9f889bcbc287bbfe77edeeb2",
+          "private": {
+            "split": "private",
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "[[]]",
+                "actual": "[]\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.064413
+              },
+              {
+                "passed": 1,
+                "expected": "[[[1, 3, 3, 4, 7, 2], [1, 3, 3, 4, 2, 7], [1, 3, 3, 2, 4, 7], [1, 3, 2, 3, 4, 7], [1, 2, 3, 3, 4, 7]]]",
+                "actual": "[[1, 3, 3, 4, 7, 2], [1, 3, 3, 4, 2, 7], [1, 3, 3, 2, 4, 7], [1, 3, 2, 3, 4, 7], [1, 2, 3, 3, 4, 7]]\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.070527
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.136611,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        },
+        {
+          "candidate_id": "apps-train-2692:d0:c1",
+          "code_hash": "8bb8820f7cae3f5a90ca7ecd2991a523885d31f63bb4e8ab0d0de09b6f9b6c77",
+          "private": {
+            "split": "private",
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "[[]]",
+                "actual": "[]\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.068186
+              },
+              {
+                "passed": 1,
+                "expected": "[[[1, 3, 3, 4, 7, 2], [1, 3, 3, 4, 2, 7], [1, 3, 3, 2, 4, 7], [1, 3, 2, 3, 4, 7], [1, 2, 3, 3, 4, 7]]]",
+                "actual": "[[1, 3, 3, 4, 7, 2], [1, 3, 3, 4, 2, 7], [1, 3, 3, 2, 4, 7], [1, 3, 2, 3, 4, 7], [1, 2, 3, 3, 4, 7]]\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.08053
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.15008,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        }
+      ],
+      "pool_oracle_full_pass": true
+    },
+    "apps-train-2694": {
+      "candidate_count": 4,
+      "unique_candidate_count": 1,
+      "private_full_pass_candidates": 1,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2694:d1:c0",
+          "code_hash": "f19b9e35ff4da507956153fa16a2a00eff3f3e05569ddad74bbc37861a71120d",
+          "private": {
+            "split": "private",
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['Super happy!']",
+                "actual": "'Super happy!'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.072371
+              },
+              {
+                "passed": 1,
+                "expected": "['Happy!']",
+                "actual": "'Happy!'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.067915
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.141491,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        }
+      ],
+      "pool_oracle_full_pass": true
+    },
+    "apps-train-2695": {
+      "candidate_count": 16,
+      "unique_candidate_count": 6,
+      "private_full_pass_candidates": 2,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2695:d0:c0",
+          "code_hash": "5b8d6ca8470a54f3dfb3cbeadf973296dfcd2f5f3bc220df9f67b694e2e7fe0f",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 5,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[False]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-49z8vzp1\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-49z8vzp1\\candidate.py\", line 40, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-49z8vzp1\\candidate.py\", line 28, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-49z8vzp1\\candidate.py\", line 9, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-49z8vzp1\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-49z8vzp1\\candidate.py\", line 40, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-49z8vzp1\\candidate.py\", line 28, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-49z8vzp1\\candidate.py\", line 9, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable",
+                "timeout": false,
+                "duration_seconds": 0.077254
+              },
+              {
+                "passed": 0,
+                "expected": "[True]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-1rum8epb\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-1rum8epb\\candidate.py\", line 40, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-1rum8epb\\candidate.py\", line 28, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-1rum8epb\\candidate.py\", line 9, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-1rum8epb\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-1rum8epb\\candidate.py\", line 40, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-1rum8epb\\candidate.py\", line 28, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-1rum8epb\\candidate.py\", line 9, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable",
+                "timeout": false,
+                "duration_seconds": 0.084968
+              },
+              {
+                "passed": 0,
+                "expected": "[True]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-hgnxm2xm\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-hgnxm2xm\\candidate.py\", line 40, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-hgnxm2xm\\candidate.py\", line 28, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-hgnxm2xm\\candidate.py\", line 9, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-hgnxm2xm\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-hgnxm2xm\\candidate.py\", line 40, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-hgnxm2xm\\candidate.py\", line 28, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-hgnxm2xm\\candidate.py\", line 9, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable",
+                "timeout": false,
+                "duration_seconds": 0.083008
+              },
+              {
+                "passed": 0,
+                "expected": "[False]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-e9sr2f66\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-e9sr2f66\\candidate.py\", line 40, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-e9sr2f66\\candidate.py\", line 28, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-e9sr2f66\\candidate.py\", line 9, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-e9sr2f66\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-e9sr2f66\\candidate.py\", line 40, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-e9sr2f66\\candidate.py\", line 28, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-e9sr2f66\\candidate.py\", line 9, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable",
+                "timeout": false,
+                "duration_seconds": 0.068358
+              },
+              {
+                "passed": 0,
+                "expected": "[False]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-2g0wmimt\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-2g0wmimt\\candidate.py\", line 40, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-2g0wmimt\\candidate.py\", line 28, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-2g0wmimt\\candidate.py\", line 9, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-2g0wmimt\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-2g0wmimt\\candidate.py\", line 40, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-2g0wmimt\\candidate.py\", line 28, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-2g0wmimt\\candidate.py\", line 9, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable",
+                "timeout": false,
+                "duration_seconds": 0.077546
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.394745,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2695:d0:c2",
+          "code_hash": "57485da44e0fd049e7e0c2258612fd932bd281967bcdce2554ee5738b60d48fb",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 5,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[False]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-pc625rod\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-pc625rod\\candidate.py\", line 40, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-pc625rod\\candidate.py\", line 28, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-pc625rod\\candidate.py\", line 9, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-pc625rod\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-pc625rod\\candidate.py\", line 40, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-pc625rod\\candidate.py\", line 28, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-pc625rod\\candidate.py\", line 9, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable",
+                "timeout": false,
+                "duration_seconds": 0.07881
+              },
+              {
+                "passed": 0,
+                "expected": "[True]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-c78ppyki\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-c78ppyki\\candidate.py\", line 40, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-c78ppyki\\candidate.py\", line 28, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-c78ppyki\\candidate.py\", line 9, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-c78ppyki\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-c78ppyki\\candidate.py\", line 40, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-c78ppyki\\candidate.py\", line 28, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-c78ppyki\\candidate.py\", line 9, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable",
+                "timeout": false,
+                "duration_seconds": 0.082411
+              },
+              {
+                "passed": 0,
+                "expected": "[True]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-22yxx08_\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-22yxx08_\\candidate.py\", line 40, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-22yxx08_\\candidate.py\", line 28, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-22yxx08_\\candidate.py\", line 9, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-22yxx08_\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-22yxx08_\\candidate.py\", line 40, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-22yxx08_\\candidate.py\", line 28, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-22yxx08_\\candidate.py\", line 9, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable",
+                "timeout": false,
+                "duration_seconds": 0.087294
+              },
+              {
+                "passed": 0,
+                "expected": "[False]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-ngyckb3n\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-ngyckb3n\\candidate.py\", line 40, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-ngyckb3n\\candidate.py\", line 28, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-ngyckb3n\\candidate.py\", line 9, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-ngyckb3n\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-ngyckb3n\\candidate.py\", line 40, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-ngyckb3n\\candidate.py\", line 28, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-ngyckb3n\\candidate.py\", line 9, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable",
+                "timeout": false,
+                "duration_seconds": 0.086698
+              },
+              {
+                "passed": 0,
+                "expected": "[False]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-q40powjz\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-q40powjz\\candidate.py\", line 40, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-q40powjz\\candidate.py\", line 28, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-q40powjz\\candidate.py\", line 9, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-q40powjz\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-q40powjz\\candidate.py\", line 40, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-q40powjz\\candidate.py\", line 28, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-q40powjz\\candidate.py\", line 9, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable",
+                "timeout": false,
+                "duration_seconds": 0.09428
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.433236,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2695:d0:c4",
+          "code_hash": "f663318e44e34c0a076e57850f96acd08f1cb666e8212394589b8da447742b06",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 5,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[False]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-sg6bakjo\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-sg6bakjo\\candidate.py\", line 30, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-sg6bakjo\\candidate.py\", line 18, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-sg6bakjo\\candidate.py\", line 8, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-sg6bakjo\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-sg6bakjo\\candidate.py\", line 30, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-sg6bakjo\\candidate.py\", line 18, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-sg6bakjo\\candidate.py\", line 8, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable",
+                "timeout": false,
+                "duration_seconds": 0.081948
+              },
+              {
+                "passed": 0,
+                "expected": "[True]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-l6sjsbym\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-l6sjsbym\\candidate.py\", line 30, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-l6sjsbym\\candidate.py\", line 18, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-l6sjsbym\\candidate.py\", line 8, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-l6sjsbym\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-l6sjsbym\\candidate.py\", line 30, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-l6sjsbym\\candidate.py\", line 18, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-l6sjsbym\\candidate.py\", line 8, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable",
+                "timeout": false,
+                "duration_seconds": 0.085786
+              },
+              {
+                "passed": 0,
+                "expected": "[True]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-uri_1pi7\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-uri_1pi7\\candidate.py\", line 30, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-uri_1pi7\\candidate.py\", line 18, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-uri_1pi7\\candidate.py\", line 8, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-uri_1pi7\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-uri_1pi7\\candidate.py\", line 30, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-uri_1pi7\\candidate.py\", line 18, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-uri_1pi7\\candidate.py\", line 8, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable",
+                "timeout": false,
+                "duration_seconds": 0.087943
+              },
+              {
+                "passed": 0,
+                "expected": "[False]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-bekddhqn\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-bekddhqn\\candidate.py\", line 30, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-bekddhqn\\candidate.py\", line 18, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-bekddhqn\\candidate.py\", line 8, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-bekddhqn\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-bekddhqn\\candidate.py\", line 30, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-bekddhqn\\candidate.py\", line 18, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-bekddhqn\\candidate.py\", line 8, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable",
+                "timeout": false,
+                "duration_seconds": 0.078887
+              },
+              {
+                "passed": 0,
+                "expected": "[False]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-dd2w5gq_\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-dd2w5gq_\\candidate.py\", line 30, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-dd2w5gq_\\candidate.py\", line 18, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-dd2w5gq_\\candidate.py\", line 8, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-dd2w5gq_\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-dd2w5gq_\\candidate.py\", line 30, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-dd2w5gq_\\candidate.py\", line 18, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-dd2w5gq_\\candidate.py\", line 8, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable",
+                "timeout": false,
+                "duration_seconds": 0.082732
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.42129,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2695:d0:c6",
+          "code_hash": "5abc396d217836e80ef2c9056678800899bddc1a219c94a0e5a4cac05300b284",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 5,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[False]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-j88x85qc\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-j88x85qc\\candidate.py\", line 30, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-j88x85qc\\candidate.py\", line 18, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-j88x85qc\\candidate.py\", line 8, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-j88x85qc\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-j88x85qc\\candidate.py\", line 30, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-j88x85qc\\candidate.py\", line 18, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-j88x85qc\\candidate.py\", line 8, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable",
+                "timeout": false,
+                "duration_seconds": 0.087511
+              },
+              {
+                "passed": 0,
+                "expected": "[True]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-dcr_9bt_\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-dcr_9bt_\\candidate.py\", line 30, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-dcr_9bt_\\candidate.py\", line 18, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-dcr_9bt_\\candidate.py\", line 8, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-dcr_9bt_\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-dcr_9bt_\\candidate.py\", line 30, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-dcr_9bt_\\candidate.py\", line 18, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-dcr_9bt_\\candidate.py\", line 8, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable",
+                "timeout": false,
+                "duration_seconds": 0.075483
+              },
+              {
+                "passed": 0,
+                "expected": "[True]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-d38fc6pl\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-d38fc6pl\\candidate.py\", line 30, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-d38fc6pl\\candidate.py\", line 18, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-d38fc6pl\\candidate.py\", line 8, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-d38fc6pl\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-d38fc6pl\\candidate.py\", line 30, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-d38fc6pl\\candidate.py\", line 18, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-d38fc6pl\\candidate.py\", line 8, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable",
+                "timeout": false,
+                "duration_seconds": 0.079159
+              },
+              {
+                "passed": 0,
+                "expected": "[False]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-834ef4s2\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-834ef4s2\\candidate.py\", line 30, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-834ef4s2\\candidate.py\", line 18, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-834ef4s2\\candidate.py\", line 8, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-834ef4s2\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-834ef4s2\\candidate.py\", line 30, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-834ef4s2\\candidate.py\", line 18, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-834ef4s2\\candidate.py\", line 8, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable",
+                "timeout": false,
+                "duration_seconds": 0.095375
+              },
+              {
+                "passed": 0,
+                "expected": "[False]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-l4ci2r5e\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-l4ci2r5e\\candidate.py\", line 30, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-l4ci2r5e\\candidate.py\", line 18, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-l4ci2r5e\\candidate.py\", line 8, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-l4ci2r5e\\runner.py\", line 12, in <module>\n    result = fn(args[0] if isinstance(args, list) and len(args) == 1 else args)\n  File \"D:\\Temp\\codeprm-l4ci2r5e\\candidate.py\", line 30, in pair_of_shoes\n    return can_pair_shoes(left_counts, right_counts)\n  File \"D:\\Temp\\codeprm-l4ci2r5e\\candidate.py\", line 18, in can_pair_shoes\n    left_count = count_shoes_by_size(left_shoes)\n  File \"D:\\Temp\\codeprm-l4ci2r5e\\candidate.py\", line 8, in count_shoes_by_size\n    for shoe in shoes:\n                ^^^^^\nTypeError: 'bool' object is not iterable",
+                "timeout": false,
+                "duration_seconds": 0.087247
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.428512,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2695:d1:c0",
+          "code_hash": "75f7485ca14d6371d450bb58411662cfda595d5ede1d4b47dfa7b776e1208c4b",
+          "private": {
+            "split": "private",
+            "passed": 5,
+            "total": 5,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "[False]",
+                "actual": "False\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.078116
+              },
+              {
+                "passed": 1,
+                "expected": "[True]",
+                "actual": "True\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.07597
+              },
+              {
+                "passed": 1,
+                "expected": "[True]",
+                "actual": "True\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.075755
+              },
+              {
+                "passed": 1,
+                "expected": "[False]",
+                "actual": "False\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.076344
+              },
+              {
+                "passed": 1,
+                "expected": "[False]",
+                "actual": "False\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.099783
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.409873,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        },
+        {
+          "candidate_id": "apps-train-2695:d1:c2",
+          "code_hash": "727193e53b99b4be33a1f5032f38aa9ccc16d287d81082ebc0e70fabcef7f99b",
+          "private": {
+            "split": "private",
+            "passed": 5,
+            "total": 5,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "[False]",
+                "actual": "False\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.081163
+              },
+              {
+                "passed": 1,
+                "expected": "[True]",
+                "actual": "True\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.08408
+              },
+              {
+                "passed": 1,
+                "expected": "[True]",
+                "actual": "True\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.077215
+              },
+              {
+                "passed": 1,
+                "expected": "[False]",
+                "actual": "False\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.073881
+              },
+              {
+                "passed": 1,
+                "expected": "[False]",
+                "actual": "False\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.068139
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.38832,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        }
+      ],
+      "pool_oracle_full_pass": true
+    },
+    "apps-train-2696": {
+      "candidate_count": 8,
+      "unique_candidate_count": 2,
+      "private_full_pass_candidates": 2,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2696:d0:c0",
+          "code_hash": "4721f91b607bbc6b11bde369c8aff45e8f34a1ea488131bd097dbbcc607f0aaa",
+          "private": {
+            "split": "private",
+            "passed": 4,
+            "total": 4,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "[True]",
+                "actual": "True\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.083936
+              },
+              {
+                "passed": 1,
+                "expected": "[False]",
+                "actual": "False\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.071261
+              },
+              {
+                "passed": 1,
+                "expected": "[True]",
+                "actual": "True\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.071953
+              },
+              {
+                "passed": 1,
+                "expected": "[True]",
+                "actual": "True\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.066845
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.297631,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        },
+        {
+          "candidate_id": "apps-train-2696:d0:c2",
+          "code_hash": "656eaecab970ec8eb0a46c78dc57893c05993d55e6b84268eaaefc670295c69c",
+          "private": {
+            "split": "private",
+            "passed": 4,
+            "total": 4,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "[True]",
+                "actual": "True\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.071242
+              },
+              {
+                "passed": 1,
+                "expected": "[False]",
+                "actual": "False\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.077752
+              },
+              {
+                "passed": 1,
+                "expected": "[True]",
+                "actual": "True\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.082412
+              },
+              {
+                "passed": 1,
+                "expected": "[True]",
+                "actual": "True\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.081964
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.316287,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        }
+      ],
+      "pool_oracle_full_pass": true
+    },
+    "apps-train-2697": {
+      "candidate_count": 8,
+      "unique_candidate_count": 1,
+      "private_full_pass_candidates": 1,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2697:d1:c0",
+          "code_hash": "b50871f47dde5fbbf6cc393fc774a5e38c5713d09817e9e8d122cd1a8f2562cb",
+          "private": {
+            "split": "private",
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "['camel Case']",
+                "actual": "'camel Case'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.077758
+              },
+              {
+                "passed": 1,
+                "expected": "['break Camel Case']",
+                "actual": "'break Camel Case'\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.076442
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.155481,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        }
+      ],
+      "pool_oracle_full_pass": true
+    },
+    "apps-train-2698": {
+      "candidate_count": 0,
+      "unique_candidate_count": 0,
+      "private_full_pass_candidates": 0,
+      "candidate_results": [],
+      "pool_oracle_full_pass": false
+    },
+    "apps-train-2702": {
+      "candidate_count": 16,
+      "unique_candidate_count": 6,
+      "private_full_pass_candidates": 1,
+      "candidate_results": [
+        {
+          "candidate_id": "apps-train-2702:d0:c0",
+          "code_hash": "1df974c77e229a8b24f9a7d3dd295967ff67f1a1f3012a795be01e43a8020f89",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[4]",
+                "actual": "8\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.076522
+              },
+              {
+                "passed": 0,
+                "expected": "[1]",
+                "actual": "2\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.077737
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.156528,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2702:d0:c2",
+          "code_hash": "3ed75ce803044ca570a4a99e924fc2da21350353b2c20b212858b1375fe4775a",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[4]",
+                "actual": "8\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.079937
+              },
+              {
+                "passed": 0,
+                "expected": "[1]",
+                "actual": "2\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.065946
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.147241,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2702:d0:c4",
+          "code_hash": "a7ccca9ea799083ce4cfb658f64ab2d3cdae24cb58857d254dacc748bf11461c",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[4]",
+                "actual": "8\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.073378
+              },
+              {
+                "passed": 0,
+                "expected": "[1]",
+                "actual": "2\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.071924
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.147038,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2702:d0:c6",
+          "code_hash": "9b94aa29b660294f37c32a0fd2bec840d7a229c22f9cbe57831321182042d654",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[4]",
+                "actual": "8\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.071405
+              },
+              {
+                "passed": 0,
+                "expected": "[1]",
+                "actual": "2\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.088794
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.161889,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        },
+        {
+          "candidate_id": "apps-train-2702:d1:c0",
+          "code_hash": "4603c52f3e2481559342f95c697f9f77b38442668e4b7e8d98b7dd6a3a34c054",
+          "private": {
+            "split": "private",
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "[4]",
+                "actual": "4\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.077149
+              },
+              {
+                "passed": 1,
+                "expected": "[1]",
+                "actual": "1\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.073225
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.151971,
+            "budget_exhausted": false
+          },
+          "full_pass": true
+        },
+        {
+          "candidate_id": "apps-train-2702:d1:c4",
+          "code_hash": "d580820bf5b6f6975e5bd25946c8cc6be7fea6c900733d1f8d4139effbebcea2",
+          "private": {
+            "split": "private",
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "[4]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-t93nj2wr\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-t93nj2wr\\candidate.py\", line 31, in create_anagram\n    missing = calculate_missing_characters(freq_s, freq_t)\n  File \"D:\\Temp\\codeprm-t93nj2wr\\candidate.py\", line 22, in calculate_missing_characters\n    missing_characters[char] = freq_t[char] - freq_s[char]\n                                              ~~~~~~^^^^^^\nKeyError: 'R'\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-t93nj2wr\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-t93nj2wr\\candidate.py\", line 31, in create_anagram\n    missing = calculate_missing_characters(freq_s, freq_t)\n  File \"D:\\Temp\\codeprm-t93nj2wr\\candidate.py\", line 22, in calculate_missing_characters\n    missing_characters[char] = freq_t[char] - freq_s[char]\n                                              ~~~~~~^^^^^^\nKeyError: 'R'",
+                "timeout": false,
+                "duration_seconds": 0.079535
+              },
+              {
+                "passed": 0,
+                "expected": "[1]",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-8pna6sb1\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-8pna6sb1\\candidate.py\", line 31, in create_anagram\n    missing = calculate_missing_characters(freq_s, freq_t)\n  File \"D:\\Temp\\codeprm-8pna6sb1\\candidate.py\", line 22, in calculate_missing_characters\n    missing_characters[char] = freq_t[char] - freq_s[char]\n                                              ~~~~~~^^^^^^\nKeyError: 'C'\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-8pna6sb1\\runner.py\", line 12, in <module>\n    result = fn(*args)\n  File \"D:\\Temp\\codeprm-8pna6sb1\\candidate.py\", line 31, in create_anagram\n    missing = calculate_missing_characters(freq_s, freq_t)\n  File \"D:\\Temp\\codeprm-8pna6sb1\\candidate.py\", line 22, in calculate_missing_characters\n    missing_characters[char] = freq_t[char] - freq_s[char]\n                                              ~~~~~~^^^^^^\nKeyError: 'C'",
+                "timeout": false,
+                "duration_seconds": 0.082349
+              }
+            ],
+            "per_test_timeout_seconds": 10.0,
+            "candidate_timeout_seconds": 10.0,
+            "elapsed_seconds": 0.163433,
+            "budget_exhausted": false
+          },
+          "full_pass": false
+        }
+      ],
+      "pool_oracle_full_pass": true
+    }
+  }
+}

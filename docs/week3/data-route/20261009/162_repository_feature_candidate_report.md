@@ -8,4 +8,4 @@
 
 暴露纠正：P76执行后一次 `rg` 的排除tests通配写法未生效，输出了上游公开测试文件的约九条匹配行；随后读取了原公开D1_M04题面和公开例用于确认相关家族。没有读取D1隐藏内容、候选储备隐藏期望或模型提示，也没有用这些测试内容生成期望。该暴露已登记，不再声称“上游测试内容零暴露”；它不改变P76的执行结果，但禁止把该支路当作完全未见真值验证。
 
-证据：`codeprm-reproduction/experiments/d1_repository_feature_candidate_v1_20261009/` 下四项PR metadata、PR126文件名metadata、PR126 parent/merge非测试源码快照及本报告。外部记录来自GitHub公开API，查询时间为2026-10-09；许可证沿用当前 `confuse` manifest 的MIT标识，最终发布仍未授权。
+证据：`decomposition-bench/experiments/d1_repository_feature_candidate_v1_20261009/` 下四项PR metadata、PR126文件名metadata、PR126 parent/merge非测试源码快照及本报告。外部记录来自GitHub公开API，查询时间为2026-10-09；许可证沿用当前 `confuse` manifest 的MIT标识，最终发布仍未授权。

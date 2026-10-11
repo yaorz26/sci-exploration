@@ -27,11 +27,11 @@ D1 实验原本想回答：在同样的 token 预算下，让本地小模型先�
 | 内容 | 文件 |
 |---|---|
 | 人类可读的本页 | `PROJECT_ENTRY.md` |
-| 最终机器状态 | `codeprm-reproduction/.research-state/PROJECT_STATE.md` |
-| 最终计划与终止说明 | `codeprm-reproduction/.research-state/RESEARCH_PLAN.md` |
-| 追加式历史账本 | `codeprm-reproduction/.research-state/ledger.jsonl` |
-| 归档标记 | `codeprm-reproduction/.research-state/ARCHIVED_D1_20261011.md` |
-| 原始实验材料 | `codeprm-reproduction/experiments/` |
+| 最终机器状态 | `decomposition-bench/.research-state/PROJECT_STATE.md` |
+| 最终计划与终止说明 | `decomposition-bench/.research-state/RESEARCH_PLAN.md` |
+| 追加式历史账本 | `decomposition-bench/.research-state/ledger.jsonl` |
+| 归档标记 | `decomposition-bench/.research-state/ARCHIVED_D1_20261011.md` |
+| 原始实验材料 | `decomposition-bench/experiments/` |
 
 ## 治理状态
 

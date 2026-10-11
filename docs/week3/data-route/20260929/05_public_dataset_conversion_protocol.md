@@ -15,7 +15,7 @@ SHA-256（原始）`ac2f490a8fa0ca63d8b6d166821ca430a382dc04611209e2067a2714cc89
 | 5. 溯源 | 原始 SHA-256 + 数据集/仓库 URL + 许可证 + 任务序号 | `provenance.json`（含各输出文件哈希） |
 | 6. 输入变体 | 为实现"如何拆分"的三类对照，每题同时生成：`inputs.decompose_free`（只给类描述＋导入，模型自己决定拆分）与 `inputs.decompose_given`（给完整骨架 = 分解已给） | 两条输入都在 `tasks_public.jsonl` |
 | 7. 审计 | 24 题探索集逐题验证"参考实现 + 仅公开测试"与"参考实现 + 全部测试"都通过 | `experiments/wp4a_classeval_regression/split_check/split_check.json`（**24/24 通过**） |
-| 8. 单元测试 | 切分函数 6 个用例（含两处已修缺陷的回归用例） | `codeprm-reproduction/tests/test_classeval_split.py`（**6/6 通过**） |
+| 8. 单元测试 | 切分函数 6 个用例（含两处已修缺陷的回归用例） | `decomposition-bench/tests/test_classeval_split.py`（**6/6 通过**） |
 
 脚本：`scripts/wp4a_classeval/build_dataset_and_freeze.py`、`verify_split.py`；切分模块：`src/classeval_split.py`。
 

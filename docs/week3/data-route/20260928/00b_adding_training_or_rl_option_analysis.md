@@ -3,7 +3,7 @@
 日期：2026-09-28
 性质：**选项分析**，供用户/导师拍板。研究方向的结论性判断属用户/导师，本文件只提供证据与代价。
 触发：用户提问"那如果加入强化训练呢"。
-依据：`archive/pdftext/08_DecompRL.txt`（原文抽取）、`articles/extra/09_MoT.pdf` 阅读记录、本项目既有实验记录（`PROJECT_MEMORY.md`、`codeprm-reproduction/.research-state/PROJECT_STATE.md`）、`docs/week3/9.28数据集路线_分步执行与Agent移交文档.md` §14.3 与 `memory/project-contract.md` 第 8 条。
+依据：`archive/pdftext/08_DecompRL.txt`（原文抽取）、`articles/extra/09_MoT.pdf` 阅读记录、本项目既有实验记录（`PROJECT_MEMORY.md`、`decomposition-bench/.research-state/PROJECT_STATE.md`）、`docs/week3/9.28数据集路线_分步执行与Agent移交文档.md` §14.3 与 `memory/project-contract.md` 第 8 条。
 
 ---
 
@@ -41,7 +41,7 @@
 
 **读法**：DecompRL 的优势要到**每题 5 万 token 以上**才出现（5 万时 0.40 略高于 pass@8 的 0.39）；在 1 万 token 时它只有 0.25，**低于** GRPO 的 0.32 与 pass@8 的 0.31。原文还记录每份分解要评估 **m = 4096 个组合**（约为 nk+1 次模型调用的 80 倍），推理预算可到**每题 300 万 token**。
 
-**本机既有口径**（`codeprm-reproduction/reports/funprm_independent_confirmation_20260922.md`）：30 题 × 10 候选 = 300 次请求；prompt 151,580 / output 48,914 token；墙钟 1,817.6 秒（约 0.5 小时）。折算约 **163 输出 token/请求**，本项目此前记录约 **3.3k token/题**。
+**本机既有口径**（`decomposition-bench/reports/funprm_independent_confirmation_20260922.md`）：30 题 × 10 候选 = 300 次请求；prompt 151,580 / output 48,914 token；墙钟 1,817.6 秒（约 0.5 小时）。折算约 **163 输出 token/请求**，本项目此前记录约 **3.3k token/题**。
 
 **差距**：
 

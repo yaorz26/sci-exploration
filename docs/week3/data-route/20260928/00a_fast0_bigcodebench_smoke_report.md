@@ -5,10 +5,10 @@
 依据：`docs/week3/9.28数据集路线_分步执行与Agent移交文档.md` §四（FAST-0 定义）、§5--§8
 产物：
 - 本报告 `docs/week3/data-route/20260928/00a_fast0_bigcodebench_smoke_report.md`
-- 机器产物 `codeprm-reproduction/experiments/fast0_bigcodebench/fast0_smoke_manifest.json`（v1，装 pytz 前）
-- 机器产物 `codeprm-reproduction/experiments/fast0_bigcodebench/fast0_smoke_manifest_v2_pytz.json`（v2，装 pytz 后）
-- 脚本 `codeprm-reproduction/scripts/fast0_bigcodebench/inspect_dataset.py`、`run_reference_tests.py`
-- 原始数据 `codeprm-reproduction/data/raw/bigcodebench/v0.1.4/bigcodebench_v0.1.4_full.parquet`
+- 机器产物 `decomposition-bench/experiments/fast0_bigcodebench/fast0_smoke_manifest.json`（v1，装 pytz 前）
+- 机器产物 `decomposition-bench/experiments/fast0_bigcodebench/fast0_smoke_manifest_v2_pytz.json`（v2，装 pytz 后）
+- 脚本 `decomposition-bench/scripts/fast0_bigcodebench/inspect_dataset.py`、`run_reference_tests.py`
+- 原始数据 `decomposition-bench/data/raw/bigcodebench/v0.1.4/bigcodebench_v0.1.4_full.parquet`
 
 **本轮未做的事**：没有调用任何代码生成模型（LLM 调用数 = 0）、没有拉取 Docker 镜像、没有安装官方 `bigcodebench` 评测包、没有修改任何既有冻结产物、没有解除实验暂停。
 
@@ -36,7 +36,7 @@
 | 论文 | arXiv:2406.15877（HF 元数据 tag） |
 | 下载量记录 | 128,664（HF 记录） |
 | 原始文件 | `data/v0.1.4-00000-of-00001.parquet`，**2,362,110 字节（2.25 MiB）** |
-| 本次落盘 | `codeprm-reproduction/data/raw/bigcodebench/v0.1.4/bigcodebench_v0.1.4_full.parquet` |
+| 本次落盘 | `decomposition-bench/data/raw/bigcodebench/v0.1.4/bigcodebench_v0.1.4_full.parquet` |
 | 文件 SHA-256 | `d9a4965821c9507ebdfb551c288656b2d5fe553234f5183044333ca8a4018267` |
 | 下载时间（UTC） | 2026-09-28T06:31:05Z |
 
@@ -76,7 +76,7 @@
 
 | 项目 | 结果 |
 | --- | --- |
-| 工作目录 | `D:\yaorz\research\codeprm-reproduction\.venvs\bigcodebench_fast0`（**D 盘**） |
+| 工作目录 | `D:\yaorz\research\decomposition-bench\.venvs\bigcodebench_fast0`（**D 盘**） |
 | Python | 3.13.14（venv 内），pyarrow 25.0.1，pytz 2026.4，pip 26.2.1 |
 | PIP_CACHE_DIR | `D:\yaorz\research\.cache\pip`（**D 盘**） |
 | HF_HOME | `D:\yaorz\research\.cache\hf`（**D 盘**） |

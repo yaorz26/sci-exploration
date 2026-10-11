@@ -1,0 +1,26 @@
+{
+  "time": "2026-10-11T10:30:00Z",
+  "event_id": "d1-macro-v4-execution-and-final-delivery-20261011T103000Z",
+  "kind": "phase_review",
+  "phase": "G3-G5",
+  "stage": "D1-macro-v4-completion",
+  "status": "complete",
+  "summary": "按用户指令持续执行宏观 v4：G1 完成（16 行公开契约矩阵，11 覆盖/1 已补锚点/2 冻结/1 不可观察/1 不进分母）；G2 完成（K2 boltons.queueutils 队首语义 完整6/6、独立6/6、遗漏4/6；K3 boltons.urlutils 渲染双用途 完整5/5、独立5/5、遗漏4/5；cache 保持 pending）；G3 非人工部分完成（任务冻结、15 份材料哈希、盲审包与空白回收表就绪，20 槽位已填 0）；G3 因真实人工双审缺失未退出，故 G4 判定 no-go、G5 未执行，按 v4 §5 交付最终成果文档 234 号。",
+  "decision": "主问题 A 判定为不可回答；不给出 Δ、拆分收益、结构—收益关联或模型总体效果。研究池候选 3→5 项、可用包 2→4 个；formal_labels/split 保持 null。",
+  "evidence_kind": "artifact",
+  "evidence": [
+    "../docs/week3/data-route/20261011/234_g5_final_delivery_macro_v4.md",
+    "experiments/d1_G1_contract_freeze_v1_20261011/contract_matrix.json",
+    "experiments/d1_G2_gap_table_v1_20261011/gap_table.md",
+    "experiments/d1_G2_queue_history_candidate_v1_20261011/stage_result.json",
+    "experiments/d1_G2_url_dual_render_candidate_v1_20261011/stage_result.json",
+    "experiments/d1_G3_blind_review_gate_v1_20261011/freeze_manifest.json",
+    "experiments/d1_G3_blind_review_gate_v1_20261011/review_packet.json",
+    "experiments/d1_G3_blind_review_gate_v1_20261011/blank_review_form.json"
+  ],
+  "approval_required": false,
+  "supersedes": [],
+  "budget": "本轮模型调用 0；行为评价 33 次（自建公开用例）；下载 0；未新增付费/训练/RL；旧累计约 98/100 不变",
+  "uncertainty": "两个新候选为同助手构造、非独立人工真值；URL 候选首轮出现两处真实实现缺陷（%20→%2520、把 / 纳入完全引用编码）已记录；K2 候选的位置语义来自官方实现而官方文档只承诺更新优先级；cache 时点未解",
+  "next": "恢复主问题 A 的三条入口：人工双审完成并计算一致率；或单独授权并冻结模型身份/计量、补丁接口、每臂总 token 之一；或先做 G4 第一步只读归因/确定性夹具校准"
+}

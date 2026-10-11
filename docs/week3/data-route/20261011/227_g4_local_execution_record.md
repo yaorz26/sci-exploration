@@ -14,4 +14,4 @@ omission、正确补丁或上游测试；候选冻结后再评价。由于正式
 和 split 仍缺失，任何成功只标 `research_pool_only`，不用于估计主问题 A。
 
 执行命令和所有输出写入独立实验目录：
-`codeprm-reproduction/experiments/d1_G4_local_ollama_real_project_pair_v1_20261011/`。
+`decomposition-bench/experiments/d1_G4_local_ollama_real_project_pair_v1_20261011/`。

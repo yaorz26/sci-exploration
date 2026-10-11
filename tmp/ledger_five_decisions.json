@@ -1,0 +1,26 @@
+{
+  "time": "2026-10-11T14:10:00Z",
+  "event_id": "d1-decisions-1-2-3b-4-5b-executed-20261011T141000Z",
+  "kind": "phase_review",
+  "phase": "G3",
+  "stage": "D1-execute-five-decisions",
+  "status": "complete",
+  "summary": "执行决策方五项指示。① 决策2 完成：四个真实候选的上游保真度实测——QUEUE_K2 24/24 全一致；PR126 合并版 7/8、父版 2/8（5 处缺 API 证明功能真实新增），并据上游 docstring 原文改正了判定表（cwd 指定时无条件优先，原表顺序写反）；PR142 9/12，三处‘域外必须抛错’改为上游实测的‘不抛异常’；PR440 2/3，第三例惰性组改为先消费/先推进两个序列的对照。URL_K3 维持合成任务降级。② 候选版本冻结：真实项目功能 4 项 + 合成任务 1 项，19 份材料哈希齐全，无缺失。③ 决策1 采用二值缺陷清单（写入计划与后续流程）。④ 决策4 G4 执行暂缓，PROTOCOL.md 保留但不得当作 M0/M2 比较。⑤ 决策5b 已修订宏观计划：G3 人工审查登记为外部依赖未履行，允许边界交付，新增‘八之二 本轮完成定义＝边界交付完成’，并明确不包含正式数据集/正式标签/正式切分/A 的收益估计。",
+  "decision": "本轮完成定义＝边界交付完成；formal_labels/split 保持 null；主问题 A 固定为‘在当前资源、人工审查与完整候选条件下明确不可回答’；G4 模型执行保持暂停。",
+  "evidence_kind": "artifact",
+  "evidence": [
+    "experiments/d1_G3_fidelity_probe_v1_20261011/FIDELITY_SUMMARY.json",
+    "experiments/d1_G3_fidelity_probe_v1_20261011/fidelity_PR126.json",
+    "experiments/d1_G3_fidelity_probe_v1_20261011/fidelity_QUEUE_K2.json",
+    "experiments/d1_G3_fidelity_probe_v1_20261011/fidelity_PR142_PR440.json",
+    "experiments/d1_G3_fidelity_probe_v1_20261011/detail_probe.json",
+    "experiments/d1_G3_fidelity_probe_v1_20261011/candidate_freeze_v2.json",
+    ".research-state/RESEARCH_PLAN.md",
+    ".research-state/snapshots/RESEARCH_PLAN_before_decision5b_20261011T101643Z.md"
+  ],
+  "approval_required": false,
+  "supersedes": [],
+  "budget": "模型调用 0（全部为本地只读 Python 执行）；未新增付费/训练/RL；G4 未执行",
+  "uncertainty": "保真度实测覆盖的是各候选最具判定力的固定调用集，非全部行为空间；PR126 第 6 条与 PR440 第三例曾出现探针装置/顺序错误并已更正；二值缺陷清单复核尚未执行",
+  "next": "按决策 1 做二值缺陷清单复核（只核验已修条目）；随后冻结交付与治理检查"
+}

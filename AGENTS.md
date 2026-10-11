@@ -18,7 +18,7 @@
 
 ## 二、研究状态入口
 
-- 题目、主问题 A、成果与红线：`codeprm-reproduction/.research-state/RESEARCH_TARGET.md`（稳定件）。
+- 题目、主问题 A、成果与红线：`decomposition-bench/.research-state/RESEARCH_TARGET.md`（稳定件）。
 - 阶段顺序、纳入标准、资源算账与失败转向：同目录 `RESEARCH_PLAN.md`。
 - **当前在哪一步、待决项、下一步约束**：同目录 `PROJECT_STATE.md`。
 - **当前 D1 实验已结束并归档，不是暂停，也不等待原待决事项。** 原计划与未完成项仅供回查，不继续执行。

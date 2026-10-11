@@ -46,10 +46,10 @@ LRU与TTL同属缓存家族；来源仓库与任务类型目前混杂。部分�
 
 ## 复现与证据入口
 
-- 构建：`py -3.13 codeprm-reproduction/scripts/d1/build_dataset.py --version <新的未存在版本名>`；已有v4不得覆盖。
-- 具体语义缺陷检查：`py -3.13 codeprm-reproduction/scripts/d1/audit_semantic_mutants.py --dataset codeprm-reproduction/data/processed/d1_project_prototype8_v4_20261008 --output <新的未存在目录>`。
-- 数据：`codeprm-reproduction/data/processed/d1_project_prototype8_v4_20261008/`，含public/private、manifest；内部参考/隐藏测试不得进入模型提示。
-- 自动验收：`codeprm-reproduction/experiments/d1_project_prototype8_v4_20261008/`；缺陷检查：`experiments/d1_project_prototype8_mutants_v4_20261008/summary.json`。
+- 构建：`py -3.13 decomposition-bench/scripts/d1/build_dataset.py --version <新的未存在版本名>`；已有v4不得覆盖。
+- 具体语义缺陷检查：`py -3.13 decomposition-bench/scripts/d1/audit_semantic_mutants.py --dataset decomposition-bench/data/processed/d1_project_prototype8_v4_20261008 --output <新的未存在目录>`。
+- 数据：`decomposition-bench/data/processed/d1_project_prototype8_v4_20261008/`，含public/private、manifest；内部参考/隐藏测试不得进入模型提示。
+- 自动验收：`decomposition-bench/experiments/d1_project_prototype8_v4_20261008/`；缺陷检查：`experiments/d1_project_prototype8_mutants_v4_20261008/summary.json`。
 - 独立自动审查：`experiments/d1_project_prototype8_review_20261008/review_stdout_v3.txt`；不采纳的本地审查：`experiments/d1_project_prototype8_review_local_20261008/`、`experiments/d1_project_prototype8_review_local_retry_20261008/`。
 - 源码API文档：`experiments/d1_project_prototype8_source_evidence_20261008/`（针对功能来源，题面v4修订另见版本）；上游测试：`experiments/d1_upstream_tests_20261008/summary.json`。
 - 问题A测量方案：`06_question_A_measurement_design.md`；开发探针正式协议另存，不用本报告追溯修改生成结果。

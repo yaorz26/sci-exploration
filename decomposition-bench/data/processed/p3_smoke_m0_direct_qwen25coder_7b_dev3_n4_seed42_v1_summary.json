@@ -1,0 +1,32 @@
+{
+  "method": "direct",
+  "model": "qwen2.5-coder:7b",
+  "seed": 42,
+  "candidate_budget_per_problem": 4,
+  "problems": 3,
+  "generation_requests": 12,
+  "valid_generations": 12,
+  "unique_valid_generations": 12,
+  "duplicate_generations": 0,
+  "public_program_evaluations": 12,
+  "public_test_executions": 76,
+  "private_program_evaluations": 3,
+  "private_test_executions": 21,
+  "problems_with_candidate": 3,
+  "selected_public_pass": 1,
+  "selected_private_pass": 1,
+  "model_prompt_tokens": 5880,
+  "model_output_tokens": 1831,
+  "model_reported_seconds": 45.147,
+  "errors": {},
+  "completed_problem_ids": [
+    "apps-train-2651",
+    "apps-train-2652",
+    "apps-train-2653"
+  ],
+  "elapsed_seconds": 50.632,
+  "outputs": {
+    "generations": "data\\processed\\p3_smoke_m0_direct_qwen25coder_7b_dev3_n4_seed42_v1_generations.jsonl",
+    "evaluations": "data\\processed\\p3_smoke_m0_direct_qwen25coder_7b_dev3_n4_seed42_v1_evaluations.jsonl"
+  }
+}

@@ -5,7 +5,7 @@ import statistics
 from collections import defaultdict
 from pathlib import Path
 
-ROOT = Path(r"D:\yaorz\research\codeprm-reproduction")
+ROOT = Path(r"D:\yaorz\research\decomposition-bench")
 FB = ROOT / "data/processed/feedback_records_apps_train_intro50_qwen3b_seed42.jsonl"
 OUT = Path(r"D:\yaorz\research\阶段2_手工观察素材.md")
 
@@ -50,7 +50,7 @@ for pid, recs in by_problem.items():
 n = len(by_problem)
 lines = []
 lines.append("# 阶段 2 手工观察素材（train-50 seed42 冻结候选池）\n")
-lines.append("生成日期：2026-09-10　数据源：`codeprm-reproduction/data/processed/feedback_records_apps_train_intro50_qwen3b_seed42.jsonl`\n")
+lines.append("生成日期：2026-09-10　数据源：`decomposition-bench/data/processed/feedback_records_apps_train_intro50_qwen3b_seed42.jsonl`\n")
 lines.append("> 本文件只做机械整理：把代码、执行反馈、函数清单摊开。**判定列留空，由你手工填写。**\n")
 lines.append("> 候选顺序按代码内容排序，保证可复现；与生成顺序无关。\n")
 

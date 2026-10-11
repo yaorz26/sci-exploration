@@ -20,4 +20,4 @@ v1把probe_id放入问题单位domain，导致同一属性引用不同证据编�
 
 下一项P19把预算问题从通用占位计划推进到已保存的正确组件代码：相同6500总上限下，至少存在一条正确实现文本能容纳的四阶段方案吗？它能区分“分解文本本身装不下”与“装得下但模型未能产出”，同时检验回传无符号依赖的旧代码所占成本。只计量公开开发题和既有合法代码，不生成、不重评隐藏或改变正式流程。
 
-证据：`codeprm-reproduction/experiments/d1_granularity_review_v2_20261008/{measurement_unit_examples.json,logical_path_review.json,candidate_annotation_schema.json,review_summary.json}`；v1原提取与初版保留。程序`scripts/d1/analyze_granularity_review.py`，复现需新的输出版本。来源为先前保存的C04两关系和E_M06规范键关系，非新实验人群。
+证据：`decomposition-bench/experiments/d1_granularity_review_v2_20261008/{measurement_unit_examples.json,logical_path_review.json,candidate_annotation_schema.json,review_summary.json}`；v1原提取与初版保留。程序`scripts/d1/analyze_granularity_review.py`，复现需新的输出版本。来源为先前保存的C04两关系和E_M06规范键关系，非新实验人群。

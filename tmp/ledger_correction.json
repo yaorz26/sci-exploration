@@ -1,0 +1,21 @@
+{
+  "time": "2026-10-11T15:00:00Z",
+  "event_id": "d1-user-correction-basic-require-20261011T150000Z",
+  "kind": "decision",
+  "phase": "governance",
+  "stage": "user-correction-human-only-dir",
+  "status": "complete",
+  "summary": "用户纠正：助手违反『docs/basic-require/ 只允许人类修改、AI 不得写入』的项目规则，在该目录的 基本情况.md 开头插入了一行归档说明。已按原文逐字恢复（去掉该行），恢复后 27 行 / 1449 字节，sha256 1688d28abcfea856…。并新增机械防护：scripts/check_governance_integrity.py 记录 docs/basic-require/ 的文件哈希基线（scripts/human_only_baseline.json），任何内容变化或文件缺失都会使自检失败；已用反例验证（故意追加一个换行 → 自检退出码 1 并指出该文件被修改；恢复后自检通过）。",
+  "decision": "docs/basic-require/ 仍为人类专属：AI 不写入、不删除、不改名；只有人类可以修改，修改后由人类决定是否更新基线。",
+  "evidence_kind": "artifact",
+  "evidence": [
+    "docs/basic-require/基本情况.md",
+    "scripts/check_governance_integrity.py",
+    "scripts/human_only_baseline.json"
+  ],
+  "approval_required": false,
+  "supersedes": [],
+  "budget": "零模型调用；未改动研究证据",
+  "uncertainty": "用户澄清：所指的『9-28 更新』就是文件里的『9.27更新』那一段（2026-09-28 12:39 写入）；该文件从未存在 9.28 小节",
+  "next": "等待用户就重新审定研究目标的五项决策回复"
+}

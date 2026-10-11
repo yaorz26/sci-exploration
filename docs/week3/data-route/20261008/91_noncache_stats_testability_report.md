@@ -28,4 +28,4 @@
 
 新方案在[1,1,5]上的方差分别为3.555555555555556和3.5555555555555554，差4.440892098500626e-16。解析上两者均对应32/9，但原精确JSON比较可能区分它们。故下一P43先检查候选数值判定与内部结构自由的相容范围，不扩更多统计格；不得给原20静默加容差或借此改旧成绩。
 
-保留负面/过强解释，补充明确纠正。原始目录：`codeprm-reproduction/experiments/d1_noncache_stats_testability_v1_20261008/`及`d1_noncache_stats_alternative_order_v1_20261008/`。模型/API/新增下载/隐藏读取0，人工0；新输入7个而非原数据新增7条案例，原测试与正式冻结保持。
+保留负面/过强解释，补充明确纠正。原始目录：`decomposition-bench/experiments/d1_noncache_stats_testability_v1_20261008/`及`d1_noncache_stats_alternative_order_v1_20261008/`。模型/API/新增下载/隐藏读取0，人工0；新输入7个而非原数据新增7条案例，原测试与正式冻结保持。

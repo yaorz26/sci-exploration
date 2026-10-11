@@ -1,0 +1,5634 @@
+{
+  "summary": [
+    {
+      "method": "first",
+      "num_problems": 20,
+      "pass_rate": 0.325,
+      "pass_at_1": 0.3,
+      "avg_executions": 12.0
+    },
+    {
+      "method": "random",
+      "num_problems": 20,
+      "pass_rate": 0.225,
+      "pass_at_1": 0.15,
+      "avg_executions": 12.0
+    },
+    {
+      "method": "public_pass_rate",
+      "num_problems": 20,
+      "pass_rate": 1.0,
+      "pass_at_1": 1.0,
+      "avg_executions": 12.0
+    },
+    {
+      "method": "private_oracle",
+      "num_problems": 20,
+      "pass_rate": 1.0,
+      "pass_at_1": 1.0,
+      "avg_executions": 12.0
+    }
+  ],
+  "problems": [
+    {
+      "problem_id": "offline-001",
+      "question": "Read two integers and print their sum.",
+      "method": "first",
+      "selected": {
+        "candidate_id": 0,
+        "code": "a,b=map(int,input().split()); print(a+b)",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1069352437,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "3",
+                "actual": "3\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.041776
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "6",
+                "actual": "6\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.032258
+              },
+              {
+                "passed": 1,
+                "expected": "0",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.034209
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-002",
+      "question": "Read two integers and print the first minus the second.",
+      "method": "first",
+      "selected": {
+        "candidate_id": 0,
+        "code": "print(0)",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 837700760,
+        "execution": {
+          "public": {
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "5",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.045454
+              }
+            ]
+          },
+          "private": {
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "-7",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.044231
+              },
+              {
+                "passed": 0,
+                "expected": "1",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.0395
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-003",
+      "question": "Read two integers and print their product.",
+      "method": "first",
+      "selected": {
+        "candidate_id": 0,
+        "code": "a,b=map(int,input().split()); print(a*b)",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 746724127,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "12",
+                "actual": "12\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.042107
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "-10",
+                "actual": "-10\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.039868
+              },
+              {
+                "passed": 1,
+                "expected": "0",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.039934
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-004",
+      "question": "Print YES if the integer is even, otherwise NO.",
+      "method": "first",
+      "selected": {
+        "candidate_id": 0,
+        "code": "n=int(input()); print('YES' if n%2==0 else 'NO')",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 2043284719,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "YES",
+                "actual": "YES\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.0403
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "NO",
+                "actual": "NO\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.039104
+              },
+              {
+                "passed": 1,
+                "expected": "YES",
+                "actual": "YES\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.039791
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-005",
+      "question": "Print the larger of two integers.",
+      "method": "first",
+      "selected": {
+        "candidate_id": 0,
+        "code": "print(0)",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1717161656,
+        "execution": {
+          "public": {
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "8",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.038013
+              }
+            ]
+          },
+          "private": {
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "9",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.03945
+              },
+              {
+                "passed": 0,
+                "expected": "-1",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.040056
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-006",
+      "question": "Print the smallest of three integers.",
+      "method": "first",
+      "selected": {
+        "candidate_id": 0,
+        "code": "a=list(map(int,input().split())); print(max(a))",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 710229385,
+        "execution": {
+          "public": {
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "1",
+                "actual": "8\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.035814
+              }
+            ]
+          },
+          "private": {
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "2",
+                "actual": "9\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.036431
+              },
+              {
+                "passed": 0,
+                "expected": "-4",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.037809
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-007",
+      "question": "Print the absolute value of an integer.",
+      "method": "first",
+      "selected": {
+        "candidate_id": 0,
+        "code": "raise RuntimeError('candidate failure')",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1150765020,
+        "execution": {
+          "public": {
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "error_type": "runtime_error",
+            "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-h_xbkoza\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "4",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-h_xbkoza\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-h_xbkoza\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.056956
+              }
+            ]
+          },
+          "private": {
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "error_type": "runtime_error",
+            "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-6_m7gse_\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "8",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-6_m7gse_\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-6_m7gse_\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.057461
+              },
+              {
+                "passed": 0,
+                "expected": "0",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-rxntokzi\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-rxntokzi\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.058775
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-008",
+      "question": "Print n squared.",
+      "method": "first",
+      "selected": {
+        "candidate_id": 0,
+        "code": "n=int(input()); print(2*n)",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 205798483,
+        "execution": {
+          "public": {
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "16",
+                "actual": "8\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.036068
+              }
+            ]
+          },
+          "private": {
+            "passed": 1,
+            "total": 2,
+            "pass_rate": 0.5,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "9",
+                "actual": "-6\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.035729
+              },
+              {
+                "passed": 1,
+                "expected": "0",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.040431
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-009",
+      "question": "Read a word and print its length.",
+      "method": "first",
+      "selected": {
+        "candidate_id": 0,
+        "code": "raise RuntimeError('candidate failure')",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 724765396,
+        "execution": {
+          "public": {
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "error_type": "runtime_error",
+            "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-h104yv0p\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "5",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-h104yv0p\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-h104yv0p\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.061658
+              }
+            ]
+          },
+          "private": {
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "error_type": "runtime_error",
+            "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-xs98ergg\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "1",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-xs98ergg\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-xs98ergg\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.064838
+              },
+              {
+                "passed": 0,
+                "expected": "4",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-tx_obbi1\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-tx_obbi1\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.057579
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-010",
+      "question": "Count lowercase vowels in a word.",
+      "method": "first",
+      "selected": {
+        "candidate_id": 0,
+        "code": "raise RuntimeError('candidate failure')",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 981554620,
+        "execution": {
+          "public": {
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "error_type": "runtime_error",
+            "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-c7svean4\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "2",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-c7svean4\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-c7svean4\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.062419
+              }
+            ]
+          },
+          "private": {
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "error_type": "runtime_error",
+            "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-zz7uvxc5\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "5",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-zz7uvxc5\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-zz7uvxc5\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.063328
+              },
+              {
+                "passed": 0,
+                "expected": "0",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-ue7ii4wl\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-ue7ii4wl\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.069299
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-011",
+      "question": "Print the input word reversed.",
+      "method": "first",
+      "selected": {
+        "candidate_id": 0,
+        "code": "raise RuntimeError('candidate failure')",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1992477244,
+        "execution": {
+          "public": {
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "error_type": "runtime_error",
+            "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-l2agpp75\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "cba",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-l2agpp75\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-l2agpp75\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.062866
+              }
+            ]
+          },
+          "private": {
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "error_type": "runtime_error",
+            "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-n4goh0se\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "ecar",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-n4goh0se\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-n4goh0se\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.057613
+              },
+              {
+                "passed": 0,
+                "expected": "x",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-q9xjaxd6\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-q9xjaxd6\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.061988
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-012",
+      "question": "Print YES if the word is a palindrome, otherwise NO.",
+      "method": "first",
+      "selected": {
+        "candidate_id": 0,
+        "code": "s=input().strip(); print('YES' if s==s[::-1] else 'NO')",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 843025465,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "YES",
+                "actual": "YES\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.035211
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "NO",
+                "actual": "NO\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.039962
+              },
+              {
+                "passed": 1,
+                "expected": "YES",
+                "actual": "YES\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.046836
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-013",
+      "question": "Read n followed by n integers and print their sum.",
+      "method": "first",
+      "selected": {
+        "candidate_id": 0,
+        "code": "raise RuntimeError('candidate failure')",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1615096608,
+        "execution": {
+          "public": {
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "error_type": "runtime_error",
+            "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-2nic1zyg\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "6",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-2nic1zyg\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-2nic1zyg\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.060075
+              }
+            ]
+          },
+          "private": {
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "error_type": "runtime_error",
+            "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-79d976x8\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "6",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-79d976x8\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-79d976x8\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.061241
+              },
+              {
+                "passed": 0,
+                "expected": "9",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-z6krt24q\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-z6krt24q\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.062384
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-014",
+      "question": "Read three integers and print their integer average.",
+      "method": "first",
+      "selected": {
+        "candidate_id": 0,
+        "code": "a=list(map(int,input().split())); print(sum(a))",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 865351605,
+        "execution": {
+          "public": {
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "2",
+                "actual": "6\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.036375
+              }
+            ]
+          },
+          "private": {
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "3",
+                "actual": "9\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.042032
+              },
+              {
+                "passed": 0,
+                "expected": "0",
+                "actual": "2\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.039333
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-015",
+      "question": "Print n factorial for n between 0 and 8.",
+      "method": "first",
+      "selected": {
+        "candidate_id": 0,
+        "code": "print(0)",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1971453942,
+        "execution": {
+          "public": {
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "1",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.034612
+              }
+            ]
+          },
+          "private": {
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "24",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.036755
+              },
+              {
+                "passed": 0,
+                "expected": "120",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.03331
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-016",
+      "question": "Print YES if a is divisible by b, otherwise NO.",
+      "method": "first",
+      "selected": {
+        "candidate_id": 0,
+        "code": "a,b=map(int,input().split()); print('YES' if a%b==0 else 'NO')",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1197982879,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "YES",
+                "actual": "YES\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.039239
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "NO",
+                "actual": "NO\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.036403
+              },
+              {
+                "passed": 1,
+                "expected": "YES",
+                "actual": "YES\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.039182
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-017",
+      "question": "Print the sum of decimal digits of a nonnegative integer.",
+      "method": "first",
+      "selected": {
+        "candidate_id": 0,
+        "code": "print(sum(map(int,input().strip())))",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 2053982373,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "6",
+                "actual": "6\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.035565
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "9",
+                "actual": "9\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.032833
+              },
+              {
+                "passed": 1,
+                "expected": "1",
+                "actual": "1\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.034018
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-018",
+      "question": "Read integers and print them in ascending order separated by spaces.",
+      "method": "first",
+      "selected": {
+        "candidate_id": 0,
+        "code": "print(0)",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 389849183,
+        "execution": {
+          "public": {
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "1 2 3",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.036197
+              }
+            ]
+          },
+          "private": {
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "-1 0 5",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.033786
+              },
+              {
+                "passed": 0,
+                "expected": "1 2 2",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.036067
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-019",
+      "question": "Read three distinct integers and print the second largest.",
+      "method": "first",
+      "selected": {
+        "candidate_id": 0,
+        "code": "raise RuntimeError('candidate failure')",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 437579507,
+        "execution": {
+          "public": {
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "error_type": "runtime_error",
+            "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-9dgqvrxi\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "2",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-9dgqvrxi\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-9dgqvrxi\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.059952
+              }
+            ]
+          },
+          "private": {
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "error_type": "runtime_error",
+            "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-1q8vpk9f\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "7",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-1q8vpk9f\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-1q8vpk9f\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.055137
+              },
+              {
+                "passed": 0,
+                "expected": "-2",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-03e295a3\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-03e295a3\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.054958
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-020",
+      "question": "Read two integers a b and print 2*a+3*b.",
+      "method": "first",
+      "selected": {
+        "candidate_id": 0,
+        "code": "raise RuntimeError('candidate failure')",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1510481228,
+        "execution": {
+          "public": {
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "error_type": "runtime_error",
+            "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-ctw6aik8\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "8",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-ctw6aik8\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-ctw6aik8\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.059798
+              }
+            ]
+          },
+          "private": {
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "error_type": "runtime_error",
+            "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-0ezqe3sk\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "12",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-0ezqe3sk\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-0ezqe3sk\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.056706
+              },
+              {
+                "passed": 0,
+                "expected": "1",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-o61zgkk9\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-o61zgkk9\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.055173
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-001",
+      "question": "Read two integers and print their sum.",
+      "method": "random",
+      "selected": {
+        "candidate_id": 0,
+        "code": "a,b=map(int,input().split()); print(a+b)",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1069352437,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "3",
+                "actual": "3\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.041776
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "6",
+                "actual": "6\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.032258
+              },
+              {
+                "passed": 1,
+                "expected": "0",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.034209
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-002",
+      "question": "Read two integers and print the first minus the second.",
+      "method": "random",
+      "selected": {
+        "candidate_id": 0,
+        "code": "print(0)",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 837700760,
+        "execution": {
+          "public": {
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "5",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.045454
+              }
+            ]
+          },
+          "private": {
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "-7",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.044231
+              },
+              {
+                "passed": 0,
+                "expected": "1",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.0395
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-003",
+      "question": "Read two integers and print their product.",
+      "method": "random",
+      "selected": {
+        "candidate_id": 2,
+        "code": "print(0)",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1167699862,
+        "execution": {
+          "public": {
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "12",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.042653
+              }
+            ]
+          },
+          "private": {
+            "passed": 1,
+            "total": 2,
+            "pass_rate": 0.5,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "-10",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.038739
+              },
+              {
+                "passed": 1,
+                "expected": "0",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.041177
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 2,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-004",
+      "question": "Print YES if the integer is even, otherwise NO.",
+      "method": "random",
+      "selected": {
+        "candidate_id": 1,
+        "code": "n=int(input()); print('YES' if n%2 else 'NO')",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1561374190,
+        "execution": {
+          "public": {
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "YES",
+                "actual": "NO\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.036456
+              }
+            ]
+          },
+          "private": {
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "NO",
+                "actual": "YES\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.039192
+              },
+              {
+                "passed": 0,
+                "expected": "YES",
+                "actual": "NO\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.046739
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 1,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-005",
+      "question": "Print the larger of two integers.",
+      "method": "random",
+      "selected": {
+        "candidate_id": 1,
+        "code": "raise RuntimeError('candidate failure')",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1556388203,
+        "execution": {
+          "public": {
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "error_type": "runtime_error",
+            "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-n_qqyvnd\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "8",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-n_qqyvnd\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-n_qqyvnd\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.06709
+              }
+            ]
+          },
+          "private": {
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "error_type": "runtime_error",
+            "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-g3zdhxyg\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "9",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-g3zdhxyg\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-g3zdhxyg\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.066382
+              },
+              {
+                "passed": 0,
+                "expected": "-1",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-dev2f4ks\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-dev2f4ks\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.061743
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 1,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-006",
+      "question": "Print the smallest of three integers.",
+      "method": "random",
+      "selected": {
+        "candidate_id": 1,
+        "code": "print(0)",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 540404590,
+        "execution": {
+          "public": {
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "1",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.037147
+              }
+            ]
+          },
+          "private": {
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "2",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.041512
+              },
+              {
+                "passed": 0,
+                "expected": "-4",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.03576
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 1,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-007",
+      "question": "Print the absolute value of an integer.",
+      "method": "random",
+      "selected": {
+        "candidate_id": 0,
+        "code": "raise RuntimeError('candidate failure')",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1150765020,
+        "execution": {
+          "public": {
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "error_type": "runtime_error",
+            "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-h_xbkoza\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "4",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-h_xbkoza\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-h_xbkoza\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.056956
+              }
+            ]
+          },
+          "private": {
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "error_type": "runtime_error",
+            "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-6_m7gse_\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "8",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-6_m7gse_\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-6_m7gse_\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.057461
+              },
+              {
+                "passed": 0,
+                "expected": "0",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-rxntokzi\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-rxntokzi\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.058775
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-008",
+      "question": "Print n squared.",
+      "method": "random",
+      "selected": {
+        "candidate_id": 0,
+        "code": "n=int(input()); print(2*n)",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 205798483,
+        "execution": {
+          "public": {
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "16",
+                "actual": "8\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.036068
+              }
+            ]
+          },
+          "private": {
+            "passed": 1,
+            "total": 2,
+            "pass_rate": 0.5,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "9",
+                "actual": "-6\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.035729
+              },
+              {
+                "passed": 1,
+                "expected": "0",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.040431
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-009",
+      "question": "Read a word and print its length.",
+      "method": "random",
+      "selected": {
+        "candidate_id": 3,
+        "code": "print(0)",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 451866325,
+        "execution": {
+          "public": {
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "5",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.03661
+              }
+            ]
+          },
+          "private": {
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "1",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.034887
+              },
+              {
+                "passed": 0,
+                "expected": "4",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.035037
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 3,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-010",
+      "question": "Count lowercase vowels in a word.",
+      "method": "random",
+      "selected": {
+        "candidate_id": 0,
+        "code": "raise RuntimeError('candidate failure')",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 981554620,
+        "execution": {
+          "public": {
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "error_type": "runtime_error",
+            "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-c7svean4\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "2",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-c7svean4\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-c7svean4\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.062419
+              }
+            ]
+          },
+          "private": {
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "error_type": "runtime_error",
+            "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-zz7uvxc5\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "5",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-zz7uvxc5\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-zz7uvxc5\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.063328
+              },
+              {
+                "passed": 0,
+                "expected": "0",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-ue7ii4wl\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-ue7ii4wl\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.069299
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-011",
+      "question": "Print the input word reversed.",
+      "method": "random",
+      "selected": {
+        "candidate_id": 0,
+        "code": "raise RuntimeError('candidate failure')",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1992477244,
+        "execution": {
+          "public": {
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "error_type": "runtime_error",
+            "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-l2agpp75\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "cba",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-l2agpp75\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-l2agpp75\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.062866
+              }
+            ]
+          },
+          "private": {
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "error_type": "runtime_error",
+            "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-n4goh0se\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "ecar",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-n4goh0se\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-n4goh0se\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.057613
+              },
+              {
+                "passed": 0,
+                "expected": "x",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-q9xjaxd6\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-q9xjaxd6\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.061988
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-012",
+      "question": "Print YES if the word is a palindrome, otherwise NO.",
+      "method": "random",
+      "selected": {
+        "candidate_id": 0,
+        "code": "s=input().strip(); print('YES' if s==s[::-1] else 'NO')",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 843025465,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "YES",
+                "actual": "YES\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.035211
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "NO",
+                "actual": "NO\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.039962
+              },
+              {
+                "passed": 1,
+                "expected": "YES",
+                "actual": "YES\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.046836
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-013",
+      "question": "Read n followed by n integers and print their sum.",
+      "method": "random",
+      "selected": {
+        "candidate_id": 1,
+        "code": "d=list(map(int,input().split()))+list(map(int,input().split())); print(sum(d[1:]))",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1227543766,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "6",
+                "actual": "6\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.03534
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "6",
+                "actual": "6\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.036267
+              },
+              {
+                "passed": 1,
+                "expected": "9",
+                "actual": "9\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.035357
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 1,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-014",
+      "question": "Read three integers and print their integer average.",
+      "method": "random",
+      "selected": {
+        "candidate_id": 1,
+        "code": "print(0)",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1483332785,
+        "execution": {
+          "public": {
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "2",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.04937
+              }
+            ]
+          },
+          "private": {
+            "passed": 1,
+            "total": 2,
+            "pass_rate": 0.5,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "3",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.050093
+              },
+              {
+                "passed": 1,
+                "expected": "0",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.045121
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 1,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-015",
+      "question": "Print n factorial for n between 0 and 8.",
+      "method": "random",
+      "selected": {
+        "candidate_id": 0,
+        "code": "print(0)",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1971453942,
+        "execution": {
+          "public": {
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "1",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.034612
+              }
+            ]
+          },
+          "private": {
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "24",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.036755
+              },
+              {
+                "passed": 0,
+                "expected": "120",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.03331
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-016",
+      "question": "Print YES if a is divisible by b, otherwise NO.",
+      "method": "random",
+      "selected": {
+        "candidate_id": 1,
+        "code": "a,b=map(int,input().split()); print('YES' if a//b else 'NO')",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 472705162,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "YES",
+                "actual": "YES\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.041776
+              }
+            ]
+          },
+          "private": {
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "NO",
+                "actual": "YES\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.045191
+              },
+              {
+                "passed": 0,
+                "expected": "YES",
+                "actual": "NO\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.038411
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 1,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-017",
+      "question": "Print the sum of decimal digits of a nonnegative integer.",
+      "method": "random",
+      "selected": {
+        "candidate_id": 3,
+        "code": "raise RuntimeError('candidate failure')",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1026329165,
+        "execution": {
+          "public": {
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "error_type": "runtime_error",
+            "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-1nkd6u2l\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "6",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-1nkd6u2l\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-1nkd6u2l\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.054057
+              }
+            ]
+          },
+          "private": {
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "error_type": "runtime_error",
+            "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-13p8ayww\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "9",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-13p8ayww\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-13p8ayww\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.062336
+              },
+              {
+                "passed": 0,
+                "expected": "1",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-w_4t_lio\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-w_4t_lio\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.055391
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 3,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-018",
+      "question": "Read integers and print them in ascending order separated by spaces.",
+      "method": "random",
+      "selected": {
+        "candidate_id": 1,
+        "code": "raise RuntimeError('candidate failure')",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 792313232,
+        "execution": {
+          "public": {
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "error_type": "runtime_error",
+            "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-gez3ny4a\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "1 2 3",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-gez3ny4a\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-gez3ny4a\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.057226
+              }
+            ]
+          },
+          "private": {
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "error_type": "runtime_error",
+            "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-n1fmqjf0\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "-1 0 5",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-n1fmqjf0\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-n1fmqjf0\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.056837
+              },
+              {
+                "passed": 0,
+                "expected": "1 2 2",
+                "actual": "",
+                "stderr": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-jl2jaqnr\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure\n",
+                "error_type": "runtime_error",
+                "message": "Traceback (most recent call last):\n  File \"D:\\Temp\\codeprm-jl2jaqnr\\candidate.py\", line 1, in <module>\n    raise RuntimeError('candidate failure')\nRuntimeError: candidate failure",
+                "timeout": false,
+                "duration_seconds": 0.055814
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 1,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-019",
+      "question": "Read three distinct integers and print the second largest.",
+      "method": "random",
+      "selected": {
+        "candidate_id": 3,
+        "code": "print(0)",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1845593535,
+        "execution": {
+          "public": {
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "2",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.035182
+              }
+            ]
+          },
+          "private": {
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "7",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.037676
+              },
+              {
+                "passed": 0,
+                "expected": "-2",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.033837
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 3,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-020",
+      "question": "Read two integers a b and print 2*a+3*b.",
+      "method": "random",
+      "selected": {
+        "candidate_id": 2,
+        "code": "a,b=map(int,input().split()); print(2*a+2*b)",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1904508356,
+        "execution": {
+          "public": {
+            "passed": 0,
+            "total": 1,
+            "pass_rate": 0.0,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "8",
+                "actual": "6\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.034048
+              }
+            ]
+          },
+          "private": {
+            "passed": 0,
+            "total": 2,
+            "pass_rate": 0.0,
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 0,
+                "expected": "12",
+                "actual": "8\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.039443
+              },
+              {
+                "passed": 0,
+                "expected": "1",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": "wrong_answer",
+                "message": "output mismatch",
+                "timeout": false,
+                "duration_seconds": 0.042333
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 2,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-001",
+      "question": "Read two integers and print their sum.",
+      "method": "public_pass_rate",
+      "selected": {
+        "candidate_id": 0,
+        "code": "a,b=map(int,input().split()); print(a+b)",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1069352437,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "3",
+                "actual": "3\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.041776
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "6",
+                "actual": "6\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.032258
+              },
+              {
+                "passed": 1,
+                "expected": "0",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.034209
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-002",
+      "question": "Read two integers and print the first minus the second.",
+      "method": "public_pass_rate",
+      "selected": {
+        "candidate_id": 2,
+        "code": "a,b=map(int,input().split()); print(a-b)",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1202306232,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "5",
+                "actual": "5\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.040491
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "-7",
+                "actual": "-7\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.040806
+              },
+              {
+                "passed": 1,
+                "expected": "1",
+                "actual": "1\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.048632
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 2,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-003",
+      "question": "Read two integers and print their product.",
+      "method": "public_pass_rate",
+      "selected": {
+        "candidate_id": 0,
+        "code": "a,b=map(int,input().split()); print(a*b)",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 746724127,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "12",
+                "actual": "12\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.042107
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "-10",
+                "actual": "-10\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.039868
+              },
+              {
+                "passed": 1,
+                "expected": "0",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.039934
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-004",
+      "question": "Print YES if the integer is even, otherwise NO.",
+      "method": "public_pass_rate",
+      "selected": {
+        "candidate_id": 0,
+        "code": "n=int(input()); print('YES' if n%2==0 else 'NO')",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 2043284719,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "YES",
+                "actual": "YES\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.0403
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "NO",
+                "actual": "NO\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.039104
+              },
+              {
+                "passed": 1,
+                "expected": "YES",
+                "actual": "YES\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.039791
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-005",
+      "question": "Print the larger of two integers.",
+      "method": "public_pass_rate",
+      "selected": {
+        "candidate_id": 2,
+        "code": "a,b=map(int,input().split()); print(max(a,b))",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 836837736,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "8",
+                "actual": "8\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.041476
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "9",
+                "actual": "9\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.03661
+              },
+              {
+                "passed": 1,
+                "expected": "-1",
+                "actual": "-1\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.039342
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 2,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-006",
+      "question": "Print the smallest of three integers.",
+      "method": "public_pass_rate",
+      "selected": {
+        "candidate_id": 3,
+        "code": "a=list(map(int,input().split())); print(min(a))",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 174002706,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "1",
+                "actual": "1\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.034911
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "2",
+                "actual": "2\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.036184
+              },
+              {
+                "passed": 1,
+                "expected": "-4",
+                "actual": "-4\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.035562
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 3,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-007",
+      "question": "Print the absolute value of an integer.",
+      "method": "public_pass_rate",
+      "selected": {
+        "candidate_id": 1,
+        "code": "print(abs(int(input())))",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 736181340,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "4",
+                "actual": "4\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.035082
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "8",
+                "actual": "8\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.034536
+              },
+              {
+                "passed": 1,
+                "expected": "0",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.041142
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 1,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-008",
+      "question": "Print n squared.",
+      "method": "public_pass_rate",
+      "selected": {
+        "candidate_id": 3,
+        "code": "n=int(input()); print(n*n)",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 486737299,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "16",
+                "actual": "16\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.036001
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "9",
+                "actual": "9\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.033979
+              },
+              {
+                "passed": 1,
+                "expected": "0",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.034753
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 3,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-009",
+      "question": "Read a word and print its length.",
+      "method": "public_pass_rate",
+      "selected": {
+        "candidate_id": 1,
+        "code": "print(len(input().strip()))",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 373119262,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "5",
+                "actual": "5\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.033996
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "1",
+                "actual": "1\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.039639
+              },
+              {
+                "passed": 1,
+                "expected": "4",
+                "actual": "4\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.035206
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 1,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-010",
+      "question": "Count lowercase vowels in a word.",
+      "method": "public_pass_rate",
+      "selected": {
+        "candidate_id": 1,
+        "code": "s=input().strip(); print(sum(c in 'aeiou' for c in s))",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1700585142,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "2",
+                "actual": "2\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.037313
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "5",
+                "actual": "5\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.039202
+              },
+              {
+                "passed": 1,
+                "expected": "0",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.035829
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 1,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-011",
+      "question": "Print the input word reversed.",
+      "method": "public_pass_rate",
+      "selected": {
+        "candidate_id": 1,
+        "code": "print(input().strip()[::-1])",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1390287576,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "cba",
+                "actual": "cba\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.040354
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "ecar",
+                "actual": "ecar\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.03361
+              },
+              {
+                "passed": 1,
+                "expected": "x",
+                "actual": "x\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.034725
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 1,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-012",
+      "question": "Print YES if the word is a palindrome, otherwise NO.",
+      "method": "public_pass_rate",
+      "selected": {
+        "candidate_id": 0,
+        "code": "s=input().strip(); print('YES' if s==s[::-1] else 'NO')",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 843025465,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "YES",
+                "actual": "YES\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.035211
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "NO",
+                "actual": "NO\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.039962
+              },
+              {
+                "passed": 1,
+                "expected": "YES",
+                "actual": "YES\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.046836
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-013",
+      "question": "Read n followed by n integers and print their sum.",
+      "method": "public_pass_rate",
+      "selected": {
+        "candidate_id": 1,
+        "code": "d=list(map(int,input().split()))+list(map(int,input().split())); print(sum(d[1:]))",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1227543766,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "6",
+                "actual": "6\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.03534
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "6",
+                "actual": "6\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.036267
+              },
+              {
+                "passed": 1,
+                "expected": "9",
+                "actual": "9\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.035357
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 1,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-014",
+      "question": "Read three integers and print their integer average.",
+      "method": "public_pass_rate",
+      "selected": {
+        "candidate_id": 3,
+        "code": "a=list(map(int,input().split())); print(sum(a)//len(a))",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1203322700,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "2",
+                "actual": "2\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.035121
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "3",
+                "actual": "3\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.035525
+              },
+              {
+                "passed": 1,
+                "expected": "0",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.035261
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 3,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-015",
+      "question": "Print n factorial for n between 0 and 8.",
+      "method": "public_pass_rate",
+      "selected": {
+        "candidate_id": 2,
+        "code": "import math; print(math.factorial(int(input())))",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1837422102,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "1",
+                "actual": "1\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.036092
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "24",
+                "actual": "24\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.03483
+              },
+              {
+                "passed": 1,
+                "expected": "120",
+                "actual": "120\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.037119
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 2,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-016",
+      "question": "Print YES if a is divisible by b, otherwise NO.",
+      "method": "public_pass_rate",
+      "selected": {
+        "candidate_id": 0,
+        "code": "a,b=map(int,input().split()); print('YES' if a%b==0 else 'NO')",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1197982879,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "YES",
+                "actual": "YES\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.039239
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "NO",
+                "actual": "NO\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.036403
+              },
+              {
+                "passed": 1,
+                "expected": "YES",
+                "actual": "YES\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.039182
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-017",
+      "question": "Print the sum of decimal digits of a nonnegative integer.",
+      "method": "public_pass_rate",
+      "selected": {
+        "candidate_id": 0,
+        "code": "print(sum(map(int,input().strip())))",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 2053982373,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "6",
+                "actual": "6\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.035565
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "9",
+                "actual": "9\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.032833
+              },
+              {
+                "passed": 1,
+                "expected": "1",
+                "actual": "1\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.034018
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-018",
+      "question": "Read integers and print them in ascending order separated by spaces.",
+      "method": "public_pass_rate",
+      "selected": {
+        "candidate_id": 2,
+        "code": "print(*sorted(map(int,input().split())))",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 564440526,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "1 2 3",
+                "actual": "1 2 3\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.03567
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "-1 0 5",
+                "actual": "-1 0 5\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.03377
+              },
+              {
+                "passed": 1,
+                "expected": "1 2 2",
+                "actual": "1 2 2\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.034769
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 2,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-019",
+      "question": "Read three distinct integers and print the second largest.",
+      "method": "public_pass_rate",
+      "selected": {
+        "candidate_id": 1,
+        "code": "a=sorted(map(int,input().split())); print(a[-2])",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 2120608351,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "2",
+                "actual": "2\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.034633
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "7",
+                "actual": "7\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.036919
+              },
+              {
+                "passed": 1,
+                "expected": "-2",
+                "actual": "-2\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.032934
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 1,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-020",
+      "question": "Read two integers a b and print 2*a+3*b.",
+      "method": "public_pass_rate",
+      "selected": {
+        "candidate_id": 1,
+        "code": "a,b=map(int,input().split()); print(2*a+3*b)",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1689068322,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "8",
+                "actual": "8\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.03192
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "12",
+                "actual": "12\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.034273
+              },
+              {
+                "passed": 1,
+                "expected": "1",
+                "actual": "1\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.038839
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 1,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-001",
+      "question": "Read two integers and print their sum.",
+      "method": "private_oracle",
+      "selected": {
+        "candidate_id": 0,
+        "code": "a,b=map(int,input().split()); print(a+b)",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1069352437,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "3",
+                "actual": "3\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.041776
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "6",
+                "actual": "6\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.032258
+              },
+              {
+                "passed": 1,
+                "expected": "0",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.034209
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-002",
+      "question": "Read two integers and print the first minus the second.",
+      "method": "private_oracle",
+      "selected": {
+        "candidate_id": 2,
+        "code": "a,b=map(int,input().split()); print(a-b)",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1202306232,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "5",
+                "actual": "5\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.040491
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "-7",
+                "actual": "-7\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.040806
+              },
+              {
+                "passed": 1,
+                "expected": "1",
+                "actual": "1\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.048632
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 2,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-003",
+      "question": "Read two integers and print their product.",
+      "method": "private_oracle",
+      "selected": {
+        "candidate_id": 0,
+        "code": "a,b=map(int,input().split()); print(a*b)",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 746724127,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "12",
+                "actual": "12\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.042107
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "-10",
+                "actual": "-10\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.039868
+              },
+              {
+                "passed": 1,
+                "expected": "0",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.039934
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-004",
+      "question": "Print YES if the integer is even, otherwise NO.",
+      "method": "private_oracle",
+      "selected": {
+        "candidate_id": 0,
+        "code": "n=int(input()); print('YES' if n%2==0 else 'NO')",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 2043284719,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "YES",
+                "actual": "YES\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.0403
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "NO",
+                "actual": "NO\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.039104
+              },
+              {
+                "passed": 1,
+                "expected": "YES",
+                "actual": "YES\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.039791
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-005",
+      "question": "Print the larger of two integers.",
+      "method": "private_oracle",
+      "selected": {
+        "candidate_id": 2,
+        "code": "a,b=map(int,input().split()); print(max(a,b))",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 836837736,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "8",
+                "actual": "8\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.041476
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "9",
+                "actual": "9\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.03661
+              },
+              {
+                "passed": 1,
+                "expected": "-1",
+                "actual": "-1\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.039342
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 2,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-006",
+      "question": "Print the smallest of three integers.",
+      "method": "private_oracle",
+      "selected": {
+        "candidate_id": 3,
+        "code": "a=list(map(int,input().split())); print(min(a))",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 174002706,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "1",
+                "actual": "1\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.034911
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "2",
+                "actual": "2\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.036184
+              },
+              {
+                "passed": 1,
+                "expected": "-4",
+                "actual": "-4\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.035562
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 3,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-007",
+      "question": "Print the absolute value of an integer.",
+      "method": "private_oracle",
+      "selected": {
+        "candidate_id": 1,
+        "code": "print(abs(int(input())))",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 736181340,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "4",
+                "actual": "4\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.035082
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "8",
+                "actual": "8\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.034536
+              },
+              {
+                "passed": 1,
+                "expected": "0",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.041142
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 1,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-008",
+      "question": "Print n squared.",
+      "method": "private_oracle",
+      "selected": {
+        "candidate_id": 3,
+        "code": "n=int(input()); print(n*n)",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 486737299,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "16",
+                "actual": "16\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.036001
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "9",
+                "actual": "9\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.033979
+              },
+              {
+                "passed": 1,
+                "expected": "0",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.034753
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 3,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-009",
+      "question": "Read a word and print its length.",
+      "method": "private_oracle",
+      "selected": {
+        "candidate_id": 1,
+        "code": "print(len(input().strip()))",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 373119262,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "5",
+                "actual": "5\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.033996
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "1",
+                "actual": "1\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.039639
+              },
+              {
+                "passed": 1,
+                "expected": "4",
+                "actual": "4\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.035206
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 1,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-010",
+      "question": "Count lowercase vowels in a word.",
+      "method": "private_oracle",
+      "selected": {
+        "candidate_id": 1,
+        "code": "s=input().strip(); print(sum(c in 'aeiou' for c in s))",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1700585142,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "2",
+                "actual": "2\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.037313
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "5",
+                "actual": "5\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.039202
+              },
+              {
+                "passed": 1,
+                "expected": "0",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.035829
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 1,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-011",
+      "question": "Print the input word reversed.",
+      "method": "private_oracle",
+      "selected": {
+        "candidate_id": 1,
+        "code": "print(input().strip()[::-1])",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1390287576,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "cba",
+                "actual": "cba\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.040354
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "ecar",
+                "actual": "ecar\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.03361
+              },
+              {
+                "passed": 1,
+                "expected": "x",
+                "actual": "x\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.034725
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 1,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-012",
+      "question": "Print YES if the word is a palindrome, otherwise NO.",
+      "method": "private_oracle",
+      "selected": {
+        "candidate_id": 0,
+        "code": "s=input().strip(); print('YES' if s==s[::-1] else 'NO')",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 843025465,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "YES",
+                "actual": "YES\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.035211
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "NO",
+                "actual": "NO\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.039962
+              },
+              {
+                "passed": 1,
+                "expected": "YES",
+                "actual": "YES\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.046836
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-013",
+      "question": "Read n followed by n integers and print their sum.",
+      "method": "private_oracle",
+      "selected": {
+        "candidate_id": 1,
+        "code": "d=list(map(int,input().split()))+list(map(int,input().split())); print(sum(d[1:]))",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1227543766,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "6",
+                "actual": "6\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.03534
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "6",
+                "actual": "6\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.036267
+              },
+              {
+                "passed": 1,
+                "expected": "9",
+                "actual": "9\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.035357
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 1,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-014",
+      "question": "Read three integers and print their integer average.",
+      "method": "private_oracle",
+      "selected": {
+        "candidate_id": 3,
+        "code": "a=list(map(int,input().split())); print(sum(a)//len(a))",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1203322700,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "2",
+                "actual": "2\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.035121
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "3",
+                "actual": "3\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.035525
+              },
+              {
+                "passed": 1,
+                "expected": "0",
+                "actual": "0\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.035261
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 3,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-015",
+      "question": "Print n factorial for n between 0 and 8.",
+      "method": "private_oracle",
+      "selected": {
+        "candidate_id": 2,
+        "code": "import math; print(math.factorial(int(input())))",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1837422102,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "1",
+                "actual": "1\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.036092
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "24",
+                "actual": "24\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.03483
+              },
+              {
+                "passed": 1,
+                "expected": "120",
+                "actual": "120\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.037119
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 2,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-016",
+      "question": "Print YES if a is divisible by b, otherwise NO.",
+      "method": "private_oracle",
+      "selected": {
+        "candidate_id": 0,
+        "code": "a,b=map(int,input().split()); print('YES' if a%b==0 else 'NO')",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1197982879,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "YES",
+                "actual": "YES\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.039239
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "NO",
+                "actual": "NO\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.036403
+              },
+              {
+                "passed": 1,
+                "expected": "YES",
+                "actual": "YES\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.039182
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-017",
+      "question": "Print the sum of decimal digits of a nonnegative integer.",
+      "method": "private_oracle",
+      "selected": {
+        "candidate_id": 0,
+        "code": "print(sum(map(int,input().strip())))",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 2053982373,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "6",
+                "actual": "6\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.035565
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "9",
+                "actual": "9\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.032833
+              },
+              {
+                "passed": 1,
+                "expected": "1",
+                "actual": "1\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.034018
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 0,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-018",
+      "question": "Read integers and print them in ascending order separated by spaces.",
+      "method": "private_oracle",
+      "selected": {
+        "candidate_id": 2,
+        "code": "print(*sorted(map(int,input().split())))",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 564440526,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "1 2 3",
+                "actual": "1 2 3\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.03567
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "-1 0 5",
+                "actual": "-1 0 5\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.03377
+              },
+              {
+                "passed": 1,
+                "expected": "1 2 2",
+                "actual": "1 2 2\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.034769
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 2,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-019",
+      "question": "Read three distinct integers and print the second largest.",
+      "method": "private_oracle",
+      "selected": {
+        "candidate_id": 1,
+        "code": "a=sorted(map(int,input().split())); print(a[-2])",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 2120608351,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "2",
+                "actual": "2\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.034633
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "7",
+                "actual": "7\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.036919
+              },
+              {
+                "passed": 1,
+                "expected": "-2",
+                "actual": "-2\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.032934
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 1,
+      "num_executions": 12
+    },
+    {
+      "problem_id": "offline-020",
+      "question": "Read two integers a b and print 2*a+3*b.",
+      "method": "private_oracle",
+      "selected": {
+        "candidate_id": 1,
+        "code": "a,b=map(int,input().split()); print(2*a+3*b)",
+        "thoughts": [
+          "Parse the input",
+          "Apply the requested operation",
+          "Print the result"
+        ],
+        "generator_model": "offline-template-generator",
+        "seed": 1689068322,
+        "execution": {
+          "public": {
+            "passed": 1,
+            "total": 1,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "8",
+                "actual": "8\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.03192
+              }
+            ]
+          },
+          "private": {
+            "passed": 2,
+            "total": 2,
+            "pass_rate": 1.0,
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "tests": [
+              {
+                "passed": 1,
+                "expected": "12",
+                "actual": "12\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.034273
+              },
+              {
+                "passed": 1,
+                "expected": "1",
+                "actual": "1\n",
+                "stderr": "",
+                "error_type": null,
+                "message": "",
+                "timeout": false,
+                "duration_seconds": 0.038839
+              }
+            ]
+          }
+        }
+      },
+      "selected_candidate": 1,
+      "num_executions": 12
+    }
+  ]
+}

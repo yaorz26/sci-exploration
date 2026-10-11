@@ -4,7 +4,7 @@
 
 ## 相关工作核对
 
-我直接读取了论文摘要、作者仓库README和许可文件。检索服务的搜索接口返回HTTP 500，GitHub仓库搜索随后因API 403限流停止；因此下面是有边界的初步核对，不能写成穷尽检索或“首次提出”。原始文件、SHA-256和访问限制在`codeprm-reproduction/experiments/d1_literature_recon_20261008/`。
+我直接读取了论文摘要、作者仓库README和许可文件。检索服务的搜索接口返回HTTP 500，GitHub仓库搜索随后因API 403限流停止；因此下面是有边界的初步核对，不能写成穷尽检索或“首次提出”。原始文件、SHA-256和访问限制在`decomposition-bench/experiments/d1_literature_recon_20261008/`。
 
 | 工作 | 直接核对到的范围 | 与D1的关系 | D1仍可主张的差别 |
 | --- | --- | --- | --- |
@@ -19,9 +19,9 @@
 
 Ollama没有独立tokenizer API。`/api/generate`返回`prompt_eval_count`和`eval_count`，但`num_predict=0`在本机没有停止生成，反而产生长文本；因此零输出请求被排除。`num_predict=1`可以返回稳定的输入计数，但它本身是一次模型API调用。
 
-当前执行器`codeprm-reproduction/scripts/d1/run_costed_local_pilot.py`采用保守做法：每次真实生成前，对完全相同的prompt发一次温度0、单token预检，读取`prompt_eval_count`；然后按每题每臂6500 token的生成预算扣除真实输入和输出，动态限制本次`num_predict`。预检的调用数、时间和token单列，不能当作零成本。所有候选先生成冻结，之后才打开public/private测试评分；生成阶段只读取开发题public文件。
+当前执行器`decomposition-bench/scripts/d1/run_costed_local_pilot.py`采用保守做法：每次真实生成前，对完全相同的prompt发一次温度0、单token预检，读取`prompt_eval_count`；然后按每题每臂6500 token的生成预算扣除真实输入和输出，动态限制本次`num_predict`。预检的调用数、时间和token单列，不能当作零成本。所有候选先生成冻结，之后才打开public/private测试评分；生成阶段只读取开发题public文件。
 
-协议文件：`codeprm-reproduction/configs/d1_costed_pilot_b04_c03_v1_20261008.json`。选题是开发集B04（查询参数编辑，多环节）和C03（函数调用缓存，跨调用状态），没有触碰储备题。最多30次API调用、1200秒；实际24次，其中预检10次、真实生成14次。
+协议文件：`decomposition-bench/configs/d1_costed_pilot_b04_c03_v1_20261008.json`。选题是开发集B04（查询参数编辑，多环节）和C03（函数调用缓存，跨调用状态），没有触碰储备题。最多30次API调用、1200秒；实际24次，其中预检10次、真实生成14次。
 
 ## 小探针结果
 
@@ -36,7 +36,7 @@ Ollama没有独立tokenizer API。`/api/generate`返回`prompt_eval_count`和`ev
 
 整体臂两题合计实际生成2080 token，分解臂11426 token，约5.5倍；两臂都在6500 token上限内，但实际耗费并不相等。这正是协议要保留的测量结果，不能把“同一个上限”写成“同样成本”。本次整题成功是整体0/2、分解0/2；分解臂在C03公开例和多数隐藏例表现更好，但分母只有2题，且C03仍有隐藏失败，不能推断分解有效。
 
-所有候选、prompt计数、输出计数、预检和评分原始记录在`codeprm-reproduction/experiments/d1_costed_pilot_b04_c03_v1_20261008/`；`failure_taxonomy.json`只按评分器可观察的“行为不匹配／候选异常／通过”分类，不把异常直接归因于算法。这是成本协议和失败形态诊断，不是正式确认实验；没有使用结果调参，也没有增加储备题成绩。
+所有候选、prompt计数、输出计数、预检和评分原始记录在`decomposition-bench/experiments/d1_costed_pilot_b04_c03_v1_20261008/`；`failure_taxonomy.json`只按评分器可观察的“行为不匹配／候选异常／通过”分类，不把异常直接归因于算法。这是成本协议和失败形态诊断，不是正式确认实验；没有使用结果调参，也没有增加储备题成绩。
 
 ## 阶段审查和下一步
 
@@ -46,7 +46,7 @@ Ollama没有独立tokenizer API。`/api/generate`返回`prompt_eval_count`和`ev
 
 ## 定向三题扩展（v2）
 
-在不改变题目、seed、模型、提示模板、预检计量和“先冻结候选、后评分”规则的前提下，又运行了三道预先分层的开发题：B03（简单转换）、B05（多环节编辑）、C04（实例共享状态）。配置文件是`codeprm-reproduction/configs/d1_costed_pilot_b03_b05_c04_v1_20261008.json`，原始产物在`codeprm-reproduction/experiments/d1_costed_pilot_b03_b05_c04_v1_20261008/`。
+在不改变题目、seed、模型、提示模板、预检计量和“先冻结候选、后评分”规则的前提下，又运行了三道预先分层的开发题：B03（简单转换）、B05（多环节编辑）、C04（实例共享状态）。配置文件是`decomposition-bench/configs/d1_costed_pilot_b03_b05_c04_v1_20261008.json`，原始产物在`decomposition-bench/experiments/d1_costed_pilot_b03_b05_c04_v1_20261008/`。
 
 本轮用了32次API调用，其中预检16次、真实生成16次，墙钟73.67秒。整体臂三题都生成出候选；分解臂B03和C04分别在辅助函数和入口函数的冻结名称检查处失败，错误是`helper completion changed frozen functions`和`entry completion changed frozen functions`。这两项应记作可观察的组装接口失败，不能直接解释成算法失败，但它们仍然消耗了实际生成token。
 

@@ -19,4 +19,4 @@ P9一题两臂的主结果仍为M0/M2各0/1，实际花费640/1850、同6500上�
 
 下一项P30把P18—P29边界写入问题A候选协议增补，比较旧候选说法与保存反例，明确共同外部入口/方法内helper约束、任务与生成后方案、拒绝/投影、主分母与条件观察。仅登记未来候选，不启用正式模型或改旧结果；完成后转尚未解决的非缓存纯函数组合问题。
 
-证据：`codeprm-reproduction/experiments/d1_failure_observation_v1_20261008/{arm_observation_records.json,estimand_and_missingness_review.json,input_sources.json,summary.json}`。实现`scripts/d1/analyze_failure_observation.py`，命令`python -B -X utf8 scripts/d1/analyze_failure_observation.py`。
+证据：`decomposition-bench/experiments/d1_failure_observation_v1_20261008/{arm_observation_records.json,estimand_and_missingness_review.json,input_sources.json,summary.json}`。实现`scripts/d1/analyze_failure_observation.py`，命令`python -B -X utf8 scripts/d1/analyze_failure_observation.py`。

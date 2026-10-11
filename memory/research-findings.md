@@ -138,7 +138,7 @@
 
 ## 2026-10-08：ClassEval v2 失败比例口径更正
 
-- 从 `codeprm-reproduction/experiments/classeval_wp6_v2/wp6_v2_manifest.json` 按题重算：24 题、模型 `qwen2.5-coder:7b`、seed `20260929`，每臂 2 候选；M0/M1/M2 的首候选和池上限分别为 `7/24、8/24、7/24`。
+- 从 `decomposition-bench/experiments/classeval_wp6_v2/wp6_v2_manifest.json` 按题重算：24 题、模型 `qwen2.5-coder:7b`、seed `20260929`，每臂 2 候选；M0/M1/M2 的首候选和池上限分别为 `7/24、8/24、7/24`。
 - **M0/M2 双零**为 `16/24＝66.7%`；**三臂均无解**为 `15/24＝62.5%`。`docs/week3/10.2研究总览_自9.14以来全过程与当前状态.md` 与 `12_wp6_v2_report.md` 将 66.7% 描述成三臂全部失败不准确；附更正，不覆盖冻结产物。
 - G2 的“不扩大、不训练、不启 RL”决定不变；结果限于 24 题、单 seed、给定 API 的实现策略对照，不能判定拆分方案选择或一般性模型能力天花板。
 - 明确禁止重定义后仍撞名是观察事实；只能说明本次提示与校验没有消除该失败，称其“固有、非措辞问题”超出了当前对照能证明的范围。模型实现能力是瓶颈候选解释，尚未通过强分解/强实现隔离实验确认。
@@ -158,7 +158,7 @@
 - 结构应依据外部行为，不能把参考实现的共享游标照搬成任务必需状态。预标无跨操作12／有8（全局6、分区2）；独立可测yes/partial/no为8/7/5，仅作者初标，无可靠一致性统计。
 - 新评分明确JSON布尔不等于数值，1与1.0可等价；输入内容、类型和键顺序不变。v3原始配置字典子类误报分歧，通过JSON规范化修正；所有失败版本留存。详细版本口径见memory/data-route-log.md §十八。
 - 有限GLM复核只覆盖4新题，12题初审超时；20题人工盲审包已备，实际人工判定0。20题来自项目独立功能，不提供完整仓库上下文，不评项目集成；缓存/多值/树遍历有关联。污染、新颖性、人工真值、标签可靠性和总成本协议未解决，不能回答通用适用边界。
-- 当前证据：docs/week3/data-route/20261008/11_initial20_quality_and_stage_review.md；codeprm-reproduction/data/processed/d1_project_initial20_v5_20261008/manifest.json。
+- 当前证据：docs/week3/data-route/20261008/11_initial20_quality_and_stage_review.md；decomposition-bench/data/processed/d1_project_initial20_v5_20261008/manifest.json。
 
 
 ## D1相关工作与成本协议探针（2026-10-08）
@@ -191,7 +191,7 @@
 - 更正先前过强切分结论：保留来源隔离，方法同题配对不因隔离自动无效；来源×结构相关仍限制因素解释。20细分家族形成15显式相关组件，家族各1不要求机械补重复；15也不是独立样本数证明。主问题A保留关联目标，4来源不硬做因果模型或独立题bootstrap外推。
 - 更正原文留存描述：旧执行器只有prompt哈希、计数、计划原文及成功候选；2次失败helper/entry原文缺失，无法从异常进一步核实根因。新记录器12模拟检查补未来证据路径，不补历史事实。
 - 两篇方法定向阅读成功：FEA-Bench已给新增组件接口，FeatureBench已有从零实现与接口消融，因此原差异定位需收窄到结构证据及总预算自主拆分比较；不称首创或文献穷尽。当前D1独立轻量库功能适配不是完整项目集成。
-- 证据入口：docs/week3/data-route/20261008/17_review_delivery_and_protocol_revision.md、18_question_A_protocol_v0.2.md、20_total_budget_instrument_report.md；codeprm-reproduction/experiments/d1_cost_allin_audit_v1_20261008.json及d1_p6_adversarial_review_v2_20261008.json。详细口径见data-route-log§二十二—二十三。
+- 证据入口：docs/week3/data-route/20261008/17_review_delivery_and_protocol_revision.md、18_question_A_protocol_v0.2.md、20_total_budget_instrument_report.md；decomposition-bench/experiments/d1_cost_allin_audit_v1_20261008.json及d1_p6_adversarial_review_v2_20261008.json。详细口径见data-route-log§二十二—二十三。
 
 
 ## 2026-10-08：P8-P10新增事实
@@ -285,7 +285,7 @@ P74/P75四同家族候选在六公开输入中有不同的matches语义：原值
 
 - 按既定 G4 配对设计，使用本机 `qwen2.5-coder:7b`、seed `20261011`、`num_ctx=8192`、每臂 6500 服务端 token，对 PR126/PR142 各执行 M0 与 M2；输入仅为父源码选定片段、需求和公开案例，feature/正确补丁/评价器/测试保持隔离。
 - v1 六次请求：PR126 M0=6909 超限，M2 计划4944后首组件累计10607超限；PR142 M0=6680超限，M2计划7041超限。v2 六次请求：PR126 M0=5412预算内但严格补丁hunk错位，M2计划4414后JSON解析失败；PR142 M0=5578预算内但hunk错位，M2计划4583后组件累计9162超限。
-- 对v2两份M0回答仅剥除前导空格/代码围栏后，PR126与PR142仍因“原行内容不匹配”失败；因此不是单纯格式问题。实验原始目录：`codeprm-reproduction/experiments/d1_G4_local_ollama_real_project_pair_v1_20261011/`、`...pair_v2_20261011/`；阶段报告：`docs/week3/data-route/20261011/228_g4_local_ollama_result.md`。
+- 对v2两份M0回答仅剥除前导空格/代码围栏后，PR126与PR142仍因“原行内容不匹配”失败；因此不是单纯格式问题。实验原始目录：`decomposition-bench/experiments/d1_G4_local_ollama_real_project_pair_v1_20261011/`、`...pair_v2_20261011/`；阶段报告：`docs/week3/data-route/20261011/228_g4_local_ollama_result.md`。
 - 四个题目×方法臂均无完整候选，行为分子未定义；不能计算主问题A的Δ、准确率或模型效果。结论是当前预算/上下文/严格补丁接口的适用边界，正式labels/split仍null、人工0，研究池状态不变。
 - 计量纠正：v1/v2实际各5次、共10次请求，旧运行器未做事前预算预检，因此旧超限不能当作合规预算拒绝。v3使用本地Qwen ChatML tokenizer进行请求前计数并与Ollama逐次一致；PR126 M0=3812+1600=5412且hunk失败，M2计划=4114+300=4414后JSON失败；PR142 M0=3978+1477=5455且hunk失败，M2计划=4452+136=4588后组件预检拒绝。四臂仍无完整候选，主A未测。纠正报告见 `docs/week3/data-route/20261011/231_g4_preflight_correction.md`。
 - 完整API上下文批次：修复固定行段遗漏后，PR126/PR142/PR440三题M0/M2共11次请求、已知23380 token；tokenizer与Ollama逐次相等。M0三题分别因hunk原行不匹配、包外路径、hunk错位失败；M2三题组装前预算拒绝。无完整候选，不能报0/6行为准确率，主A仍未测。证据：`docs/week3/data-route/20261011/232_g4_symbol_context_result.md`。

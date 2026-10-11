@@ -16,4 +16,4 @@ P9保存的plan/两helper响应按原哈希读取，实际helper1严格门槛通
 
 模型/API/下载/隐藏评分0、人工0。限定修订达到本阶段目标，不继续扩语法变体或直接启用正式批量。下一项P29检验失败路径的计分语义：P9生成失败后的public/private passed=0是策略整题失败的记账值，还是实际已执行行为的失败数？这影响分层分析何种分母可报告、哪些计划属性仍未观察。
 
-证据：`codeprm-reproduction/experiments/d1_entry_annotation_gate_v1_20261008/{pre_execution_freeze.json,forms_and_call_results.json,saved_P9_helper_review.json,summary.json,field_semantics_clarification.json}`。候选函数在`scripts/d1/probe_entry_annotation_gate.py`，命令`python -B -X utf8 scripts/d1/probe_entry_annotation_gate.py`；正式run_allin_pipeline字节保持。
+证据：`decomposition-bench/experiments/d1_entry_annotation_gate_v1_20261008/{pre_execution_freeze.json,forms_and_call_results.json,saved_P9_helper_review.json,summary.json,field_semantics_clarification.json}`。候选函数在`scripts/d1/probe_entry_annotation_gate.py`，命令`python -B -X utf8 scripts/d1/probe_entry_annotation_gate.py`；正式run_allin_pipeline字节保持。

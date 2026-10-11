@@ -16,4 +16,4 @@
 
 下一步不修改初标或把no改yes来填空格，也不扩大回归。P42定向查一个公开非缓存功能：boltons Stats的多种描述统计，是否能给至少两个用途不同、各自有明确输入/输出的外部行为契约，而不强制有序转换？若只有同用途多字段或仍依赖整体过程，就不宣称补上独立可测对比。只在公开功能适配层构建另池候选，主20/11—9保持。
 
-机器证据：`codeprm-reproduction/experiments/d1_testability_label_provenance_v1_20261008/inputs_and_ast_locator_frozen.json`、`scope_extension_frozen.json`、`source_copy_comparison.json`。模型/API/下载/任务求值/隐藏读取0；一次追踪扩展后完成，不重复构建/验证旧数据包。
+机器证据：`decomposition-bench/experiments/d1_testability_label_provenance_v1_20261008/inputs_and_ast_locator_frozen.json`、`scope_extension_frozen.json`、`source_copy_comparison.json`。模型/API/下载/任务求值/隐藏读取0；一次追踪扩展后完成，不重复构建/验证旧数据包。

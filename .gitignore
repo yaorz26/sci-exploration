@@ -1,85 +1,81 @@
 # ============================================================
-# 本仓库的入库原则（新增排除项请写在这里，不要改下面的规则含义）
+# 入库原则（新增排除项写在这里，不要改下面规则的含义）
 #
-#   入库：文档、协议、脚本、以及承载结论的小体量 JSON 证据
+#   入库：文档、协议、脚本，以及承载结论的小体量证据
 #         （selection_freeze / pool_oracle / candidate_freeze /
 #           quality_summary / metrics / ledger 等）
-#   排除：模型权重、LoRA adapter、虚拟环境、二进制归档、缓存
+#   排除：模型权重、LoRA adapter、虚拟环境、二进制归档、本机缓存
 #
 #   注意：仓库内多处记录 SHA-256 校验值，git 不得改动文件字节。
-#   请在提交前执行：git config core.autocrlf false
+#   提交前请执行：git config core.autocrlf false
+#
+# 目录分工（2026-10-11 整改后，详见 RESTRUCTURE_20261011.md）：
+#   decomposition-bench/  代码与证据（入库）
+#   runtime/              模型权重、虚拟环境、缓存（本机，不入库）
 # ============================================================
 
-# ---------- 模型权重（约 20GB，绝不入库）----------
-codeprm-reproduction/models/
-codeprm-reproduction/.cache/
+# ---------- runtime/：本机运行时资产，与代码仓库分离 ----------
+# 内含：runtime/models/qwen（约 24.9GB 权重）、runtime/venvs/、runtime/cache/.cache
+runtime/
+
+# ---------- 安全网：万一这些目录又出现在项目里，也不许入库 ----------
+decomposition-bench/models/
+decomposition-bench/.cache/
+decomposition-bench/.venv_apps/
+decomposition-bench/.venv_funprm/
+decomposition-bench/.venvs/
 **/huggingface/
 
-# ---------- 训练产物：LoRA adapter（权重不入库，metrics.json 值得入库）----------
-codeprm-reproduction/outputs/models/*/adapter_model.safetensors
-codeprm-reproduction/outputs/models/*/*.safetensors
-# 若确定所有 adapter 都不需要留档，可改为下面一行（连同 metrics.json 一并排除）
-# codeprm-reproduction/outputs/models/
+# ---------- 虚拟环境（通用）----------
+# 绝对不要写 `Scripts/`、`lib/`、`include/` 这类裸目录名：
+# Windows 上 git 路径匹配大小写不敏感，`/Scripts/` 会连带吞掉 `scripts/`。
+.venv/
+.venv*/
+venv/
+*/venv/
+env/
+/lib64
+/lib/python*/
+/include/python*/
 
-# ---------- 二进制归档（含 docs/ 下的 pdftext 等子目录）----------
+# ---------- 本机包管理与数据缓存 ----------
+.cache/
+
+# ---------- 训练产物：LoRA adapter ----------
+# 权重不入库；metrics.json（训练误差结论）保留入库。
+decomposition-bench/outputs/models/*/adapter_model.safetensors
+decomposition-bench/outputs/models/*/*.safetensors
+# 若确定所有 adapter 都不需留档，改为下面一行（连同 metrics.json 一并排除）
+# decomposition-bench/outputs/models/
+
+# ---------- 二进制归档 ----------
 *.tar
 *.tar.gz
 *.tgz
 *.zip
 *.7z
 
-# ---------- 虚拟环境 ----------
-# 注意：绝对不要写 `Scripts/`、`lib/`、`include/` 这类裸目录名。
-# Windows 上 git 的路径匹配大小写不敏感，`/Scripts/` 会把
-# `scripts/check_governance_integrity.py` 和 `codeprm-reproduction/scripts/` 一起吞掉。
-.venv/
-.venv*/
-venv/
-*/venv/
-env/
-# 虚拟环境自身的可执行文件：逐条写全，不用通配
-codeprm-reproduction/.venv_apps/Scripts/
-codeprm-reproduction/.venv_funprm/Scripts/
-codeprm-reproduction/.venvs/bigcodebench_fast0/Scripts/
-codeprm-reproduction/.venvs/wsl_py310/bin/
-/lib64
-/lib/python*/
-/include/python*/
+# ---------- 上游第三方仓库（自带 .git，逐仓库许可不同；入库需单独立项决定）----------
+decomposition-bench/data/raw/d1_project_v1_20261008/repositories/
 
-# ---------- 本机包管理与数据缓存（pip/nltk 下载物，约 90MB+）----------
-.cache/
-
-# ---------- runtime/：本机运行时资产，与代码仓库分离（2026-10-11 整改）----------
-# 内放：模型权重 runtime/models/qwen（24.9GB）、虚拟环境 runtime/venvs/、
-#       缓存 runtime/cache/.cache。这些项目按设计不入库，只在本机存在。
-# 旧路径通过 junction 继续可达（见 RESTRUCTURE_20261011.md），
-# 因此 169 处 parents[N] 相对路径与 12 处绝对路径无需改写。
-runtime/
-# 上述 junction 本身也不入库（Windows 下 git 会把它当普通目录遍历）
-codeprm-reproduction/models
-codeprm-reproduction/.venv_apps
-codeprm-reproduction/.venv_funprm
-codeprm-reproduction/.venvs
-.cache
-
-# ---------- 上游第三方仓库（自带 .git，逐仓库许可不同；如要入库需单独立项决定）----------
-codeprm-reproduction/data/raw/d1_project_v1_20261008/repositories/
-
-# ---------- 大体积运行产物（GitHub 单文件硬上限 100MB，必须先挡在门外）----------
-# 逐条列出而不是按目录整排除：结论级的小 JSON 证据要继续入库，
-# 只有真正超大的原始评测转储才留在本地。
-codeprm-reproduction/data/processed/funprm_label_calibration_20260924/confirmation_a30_functionized_qwen25coder_7b_n10_seed20261224_v1_evaluations.jsonl
-codeprm-reproduction/data/processed/funprm_label_calibration_20260924/confirmation_a30_functionized_qwen25coder_7b_n10_seed20261224_v2_evaluations.jsonl
-codeprm-reproduction/data/processed/p5b_hard20_m1_plan_qwen25coder_7b_n2_seed42_v1_pool_oracle.json
-codeprm-reproduction/data/processed/p5b_hard20_m1_plan_qwen25coder_7b_n2_seed42_v1_evaluations.jsonl
-codeprm-reproduction/data/processed/p5b_hard20_m2b_json_qwen25coder_7b_d2_i2_c8_seed42_v5_full_space_oracle.json
-codeprm-reproduction/data/processed/p5b_hard20_m2b_json_qwen25coder_7b_d2_i2_c8_seed42_v1_pool_oracle.json
-codeprm-reproduction/data/processed/p5b_hard20_m2b_json_qwen25coder_7b_d2_i2_c8_seed42_v2_api_revalidated_recombinations.jsonl
-codeprm-reproduction/data/processed/p5b_hard20_m2b_json_qwen25coder_7b_d2_i2_c8_seed42_v1_recombinations.jsonl
-codeprm-reproduction/data/processed/p5b_hard20_m2b_json_qwen25coder_7b_d2_i2_c8_seed42_v3_helper_io_gate_replay.json
-codeprm-reproduction/data/processed/p5b_hard20_m0_direct_qwen25coder_7b_n2_seed42_v1_pool_oracle.json
-codeprm-reproduction/data/processed/codeprm_continuation_train50_seed42_deployment_aligned.jsonl
-codeprm-reproduction/data/processed/codeprm_continuation_train50_seed42.jsonl
+# ---------- 大体积运行产物（GitHub 单文件硬上限 100MB）----------
+# 逐条列出而非整目录排除：结论级的小 JSON 证据要继续入库，
+# 只有真正超大的原始评测转储留在本地。
+# 993MB：GitHub 硬上限 100MB，绝不能入库（曾因改名导致规则失效而误入提交）
+decomposition-bench/data/processed/funprm_label_calibration_20260924/confirmation_a30_functionized_qwen25coder_7b_n10_seed20261224_v1_evaluations.jsonl
+decomposition-bench/data/processed/funprm_label_calibration_20260924/confirmation_a30_functionized_qwen25coder_7b_n10_seed20261224_v2_evaluations.jsonl
+# 以下 10 个（10--58MB）已在 origin/main 历史中，规则对已跟踪文件无效，
+# 保留在此是为了避免将来被重新加入；若要真正瘦身需 filter-repo 重写历史。
+decomposition-bench/data/processed/p5b_hard20_m1_plan_qwen25coder_7b_n2_seed42_v1_pool_oracle.json
+decomposition-bench/data/processed/p5b_hard20_m1_plan_qwen25coder_7b_n2_seed42_v1_evaluations.jsonl
+decomposition-bench/data/processed/p5b_hard20_m2b_json_qwen25coder_7b_d2_i2_c8_seed42_v5_full_space_oracle.json
+decomposition-bench/data/processed/p5b_hard20_m2b_json_qwen25coder_7b_d2_i2_c8_seed42_v1_pool_oracle.json
+decomposition-bench/data/processed/p5b_hard20_m2b_json_qwen25coder_7b_d2_i2_c8_seed42_v2_api_revalidated_recombinations.jsonl
+decomposition-bench/data/processed/p5b_hard20_m2b_json_qwen25coder_7b_d2_i2_c8_seed42_v1_recombinations.jsonl
+decomposition-bench/data/processed/p5b_hard20_m2b_json_qwen25coder_7b_d2_i2_c8_seed42_v3_helper_io_gate_replay.json
+decomposition-bench/data/processed/p5b_hard20_m0_direct_qwen25coder_7b_n2_seed42_v1_pool_oracle.json
+decomposition-bench/data/processed/codeprm_continuation_train50_seed42_deployment_aligned.jsonl
+decomposition-bench/data/processed/codeprm_continuation_train50_seed42.jsonl
 
 # ---------- Python / 工具缓存 ----------
 __pycache__/
@@ -88,13 +84,13 @@ __pycache__/
 .pytest_cache/
 .ipynb_checkpoints/
 
-# ---------- 本机临时与运行时数据 ----------
-*.log
+# ---------- 本机临时数据 ----------
+# 注意：不要写 `*.log`。decomposition-bench/data 下有多份
+# *_progress.log 已被 git 跟踪，忽略它们会让这些文件从状态里消失。
 *.tmp
 *.part
 ollama_models/
 .tmp/
-tmp/
 
 # ---------- 会话与编辑器状态（非研究数据）----------
 .workbuddy/

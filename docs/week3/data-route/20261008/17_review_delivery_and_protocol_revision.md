@@ -36,7 +36,7 @@ FeatureBench依赖图用于提取待实现任务，不能直接等同生成过�
 
 ## 复现入口
 
-以下命令从D:/yaorz/research/codeprm-reproduction执行：
+以下命令从D:/yaorz/research/decomposition-bench执行：
 
     python scripts/d1/check_review_pipeline.py
     python scripts/d1/audit_allin_cost.py

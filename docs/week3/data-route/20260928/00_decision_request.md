@@ -35,4 +35,4 @@
 - **最低有意义提升**：净值 ≥4 题且 bootstrap 95% 区间下界 >0；
 - **模型与上下文**：Qwen2.5-Coder-7B + 4-bit + 8192 token（暂定未实测，WP3 实测后升版）；
 - **FAST-0**：BigCodeBench，≤2 GiB、不拉 Docker 镜像（已执行：实际 2.25 MiB，参考测试 5/5 通过）；
-- **依赖安装与落盘**：缓存、虚拟环境、`HF_HOME` 全部指 D 盘（已执行：`D:\yaorz\research\.cache\{pip,uv,hf}`、`codeprm-reproduction/.venvs/bigcodebench_fast0`）；网络改经用户代理直达 GitHub 与 Hugging Face，镜像仍可作备份。
+- **依赖安装与落盘**：缓存、虚拟环境、`HF_HOME` 全部指 D 盘（已执行：`D:\yaorz\research\.cache\{pip,uv,hf}`、`decomposition-bench/.venvs/bigcodebench_fast0`）；网络改经用户代理直达 GitHub 与 Hugging Face，镜像仍可作备份。

@@ -94,5 +94,5 @@
 ## 七、产物
 
 - 本文件 `03_wp2_supplement_licenses_cutoff_wsl_lca.md`
-- 机器产物：`codeprm-reproduction/data/raw/evocodebench/data_extracted/data.jsonl`（275 题元数据）、`upstream_repo_licenses.json`（25 个仓库的许可核查记录）
-- 脚本：`codeprm-reproduction/scripts/fast0_bigcodebench/wp2_evocodebench_repo_licenses.py`、`wp2_evocodebench_upstream_licenses.py`、`wp2_cutoff_and_lca.py`、`wp2_wsl_probe.py`
+- 机器产物：`decomposition-bench/data/raw/evocodebench/data_extracted/data.jsonl`（275 题元数据）、`upstream_repo_licenses.json`（25 个仓库的许可核查记录）
+- 脚本：`decomposition-bench/scripts/fast0_bigcodebench/wp2_evocodebench_repo_licenses.py`、`wp2_evocodebench_upstream_licenses.py`、`wp2_cutoff_and_lca.py`、`wp2_wsl_probe.py`

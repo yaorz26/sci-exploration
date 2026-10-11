@@ -1,0 +1,90 @@
+{
+  "results": [
+    "outputs\\results\\baseline_apps_train_intro20_qwen3b.json",
+    "outputs\\results\\baseline_apps_train_intro20_qwen3b_seed43.json",
+    "outputs\\results\\baseline_apps_train_intro20_qwen3b_seed44.json"
+  ],
+  "aggregate": [
+    {
+      "method": "first",
+      "num_seeds": 3,
+      "pass_rate_mean": 0.4917948717948718,
+      "pass_rate_sd": 0.06021425148189847,
+      "pass_at_1_mean": 0.4,
+      "pass_at_1_sd": 0.05000000000000002,
+      "pass_rate_by_seed": [
+        0.5365384615384615,
+        0.42333333333333334,
+        0.5155128205128205
+      ],
+      "pass_at_1_by_seed": [
+        0.45,
+        0.35,
+        0.4
+      ]
+    },
+    {
+      "method": "random",
+      "num_seeds": 3,
+      "pass_rate_mean": 0.4047008547008547,
+      "pass_rate_sd": 0.05077786337726941,
+      "pass_at_1_mean": 0.2833333333333333,
+      "pass_at_1_sd": 0.02886751345948128,
+      "pass_rate_by_seed": [
+        0.45820512820512815,
+        0.39871794871794874,
+        0.35717948717948717
+      ],
+      "pass_at_1_by_seed": [
+        0.3,
+        0.3,
+        0.25
+      ]
+    },
+    {
+      "method": "public_pass_rate",
+      "num_seeds": 3,
+      "pass_rate_mean": 0.6336324786324786,
+      "pass_rate_sd": 0.004773525315779717,
+      "pass_at_1_mean": 0.5166666666666667,
+      "pass_at_1_sd": 0.028867513459481315,
+      "pass_rate_by_seed": [
+        0.6282051282051282,
+        0.6355128205128204,
+        0.6371794871794871
+      ],
+      "pass_at_1_by_seed": [
+        0.5,
+        0.5,
+        0.55
+      ]
+    },
+    {
+      "method": "private_oracle",
+      "num_seeds": 3,
+      "pass_rate_mean": 0.7153846153846154,
+      "pass_rate_sd": 0.04409585518440979,
+      "pass_at_1_mean": 0.5833333333333334,
+      "pass_at_1_sd": 0.07637626158259735,
+      "pass_rate_by_seed": [
+        0.6653846153846155,
+        0.732051282051282,
+        0.7487179487179487
+      ],
+      "pass_at_1_by_seed": [
+        0.5,
+        0.6,
+        0.65
+      ]
+    }
+  ],
+  "public_selection_minus_first": {
+    "mean": 0.1418376068376068,
+    "sd": 0.06273742979692071,
+    "by_seed": [
+      0.09166666666666667,
+      0.2121794871794871,
+      0.12166666666666659
+    ]
+  }
+}

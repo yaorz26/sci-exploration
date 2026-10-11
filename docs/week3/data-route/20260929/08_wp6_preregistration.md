@@ -1,7 +1,7 @@
 # WP6 试跑预注册（ClassEval 探索集 24 题 × 三臂）
 
 日期：2026-09-29 ｜ 状态：**运行中**（规则先冻结在 `data/splits/classeval_v1/frozen_manifest.json` v1.1 与运行脚本里，本文件在启动后补写说明，未改动任何已冻结规则）
-产物：`codeprm-reproduction/experiments/classeval_wp6/wp6_manifest.json`（逐题逐臂结果、候选源码、评测输出）
+产物：`decomposition-bench/experiments/classeval_wp6/wp6_manifest.json`（逐题逐臂结果、候选源码、评测输出）
 
 ---
 

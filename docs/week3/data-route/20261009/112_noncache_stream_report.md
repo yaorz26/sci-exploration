@@ -6,7 +6,7 @@
 
 底层计量分开：持续结构6解析器对象、14feed/14get_text，输入字符52；重算14对象、14feed/14get_text、字符85；逐片14对象、14feed/14get_text、字符52。总18solve不等42原API调用，实际feed和get_text各42次、共84次方法调用、34对象；字符量不是模型token/运行耗时/效率实证。
 
-原始证据在`codeprm-reproduction/experiments/d1_noncache_stream_v1_20261009/`：六预期与来源先冻结，三worker原stdout/stderr与独立结果、结构/度量脚本哈希、summary单独保留。固定strutils SHA c5ecb7efd3b2e86f92545c18d8d72193f45a1bd1d0edaf3da65868aa0e8bcdda，commit4e5faa3d7e4008d89e0d8bf1ea87b6d9a061a16d/BSD-3-Clause。源码算法不改，仅透传计数子类；模块实际路径boltons.strutils，111号简称不意味着顶层导出HTMLTextExtractor。
+原始证据在`decomposition-bench/experiments/d1_noncache_stream_v1_20261009/`：六预期与来源先冻结，三worker原stdout/stderr与独立结果、结构/度量脚本哈希、summary单独保留。固定strutils SHA c5ecb7efd3b2e86f92545c18d8d72193f45a1bd1d0edaf3da65868aa0e8bcdda，commit4e5faa3d7e4008d89e0d8bf1ea87b6d9a061a16d/BSD-3-Clause。源码算法不改，仅透传计数子类；模块实际路径boltons.strutils，111号简称不意味着顶层导出HTMLTextExtractor。
 
 学到：这六组非缓存历史依赖并不强制helper共享可变解析器；完整前缀重算也是合法结构。排除：对所有允许片段逐片提取终值拼接足够。未知：中间快照两结构共享同一上游解析器，不是独立语义真值；特别是未结束实体/标签的输出时机可能依赖feed缓冲及EOF语义，不能因互证就叫需求已全清晰。
 

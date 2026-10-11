@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "scope": "3B QLoRA loading and one backward pass",
+  "environment": {
+    "wsl": "Ubuntu-22.04",
+    "python": "3.10.12",
+    "torch": "2.6.0+cu124",
+    "transformers": "4.57.6",
+    "peft": "0.20.0",
+    "bitsandbytes": "0.50.2",
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "vram_mib": 8188
+  },
+  "model": "Qwen/Qwen2.5-Coder-3B-Instruct",
+  "local_path": "/mnt/d/yaorz/research/decomposition-bench/models/Qwen2.5-Coder-3B-Instruct",
+  "quantization": "4-bit NF4 with double quantization",
+  "lora": {
+    "rank": 8,
+    "alpha": 16,
+    "target_modules": ["q_proj", "k_proj", "v_proj", "o_proj"]
+  },
+  "loss": 1.9629954099655151,
+  "trainable_parameters": 3686400,
+  "memory_allocated_bytes": 2759764992,
+  "memory_reserved_bytes": 4427087872,
+  "network_note": "WSL Hugging Face access is unavailable; model was downloaded on Windows and loaded through /mnt/d."
+}

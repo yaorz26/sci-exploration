@@ -1,0 +1,23 @@
+{
+  "time": "2026-10-11T13:12:00Z",
+  "event_id": "d1-g3-round3-and-instrument-finding-20261011T131200Z",
+  "kind": "phase_review",
+  "phase": "G3",
+  "stage": "D1-G3-round3",
+  "status": "complete",
+  "summary": "第三轮隔离审查完成并按指认修正六处真实矛盾。三轮趋势：一致率 0.40 → 0.65 → 0.30（kappa 0.05 → 0.45 → 0.04）。置换检验（20000 次，seed 20261011）显示：第二轮一致率显著高于随机配对（p=0.0006），第三轮不显著（p=0.4703）；两位审查者平均分几乎相同（3.95 vs 3.85）、逐维差异为 -1/0/+1 随机散布，说明 1—5 分制在该尺度分辨力不足，一致率随轮次波动主要是评分工具性质而非测量对象变化。真正可用的证据是文本缺陷清单：三轮共指认并修正 27 条，其中多处是合同级矛盾。",
+  "decision": "后续审查改为以‘缺陷已修/未修’二值清单为主证据；需要量化时扩大判定项数量而不对整体任务打 1—5 分。已修正：T5 判定表重排并复核 5 行例可推出；T2 补 url_view 入口、getlist 缺键返回 []、消除 % 重叠区；T3 更正空层级片段举例并补最高优先级判定顺序；T4 内嵌三例公开用例与义务 4 观察序列。",
+  "evidence_kind": "artifact",
+  "evidence": [
+    "experiments/d1_G3_blind_review_v3_20261011/ai_review_agreement_v3.json",
+    "experiments/d1_G3_blind_review_v3_20261011/agreement_significance.json",
+    "experiments/d1_G3_blind_review_v3_20261011/stage_result_round3.json",
+    "experiments/d1_G3_blind_review_v3_20261011/ai_review_A_v3.json",
+    "experiments/d1_G3_blind_review_v3_20261011/ai_review_B_v3.json"
+  ],
+  "approval_required": false,
+  "supersedes": [],
+  "budget": "模型调用 0；两位审查为子会话；置换检验为本地计算",
+  "uncertainty": "第三轮不显著的原因无法在现有设计下分解（任务集合变化 vs 评分噪声）；两位审查者同属一个模型家族；修正后的文本尚未复核",
+  "next": "以二值缺陷清单做第四轮定点复核；真实人工双审仍为 0，formal_labels/split 保持 null"
+}

@@ -1,0 +1,24 @@
+{
+  "time": "2026-10-11T12:50:00Z",
+  "event_id": "d1-decision-3-1b-2b-executed-20261011T125000Z",
+  "kind": "phase_review",
+  "phase": "G3+G4",
+  "stage": "D1-T2-upstream-probe-G3-round3-G4-deflevel-protocol",
+  "status": "complete",
+  "summary": "按决策方指示执行三项。① 决策3 已完成：对冻结的 boltons.urlutils（urlutils.py sha256 0de5f96e…）做 18 组固定输入实测，上游与我方规则表最小引用一致 7/18、完全引用一致 15/18、两者都一致仅 6/18；另测得上游映射视图会解码（a%20b→a b、a%2Fb→a/b）、重复键 get 返回最后一个。据批准规则已把该任务降级为‘构建者自定义契约（合成任务）’，需求出 v4，不再计入真实项目功能候选。② 决策1b 已启动：第三轮隔离审查材料已导出（含分块以规避读取端截断），两个审查代理在跑。③ 决策2b 已交付协议草案：定义级输出格式、六步确定性拼装规则、F1—F6 与 P0 失败分类、接口证据项 interface_never_called、已知偏差三条，并附三轮自审；未执行任何模型调用，未把接口差异当作 M0/M2 比较。",
+  "decision": "T2 候选资格降级并保留；协议草案停在此处等待另行批准（冻结计量与预算、批准有界执行、明确请求数摊销）。",
+  "evidence_kind": "artifact",
+  "evidence": [
+    "experiments/d1_G2_url_dual_render_candidate_v1_20261011/probe_upstream_render.py",
+    "experiments/d1_G2_url_dual_render_candidate_v1_20261011/upstream_render_probe.json",
+    "experiments/d1_G2_url_dual_render_candidate_v1_20261011/upstream_mapping_probe.json",
+    "experiments/d1_G2_url_dual_render_candidate_v1_20261011/candidate/requirement.md",
+    "experiments/d1_G3_blind_review_v3_20261011/review_input_meta.json",
+    "experiments/d1_G4_deflevel_interface_plan_v1_20261011/PROTOCOL.md"
+  ],
+  "approval_required": false,
+  "supersedes": [],
+  "budget": "本轮模型调用 0（上游实测为本地 Python 执行，非模型）；第三轮审查为子会话；未新增付费/训练/RL",
+  "uncertainty": "第三轮审查结果未回；协议未执行；T2 降级后真实项目功能候选由 4 项变为 PR126/PR142/PR440/QUEUE_K2 四项，其中 PR126 的验收仍依赖内嵌于评价器的用例",
+  "next": "等待第三轮审查结果并汇总一致率；协议执行需决策方另行批准"
+}

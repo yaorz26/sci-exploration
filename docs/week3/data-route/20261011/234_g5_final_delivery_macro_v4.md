@@ -1,7 +1,7 @@
 # D1 最终交付（宏观计划 v4 执行结果）
 
 生成时间：2026-10-11
-宏观计划：`codeprm-reproduction/.research-state/RESEARCH_PLAN.md` v4
+宏观计划：`decomposition-bench/.research-state/RESEARCH_PLAN.md` v4
 执行范围：G1 完成 → G2 完成 → G3 非人工部分完成（人工审查未得）→ G4 判定 no-go → G5 条件未满足，按 v4 §5 交付本文档
 
 ---
@@ -119,7 +119,7 @@ cache 强时点任务仍 **pending**（公开读取可能补清理；requirement
 要回答主问题 A，必须先满足以下任一路径并重新三审：
 
 1. **人工路径**：安排两位合格审查者填写 `blank_review_form.json`，运行
-   `python codeprm-reproduction/experiments/d1_G3_blind_review_gate_v1_20261011/prepare_blind_review.py --compare A.json B.json`，
+   `python decomposition-bench/experiments/d1_G3_blind_review_gate_v1_20261011/prepare_blind_review.py --compare A.json B.json`，
    据一致性结果决定 `formal_labels` 与 `split`；
 2. **资源路径**：单独授权并冻结模型身份/计量、补丁接口与每臂总 token（三者一次只改一类），使 G4 资源门通过；
 3. **协议路径**：按 G4 第一步完成一次只读归因或确定性夹具校准（07:46Z 保存点），分离运输/包路径失败、代码语义失败与预算预检拒绝。

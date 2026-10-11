@@ -8,7 +8,7 @@
 
 调用口径为40solve、25次值类型门槛、15次异常比较、40次旧规则比较及40次输入比较；这些判定次数不是模型调用。全部运行使用可信本地子进程，每进程20秒/1MiB上限，非OS安全沙箱。模型/API/下载/原测试/private0、人工0。五程序共享whole基础，四错误控制是人为构造，不代表模型缺陷频率或独立oracle。
 
-原始证据在`codeprm-reproduction/experiments/d1_typed_candidate_execution_v1_20261009/eight_new_cases_and_five_programs_frozen.json`、`five_execution_results.json`、五份stdout/stderr以及`summary.json`。执行命令为`python -B -X utf8 scripts/d1/probe_typed_candidate_execution.py`。
+原始证据在`decomposition-bench/experiments/d1_typed_candidate_execution_v1_20261009/eight_new_cases_and_five_programs_frozen.json`、`five_execution_results.json`、五份stdout/stderr以及`summary.json`。执行命令为`python -B -X utf8 scripts/d1/probe_typed_candidate_execution.py`。
 
 可运行v2公开候选保存于同目录`candidate_v2/`，含完整需求、原需求副本、任务/来源/许可、原诊断副本、新八诊断、三份参考、四错误控制、类型函数和独立执行器。`validation_manifest.json`明确当前whole为8/8，另两参考尚未在v2执行。原评分器、v1候选、原20题/307记录/11—9切分及作者标签不改，候选结构标签仍null，未正式冻结或发布。
 

@@ -1,0 +1,40 @@
+{
+  "protocol": "json",
+  "decomposition_model": "qwen2.5-coder:7b",
+  "implementation_model": "qwen2.5-coder:7b",
+  "problems": 3,
+  "decomposition_requests": 6,
+  "valid_decompositions": 6,
+  "implementation_requests": 40,
+  "valid_implementations": 36,
+  "combinations": 36,
+  "composable_combinations": 36,
+  "unique_composable_combinations": 18,
+  "duplicate_combinations": 18,
+  "public_program_evaluations": 18,
+  "public_test_executions": 86,
+  "private_program_evaluations": 3,
+  "private_test_executions": 21,
+  "problems_with_candidate": 3,
+  "selected_public_pass": 0,
+  "selected_private_pass": 0,
+  "model_prompt_tokens": 28056,
+  "model_output_tokens": 5165,
+  "model_reported_seconds": 178.92,
+  "errors": {
+    "extra_function_definitions": 1,
+    "nested_function_definitions": 3,
+    "empty_implementation_pool": 1
+  },
+  "completed_problem_ids": [
+    "apps-train-2651",
+    "apps-train-2652",
+    "apps-train-2653"
+  ],
+  "elapsed_seconds": 200.053,
+  "outputs": {
+    "decompositions": "data\\processed\\p3_smoke_m2b_json_qwen25coder_7b_dev3_d2_i2_c8_seed42_v1_decompositions.jsonl",
+    "implementations": "data\\processed\\p3_smoke_m2b_json_qwen25coder_7b_dev3_d2_i2_c8_seed42_v1_implementations.jsonl",
+    "recombinations": "data\\processed\\p3_smoke_m2b_json_qwen25coder_7b_dev3_d2_i2_c8_seed42_v1_recombinations.jsonl"
+  }
+}

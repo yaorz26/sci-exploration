@@ -6,4 +6,4 @@
 
 混合任务的自然项目需求尚未取得证据：原值/处理后坐标是溯源需求，处理值/原坐标是修改来源定位；代码能够实现不等于实际项目常需。四题同一助手、同一公开功能家族；六锚点非全域或人工双审。正式标签及切分null，模型/API/private/人工0，初始20题不改。本家族不再追加组合或重复检查，转另一来源的组内聚合依赖。
 
-证据：codeprm-reproduction/experiments/d1_value_path_version_tasks_v1_20261009/execution_freeze.json、raw_execution.jsonl、summary.json。命令（codeprm-reproduction目录）：python -B -X utf8 scripts/d1/build_value_path_version_tasks.py prepare；python -B -X utf8 scripts/d1/build_value_path_version_tasks.py run。P74+P75共新增四候选、同六独特输入、24任务记录、60实际solve，不把60次执行说成60个新样本。
+证据：decomposition-bench/experiments/d1_value_path_version_tasks_v1_20261009/execution_freeze.json、raw_execution.jsonl、summary.json。命令（decomposition-bench目录）：python -B -X utf8 scripts/d1/build_value_path_version_tasks.py prepare；python -B -X utf8 scripts/d1/build_value_path_version_tasks.py run。P74+P75共新增四候选、同六独特输入、24任务记录、60实际solve，不把60次执行说成60个新样本。

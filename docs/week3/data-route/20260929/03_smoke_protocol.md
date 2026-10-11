@@ -24,7 +24,7 @@
 | 项 | 实测 |
 | --- | --- |
 | 环境模式 | Windows 原生（无需 Docker/WSL） |
-| 隔离环境 | `codeprm-reproduction/.venvs/bigcodebench_fast0/`（D 盘） |
+| 隔离环境 | `decomposition-bench/.venvs/bigcodebench_fast0/`（D 盘） |
 | 缓存 | `PIP_CACHE_DIR=D:\yaorz\research\.cache\pip`；`NLTK_DATA=D:\yaorz\research\.cache\nltk_data` |
 | 网络 | 运行时**不需要联网**；下载与装包阶段 `pypi.org` 与 `github.com` 直连可达（用户代理关闭时也可直连） |
 | 新增体积 | 数据 0.48 MiB + 依赖若干（numpy/nltk/gensim/bs4/lxml/pandas/pillow/reportlab 等，均装在 D 盘 venv 内） |

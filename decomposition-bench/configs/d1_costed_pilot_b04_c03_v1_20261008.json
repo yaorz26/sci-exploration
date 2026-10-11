@@ -1,0 +1,20 @@
+{
+  "dataset": "D:/yaorz/research/decomposition-bench/data/processed/d1_project_initial20_v5_20261008",
+  "output": "D:/yaorz/research/decomposition-bench/experiments/d1_costed_pilot_b04_c03_v1_20261008",
+  "task_ids": ["D1_B04", "D1_C03"],
+  "model": "qwen2.5-coder:7b",
+  "temperature": 0.2,
+  "seed": 20261008,
+  "num_ctx": 8192,
+  "per_task_arm_budget": 6500,
+  "whole_cap": 3200,
+  "plan_cap": 700,
+  "helper_cap": 900,
+  "entry_cap": 2600,
+  "call_cap": 30,
+  "wall_cap_seconds": 1200,
+  "request_timeout_seconds": 120,
+  "preflight": {"endpoint": "/api/generate", "num_predict": 1, "temperature": 0, "purpose": "读取同一prompt的prompt_eval_count；不计入每臂生成token预算，但计入API调用数和墙钟时间"},
+  "fairness": {"unit": "每题每臂实际生成请求的prompt_eval_count+eval_count", "equal_envelope": "每题每臂6500 token，动态扣除每次生成的实际输入和输出token", "measurement_overhead": "单独报告，不声称为零成本", "freeze": "全部候选生成完成后再评分；每题每臂首候选，不重试，不按成绩筛选"},
+  "scope": "成本协议小规模开发诊断，不回答正式适用边界；只用开发题，不触碰储备题"
+}

@@ -23,4 +23,4 @@
 
 新来源功能仍与既有缓存语义相关，须显式挂家族联系，不能把一项来源补足等同于多家族独立复现。原20题/307记录、11开发/9储备不变。候选暂不分配确认切分、不输入模型、不塞入盲审材料；先检验公开需求、手算锚点、上游参考和另一结构实现是否一致。
 
-执行约0.3秒，模型/API/下载0，人工0。文件：`codeprm-reproduction/experiments/d1_structure_evidence_sidecar_v1_20261008/{task_evidence.json,support_summary.json,design_matrix.json}`，程序`scripts/d1/build_evidence_support.py`。矩阵零空间逐向量与原矩阵相乘均为零；引用的锚点任务/通过状态匹配，输入证据哈希保存。上述是同助手审查，未取得独立人工真值。
+执行约0.3秒，模型/API/下载0，人工0。文件：`decomposition-bench/experiments/d1_structure_evidence_sidecar_v1_20261008/{task_evidence.json,support_summary.json,design_matrix.json}`，程序`scripts/d1/build_evidence_support.py`。矩阵零空间逐向量与原矩阵相乘均为零；引用的锚点任务/通过状态匹配，输入证据哈希保存。上述是同助手审查，未取得独立人工真值。

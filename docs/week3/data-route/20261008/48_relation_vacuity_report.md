@@ -23,4 +23,4 @@
 
 已获得足以区分竞争解释的反例，不扩更多相似恒定程序。转P22：P16/P17两个跨来源候选能否解除P15证据出现列的来源别名，以及家族支撑是否随之改善。只分析保存证据，区分新增来源与新增独立功能家族；不能因为矩阵满秩就认为因果或统计功效成立。
 
-模型/API/下载0、人工0。证据：`codeprm-reproduction/experiments/d1_relation_vacuity_v1_20261008/{code_and_relation_freeze.json,paired_outcomes.jsonl,summary.json}`及两份错误代码。脚本`scripts/d1/probe_relation_vacuity.py`，命令`python -B -X utf8 scripts/d1/probe_relation_vacuity.py`，禁止覆盖输出。
+模型/API/下载0、人工0。证据：`decomposition-bench/experiments/d1_relation_vacuity_v1_20261008/{code_and_relation_freeze.json,paired_outcomes.jsonl,summary.json}`及两份错误代码。脚本`scripts/d1/probe_relation_vacuity.py`，命令`python -B -X utf8 scripts/d1/probe_relation_vacuity.py`，禁止覆盖输出。

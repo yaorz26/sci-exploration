@@ -12,4 +12,4 @@ F03的二元最终值归并失效可以用明确中间信息修复。本轮候�
 
 问题A的含义：任务侧可以记录“候选全集合的路径类型门槛”，具体计划侧则记录是否保留其所需信息。无跨操作状态不足以说明阶段可任意连接；局部组件正确也不足以说明其输出接口适合继续组合。P33继续区分整对象级一个标记和每路径标记，随后换到另一家族的信息接口，避免无限扩同类格。
 
-原始证据：`codeprm-reproduction/experiments/d1_layered_merge_summary_v1_20261008/`；脚本：`codeprm-reproduction/scripts/d1/probe_layered_merge_summary.py`。数据集原20题、307记录、作者初标及历史模型成绩均未修改。
+原始证据：`decomposition-bench/experiments/d1_layered_merge_summary_v1_20261008/`；脚本：`decomposition-bench/scripts/d1/probe_layered_merge_summary.py`。数据集原20题、307记录、作者初标及历史模型成绩均未修改。

@@ -5,7 +5,7 @@ import statistics
 from collections import Counter, OrderedDict, defaultdict
 from pathlib import Path
 
-ROOT = Path(r"D:\yaorz\research\codeprm-reproduction")
+ROOT = Path(r"D:\yaorz\research\decomposition-bench")
 FB = ROOT / "data/processed/feedback_records_apps_train_intro50_qwen3b_seed42.jsonl"
 OUT = Path(r"D:\yaorz\research\阶段2_手工观察素材.md")
 
@@ -92,7 +92,7 @@ L = []
 A = L.append
 A("# 阶段 2 手工观察素材（APPS train-50 seed42 冻结候选池）\n")
 A("生成日期：2026-09-10")
-A("数据源：`codeprm-reproduction/data/processed/feedback_records_apps_train_intro50_qwen3b_seed42.jsonl`（50 题 × 4 候选 = 200 条候选记录）\n")
+A("数据源：`decomposition-bench/data/processed/feedback_records_apps_train_intro50_qwen3b_seed42.jsonl`（50 题 × 4 候选 = 200 条候选记录）\n")
 A("> 本文件只做机械整理：摊开代码、执行反馈、函数清单和统计量。**判定列留空，由你手工填写。**")
 A("> 候选顺序 = 生成顺序（C0 即首候选），与已有报告口径一致。\n")
 

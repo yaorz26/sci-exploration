@@ -19,7 +19,7 @@
 
 ## 文件入口
 
-- 候选包目录：`codeprm-reproduction/experiments/d1_candidate_delivery_v2_20261008/`
+- 候选包目录：`decomposition-bench/experiments/d1_candidate_delivery_v2_20261008/`
 - 压缩包：`d1_project_initial20_v5_candidate.zip`
 - 机器交付验证：`delivery_verification_final.json`
 - 数据卡：`DATA_CARD.md`

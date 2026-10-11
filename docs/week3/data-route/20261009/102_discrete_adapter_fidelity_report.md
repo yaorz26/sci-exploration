@@ -12,4 +12,4 @@
 
 方向审查：P44限定修订完成，但离散功能仍只是待审扩展候选。P48先固定输入/输出/无效域契约，创建完整参考和另一个内部结构实现；少量新边界输入验证后才保留候选。原20/307/11—9不改，不填结构粗编码空格，不继续增加统计数量。
 
-证据：`codeprm-reproduction/experiments/d1_discrete_adapter_fidelity_v1_20261009/`的sources_anchors_and_controls_frozen.json、summary.json、count_clarification.json。模型/API/下载/private/原测试0。每个结果的字段类型与空域口径可回查，不称独立人工审查。
+证据：`decomposition-bench/experiments/d1_discrete_adapter_fidelity_v1_20261009/`的sources_anchors_and_controls_frozen.json、summary.json、count_clarification.json。模型/API/下载/private/原测试0。每个结果的字段类型与空域口径可回查，不称独立人工审查。

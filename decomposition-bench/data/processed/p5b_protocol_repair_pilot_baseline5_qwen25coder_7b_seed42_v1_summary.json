@@ -1,0 +1,50 @@
+{
+  "protocol": "json",
+  "prompt_variant": "baseline",
+  "allow_no_decomposition": false,
+  "decomposition_model": "qwen2.5-coder:7b",
+  "implementation_model": "qwen2.5-coder:7b",
+  "per_test_timeout_seconds": 10.0,
+  "candidate_timeout_seconds": 10.0,
+  "evaluator_policy": "normalized token comparison; numeric tokens math.isclose(rel_tol=1e-6, abs_tol=1e-6); function outputs literal comparison",
+  "problems": 5,
+  "decomposition_requests": 5,
+  "valid_decompositions": 4,
+  "whole_program_fallback_requests": 0,
+  "valid_whole_program_fallbacks": 0,
+  "implementation_requests": 14,
+  "valid_implementations": 13,
+  "combinations": 3,
+  "composable_combinations": 3,
+  "unique_composable_combinations": 3,
+  "duplicate_combinations": 0,
+  "public_program_evaluations": 3,
+  "public_test_executions": 27,
+  "private_program_evaluations": 3,
+  "private_test_executions": 27,
+  "problems_with_candidate": 3,
+  "selected_public_pass": 0,
+  "selected_private_pass": 0,
+  "model_prompt_tokens": 14963,
+  "model_output_tokens": 1805,
+  "model_reported_seconds": 75.194,
+  "errors": {
+    "forward_dependency": 1,
+    "extra_function_definitions": 1,
+    "empty_implementation_pool": 1
+  },
+  "completed_problem_ids": [
+    "apps-train-2002",
+    "apps-train-2004",
+    "apps-train-2005",
+    "apps-train-2006",
+    "apps-train-2009"
+  ],
+  "elapsed_seconds": 77.491,
+  "outputs": {
+    "decompositions": "data\\processed\\p5b_protocol_repair_pilot_baseline5_qwen25coder_7b_seed42_v1_decompositions.jsonl",
+    "implementations": "data\\processed\\p5b_protocol_repair_pilot_baseline5_qwen25coder_7b_seed42_v1_implementations.jsonl",
+    "recombinations": "data\\processed\\p5b_protocol_repair_pilot_baseline5_qwen25coder_7b_seed42_v1_recombinations.jsonl",
+    "fallbacks": "data\\processed\\p5b_protocol_repair_pilot_baseline5_qwen25coder_7b_seed42_v1_fallbacks.jsonl"
+  }
+}

@@ -24,4 +24,4 @@ v1把E_M06原拼写A/a关系的“跨实体问题不适用”写成projection_ap
 
 阶段完成，不继续堆测量字段。接续P27审查方法自身的接受条件：当前M0只检查solve存在，M2入口检查参数AST完全一致。新增无行为变化的参数类型注解是否会导致一臂接受、另一臂在评分前拒绝？以正确给定代码的新形式、实际门槛和公开例子作低成本反例，不调用模型、不据此预判效应或改旧结果。
 
-证据：`codeprm-reproduction/experiments/d1_measurement_record_v1_20261008/`（保留错误初版）、`d1_measurement_record_v2_20261008/{task_records.json,expansion_records.json,observations.json,plan_records.json,cost_layers.json,discriminating_review.json,record_schema_and_provenance.json,summary.json}`。脚本`scripts/d1/build_measurement_records.py`；实际v2命令`python -B -X utf8 scripts/d1/build_measurement_records.py`，输出不得覆盖。
+证据：`decomposition-bench/experiments/d1_measurement_record_v1_20261008/`（保留错误初版）、`d1_measurement_record_v2_20261008/{task_records.json,expansion_records.json,observations.json,plan_records.json,cost_layers.json,discriminating_review.json,record_schema_and_provenance.json,summary.json}`。脚本`scripts/d1/build_measurement_records.py`；实际v2命令`python -B -X utf8 scripts/d1/build_measurement_records.py`，输出不得覆盖。

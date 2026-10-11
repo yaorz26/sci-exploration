@@ -7,10 +7,10 @@
 | 想看什么 | 去哪 |
 |---|---|
 | 人类可读的最终说明 | `PROJECT_ENTRY.md` |
-| 机器可读最终状态 | `codeprm-reproduction/.research-state/PROJECT_STATE.md` |
-| 计划及终止原因 | `codeprm-reproduction/.research-state/RESEARCH_PLAN.md` |
-| 历史证据账本 | `codeprm-reproduction/.research-state/ledger.jsonl` |
-| 原始实验文件 | `codeprm-reproduction/experiments/` |
+| 机器可读最终状态 | `decomposition-bench/.research-state/PROJECT_STATE.md` |
+| 计划及终止原因 | `decomposition-bench/.research-state/RESEARCH_PLAN.md` |
+| 历史证据账本 | `decomposition-bench/.research-state/ledger.jsonl` |
+| 原始实验文件 | `decomposition-bench/experiments/` |
 
 ## 重要结论
 
@@ -18,4 +18,4 @@
 
 ## 配置
 
-本项目内的科研循环 skill 已停用并移入 `codeprm-reproduction/.research-state/archive/governance_20261011/`，不再从 `.agents/`、`.codebuddy/skills/` 或 `.codebuddy/rules/` 调用。未来研究必须新建实验和新计划。
+本项目内的科研循环 skill 已停用并移入 `decomposition-bench/.research-state/archive/governance_20261011/`，不再从 `.agents/`、`.codebuddy/skills/` 或 `.codebuddy/rules/` 调用。未来研究必须新建实验和新计划。

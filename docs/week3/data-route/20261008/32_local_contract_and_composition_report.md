@@ -31,4 +31,4 @@ P13通过：局部有限验证与组合判定的差异有可执行证据，内�
 
 接着执行P14：既然拆分还需保存并传递计划/组件，重复需求与先前代码在6500总token上限中究竟占用多少？先用经过校准的词表精确计量构造情景，区分“常数开销”与“随题面/轮数增长”，不增加模型调用，不重新跑旧原生/API校准。
 
-实现与证据：`scripts/d1/probe_local_composition.py`，`experiments/d1_local_composition_v1_20261008/{local_units.json,code_freeze.json,summary.json}`，以及同目录8份正例/缺陷代码与两份手算集成输入。复现命令在codeprm-reproduction目录为`python scripts/d1/probe_local_composition.py`；不得覆盖已有输出，重复执行须新版本。
+实现与证据：`scripts/d1/probe_local_composition.py`，`experiments/d1_local_composition_v1_20261008/{local_units.json,code_freeze.json,summary.json}`，以及同目录8份正例/缺陷代码与两份手算集成输入。复现命令在decomposition-bench目录为`python scripts/d1/probe_local_composition.py`；不得覆盖已有输出，重复执行须新版本。

@@ -1,6 +1,6 @@
 # 研究文档入口
 
-这里是工作区层面的“人类阅读区”。实验代码和机器结果在 `../codeprm-reproduction/`，论文原文在 `../articles/`。
+这里是工作区层面的“人类阅读区”。实验代码和机器结果在 `../decomposition-bench/`，论文原文在 `../articles/`。
 
 ## 先读什么
 
@@ -27,6 +27,6 @@
 
 ## 其他
 
-- 早期文档可能使用当时的实验口径；看到冲突时，以 `codeprm-reproduction/.research-state/PROJECT_STATE.md`、对应实验协议和原始机器结果为准。
+- 早期文档可能使用当时的实验口径；看到冲突时，以 `decomposition-bench/.research-state/PROJECT_STATE.md`、对应实验协议和原始机器结果为准。
 - 2026-09-28 整理时，指向被移动文件的**路径引用已同步更新**；`memory/dialogue/` 的逐轮记录保留写作当时的路径，属历史记录，不逐条改写。
-- 原本文档引用的 `ai-conversation/` 目录经核实**当前不存在**，相关引用已从本 README 移除。**遗留（未改历史文件）**：`../当前情况总结.md` 与 `../codeprm-reproduction/reports/p5b_failure_taxonomy_crossmethod_20260918.md` 里仍有指向该不存在路径的引用；`docs/week1/研究方向_第二轮_从对话记录提取.md` 把它写作输入来源。这些属历史记录，保留原样，但读者看到时不要去找那个目录。
+- 原本文档引用的 `ai-conversation/` 目录经核实**当前不存在**，相关引用已从本 README 移除。**遗留（未改历史文件）**：`../当前情况总结.md` 与 `../decomposition-bench/reports/p5b_failure_taxonomy_crossmethod_20260918.md` 里仍有指向该不存在路径的引用；`docs/week1/研究方向_第二轮_从对话记录提取.md` 把它写作输入来源。这些属历史记录，保留原样，但读者看到时不要去找那个目录。

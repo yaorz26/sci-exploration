@@ -27,4 +27,4 @@
 
 下一阶段P15检查：明确实体/观察、计划级义务和预算以后，现有20题在来源与相关家族中还剩多少结构比较支撑？把P12—P14证据编成附加测量记录，保留未知和不适用，再列有证据的缺口；不靠增加相似题数制造独立样本。
 
-证据：`codeprm-reproduction/experiments/d1_prompt_crowding_v1_20261008/`中的`summary.json`、`rows.json`、`M0_rows.json`、`constructed_prompts.jsonl`、`measurement_review.json`；程序`scripts/d1/measure_prompt_crowding.py`。原20题、307记录、11开发/9储备、v0.2初标和执行器均未改，正式模型评测未启动。
+证据：`decomposition-bench/experiments/d1_prompt_crowding_v1_20261008/`中的`summary.json`、`rows.json`、`M0_rows.json`、`constructed_prompts.jsonl`、`measurement_review.json`；程序`scripts/d1/measure_prompt_crowding.py`。原20题、307记录、11开发/9储备、v0.2初标和执行器均未改，正式模型评测未启动。

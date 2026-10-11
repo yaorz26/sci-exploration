@@ -20,7 +20,7 @@
 
 本阶段新增真实模型调用3，共683输入输出token；累计约94/100。两次非任务校准加一次单臂开发烟测，非正式等预算效果比较，真实人工标注仍0。官方文档读取raw定义、prompt_eval_count及eval_count；本机对应提交头文件核对参数结构、vocab_only和tokenize签名，非通读。网络搜索工具再次HTTP500，直接官方源码访问成功；其中不存在的Ollama fork头文件404保留。
 
-从D:/yaorz/research/codeprm-reproduction执行：
+从D:/yaorz/research/decomposition-bench执行：
 
     python scripts/d1/calibrate_native_tokenizer.py
     python scripts/d1/check_allin_pipeline.py --output <新的实验目录>

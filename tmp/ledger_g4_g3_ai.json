@@ -1,0 +1,26 @@
+{
+  "time": "2026-10-11T11:35:00Z",
+  "event_id": "d1-g4-attribution-and-g3-ai-review-20261011T113500Z",
+  "kind": "phase_review",
+  "phase": "G4+G3",
+  "stage": "D1-G4-step1-and-G3-ai-review",
+  "status": "complete",
+  "summary": "两件并行工作完成。① G4 第一步只读归因＋确定性夹具校准：三题 M0 补丁 0 个格式错误；PR126（5 hunk）与 PR440（1 hunk）判为坐标失败 E3，PR142 判为包路径失败 E2；四个夹具×三个任务全部符合预期，证明补丁入口判定正确、并非过严。据此决定把补丁接口由统一 diff 改为完整文件内容。② G3 隔离独立审查第一轮：两位 AI 审查者读取逐字节相同的输入，20 项判断原始一致率仅 0.40、kappa 估计 0.05，且独立指认同一批需求缺陷；五份需求已出 v2 修订，第二轮复审已启动。",
+  "decision": "补丁接口改版（接口类变更，不改变题目、主问题A与红线）；需求按审查意见修订并建立 v2 版本；formal_labels/split 仍为 null，AI 审查不得替代人工双审。",
+  "evidence_kind": "artifact",
+  "evidence": [
+    "experiments/d1_G4_protocol_attribution_v1_20261011/stage_result.json",
+    "experiments/d1_G4_protocol_attribution_v1_20261011/m0_attribution.json",
+    "experiments/d1_G3_blind_review_gate_v1_20261011/ai_review_agreement.json",
+    "experiments/d1_G3_blind_review_gate_v1_20261011/ai_review_A.json",
+    "experiments/d1_G3_blind_review_gate_v1_20261011/ai_review_B.json",
+    "experiments/d1_G3_blind_review_gate_v1_20261011/REVISIONS.json",
+    "experiments/d1_G3_blind_review_gate_v1_20261011/stage_result_round1.json",
+    "experiments/d1_G3_blind_review_v2_20261011/review_input_meta.json"
+  ],
+  "approval_required": false,
+  "supersedes": [],
+  "budget": "模型调用 0；行为调用 0；两位 AI 审查者为子会话（本地 API 额度不计入旧约 98/100 的本地模型调用口径，单独登记）",
+  "uncertainty": "两位审查者同属一个模型家族，一致率不代表人工一致；kappa 基于 20 项判断仅作参考；G4 换接口后的生成尚未执行；T1–T4 的 v1 原文未事先快照（可由第一轮审查输入恢复）",
+  "next": "第二轮审查核验修订效果；随后按新接口做一次有界本地生成，取得完整候选后计算 Δ；否则记录该方法—接口组合的资源边界"
+}

@@ -6,7 +6,7 @@
 
 旧RESEARCH_PLAN主要是P12—P95微任务接续，缺少全题终点、阶段依赖与资源分支。不能靠给P95再加三轮审查解决。已停止P95自动接续，只保留公开源码调查；本轮没有新增模型调用或行为实验。
 
-完整旧计划保存在`codeprm-reproduction/experiments/d1_macro_replan_20261009/legacy_RESEARCH_PLAN.md`。新总计划唯一执行入口是`codeprm-reproduction/.research-state/RESEARCH_PLAN.md`；本报告记录审查，不复制第二套执行路线。
+完整旧计划保存在`decomposition-bench/experiments/d1_macro_replan_20261009/legacy_RESEARCH_PLAN.md`。新总计划唯一执行入口是`decomposition-bench/.research-state/RESEARCH_PLAN.md`；本报告记录审查，不复制第二套执行路线。
 
 草案v1：数据集候选、适用边界、主A实证/未答范围三个终点；G1标准→G2真实任务→G3结构证据→G4条件式比较→G5交付。至多新增4项真实任务，当前模型0。三审未完成，不能正式执行。
 

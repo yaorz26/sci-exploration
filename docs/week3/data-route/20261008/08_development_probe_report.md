@@ -62,10 +62,10 @@ M2的2--3个helper上限是本次方法配置，**不是数据集对内部结构
 
 ## 可复查入口
 
-- 协议：`codeprm-reproduction/experiments/d1_project_development_pilot_v{1,2}_20261008.protocol.json`。
+- 协议：`decomposition-bench/experiments/d1_project_development_pilot_v{1,2}_20261008.protocol.json`。
 - 结果与全部公开模型提示/回复：`experiments/d1_project_development_pilot_v{1,2}_20261008/`，包含候选冻结、代码快照与`summary.json`。
 - 评分器修复事后审计：`experiments/d1_project_development_pilot_v2_20261008/posthoc_evaluation_audit_stdout_fix.json`。
 - 公开诊断：`experiments/d1_public_prompt_diagnostic_20261008/`；修复复算：`experiments/d1_evaluator_stdout_fix_20261008/summary.json`。
 - 案例未变证据：`experiments/d1_project_prototype8_v5_20261008/v4_case_equivalence.json`。
 - 当前数据：`data/processed/d1_project_prototype8_v5_20261008/manifest.json`；质量与独立复核经过见`07_prototype_quality_and_review.md`及其后续附记。
-- 复现探针：复制协议并为output指定**新的未存在目录**，使用对应代码快照；已有冻结目录不得覆盖。本轮生成命令为`py -3.13 codeprm-reproduction/scripts/d1/run_local_pilot.py --protocol <对应协议路径>`。
+- 复现探针：复制协议并为output指定**新的未存在目录**，使用对应代码快照；已有冻结目录不得覆盖。本轮生成命令为`py -3.13 decomposition-bench/scripts/d1/run_local_pilot.py --protocol <对应协议路径>`。

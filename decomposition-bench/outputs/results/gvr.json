@@ -1,0 +1,1074 @@
+{
+  "summary": [
+    {
+      "method": "none",
+      "num_problems": 20,
+      "before_pass_rate": 0.325,
+      "after_pass_rate": 0.325,
+      "after_pass_at_1": 0.3
+    },
+    {
+      "method": "random",
+      "num_problems": 20,
+      "before_pass_rate": 0.325,
+      "after_pass_rate": 0.55,
+      "after_pass_at_1": 0.5
+    },
+    {
+      "method": "locate_minimum",
+      "num_problems": 20,
+      "before_pass_rate": 0.325,
+      "after_pass_rate": 1.0,
+      "after_pass_at_1": 1.0
+    },
+    {
+      "method": "threshold",
+      "num_problems": 20,
+      "before_pass_rate": 0.325,
+      "after_pass_rate": 1.0,
+      "after_pass_at_1": 1.0
+    }
+  ],
+  "problems": [
+    {
+      "problem_id": "offline-001",
+      "method": "none",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 1.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 1.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-002",
+      "method": "none",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 0.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-003",
+      "method": "none",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 1.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 1.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-004",
+      "method": "none",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 1.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 1.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-005",
+      "method": "none",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 0.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-006",
+      "method": "none",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 0.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-007",
+      "method": "none",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 0.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-008",
+      "method": "none",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 0.0
+      },
+      "before_private_pass_rate": 0.5,
+      "after_private_pass_rate": 0.5
+    },
+    {
+      "problem_id": "offline-009",
+      "method": "none",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 0.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-010",
+      "method": "none",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 0.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-011",
+      "method": "none",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 0.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-012",
+      "method": "none",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 1.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 1.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-013",
+      "method": "none",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 0.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-014",
+      "method": "none",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 0.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-015",
+      "method": "none",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 0.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-016",
+      "method": "none",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 1.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 1.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-017",
+      "method": "none",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 1.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 1.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-018",
+      "method": "none",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 0.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-019",
+      "method": "none",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 0.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-020",
+      "method": "none",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 0.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-001",
+      "method": "random",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 1.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 1.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-002",
+      "method": "random",
+      "selected_candidate": 3,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 0.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-003",
+      "method": "random",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 1.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 1.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-004",
+      "method": "random",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 1.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 1.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-005",
+      "method": "random",
+      "selected_candidate": 1,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 0.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-006",
+      "method": "random",
+      "selected_candidate": 1,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 0.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-007",
+      "method": "random",
+      "selected_candidate": 3,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 0.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 0.5
+    },
+    {
+      "problem_id": "offline-008",
+      "method": "random",
+      "selected_candidate": 2,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 0.0
+      },
+      "before_private_pass_rate": 0.5,
+      "after_private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-009",
+      "method": "random",
+      "selected_candidate": 1,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-010",
+      "method": "random",
+      "selected_candidate": 1,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-011",
+      "method": "random",
+      "selected_candidate": 1,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-012",
+      "method": "random",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 1.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 1.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-013",
+      "method": "random",
+      "selected_candidate": 3,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 0.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-014",
+      "method": "random",
+      "selected_candidate": 1,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 0.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 0.5
+    },
+    {
+      "problem_id": "offline-015",
+      "method": "random",
+      "selected_candidate": 3,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 0.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-016",
+      "method": "random",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 1.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 1.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-017",
+      "method": "random",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 1.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 1.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-018",
+      "method": "random",
+      "selected_candidate": 3,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 0.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-019",
+      "method": "random",
+      "selected_candidate": 3,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 0.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 0.0
+    },
+    {
+      "problem_id": "offline-020",
+      "method": "random",
+      "selected_candidate": 1,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-001",
+      "method": "locate_minimum",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 1.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 1.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-002",
+      "method": "locate_minimum",
+      "selected_candidate": 2,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-003",
+      "method": "locate_minimum",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 1.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 1.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-004",
+      "method": "locate_minimum",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 1.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 1.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-005",
+      "method": "locate_minimum",
+      "selected_candidate": 2,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-006",
+      "method": "locate_minimum",
+      "selected_candidate": 3,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-007",
+      "method": "locate_minimum",
+      "selected_candidate": 1,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-008",
+      "method": "locate_minimum",
+      "selected_candidate": 3,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 0.5,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-009",
+      "method": "locate_minimum",
+      "selected_candidate": 1,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-010",
+      "method": "locate_minimum",
+      "selected_candidate": 1,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-011",
+      "method": "locate_minimum",
+      "selected_candidate": 1,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-012",
+      "method": "locate_minimum",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 1.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 1.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-013",
+      "method": "locate_minimum",
+      "selected_candidate": 1,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-014",
+      "method": "locate_minimum",
+      "selected_candidate": 3,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-015",
+      "method": "locate_minimum",
+      "selected_candidate": 2,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-016",
+      "method": "locate_minimum",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 1.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 1.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-017",
+      "method": "locate_minimum",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 1.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 1.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-018",
+      "method": "locate_minimum",
+      "selected_candidate": 2,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-019",
+      "method": "locate_minimum",
+      "selected_candidate": 1,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-020",
+      "method": "locate_minimum",
+      "selected_candidate": 1,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-001",
+      "method": "threshold",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 1.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 1.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-002",
+      "method": "threshold",
+      "selected_candidate": 2,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-003",
+      "method": "threshold",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 1.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 1.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-004",
+      "method": "threshold",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 1.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 1.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-005",
+      "method": "threshold",
+      "selected_candidate": 2,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-006",
+      "method": "threshold",
+      "selected_candidate": 3,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-007",
+      "method": "threshold",
+      "selected_candidate": 1,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-008",
+      "method": "threshold",
+      "selected_candidate": 3,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 0.5,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-009",
+      "method": "threshold",
+      "selected_candidate": 1,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-010",
+      "method": "threshold",
+      "selected_candidate": 1,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-011",
+      "method": "threshold",
+      "selected_candidate": 1,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-012",
+      "method": "threshold",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 1.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 1.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-013",
+      "method": "threshold",
+      "selected_candidate": 1,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-014",
+      "method": "threshold",
+      "selected_candidate": 3,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-015",
+      "method": "threshold",
+      "selected_candidate": 2,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-016",
+      "method": "threshold",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 1.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 1.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-017",
+      "method": "threshold",
+      "selected_candidate": 0,
+      "metadata": {
+        "selected_step": null,
+        "refined": false,
+        "before_public_pass_rate": 1.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 1.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-018",
+      "method": "threshold",
+      "selected_candidate": 2,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-019",
+      "method": "threshold",
+      "selected_candidate": 1,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 1.0
+    },
+    {
+      "problem_id": "offline-020",
+      "method": "threshold",
+      "selected_candidate": 1,
+      "metadata": {
+        "selected_step": 0,
+        "refined": true,
+        "before_public_pass_rate": 0.0,
+        "after_public_pass_rate": 1.0
+      },
+      "before_private_pass_rate": 0.0,
+      "after_private_pass_rate": 1.0
+    }
+  ]
+}

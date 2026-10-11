@@ -6,7 +6,7 @@
 
 依据这项差异另存未来单次规范候选：在原始text上从左到右识别完整非重叠区间，一次删除，删除后新拼成的码保留；添加两个已有诊断公开例子。不固定helper数量、名称或算法。完整原公开题面另存，原20题、评分、初标、模型请求与机器输出没有改变，候选未正式冻结。
 
-原始证据位于`codeprm-reproduction/experiments/d1_ansi_contract_clarification_v1_20261009/`的`evidence_and_two_example_predictions_frozen.json`、`eight_row_semantic_comparison.json`、`requirements_delta.json`、`future_single_pass_task_candidate.json`及`summary.json`。输入哈希核对使用冻结值，来源均为公开题面和已保存诊断结果。
+原始证据位于`decomposition-bench/experiments/d1_ansi_contract_clarification_v1_20261009/`的`evidence_and_two_example_predictions_frozen.json`、`eight_row_semantic_comparison.json`、`requirements_delta.json`、`future_single_pass_task_candidate.json`及`summary.json`。输入哈希核对使用冻结值，来源均为公开题面和已保存诊断结果。
 
 阶段审查：排除了“两个原公开例子已经区分两种语义”的解释；不能由此断言人类读者误解，也没有测到澄清提高模型效果。单次规则来自固定来源实现，程序差异不替代人工需求审查。
 

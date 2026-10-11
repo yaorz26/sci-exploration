@@ -10,4 +10,4 @@
 
 执行后检索偏离：完成执行后，搜索公开调用位置时排除tests的glob未生效，输出了上游tests/test_more.py与test_recipes.py约九条匹配行（含map_reduce调用及两条expected=groupby代码）。随后又查看了原储备M04的公开题面与公开例用于关联家族判断。原隐藏输入/期望没有读取，没有模型调用，没有再调本候选；仍不能说全程“上游测试内容零暴露”。相关文件不用于后续未见确认，详细暴露记录另存。这里的private_reads=0只指原D1隐藏内容，不指上述上游公开测试片段。
 
-证据：codeprm-reproduction/experiments/d1_group_context_candidate_v1_20261009/execution_v1/。命令（codeprm-reproduction目录）：python -B -X utf8 scripts/d1/build_group_context_candidate.py prepare；同命令run。固定commit81c21a8db1c922260cd673841257fb9b112c1318；六锚点非全域、同助手非人工双审、没有模型收益或完整集成结论。
+证据：decomposition-bench/experiments/d1_group_context_candidate_v1_20261009/execution_v1/。命令（decomposition-bench目录）：python -B -X utf8 scripts/d1/build_group_context_candidate.py prepare；同命令run。固定commit81c21a8db1c922260cd673841257fb9b112c1318；六锚点非全域、同助手非人工双审、没有模型收益或完整集成结论。

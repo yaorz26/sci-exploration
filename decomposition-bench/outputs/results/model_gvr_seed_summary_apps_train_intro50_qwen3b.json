@@ -1,0 +1,81 @@
+{
+  "results": [
+    "outputs\\results\\model_gvr_apps_train_intro50_qwen3b_seed42.json",
+    "outputs\\results\\model_gvr_apps_train_intro50_qwen3b_seed43.json",
+    "outputs\\results\\model_gvr_apps_train_intro50_qwen3b_seed44.json"
+  ],
+  "aggregate": {
+    "accepted_refinements": {
+      "mean": 3.6666666666666665,
+      "sd": 0.5773502691896257,
+      "by_seed": [
+        4.0,
+        3.0,
+        4.0
+      ]
+    },
+    "after_pass_at_1": {
+      "mean": 0.35333333333333333,
+      "sd": 0.04163331998932266,
+      "by_seed": [
+        0.4,
+        0.32,
+        0.34
+      ]
+    },
+    "after_private_pass_rate": {
+      "mean": 0.4766813080639168,
+      "sd": 0.04885984889168619,
+      "by_seed": [
+        0.5317179487179488,
+        0.43841538461538465,
+        0.4599105908584169
+      ]
+    },
+    "after_public_pass_rate": {
+      "mean": 0.46115954415954413,
+      "sd": 0.036188863427443554,
+      "by_seed": [
+        0.49935897435897436,
+        0.4273888888888889,
+        0.4567307692307692
+      ]
+    },
+    "before_pass_at_1": {
+      "mean": 0.3333333333333333,
+      "sd": 0.023094010767585018,
+      "by_seed": [
+        0.36,
+        0.32,
+        0.32
+      ]
+    },
+    "before_private_pass_rate": {
+      "mean": 0.4445240431066518,
+      "sd": 0.027623075799231626,
+      "by_seed": [
+        0.4758205128205128,
+        0.42354358974358974,
+        0.43420802675585285
+      ]
+    },
+    "before_public_pass_rate": {
+      "mean": 0.4369074074074074,
+      "sd": 0.0034265679279524347,
+      "by_seed": [
+        0.4407692307692308,
+        0.43572222222222223,
+        0.4342307692307692
+      ]
+    },
+    "degraded_refinements": {
+      "mean": 0.0,
+      "sd": 0.0,
+      "by_seed": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  }
+}

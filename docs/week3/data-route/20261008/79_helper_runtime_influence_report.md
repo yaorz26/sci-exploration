@@ -8,4 +8,4 @@
 
 阶段审查：同调用次数不能替代返回值作用，且返回约束与终值贡献应分开。方向审查：停止增加手工“正确/错误计划”数量，进入P37用真正保存的M2生成代码检验观察覆盖。候选不存在、入口在helper前失败、helper成功被调用等可能造成不同缺失；不能把没有调用统称提示旁路。
 
-证据：codeprm-reproduction/experiments/d1_helper_runtime_influence_v1_20261008/{design_frozen,pre_execution_freeze,new_normal_results,intervention_results,summary}.json；脚本probe_helper_runtime_influence.py，执行python -B -X utf8 scripts/d1/probe_helper_runtime_influence.py。原模型成绩/数据集不改，约98/100调用、人工0保持。
+证据：decomposition-bench/experiments/d1_helper_runtime_influence_v1_20261008/{design_frozen,pre_execution_freeze,new_normal_results,intervention_results,summary}.json；脚本probe_helper_runtime_influence.py，执行python -B -X utf8 scripts/d1/probe_helper_runtime_influence.py。原模型成绩/数据集不改，约98/100调用、人工0保持。

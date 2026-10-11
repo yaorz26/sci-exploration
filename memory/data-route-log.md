@@ -43,7 +43,7 @@
 
 ## 四、FAST-0：BigCodeBench（已完成，通过）
 
-产物：`00a_fast0_bigcodebench_smoke_report.md`；机器产物 `codeprm-reproduction/experiments/fast0_bigcodebench/`；脚本同目录 `scripts/fast0_bigcodebench/`；数据 `data/raw/bigcodebench/v0.1.4/`。
+产物：`00a_fast0_bigcodebench_smoke_report.md`；机器产物 `decomposition-bench/experiments/fast0_bigcodebench/`；脚本同目录 `scripts/fast0_bigcodebench/`；数据 `data/raw/bigcodebench/v0.1.4/`。
 
 - 许可证 apache-2.0（HF 元数据；LICENSE 原文未取）；数据 **2.25 MiB**，SHA-256 `d9a4965821c9507ebdfb551c288656b2d5fe553234f5183044333ca8a4018267`；
 - 结构：1140 题、100% 自带 unittest、**任务单元是单函数 `task_func`**、139 个依赖库、仅 **28.4%（324/1140）**不依赖第三方库；
@@ -173,7 +173,7 @@
 
 ## 十六、WP6 v2 完成结果与口径更正
 
-- 2026-09-29 已完成：模型 `qwen2.5-coder:7b`、seed `20260929`、temperature `0.2`，24 题 × 三臂 × 2 候选；351 次调用、生成墙钟 2,928.6 秒。原始产物 `codeprm-reproduction/experiments/classeval_wp6_v2/wp6_v2_manifest.json`；报告 `docs/week3/data-route/20260929/12_wp6_v2_report.md`。
+- 2026-09-29 已完成：模型 `qwen2.5-coder:7b`、seed `20260929`、temperature `0.2`，24 题 × 三臂 × 2 候选；351 次调用、生成墙钟 2,928.6 秒。原始产物 `decomposition-bench/experiments/classeval_wp6_v2/wp6_v2_manifest.json`；报告 `docs/week3/data-route/20260929/12_wp6_v2_report.md`。
 - 私有全过：M0 首候选/池上限 `7/24、7/24`；M1 `8/24、8/24`；M2 `7/24、7/24`。第二候选未救回新题，G2 决策维持收束。
 - 协议变化：三臂统一语法/完整性校验和失败重试一次；M2 禁止重定义已有方法名；每臂候选从 1 增至 2。v2 seed 派生方式改变，因此不能将 v1→v2 各增一题单独归因于工具修复。
 - 已知失败：M0 曾因续跑判重缺陷被整体跳过，修复后单独补跑；M2 提示已禁重定义，但仍出现 `_to_camel_case`/`_select` 撞名，说明本次约束未消除此失败，不能外推所有提示词都无效。
@@ -195,12 +195,12 @@
 - v2成本：M0输入2540/输出1586=4126token，4调用，36.64秒；M2输入11803/输出1874=13677token，13调用，43.16秒，约3.31倍总token。相同输出上限≠等实际总成本；失败提前停止，不能泛化方法效率。
 - 公开提示诊断B01：中文纯文本与英文纯文本各1候选；修复评分后公开0/2对2/2，未评其隐藏，不证明语言效应，不替换原探针候选。本轮本地调用实用30/100（审查3+v1 8+v2 17+公开诊断2），均已结束；无训练/RL/发布。
 - 方向审查：D1继续，但暂不扩同配置生成；保留8题/负结果，先补多环节项目功能、开发简单对照、结构定义/人工真值及总成本协议。16项后续功能已回查源码存在，候选上限8+16=24，尚未构建；20--30题初版和正式边界研究未完成。不能按模型成败筛题，不能将已见开发题改称未见确认题。
-- 证据：docs/week3/data-route/20261008/05_selfbuild_protocol.md、06_question_A_measurement_design.md、07_prototype_quality_and_review.md、08_development_probe_report.md、09_dataset_card_and_expansion_candidates.md；数据codeprm-reproduction/data/processed/d1_project_prototype8_v5_20261008/；两轮结果experiments/d1_project_development_pilot_v{1,2}_20261008/，评分修正posthoc_evaluation_audit_stdout_fix.json；源码证据与审查原回复均保留。新颖性检索尚未完成。
+- 证据：docs/week3/data-route/20261008/05_selfbuild_protocol.md、06_question_A_measurement_design.md、07_prototype_quality_and_review.md、08_development_probe_report.md、09_dataset_card_and_expansion_candidates.md；数据decomposition-bench/data/processed/d1_project_prototype8_v5_20261008/；两轮结果experiments/d1_project_development_pilot_v{1,2}_20261008/，评分修正posthoc_evaluation_audit_stdout_fix.json；源码证据与审查原回复均保留。新颖性检索尚未完成。
 
 
 ## 十八、D1二十题候选初版与结构尺度（2026-10-08）
 
-- 用户“继续”后，保留原8题，按已登记来源候选新增12个真实功能；当前有效数据`codeprm-reproduction/data/processed/d1_project_initial20_v5_20261008/`，20题／4来源，307案例＝40公开＋267隐藏，自动门槛20/20。原8题需求及公开／隐藏／全部测试共32文件与旧v5逐字一致，没有按模型成败删改题。
+- 用户“继续”后，保留原8题，按已登记来源候选新增12个真实功能；当前有效数据`decomposition-bench/data/processed/d1_project_initial20_v5_20261008/`，20题／4来源，307案例＝40公开＋267隐藏，自动门槛20/20。原8题需求及公开／隐藏／全部测试共32文件与旧v5逐字一致，没有按模型成败删改题。
 - 来源仍为固定提交boltons（6题，12公开85隐藏）、more-itertools（5题，10公开62隐藏）、cachetools（5题，10公开70隐藏）、confuse（4题，8公开50隐藏）；候选开发11／储备9按仓库隔离。全部储备题仅验来源参考与另一实现，没有生成或评分被测模型候选。
 - 新增ANSI、查询参数、树转换／筛选、批量路径、回退迭代、分桶读取、联合排序、调用缓存、实例缓存、调用键等价、分层配置、对象／序列组合模板。URL仅查询参数，未实现完整URL任务；数据来自项目功能，但不提供完整仓库上下文，不评仓库集成。缓存5题、多值2题、树遍历2题存在关联，不当独立重复。
 - 40个手算公开锚点，上游参考及另一结构实现对307案例一致；每题参考重复3次全过，空壳及3类基本错误实现失败；每题2个语义缺陷，共40/40被识别，非完整覆盖率。四项适配另做seed20261008各600次差分，2400次无分歧；不计入307案例，不是模型成绩或人工真值。
@@ -222,15 +222,15 @@
 
 ## 二十、D1三题分层成本扩展（2026-10-08）
 
-- 在保留单token预检、每题每臂6500实际生成token、先冻结候选后评分、private不进生成提示的规则下，预先选择B03简单转换、B05多环节编辑、C04实例共享状态；配置为codeprm-reproduction/configs/d1_costed_pilot_b03_b05_c04_v1_20261008.json。
+- 在保留单token预检、每题每臂6500实际生成token、先冻结候选后评分、private不进生成提示的规则下，预先选择B03简单转换、B05多环节编辑、C04实例共享状态；配置为decomposition-bench/configs/d1_costed_pilot_b03_b05_c04_v1_20261008.json。
 - qwen2.5-coder:7b Q4_K_M，seed20261008、temperature0.2、ctx8192；32次API调用（预检16、生成16），墙钟73.67秒。M0实际生成2823 token，M2 12753，约4.52倍。
 - B03：M0 648 token，公开1/2、隐藏5/12；M2 2014 token，在helper completion changed frozen functions处生成失败。B05：M0 1028 token，公开0/2、隐藏7/12；M2 4853 token，公开1/2、隐藏10/12。C04：M0 1147 token，公开1/2、隐藏2/8；M2 5886 token，在entry completion changed frozen functions处生成失败。两臂整题均0/3。
 - failure_taxonomy.json只按评分器可观察的通过、行为不匹配、候选异常和生成失败分类；stratified_summary.json单列可评分分母。M0有IndexError和行为不匹配，M2有2题组装接口失败，不能将分类直接当算法根因。
 - 与前一轮B04/C03合并为5题时，M0实际生成4903、M2 24179，约4.93倍；两臂整题均0/5。阶段判断仍是成本/失败形态工程诊断，不能回答问题A或给出适用边界。
-- 证据：codeprm-reproduction/experiments/d1_costed_pilot_b03_b05_c04_v1_20261008/；docs/week3/data-route/20261008/13_related_work_and_costed_pilot_report.md；账本事件20261008070556-d1-costed-pilot-v2与20261008070556-d1-p5-v2-phase-review。
+- 证据：decomposition-bench/experiments/d1_costed_pilot_b03_b05_c04_v1_20261008/；docs/week3/data-route/20261008/13_related_work_and_costed_pilot_report.md；账本事件20261008070556-d1-costed-pilot-v2与20261008070556-d1-p5-v2-phase-review。
 ## 二十一、D1复核前置审计（2026-10-08）
 
-- 零生成审计产物codeprm-reproduction/experiments/d1_freeze_readiness_audit_v1_20261008.json：盲审包20个盲号唯一、空表保持unknown/空白、requirements不含来源/任务标识；两轮成本账本分别24次和32次，summary、freeze、call_ledger、预检prompt计数和token合计全部一致。
+- 零生成审计产物decomposition-bench/experiments/d1_freeze_readiness_audit_v1_20261008.json：盲审包20个盲号唯一、空表保持unknown/空白、requirements不含来源/任务标识；两轮成本账本分别24次和32次，summary、freeze、call_ledger、预检prompt计数和token合计全部一致。
 - 关键新限制：development/reserve与来源仓库完全重合（boltons/cachetools全development；more-itertools/confuse全reserve），20个功能家族各1题。当前切分把来源、家族和结构混在一起，不能支持结构因素因果比较。
 - 协议草案15要求先完成两位人类独立双审，重新安排来源×结构×切分覆盖；若无法平衡，结论降为当前来源组合下的描述性边界。人工判定当前仍为0，不计算κ。
 - 本轮在线搜索和arXiv页面入口两次HTTP500，未新增一手来源；已有来源矩阵不升级为穷尽检索。阶段P6状态revise，不新增模型生成、训练或RL。
@@ -242,13 +242,13 @@
 - 更正旧地图“完整prompt/response已保存”：实际只有调用计数、prompt哈希、计划原文与成功候选；B03/C04失败helper/entry原文缺失，不能补造或由异常证明算法根因。8个成功候选哈希复核通过。异常确认冻结函数检查失败，不证明接口成本抵消收益。
 - 修正§二十一/旧15—16号建议：保留按仓库隔离。同题配对可比较方法，来源×结构相关限制因素解释/外推，不构成必须打乱储备的理由。问题A是关联，不新增因果目标；20细分家族各1题并非统计失效的充分理由。related_families形成15显式关联组件（缓存5、有序多值/查询2、单独13），15不代表已证明的独立样本数。旧建议与失败记录保留，当前协议18_question_A_protocol_v0.2.md。
 - 先前在线工具两次HTTP500仍真实；后续官方HTML直接获取成功，下载1350654字节。FEA-Bench方法3.1—3.3、FeatureBench方法3.1—3.3及4.2.1定向阅读，非通读/穷尽。前者已有新增组件接口，后者有从零实现及接口消融；不能以“项目功能/独立实现/接口明确”主张首创。研究定位收窄到自由内部拆法、结构证据和总预算关联；当前为轻量库来源独立功能，不是完整项目集成。污染未知。
-- 证据：docs/week3/data-route/20261008/17_review_delivery_and_protocol_revision.md、18_question_A_protocol_v0.2.md；codeprm-reproduction/experiments/d1_cost_allin_audit_v1_20261008.json、d1_review_pipeline_selfcheck_20261008.json、d1_family_link_audit_v1_20261008.json、d1_literature_fulltext_v1_20261008/method_evidence.json。新增模型0，Qwen累计约91/100。
+- 证据：docs/week3/data-route/20261008/17_review_delivery_and_protocol_revision.md、18_question_A_protocol_v0.2.md；decomposition-bench/experiments/d1_cost_allin_audit_v1_20261008.json、d1_review_pipeline_selfcheck_20261008.json、d1_family_link_audit_v1_20261008.json、d1_literature_fulltext_v1_20261008/method_evidence.json。新增模型0，Qwen累计约91/100。
 
 ## 二十三、严格总预算记录器模拟验证（2026-10-08）
 
 - 新增budgeted_generation.py独立于旧执行器；完整请求先保存、原始响应在计数/解析前保存，所有请求输入输出计费；发请求前依据经核验的输入token上界裁限输出或拒绝。上界失准/计数缺失/超时使协议失效并禁止继续，实际超额保留，未知成本不冒填0。
 - 12/12模拟反例通过，真实API/模型0；合成35token例预检10+1、重复输入10、输出14，下一次先拒绝；故障原文与哈希均保留。没有验证真实token上界或候选冻结/private延后评分集成，不称真实端到端烟测。未来工具不能修复旧失败原文。
-- 阶段P7工具验证通过，正式准备仍revise、人工0。下一步自主核验输入上界并模拟完整冻结评分路径，再考虑预算明确的开发烟测；不等待人工停掉所有独立工作，不继续同配置扩量、不动储备调参、不训练/RL/采购/发布。证据：docs/week3/data-route/20261008/19_total_budget_instrument_contract.md、20_total_budget_instrument_report.md；codeprm-reproduction/experiments/d1_total_budget_simulation_v1_20261008/summary.json。
+- 阶段P7工具验证通过，正式准备仍revise、人工0。下一步自主核验输入上界并模拟完整冻结评分路径，再考虑预算明确的开发烟测；不等待人工停掉所有独立工作，不继续同配置扩量、不动储备调参、不训练/RL/采购/发布。证据：docs/week3/data-route/20261008/19_total_budget_instrument_contract.md、20_total_budget_instrument_report.md；decomposition-bench/experiments/d1_total_budget_simulation_v1_20261008/summary.json。
 
 
 ## 二十四、原生计量、双臂烟测与候选包交付（2026-10-08）
@@ -268,7 +268,7 @@
 - 对B03/B04/C03/C04/C05/M05的39条关键行为建立需求原文—案例证据索引，所列输入/期望未见新的明显条款矛盾。不是全部20题全部条款/覆盖率/独立人工真值，结构yes/partial/no仍初标；含隐藏索引只供管理，不加入双审ZIP。
 - 失败记录保留：首隔离汇总误将检查器__main__当外部依赖，原0/40汇总保留，只按已存输出排除精确检查器路径更正20/40；打包v3误以codeload为git checkout、读父HEAD而中止，不证来源commit变化；复核v1误读公开异常字段raises为error，数据本身正确，有效v2报告14/14。v3未形成ZIP，BUILD_FAILURE落盘。
 - v4 ZIP372成员、657887字节，SHA256=671655dac37508b7a97d57da43593d9ff95a307551312aa00440c19f69c940d1；DELIVERY_CHECKSUMS_EXTERNAL和后续DELIVERY_NOTES均在包外，不改ZIP。当前人工0、未正式冻结/未发布，无模型新增、累计约98/100、无训练/RL/下载/采购；方向继续全量契约/输入域检查，不恢复模型扩量或伪填双审。
-- 证据：docs/week3/data-route/20261008/27_portability_and_contract_audit.md、28_portability_and_contract_report.md；codeprm-reproduction/experiments/d1_portability_v2_isolation_20261008/corrected_summary.json、d1_portability_v4_isolation_20261008/summary.json、d1_candidate_delivery_v4_portable_20261008/portable_delivery_verification_v2.json、d1_contract_traceability6_v1_20261008/traceability_private.json。
+- 证据：docs/week3/data-route/20261008/27_portability_and_contract_audit.md、28_portability_and_contract_report.md；decomposition-bench/experiments/d1_portability_v2_isolation_20261008/corrected_summary.json、d1_portability_v4_isolation_20261008/summary.json、d1_candidate_delivery_v4_portable_20261008/portable_delivery_verification_v2.json、d1_contract_traceability6_v1_20261008/traceability_private.json。
 
 ## 二十六、结构反例、预算占用和问题驱动的扩展候选（2026-10-08，P12—P18）
 
@@ -282,7 +282,7 @@
 - P17：map_reduce公开例子排序，不能以源码现有插入顺序冒称公开保序保证，停止此推断；转明确公开保序的unique_everseen。扩展池E_M06按exact/casefold键保留第一原记录及出现顺序，6/6手算、3110/3110输入（两mode×6记录0—4长度）、71/71关系（68其他规范类插入隔离、2全局顺序阳性、1同规范类历史变化）、6516求值；4人工缺陷检出。A/a及ß/SS等价要求记录规范规则。history_domain=input_item_sequence不同于B02/B04操作历史，不能继承旧cross_operation_state标签。两扩展候选不是原正式22题/新增独立家族，原20题307记录、11开发9储备不变。
 - P18已启动：提取C04不同实例/同实例不同调用键以及E_M06原拼写同规范实体的3条保存证据，拟检验粒度选择分歧与同粒度行为判断分歧是否混入同一一致性分母；只构造助手逻辑描述，不做人类填写或κ，旧初标/盲审/κ不改。下一项仍按证据自行启动；若无新增协议影响转P19合法组件文本的成本边界。
 - 全阶段模型/API新调用0，本地累计仍约98/100；人工0、正式模型确认/训练/RL/发布未开始。旧307记录重复项限制、污染未知、轻量功能而非完整项目集成、4来源及家族相关限制保持。
-- 报告契约：docs/week3/data-route/20261008/29—41号；原始证据分别为codeprm-reproduction/experiments/d1_semantic_contrasts_v1_20261008/、d1_local_composition_v1_20261008/、d1_prompt_crowding_v1_20261008/、d1_structure_evidence_sidecar_v1_20261008/、d1_expansion_cache_candidate_v1_20261008/、d1_expansion_order_candidate_v1_20261008/、d1_granularity_review_v1_20261008/；当前目标/计划在codeprm-reproduction/.research-state/RESEARCH_TARGET.md和RESEARCH_PLAN.md。
+- 报告契约：docs/week3/data-route/20261008/29—41号；原始证据分别为decomposition-bench/experiments/d1_semantic_contrasts_v1_20261008/、d1_local_composition_v1_20261008/、d1_prompt_crowding_v1_20261008/、d1_structure_evidence_sidecar_v1_20261008/、d1_expansion_cache_candidate_v1_20261008/、d1_expansion_order_candidate_v1_20261008/、d1_granularity_review_v1_20261008/；当前目标/计划在decomposition-bench/.research-state/RESEARCH_TARGET.md和RESEARCH_PLAN.md。
 
 
 ## 二十七、测量单位、正确文本预算、方案状态及对齐域（2026-10-08，P18—P24）
@@ -321,7 +321,7 @@
 - P33两路径碰撞/一无关键控制：最高首对象/终值/顶层标记/来源数三投影都相同，相应x或outer/x路径标记false/true；追加同路径候选两组必须不同，追加无关y控制相同，六新终值均符合手算。旧216格/参考0、新隐藏0、模型/API0。接口不足的量词为存在允许续接，不是所有续接必不同；停止F03扩格，73号。
 - P34已启动，74号契约/首手算已冻结尚未执行：M05两columns=[[2,1],[a,b]]与[[1,2],[a,b]]，排序键值同[1,2]、非键列及L相同，正确标签排列不同。拟比较错误拼接、排序索引修复、同键值helper但入口读原输入重算映射修复，区分限定接口不足与任务不可拆分。预算20分钟、最多六输入/三个手工计划、两修订，模型/API/新隐藏/旧640格/旧参考0。当前RESEARCH_PLAN=P34。
 - 本轮全部模型/API0，累计约98/100；人工0、原20题307记录/11开发9储备/初标/历史模型成绩不改，正式评测/训练/RL/付费/发布未开始。阶段完成即按target/plan自主接续，重要方向才交用户。原机器输出与失败版本保留。
-- 证据目录：docs/week3/data-route/20261008/59、61、63、65、67、69、71、73号报告及74号契约；codeprm-reproduction/experiments/d1_measurement_record_v1和v2_20261008、d1_method_gate_v1_20261008、d1_entry_annotation_gate_v1_20261008、d1_failure_observation_v1_20261008、d1_question_A_protocol_v0_3_candidate_20261008、d1_layered_merge_reduction_v1_20261008、d1_layered_merge_summary_v1_20261008、d1_path_local_summary_v1_20261008、d1_interface_information_recovery_v1_20261008。
+- 证据目录：docs/week3/data-route/20261008/59、61、63、65、67、69、71、73号报告及74号契约；decomposition-bench/experiments/d1_measurement_record_v1和v2_20261008、d1_method_gate_v1_20261008、d1_entry_annotation_gate_v1_20261008、d1_failure_observation_v1_20261008、d1_question_A_protocol_v0_3_candidate_20261008、d1_layered_merge_reduction_v1_20261008、d1_layered_merge_summary_v1_20261008、d1_path_local_summary_v1_20261008、d1_interface_information_recovery_v1_20261008。
 
 
 用户2026-10-08明确中断：当前P34仅首手算冻结，尚未执行三个计划，研究暂停。
@@ -352,7 +352,7 @@
 
 ## 三十一、离散候选、联合画像与输出类型契约（2026-10-09，P43—P51）
 
-- 用户本日明确继续启动D1，题目/主A范围及持续接续保持。P43停止数值精度支路，E_B08保留研究池：原八比较不重跑；十新控制三规则中exact列其实Python==、非原json_equal，有限abs/rel1e-12或十进制定点也无唯一语义精度依据。十新控制未先登记旧八上限，偏离/非有限孤立值已保存scope_and_deviation_clarification.json；94号实际位于codeprm-reproduction/docs/week3/data-route/20261008/，不能引用为根docs。P43—P46主计划/账本/检查点曾延迟补录，报告契约先存不能冒称逐阶段严格预注册。
+- 用户本日明确继续启动D1，题目/主A范围及持续接续保持。P43停止数值精度支路，E_B08保留研究池：原八比较不重跑；十新控制三规则中exact列其实Python==、非原json_equal，有限abs/rel1e-12或十进制定点也无唯一语义精度依据。十新控制未先登记旧八上限，偏离/非有限孤立值已保存scope_and_deviation_clarification.json；94号实际位于decomposition-bench/docs/week3/data-route/20261008/，不能引用为根docs。P43—P46主计划/账本/检查点曾延迟补录，报告契约先存不能冒称逐阶段严格预注册。
 - P44 count/mode六输入三程序18solve，用Python==而非原比较，分数6/6、6/6、5/6；Counter预期不是执行前独立逐值锚点、未直接执行上游，冻结task_evaluations=0是事前状态并非实际18。measurement_clarification.json保留原字段并更正。P47本次冻结六逐值预期后，新来源包装6/6，原18输出复用json_equal分数仍6/6、6/6、5/6。两个bool错误普通==通过、原评分拒；单Stats([],default=-1)count=-1/mode=-1，数量固定0/众数default需两个对象明示适配。13新Stats对象/14属性查询，28比较=六参考+18保存+三控制+一空域，原22字段漏六参考，以count_clarification.json更正。非人工真值/全域证明，101/102号。
 - P45原20有10联合画像/5重复；开发11有7/3、储备9有5/3，储备单题画像2，原报告误写3后追加更正。开发重复三组B01/B05、B02/C01/C02、B06/C05；来源不完全绑定，不能称所有重复同来源或画像接近题数。P46删除2来源/6显式组件/5宽群共13情景，每次至少一重复但无同一画像在全部来源删除或全部组件删除稳定；宽群映射仅当前覆盖列表、非通用传递闭包，interpretation_clarification.json保存。描述关联仍可，不支持稳健独立画像效应，97—100号。
 - P48完成E_B09另池公开完整候选：十二新边界六有效/六无效，整体/2helper/固定来源包装各12/12，共36新solve，原六未重跑。固定boltons commit4e5faa3d7e4008d89e0d8bf1ea87b6d9a061a16d，Stats模块SHA0c4d05a17b14244a880e5047c1823d1e1e522e6c5ee76c6b47f54d8bde791e68及完整BSD许可；有task/中文需求/公开诊断/三参考/执行前逐值预期与哈希。三个程序共享边界guard非独立oracle，全域/128长度/所有异常组合未测。所有诊断公开、不称隐藏确认；结构标签null、切分未冻，E_B09与E_B08同Stats/同来源非新独立单元。数量default分离/新增域异常明确是适配。103/104号及d1_discrete_candidate_boundary_v1_20261009/candidate/。
@@ -442,7 +442,7 @@ P51六冻结类型对均符合严格数值类型预测6/6，默认/strict原函�
 
 ## 三十七、P80—P82真实项目候选与重心纠正（2026-10-09）
 
-用户质疑“继续补充有价值的数据覆盖”后，停止把小函数数量、参考通过数、静态门和包装报告当主A进展。P80选用官方 `beetbox/confuse` PR126，GitHub commit API确认合并提交直接父 `8b69242b8facdd7d1f87113693ea72017d61a0ff`；父/合并非测试源码保存于 `codeprm-reproduction/experiments/d1_repository_feature_candidate_v1_20261009/actual_project_v1/`。父版本对 `base_for_paths`、`in_source_dir`、`set_file(..., base_for_paths=True)`均TypeError，合并版本真实API诊断6项可区分新旧行为，报告166。
+用户质疑“继续补充有价值的数据覆盖”后，停止把小函数数量、参考通过数、静态门和包装报告当主A进展。P80选用官方 `beetbox/confuse` PR126，GitHub commit API确认合并提交直接父 `8b69242b8facdd7d1f87113693ea72017d61a0ff`；父/合并非测试源码保存于 `decomposition-bench/experiments/d1_repository_feature_candidate_v1_20261009/actual_project_v1/`。父版本对 `base_for_paths`、`in_source_dir`、`set_file(..., base_for_paths=True)`均TypeError，合并版本真实API诊断6项可区分新旧行为，报告166。
 
 P81任务定义首次复核保留占位符未展开失败 `task_spec_replay_v1.json`；修正`<app>`运行时替换和路径规范化后4/4行为例通过 `task_spec_replay_v2.json`，报告167。P82固定源码差异提取显示 `ConfigSource/YamlSource→Filename.value`跨文件数据链、对象级状态、行为可测；未发现全局状态，正式三轴仍null，报告168和`structure_evidence_v1.json`。该候选只进入research_pool_only，不改initial20、不回答主A；P80—P82停止同PR扩展。
 

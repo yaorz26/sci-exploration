@@ -8,6 +8,6 @@
 
 阶段审查：公开功能支持上下界两个候选用途，六输入允许不同计算结构，排除“单遍是本适配必须遵守的输出要求”。函数公开key/default/并列行为未全部复刻，这是显式限定适配；不冒称完整项目集成、全域正确或无污染。新增机会来自原已有more-itertools来源，不是来源数4变5，也没有证明来源—结构比较空格已解除。E_M07另池，标签/正式切分null、人工0/未冻结未发布，原20/307/11—9及原储备不改。
 
-原始证据在`codeprm-reproduction/experiments/d1_second_source_extrema_v1_20261009/public_source_and_integer_domain_frozen.json`、`six_cases_and_three_programs_frozen.json`、原stdout/stderr、`three_execution_results.json`及`summary.json`；完整候选在`candidate/`。命令`python -B -X utf8 scripts/d1/build_extrema_candidate.py`，可信本地进程20秒/1MiB，模型/API/下载/原测试/private0。
+原始证据在`decomposition-bench/experiments/d1_second_source_extrema_v1_20261009/public_source_and_integer_domain_frozen.json`、`six_cases_and_three_programs_frozen.json`、原stdout/stderr、`three_execution_results.json`及`summary.json`；完整候选在`candidate/`。命令`python -B -X utf8 scripts/d1/build_extrema_candidate.py`，可信本地进程20秒/1MiB，模型/API/下载/原测试/private0。
 
 方向审查：来源docstring明确最大值在key并列时不承诺返回首次项。当前无key整数域中并列相同值不显现这一差异；若未来扩key=abs，不同合法实现可能返回同绝对值的不同原整数。下一项只验证四新输入、两个方案的这种合法代表差异，并判断单一参考精确比较会否误拒；当前E_M07候选不扩域、不覆盖原输出。

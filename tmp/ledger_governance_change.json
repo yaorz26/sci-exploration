@@ -1,0 +1,22 @@
+{
+  "time": "2026-10-11T08:40:00Z",
+  "event_id": "governance-skill-load-change-20261011T0840Z",
+  "kind": "decision",
+  "phase": "governance",
+  "stage": "skill-load-rules",
+  "status": "complete",
+  "summary": "按用户要求调整强制加载：取消通俗汇报的强制加载，改为按需（用户主动要求报告/解释/讲解结果、过程、研究，或表示看不懂时才加载）；移除项目记忆维护技能及其常驻规则与主记忆文件。研究贡献循环成为唯一每轮强制加载技能。",
+  "decision": "生效配置：每轮强制=research-contribution-loop；按需=plain-language-debrief（正文保留，术语表保留）；常驻规则仅 02-研究问题循环协议.md。已删除：项目记忆技能正文与跳转壳、常驻规则 00/01、根目录 PROJECT_MEMORY.md。memory/ 历史文档保留但不再由每轮流程维护。删除前原文备份于 tmp/removed_skills_rules_20261011/。",
+  "evidence_kind": "artifact",
+  "evidence": [
+    "AGENTS.md",
+    ".codebuddy/README.md",
+    "scripts/check_governance_integrity.py",
+    "tmp/removed_skills_rules_20261011/"
+  ],
+  "approval_required": false,
+  "supersedes": [],
+  "budget": "治理配置调整；未新增模型/行为/下载/人工调用；研究结论与原始输出未改动",
+  "uncertainty": "通俗表达改为按需后不再有常驻规则兜底，可靠性只依赖 AGENTS.md 指令链与技能发现链；3 个历史 checkpoint 脚本仍引用已删除的主记忆，重跑会报错（已登记为预期行为）",
+  "next": "研究侧下一步仍待用户选择：把评价器盲点反例结论写进 G4 协议说明，或完成 07:46Z 待决归因问题的三轮审查"
+}

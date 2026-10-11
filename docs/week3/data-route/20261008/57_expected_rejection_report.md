@@ -14,4 +14,4 @@ C04的公开声明域内没有要求solve抛异常；P21始终ValueError错误�
 
 下一项P26整合保存证据，检验候选测量记录能否同时表达任务侧行为机会、生成后方案义务、输入域/拒绝门槛与总预算信息，而不把不同层次压成一个新二元标签。以可追踪案例映射和保留未测/null的管理端附件为退出结果，非正式冻结/可靠性或主问题A模型答案。
 
-证据：`codeprm-reproduction/experiments/d1_expected_rejection_v1_20261008/{public_requirement_extracted.json,input_and_relation_freeze.json,input_results.json,relation_results.json,summary.json}`。实现`scripts/d1/probe_expected_rejection.py`，命令`python -B -X utf8 scripts/d1/probe_expected_rejection.py`；这些输入不加入原307。
+证据：`decomposition-bench/experiments/d1_expected_rejection_v1_20261008/{public_requirement_extracted.json,input_and_relation_freeze.json,input_results.json,relation_results.json,summary.json}`。实现`scripts/d1/probe_expected_rejection.py`，命令`python -B -X utf8 scripts/d1/probe_expected_rejection.py`；这些输入不加入原307。

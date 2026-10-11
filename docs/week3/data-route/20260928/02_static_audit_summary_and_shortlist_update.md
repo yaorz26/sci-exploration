@@ -64,6 +64,6 @@
 
 - `02_static_audit_classeval.md`、`02_static_audit_evocodebench.md`、`02_static_audit_deveval.md`、`02_static_audit_commit0.md`
 - 本文件 `02_static_audit_summary_and_shortlist_update.md`
-- 机器产物：`codeprm-reproduction/experiments/wp2_classeval/classeval_smoke_manifest.json`
-- 数据：`codeprm-reproduction/data/raw/classeval/data/test-00000-of-00001-5c45fa6e45572491.parquet`（SHA-256 `ac2f49…df2a`）
-- 脚本：`codeprm-reproduction/scripts/fast0_bigcodebench/wp2_static_probe.py`、`wp2_classeval_smoke.py`
+- 机器产物：`decomposition-bench/experiments/wp2_classeval/classeval_smoke_manifest.json`
+- 数据：`decomposition-bench/data/raw/classeval/data/test-00000-of-00001-5c45fa6e45572491.parquet`（SHA-256 `ac2f49…df2a`）
+- 脚本：`decomposition-bench/scripts/fast0_bigcodebench/wp2_static_probe.py`、`wp2_classeval_smoke.py`

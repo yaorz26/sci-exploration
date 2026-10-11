@@ -8,6 +8,6 @@
 
 阶段审查：排除了“原树先选必然错”和“正负零分支已使浮点除法重写普遍等价”。语义义务约束值和路径，题面文字次序不能直接推成唯一合法程序次序。P13旧错传原树的筛选不是本阶段正确重写，不能追溯解释旧模型失败、修改初标或原成绩。
 
-原始证据在`codeprm-reproduction/experiments/d1_threshold_pullback_v1_20261009/six_anchors_and_three_programs_frozen.json`、`worker.stdout.txt`、`worker.stderr.txt`、`three_execution_results.json`与`summary.json`。执行命令`python -B -X utf8 scripts/d1/probe_threshold_pullback.py`，本阶段诊断比较为Python==与事前逐值预期，不冒称原json_equal评分。布尔排除通过代码精确type判断/保留叶子的六公开输入核对；两原树方案共享变换/映射基础，非独立oracle。模型/API/下载/旧P13/原测试/private0，人工0。可信本地进程20秒/1MiB，非OS沙箱。
+原始证据在`decomposition-bench/experiments/d1_threshold_pullback_v1_20261009/six_anchors_and_three_programs_frozen.json`、`worker.stdout.txt`、`worker.stderr.txt`、`three_execution_results.json`与`summary.json`。执行命令`python -B -X utf8 scripts/d1/probe_threshold_pullback.py`，本阶段诊断比较为Python==与事前逐值预期，不冒称原json_equal评分。布尔排除通过代码精确type判断/保留叶子的六公开输入核对；两原树方案共享变换/映射基础，非独立oracle。模型/API/下载/旧P13/原测试/private0，人工0。可信本地进程20秒/1MiB，非OS沙箱。
 
 方向审查：停止更多浮点舍入格和路径接口反例，当前证据在boltons来源集中。下一项定向考察固定more-itertools的公开minmax：是否能提供第二来源、无操作历史、两个不同用途的外部契约，且允许两遍计算或一步扫描？只新增研究池候选，不更改原储备任务或正式切分，不把新增功能视为新独立来源。

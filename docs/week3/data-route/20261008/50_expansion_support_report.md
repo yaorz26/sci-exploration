@@ -27,4 +27,4 @@ E_M06沿用两条全局顺序阳性及68条其他规范类插入相等关系；�
 
 阶段获得新支撑证据及删除边界，不继续同样矩阵打包或无限增加缓存功能。下一项P23先在原12个未测任务的公开需求中寻找能改变支撑的行为，并核对输入域是否允许构造严格相同观察的历史对；用保存数据或最低成本的新探针验证，不能凭名称补标签。
 
-原20题307记录/11开发9储备保持，两候选未分配正式切分。模型/API/任务执行0、人工0。证据：`codeprm-reproduction/experiments/d1_expansion_support_v1_20261008/{encoding_frozen.json,scenario_designs.json,family_designs.json,operation_scope_design.json,summary.json}`。脚本`scripts/d1/analyze_expansion_support.py`，命令`python -B -X utf8 scripts/d1/analyze_expansion_support.py`；新输出不得覆盖原P15矩阵。
+原20题307记录/11开发9储备保持，两候选未分配正式切分。模型/API/任务执行0、人工0。证据：`decomposition-bench/experiments/d1_expansion_support_v1_20261008/{encoding_frozen.json,scenario_designs.json,family_designs.json,operation_scope_design.json,summary.json}`。脚本`scripts/d1/analyze_expansion_support.py`，命令`python -B -X utf8 scripts/d1/analyze_expansion_support.py`；新输出不得覆盖原P15矩阵。

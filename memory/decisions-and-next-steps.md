@@ -74,9 +74,9 @@
 
 ## 最终证据
 
-- `codeprm-reproduction/reports/funprm_helperfirst_scale_confirmation_ab_20260926.md`
-- `codeprm-reproduction/data/processed/funprm_label_calibration_20260924/confirmation_ab_final_gate_20260926.json`
-- `codeprm-reproduction/experiments/funprm_label_calibration_20260924/confirmation_ab_final_gate_audit_20260926.json`
+- `decomposition-bench/reports/funprm_helperfirst_scale_confirmation_ab_20260926.md`
+- `decomposition-bench/data/processed/funprm_label_calibration_20260924/confirmation_ab_final_gate_20260926.json`
+- `decomposition-bench/experiments/funprm_label_calibration_20260924/confirmation_ab_final_gate_audit_20260926.json`
 
 ## D1原型后的方向审查（2026-10-08）
 

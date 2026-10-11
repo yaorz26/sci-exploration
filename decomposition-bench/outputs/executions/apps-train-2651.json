@@ -1,0 +1,210 @@
+{
+  "problem": {
+    "problem_id": "apps-train-2651",
+    "dataset": "APPS",
+    "source_problem_id": 2651,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "We are still with squared integers.\n\nGiven 4 integers `a, b, c, d` we form the sum of the squares of `a` and `b`\nand then the sum of the squares of `c` and `d`. We multiply the two sums hence a number `n` and we try to\ndecompose `n` in a sum of two squares `e` and `f` (e and f integers >= 0) so that `n = e² + f²`. \n\nMore: `e` and `f` must result only from sums (or differences) of products between on the one hand `(a, b)` and on the other `(c, d)` each of `a, b, c, d` taken only once. \nFor example, \nprod2sum(1, 2, 1, 3) should return [[1, 7], [5, 5]]) \nbecause \n```\n1==1*3-1*2\n7==2*3+1*1\n5==1*2+1*3\n```\nSuppose we have `a = 1, b = 2, c = 1, d = 3`. First we calculate the sums \n`1² + 2² = 5 and 1² + 3² = 10` hence `n = 50`.\n\n\n\n`50 = 1² + 7² or 50 = 7² + 1²` (we'll consider that these two solutions are the same)\nor `50 = 5² + 5²`. \n\nThe return of our function will be an array of subarrays (in C an array of Pairs) sorted on the first elements of the subarrays. In each subarray the lower element should be the first.\n\n`prod2sum(1, 2, 1, 3) should return [[1, 7], [5, 5]]`\n\n`prod2sum(2, 3, 4, 5) should return  [[2, 23], [7, 22]]`\n\nbecause `(2² + 3²) * (4² + 5²) = 533 = (7² + 22²) = (23² + 2²)`\n\n`prod2sum(1, 2, 2, 3) should return  [[1, 8], [4, 7]]`\n\n`prod2sum(1, 1, 3, 5) should return  [[2, 8]]` (there are not always 2 solutions).\n\n##Hint\nTake a sheet of paper and with a bit of algebra try to write the product of squared numbers in another way.",
+    "starter_code": "\ndef prod2sum(a, b, c, d):\n\t",
+    "public_tests": [
+      {
+        "input": "[1, 2, 1, 3]",
+        "output": "[[[1, 7], [5, 5]]]"
+      },
+      {
+        "input": "[2, 3, 4, 5]",
+        "output": "[[[2, 23], [7, 22]]]"
+      },
+      {
+        "input": "[1, 2, 2, 3]",
+        "output": "[[[1, 8], [4, 7]]]"
+      },
+      {
+        "input": "[1, 1, 3, 5]",
+        "output": "[[[2, 8]]]"
+      },
+      {
+        "input": "[10, 11, 12, 13]",
+        "output": "[[[2, 263], [23, 262]]]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[1, 20, -4, -5]",
+        "output": "[[[75, 104], [85, 96]]]"
+      },
+      {
+        "input": "[100, 100, 100, 100]",
+        "output": "[[[0, 20000]]]"
+      },
+      {
+        "input": "[0, 0, 0, 0]",
+        "output": "[[[0, 0]]]"
+      },
+      {
+        "input": "[-14, 12, -10, 8]",
+        "output": "[[[8, 236], [44, 232]]]"
+      },
+      {
+        "input": "[7, 96, -1, 81]",
+        "output": "[[[471, 7783], [663, 7769]]]"
+      },
+      {
+        "input": "[112, 0, 0, 1]",
+        "output": "[[[0, 112]]]"
+      }
+    ],
+    "execution_mode": "function",
+    "function_name": "prod2sum",
+    "function_arity": 4
+  },
+  "candidates": [
+    {
+      "candidate_id": 0,
+      "code": "from math import sqrt\n\ndef prod2sum(a, b, c, d):\n    # Calculate the sums of squares\n    sum1 = a**2 + b**2\n    sum2 = c**2 + d**2\n    \n    # Calculate the total number\n    n = sum1 * sum2\n    \n    # Find all pairs of e and f that satisfy the condition\n    solutions = []\n    for e in range(n + 1):\n        if (n - e) >= 0 and (e * (n - e) == n):\n            solutions.append([e, n - e])\n    \n    # Sort the solutions\n    solutions.sort()\n    \n    return solutions",
+      "thoughts": [
+        "Calculate the sums of squares of a and b, and c and d.",
+        "Multiply these sums to get the total number n.",
+        "Decompose n into a sum of two squares e and f.",
+        "Find all pairs of e and f that satisfy the condition e + f = n and e * f = n.",
+        "Return the pairs sorted in the required order."
+      ],
+      "generator_model": "qwen2.5-coder:3b",
+      "seed": 42,
+      "raw_response": "<thoughts>\n1. Calculate the sums of squares of a and b, and c and d.\n2. Multiply these sums to get the total number n.\n3. Decompose n into a sum of two squares e and f.\n4. Find all pairs of e and f that satisfy the condition e + f = n and e * f = n.\n5. Return the pairs sorted in the required order.\n</thoughts>\n\n```python\nfrom math import sqrt\n\ndef prod2sum(a, b, c, d):\n    # Calculate the sums of squares\n    sum1 = a**2 + b**2\n    sum2 = c**2 + d**2\n    \n    # Calculate the total number\n    n = sum1 * sum2\n    \n    # Find all pairs of e and f that satisfy the condition\n    solutions = []\n    for e in range(n + 1):\n        if (n - e) >= 0 and (e * (n - e) == n):\n            solutions.append([e, n - e])\n    \n    # Sort the solutions\n    solutions.sort()\n    \n    return solutions\n```",
+      "execution": {
+        "public": {
+          "passed": 0,
+          "total": 5,
+          "pass_rate": 0.0,
+          "error_type": "wrong_answer",
+          "message": "output mismatch",
+          "timeout": false,
+          "tests": [
+            {
+              "passed": 0,
+              "expected": "[[[1, 7], [5, 5]]]",
+              "actual": "[]\n",
+              "stderr": "",
+              "error_type": "wrong_answer",
+              "message": "output mismatch",
+              "timeout": false,
+              "duration_seconds": 0.047771
+            },
+            {
+              "passed": 0,
+              "expected": "[[[2, 23], [7, 22]]]",
+              "actual": "[]\n",
+              "stderr": "",
+              "error_type": "wrong_answer",
+              "message": "output mismatch",
+              "timeout": false,
+              "duration_seconds": 0.040794
+            },
+            {
+              "passed": 0,
+              "expected": "[[[1, 8], [4, 7]]]",
+              "actual": "[]\n",
+              "stderr": "",
+              "error_type": "wrong_answer",
+              "message": "output mismatch",
+              "timeout": false,
+              "duration_seconds": 0.040961
+            },
+            {
+              "passed": 0,
+              "expected": "[[[2, 8]]]",
+              "actual": "[]\n",
+              "stderr": "",
+              "error_type": "wrong_answer",
+              "message": "output mismatch",
+              "timeout": false,
+              "duration_seconds": 0.039866
+            },
+            {
+              "passed": 0,
+              "expected": "[[[2, 263], [23, 262]]]",
+              "actual": "[]\n",
+              "stderr": "",
+              "error_type": "wrong_answer",
+              "message": "output mismatch",
+              "timeout": false,
+              "duration_seconds": 0.044039
+            }
+          ]
+        },
+        "private": {
+          "passed": 1,
+          "total": 6,
+          "pass_rate": 0.16666666666666666,
+          "error_type": "wrong_answer",
+          "message": "output mismatch",
+          "timeout": true,
+          "tests": [
+            {
+              "passed": 0,
+              "expected": "[[[75, 104], [85, 96]]]",
+              "actual": "[]\n",
+              "stderr": "",
+              "error_type": "wrong_answer",
+              "message": "output mismatch",
+              "timeout": false,
+              "duration_seconds": 0.042817
+            },
+            {
+              "passed": 0,
+              "expected": "[[[0, 20000]]]",
+              "actual": "",
+              "stderr": "",
+              "error_type": "timeout",
+              "message": "",
+              "timeout": true,
+              "duration_seconds": 10.09064
+            },
+            {
+              "passed": 1,
+              "expected": "[[[0, 0]]]",
+              "actual": "[[0, 0]]\n",
+              "stderr": "",
+              "error_type": null,
+              "message": "",
+              "timeout": false,
+              "duration_seconds": 0.049707
+            },
+            {
+              "passed": 0,
+              "expected": "[[[8, 236], [44, 232]]]",
+              "actual": "[]\n",
+              "stderr": "",
+              "error_type": "wrong_answer",
+              "message": "output mismatch",
+              "timeout": false,
+              "duration_seconds": 0.111793
+            },
+            {
+              "passed": 0,
+              "expected": "[[[471, 7783], [663, 7769]]]",
+              "actual": "[]\n",
+              "stderr": "",
+              "error_type": "wrong_answer",
+              "message": "output mismatch",
+              "timeout": false,
+              "duration_seconds": 4.034477
+            },
+            {
+              "passed": 0,
+              "expected": "[[[0, 112]]]",
+              "actual": "[]\n",
+              "stderr": "",
+              "error_type": "wrong_answer",
+              "message": "output mismatch",
+              "timeout": false,
+              "duration_seconds": 0.047844
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

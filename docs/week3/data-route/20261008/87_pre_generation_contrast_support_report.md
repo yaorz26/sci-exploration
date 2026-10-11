@@ -32,4 +32,4 @@
 
 先不盲目补更多缓存或按空格手填新标签。P41定向检查作者v0.2生成的来源：如果testability是程序映射出来的，先明确它是初标编码而不是独立测量，再依据公开行为证据设计补足；如果字段分别人工指定，只能保留样本别名结论。读取生成代码的有关AST节点，避免打开测试内容或再次执行构建。
 
-机器证据：`codeprm-reproduction/experiments/d1_pre_generation_contrast_support_v1_20261008/inputs_and_rules_frozen.json`、`all_190_pairs.json`、`summary.json`。新增模型/API/下载/任务求值/private读取均0；一次冻结、一次枚举，不重跑已通过的旧实验。
+机器证据：`decomposition-bench/experiments/d1_pre_generation_contrast_support_v1_20261008/inputs_and_rules_frozen.json`、`all_190_pairs.json`、`summary.json`。新增模型/API/下载/任务求值/private读取均0；一次冻结、一次枚举，不重跑已通过的旧实验。

@@ -10,6 +10,6 @@
 
 因此另存测量协议增量候选，增加`contract_origin`与`necessity_scope`两个字段。局部失败须报告测试依据和假定接口，并保留整体合法/失败及未知项。原v0.3、作者初标、任务数、切分与旧分母不改。这一增量尚未完整集成，也没有正式人工冻结。
 
-原始证据与规则候选在`codeprm-reproduction/experiments/d1_local_contract_scope_audit_v1_20261009/`的`six_claims_and_evidence_frozen.json`、`six_claim_scope_review.json`、`measurement_protocol_delta_candidate.json`及`summary.json`。执行命令为`python -B -X utf8 scripts/d1/audit_local_contract_scope.py`；无来源/任务程序执行。
+原始证据与规则候选在`decomposition-bench/experiments/d1_local_contract_scope_audit_v1_20261009/`的`six_claims_and_evidence_frozen.json`、`six_claim_scope_review.json`、`measurement_protocol_delta_candidate.json`及`summary.json`。执行命令为`python -B -X utf8 scripts/d1/audit_local_contract_scope.py`；无来源/任务程序执行。
 
 方向审查：停止增加相同概念表。P59转E_B09候选v2的完整执行链：用新的长度/类型/异常优先级输入，同时检验正确返回、类型门槛、异常分支和输入不变。旧36次执行不重复、不冒充v2验证，原数据集评分器仍保留。

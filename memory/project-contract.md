@@ -20,7 +20,7 @@
 ## 资源与范围
 
 - Windows 工作区：`D:\yaorz\research`
-- 实验仓库：`D:\yaorz\research\codeprm-reproduction`
+- 实验仓库：`D:\yaorz\research\decomposition-bench`
 - GPU：RTX 4060 Laptop 8GB
 - 主要本地模型：Qwen2.5-Coder 7B；允许 4-bit QLoRA
 - 既有数据：APPS 自定义切分及 ClassEval 派生物；当前新分支为 D1 自建任务域。先评测、不训练的要求继续有效。

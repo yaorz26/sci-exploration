@@ -8,4 +8,4 @@
 
 阶段审查：实际保存代码而非人工计划，六输入仅检验新的调用观察问题，没有重跑旧完整测试。定向预读脚本曾假设失败记录有candidate_path导致KeyError，无模型/任务执行；正式记录使用字段存在性与显式缺失，冻结后六运行无失败。方向审查：不扩大旧批次和人工反例，转原未测B06公开需求中的“错误标记与合法数据能否区分”问题。该问题会改变行为观察设计，且成本低、与库路径查询功能直接相关。
 
-证据：codeprm-reproduction/experiments/d1_saved_M2_observability_v1_20261008/，包含六单位/公开输入冻结、逐输入worker记录、总runtime_observations及summary；脚本observe_saved_M2.py。原源码哈希未改，约98/100模型调用、人工0、20题307记录保持。
+证据：decomposition-bench/experiments/d1_saved_M2_observability_v1_20261008/，包含六单位/公开输入冻结、逐输入worker记录、总runtime_observations及summary；脚本observe_saved_M2.py。原源码哈希未改，约98/100模型调用、人工0、20题307记录保持。

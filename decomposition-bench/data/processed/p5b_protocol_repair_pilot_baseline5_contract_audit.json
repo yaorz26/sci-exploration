@@ -1,0 +1,280 @@
+{
+  "summary": {
+    "allow_forward_dependencies": false,
+    "decomposition_valid": 4,
+    "implementations_audited": 13,
+    "error_counts": {
+      "declared_dependency_not_called": 3
+    },
+    "rows_with_errors": 3
+  },
+  "rows": [
+    {
+      "problem_id": "apps-train-2002",
+      "decomposition_index": 0,
+      "function_name": "get_first_letter",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-2002",
+      "decomposition_index": 0,
+      "function_name": "count_unique_shifts",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:get_first_letter"
+      ],
+      "calls": [
+        "len",
+        "range"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "get_first_letter"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-2002",
+      "decomposition_index": 0,
+      "function_name": "calculate_probability",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "count_unique_shifts",
+        "len",
+        "set"
+      ],
+      "called_dependencies": [
+        "count_unique_shifts"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-2002",
+      "decomposition_index": 0,
+      "function_name": "solve",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "calculate_probability",
+        "input",
+        "print"
+      ],
+      "called_dependencies": [
+        "calculate_probability"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [
+        "input",
+        "print"
+      ],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-2005",
+      "decomposition_index": 0,
+      "function_name": "count_matching_pairs",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "len",
+        "range"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-2005",
+      "decomposition_index": 0,
+      "function_name": "solve",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "count_matching_pairs",
+        "input",
+        "len",
+        "print"
+      ],
+      "called_dependencies": [
+        "count_matching_pairs"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [
+        "input",
+        "print"
+      ],
+      "sys_io": [],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-2006",
+      "decomposition_index": 0,
+      "function_name": "is_valid_move",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "abs"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-2006",
+      "decomposition_index": 0,
+      "function_name": "make_move",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "abs",
+        "is_valid_move"
+      ],
+      "called_dependencies": [
+        "is_valid_move"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-2006",
+      "decomposition_index": 0,
+      "function_name": "determine_winner",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:is_valid_move,make_move"
+      ],
+      "calls": [
+        "len"
+      ],
+      "called_dependencies": [],
+      "missing_dependencies": [
+        "is_valid_move",
+        "make_move"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-2006",
+      "decomposition_index": 0,
+      "function_name": "solve",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "determine_winner",
+        "input",
+        "int",
+        "list",
+        "map",
+        "print"
+      ],
+      "called_dependencies": [
+        "determine_winner"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [
+        "input",
+        "print"
+      ],
+      "sys_io": [
+        "stdin"
+      ],
+      "is_helper": false
+    },
+    {
+      "problem_id": "apps-train-2009",
+      "decomposition_index": 0,
+      "function_name": "calculate_magnitude",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [],
+      "called_dependencies": [],
+      "missing_dependencies": [],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-2009",
+      "decomposition_index": 0,
+      "function_name": "choose_direction",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [
+        "declared_dependency_not_called:is_within_limit"
+      ],
+      "calls": [
+        "calculate_magnitude"
+      ],
+      "called_dependencies": [
+        "calculate_magnitude"
+      ],
+      "missing_dependencies": [
+        "is_within_limit"
+      ],
+      "io_calls": [],
+      "sys_io": [],
+      "is_helper": true
+    },
+    {
+      "problem_id": "apps-train-2009",
+      "decomposition_index": 0,
+      "function_name": "solve",
+      "implementation_index": 0,
+      "parseable": true,
+      "errors": [],
+      "calls": [
+        "choose_direction",
+        "input",
+        "int",
+        "map",
+        "print",
+        "range"
+      ],
+      "called_dependencies": [
+        "choose_direction"
+      ],
+      "missing_dependencies": [],
+      "io_calls": [
+        "input",
+        "print"
+      ],
+      "sys_io": [
+        "stdin"
+      ],
+      "is_helper": false
+    }
+  ]
+}

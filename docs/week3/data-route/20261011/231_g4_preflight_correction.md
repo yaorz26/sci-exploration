@@ -10,7 +10,7 @@
 
 第三版运行器使用本地 `Qwen2.5-Coder-7B-Instruct/tokenizer.json` 渲染与 Ollama 相同的 ChatML，再发请求前计算输入 token，并令 `num_predict` 不超过剩余 6500 上限。逐次响应的 `prompt_eval_count` 与本地预检一致；超过剩余预算的请求不发送。原始结果在：
 
-`codeprm-reproduction/experiments/d1_G4_local_ollama_real_project_pair_v3_20261011/`
+`decomposition-bench/experiments/d1_G4_local_ollama_real_project_pair_v3_20261011/`
 
 | 题目 | M0 | M2 |
 |---|---|---|

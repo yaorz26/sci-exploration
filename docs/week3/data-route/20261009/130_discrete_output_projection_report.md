@@ -8,6 +8,6 @@
 
 调用口径：18solve，执行器12值门槛/6异常比较；正常投影24字段判断、关系24字段判断、输出控制48字段判断/24完整门槛。无helper追踪/再执行，P59八例及v1十二例零重跑，模型/API/下载/原测试/private0。三参考共享guard/同来源，手算由同助手事前保存，不是独立oracle。
 
-原始证据在`codeprm-reproduction/experiments/d1_discrete_output_projection_v1_20261009/`，包括原六锚点冻结、执行代码hash、三个原stdout/stderr、`three_execution_results.json`、`normal_and_rejection_projections.json`、`twelve_saved_output_relations.json`、`twentyfour_constructed_output_controls.json`与`summary.json`。执行命令`python -B -X utf8 scripts/d1/probe_discrete_output_projection.py`，可信子进程20秒/1MiB，不是OS沙箱。
+原始证据在`decomposition-bench/experiments/d1_discrete_output_projection_v1_20261009/`，包括原六锚点冻结、执行代码hash、三个原stdout/stderr、`three_execution_results.json`、`normal_and_rejection_projections.json`、`twelve_saved_output_relations.json`、`twentyfour_constructed_output_controls.json`与`summary.json`。执行命令`python -B -X utf8 scripts/d1/probe_discrete_output_projection.py`，可信子进程20秒/1MiB，不是OS沙箱。
 
 阶段审查通过，有限正常域与拒绝域分别记录。方向审查停止众数同类格，转B05的新问题：需求定义的先变换再筛选，是否允许在原树先选叶子再变换重映射路径？代数阈值逆变换在浮点边界是否有效？不重跑P13已保存的变换/筛选或融合程序，不推模型失败根因。

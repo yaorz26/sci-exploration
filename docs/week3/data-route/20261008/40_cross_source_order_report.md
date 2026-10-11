@@ -18,4 +18,4 @@ E_B07与E_M06两项是独立扩展池候选，而不是把原20题改为22题：
 
 接下来P18解决复核协议问题：同一任务在两个合法实体定义下，一项可观察隔离、另一项可观察干扰；若直接把两份标签做一致性统计，会不会把“回答不同粒度的问题”误记为“对同一问题判断不一致”？先用C04和E_M06的保存关系构造可审查反例，再设计逐粒度标注与未知/不适用口径。该工作不造人类填写，也不事后提高既有κ。
 
-执行约0.059秒；证据`codeprm-reproduction/experiments/d1_expansion_order_candidate_v1_20261008/`的task_contract、hand_anchors_frozen、pre_execution_freeze、anchor_results、finite_sequences、paired_relations、summary；程序`scripts/d1/probe_cross_source_order.py`。有限结果、同助手两实现和人工缺陷只支持此处描述，不等于全域、模型收益或独立标注。
+执行约0.059秒；证据`decomposition-bench/experiments/d1_expansion_order_candidate_v1_20261008/`的task_contract、hand_anchors_frozen、pre_execution_freeze、anchor_results、finite_sequences、paired_relations、summary；程序`scripts/d1/probe_cross_source_order.py`。有限结果、同助手两实现和人工缺陷只支持此处描述，不等于全域、模型收益或独立标注。

@@ -20,4 +20,4 @@ M05的两个手工两helper方案使用完全相同的纯组件，一个在所�
 
 原20题307/初标/切分不改，模型/API/隐藏案例读取0、人工0。不扩相似缺陷。下一项P25检查题目明确要求ValueError时，结构关系应视为合法拒绝还是执行失败：P21针对C04的“任何函数异常不可测”不能未经审查推广到F04合法输入异常域。
 
-证据：`codeprm-reproduction/experiments/d1_alignment_composition_v1_20261008/{first_hand_anchor_frozen.json,hand_anchors_frozen.json,code_freeze.json,local_results.json,anchor_results.json,finite_inputs.jsonl,summary.json}`及三程序。实现`scripts/d1/probe_alignment_composition.py`，命令`python -B -X utf8 scripts/d1/probe_alignment_composition.py`；640格不加入307测试。
+证据：`decomposition-bench/experiments/d1_alignment_composition_v1_20261008/{first_hand_anchor_frozen.json,hand_anchors_frozen.json,code_freeze.json,local_results.json,anchor_results.json,finite_inputs.jsonl,summary.json}`及三程序。实现`scripts/d1/probe_alignment_composition.py`，命令`python -B -X utf8 scripts/d1/probe_alignment_composition.py`；640格不加入307测试。

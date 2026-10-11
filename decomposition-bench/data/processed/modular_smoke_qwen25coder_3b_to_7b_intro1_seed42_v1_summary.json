@@ -1,0 +1,19 @@
+{
+  "decomposition_model": "qwen2.5-coder:3b",
+  "implementation_model": "qwen2.5-coder:7b",
+  "problems": 1,
+  "decomposition_requests": 2,
+  "valid_decompositions": 2,
+  "implementation_requests": 16,
+  "valid_implementations": 16,
+  "combinations": 32,
+  "composable_combinations": 32,
+  "selected_private_pass": 0,
+  "errors": {},
+  "elapsed_seconds": 97.385,
+  "outputs": {
+    "decompositions": "data\\processed\\modular_smoke_qwen25coder_3b_to_7b_intro1_seed42_v1_decompositions.jsonl",
+    "implementations": "data\\processed\\modular_smoke_qwen25coder_3b_to_7b_intro1_seed42_v1_implementations.jsonl",
+    "recombinations": "data\\processed\\modular_smoke_qwen25coder_3b_to_7b_intro1_seed42_v1_recombinations.jsonl"
+  }
+}

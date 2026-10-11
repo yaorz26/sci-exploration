@@ -8,7 +8,7 @@
 
 原研究循环 skill 的正文、发现入口和常驻规则已移到：
 
-`codeprm-reproduction/.research-state/archive/governance_20261011/`
+`decomposition-bench/.research-state/archive/governance_20261011/`
 
 该目录是历史留档，不属于生效配置；不得从那里调用或自动恢复旧实验。
 
@@ -31,10 +31,10 @@
 | 内容 | 唯一位置 |
 |---|---|
 | 人类可读最终说明 | `PROJECT_ENTRY.md` |
-| 题目与红线 | `codeprm-reproduction/.research-state/RESEARCH_TARGET.md` |
-| 已结束的计划 | `codeprm-reproduction/.research-state/RESEARCH_PLAN.md` |
-| 最终状态 | `codeprm-reproduction/.research-state/PROJECT_STATE.md` |
-| 历史证据 | `codeprm-reproduction/.research-state/ledger.jsonl` |
+| 题目与红线 | `decomposition-bench/.research-state/RESEARCH_TARGET.md` |
+| 已结束的计划 | `decomposition-bench/.research-state/RESEARCH_PLAN.md` |
+| 最终状态 | `decomposition-bench/.research-state/PROJECT_STATE.md` |
+| 历史证据 | `decomposition-bench/.research-state/ledger.jsonl` |
 
 ## 维护规则
 

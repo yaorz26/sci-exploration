@@ -28,4 +28,4 @@ C03在相同两个helper数下，存在三种通过有限外部检查、持久�
 
 阶段目标达到，模型/API/下载0、人工0，原20题、307记录与11/9切分保持。接续P21：检验错误固定输出是否也能通过有限隔离关系，从而明确结构关系证据用于诊断候选程序时的边界。原P12使用需求参考与另一结构实现，不能把新的退化例子倒推成原关系结果错误。
 
-证据：`codeprm-reproduction/experiments/d1_plan_state_distribution_v1_20261008/{summary.json,candidate_state_profiles_frozen.json,code_freeze.json,finite_sequences.jsonl,state_identity_trace.json}`及三份代码。脚本`scripts/d1/probe_plan_state_distribution.py`，命令`python -B -X utf8 scripts/d1/probe_plan_state_distribution.py`；输出目录禁止覆盖。
+证据：`decomposition-bench/experiments/d1_plan_state_distribution_v1_20261008/{summary.json,candidate_state_profiles_frozen.json,code_freeze.json,finite_sequences.jsonl,state_identity_trace.json}`及三份代码。脚本`scripts/d1/probe_plan_state_distribution.py`，命令`python -B -X utf8 scripts/d1/probe_plan_state_distribution.py`；输出目录禁止覆盖。

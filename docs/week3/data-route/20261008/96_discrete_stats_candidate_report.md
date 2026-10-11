@@ -8,6 +8,6 @@
 
 P44阶段结论：离散输出候选比E_B08的mean/variance更适合作为后续数据集扩展，因为不需要把任意浮点容差偷偷加入评分器。下一步先不继续增加统计函数，而检查原开发集的联合结构画像能否支撑主问题A的描述性关联；若画像单元几乎被来源/相关组件锁死，应先报告适用边界，而不是启动模型评测。
 
-证据：`codeprm-reproduction/experiments/d1_discrete_stats_candidate_v1_20261009/summary.json`。原20/307、切分、标签和评分规则保持不变；模型/API/下载/原测试/private读取均0。
+证据：`decomposition-bench/experiments/d1_discrete_stats_candidate_v1_20261009/summary.json`。原20/307、切分、标签和评分规则保持不变；模型/API/下载/原测试/private读取均0。
 
 补充更正（2026-10-09）：原18项实际为Python ==，非原json_equal；预期在循环中按Counter规则算出，非独立逐值事前冻结。执行了18新solve调用而非0，上游Stats未运行；合法程序6/6仅此口径，P47另核评分类型/空域默认来源。原机器结果保留，详见measurement_clarification.json。

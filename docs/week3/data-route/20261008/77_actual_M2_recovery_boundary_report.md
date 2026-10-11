@@ -12,4 +12,4 @@ v1读取P19 M2元数据时错误假定有M0字段representation，KeyError失败
 
 方向审查：不增加语法变体、不根据手工控制猜模型发生率。P36执行最小运行时干预，区分使用helper返回值、只通过返回值断言、调用后丢弃返回值三种机制。它为日后模型行为分类提供诊断候选，不立刻增加硬性禁止重计算规则或回写旧成绩。
 
-证据：codeprm-reproduction/experiments/d1_actual_M2_recovery_boundary_v1_20261008/failure_record.json及v2目录的pre_execution_freeze/gate_results/source_evidence/saved_request_review/summary；执行python -B -X utf8 scripts/d1/probe_actual_M2_recovery_boundary.py。原20题307记录及约98/100调用保持，人工0。
+证据：decomposition-bench/experiments/d1_actual_M2_recovery_boundary_v1_20261008/failure_record.json及v2目录的pre_execution_freeze/gate_results/source_evidence/saved_request_review/summary；执行python -B -X utf8 scripts/d1/probe_actual_M2_recovery_boundary.py。原20题307记录及约98/100调用保持，人工0。

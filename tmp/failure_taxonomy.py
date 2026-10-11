@@ -9,7 +9,7 @@ import re
 from collections import Counter, OrderedDict, defaultdict
 from pathlib import Path
 
-FB = Path(r"D:\yaorz\research\codeprm-reproduction\data\processed"
+FB = Path(r"D:\yaorz\research\decomposition-bench\data\processed"
           r"\feedback_records_apps_train_intro50_qwen3b_seed42.jsonl")
 records = [json.loads(l) for l in FB.open(encoding="utf-8")]
 

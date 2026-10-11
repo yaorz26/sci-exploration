@@ -5,7 +5,7 @@
 文档状态：**草案 v1.1**。其中标注 `【待决定】` 的条目尚未获用户或导师确认，不得当成已冻结字段使用。
 
 **变更记录**：v1.1（2026-09-28）——按用户当日说明，把研究重心明确为**"如何拆分"**：① 拆分方法本身；② 是否该拆分的判断；③ 拆分 / 生成 / 组合三环节的提示词工程。相应新增 §1.4 与 §7.1 的拆分策略对照与指标；§7.4、§8、§10 中由用户授权 AI 决定的四项已冻结（见 `00_decision_request.md`）。**原有内容一律未删，只做追加与状态更新。**
-上游依据：`docs/basic-require/基本情况.md`（导师 9.27 意见，人类底稿）、`docs/basic-require/9.27.md`、`docs/week2/9.27思路演进与方向决策.md`、`docs/week2/9.18当前研究结果与后续工作.md` §8--§9、`memory/project-contract.md`、`codeprm-reproduction/.research-state/PROJECT_STATE.md`、`codeprm-reproduction/reports/research_feasibility_2026-09-05.json`
+上游依据：`docs/basic-require/基本情况.md`（导师 9.27 意见，人类底稿）、`docs/basic-require/9.27.md`、`docs/week2/9.27思路演进与方向决策.md`、`docs/week2/9.18当前研究结果与后续工作.md` §8--§9、`memory/project-contract.md`、`decomposition-bench/.research-state/PROJECT_STATE.md`、`decomposition-bench/reports/research_feasibility_2026-09-05.json`
 本轮未做：未下载数据、未调用模型、未启动 Docker/WSL、未解除实验暂停。
 
 ---
@@ -277,7 +277,7 @@
 | FAST-0 新增下载 | 默认 **≤2 GiB**，且**不得拉取 Docker 镜像** |
 | 探索性试跑磁盘上限（暂定） | 数据 + 环境 + 输出合计 **≤20 GiB** |
 | pip / uv 缓存 | 用环境变量显式指向 D 盘（如 `PIP_CACHE_DIR`、`UV_CACHE_DIR`） |
-| Python 虚拟环境 | 建在 D 盘（建议 `codeprm-reproduction/.venvs/<name>`） |
+| Python 虚拟环境 | 建在 D 盘（建议 `decomposition-bench/.venvs/<name>`） |
 | Hugging Face 缓存 | `HF_HOME` 指向 D 盘（如 `D:\yaorz\research\.cache\hf`） |
 | WSL 虚拟磁盘 / Docker 数据盘 | 已查明实体均在 D 盘（`D:\wsl\Ubuntu\ext4.vhdx` 29.16 GiB；`D:\userdata\AppData\Local\Docker\DockerDesktopWSL\main\ext4.vhdx` 0.10 GiB） |
 | 磁盘预算口径 | **必须用 C/D 盘物理剩余量**（2026-09-28 13:11 实测：C 剩 38.8 GiB，D 剩 120.3 GiB）；WSL 内部报告的 939 GiB 不是物理可用空间【推断，未验证】 |

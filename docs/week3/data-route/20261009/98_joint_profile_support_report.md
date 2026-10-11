@@ -12,6 +12,6 @@
 
 阶段结论：主问题A可以预先规定“逐题配对 + 联合画像描述 + 来源/关联组件敏感性”，不能预先承诺三个结构轴的独立效应或复杂回归。下一步按契约做留一来源/留一显式组件，确认重复画像是否依赖某个来源或组件。
 
-证据：`codeprm-reproduction/experiments/d1_joint_profile_support_v1_20261009/summary.json`。只读manifest和关联表，模型/API/任务求值/private读取均0，原标签和切分未改。
+证据：`decomposition-bench/experiments/d1_joint_profile_support_v1_20261009/summary.json`。只读manifest和关联表，模型/API/任务求值/private读取均0，原标签和切分未改。
 
 更正：储备5画像/3重复，所以单题画像2个；原文“三个”有误，原机器频数正确。开发两个重复画像跨两来源/组件，不能称完全绑定；P46成员删除判读见100号。

@@ -27,7 +27,7 @@ P8短128输出烟测已单独保留生成失败，P9为新工程额度，不能�
 
 ## 复现与阶段判断
 
-协议configs/d1_allin_native_pair_b03_v1_20261008.json，执行器scripts/d1/run_allin_pipeline.py。原始实验experiments/d1_allin_native_pair_b03_v1_20261008/。复核scripts/d1/audit_native_pipeline.py及experiments/d1_tokenizer_integration_v1_20261008/final_integrity_and_failure_audit.json；完整源码在同目录repro_sources_after_execution/。所有路径相对D:/yaorz/research/codeprm-reproduction。
+协议configs/d1_allin_native_pair_b03_v1_20261008.json，执行器scripts/d1/run_allin_pipeline.py。原始实验experiments/d1_allin_native_pair_b03_v1_20261008/。复核scripts/d1/audit_native_pipeline.py及experiments/d1_tokenizer_integration_v1_20261008/final_integrity_and_failure_audit.json；完整源码在同目录repro_sources_after_execution/。所有路径相对D:/yaorz/research/decomposition-bench。
 
 阶段审查：计量、总预算、成功生成后的真实冻结/评分及失败保存达到本阶段工程门槛；性能整题仍0/1各，主问题A未回答。复核非独立，不等于独立人类真值。
 

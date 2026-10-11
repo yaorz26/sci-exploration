@@ -2,7 +2,7 @@
 import json
 from pathlib import Path
 
-ROOT = Path(r"D:\yaorz\research\codeprm-reproduction")
+ROOT = Path(r"D:\yaorz\research\decomposition-bench")
 
 fb = ROOT / "data/processed/feedback_records_apps_train_intro50_qwen3b_seed42.jsonl"
 gen = ROOT / "outputs/generations/baseline_candidates_apps_train_intro50_qwen3b_seed42.json"

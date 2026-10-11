@@ -44,7 +44,7 @@
 
 ## 五、落盘与清理方案
 
-- 落盘：`D:\yaorz\research\codeprm-reproduction\data\raw\evocodebench\EvoCodeBench-2403\`（D 盘，约 1.15 GB）；
+- 落盘：`D:\yaorz\research\decomposition-bench\data\raw\evocodebench\EvoCodeBench-2403\`（D 盘，约 1.15 GB）；
 - 环境：若走 WSL，conda 环境需显式指定到 `/mnt/d/...`，避免写入 WSL 根文件系统（其 VHDX 虽在 D 盘，但内部路径仍建议外挂）；
 - 清理：删除上述目录 + 对应 conda env 即可；无 Docker 依赖（若不用容器）。
 

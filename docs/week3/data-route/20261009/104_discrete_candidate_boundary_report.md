@@ -2,7 +2,7 @@
 
 从执行前保存的十二个新逐值锚点开始，整体频数实现、两helper实现、固定boltons来源适配分别12/12通过，共36次新solve。六有效输入覆盖混合整数/字符串并列及顺序反转、空域bool/null/string默认值和单字符串；六无效输入覆盖bool/float/list元素、非列表、缺data及对象default。原六输入未重跑，模型/API/下载/private均0。
 
-候选位置：`codeprm-reproduction/experiments/d1_discrete_candidate_boundary_v1_20261009/candidate/`，含task.json、中文需求、公开诊断、三个程序及原模块/完整BSD许可。执行前的`cases_and_programs_frozen.json`记录逐值预期、代码与评分器哈希；各有界机器输出单独保留，summary.json汇总。来源模块固定commit 4e5faa3d7e4008d89e0d8bf1ea87b6d9a061a16d，SHA256 0c4d05a17b14244a880e5047c1823d1e1e522e6c5ee76c6b47f54d8bde791e68。
+候选位置：`decomposition-bench/experiments/d1_discrete_candidate_boundary_v1_20261009/candidate/`，含task.json、中文需求、公开诊断、三个程序及原模块/完整BSD许可。执行前的`cases_and_programs_frozen.json`记录逐值预期、代码与评分器哈希；各有界机器输出单独保留，summary.json汇总。来源模块固定commit 4e5faa3d7e4008d89e0d8bf1ea87b6d9a061a16d，SHA256 0c4d05a17b14244a880e5047c1823d1e1e522e6c5ee76c6b47f54d8bde791e68。
 
 学到了什么：对这十二个输入，不同有效域算法及来源包装能满足同一可见契约，输入类型/次序/内容保持，需求不必规定先数量后众数或固定helper数。数量空域0、众数空域default的分离必须显式适配；候选自身的域上限和异常不应冒称上游API要求。
 

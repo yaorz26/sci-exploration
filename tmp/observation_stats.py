@@ -9,7 +9,7 @@ import statistics
 from collections import Counter, defaultdict
 from pathlib import Path
 
-ROOT = Path(r"D:\yaorz\research\codeprm-reproduction")
+ROOT = Path(r"D:\yaorz\research\decomposition-bench")
 FB = ROOT / "data/processed/feedback_records_apps_train_intro50_qwen3b_seed42.jsonl"
 
 records = [json.loads(line) for line in FB.open(encoding="utf-8")]

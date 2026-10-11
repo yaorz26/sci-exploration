@@ -14,7 +14,7 @@
 
 质量证据：8题参考3次通过、另一内部结构实现通过；16个手工语义缺陷均被识别。有限GLM自动复核发现并修正返回值歧义；独立人工真值未完成。Qwen7B结构标注失败，不采纳。污染未知，新颖性检索未完成。LRU/TTL同家族，部分功能偏小，来源与题型混杂；所有这些限制保留。
 
-本地原型数据入口：`codeprm-reproduction/data/processed/d1_project_prototype8_v5_20261008/`；生成与评分诊断见`08_development_probe_report.md`。
+本地原型数据入口：`decomposition-bench/data/processed/d1_project_prototype8_v5_20261008/`；生成与评分诊断见`08_development_probe_report.md`。
 
 ## 已回查源码的下一批候选
 

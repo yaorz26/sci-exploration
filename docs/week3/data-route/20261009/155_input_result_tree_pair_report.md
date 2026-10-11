@@ -10,6 +10,6 @@ E_B11在输入原树上查找，E_B12在变换结果树上查找。两题已各�
 
 新贡献是两个可执行候选及可复查的值/路径依赖证据，模型效果、全域正确性、正式标签及完整项目集成均未验证。模型/API/下载/private/人工0；initial20 manifest SHA不变。下一问题是值与路径版本是否可分别构成明确的任务语义，按156号补两个混合版本，使用这六个公开输入只执行新任务，旧程序不重跑。
 
-证据目录：codeprm-reproduction/experiments/d1_input_result_tree_pair_v1_20261009/，execution_freeze.json、raw_execution.jsonl与summary.json。命令（codeprm-reproduction目录）：python -B -X utf8 scripts/d1/build_input_result_tree_pair.py prepare；python -B -X utf8 scripts/d1/build_input_result_tree_pair.py run。固定来源及约束见154号。
+证据目录：decomposition-bench/experiments/d1_input_result_tree_pair_v1_20261009/，execution_freeze.json、raw_execution.jsonl与summary.json。命令（decomposition-bench目录）：python -B -X utf8 scripts/d1/build_input_result_tree_pair.py prepare；python -B -X utf8 scripts/d1/build_input_result_tree_pair.py run。固定来源及约束见154号。
 
 口径纠正沿用154号：P72的机械一轴0不构成主问题A不能推进的证据；P20原C03每参考11例、合计33例；P73仅文本设计。P71停止，不再连续增加声明、包装或静态gate支路。

@@ -1,0 +1,25 @@
+{
+  "python": "3.13.7",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "pytorch_installed": true,
+  "transformers_installed": false,
+  "datasets_installed": false,
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU, 8188 MiB",
+  "ollama_models": [
+    "qwen2.5-coder:7b",
+    "qwen2.5-coder:3b",
+    "qwen2.5-coder:1.5b",
+    "dolphin3-test:latest",
+    "dolphin3:latest"
+  ],
+  "api_keys_present": {
+    "HF_TOKEN": false,
+    "OPENAI_API_KEY": true,
+    "DEEPSEEK_API_KEY": false
+  },
+  "data_status": "real APPS train introductory20 available; custom public/private split; official test path not configured",
+  "limitations": [
+    "No Transformers/Datasets package detected",
+    "Executor is timeout-bounded but not an OS security sandbox"
+  ]
+}

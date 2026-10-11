@@ -2,7 +2,7 @@
 import json
 from pathlib import Path
 
-ROOT = Path(r"D:\yaorz\research\codeprm-reproduction")
+ROOT = Path(r"D:\yaorz\research\decomposition-bench")
 diag = ROOT / "reports/neural_codeprm_train50_seed42_diagnostic_2026-09-05.json"
 data = json.loads(diag.read_text(encoding="utf-8"))
 

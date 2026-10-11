@@ -6,11 +6,11 @@
 
 实验输入是 PR126 和 PR142 两个 `research_pool_only` 候选，每题一个 seed `20261011`。模型只看到父源码选定片段、需求和公开案例；没有看到 feature、alternative、遗漏控制、正确补丁、评价脚本或上游测试。原始输出和失败均保存在：
 
-`codeprm-reproduction/experiments/d1_G4_local_ollama_real_project_pair_v1_20261011/`
+`decomposition-bench/experiments/d1_G4_local_ollama_real_project_pair_v1_20261011/`
 
 以及第二次适配尝试：
 
-`codeprm-reproduction/experiments/d1_G4_local_ollama_real_project_pair_v2_20261011/`
+`decomposition-bench/experiments/d1_G4_local_ollama_real_project_pair_v2_20261011/`
 
 ## 实际请求和失败
 

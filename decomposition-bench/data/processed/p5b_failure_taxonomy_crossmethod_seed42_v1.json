@@ -1,0 +1,548 @@
+{
+  "analysis": "p5b cross-method failure taxonomy (mechanical, offline)",
+  "data": "frozen P5b stratified60 seed42, pool_oracle post-selection diagnostics",
+  "private_use": "post-selection diagnostic only; no feedback into prompts/selection",
+  "generated": "2026-09-18",
+  "by_method_layer": {
+    "m0|简单": {
+      "candidate_taxonomy": {
+        "zero_wrong": 2,
+        "partial_wrong": 5,
+        "full_pass": 23,
+        "zero_other:syntax_error": 1,
+        "partial_runtime": 1,
+        "zero_runtime": 1
+      },
+      "partial_rate_bands": {
+        "0.5-0.75": 6
+      },
+      "zero_runtime_dominant_exception": {
+        "ValueError": 1
+      },
+      "partial_runtime_dominant_exception": {
+        "IndexError": 1
+      },
+      "problem_level": {
+        "pool_partial_no_full": 4,
+        "pool_has_full": 15,
+        "pool_all_zero": 1
+      },
+      "public_full_private_not": 4,
+      "same_problem_spread_ge_0p5": 3,
+      "cost": {
+        "input_tokens": 14254,
+        "output_tokens": 3852,
+        "problems_with_candidate": 20,
+        "selected_private_pass": 14
+      },
+      "m2_structure": null
+    },
+    "m1|简单": {
+      "candidate_taxonomy": {
+        "zero_wrong": 3,
+        "full_pass": 23,
+        "partial_runtime": 2,
+        "partial_wrong": 4,
+        "zero_runtime": 3
+      },
+      "partial_rate_bands": {
+        "0.25-0.5": 1,
+        "0.5-0.75": 5
+      },
+      "zero_runtime_dominant_exception": {
+        "IndexError": 1,
+        "ValueError": 2
+      },
+      "partial_runtime_dominant_exception": {
+        "ZeroDivisionError": 1,
+        "IndexError": 1
+      },
+      "problem_level": {
+        "pool_all_zero": 3,
+        "pool_has_full": 14,
+        "pool_partial_no_full": 2,
+        "no_candidate": 1
+      },
+      "public_full_private_not": 5,
+      "same_problem_spread_ge_0p5": 1,
+      "cost": {
+        "input_tokens": 15014,
+        "output_tokens": 7397,
+        "problems_with_candidate": 19,
+        "selected_private_pass": 12
+      },
+      "m2_structure": null
+    },
+    "m2a|简单": {
+      "candidate_taxonomy": {
+        "zero_wrong": 16,
+        "zero_runtime": 15,
+        "full_pass": 17,
+        "partial_runtime": 13,
+        "partial_wrong": 3,
+        "zero_timeout": 1
+      },
+      "partial_rate_bands": {
+        "<=0.25": 1,
+        "0.5-0.75": 13,
+        "0.25-0.5": 2
+      },
+      "zero_runtime_dominant_exception": {
+        "ValueError": 4,
+        "IndexError": 1,
+        "TypeError": 9,
+        "KeyError": 1
+      },
+      "partial_runtime_dominant_exception": {
+        "TypeError": 13
+      },
+      "problem_level": {
+        "pool_all_zero": 2,
+        "no_candidate": 5,
+        "pool_has_full": 10,
+        "pool_partial_no_full": 3
+      },
+      "public_full_private_not": 17,
+      "same_problem_spread_ge_0p5": 4,
+      "cost": {
+        "input_tokens": 133998,
+        "output_tokens": 23362,
+        "problems_with_candidate": 15,
+        "selected_private_pass": 9
+      },
+      "m2_structure": {
+        "decomposition_requests": 40,
+        "valid_decompositions": 32,
+        "implementation_requests": 210,
+        "valid_implementations": 196,
+        "combinations": 204,
+        "unique_composable": 65,
+        "errors": {
+          "function_count_out_of_range": 2,
+          "extra_function_definitions": 5,
+          "signature_mismatch": 6,
+          "nested_function_definitions": 7,
+          "empty_implementation_pool": 4,
+          "missing_function": 2
+        }
+      }
+    },
+    "m2b|简单": {
+      "candidate_taxonomy": {
+        "zero_runtime": 16,
+        "zero_wrong": 15,
+        "full_pass": 25,
+        "partial_runtime": 10,
+        "partial_wrong": 12
+      },
+      "partial_rate_bands": {
+        "0.25-0.5": 2,
+        "0.5-0.75": 18,
+        "<=0.25": 2
+      },
+      "zero_runtime_dominant_exception": {
+        "TypeError": 11,
+        "ValueError": 5
+      },
+      "partial_runtime_dominant_exception": {
+        "IndexError": 9,
+        "ZeroDivisionError": 1
+      },
+      "problem_level": {
+        "pool_all_zero": 4,
+        "no_candidate": 7,
+        "pool_has_full": 7,
+        "pool_partial_no_full": 2
+      },
+      "public_full_private_not": 13,
+      "same_problem_spread_ge_0p5": 5,
+      "cost": {
+        "input_tokens": 116140,
+        "output_tokens": 20996,
+        "problems_with_candidate": 13,
+        "selected_private_pass": 7
+      },
+      "m2_structure": {
+        "decomposition_requests": 40,
+        "valid_decompositions": 30,
+        "implementation_requests": 202,
+        "valid_implementations": 187,
+        "combinations": 180,
+        "unique_composable": 78,
+        "errors": {
+          "function_count_out_of_range": 2,
+          "signature_mismatch": 6,
+          "nested_function_definitions": 6,
+          "empty_implementation_pool": 5,
+          "missing_function": 5,
+          "forward_dependency": 3,
+          "entrypoint_not_last": 1,
+          "extra_function_definitions": 4
+        }
+      }
+    },
+    "m0|中等": {
+      "candidate_taxonomy": {
+        "partial_wrong": 9,
+        "zero_wrong": 7,
+        "zero_runtime": 8,
+        "partial_runtime": 1,
+        "partial_timeout": 6,
+        "full_pass": 5
+      },
+      "partial_rate_bands": {
+        "0.25-0.5": 9,
+        ">0.75": 1,
+        "0.5-0.75": 1,
+        "<=0.25": 5
+      },
+      "zero_runtime_dominant_exception": {
+        "NameError": 2,
+        "TypeError": 4,
+        "UnicodeDecodeError": 1,
+        "ValueError": 1
+      },
+      "partial_runtime_dominant_exception": {
+        "TypeError": 1
+      },
+      "problem_level": {
+        "pool_partial_no_full": 10,
+        "pool_all_zero": 6,
+        "pool_has_full": 3,
+        "no_candidate": 1
+      },
+      "public_full_private_not": 6,
+      "same_problem_spread_ge_0p5": 2,
+      "cost": {
+        "input_tokens": 25156,
+        "output_tokens": 8292,
+        "problems_with_candidate": 19,
+        "selected_private_pass": 3
+      },
+      "m2_structure": null
+    },
+    "m1|中等": {
+      "candidate_taxonomy": {
+        "zero_timeout": 4,
+        "partial_wrong": 4,
+        "zero_wrong": 10,
+        "full_pass": 8,
+        "zero_runtime": 5,
+        "partial_runtime": 1,
+        "partial_timeout": 4,
+        "zero_other:syntax_error": 1
+      },
+      "partial_rate_bands": {
+        "0.25-0.5": 7,
+        "<=0.25": 2
+      },
+      "zero_runtime_dominant_exception": {
+        "TypeError": 3,
+        "ValueError": 2
+      },
+      "partial_runtime_dominant_exception": {
+        "TypeError": 1
+      },
+      "problem_level": {
+        "pool_partial_no_full": 7,
+        "pool_all_zero": 8,
+        "pool_has_full": 4,
+        "no_candidate": 1
+      },
+      "public_full_private_not": 4,
+      "same_problem_spread_ge_0p5": 1,
+      "cost": {
+        "input_tokens": 25916,
+        "output_tokens": 11888,
+        "problems_with_candidate": 19,
+        "selected_private_pass": 4
+      },
+      "m2_structure": null
+    },
+    "m2a|中等": {
+      "candidate_taxonomy": {
+        "partial_wrong": 6,
+        "partial_runtime": 8,
+        "zero_runtime": 16,
+        "full_pass": 8,
+        "zero_wrong": 8,
+        "zero_timeout": 6,
+        "partial_timeout": 7
+      },
+      "partial_rate_bands": {
+        ">0.75": 2,
+        "<=0.25": 6,
+        "0.25-0.5": 13
+      },
+      "zero_runtime_dominant_exception": {
+        "TypeError": 12,
+        "UnicodeDecodeError": 2,
+        "ValueError": 2
+      },
+      "partial_runtime_dominant_exception": {
+        "TypeError": 6,
+        "RecursionError": 4
+      },
+      "problem_level": {
+        "no_candidate": 7,
+        "pool_partial_no_full": 7,
+        "pool_all_zero": 4,
+        "pool_has_full": 2
+      },
+      "public_full_private_not": 7,
+      "same_problem_spread_ge_0p5": 2,
+      "cost": {
+        "input_tokens": 183196,
+        "output_tokens": 26050,
+        "problems_with_candidate": 13,
+        "selected_private_pass": 2
+      },
+      "m2_structure": {
+        "decomposition_requests": 40,
+        "valid_decompositions": 28,
+        "implementation_requests": 188,
+        "valid_implementations": 173,
+        "combinations": 162,
+        "unique_composable": 59,
+        "errors": {
+          "nested_function_definitions": 13,
+          "empty_implementation_pool": 3,
+          "extra_function_definitions": 2,
+          "function_count_out_of_range": 4,
+          "signature_mismatch": 6,
+          "entrypoint_not_last": 2
+        }
+      }
+    },
+    "m2b|中等": {
+      "candidate_taxonomy": {
+        "zero_wrong": 17,
+        "zero_runtime": 20,
+        "partial_runtime": 11,
+        "partial_timeout": 6,
+        "zero_timeout": 2,
+        "partial_wrong": 7,
+        "full_pass": 11
+      },
+      "partial_rate_bands": {
+        "<=0.25": 4,
+        "0.25-0.5": 20
+      },
+      "zero_runtime_dominant_exception": {
+        "NameError": 4,
+        "TypeError": 12,
+        "ValueError": 4
+      },
+      "partial_runtime_dominant_exception": {
+        "TypeError": 11
+      },
+      "problem_level": {
+        "no_candidate": 8,
+        "pool_all_zero": 3,
+        "pool_partial_no_full": 6,
+        "pool_has_full": 3
+      },
+      "public_full_private_not": 6,
+      "same_problem_spread_ge_0p5": 3,
+      "cost": {
+        "input_tokens": 203242,
+        "output_tokens": 29013,
+        "problems_with_candidate": 12,
+        "selected_private_pass": 3
+      },
+      "m2_structure": {
+        "decomposition_requests": 40,
+        "valid_decompositions": 31,
+        "implementation_requests": 210,
+        "valid_implementations": 179,
+        "combinations": 150,
+        "unique_composable": 74,
+        "errors": {
+          "nested_function_definitions": 27,
+          "empty_implementation_pool": 10,
+          "forward_dependency": 4,
+          "extra_function_definitions": 4,
+          "entrypoint_not_last": 3,
+          "function_count_out_of_range": 2,
+          "signature_mismatch": 4
+        }
+      }
+    },
+    "m0|困难": {
+      "candidate_taxonomy": {
+        "zero_runtime": 9,
+        "partial_wrong": 14,
+        "zero_wrong": 13,
+        "full_pass": 1,
+        "zero_timeout": 2,
+        "partial_runtime": 1
+      },
+      "partial_rate_bands": {
+        "<=0.25": 10,
+        "0.25-0.5": 4,
+        "0.5-0.75": 1
+      },
+      "zero_runtime_dominant_exception": {
+        "ValueError": 6,
+        "IndexError": 3
+      },
+      "partial_runtime_dominant_exception": {
+        "IndexError": 1
+      },
+      "problem_level": {
+        "pool_all_zero": 10,
+        "pool_partial_no_full": 9,
+        "pool_has_full": 1
+      },
+      "public_full_private_not": 0,
+      "same_problem_spread_ge_0p5": 1,
+      "cost": {
+        "input_tokens": 30996,
+        "output_tokens": 9909,
+        "problems_with_candidate": 20,
+        "selected_private_pass": 1
+      },
+      "m2_structure": null
+    },
+    "m1|困难": {
+      "candidate_taxonomy": {
+        "zero_runtime": 8,
+        "partial_runtime": 4,
+        "zero_wrong": 17,
+        "partial_wrong": 8,
+        "zero_timeout": 2,
+        "partial_timeout": 1
+      },
+      "partial_rate_bands": {
+        "<=0.25": 6,
+        "0.25-0.5": 5,
+        ">0.75": 1,
+        "0.5-0.75": 1
+      },
+      "zero_runtime_dominant_exception": {
+        "IndexError": 3,
+        "ValueError": 3,
+        "NameError": 1,
+        "TypeError": 1
+      },
+      "partial_runtime_dominant_exception": {
+        "ValueError": 1,
+        "RecursionError": 1,
+        "NameError": 2
+      },
+      "problem_level": {
+        "pool_all_zero": 12,
+        "pool_partial_no_full": 8
+      },
+      "public_full_private_not": 0,
+      "same_problem_spread_ge_0p5": 0,
+      "cost": {
+        "input_tokens": 31756,
+        "output_tokens": 13148,
+        "problems_with_candidate": 20,
+        "selected_private_pass": 0
+      },
+      "m2_structure": null
+    },
+    "m2a|困难": {
+      "candidate_taxonomy": {
+        "partial_timeout": 10,
+        "partial_wrong": 24,
+        "zero_runtime": 33,
+        "zero_wrong": 26,
+        "zero_timeout": 4
+      },
+      "partial_rate_bands": {
+        "<=0.25": 15,
+        "0.5-0.75": 15,
+        "0.25-0.5": 4
+      },
+      "zero_runtime_dominant_exception": {
+        "NameError": 8,
+        "RecursionError": 4,
+        "TypeError": 5,
+        "IndexError": 1,
+        "ValueError": 14,
+        "EOFError": 1
+      },
+      "partial_runtime_dominant_exception": {},
+      "problem_level": {
+        "no_candidate": 5,
+        "pool_partial_no_full": 6,
+        "pool_all_zero": 9
+      },
+      "public_full_private_not": 0,
+      "same_problem_spread_ge_0p5": 0,
+      "cost": {
+        "input_tokens": 294476,
+        "output_tokens": 39818,
+        "problems_with_candidate": 15,
+        "selected_private_pass": 0
+      },
+      "m2_structure": {
+        "decomposition_requests": 40,
+        "valid_decompositions": 35,
+        "implementation_requests": 252,
+        "valid_implementations": 216,
+        "combinations": 178,
+        "unique_composable": 97,
+        "errors": {
+          "empty_docstring": 12,
+          "function_count_out_of_range": 2,
+          "extra_function_definitions": 6,
+          "nested_function_definitions": 27,
+          "empty_implementation_pool": 11,
+          "extra_top_level_statements": 2,
+          "closing parenthesis ')' does not match opening parenthesis '[' (<unknown>, line 8)": 1,
+          "parse_failed": 1
+        }
+      }
+    },
+    "m2b|困难": {
+      "candidate_taxonomy": {
+        "partial_wrong": 15,
+        "zero_runtime": 46,
+        "zero_wrong": 19
+      },
+      "partial_rate_bands": {
+        "<=0.25": 10,
+        "0.25-0.5": 5
+      },
+      "zero_runtime_dominant_exception": {
+        "ValueError": 16,
+        "TypeError": 24,
+        "NameError": 4,
+        "IndexError": 2
+      },
+      "partial_runtime_dominant_exception": {},
+      "problem_level": {
+        "no_candidate": 7,
+        "pool_partial_no_full": 6,
+        "pool_all_zero": 7
+      },
+      "public_full_private_not": 0,
+      "same_problem_spread_ge_0p5": 0,
+      "cost": {
+        "input_tokens": 291612,
+        "output_tokens": 43057,
+        "problems_with_candidate": 13,
+        "selected_private_pass": 0
+      },
+      "m2_structure": {
+        "decomposition_requests": 40,
+        "valid_decompositions": 35,
+        "implementation_requests": 262,
+        "valid_implementations": 217,
+        "combinations": 152,
+        "unique_composable": 80,
+        "errors": {
+          "nested_function_definitions": 34,
+          "extra_function_definitions": 7,
+          "empty_implementation_pool": 14,
+          "invalid syntax (<unknown>, line 1)": 4,
+          "forward_dependency": 5
+        }
+      }
+    }
+  }
+}

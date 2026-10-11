@@ -28,4 +28,4 @@
 
 停止增加相同接口/标记/调用反例，也不因检索未发现而继续无限扩文献。P40转向一个直接影响A设计的问题：原20题在开发/储备、来源和显式相关组件限制下，三个前置结构维度是否有可比较的支撑？先冻结轴与比较规则，精确枚举只改变一轴且其余两轴相同的同来源任务对，单列同相关组件和跨组件；没有支撑的比较不得靠满秩或任务总数掩盖。
 
-本阶段新增模型/API、任务求值、隐藏读取、论文下载均0；引用缓存，不称全程联网获取成功。原标签、数据、评分、pipeline和正式冻结要求不改。机器证据：`codeprm-reproduction/experiments/d1_measurement_contribution_literature_v1_20261008/targeted_evidence_and_contribution_review.json`。
+本阶段新增模型/API、任务求值、隐藏读取、论文下载均0；引用缓存，不称全程联网获取成功。原标签、数据、评分、pipeline和正式冻结要求不改。机器证据：`decomposition-bench/experiments/d1_measurement_contribution_literature_v1_20261008/targeted_evidence_and_contribution_review.json`。

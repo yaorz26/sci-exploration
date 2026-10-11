@@ -8,4 +8,4 @@
 
 F03至此形成闭合贡献：局部二元正确但归并失败、明确摘要修复、信息碰撞说明两种删减不足、路径观察单位决定接口义务。停止扩展相似格和摘要字段，下一项换M05研究：一个接口丢失行身份时，入口若仍能访问原输入，是否可通过重计算救回？这将区分“限定接口不足”与“任务不可分解”，防止把本轮结论过度推广到方法效果。
 
-原始证据：`codeprm-reproduction/experiments/d1_path_local_summary_v1_20261008/`；脚本`scripts/d1/probe_path_local_summary.py`。P31隐藏输入描述暴露限制保持；本轮不是未见储备确认，原数据与模型结果未改。
+原始证据：`decomposition-bench/experiments/d1_path_local_summary_v1_20261008/`；脚本`scripts/d1/probe_path_local_summary.py`。P31隐藏输入描述暴露限制保持；本轮不是未见储备确认，原数据与模型结果未改。

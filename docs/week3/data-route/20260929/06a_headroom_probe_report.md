@@ -1,7 +1,7 @@
 # P0 报告：候选池 headroom 探针（ClassEval）
 
 日期：2026-09-29 ｜ 性质：探针（不是方法比较）｜ **LLM 调用 24 次**
-产物：`codeprm-reproduction/experiments/classeval_headroom_probe/probe_manifest.json`（含候选原文与逐次评测）、脚本 `scripts/p0_headroom/run_probe.py`
+产物：`decomposition-bench/experiments/classeval_headroom_probe/probe_manifest.json`（含候选原文与逐次评测）、脚本 `scripts/p0_headroom/run_probe.py`
 
 ---
 

@@ -39,7 +39,7 @@ C04在“实例”为实体时，另一实例的调用不造成目标实例未�
 
 下一问题：需求能写出两个可单测行为，是否足以说明生成方案局部通过后可以正确组合？启动P13，检验真正正确的行为helper也会不会被错误的数据流连接破坏，并比较同一任务的两种合法内部结构；不重复552项运行。
 
-复现命令（在codeprm-reproduction目录，输出目录必须新建）：
+复现命令（在decomposition-bench目录，输出目录必须新建）：
 
 ```powershell
 python -I -S -B -X utf8 scripts/d1/run_semantic_contrasts.py --dataset experiments/d1_candidate_delivery_v4_portable_20261008/dataset --output experiments/d1_semantic_contrasts_v1_20261008

@@ -22,4 +22,4 @@ M05虽新增more-itertools来源的稳定排列见证，仍属于输入行序列
 
 主问题A的阶段依赖需要覆盖“共同有效数据域”，不能只用共享可变状态代理。接续P24检查M05：先排序再对齐与先对齐再排序是否都可能合法？纯helper各自局部通过是否仍会因有效行域的组合错误失败？先登记两合法边界和一个只改变连接的缺陷，验证依赖是行域一致义务还是固定阶段顺序，从而避免把某一作者拆法规定为唯一正确任务分解。
 
-证据：`codeprm-reproduction/experiments/d1_unmeasured_task_screen_v1_20261008/public_requirements_extracted.json`；`experiments/d1_unmeasured_task_probes_v1_20261008/{probes_frozen.json,pre_execution_freeze.json,paired_results.jsonl,unique_input_results.json,summary.json}`。程序`scripts/d1/probe_unmeasured_tasks.py`，命令`python -B -X utf8 scripts/d1/probe_unmeasured_tasks.py`。手算先登记于52号文件，无新增正式测试。
+证据：`decomposition-bench/experiments/d1_unmeasured_task_screen_v1_20261008/public_requirements_extracted.json`；`experiments/d1_unmeasured_task_probes_v1_20261008/{probes_frozen.json,pre_execution_freeze.json,paired_results.jsonl,unique_input_results.json,summary.json}`。程序`scripts/d1/probe_unmeasured_tasks.py`，命令`python -B -X utf8 scripts/d1/probe_unmeasured_tasks.py`。手算先登记于52号文件，无新增正式测试。

@@ -1,0 +1,22 @@
+{
+  "time": "2026-10-11T05:24:59.664317+00:00",
+  "event_id": "d1-evaluator-blindspot-counterexample-20261011T052459Z",
+  "kind": "phase_review",
+  "phase": "G3-contract-integrity",
+  "stage": "D1-G3-v1",
+  "status": "complete",
+  "summary": "评价器盲点形式反例执行完成（224号三轮审核放行、225号计划）：C=control(旧8/8,直接入口0/1)与F=complete(旧8/8,直接入口1/1)两种臂位分配。旧评价两种分配均 delta=0；改用完整评价（Y_full=Y_old AND direct_entry_pass）后分别为 delta=+1 与 delta=-1，交换臂位即翻转符号。只证明评价器盲点可扭曲相对差值，不代表 M0/M2 模型效果、不估计概率或显著性。",
+  "decision": "G4 协议必须先冻结题面明示 API 的行为锚点，再谈同预算相对收益；否则相对收益可能只是评价盲点差异。",
+  "evidence_kind": "artifact",
+  "evidence": [
+    "experiments/d1_G3_pr126_entry_gap_v1_20261009/evaluator_blindspot_delta_counterexample.json",
+    "../docs/week3/data-route/20261011/224_evaluator_blindspot_next_question_audit.md",
+    "../docs/week3/data-route/20261011/225_evaluator_blindspot_plan.md"
+  ],
+  "approval_required": false,
+  "supersedes": [],
+  "budget": "零模型/行为/人工/下载调用（只读已保存布尔结果做算术映射）；formal_labels/split null",
+  "uncertainty": "只有单任务一个补充入口、二元完整通过指标；不能外推真实方法错误率或统计显著性；M0/M2 仅为臂位标签",
+  "next": "在 G4 协议说明中把明示 API 锚点列为冻结前置；不自动扩大同类反例",
+  "backfill_note": "本事件为 2026-10-11T08:02Z 状态清账时发现遗漏后补记：结果文件与报告早已存在，此前未写入账本。补记不改任何结果，只补登 provenance。"
+}

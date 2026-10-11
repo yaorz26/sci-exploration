@@ -18,4 +18,4 @@
 
 下一项P17检验第二来源的全局保序与目标实体投影。候选筛选出现了一个否定证据：more-itertools.map_reduce的公开例子都对结果sorted，不能据源码字典当前插入顺序冒称上游公开保序保证。停止这条推断，转向文档明确写出保序和记住全部已见元素的unique_everseen。新的输入事件顺序与原操作历史不同，必须记录顺序来自哪里，不能不加说明合并。
 
-执行约0.085秒；证据`codeprm-reproduction/experiments/d1_expansion_cache_candidate_v1_20261008/`的task_contract、hand_anchors_frozen、pre_execution_freeze、anchor_results、finite_sequences、summary；程序`scripts/d1/probe_cross_source_cache.py`。来源/许可哈希保存，源码和上游测试已见、独立泄漏审查仍缺。
+执行约0.085秒；证据`decomposition-bench/experiments/d1_expansion_cache_candidate_v1_20261008/`的task_contract、hand_anchors_frozen、pre_execution_freeze、anchor_results、finite_sequences、summary；程序`scripts/d1/probe_cross_source_cache.py`。来源/许可哈希保存，源码和上游测试已见、独立泄漏审查仍缺。

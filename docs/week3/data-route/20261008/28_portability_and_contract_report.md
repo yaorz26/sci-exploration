@@ -1,6 +1,6 @@
 # 候选数据集隔离运行与行为契约复核报告
 
-当前推荐的管理端候选成果是`codeprm-reproduction/experiments/d1_candidate_delivery_v4_portable_20261008/d1_project_initial20_v5_portable_candidate.zip`。它解决了旧包缺少上游运行依赖的问题。Python 3.13.7、Windows 11环境中，关闭第三方安装目录后，20题的参考实现及另一结构实现全部复跑通过；人工双审仍为0，数据集未正式冻结、未发布，问题A正式评测没有启动。
+当前推荐的管理端候选成果是`decomposition-bench/experiments/d1_candidate_delivery_v4_portable_20261008/d1_project_initial20_v5_portable_candidate.zip`。它解决了旧包缺少上游运行依赖的问题。Python 3.13.7、Windows 11环境中，关闭第三方安装目录后，20题的参考实现及另一结构实现全部复跑通过；人工双审仍为0，数据集未正式冻结、未发布，问题A正式评测没有启动。
 
 ## 这一步改变了什么
 
@@ -45,7 +45,7 @@ P10的8/8检查只核实文件、案例数量、许可和ZIP字节。它没有�
 
 ## 可复现入口
 
-以下命令在`D:/yaorz/research/codeprm-reproduction`执行；输出目录不得预先存在，重跑须使用新目录。已执行的结果目录不覆盖。
+以下命令在`D:/yaorz/research/decomposition-bench`执行；输出目录不得预先存在，重跑须使用新目录。已执行的结果目录不覆盖。
 
 ```powershell
 python scripts/d1/audit_package_portability.py --archive experiments/d1_candidate_delivery_v2_20261008/d1_project_initial20_v5_candidate.zip --output experiments/d1_portability_v2_isolation_20261008
