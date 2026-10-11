@@ -49,6 +49,19 @@ codeprm-reproduction/.venvs/wsl_py310/bin/
 # ---------- 本机包管理与数据缓存（pip/nltk 下载物，约 90MB+）----------
 .cache/
 
+# ---------- runtime/：本机运行时资产，与代码仓库分离（2026-10-11 整改）----------
+# 内放：模型权重 runtime/models/qwen（24.9GB）、虚拟环境 runtime/venvs/、
+#       缓存 runtime/cache/.cache。这些项目按设计不入库，只在本机存在。
+# 旧路径通过 junction 继续可达（见 RESTRUCTURE_20261011.md），
+# 因此 169 处 parents[N] 相对路径与 12 处绝对路径无需改写。
+runtime/
+# 上述 junction 本身也不入库（Windows 下 git 会把它当普通目录遍历）
+codeprm-reproduction/models
+codeprm-reproduction/.venv_apps
+codeprm-reproduction/.venv_funprm
+codeprm-reproduction/.venvs
+.cache
+
 # ---------- 上游第三方仓库（自带 .git，逐仓库许可不同；如要入库需单独立项决定）----------
 codeprm-reproduction/data/raw/d1_project_v1_20261008/repositories/
 
