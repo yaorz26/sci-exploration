@@ -10,7 +10,7 @@
 #   提交前请执行：git config core.autocrlf false
 #
 # 目录分工（2026-10-11 整改后，详见 RESTRUCTURE_20261011.md）：
-#   decomposition-bench/  代码与证据（入库）
+#   projects/decomposition-bench/  代码与证据（入库）
 #   runtime/              模型权重、虚拟环境、缓存（本机，不入库）
 # ============================================================
 
@@ -19,11 +19,11 @@
 runtime/
 
 # ---------- 安全网：万一这些目录又出现在项目里，也不许入库 ----------
-decomposition-bench/models/
-decomposition-bench/.cache/
-decomposition-bench/.venv_apps/
-decomposition-bench/.venv_funprm/
-decomposition-bench/.venvs/
+projects/decomposition-bench/models/
+projects/decomposition-bench/.cache/
+projects/decomposition-bench/.venv_apps/
+projects/decomposition-bench/.venv_funprm/
+projects/decomposition-bench/.venvs/
 **/huggingface/
 
 # ---------- 虚拟环境（通用）----------
@@ -43,10 +43,10 @@ env/
 
 # ---------- 训练产物：LoRA adapter ----------
 # 权重不入库；metrics.json（训练误差结论）保留入库。
-decomposition-bench/outputs/models/*/adapter_model.safetensors
-decomposition-bench/outputs/models/*/*.safetensors
+projects/decomposition-bench/outputs/models/*/adapter_model.safetensors
+projects/decomposition-bench/outputs/models/*/*.safetensors
 # 若确定所有 adapter 都不需留档，改为下面一行（连同 metrics.json 一并排除）
-# decomposition-bench/outputs/models/
+# projects/decomposition-bench/outputs/models/
 
 # ---------- 二进制归档 ----------
 *.tar
@@ -56,26 +56,26 @@ decomposition-bench/outputs/models/*/*.safetensors
 *.7z
 
 # ---------- 上游第三方仓库（自带 .git，逐仓库许可不同；入库需单独立项决定）----------
-decomposition-bench/data/raw/d1_project_v1_20261008/repositories/
+projects/decomposition-bench/data/raw/d1_project_v1_20261008/repositories/
 
 # ---------- 大体积运行产物（GitHub 单文件硬上限 100MB）----------
 # 逐条列出而非整目录排除：结论级的小 JSON 证据要继续入库，
 # 只有真正超大的原始评测转储留在本地。
 # 993MB：GitHub 硬上限 100MB，绝不能入库（曾因改名导致规则失效而误入提交）
-decomposition-bench/data/processed/funprm_label_calibration_20260924/confirmation_a30_functionized_qwen25coder_7b_n10_seed20261224_v1_evaluations.jsonl
-decomposition-bench/data/processed/funprm_label_calibration_20260924/confirmation_a30_functionized_qwen25coder_7b_n10_seed20261224_v2_evaluations.jsonl
+projects/decomposition-bench/data/processed/funprm_label_calibration_20260924/confirmation_a30_functionized_qwen25coder_7b_n10_seed20261224_v1_evaluations.jsonl
+projects/decomposition-bench/data/processed/funprm_label_calibration_20260924/confirmation_a30_functionized_qwen25coder_7b_n10_seed20261224_v2_evaluations.jsonl
 # 以下 10 个（10--58MB）已在 origin/main 历史中，规则对已跟踪文件无效，
 # 保留在此是为了避免将来被重新加入；若要真正瘦身需 filter-repo 重写历史。
-decomposition-bench/data/processed/p5b_hard20_m1_plan_qwen25coder_7b_n2_seed42_v1_pool_oracle.json
-decomposition-bench/data/processed/p5b_hard20_m1_plan_qwen25coder_7b_n2_seed42_v1_evaluations.jsonl
-decomposition-bench/data/processed/p5b_hard20_m2b_json_qwen25coder_7b_d2_i2_c8_seed42_v5_full_space_oracle.json
-decomposition-bench/data/processed/p5b_hard20_m2b_json_qwen25coder_7b_d2_i2_c8_seed42_v1_pool_oracle.json
-decomposition-bench/data/processed/p5b_hard20_m2b_json_qwen25coder_7b_d2_i2_c8_seed42_v2_api_revalidated_recombinations.jsonl
-decomposition-bench/data/processed/p5b_hard20_m2b_json_qwen25coder_7b_d2_i2_c8_seed42_v1_recombinations.jsonl
-decomposition-bench/data/processed/p5b_hard20_m2b_json_qwen25coder_7b_d2_i2_c8_seed42_v3_helper_io_gate_replay.json
-decomposition-bench/data/processed/p5b_hard20_m0_direct_qwen25coder_7b_n2_seed42_v1_pool_oracle.json
-decomposition-bench/data/processed/codeprm_continuation_train50_seed42_deployment_aligned.jsonl
-decomposition-bench/data/processed/codeprm_continuation_train50_seed42.jsonl
+projects/decomposition-bench/data/processed/p5b_hard20_m1_plan_qwen25coder_7b_n2_seed42_v1_pool_oracle.json
+projects/decomposition-bench/data/processed/p5b_hard20_m1_plan_qwen25coder_7b_n2_seed42_v1_evaluations.jsonl
+projects/decomposition-bench/data/processed/p5b_hard20_m2b_json_qwen25coder_7b_d2_i2_c8_seed42_v5_full_space_oracle.json
+projects/decomposition-bench/data/processed/p5b_hard20_m2b_json_qwen25coder_7b_d2_i2_c8_seed42_v1_pool_oracle.json
+projects/decomposition-bench/data/processed/p5b_hard20_m2b_json_qwen25coder_7b_d2_i2_c8_seed42_v2_api_revalidated_recombinations.jsonl
+projects/decomposition-bench/data/processed/p5b_hard20_m2b_json_qwen25coder_7b_d2_i2_c8_seed42_v1_recombinations.jsonl
+projects/decomposition-bench/data/processed/p5b_hard20_m2b_json_qwen25coder_7b_d2_i2_c8_seed42_v3_helper_io_gate_replay.json
+projects/decomposition-bench/data/processed/p5b_hard20_m0_direct_qwen25coder_7b_n2_seed42_v1_pool_oracle.json
+projects/decomposition-bench/data/processed/codeprm_continuation_train50_seed42_deployment_aligned.jsonl
+projects/decomposition-bench/data/processed/codeprm_continuation_train50_seed42.jsonl
 
 # ---------- Python / 工具缓存 ----------
 __pycache__/
@@ -85,7 +85,7 @@ __pycache__/
 .ipynb_checkpoints/
 
 # ---------- 本机临时数据 ----------
-# 注意：不要写 `*.log`。decomposition-bench/data 下有多份
+# 注意：不要写 `*.log`。projects/decomposition-bench/data 下有多份
 # *_progress.log 已被 git 跟踪，忽略它们会让这些文件从状态里消失。
 *.tmp
 *.part

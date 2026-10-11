@@ -14,7 +14,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
-STATE = ROOT / "decomposition-bench" / ".research-state"
+STATE = ROOT / "projects" / "decomposition-bench" / ".research-state"
 ON_DEMAND_SKILLS = ["plain-language-debrief"]
 RETIRED_TOKEN = "research-contribution-loop"
 failures: list[str] = []
