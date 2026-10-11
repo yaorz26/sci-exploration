@@ -1,0 +1,168 @@
+{
+  "diagnostic": true,
+  "selection_rule": "highest public pass rate across M0 and F1; ties prefer M0, then lower candidate index",
+  "private_usage": "post-selection diagnostic only; private values do not affect the route",
+  "problems": 19,
+  "public_union_route_selected_private_pass": 11,
+  "m0_pool_oracle": 12,
+  "f1_pool_oracle": 12,
+  "union_pool_oracle": 13,
+  "selected_method_counts": {
+    "M0": 17,
+    "F1": 2
+  },
+  "by_problem": {
+    "apps-train-2710": {
+      "selected_method": "M0",
+      "selected_candidate_id": "apps-train-2710:c0",
+      "selected_public_pass_rate": 1.0,
+      "selected_private_pass": true,
+      "m0_pool_private_pass": true,
+      "f1_pool_private_pass": true
+    },
+    "apps-train-2711": {
+      "selected_method": "M0",
+      "selected_candidate_id": "apps-train-2711:c0",
+      "selected_public_pass_rate": 1.0,
+      "selected_private_pass": true,
+      "m0_pool_private_pass": true,
+      "f1_pool_private_pass": true
+    },
+    "apps-train-2712": {
+      "selected_method": "M0",
+      "selected_candidate_id": "apps-train-2712:c0",
+      "selected_public_pass_rate": 1.0,
+      "selected_private_pass": false,
+      "m0_pool_private_pass": false,
+      "f1_pool_private_pass": false
+    },
+    "apps-train-2713": {
+      "selected_method": "F1",
+      "selected_candidate_id": "apps-train-2713:c8",
+      "selected_public_pass_rate": 1.0,
+      "selected_private_pass": false,
+      "m0_pool_private_pass": false,
+      "f1_pool_private_pass": false
+    },
+    "apps-train-2714": {
+      "selected_method": "F1",
+      "selected_candidate_id": "apps-train-2714:c2",
+      "selected_public_pass_rate": 1.0,
+      "selected_private_pass": true,
+      "m0_pool_private_pass": false,
+      "f1_pool_private_pass": true
+    },
+    "apps-train-2717": {
+      "selected_method": "M0",
+      "selected_candidate_id": "apps-train-2717:c0",
+      "selected_public_pass_rate": 1.0,
+      "selected_private_pass": false,
+      "m0_pool_private_pass": true,
+      "f1_pool_private_pass": true
+    },
+    "apps-train-2718": {
+      "selected_method": "M0",
+      "selected_candidate_id": "apps-train-2718:c0",
+      "selected_public_pass_rate": 1.0,
+      "selected_private_pass": true,
+      "m0_pool_private_pass": true,
+      "f1_pool_private_pass": true
+    },
+    "apps-train-2719": {
+      "selected_method": "M0",
+      "selected_candidate_id": "apps-train-2719:c0",
+      "selected_public_pass_rate": 0.5,
+      "selected_private_pass": false,
+      "m0_pool_private_pass": false,
+      "f1_pool_private_pass": false
+    },
+    "apps-train-2723": {
+      "selected_method": "M0",
+      "selected_candidate_id": "apps-train-2723:c0",
+      "selected_public_pass_rate": 1.0,
+      "selected_private_pass": true,
+      "m0_pool_private_pass": true,
+      "f1_pool_private_pass": true
+    },
+    "apps-train-2724": {
+      "selected_method": "M0",
+      "selected_candidate_id": "apps-train-2724:c0",
+      "selected_public_pass_rate": 0.5,
+      "selected_private_pass": false,
+      "m0_pool_private_pass": false,
+      "f1_pool_private_pass": false
+    },
+    "apps-train-2725": {
+      "selected_method": "M0",
+      "selected_candidate_id": "apps-train-2725:c0",
+      "selected_public_pass_rate": 1.0,
+      "selected_private_pass": true,
+      "m0_pool_private_pass": true,
+      "f1_pool_private_pass": true
+    },
+    "apps-train-2726": {
+      "selected_method": "M0",
+      "selected_candidate_id": "apps-train-2726:c8",
+      "selected_public_pass_rate": 1.0,
+      "selected_private_pass": true,
+      "m0_pool_private_pass": true,
+      "f1_pool_private_pass": false
+    },
+    "apps-train-2727": {
+      "selected_method": "M0",
+      "selected_candidate_id": "apps-train-2727:c3",
+      "selected_public_pass_rate": 1.0,
+      "selected_private_pass": false,
+      "m0_pool_private_pass": false,
+      "f1_pool_private_pass": false
+    },
+    "apps-train-2728": {
+      "selected_method": "M0",
+      "selected_candidate_id": "apps-train-2728:c0",
+      "selected_public_pass_rate": 1.0,
+      "selected_private_pass": false,
+      "m0_pool_private_pass": true,
+      "f1_pool_private_pass": true
+    },
+    "apps-train-2730": {
+      "selected_method": "M0",
+      "selected_candidate_id": "apps-train-2730:c0",
+      "selected_public_pass_rate": 1.0,
+      "selected_private_pass": true,
+      "m0_pool_private_pass": true,
+      "f1_pool_private_pass": true
+    },
+    "apps-train-2731": {
+      "selected_method": "M0",
+      "selected_candidate_id": "apps-train-2731:c4",
+      "selected_public_pass_rate": 1.0,
+      "selected_private_pass": true,
+      "m0_pool_private_pass": true,
+      "f1_pool_private_pass": true
+    },
+    "apps-train-2732": {
+      "selected_method": "M0",
+      "selected_candidate_id": "apps-train-2732:c0",
+      "selected_public_pass_rate": 0.0,
+      "selected_private_pass": false,
+      "m0_pool_private_pass": false,
+      "f1_pool_private_pass": false
+    },
+    "apps-train-2733": {
+      "selected_method": "M0",
+      "selected_candidate_id": "apps-train-2733:c0",
+      "selected_public_pass_rate": 1.0,
+      "selected_private_pass": true,
+      "m0_pool_private_pass": true,
+      "f1_pool_private_pass": true
+    },
+    "apps-train-2734": {
+      "selected_method": "M0",
+      "selected_candidate_id": "apps-train-2734:c0",
+      "selected_public_pass_rate": 1.0,
+      "selected_private_pass": true,
+      "m0_pool_private_pass": true,
+      "f1_pool_private_pass": true
+    }
+  }
+}

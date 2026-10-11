@@ -1,0 +1,399 @@
+{
+  "completed_at": "2026-10-09T06:24:44.983068+00:00",
+  "stage": "D1-P74-input-result-tree-pair",
+  "unique_input_count": 6,
+  "task_diagnostic_records": 12,
+  "actual_solve_calls": 36,
+  "passed": 36,
+  "input_unchanged": 36,
+  "by_reference": {
+    "input/whole": {
+      "passed": 6,
+      "total": 6
+    },
+    "input/helpers": {
+      "passed": 6,
+      "total": 6
+    },
+    "input/source_adapter": {
+      "passed": 6,
+      "total": 6
+    },
+    "result/whole": {
+      "passed": 6,
+      "total": 6
+    },
+    "result/helpers": {
+      "passed": 6,
+      "total": 6
+    },
+    "result/source_adapter": {
+      "passed": 6,
+      "total": 6
+    }
+  },
+  "source_api_calls": {
+    "remap": 24,
+    "research": 12
+  },
+  "source_api_count_scope": "插桩实际函数入口；research内调用remap也计入，非任务要求的调用数",
+  "relations": [
+    {
+      "reference": "whole",
+      "variant": "input",
+      "intervention": "factor",
+      "before": [
+        {
+          "path": [
+            "b"
+          ],
+          "value": 3
+        }
+      ],
+      "after": [
+        {
+          "path": [
+            "b"
+          ],
+          "value": 3
+        }
+      ],
+      "equal": true,
+      "predicted_equal": true,
+      "passed": true
+    },
+    {
+      "reference": "whole",
+      "variant": "input",
+      "intervention": "drop_null",
+      "before": [
+        {
+          "path": [
+            "a",
+            1
+          ],
+          "value": 4
+        }
+      ],
+      "after": [
+        {
+          "path": [
+            "a",
+            1
+          ],
+          "value": 4
+        }
+      ],
+      "equal": true,
+      "predicted_equal": true,
+      "passed": true
+    },
+    {
+      "reference": "whole",
+      "variant": "result",
+      "intervention": "factor",
+      "before": [
+        {
+          "path": [
+            "b"
+          ],
+          "value": 3
+        }
+      ],
+      "after": [
+        {
+          "path": [
+            "a",
+            0
+          ],
+          "value": 4
+        },
+        {
+          "path": [
+            "b"
+          ],
+          "value": 6
+        }
+      ],
+      "equal": false,
+      "predicted_equal": false,
+      "passed": true
+    },
+    {
+      "reference": "whole",
+      "variant": "result",
+      "intervention": "drop_null",
+      "before": [
+        {
+          "path": [
+            "a",
+            1
+          ],
+          "value": 4
+        }
+      ],
+      "after": [
+        {
+          "path": [
+            "a",
+            0
+          ],
+          "value": 4
+        }
+      ],
+      "equal": false,
+      "predicted_equal": false,
+      "passed": true
+    },
+    {
+      "reference": "helpers",
+      "variant": "input",
+      "intervention": "factor",
+      "before": [
+        {
+          "path": [
+            "b"
+          ],
+          "value": 3
+        }
+      ],
+      "after": [
+        {
+          "path": [
+            "b"
+          ],
+          "value": 3
+        }
+      ],
+      "equal": true,
+      "predicted_equal": true,
+      "passed": true
+    },
+    {
+      "reference": "helpers",
+      "variant": "input",
+      "intervention": "drop_null",
+      "before": [
+        {
+          "path": [
+            "a",
+            1
+          ],
+          "value": 4
+        }
+      ],
+      "after": [
+        {
+          "path": [
+            "a",
+            1
+          ],
+          "value": 4
+        }
+      ],
+      "equal": true,
+      "predicted_equal": true,
+      "passed": true
+    },
+    {
+      "reference": "helpers",
+      "variant": "result",
+      "intervention": "factor",
+      "before": [
+        {
+          "path": [
+            "b"
+          ],
+          "value": 3
+        }
+      ],
+      "after": [
+        {
+          "path": [
+            "a",
+            0
+          ],
+          "value": 4
+        },
+        {
+          "path": [
+            "b"
+          ],
+          "value": 6
+        }
+      ],
+      "equal": false,
+      "predicted_equal": false,
+      "passed": true
+    },
+    {
+      "reference": "helpers",
+      "variant": "result",
+      "intervention": "drop_null",
+      "before": [
+        {
+          "path": [
+            "a",
+            1
+          ],
+          "value": 4
+        }
+      ],
+      "after": [
+        {
+          "path": [
+            "a",
+            0
+          ],
+          "value": 4
+        }
+      ],
+      "equal": false,
+      "predicted_equal": false,
+      "passed": true
+    },
+    {
+      "reference": "source_adapter",
+      "variant": "input",
+      "intervention": "factor",
+      "before": [
+        {
+          "path": [
+            "b"
+          ],
+          "value": 3
+        }
+      ],
+      "after": [
+        {
+          "path": [
+            "b"
+          ],
+          "value": 3
+        }
+      ],
+      "equal": true,
+      "predicted_equal": true,
+      "passed": true
+    },
+    {
+      "reference": "source_adapter",
+      "variant": "input",
+      "intervention": "drop_null",
+      "before": [
+        {
+          "path": [
+            "a",
+            1
+          ],
+          "value": 4
+        }
+      ],
+      "after": [
+        {
+          "path": [
+            "a",
+            1
+          ],
+          "value": 4
+        }
+      ],
+      "equal": true,
+      "predicted_equal": true,
+      "passed": true
+    },
+    {
+      "reference": "source_adapter",
+      "variant": "result",
+      "intervention": "factor",
+      "before": [
+        {
+          "path": [
+            "b"
+          ],
+          "value": 3
+        }
+      ],
+      "after": [
+        {
+          "path": [
+            "a",
+            0
+          ],
+          "value": 4
+        },
+        {
+          "path": [
+            "b"
+          ],
+          "value": 6
+        }
+      ],
+      "equal": false,
+      "predicted_equal": false,
+      "passed": true
+    },
+    {
+      "reference": "source_adapter",
+      "variant": "result",
+      "intervention": "drop_null",
+      "before": [
+        {
+          "path": [
+            "a",
+            1
+          ],
+          "value": 4
+        }
+      ],
+      "after": [
+        {
+          "path": [
+            "a",
+            0
+          ],
+          "value": 4
+        }
+      ],
+      "equal": false,
+      "predicted_equal": false,
+      "passed": true
+    }
+  ],
+  "relation_passed": 12,
+  "variant_differences": {
+    "whole": [
+      "factor_two",
+      "drop_null",
+      "factor_zero",
+      "factor_negative"
+    ],
+    "helpers": [
+      "factor_two",
+      "drop_null",
+      "factor_zero",
+      "factor_negative"
+    ],
+    "source_adapter": [
+      "factor_two",
+      "drop_null",
+      "factor_zero",
+      "factor_negative"
+    ]
+  },
+  "formal_labels": null,
+  "human_reviews": 0,
+  "initial20_unchanged": true,
+  "model_calls": 0,
+  "external_api_calls": 0,
+  "private_reads": 0,
+  "published": false,
+  "limitations": [
+    "六锚点非全域证明",
+    "三参考同一助手，不冒称独立真值",
+    "同一家族，不冒称两个独立样本",
+    "值和路径版本一起改变，非单轴因果实验",
+    "不提供拆分相对整体模型效果",
+    "功能适配，不等于完整项目集成"
+  ]
+}

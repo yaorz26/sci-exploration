@@ -1,0 +1,100 @@
+{
+  "id": "REPO_MORE_PR440_GROUP_LIFETIME_LIMITED",
+  "selection": [
+    {
+      "file": "more_itertools/more.py",
+      "sha256": "f5bd2f54ad80ea2bc3c7d2157e21a4fb0757562d9c6e2fbdb7f7d4833c3bb3fc",
+      "symbols": [
+        "groupby_transform"
+      ],
+      "ranges": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          19
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          21,
+          21
+        ],
+        [
+          22,
+          22
+        ],
+        [
+          23,
+          23
+        ],
+        [
+          24,
+          24
+        ],
+        [
+          26,
+          33
+        ],
+        [
+          35,
+          108
+        ],
+        [
+          1764,
+          1799
+        ]
+      ]
+    },
+    {
+      "file": "more_itertools/__init__.py",
+      "sha256": "a24e51e124500d0378f0a305ae8ea40ff224a8fde8ad5c7a88147770cb25c825",
+      "symbols": [],
+      "ranges": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          4,
+          4
+        ]
+      ]
+    }
+  ],
+  "parent_hashes": {
+    "LICENSE": "09f1c8c9e941af3e584d59641ea9b87d83c0cb0fd007eb5ef391a7e2643c1a46",
+    "more_itertools/__init__.py": "a24e51e124500d0378f0a305ae8ea40ff224a8fde8ad5c7a88147770cb25c825",
+    "more_itertools/more.py": "f5bd2f54ad80ea2bc3c7d2157e21a4fb0757562d9c6e2fbdb7f7d4833c3bb3fc",
+    "more_itertools/recipes.py": "45b6f47b37da2f276670c348d83b82d424181f98d1e5fab63e685ddb011a7c8b"
+  },
+  "requirement_sha256": "1e85dc7a5e6f48b1fe08071933235f719b38d505fd965e42891ae0a8d6176364",
+  "public_cases_sha256": "e5394f20d4624d119949184396c8c4a3e735f8f9bc4f3fb8416161abc6b45c83",
+  "formal_labels": null,
+  "split": null,
+  "human_reviews": 0
+}

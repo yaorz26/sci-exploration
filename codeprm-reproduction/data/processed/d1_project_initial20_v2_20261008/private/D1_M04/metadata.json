@@ -1,0 +1,51 @@
+{
+  "task_id": "D1_M04",
+  "name": "按键保序分桶与独立消费",
+  "source": {
+    "repository": "more-itertools/more-itertools",
+    "commit": "81c21a8db1c922260cd673841257fb9b112c1318",
+    "license": "MIT",
+    "file": "more_itertools/more.py",
+    "symbol": "bucket",
+    "line": 1138,
+    "source_sha256": "1bdc5f323ea18906436a42268b942d5b4d15ac8b3ff17c1211a59fb192fa068e",
+    "license_sha256": "09f1c8c9e941af3e584d59641ea9b87d83c0cb0fd007eb5ef391a7e2643c1a46",
+    "contamination_risk": "unknown",
+    "additional_symbols": []
+  },
+  "requirement_origin": "上游公开API文档/说明为主，适配器范围与边界补充；已查看实现，需独立泄漏审查",
+  "adaptation": "统一JSON入口和返回值，保留所选功能；不作为完整仓库任务",
+  "split": "reserve",
+  "structure": {
+    "kind": "stateful",
+    "shared_state": "per_key_cursor",
+    "dependency_evidence": "同键查询受之前消费影响；跨键不消费彼此内容",
+    "independent_test_evidence": "分组与各桶操作可测，重复查询必须检验剩余量",
+    "status": "单人预标注，尚未取得独立一致性统计"
+  },
+  "function_family": "keyed_bucket_reads",
+  "public_cases": 2,
+  "private_cases": 8,
+  "status": "候选原型，非冻结确认集",
+  "authoring_seed": 20261008,
+  "structure_v2": {
+    "schema_version": "0.2",
+    "cross_operation_state": "operation_sequence",
+    "state_scope": "partitioned",
+    "behavior_dependencies": [
+      "ordered_transform",
+      "operation_sequence"
+    ],
+    "separate_behavior_testability": "yes",
+    "evidence": "分组→各键剩余序列；不同桶独立消费，预分组与惰性源码等价",
+    "status": "单人初标；依据外部契约，未取得独立人工一致性统计",
+    "legacy_author_description": {
+      "kind": "stateful",
+      "shared_state": "per_key_cursor",
+      "dependency_evidence": "同键查询受之前消费影响；跨键不消费彼此内容",
+      "independent_test_evidence": "分组与各桶操作可测，重复查询必须检验剩余量",
+      "status": "单人预标注，尚未取得独立一致性统计"
+    }
+  },
+  "related_families": []
+}

@@ -1,0 +1,26 @@
+{
+  "task_id": "REPO_CONFUSE_PR142_ENV_OVERLAY_LIMITED",
+  "status": "research_pool_only",
+  "official_requirement_url": "https://github.com/beetbox/confuse/pull/142",
+  "parent_commit": "cd1db04b07db00050900d2f548baf144bb92d261",
+  "feature_commit": "8c8c3df5b539ef45862a7043b31dccac3daf204a",
+  "parent_workspace": "workspaces/parent",
+  "requirement": "requirement.md",
+  "public_cases": "public_cases.json",
+  "evaluation_entry": "evaluate_env_source.py",
+  "model_visible": [
+    "workspaces/parent/confuse",
+    "workspaces/parent/LICENSE",
+    "requirement.md",
+    "public_cases.json"
+  ],
+  "evaluation_only": [
+    "workspaces/feature",
+    "workspaces/alternative",
+    "workspaces/priority_omission"
+  ],
+  "formal_labels": null,
+  "split": null,
+  "human_reviews": 0,
+  "contamination": "unknown；先前K2意外暴露另存，不声称整个项目零暴露"
+}

@@ -1,0 +1,236 @@
+[
+  {
+    "id": "identity_lost",
+    "input": {
+      "columns": [
+        [
+          2,
+          1
+        ],
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "expected": {
+      "value": [
+        [
+          1,
+          2
+        ],
+        [
+          "b",
+          "a"
+        ]
+      ]
+    },
+    "key_expected": {
+      "value": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    "indices_expected": {
+      "value": [
+        1,
+        0
+      ]
+    }
+  },
+  {
+    "id": "identity_already_aligned",
+    "input": {
+      "columns": [
+        [
+          1,
+          2
+        ],
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "expected": {
+      "value": [
+        [
+          1,
+          2
+        ],
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "key_expected": {
+      "value": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    "indices_expected": {
+      "value": [
+        0,
+        1
+      ]
+    }
+  },
+  {
+    "id": "stable_ties",
+    "input": {
+      "columns": [
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          "a",
+          "b",
+          "c"
+        ]
+      ]
+    },
+    "expected": {
+      "value": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          "c",
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "key_expected": {
+      "value": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ]
+    },
+    "indices_expected": {
+      "value": [
+        2,
+        0,
+        1
+      ]
+    }
+  },
+  {
+    "id": "reverse_ties_still_stable",
+    "input": {
+      "columns": [
+        [
+          1,
+          2,
+          1
+        ],
+        [
+          "a",
+          "b",
+          "c"
+        ]
+      ],
+      "reverse": true
+    },
+    "expected": {
+      "value": [
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          "b",
+          "a",
+          "c"
+        ]
+      ]
+    },
+    "key_expected": {
+      "value": [
+        [
+          2
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ]
+    },
+    "indices_expected": {
+      "value": [
+        1,
+        0,
+        2
+      ]
+    }
+  },
+  {
+    "id": "empty_common_domain",
+    "input": {
+      "columns": [
+        [
+          2,
+          1
+        ],
+        []
+      ]
+    },
+    "expected": {
+      "value": []
+    },
+    "key_expected": {
+      "value": []
+    },
+    "indices_expected": {
+      "value": []
+    }
+  },
+  {
+    "id": "expected_strict_rejection",
+    "input": {
+      "columns": [
+        [
+          2,
+          1
+        ],
+        [
+          "a"
+        ]
+      ],
+      "strict": true
+    },
+    "expected": {
+      "error": "ValueError"
+    },
+    "key_expected": {
+      "error": "ValueError"
+    },
+    "indices_expected": {
+      "error": "ValueError"
+    }
+  }
+]

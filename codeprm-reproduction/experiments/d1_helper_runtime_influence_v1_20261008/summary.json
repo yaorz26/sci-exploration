@@ -1,0 +1,25 @@
+{
+  "status": "pass",
+  "new_program_normal_inputs": 6,
+  "new_program_normal_passed": 6,
+  "selected_intervention_inputs": 2,
+  "intervention_evaluations": 12,
+  "expected_mechanism_results_passed": 12,
+  "actual_new_plan_invocations": 18,
+  "saved_baseline_results_reused": 4,
+  "helper_calls_each_intervention": [
+    1
+  ],
+  "wrong_return_outcome_changed_by_program": {
+    "indices_preserve_identity": 2,
+    "original_input_recovery": 2,
+    "called_but_return_discarded": 0
+  },
+  "old_reference_or_grid_calls": 0,
+  "model_calls": 0,
+  "API_calls": 0,
+  "hidden_cases_read": 0,
+  "human_reviewers": 0,
+  "seconds": 0.014792899999974907,
+  "limits": "两个输入干预/六手算新程序非真实模型频率；局部语义故意改变仅诊断、非评分；同调用次数不等返回贡献，异常传播也不证明终值贡献；P31暴露限制保持"
+}

@@ -1,0 +1,125 @@
+Journal of Computer Security 18 (2010) 1157–1210
+1157
+DOI 10.3233/JCS-2009-0393
+IOS Press
+Hyperproperties
+Michael R. Clarkson ∗and Fred B. Schneider
+Department of Computer Science, Cornell University, Ithaca, NY, USA
+E-mails: {clarkson, fbs}@cs.cornell.edu
+Trace properties, which have long been used for reasoning about systems, are sets of execution traces.
+Hyperproperties, introduced here, are sets of trace properties. Hyperproperties can express security poli-
+cies, such as secure information ﬂow and service level agreements, that trace properties cannot. Safety
+and liveness are generalized to hyperproperties, and every hyperproperty is shown to be the intersection
+of a safety hyperproperty and a liveness hyperproperty. A veriﬁcation technique for safety hyperproperties
+is given and is shown to generalize prior techniques for verifying secure information ﬂow. Reﬁnement is
+shown to be applicable with safety hyperproperties. A topological characterization of hyperproperties is
+given.
+Keywords: Security policies, information ﬂow, safety, liveness
+1. Introduction
+Important security policies cannot be expressed as properties of individual execu-
+tion traces of a system [2,22,42,52,60,62,64]. For example, noninterference [23] is
+a conﬁdentiality policy that stipulates commands executed on behalf of users hold-
+ing high clearances have no effect on system behavior observed by users holding
+low clearances. It is not a property of individual traces, because whether a trace is
+allowed by the policy depends on whether another trace (obtained by deleting com-
+mand executions by high users) is also allowed. For another example, stipulating a
+bound on mean response time over all executions is an availability policy that cannot
+be speciﬁed as a property of individual traces, because the acceptability of delays in
+a trace depends on the magnitude of delays in all other traces. However, both exam-
+ple policies are properties of systems, because a system (viewed as a whole, not as
+individual executions) either does or does not satisfy each policy.
+A property either holds or does not hold (i.e., is a Boolean function) of an object,
+and the extension of a property is the set of objects for which the property holds.
+The extension of a property of individual traces – that is, a set of traces – sometimes
+is termed “property”, too [4,35]. But for clarity, trace property here denotes a set of
+traces.
+The theory of trace properties is well understood [36,37,54]. Every trace property
+is the intersection of a safety property and a liveness property, where:
+*Corresponding author.
+0926-227X/10/$27.50 © 2010 – IOS Press and the authors. All rights reserved
+
+1158
+M.R. Clarkson and F.B. Schneider / Hyperproperties
+• a safety property is a trace property that proscribes “bad things” and can be
+proved using an invariance argument, and
+• a liveness property is a trace property that prescribes “good things” and can be
+proved using a well-foundedness argument.1
+This classiﬁcation forms an intuitively appealing basis from which all trace proper-
+ties can be constructed. Moreover, safety and liveness properties are afﬁliated with
+speciﬁc veriﬁcation methods.
+An analogous theory for security policies would be appealing. The fact that se-
+curity policies, like trace properties, proscribe and prescribe behaviors of systems
+suggested that such a theory might exist. This paper develops that theory by formal-
+izing security policies as properties of systems, or system properties.2 If systems are
+modeled as sets of execution traces [35], then the extension of a system property is
+a set of sets of traces or, equivalently, a set of trace properties. We name this type of
+set a hyperproperty.
+Every property of system behavior (for systems modeled as trace sets) can be
+speciﬁed as a hyperproperty, by deﬁnition. Thus, hyperproperties can describe trace
+properties and moreover can describe security policies, such as noninterference and
+mean response time, that trace properties cannot. Deterministic, nondeterministic,
+probabilistic, and transition-system models all can be encoded as trace sets and han-
+dled using hyperproperties.
+This paper shows that results similar to those from the theory of trace properties
+hold for hyperproperties:
+• Every hyperproperty is the intersection of a safety hyperproperty and a live-
+ness hyperproperty. (Henceforth, we shorten these terms to hypersafety and hy-
+perliveness.) Hypersafety and hyperliveness thus form a basis from which all
+hyperproperties can be constructed.
+• Hyperproperties from a class that we introduce, called k-safety, can be veriﬁed
+by using invariance arguments. Our veriﬁcation methodology generalizes prior
+work on using invariance arguments to verify information-ﬂow policies [8,60].
+However, we have not obtained complete veriﬁcation methods for hypersafety or for
+hyperliveness.
+The theory of hyperproperties also sheds light on the problematic status of re-
+ﬁnement for security policies. Reﬁnement never invalidates a trace property but can
+invalidate a hyperproperty:
+1Lamport [33] gave the ﬁrst informal deﬁnitions of safety and liveness properties, appropriating the
+names from Petri net theory, and he also gave the ﬁrst formal deﬁnition of safety [35]. Alpern and Schnei-
+der [4] gave the ﬁrst formal deﬁnition of liveness and the proof that all trace properties are the intersection
+of safety and liveness properties; they later established the correspondence of safety to invariance and of
+liveness to well-foundedness [5].
+2McLean [42] gave the ﬁrst formalization of security policies as properties of trace sets.
+
+M.R. Clarkson and F.B. Schneider / Hyperproperties
+1159
+Consider a system π that nondeterministically chooses to output 0, 1 or the value
+of a secret bit h. System π satisﬁes the security policy “The possible output
+values are independent of the values of secrets”. But one reﬁnement of π is the
+system that always outputs h, and this system does not satisfy the security policy.
+We characterize in this paper the entire set of hyperproperties for which reﬁnement
+is valid; this set includes the safety hyperproperties.
+Safety and liveness not only form a basis for trace properties and hyperproper-
+ties, but they also have a surprisingly deep mathematical characterization in terms of
+topology. In the Plotkin topology on trace properties, safety and liveness are known
+to correspond to closed and dense sets, respectively [4]. We generalize this topolog-
+ical characterization to hyperproperties by showing that hypersafety and hyperlive-
+ness also correspond to closed and dense sets in a new topology, which turns out to
+be equivalent to the lower Vietoris construction applied to the Plotkin topology [57].
+This correspondence could be used to bring results from topology to bear on hyper-
+properties.
+We proceed as follows. Hyperproperties, hypersafety, k-safety, and hyperliveness
+are deﬁned and explored in Sections 2–5. Section 6 gives a topological account
+of hyperproperties. Section 7 presents the hyperproperty intersection theorem and
+discusses hyperproperties of system representations other than trace sets (relational
+systems, labeled transition systems, state machines, and probabilistic systems). Sec-
+tion 8 concludes. Appendix A gives a guide to our notation, Appendix B presents
+formal details of our longer examples of hyperproperties, Appendix C states formal
+results about system representations, and all proofs appear in Appendix D.
+This paper revises and expands a CSF’08 paper [15], adding (i) new results about
+system representations, and (ii) proofs, which were absent from the earlier paper.
+Several of the proofs have been veriﬁed [12] using the Isabelle/HOL proof assis-
+tant [46].
+2. Hyperproperties
+We model system execution with traces, where a trace is a sequence of states; by
+employing rich enough notions of state, this model can encode other representations
+of execution.3 For example, Section 7 discusses how to model a labeled transition
+system as a set of traces by including transition labels in states, thereby preserving
+information about the nondeterministic branching structure of the system. Section 7
+also uses this encoding to model state machines and probabilistic systems.
+The structure of a state is not important in the following deﬁnitions, so we leave
+set Σ of states abstract. However, the structure of a state is important for real exam-
+ples, and we introduce predicates and functions, on states and on traces, as needed
+to model events, timing, probability, etc.
+3We have not investigated analogues to hyperproperties for representations of system execution that
+cannot be encoded as trace sets.

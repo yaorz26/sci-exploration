@@ -1,0 +1,74 @@
+{
+  "representations": [
+    {
+      "task_id": "D1_B05",
+      "variant": "baseline",
+      "code_file": "D1_B05_baseline.py",
+      "entry_file": "D1_B05_baseline_entry.py",
+      "code_sha256": "24d58e50c442f9e579966906f64f472890387c97a5f2232dc181488151a46b9e",
+      "entry_sha256": "c490b14eb6b068dc70ef249991f989545df6f1354abfaab05b9fef71056d766f",
+      "source_sha256": "24d58e50c442f9e579966906f64f472890387c97a5f2232dc181488151a46b9e",
+      "body_and_call_signature_except_annotations_unchanged": true
+    },
+    {
+      "task_id": "D1_B05",
+      "variant": "parameter_annotation",
+      "code_file": "D1_B05_parameter_annotation.py",
+      "entry_file": "D1_B05_parameter_annotation_entry.py",
+      "code_sha256": "9a6e8920aa1996eba84d10e8ebd53afe82d552ed241b3d55e49bec4e782c129d",
+      "entry_sha256": "9a6c682ccdad945f78c389e74f8776f42a12bf2f49bc7a075ac120b67443fa4c",
+      "source_sha256": "24d58e50c442f9e579966906f64f472890387c97a5f2232dc181488151a46b9e",
+      "body_and_call_signature_except_annotations_unchanged": true
+    },
+    {
+      "task_id": "D1_B05",
+      "variant": "return_annotation",
+      "code_file": "D1_B05_return_annotation.py",
+      "entry_file": "D1_B05_return_annotation_entry.py",
+      "code_sha256": "da2124bb0bd2fd951d7badc95941de364336c024f83cd4be88887ed85fdd2d50",
+      "entry_sha256": "c57fa71805fe63e59ecbc7ef91a721e0f663f7d95c47d4fac00b9ee80375712b",
+      "source_sha256": "24d58e50c442f9e579966906f64f472890387c97a5f2232dc181488151a46b9e",
+      "body_and_call_signature_except_annotations_unchanged": true
+    },
+    {
+      "task_id": "D1_C03",
+      "variant": "baseline",
+      "code_file": "D1_C03_baseline.py",
+      "entry_file": "D1_C03_baseline_entry.py",
+      "code_sha256": "03e922b593df66361356943933c7f68cc8260b31dc319325d86b3bacdad3e4b2",
+      "entry_sha256": "e0a18fc5136d6ee4129b619c7001f3d99cd01bdb07527085e224a3648ecea7a1",
+      "source_sha256": "03e922b593df66361356943933c7f68cc8260b31dc319325d86b3bacdad3e4b2",
+      "body_and_call_signature_except_annotations_unchanged": true
+    },
+    {
+      "task_id": "D1_C03",
+      "variant": "parameter_annotation",
+      "code_file": "D1_C03_parameter_annotation.py",
+      "entry_file": "D1_C03_parameter_annotation_entry.py",
+      "code_sha256": "7b310770135a679855b712d93be77e4a6a4087a86e2c5984e378dbb0262b30bc",
+      "entry_sha256": "536a45fbf28813ed80d75b0c69666bd4194fb5b33d091064160c3e63c3ba6454",
+      "source_sha256": "03e922b593df66361356943933c7f68cc8260b31dc319325d86b3bacdad3e4b2",
+      "body_and_call_signature_except_annotations_unchanged": true
+    },
+    {
+      "task_id": "D1_C03",
+      "variant": "return_annotation",
+      "code_file": "D1_C03_return_annotation.py",
+      "entry_file": "D1_C03_return_annotation_entry.py",
+      "code_sha256": "6db138d64eca27b71b26981def7ad2ec2488d831d2c930fae9ad54d82dacaff1",
+      "entry_sha256": "be49c3ff79231ca371cbcf2f46b780251e808025592986c7d2387140f273c27c",
+      "source_sha256": "03e922b593df66361356943933c7f68cc8260b31dc319325d86b3bacdad3e4b2",
+      "body_and_call_signature_except_annotations_unchanged": true
+    }
+  ],
+  "source_hashes": {
+    "scripts/d1/run_allin_pipeline.py": "ca91992e33411464719a1fc86db241ded7f01d1bb407a97db3949eb5a3663765",
+    "scripts/d1/run_costed_local_pilot.py": "7f67c4f9a42f16782263a1d80e33582320d1238863635938493bf81038a380bb",
+    "scripts/d1/evaluate_candidate.py": "8ecaaae3e58c3e4eef67c3bf22fc329c8465c7655c1174a0b1edccefe1df31f8",
+    "data/processed/d1_project_initial20_v5_20261008/public/D1_B05/public_tests.json": "43f86038fa6c5876318341ca79d28e445fd95a166f595957ef5df20429d6d867",
+    "data/processed/d1_project_initial20_v5_20261008/public/D1_C03/public_tests.json": "5788770e20a07cd36729f36bb79613b710e3d1f0064b2339016726370f991bb8"
+  },
+  "script_sha256": "0194b43f06fd7c2c1409ea428e771bac57a983fcb77ca8e0d765c6a9006626a0",
+  "expected": "M0三形式允许；M2仅参数注解拒绝，返回注解控制允许；四新形式公开相容",
+  "rule": "两基线行为沿用P13/P19，四新完整程序只评公开，门槛执行入口片段；不调原协议"
+}

@@ -1,0 +1,1531 @@
+[
+  {
+    "task_id": "D1_C05",
+    "probe_id": "pair_isolation_False_0_0",
+    "left_input": {
+      "typed": false,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "right_input": {
+      "typed": false,
+      "pairs": [
+        [
+          {
+            "args": [
+              2
+            ]
+          },
+          {
+            "args": [
+              2
+            ]
+          }
+        ],
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "projection": "target_pair",
+    "expected_relation": "equal",
+    "hand_projections": [
+      true,
+      true
+    ],
+    "target_indexes": [
+      0,
+      1
+    ],
+    "entity_granularity": "调用对身份；索引插入后显式跟踪",
+    "history_domain": "input_pair_sequence"
+  },
+  {
+    "task_id": "D1_C05",
+    "probe_id": "pair_isolation_False_0_1",
+    "left_input": {
+      "typed": false,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "right_input": {
+      "typed": false,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ],
+        [
+          {
+            "args": [
+              2
+            ]
+          },
+          {
+            "args": [
+              2
+            ]
+          }
+        ]
+      ]
+    },
+    "projection": "target_pair",
+    "expected_relation": "equal",
+    "hand_projections": [
+      true,
+      true
+    ],
+    "target_indexes": [
+      0,
+      0
+    ],
+    "entity_granularity": "调用对身份；索引插入后显式跟踪",
+    "history_domain": "input_pair_sequence"
+  },
+  {
+    "task_id": "D1_C05",
+    "probe_id": "pair_isolation_False_1_0",
+    "left_input": {
+      "typed": false,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "right_input": {
+      "typed": false,
+      "pairs": [
+        [
+          {
+            "args": [
+              null
+            ]
+          },
+          {
+            "args": [
+              "none"
+            ]
+          }
+        ],
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "projection": "target_pair",
+    "expected_relation": "equal",
+    "hand_projections": [
+      true,
+      true
+    ],
+    "target_indexes": [
+      0,
+      1
+    ],
+    "entity_granularity": "调用对身份；索引插入后显式跟踪",
+    "history_domain": "input_pair_sequence"
+  },
+  {
+    "task_id": "D1_C05",
+    "probe_id": "pair_isolation_False_1_1",
+    "left_input": {
+      "typed": false,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "right_input": {
+      "typed": false,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ],
+        [
+          {
+            "args": [
+              null
+            ]
+          },
+          {
+            "args": [
+              "none"
+            ]
+          }
+        ]
+      ]
+    },
+    "projection": "target_pair",
+    "expected_relation": "equal",
+    "hand_projections": [
+      true,
+      true
+    ],
+    "target_indexes": [
+      0,
+      0
+    ],
+    "entity_granularity": "调用对身份；索引插入后显式跟踪",
+    "history_domain": "input_pair_sequence"
+  },
+  {
+    "task_id": "D1_C05",
+    "probe_id": "pair_isolation_False_2_0",
+    "left_input": {
+      "typed": false,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "right_input": {
+      "typed": false,
+      "pairs": [
+        [
+          {
+            "kwargs": {
+              "a": 1,
+              "b": 2
+            }
+          },
+          {
+            "kwargs": {
+              "b": 2,
+              "a": 1
+            }
+          }
+        ],
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "projection": "target_pair",
+    "expected_relation": "equal",
+    "hand_projections": [
+      true,
+      true
+    ],
+    "target_indexes": [
+      0,
+      1
+    ],
+    "entity_granularity": "调用对身份；索引插入后显式跟踪",
+    "history_domain": "input_pair_sequence"
+  },
+  {
+    "task_id": "D1_C05",
+    "probe_id": "pair_isolation_False_2_1",
+    "left_input": {
+      "typed": false,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "right_input": {
+      "typed": false,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ],
+        [
+          {
+            "kwargs": {
+              "a": 1,
+              "b": 2
+            }
+          },
+          {
+            "kwargs": {
+              "b": 2,
+              "a": 1
+            }
+          }
+        ]
+      ]
+    },
+    "projection": "target_pair",
+    "expected_relation": "equal",
+    "hand_projections": [
+      true,
+      true
+    ],
+    "target_indexes": [
+      0,
+      0
+    ],
+    "entity_granularity": "调用对身份；索引插入后显式跟踪",
+    "history_domain": "input_pair_sequence"
+  },
+  {
+    "task_id": "D1_C05",
+    "probe_id": "pair_isolation_False_3_0",
+    "left_input": {
+      "typed": false,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "right_input": {
+      "typed": false,
+      "pairs": [
+        [
+          {
+            "args": [
+              true
+            ]
+          },
+          {
+            "args": [
+              1
+            ]
+          }
+        ],
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "projection": "target_pair",
+    "expected_relation": "equal",
+    "hand_projections": [
+      true,
+      true
+    ],
+    "target_indexes": [
+      0,
+      1
+    ],
+    "entity_granularity": "调用对身份；索引插入后显式跟踪",
+    "history_domain": "input_pair_sequence"
+  },
+  {
+    "task_id": "D1_C05",
+    "probe_id": "pair_isolation_False_3_1",
+    "left_input": {
+      "typed": false,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "right_input": {
+      "typed": false,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ],
+        [
+          {
+            "args": [
+              true
+            ]
+          },
+          {
+            "args": [
+              1
+            ]
+          }
+        ]
+      ]
+    },
+    "projection": "target_pair",
+    "expected_relation": "equal",
+    "hand_projections": [
+      true,
+      true
+    ],
+    "target_indexes": [
+      0,
+      0
+    ],
+    "entity_granularity": "调用对身份；索引插入后显式跟踪",
+    "history_domain": "input_pair_sequence"
+  },
+  {
+    "task_id": "D1_C05",
+    "probe_id": "pair_isolation_False_4_0",
+    "left_input": {
+      "typed": false,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "right_input": {
+      "typed": false,
+      "pairs": [
+        [
+          {
+            "args": [
+              "x"
+            ]
+          },
+          {
+            "kwargs": {
+              "x": "x"
+            }
+          }
+        ],
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "projection": "target_pair",
+    "expected_relation": "equal",
+    "hand_projections": [
+      true,
+      true
+    ],
+    "target_indexes": [
+      0,
+      1
+    ],
+    "entity_granularity": "调用对身份；索引插入后显式跟踪",
+    "history_domain": "input_pair_sequence"
+  },
+  {
+    "task_id": "D1_C05",
+    "probe_id": "pair_isolation_False_4_1",
+    "left_input": {
+      "typed": false,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "right_input": {
+      "typed": false,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ],
+        [
+          {
+            "args": [
+              "x"
+            ]
+          },
+          {
+            "kwargs": {
+              "x": "x"
+            }
+          }
+        ]
+      ]
+    },
+    "projection": "target_pair",
+    "expected_relation": "equal",
+    "hand_projections": [
+      true,
+      true
+    ],
+    "target_indexes": [
+      0,
+      0
+    ],
+    "entity_granularity": "调用对身份；索引插入后显式跟踪",
+    "history_domain": "input_pair_sequence"
+  },
+  {
+    "task_id": "D1_C05",
+    "probe_id": "pair_isolation_True_0_0",
+    "left_input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "right_input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "args": [
+              2
+            ]
+          },
+          {
+            "args": [
+              2
+            ]
+          }
+        ],
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "projection": "target_pair",
+    "expected_relation": "equal",
+    "hand_projections": [
+      false,
+      false
+    ],
+    "target_indexes": [
+      0,
+      1
+    ],
+    "entity_granularity": "调用对身份；索引插入后显式跟踪",
+    "history_domain": "input_pair_sequence"
+  },
+  {
+    "task_id": "D1_C05",
+    "probe_id": "pair_isolation_True_0_1",
+    "left_input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "right_input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ],
+        [
+          {
+            "args": [
+              2
+            ]
+          },
+          {
+            "args": [
+              2
+            ]
+          }
+        ]
+      ]
+    },
+    "projection": "target_pair",
+    "expected_relation": "equal",
+    "hand_projections": [
+      false,
+      false
+    ],
+    "target_indexes": [
+      0,
+      0
+    ],
+    "entity_granularity": "调用对身份；索引插入后显式跟踪",
+    "history_domain": "input_pair_sequence"
+  },
+  {
+    "task_id": "D1_C05",
+    "probe_id": "pair_isolation_True_1_0",
+    "left_input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "right_input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "args": [
+              null
+            ]
+          },
+          {
+            "args": [
+              "none"
+            ]
+          }
+        ],
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "projection": "target_pair",
+    "expected_relation": "equal",
+    "hand_projections": [
+      false,
+      false
+    ],
+    "target_indexes": [
+      0,
+      1
+    ],
+    "entity_granularity": "调用对身份；索引插入后显式跟踪",
+    "history_domain": "input_pair_sequence"
+  },
+  {
+    "task_id": "D1_C05",
+    "probe_id": "pair_isolation_True_1_1",
+    "left_input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "right_input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ],
+        [
+          {
+            "args": [
+              null
+            ]
+          },
+          {
+            "args": [
+              "none"
+            ]
+          }
+        ]
+      ]
+    },
+    "projection": "target_pair",
+    "expected_relation": "equal",
+    "hand_projections": [
+      false,
+      false
+    ],
+    "target_indexes": [
+      0,
+      0
+    ],
+    "entity_granularity": "调用对身份；索引插入后显式跟踪",
+    "history_domain": "input_pair_sequence"
+  },
+  {
+    "task_id": "D1_C05",
+    "probe_id": "pair_isolation_True_2_0",
+    "left_input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "right_input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "kwargs": {
+              "a": 1,
+              "b": 2
+            }
+          },
+          {
+            "kwargs": {
+              "b": 2,
+              "a": 1
+            }
+          }
+        ],
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "projection": "target_pair",
+    "expected_relation": "equal",
+    "hand_projections": [
+      false,
+      false
+    ],
+    "target_indexes": [
+      0,
+      1
+    ],
+    "entity_granularity": "调用对身份；索引插入后显式跟踪",
+    "history_domain": "input_pair_sequence"
+  },
+  {
+    "task_id": "D1_C05",
+    "probe_id": "pair_isolation_True_2_1",
+    "left_input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "right_input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ],
+        [
+          {
+            "kwargs": {
+              "a": 1,
+              "b": 2
+            }
+          },
+          {
+            "kwargs": {
+              "b": 2,
+              "a": 1
+            }
+          }
+        ]
+      ]
+    },
+    "projection": "target_pair",
+    "expected_relation": "equal",
+    "hand_projections": [
+      false,
+      false
+    ],
+    "target_indexes": [
+      0,
+      0
+    ],
+    "entity_granularity": "调用对身份；索引插入后显式跟踪",
+    "history_domain": "input_pair_sequence"
+  },
+  {
+    "task_id": "D1_C05",
+    "probe_id": "pair_isolation_True_3_0",
+    "left_input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "right_input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "args": [
+              true
+            ]
+          },
+          {
+            "args": [
+              1
+            ]
+          }
+        ],
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "projection": "target_pair",
+    "expected_relation": "equal",
+    "hand_projections": [
+      false,
+      false
+    ],
+    "target_indexes": [
+      0,
+      1
+    ],
+    "entity_granularity": "调用对身份；索引插入后显式跟踪",
+    "history_domain": "input_pair_sequence"
+  },
+  {
+    "task_id": "D1_C05",
+    "probe_id": "pair_isolation_True_3_1",
+    "left_input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "right_input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ],
+        [
+          {
+            "args": [
+              true
+            ]
+          },
+          {
+            "args": [
+              1
+            ]
+          }
+        ]
+      ]
+    },
+    "projection": "target_pair",
+    "expected_relation": "equal",
+    "hand_projections": [
+      false,
+      false
+    ],
+    "target_indexes": [
+      0,
+      0
+    ],
+    "entity_granularity": "调用对身份；索引插入后显式跟踪",
+    "history_domain": "input_pair_sequence"
+  },
+  {
+    "task_id": "D1_C05",
+    "probe_id": "pair_isolation_True_4_0",
+    "left_input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "right_input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "args": [
+              "x"
+            ]
+          },
+          {
+            "kwargs": {
+              "x": "x"
+            }
+          }
+        ],
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "projection": "target_pair",
+    "expected_relation": "equal",
+    "hand_projections": [
+      false,
+      false
+    ],
+    "target_indexes": [
+      0,
+      1
+    ],
+    "entity_granularity": "调用对身份；索引插入后显式跟踪",
+    "history_domain": "input_pair_sequence"
+  },
+  {
+    "task_id": "D1_C05",
+    "probe_id": "pair_isolation_True_4_1",
+    "left_input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "right_input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ],
+        [
+          {
+            "args": [
+              "x"
+            ]
+          },
+          {
+            "kwargs": {
+              "x": "x"
+            }
+          }
+        ]
+      ]
+    },
+    "projection": "target_pair",
+    "expected_relation": "equal",
+    "hand_projections": [
+      false,
+      false
+    ],
+    "target_indexes": [
+      0,
+      0
+    ],
+    "entity_granularity": "调用对身份；索引插入后显式跟踪",
+    "history_domain": "input_pair_sequence"
+  },
+  {
+    "task_id": "D1_C05",
+    "probe_id": "typed_is_rule_control",
+    "left_input": {
+      "typed": false,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "right_input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "projection": "target_pair",
+    "expected_relation": "different",
+    "hand_projections": [
+      true,
+      false
+    ],
+    "target_indexes": [
+      0,
+      0
+    ],
+    "entity_granularity": "相同调用对",
+    "history_domain": "configuration_change_not_foreign_history"
+  },
+  {
+    "task_id": "D1_M05",
+    "probe_id": "stable_tie_order",
+    "left_input": {
+      "columns": [
+        [
+          1,
+          1
+        ],
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "right_input": {
+      "columns": [
+        [
+          1,
+          1
+        ],
+        [
+          "b",
+          "a"
+        ]
+      ]
+    },
+    "projection": "global_ids",
+    "expected_relation": "different",
+    "hand_projections": [
+      [
+        "a",
+        "b"
+      ],
+      [
+        "b",
+        "a"
+      ]
+    ],
+    "target_indexes": [
+      0,
+      0
+    ],
+    "entity_granularity": "行身份的全局排列",
+    "history_domain": "input_row_sequence"
+  },
+  {
+    "task_id": "D1_M05",
+    "probe_id": "unequal_key_order_control",
+    "left_input": {
+      "columns": [
+        [
+          2,
+          1
+        ],
+        [
+          "b",
+          "a"
+        ]
+      ]
+    },
+    "right_input": {
+      "columns": [
+        [
+          1,
+          2
+        ],
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "projection": "global_ids",
+    "expected_relation": "equal",
+    "hand_projections": [
+      [
+        "a",
+        "b"
+      ],
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "target_indexes": [
+      0,
+      0
+    ],
+    "entity_granularity": "行身份的全局排列",
+    "history_domain": "input_row_sequence"
+  },
+  {
+    "task_id": "D1_M05",
+    "probe_id": "foreign_row_rank",
+    "left_input": {
+      "columns": [
+        [
+          2
+        ],
+        [
+          "a"
+        ]
+      ]
+    },
+    "right_input": {
+      "columns": [
+        [
+          1,
+          2
+        ],
+        [
+          "b",
+          "a"
+        ]
+      ]
+    },
+    "projection": "target_rank",
+    "expected_relation": "different",
+    "hand_projections": [
+      0,
+      1
+    ],
+    "target_indexes": [
+      0,
+      0
+    ],
+    "entity_granularity": "目标行身份；观察全局位置",
+    "history_domain": "input_row_sequence"
+  },
+  {
+    "task_id": "D1_M05",
+    "probe_id": "foreign_row_content_control",
+    "left_input": {
+      "columns": [
+        [
+          2
+        ],
+        [
+          "a"
+        ]
+      ]
+    },
+    "right_input": {
+      "columns": [
+        [
+          1,
+          2
+        ],
+        [
+          "b",
+          "a"
+        ]
+      ]
+    },
+    "projection": "target_record",
+    "expected_relation": "equal",
+    "hand_projections": [
+      [
+        2
+      ],
+      [
+        2
+      ]
+    ],
+    "target_indexes": [
+      0,
+      0
+    ],
+    "entity_granularity": "目标行身份；观察键内容",
+    "history_domain": "input_row_sequence"
+  },
+  {
+    "task_id": "D1_M05",
+    "probe_id": "short_foreign_column_domain",
+    "left_input": {
+      "columns": [
+        [
+          1,
+          2
+        ],
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "right_input": {
+      "columns": [
+        [
+          1,
+          2
+        ],
+        [
+          "a",
+          "b"
+        ],
+        [
+          7
+        ]
+      ]
+    },
+    "projection": "first_two_columns",
+    "expected_relation": "different",
+    "hand_projections": [
+      [
+        [
+          1,
+          2
+        ],
+        [
+          "a",
+          "b"
+        ]
+      ],
+      [
+        [
+          1
+        ],
+        [
+          "a"
+        ]
+      ]
+    ],
+    "target_indexes": [
+      0,
+      0
+    ],
+    "entity_granularity": "前两个列实体，原输入不变",
+    "history_domain": "aligned_column_input_domain"
+  }
+]

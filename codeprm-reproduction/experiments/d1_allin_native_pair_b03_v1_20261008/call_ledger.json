@@ -1,0 +1,94 @@
+[
+  {
+    "task_id": "D1_B03",
+    "arm": "M0",
+    "request_directory": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_allin_native_pair_b03_v1_20261008\\candidates\\D1_B03\\M0\\requests",
+    "call_id": "001",
+    "stage": "whole",
+    "simulated": false,
+    "prompt_token_upper_bound": 391,
+    "assigned_output_cap": 512,
+    "status": "completed",
+    "cost_status": "known",
+    "request": {
+      "path": "001_request.json",
+      "sha256": "ae0814faa80f94aa18d8de88edf6355a19d8cc199decf5463a3fc7a31b734cfa"
+    },
+    "response": {
+      "path": "001_response.json",
+      "sha256": "e06ccd00e16b18e08a5d0bb344b2d941a550aa71b8d30a4f207fc6bef417b151"
+    },
+    "prompt_tokens": 391,
+    "output_tokens": 249,
+    "seconds": 5.310494800000015
+  },
+  {
+    "task_id": "D1_B03",
+    "arm": "M2",
+    "request_directory": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_allin_native_pair_b03_v1_20261008\\candidates\\D1_B03\\M2\\requests",
+    "call_id": "001",
+    "stage": "plan",
+    "simulated": false,
+    "prompt_token_upper_bound": 433,
+    "assigned_output_cap": 256,
+    "status": "completed",
+    "cost_status": "known",
+    "request": {
+      "path": "001_request.json",
+      "sha256": "020787080c6d827f8699c6816ddd71106690dd17552cb8606b7513b3f32d1bc9"
+    },
+    "response": {
+      "path": "001_response.json",
+      "sha256": "ae709fd4733e9c226541dcc6067dfbc3818e98272bae9b5c67807d70689d21f6"
+    },
+    "prompt_tokens": 433,
+    "output_tokens": 131,
+    "seconds": 2.705077700000402
+  },
+  {
+    "task_id": "D1_B03",
+    "arm": "M2",
+    "request_directory": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_allin_native_pair_b03_v1_20261008\\candidates\\D1_B03\\M2\\requests",
+    "call_id": "002",
+    "stage": "helper_1",
+    "simulated": false,
+    "prompt_token_upper_bound": 560,
+    "assigned_output_cap": 256,
+    "status": "completed",
+    "cost_status": "known",
+    "request": {
+      "path": "002_request.json",
+      "sha256": "5dcf3a8b5bcf2497cc64082e640708554e4034157c49bb4ed5d0b4870c23a1aa"
+    },
+    "response": {
+      "path": "002_response.json",
+      "sha256": "a651b851cd80303b7afae783ec48b772d2fbf48660595e8c03670bdd9e192259"
+    },
+    "prompt_tokens": 560,
+    "output_tokens": 38,
+    "seconds": 0.8467462000007799
+  },
+  {
+    "task_id": "D1_B03",
+    "arm": "M2",
+    "request_directory": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_allin_native_pair_b03_v1_20261008\\candidates\\D1_B03\\M2\\requests",
+    "call_id": "003",
+    "stage": "helper_2",
+    "simulated": false,
+    "prompt_token_upper_bound": 597,
+    "assigned_output_cap": 256,
+    "status": "completed",
+    "cost_status": "known",
+    "request": {
+      "path": "003_request.json",
+      "sha256": "7166e16188a583367eb2120ddc0c74e4b4c78df7547e13cbac8bfe3d7579f73d"
+    },
+    "response": {
+      "path": "003_response.json",
+      "sha256": "ffe82430da897c066c7286dd59b64d58d99683c1fb411e50b2e646f6f0d2811a"
+    },
+    "prompt_tokens": 597,
+    "output_tokens": 91,
+    "seconds": 1.8930008000024827
+  }
+]

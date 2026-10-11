@@ -1,0 +1,22 @@
+{
+  "status": "pass",
+  "representations": 13,
+  "saved_correct_entry_forms": 6,
+  "saved_correct_entries_candidate_accepted": 6,
+  "call_shape_controls": 7,
+  "call_shape_controls_candidate_rejected": 7,
+  "new_minimal_control_calls": 14,
+  "new_task_scores": 0,
+  "saved_P9_helpers_parsed": 2,
+  "saved_P9_helper2_still_rejected": true,
+  "saved_P9_all_pass_unchanged": false,
+  "saved_P9_actual_tokens": 1850,
+  "formal_pipeline_changed": false,
+  "model_calls": 0,
+  "API_calls": 0,
+  "hidden_cases_read": 0,
+  "human_reviewers": 0,
+  "script_sha256": "2301415a3d6579763d456c6ace7b195241c0f27602b370d56fb7763da25973b8",
+  "finding": "离线入口候选接受六正确给定表示且仍拒七调用形状改变；严格helper2撞名不被入口修订救回",
+  "limits": "拒绝部分调用兼容默认值仍是候选策略选择，不称语义最小门槛；无新模型效果，注解接受不保证运行正确"
+}

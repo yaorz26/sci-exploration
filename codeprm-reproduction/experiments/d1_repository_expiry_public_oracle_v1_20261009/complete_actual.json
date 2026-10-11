@@ -1,0 +1,227 @@
+{
+  "cases": [
+    {
+      "case": "empty",
+      "calls": [
+        {
+          "observation_timer": 0,
+          "explicit_expire_time": 4,
+          "before_consumption": {
+            "items": [],
+            "length": 0,
+            "size": 0
+          },
+          "after_consumption": {
+            "items": [],
+            "length": 0,
+            "size": 0
+          },
+          "returned_pairs": [],
+          "expected_pairs": [],
+          "return_pass": true,
+          "call_complete_state_pass": true,
+          "after_consumption_state_pass": true
+        }
+      ],
+      "return_pass": true,
+      "call_complete_state_pass": true,
+      "after_consumption_state_pass": true,
+      "pass": true
+    },
+    {
+      "case": "boundary_mixed",
+      "calls": [
+        {
+          "observation_timer": 2,
+          "explicit_expire_time": 4,
+          "before_consumption": {
+            "items": [
+              [
+                "b",
+                2
+              ]
+            ],
+            "length": 1,
+            "size": 2
+          },
+          "after_consumption": {
+            "items": [
+              [
+                "b",
+                2
+              ]
+            ],
+            "length": 1,
+            "size": 2
+          },
+          "returned_pairs": [
+            [
+              "a",
+              1
+            ]
+          ],
+          "expected_pairs": [
+            [
+              "a",
+              1
+            ]
+          ],
+          "return_pass": true,
+          "call_complete_state_pass": true,
+          "after_consumption_state_pass": true
+        }
+      ],
+      "return_pass": true,
+      "call_complete_state_pass": true,
+      "after_consumption_state_pass": true,
+      "pass": true
+    },
+    {
+      "case": "repeat",
+      "calls": [
+        {
+          "observation_timer": 0,
+          "explicit_expire_time": 4,
+          "before_consumption": {
+            "items": [],
+            "length": 0,
+            "size": 0
+          },
+          "after_consumption": {
+            "items": [],
+            "length": 0,
+            "size": 0
+          },
+          "returned_pairs": [
+            [
+              "a",
+              1
+            ]
+          ],
+          "expected_pairs": [
+            [
+              "a",
+              1
+            ]
+          ],
+          "return_pass": true,
+          "call_complete_state_pass": true,
+          "after_consumption_state_pass": true
+        },
+        {
+          "observation_timer": 0,
+          "explicit_expire_time": 4,
+          "before_consumption": {
+            "items": [],
+            "length": 0,
+            "size": 0
+          },
+          "after_consumption": {
+            "items": [],
+            "length": 0,
+            "size": 0
+          },
+          "returned_pairs": [],
+          "expected_pairs": [],
+          "return_pass": true,
+          "call_complete_state_pass": true,
+          "after_consumption_state_pass": true
+        }
+      ],
+      "return_pass": true,
+      "call_complete_state_pass": true,
+      "after_consumption_state_pass": true,
+      "pass": true
+    },
+    {
+      "case": "same_deadline",
+      "calls": [
+        {
+          "observation_timer": 0,
+          "explicit_expire_time": 4,
+          "before_consumption": {
+            "items": [],
+            "length": 0,
+            "size": 0
+          },
+          "after_consumption": {
+            "items": [],
+            "length": 0,
+            "size": 0
+          },
+          "returned_pairs": [
+            [
+              "a",
+              1
+            ],
+            [
+              "b",
+              2
+            ]
+          ],
+          "expected_pairs": [
+            [
+              "a",
+              1
+            ],
+            [
+              "b",
+              2
+            ]
+          ],
+          "return_pass": true,
+          "call_complete_state_pass": true,
+          "after_consumption_state_pass": true
+        }
+      ],
+      "return_pass": true,
+      "call_complete_state_pass": true,
+      "after_consumption_state_pass": true,
+      "pass": true
+    },
+    {
+      "case": "insertion_cleanup",
+      "calls": [
+        {
+          "observation_timer": 4,
+          "explicit_expire_time": 4,
+          "before_consumption": {
+            "items": [
+              [
+                "b",
+                2
+              ]
+            ],
+            "length": 1,
+            "size": 2
+          },
+          "after_consumption": {
+            "items": [
+              [
+                "b",
+                2
+              ]
+            ],
+            "length": 1,
+            "size": 2
+          },
+          "returned_pairs": [],
+          "expected_pairs": [],
+          "return_pass": true,
+          "call_complete_state_pass": true,
+          "after_consumption_state_pass": true
+        }
+      ],
+      "return_pass": true,
+      "call_complete_state_pass": true,
+      "after_consumption_state_pass": true,
+      "pass": true
+    }
+  ],
+  "passed": 5,
+  "total": 5,
+  "all_pass": true,
+  "return_passed": 5,
+  "call_complete_state_passed": 5,
+  "scope": "原五公开输入/P90时点规范；公开API状态观察，不约束存储位置；非全域物理证明/隐藏确认"
+}

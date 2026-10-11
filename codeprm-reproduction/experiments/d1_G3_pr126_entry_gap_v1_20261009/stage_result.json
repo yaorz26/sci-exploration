@@ -1,0 +1,22 @@
+{
+  "stage": "D1-G3-contract-integrity",
+  "question": "旧PR126评价是否误收遗漏直接YamlSource参数的项目实现？",
+  "status": "complete",
+  "evidence": {
+    "legacy_control": {"passed": 8, "total": 8},
+    "direct_control": {"passed": 0, "total": 1, "exception": "TypeError"},
+    "direct_complete": {"passed": 1, "total": 1},
+    "direct_alternative": {"passed": 1, "total": 1},
+    "isolated_processes": 4,
+    "judgments": 11
+  },
+  "conclusion": "旧评价确实会误收一个遗漏明示YamlSource入口的实现；新增锚点修正外部接口验收边界，不构成结构轴或主A收益证据。",
+  "model_calls": 0,
+  "human_reviews": 0,
+  "downloads": 0,
+  "formal_labels": null,
+  "split": null,
+  "source_mapping": "api_structure_mapping.json",
+  "report": "../../../../docs/week3/data-route/20261011/223_contract_integrity_cycle_result.md",
+  "next": "当前没有可自行执行的高信息量下一项；等待新人工审查或完整模型身份/预算。"
+}

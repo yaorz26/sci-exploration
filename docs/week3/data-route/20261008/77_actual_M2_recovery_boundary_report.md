@@ -1,0 +1,15 @@
+# P35：当前M2约束生成步骤，没有限制入口只做连接
+
+当前run_allin_pipeline.py把公开需求与例子送入每个阶段，入口另见固定计划及已生成helper源码。生成提示不是本次运行的全部测试输入；运行时solve(payload)则接收完整本次输入。固定helper不会阻止入口读取payload、使用sorted或内联重做算法。
+
+三入口控制均通过实际same_signature及组装solve存在门槛：P34局部正确但错误连接入口、P34原输入重算入口、一个完全不调用helper的手工控制。最后一项违反“调用固定辅助函数”的提示要求，但门槛不拒绝；这只说明执行检查范围，不说明它是研究协议认可的合规方案。没有修改实际流程。
+
+源码七处行证据及哈希保存。P19八条给定正确文本情景均保留公开需求、固定函数及调用要求，仍非真实API生成；P9保存的真实M2仅plan/helper_1/helper_2，入口请求0，不能称模型实际在P9旁路helper。新任务求值、词表实例、模型/API、隐藏读取均0。
+
+v1读取P19 M2元数据时错误假定有M0字段representation，KeyError失败保留；实际M2为context/plan。v2保留完整原元数据而不虚造同名字段，第二实质尝试通过，旧入口文件/冻结不覆盖。此失败没有任务或模型执行，不计模型失败。
+
+阶段结论：目前比较是具体的分阶段生成流程与整体生成流程；不能把M2结果解释为“受限接口下纯连接”的效果。额外的重算可能是合法恢复，完全不调用helper则需另报提示遵循情况。仅函数定义存在并不足以验证实际调用，更不证明helper输出被使用。
+
+方向审查：不增加语法变体、不根据手工控制猜模型发生率。P36执行最小运行时干预，区分使用helper返回值、只通过返回值断言、调用后丢弃返回值三种机制。它为日后模型行为分类提供诊断候选，不立刻增加硬性禁止重计算规则或回写旧成绩。
+
+证据：codeprm-reproduction/experiments/d1_actual_M2_recovery_boundary_v1_20261008/failure_record.json及v2目录的pre_execution_freeze/gate_results/source_evidence/saved_request_review/summary；执行python -B -X utf8 scripts/d1/probe_actual_M2_recovery_boundary.py。原20题307记录及约98/100调用保持，人工0。

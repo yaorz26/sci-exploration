@@ -1,0 +1,38 @@
+{
+  "review_kind": "同一助手对保存证据与实际执行器模板的第二遍审查，非独立人工",
+  "prompt_records": 200,
+  "stage_prompt_counts": 760,
+  "template_literal_checks": {
+    "直接完整实现solve(payload)，可自行使用辅助函数。只输出Python代码。": true,
+    "自主分解为2至3个辅助函数，按依赖先后排列。只输出JSON：{\"helpers\":[{\"name\":\"_name\",\"signature\":\"def _name(args):\",\"contract\":\"输入输出及状态修改规则\",\"depends_on\":[]}]}。solve入口另外生成，不在helpers中。": true,
+    "固定计划：\n": true,
+    "\n已实现函数：\n": true,
+    "\n仅实现以下函数，签名保持一致，可以添加标准库import，禁止定义其他顶层函数：\n": true,
+    "\n固定函数：\n": true,
+    "\n仅实现solve(payload)，调用固定辅助函数，不能定义其他顶层函数。只输出代码。": true
+  },
+  "raw_stage_sum_consistent": true,
+  "context_over8192_scenarios": 0,
+  "same_fields_savings_h2": {
+    "min": 216,
+    "median": 544.0,
+    "max": 976
+  },
+  "source_sha256_matches": true,
+  "limits": [
+    "只审查构造情景，未重新生成或重新计量token",
+    "字段相同不等于模型表现相同",
+    "聚合中位数的差不等于配对差的中位数",
+    "长注释占位不代表真实实现必不可行"
+  ],
+  "pretty_one_extra_helper_input": {
+    "min": 728,
+    "median": 911.5,
+    "max": 1149
+  },
+  "compact_one_extra_helper_input": {
+    "min": 655,
+    "median": 770.5,
+    "max": 950
+  }
+}

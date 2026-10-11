@@ -1,0 +1,39 @@
+{
+  "rows": [
+    {
+      "name": "complete",
+      "passed": 5,
+      "total": 5,
+      "all_pass": true,
+      "prediction_match": true
+    },
+    {
+      "name": "delegated",
+      "passed": 5,
+      "total": 5,
+      "all_pass": true,
+      "prediction_match": true
+    },
+    {
+      "name": "report_only",
+      "passed": 1,
+      "total": 5,
+      "all_pass": false,
+      "prediction_match": true
+    },
+    {
+      "name": "deferred",
+      "passed": 1,
+      "total": 5,
+      "all_pass": false,
+      "prediction_match": true
+    }
+  ],
+  "actual_scenario_evaluations": 20,
+  "all_predictions_match": true,
+  "new_unique_inputs": 0,
+  "new_formal_tasks": 0,
+  "model_calls": 0,
+  "human_reviews": 0,
+  "scope": "五公开场景修订评价：两正确组织/两人工缺陷，非全域/模型效果"
+}

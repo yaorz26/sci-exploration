@@ -1,0 +1,145 @@
+{
+  "rows": [
+    {
+      "id": "valid_int",
+      "input": {
+        "data": [
+          1,
+          1
+        ]
+      },
+      "expected": {
+        "count": 2,
+        "mode": 1
+      },
+      "observed": {
+        "count": 2,
+        "mode": 1
+      },
+      "typed_expected": true,
+      "reason": "两个整数1，原值类型保持",
+      "raw_pass": true,
+      "count_only_pass": true,
+      "strict_pass": true,
+      "prediction_matched": true
+    },
+    {
+      "id": "float_count",
+      "input": {
+        "data": [
+          1,
+          1
+        ]
+      },
+      "expected": {
+        "count": 2,
+        "mode": 1
+      },
+      "observed": {
+        "count": 2.0,
+        "mode": 1
+      },
+      "typed_expected": false,
+      "reason": "数量整数声明漂移",
+      "raw_pass": true,
+      "count_only_pass": false,
+      "strict_pass": false,
+      "prediction_matched": true
+    },
+    {
+      "id": "float_mode",
+      "input": {
+        "data": [
+          1,
+          1
+        ]
+      },
+      "expected": {
+        "count": 2,
+        "mode": 1
+      },
+      "observed": {
+        "count": 2,
+        "mode": 1.0
+      },
+      "typed_expected": false,
+      "reason": "整数原值被换浮点",
+      "raw_pass": true,
+      "count_only_pass": true,
+      "strict_pass": false,
+      "prediction_matched": true
+    },
+    {
+      "id": "valid_float_default",
+      "input": {
+        "data": [],
+        "default": 3.0
+      },
+      "expected": {
+        "count": 0,
+        "mode": 3.0
+      },
+      "observed": {
+        "count": 0,
+        "mode": 3.0
+      },
+      "typed_expected": true,
+      "reason": "合法空浮点default原类型保持",
+      "raw_pass": true,
+      "count_only_pass": true,
+      "strict_pass": true,
+      "prediction_matched": true
+    },
+    {
+      "id": "int_for_float_default",
+      "input": {
+        "data": [],
+        "default": 3.0
+      },
+      "expected": {
+        "count": 0,
+        "mode": 3.0
+      },
+      "observed": {
+        "count": 0,
+        "mode": 3
+      },
+      "typed_expected": false,
+      "reason": "浮点default被换整数",
+      "raw_pass": true,
+      "count_only_pass": true,
+      "strict_pass": false,
+      "prediction_matched": true
+    },
+    {
+      "id": "number_for_bool_default",
+      "input": {
+        "data": [],
+        "default": false
+      },
+      "expected": {
+        "count": 0,
+        "mode": false
+      },
+      "observed": {
+        "count": 0,
+        "mode": 0
+      },
+      "typed_expected": false,
+      "reason": "布尔default被换数值",
+      "raw_pass": false,
+      "count_only_pass": false,
+      "strict_pass": false,
+      "prediction_matched": true
+    }
+  ],
+  "typed_predictions_matched": 6,
+  "pairs": 6,
+  "comparator_calls": 12,
+  "count_shape_checks": 6,
+  "interpretation": "count-only仍放过float mode/int替float default；strict_numbers保合法float default并拒漂移。六有限比较支持候选规则，不是全域/模型效果。",
+  "task_solve_calls": 0,
+  "model_calls": 0,
+  "API_calls": 0,
+  "hidden_reads": 0
+}

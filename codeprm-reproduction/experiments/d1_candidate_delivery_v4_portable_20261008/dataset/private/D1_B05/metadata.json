@@ -1,0 +1,57 @@
+{
+  "task_id": "D1_B05",
+  "name": "嵌套数据转换与结果路径筛选",
+  "source": {
+    "repository": "mahmoud/boltons",
+    "commit": "4e5faa3d7e4008d89e0d8bf1ea87b6d9a061a16d",
+    "license": "BSD-3-Clause",
+    "file": "boltons/iterutils.py",
+    "symbol": "remap",
+    "line": 1098,
+    "source_sha256": "7fb67f49dc1d895051549b523c2e21161e3c1f4e21590fa7fd09039386d08510",
+    "license_sha256": "c301912653a8d8c99eab6212aa3aea8d164ea249d8ad53c941e0558a0a5ac1e3",
+    "contamination_risk": "unknown",
+    "additional_symbols": [
+      {
+        "file": "boltons/iterutils.py",
+        "symbol": "research",
+        "line": 1385,
+        "source_sha256": "7fb67f49dc1d895051549b523c2e21161e3c1f4e21590fa7fd09039386d08510"
+      }
+    ]
+  },
+  "requirement_origin": "上游公开API文档/说明为主，适配器范围与边界补充；已查看实现，需独立泄漏审查",
+  "adaptation": "统一JSON入口和返回值，保留所选功能；不作为完整仓库任务",
+  "split": "development",
+  "structure": {
+    "kind": "pipeline",
+    "shared_state": "none",
+    "dependency_evidence": "筛选必须使用变换后的值和删除后重排的数组路径",
+    "independent_test_evidence": "树转换和变换后路径筛选都有完整输入输出契约",
+    "status": "单人预标注，尚未取得独立一致性统计"
+  },
+  "function_family": "tree_transform_search",
+  "public_cases": 2,
+  "private_cases": 12,
+  "status": "候选原型，非冻结确认集",
+  "authoring_seed": 20261008,
+  "structure_v2": {
+    "schema_version": "0.2",
+    "cross_operation_state": "none",
+    "state_scope": "none",
+    "behavior_dependencies": [
+      "ordered_transform"
+    ],
+    "separate_behavior_testability": "yes",
+    "evidence": "树转换→结果路径筛选；筛选用删除后的索引与变换后数值",
+    "status": "单人初标；依据外部契约，未取得独立人工一致性统计",
+    "legacy_author_description": {
+      "kind": "pipeline",
+      "shared_state": "none",
+      "dependency_evidence": "筛选必须使用变换后的值和删除后重排的数组路径",
+      "independent_test_evidence": "树转换和变换后路径筛选都有完整输入输出契约",
+      "status": "单人预标注，尚未取得独立一致性统计"
+    }
+  },
+  "related_families": []
+}

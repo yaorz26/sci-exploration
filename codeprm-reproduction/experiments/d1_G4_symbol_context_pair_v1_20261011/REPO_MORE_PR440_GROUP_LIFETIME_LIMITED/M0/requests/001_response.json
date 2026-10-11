@@ -1,0 +1,14 @@
+{
+  "model": "qwen2.5-coder:7b",
+  "created_at": "2026-10-11T07:26:42.9769479Z",
+  "response": " ```diff\n--- a/more_itertools/more.py\n+++ b/more_itertools/more.py\n@@ -1764,7 +1764,12 @@ def groupby_transform(iterable, keyfunc=None, valuefunc=None):\n     *keyfunc* and *valuefunc* default to identity functions if they are not\n     specified.\n\n-    :func:`groupby_transform` is useful when grouping elements of an iterable\n+    :func:`groupby_transform` is useful when grouping elements of an iterable and applying a transformation to the grouped values.\n+    *reducefunc* is a function that takes the transformed group and returns a result.\n+\n+        >>> iterable = 'AaaABbBCcA'\n+        >>> keyfunc = lambda x: x.upper()\n+        >>> valuefunc = lambda x: x.lower()\n+        >>> reducefunc = lambda x: ''.join(x)\n+        >>> grouper = groupby_transform(iterable, keyfunc, valuefunc, reducefunc)\n+        >>> [(k, reducefunc(g)) for k, g in grouper]\n+        [('A', 'aaaa'), ('B', 'bbb'), ('C', 'cc'), ('A', 'a')]\n+\n+    Note that the order of items in the iterable is significant.\n+    Only adjacent items are grouped together, so if you don't want any\n+    duplicate groups, you should sort the iterable by the key function.\n+\n+    \"\"\"\n+    res = groupby(iterable, keyfunc)\n+    if valuefunc:\n+        transformed_groups = ((k, map(valuefunc, g)) for k, g in res)\n+    else:\n+        transformed_groups = res\n+    if reducefunc:\n+        return ((k, reducefunc(g)) for k, g in transformed_groups)\n+    else:\n+        return transformed_groups\n```",
+  "done": true,
+  "done_reason": "stop",
+  "total_duration": 10066927500,
+  "load_duration": 4712200,
+  "prompt_eval_count": 2553,
+  "prompt_eval_cached_count": 25,
+  "prompt_eval_duration": 1093709000,
+  "eval_count": 394,
+  "eval_duration": 8929373000
+}

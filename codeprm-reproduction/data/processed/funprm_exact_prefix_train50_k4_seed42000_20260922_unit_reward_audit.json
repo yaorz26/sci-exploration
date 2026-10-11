@@ -1,0 +1,52 @@
+{
+  "nodes": 103,
+  "problems": 48,
+  "final_records": 48,
+  "rollouts": 412,
+  "successful_rollouts": 160,
+  "rollout_success_rate": 0.3883495145631068,
+  "positive_nodes": 54,
+  "perfect_nodes": 22,
+  "positive_problems": 28,
+  "mean_label": 0.3883495145631068,
+  "label_histogram": {
+    "0.0": 49,
+    "0.25": 5,
+    "0.5": 14,
+    "0.75": 13,
+    "1.0": 22
+  },
+  "first_two_vs_last_two_pearson": 0.8080166813520211,
+  "mean_absolute_half_difference": 0.11650485436893204,
+  "exact_half_agreement_rate": 0.7961165048543689,
+  "request_errors": 0,
+  "parse_error_rollouts": 286,
+  "completion_modes": {
+    "appended_completion": 376,
+    "full_code_with_exact_prefix": 36
+  },
+  "clean_final_positive_records": 25,
+  "by_function_index": {
+    "0": {
+      "nodes": 48,
+      "positive_nodes": 28,
+      "mean_label": 0.3854166666666667
+    },
+    "1": {
+      "nodes": 39,
+      "positive_nodes": 19,
+      "mean_label": 0.41025641025641024
+    },
+    "2": {
+      "nodes": 14,
+      "positive_nodes": 6,
+      "mean_label": 0.32142857142857145
+    },
+    "3": {
+      "nodes": 2,
+      "positive_nodes": 1,
+      "mean_label": 0.5
+    }
+  },
+  "interpretation": "Split-half reliability is diagnostic only; four rollouts per node still produce noisy estimates."
+}

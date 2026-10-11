@@ -1,0 +1,168 @@
+{
+  "round": 2,
+  "reviewer_a": "ai-reviewer-A-round2",
+  "reviewer_b": "ai-reviewer-B-round2",
+  "reviewer_type": "ai_isolated_subagent（非人类，不得当作人工双审）",
+  "scores": {
+    "T1": {
+      "A": [
+        4,
+        4,
+        5,
+        4
+      ],
+      "B": [
+        5,
+        4,
+        5,
+        4
+      ]
+    },
+    "T2": {
+      "A": [
+        4,
+        3,
+        5,
+        3
+      ],
+      "B": [
+        4,
+        3,
+        5,
+        3
+      ]
+    },
+    "T3": {
+      "A": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "B": [
+        4,
+        4,
+        5,
+        4
+      ]
+    },
+    "T4": {
+      "A": [
+        4,
+        4,
+        5,
+        4
+      ],
+      "B": [
+        5,
+        5,
+        5,
+        4
+      ]
+    },
+    "T5": {
+      "A": [
+        4,
+        4,
+        5,
+        4
+      ],
+      "B": [
+        5,
+        5,
+        5,
+        5
+      ]
+    }
+  },
+  "total_judgements": 20,
+  "agreements": 13,
+  "raw_agreement": 0.65,
+  "expected_agreement_independence": 0.365,
+  "cohen_kappa_estimate": 0.4488188976377953,
+  "flagged_resolution": {
+    "A": "14/16",
+    "B": "15/16"
+  },
+  "rejection": {
+    "T1": {
+      "A": false,
+      "B": false
+    },
+    "T2": {
+      "A": true,
+      "B": false
+    },
+    "T3": {
+      "A": false,
+      "B": false
+    },
+    "T4": {
+      "A": false,
+      "B": false
+    },
+    "T5": {
+      "A": false,
+      "B": false
+    }
+  },
+  "disagreements": [
+    {
+      "task": "T1",
+      "dimension": "需求可理解",
+      "A": 4,
+      "B": 5
+    },
+    {
+      "task": "T3",
+      "dimension": "内部自由",
+      "A": 4,
+      "B": 5
+    },
+    {
+      "task": "T4",
+      "dimension": "需求可理解",
+      "A": 4,
+      "B": 5
+    },
+    {
+      "task": "T4",
+      "dimension": "验收可判定",
+      "A": 4,
+      "B": 5
+    },
+    {
+      "task": "T5",
+      "dimension": "需求可理解",
+      "A": 4,
+      "B": 5
+    },
+    {
+      "task": "T5",
+      "dimension": "验收可判定",
+      "A": 4,
+      "B": 5
+    },
+    {
+      "task": "T5",
+      "dimension": "可纳入正式候选",
+      "A": 4,
+      "B": 5
+    }
+  ],
+  "round1_vs_round2": "第一轮 raw_agreement=0.40（kappa≈0.05）；第二轮见本文件",
+  "new_findings_after_revision": [
+    "T1：default=None 与‘未给 default 抛 IndexError’自相矛盾（A、B 独立指出）→ 已改为哨兵约定 _MISSING",
+    "T2：可保留字符两行写成同一集合，差异只剩空格，出现‘白名单列 vs 空格处理列’两种读法（A、B 独立指出）→ 已改为逐字符规则表",
+    "T3：正文没有任何异常条款，而修订说明自称已明确（A 指出）→ 已补域外行为约定表",
+    "T5：cwd 一名两义（进程 cwd vs 模板 cwd）（A 指出）→ 已拆分两个术语并注明判定表次序"
+  ],
+  "limits": [
+    "两位审查者同属一个模型家族；一致率不代表人工一致",
+    "A 在第二轮曾遇到 read 工具 2000 字符截断，自行改用 PowerShell 读取同一字段补齐，已声明",
+    "20 项判断、5 点序数，kappa 仅作参考"
+  ],
+  "human_reviews": 0,
+  "formal_labels": null,
+  "split": null
+}

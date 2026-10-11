@@ -1,0 +1,10 @@
+{
+  "time": "2026-10-09T11:58:39.635484+00:00",
+  "exception_type": "FileNotFoundError",
+  "cause": "旧research_controls工作区只含包源码，没有LICENSE；原官方父快照有MIT LICENSE",
+  "stage": "复制交付，未到评价/机器列表",
+  "partial_directory": "data/processed/d1_actual_project_candidate_v1_20261009",
+  "preserved": true,
+  "new_behavior_calls": 0,
+  "repair": "只从对应官方父快照恢复原许可证，在独占v2目录重建一次；原失败不删"
+}

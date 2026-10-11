@@ -1,0 +1,2028 @@
+{
+  "task_id": "D1_C04",
+  "oracle_disagreements": 0,
+  "implementations": {
+    "starter": {
+      "cases": 10,
+      "passed": 0,
+      "all_pass": false,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 11,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 21,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 11,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 1
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "public_2",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": []
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_1",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_2",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 2,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_3",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 2,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 3,
+                  "computations": {
+                    "a": 3,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 2,
+                  "computations": {
+                    "a": 4,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_4",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": -2,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 3,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_5",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 0,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 0,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_6",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": []
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_7",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_8",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": -1,
+                  "computations": {
+                    "a": 0,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 0,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": -1,
+                  "computations": {
+                    "a": 0,
+                    "b": 2
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        }
+      ],
+      "execution_seconds": 0.06169179999960761,
+      "captured_output_bytes": 3587
+    },
+    "alternate": {
+      "cases": 10,
+      "passed": 10,
+      "all_pass": true,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "public_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_3",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_4",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_5",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_6",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_7",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_8",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        }
+      ],
+      "execution_seconds": 0.061045099999319063,
+      "captured_output_bytes": 850
+    },
+    "reference": {
+      "cases": 10,
+      "passed": 0,
+      "all_pass": false,
+      "results": [],
+      "execution_error": "process_error",
+      "stderr_tail": "Traceback (most recent call last):\r\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\scripts\\d1\\evaluate_candidate.py\", line 40, in <module>\r\n    main()\r\n    ~~~~^^\r\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\scripts\\d1\\evaluate_candidate.py\", line 20, in main\r\n    specification.loader.exec_module(module)\r\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^\r\n  File \"<frozen importlib._bootstrap_external>\", line 1026, in exec_module\r\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\r\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\data\\processed\\d1_project_initial20_v1_20261008\\private\\D1_C04\\reference.py\", line 4, in <module>\r\n    from task_specs_snapshot import instances_reference\r\nImportError: cannot import name 'instances_reference' from 'task_specs_snapshot' (D:\\yaorz\\research\\codeprm-reproduction\\data\\processed\\d1_project_initial20_v1_20261008\\private\\_curator\\task_specs_snapshot.py). Did you mean: 'range_reference'?\r\n",
+      "execution_seconds": 0.0813971000006859,
+      "captured_output_bytes": 960
+    },
+    "wrong_empty": {
+      "cases": 10,
+      "passed": 2,
+      "all_pass": false,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 11,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 21,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 11,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 1
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "public_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_1",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_2",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 2,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_3",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 2,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 3,
+                  "computations": {
+                    "a": 3,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 2,
+                  "computations": {
+                    "a": 4,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_4",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": -2,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 3,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_5",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 0,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 0,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_6",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_7",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_8",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": -1,
+                  "computations": {
+                    "a": 0,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 0,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": -1,
+                  "computations": {
+                    "a": 0,
+                    "b": 2
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        }
+      ],
+      "execution_seconds": 0.06114200000047276,
+      "captured_output_bytes": 3299
+    },
+    "wrong_drop_last": {
+      "cases": 10,
+      "passed": 2,
+      "all_pass": false,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 11,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 21,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 11,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 1
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": [
+                {
+                  "result": 11,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 21,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 11,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "case_id": "public_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_1",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "case_id": "hidden_2",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 2,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 1
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "case_id": "hidden_3",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 2,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 3,
+                  "computations": {
+                    "a": 3,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 2,
+                  "computations": {
+                    "a": 4,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 2,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 3,
+                  "computations": {
+                    "a": 3,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "case_id": "hidden_4",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": -2,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 3,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": [
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": -2,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "case_id": "hidden_5",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 0,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 0,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": [
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 0,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "case_id": "hidden_6",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_7",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "case_id": "hidden_8",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": -1,
+                  "computations": {
+                    "a": 0,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 0,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": -1,
+                  "computations": {
+                    "a": 0,
+                    "b": 2
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": [
+                {
+                  "result": -1,
+                  "computations": {
+                    "a": 0,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 0,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "execution_seconds": 0.06150590000106604,
+      "captured_output_bytes": 4741
+    },
+    "wrong_public_lookup": {
+      "cases": 10,
+      "passed": 2,
+      "all_pass": false,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "public_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_1",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_2",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 2,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_3",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 2,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 3,
+                  "computations": {
+                    "a": 3,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 2,
+                  "computations": {
+                    "a": 4,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_4",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": -2,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 3,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_5",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 0,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 0,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_6",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": []
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_7",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_8",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": -1,
+                  "computations": {
+                    "a": 0,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 0,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": -1,
+                  "computations": {
+                    "a": 0,
+                    "b": 2
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        }
+      ],
+      "execution_seconds": 0.06140380000033474,
+      "captured_output_bytes": 3007
+    }
+  },
+  "reference_repeats": [
+    {
+      "cases": 10,
+      "passed": 0,
+      "all_pass": false,
+      "results": [],
+      "execution_error": "process_error",
+      "stderr_tail": "Traceback (most recent call last):\r\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\scripts\\d1\\evaluate_candidate.py\", line 40, in <module>\r\n    main()\r\n    ~~~~^^\r\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\scripts\\d1\\evaluate_candidate.py\", line 20, in main\r\n    specification.loader.exec_module(module)\r\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^\r\n  File \"<frozen importlib._bootstrap_external>\", line 1026, in exec_module\r\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\r\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\data\\processed\\d1_project_initial20_v1_20261008\\private\\D1_C04\\reference.py\", line 4, in <module>\r\n    from task_specs_snapshot import instances_reference\r\nImportError: cannot import name 'instances_reference' from 'task_specs_snapshot' (D:\\yaorz\\research\\codeprm-reproduction\\data\\processed\\d1_project_initial20_v1_20261008\\private\\_curator\\task_specs_snapshot.py). Did you mean: 'range_reference'?\r\n",
+      "execution_seconds": 0.08225289999973029,
+      "captured_output_bytes": 960
+    },
+    {
+      "cases": 10,
+      "passed": 0,
+      "all_pass": false,
+      "results": [],
+      "execution_error": "process_error",
+      "stderr_tail": "Traceback (most recent call last):\r\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\scripts\\d1\\evaluate_candidate.py\", line 40, in <module>\r\n    main()\r\n    ~~~~^^\r\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\scripts\\d1\\evaluate_candidate.py\", line 20, in main\r\n    specification.loader.exec_module(module)\r\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^\r\n  File \"<frozen importlib._bootstrap_external>\", line 1026, in exec_module\r\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\r\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\data\\processed\\d1_project_initial20_v1_20261008\\private\\D1_C04\\reference.py\", line 4, in <module>\r\n    from task_specs_snapshot import instances_reference\r\nImportError: cannot import name 'instances_reference' from 'task_specs_snapshot' (D:\\yaorz\\research\\codeprm-reproduction\\data\\processed\\d1_project_initial20_v1_20261008\\private\\_curator\\task_specs_snapshot.py). Did you mean: 'range_reference'?\r\n",
+      "execution_seconds": 0.08089089999884891,
+      "captured_output_bytes": 960
+    },
+    {
+      "cases": 10,
+      "passed": 0,
+      "all_pass": false,
+      "results": [],
+      "execution_error": "process_error",
+      "stderr_tail": "Traceback (most recent call last):\r\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\scripts\\d1\\evaluate_candidate.py\", line 40, in <module>\r\n    main()\r\n    ~~~~^^\r\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\scripts\\d1\\evaluate_candidate.py\", line 20, in main\r\n    specification.loader.exec_module(module)\r\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^\r\n  File \"<frozen importlib._bootstrap_external>\", line 1026, in exec_module\r\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\r\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\data\\processed\\d1_project_initial20_v1_20261008\\private\\D1_C04\\reference.py\", line 4, in <module>\r\n    from task_specs_snapshot import instances_reference\r\nImportError: cannot import name 'instances_reference' from 'task_specs_snapshot' (D:\\yaorz\\research\\codeprm-reproduction\\data\\processed\\d1_project_initial20_v1_20261008\\private\\_curator\\task_specs_snapshot.py). Did you mean: 'range_reference'?\r\n",
+      "execution_seconds": 0.08208740000009129,
+      "captured_output_bytes": 960
+    }
+  ],
+  "reference_stable_3": false,
+  "starter_fails": true,
+  "alternate_passes": true,
+  "wrong_implementations_rejected": true,
+  "quality_pass": false
+}

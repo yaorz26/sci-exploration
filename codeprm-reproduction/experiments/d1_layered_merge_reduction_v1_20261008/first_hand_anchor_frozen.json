@@ -1,0 +1,38 @@
+{
+  "input": {
+    "sources": [
+      {
+        "x": {
+          "a": 1
+        }
+      },
+      {
+        "x": {
+          "b": 2
+        }
+      },
+      {
+        "x": 0
+      }
+    ]
+  },
+  "expected_nary": {
+    "x": {
+      "a": 1
+    }
+  },
+  "expected_left_fold": {
+    "x": {
+      "a": 1,
+      "b": 2
+    }
+  },
+  "expected_right_fold": {
+    "x": {
+      "a": 1,
+      "b": 2
+    }
+  },
+  "reason": "任一层标量阻止递归合并，二元中间结果已忘记原高层边界/类型证据",
+  "execution_status": "手算已冻结，尚未执行"
+}

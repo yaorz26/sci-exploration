@@ -1,0 +1,30 @@
+{
+  "simulated": true,
+  "token_limit": 6500,
+  "call_limit": 1,
+  "known_token_spend": 3152,
+  "blocked": false,
+  "calls": [
+    {
+      "call_id": "001",
+      "stage": "project_patch",
+      "simulated": true,
+      "prompt_token_upper_bound": 1982,
+      "assigned_output_cap": 4096,
+      "status": "completed",
+      "cost_status": "known",
+      "request": {
+        "path": "001_request.json",
+        "sha256": "0942ad3b5bdfef004407d80021bf27ae25cdda14a90feab318fcaf679fd7a58e"
+      },
+      "response": {
+        "path": "001_response.json",
+        "sha256": "e9fe3afe3972d0fd112ee11b7dea923b85d56a7f26b0fd7e7fba316908910c39"
+      },
+      "prompt_tokens": 1982,
+      "output_tokens": 1170,
+      "seconds": 0.0037578000010398682
+    }
+  ],
+  "refusals": []
+}

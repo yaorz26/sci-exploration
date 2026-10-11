@@ -1,0 +1,772 @@
+[
+  {
+    "id": "both_folds_wrong",
+    "sources": [
+      {
+        "x": {
+          "a": 1
+        }
+      },
+      {
+        "x": {
+          "b": 2
+        }
+      },
+      {
+        "x": 0
+      }
+    ],
+    "direct": {
+      "x": {
+        "a": 1
+      }
+    },
+    "left": {
+      "x": {
+        "a": 1,
+        "b": 2
+      }
+    },
+    "right": {
+      "x": {
+        "a": 1,
+        "b": 2
+      }
+    },
+    "actual": {
+      "reference": {
+        "direct": {
+          "outcome": {
+            "value": {
+              "x": {
+                "a": 1
+              }
+            }
+          },
+          "input_unchanged": true
+        },
+        "left": {
+          "outcome": {
+            "value": {
+              "x": {
+                "a": 1,
+                "b": 2
+              }
+            }
+          },
+          "input_unchanged": true
+        },
+        "right": {
+          "outcome": {
+            "value": {
+              "x": {
+                "a": 1,
+                "b": 2
+              }
+            }
+          },
+          "input_unchanged": true
+        },
+        "left_agrees_direct": false,
+        "right_agrees_direct": false,
+        "folds_agree": true
+      },
+      "alternate": {
+        "direct": {
+          "outcome": {
+            "value": {
+              "x": {
+                "a": 1
+              }
+            }
+          },
+          "input_unchanged": true
+        },
+        "left": {
+          "outcome": {
+            "value": {
+              "x": {
+                "a": 1,
+                "b": 2
+              }
+            }
+          },
+          "input_unchanged": true
+        },
+        "right": {
+          "outcome": {
+            "value": {
+              "x": {
+                "a": 1,
+                "b": 2
+              }
+            }
+          },
+          "input_unchanged": true
+        },
+        "left_agrees_direct": false,
+        "right_agrees_direct": false,
+        "folds_agree": true
+      }
+    },
+    "hand_expectations_pass": {
+      "reference": true,
+      "alternate": true
+    }
+  },
+  {
+    "id": "nonassociative",
+    "sources": [
+      {
+        "x": {
+          "a": 1
+        }
+      },
+      {
+        "x": 0
+      },
+      {
+        "x": {
+          "b": 2
+        }
+      }
+    ],
+    "direct": {
+      "x": {
+        "a": 1
+      }
+    },
+    "left": {
+      "x": {
+        "a": 1,
+        "b": 2
+      }
+    },
+    "right": {
+      "x": {
+        "a": 1
+      }
+    },
+    "actual": {
+      "reference": {
+        "direct": {
+          "outcome": {
+            "value": {
+              "x": {
+                "a": 1
+              }
+            }
+          },
+          "input_unchanged": true
+        },
+        "left": {
+          "outcome": {
+            "value": {
+              "x": {
+                "a": 1,
+                "b": 2
+              }
+            }
+          },
+          "input_unchanged": true
+        },
+        "right": {
+          "outcome": {
+            "value": {
+              "x": {
+                "a": 1
+              }
+            }
+          },
+          "input_unchanged": true
+        },
+        "left_agrees_direct": false,
+        "right_agrees_direct": true,
+        "folds_agree": false
+      },
+      "alternate": {
+        "direct": {
+          "outcome": {
+            "value": {
+              "x": {
+                "a": 1
+              }
+            }
+          },
+          "input_unchanged": true
+        },
+        "left": {
+          "outcome": {
+            "value": {
+              "x": {
+                "a": 1,
+                "b": 2
+              }
+            }
+          },
+          "input_unchanged": true
+        },
+        "right": {
+          "outcome": {
+            "value": {
+              "x": {
+                "a": 1
+              }
+            }
+          },
+          "input_unchanged": true
+        },
+        "left_agrees_direct": false,
+        "right_agrees_direct": true,
+        "folds_agree": false
+      }
+    },
+    "hand_expectations_pass": {
+      "reference": true,
+      "alternate": true
+    }
+  },
+  {
+    "id": "all_objects",
+    "sources": [
+      {
+        "x": {
+          "a": 1
+        }
+      },
+      {
+        "x": {
+          "b": 2
+        }
+      },
+      {
+        "x": {
+          "a": 9,
+          "c": 3
+        }
+      }
+    ],
+    "direct": {
+      "x": {
+        "a": 1,
+        "b": 2,
+        "c": 3
+      }
+    },
+    "left": {
+      "x": {
+        "a": 1,
+        "b": 2,
+        "c": 3
+      }
+    },
+    "right": {
+      "x": {
+        "a": 1,
+        "b": 2,
+        "c": 3
+      }
+    },
+    "actual": {
+      "reference": {
+        "direct": {
+          "outcome": {
+            "value": {
+              "x": {
+                "a": 1,
+                "b": 2,
+                "c": 3
+              }
+            }
+          },
+          "input_unchanged": true
+        },
+        "left": {
+          "outcome": {
+            "value": {
+              "x": {
+                "a": 1,
+                "b": 2,
+                "c": 3
+              }
+            }
+          },
+          "input_unchanged": true
+        },
+        "right": {
+          "outcome": {
+            "value": {
+              "x": {
+                "a": 1,
+                "b": 2,
+                "c": 3
+              }
+            }
+          },
+          "input_unchanged": true
+        },
+        "left_agrees_direct": true,
+        "right_agrees_direct": true,
+        "folds_agree": true
+      },
+      "alternate": {
+        "direct": {
+          "outcome": {
+            "value": {
+              "x": {
+                "a": 1,
+                "b": 2,
+                "c": 3
+              }
+            }
+          },
+          "input_unchanged": true
+        },
+        "left": {
+          "outcome": {
+            "value": {
+              "x": {
+                "a": 1,
+                "b": 2,
+                "c": 3
+              }
+            }
+          },
+          "input_unchanged": true
+        },
+        "right": {
+          "outcome": {
+            "value": {
+              "x": {
+                "a": 1,
+                "b": 2,
+                "c": 3
+              }
+            }
+          },
+          "input_unchanged": true
+        },
+        "left_agrees_direct": true,
+        "right_agrees_direct": true,
+        "folds_agree": true
+      }
+    },
+    "hand_expectations_pass": {
+      "reference": true,
+      "alternate": true
+    }
+  },
+  {
+    "id": "missing_not_blocking",
+    "sources": [
+      {
+        "x": {
+          "a": 1
+        }
+      },
+      {},
+      {
+        "x": {
+          "b": 2
+        }
+      }
+    ],
+    "direct": {
+      "x": {
+        "a": 1,
+        "b": 2
+      }
+    },
+    "left": {
+      "x": {
+        "a": 1,
+        "b": 2
+      }
+    },
+    "right": {
+      "x": {
+        "a": 1,
+        "b": 2
+      }
+    },
+    "actual": {
+      "reference": {
+        "direct": {
+          "outcome": {
+            "value": {
+              "x": {
+                "a": 1,
+                "b": 2
+              }
+            }
+          },
+          "input_unchanged": true
+        },
+        "left": {
+          "outcome": {
+            "value": {
+              "x": {
+                "a": 1,
+                "b": 2
+              }
+            }
+          },
+          "input_unchanged": true
+        },
+        "right": {
+          "outcome": {
+            "value": {
+              "x": {
+                "a": 1,
+                "b": 2
+              }
+            }
+          },
+          "input_unchanged": true
+        },
+        "left_agrees_direct": true,
+        "right_agrees_direct": true,
+        "folds_agree": true
+      },
+      "alternate": {
+        "direct": {
+          "outcome": {
+            "value": {
+              "x": {
+                "a": 1,
+                "b": 2
+              }
+            }
+          },
+          "input_unchanged": true
+        },
+        "left": {
+          "outcome": {
+            "value": {
+              "x": {
+                "a": 1,
+                "b": 2
+              }
+            }
+          },
+          "input_unchanged": true
+        },
+        "right": {
+          "outcome": {
+            "value": {
+              "x": {
+                "a": 1,
+                "b": 2
+              }
+            }
+          },
+          "input_unchanged": true
+        },
+        "left_agrees_direct": true,
+        "right_agrees_direct": true,
+        "folds_agree": true
+      }
+    },
+    "hand_expectations_pass": {
+      "reference": true,
+      "alternate": true
+    }
+  },
+  {
+    "id": "null_blocks",
+    "sources": [
+      {
+        "x": {
+          "a": 1
+        }
+      },
+      {
+        "x": {
+          "b": 2
+        }
+      },
+      {
+        "x": null
+      }
+    ],
+    "direct": {
+      "x": {
+        "a": 1
+      }
+    },
+    "left": {
+      "x": {
+        "a": 1,
+        "b": 2
+      }
+    },
+    "right": {
+      "x": {
+        "a": 1,
+        "b": 2
+      }
+    },
+    "actual": {
+      "reference": {
+        "direct": {
+          "outcome": {
+            "value": {
+              "x": {
+                "a": 1
+              }
+            }
+          },
+          "input_unchanged": true
+        },
+        "left": {
+          "outcome": {
+            "value": {
+              "x": {
+                "a": 1,
+                "b": 2
+              }
+            }
+          },
+          "input_unchanged": true
+        },
+        "right": {
+          "outcome": {
+            "value": {
+              "x": {
+                "a": 1,
+                "b": 2
+              }
+            }
+          },
+          "input_unchanged": true
+        },
+        "left_agrees_direct": false,
+        "right_agrees_direct": false,
+        "folds_agree": true
+      },
+      "alternate": {
+        "direct": {
+          "outcome": {
+            "value": {
+              "x": {
+                "a": 1
+              }
+            }
+          },
+          "input_unchanged": true
+        },
+        "left": {
+          "outcome": {
+            "value": {
+              "x": {
+                "a": 1,
+                "b": 2
+              }
+            }
+          },
+          "input_unchanged": true
+        },
+        "right": {
+          "outcome": {
+            "value": {
+              "x": {
+                "a": 1,
+                "b": 2
+              }
+            }
+          },
+          "input_unchanged": true
+        },
+        "left_agrees_direct": false,
+        "right_agrees_direct": false,
+        "folds_agree": true
+      }
+    },
+    "hand_expectations_pass": {
+      "reference": true,
+      "alternate": true
+    }
+  },
+  {
+    "id": "top_null_kept",
+    "sources": [
+      {
+        "x": null
+      },
+      {
+        "x": {
+          "a": 1
+        }
+      },
+      {}
+    ],
+    "direct": {
+      "x": null
+    },
+    "left": {
+      "x": null
+    },
+    "right": {
+      "x": null
+    },
+    "actual": {
+      "reference": {
+        "direct": {
+          "outcome": {
+            "value": {
+              "x": null
+            }
+          },
+          "input_unchanged": true
+        },
+        "left": {
+          "outcome": {
+            "value": {
+              "x": null
+            }
+          },
+          "input_unchanged": true
+        },
+        "right": {
+          "outcome": {
+            "value": {
+              "x": null
+            }
+          },
+          "input_unchanged": true
+        },
+        "left_agrees_direct": true,
+        "right_agrees_direct": true,
+        "folds_agree": true
+      },
+      "alternate": {
+        "direct": {
+          "outcome": {
+            "value": {
+              "x": null
+            }
+          },
+          "input_unchanged": true
+        },
+        "left": {
+          "outcome": {
+            "value": {
+              "x": null
+            }
+          },
+          "input_unchanged": true
+        },
+        "right": {
+          "outcome": {
+            "value": {
+              "x": null
+            }
+          },
+          "input_unchanged": true
+        },
+        "left_agrees_direct": true,
+        "right_agrees_direct": true,
+        "folds_agree": true
+      }
+    },
+    "hand_expectations_pass": {
+      "reference": true,
+      "alternate": true
+    }
+  },
+  {
+    "id": "empty_object_kept",
+    "sources": [
+      {
+        "x": {}
+      },
+      {
+        "x": 0
+      },
+      {
+        "x": {
+          "b": 2
+        }
+      }
+    ],
+    "direct": {
+      "x": {}
+    },
+    "left": {
+      "x": {
+        "b": 2
+      }
+    },
+    "right": {
+      "x": {}
+    },
+    "actual": {
+      "reference": {
+        "direct": {
+          "outcome": {
+            "value": {
+              "x": {}
+            }
+          },
+          "input_unchanged": true
+        },
+        "left": {
+          "outcome": {
+            "value": {
+              "x": {
+                "b": 2
+              }
+            }
+          },
+          "input_unchanged": true
+        },
+        "right": {
+          "outcome": {
+            "value": {
+              "x": {}
+            }
+          },
+          "input_unchanged": true
+        },
+        "left_agrees_direct": false,
+        "right_agrees_direct": true,
+        "folds_agree": false
+      },
+      "alternate": {
+        "direct": {
+          "outcome": {
+            "value": {
+              "x": {}
+            }
+          },
+          "input_unchanged": true
+        },
+        "left": {
+          "outcome": {
+            "value": {
+              "x": {
+                "b": 2
+              }
+            }
+          },
+          "input_unchanged": true
+        },
+        "right": {
+          "outcome": {
+            "value": {
+              "x": {}
+            }
+          },
+          "input_unchanged": true
+        },
+        "left_agrees_direct": false,
+        "right_agrees_direct": true,
+        "folds_agree": false
+      }
+    },
+    "hand_expectations_pass": {
+      "reference": true,
+      "alternate": true
+    }
+  }
+]

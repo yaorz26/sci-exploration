@@ -1,0 +1,1272 @@
+{
+  "analysis_label": "post_hoc_public_only_counterfactual_not_phase_result",
+  "original": {
+    "candidate_trajectories": 20,
+    "contract_valid_candidates": 18,
+    "contract_problem_coverage": 9,
+    "program_requests": 18,
+    "topdown_parser_valid_candidates": 4,
+    "topdown_parser_problem_coverage": 4,
+    "exact_contract_valid_candidates": 1,
+    "exact_contract_problem_coverage": 1,
+    "selected_public_pass": 1,
+    "private_program_evaluations": 0,
+    "private_test_executions": 0,
+    "prefix_nodes": 2,
+    "prefix_checks_passed": 2,
+    "phase_pass": false
+  },
+  "counterfactual": {
+    "description": "Reorder an exact set of existing top-level functions to the frozen contract and install contract docstrings; do not change function bodies or call a model.",
+    "new_model_requests": 0,
+    "private_evaluations": 0,
+    "rewritable_candidates": 14,
+    "problem_coverage": 8,
+    "selected_public_pass": 5,
+    "selected_problems": 8,
+    "not_valid_for_changing_phase_result": true
+  },
+  "counterfactual_candidates": [
+    {
+      "problem_id": "apps-train-2651",
+      "candidate_index": 0,
+      "rewrite": {
+        "valid": true,
+        "original_function_order": [
+          "prod2sum",
+          "calculate_sums",
+          "decompose_product"
+        ],
+        "rewritten_function_order": [
+          "prod2sum",
+          "calculate_sums",
+          "decompose_product"
+        ],
+        "function_order_changed": false,
+        "inserted_docstrings": 3,
+        "replaced_docstrings": 0,
+        "errors": []
+      },
+      "code_hash": "de06f3863c586eacb75595008df306e3221eb2236c3ce1b0a9ae2e1aa6456cda",
+      "rewritten_code": "def prod2sum(a, b, c, d):\n    \"\"\"Calculate the product of the sums of squares of two pairs of integers and decompose the result into a sum of two squares.\"\"\"\n    sums = calculate_sums(a, b, c, d)\n    product = sums[0] * sums[1]\n    decompositions = decompose_product(product)\n    return decompositions\n\ndef calculate_sums(a, b, c, d):\n    \"\"\"Calculate the sums of squares of two pairs of integers.\"\"\"\n    sum1 = a ** 2 + b ** 2\n    sum2 = c ** 2 + d ** 2\n    return (sum1, sum2)\n\ndef decompose_product(product):\n    \"\"\"Decompose the product of the sums of squares into a sum of two squares.\"\"\"\n    decompositions = []\n    for e in range(product + 1):\n        f = product - e ** 2\n        if f >= 0 and int(f ** 0.5) ** 2 == f:\n            decompositions.append([min(e, f), max(e, f)])\n    decompositions.sort()\n    return decompositions\n",
+      "public": {
+        "split": "public",
+        "passed": 0,
+        "total": 5,
+        "pass_rate": 0.0,
+        "tests": [
+          {
+            "passed": 0,
+            "expected": "[[[1, 7], [5, 5]]]",
+            "actual": "[[1, 7], [1, 49], [5, 25]]\n",
+            "stderr": "",
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "duration_seconds": 0.126683
+          },
+          {
+            "passed": 0,
+            "expected": "[[[2, 23], [7, 22]]]",
+            "actual": "[[2, 529], [4, 23], [7, 484], [22, 49]]\n",
+            "stderr": "",
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "duration_seconds": 0.097137
+          },
+          {
+            "passed": 0,
+            "expected": "[[[1, 8], [4, 7]]]",
+            "actual": "[[1, 8], [1, 64], [4, 49], [7, 16]]\n",
+            "stderr": "",
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "duration_seconds": 0.120982
+          },
+          {
+            "passed": 0,
+            "expected": "[[[2, 8]]]",
+            "actual": "[[2, 64], [4, 8]]\n",
+            "stderr": "",
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "duration_seconds": 0.08211
+          },
+          {
+            "passed": 0,
+            "expected": "[[[2, 263], [23, 262]]]",
+            "actual": "[[2, 69169], [4, 263], [23, 68644], [103, 58564], [122, 54289], [233, 14884], [242, 10609], [262, 529]]\n",
+            "stderr": "",
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "duration_seconds": 0.105819
+          }
+        ],
+        "per_test_timeout_seconds": 10.0,
+        "candidate_timeout_seconds": null,
+        "elapsed_seconds": 0.539696,
+        "budget_exhausted": false
+      }
+    },
+    {
+      "problem_id": "apps-train-2651",
+      "candidate_index": 1,
+      "rewrite": {
+        "valid": true,
+        "original_function_order": [
+          "prod2sum",
+          "calculate_sums",
+          "decompose_product"
+        ],
+        "rewritten_function_order": [
+          "prod2sum",
+          "calculate_sums",
+          "decompose_product"
+        ],
+        "function_order_changed": false,
+        "inserted_docstrings": 3,
+        "replaced_docstrings": 0,
+        "errors": []
+      },
+      "code_hash": "4b59a02a9129389dde59b2b6de6cfc4b5dc08d1b43974d1b7814b475b11615de",
+      "rewritten_code": "import math\n\ndef prod2sum(a, b, c, d):\n    \"\"\"Calculate the product of the sums of squares of two pairs of integers and decompose the result into a sum of two squares.\"\"\"\n    sums = calculate_sums(a, b, c, d)\n    product = sums[0] * sums[1]\n    decomposed = decompose_product(product)\n    return decomposed\n\ndef calculate_sums(a, b, c, d):\n    \"\"\"Calculate the sums of squares of two pairs of integers.\"\"\"\n    sum1 = a ** 2 + b ** 2\n    sum2 = c ** 2 + d ** 2\n    return (sum1, sum2)\n\ndef decompose_product(product):\n    \"\"\"Decompose the product of the sums of squares into a sum of two squares.\"\"\"\n    solutions = []\n    for e in range(int(math.sqrt(product)) + 1):\n        f_squared = product - e ** 2\n        f = int(math.sqrt(f_squared))\n        if f ** 2 == f_squared:\n            solutions.append([min(e, f), max(e, f)])\n    return sorted(solutions)\n",
+      "public": {
+        "split": "public",
+        "passed": 0,
+        "total": 5,
+        "pass_rate": 0.0,
+        "tests": [
+          {
+            "passed": 0,
+            "expected": "[[[1, 7], [5, 5]]]",
+            "actual": "[[1, 7], [1, 7], [5, 5]]\n",
+            "stderr": "",
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "duration_seconds": 0.091431
+          },
+          {
+            "passed": 0,
+            "expected": "[[[2, 23], [7, 22]]]",
+            "actual": "[[2, 23], [2, 23], [7, 22], [7, 22]]\n",
+            "stderr": "",
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "duration_seconds": 0.170701
+          },
+          {
+            "passed": 0,
+            "expected": "[[[1, 8], [4, 7]]]",
+            "actual": "[[1, 8], [1, 8], [4, 7], [4, 7]]\n",
+            "stderr": "",
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "duration_seconds": 0.081112
+          },
+          {
+            "passed": 0,
+            "expected": "[[[2, 8]]]",
+            "actual": "[[2, 8], [2, 8]]\n",
+            "stderr": "",
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "duration_seconds": 0.097527
+          },
+          {
+            "passed": 0,
+            "expected": "[[[2, 263], [23, 262]]]",
+            "actual": "[[2, 263], [2, 263], [23, 262], [23, 262], [103, 242], [103, 242], [122, 233], [122, 233]]\n",
+            "stderr": "",
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "duration_seconds": 0.113695
+          }
+        ],
+        "per_test_timeout_seconds": 10.0,
+        "candidate_timeout_seconds": null,
+        "elapsed_seconds": 0.558313,
+        "budget_exhausted": false
+      }
+    },
+    {
+      "problem_id": "apps-train-2653",
+      "candidate_index": 0,
+      "rewrite": {
+        "valid": true,
+        "original_function_order": [
+          "bingo",
+          "contains_required_numbers"
+        ],
+        "rewritten_function_order": [
+          "bingo",
+          "contains_required_numbers"
+        ],
+        "function_order_changed": false,
+        "inserted_docstrings": 0,
+        "replaced_docstrings": 2,
+        "errors": []
+      },
+      "code_hash": "8831d700cd1ad9f0f7b305c7907ec205b77dadf3b53c7e760519517049d47c06",
+      "rewritten_code": "from typing import List\n\ndef bingo(array: List[int]) -> str:\n    \"\"\"Determines if the given array of numbers can spell 'BINGO'.\n\nInputs:\n- array: A list of 10 integers ranging from 1 to 26.\n\nOutput:\n- 'WIN' if the numbers can spell 'BINGO', otherwise 'LOSE'.\n\nAlgorithmic Role:\n- Calls helper functions to check if the array contains the required numbers for 'BINGO'.\n- Returns 'WIN' if all required numbers are present, otherwise 'LOSE'.\"\"\"\n    return 'WIN' if contains_required_numbers(array) else 'LOSE'\n\ndef contains_required_numbers(array: List[int]) -> bool:\n    \"\"\"Checks if the array contains the required numbers for 'BINGO'.\n\nInputs:\n- array: A list of 10 integers ranging from 1 to 26.\n\nOutput:\n- True if the array contains the numbers 2, 9, 14, 15, and 21, otherwise False.\n\nAlgorithmic Role:\n- Iterates through the array and counts the occurrences of the numbers 2, 9, 14, 15, and 21.\n- Returns True if all five numbers are present at least once, otherwise False.\"\"\"\n    required_numbers = {2, 9, 14, 15, 21}\n    return required_numbers.issubset(set(array))\n",
+      "public": {
+        "split": "public",
+        "passed": 2,
+        "total": 2,
+        "pass_rate": 1.0,
+        "tests": [
+          {
+            "passed": 1,
+            "expected": "['LOSE']",
+            "actual": "'LOSE'\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.152243
+          },
+          {
+            "passed": 1,
+            "expected": "['LOSE']",
+            "actual": "'LOSE'\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.117461
+          }
+        ],
+        "per_test_timeout_seconds": 10.0,
+        "candidate_timeout_seconds": null,
+        "elapsed_seconds": 0.271001,
+        "budget_exhausted": false
+      }
+    },
+    {
+      "problem_id": "apps-train-2653",
+      "candidate_index": 1,
+      "rewrite": {
+        "valid": true,
+        "original_function_order": [
+          "contains_required_numbers",
+          "bingo"
+        ],
+        "rewritten_function_order": [
+          "bingo",
+          "contains_required_numbers"
+        ],
+        "function_order_changed": true,
+        "inserted_docstrings": 2,
+        "replaced_docstrings": 0,
+        "errors": []
+      },
+      "code_hash": "1332f156e488361aa95222471f7328a3dde71266facbbc588986e247d2fdbbd2",
+      "rewritten_code": "from typing import List\n\ndef bingo(array: List[int]) -> str:\n    \"\"\"Determines if the given array of numbers can spell 'BINGO'.\n\nInputs:\n- array: List[int] - A list of 10 integers from 1 to 26.\n\nOutput:\n- str: 'WIN' if the numbers can spell 'BINGO', otherwise 'LOSE'.\n\nAlgorithmic Role:\n- Calls helper functions to check if the array contains the required numbers for 'BINGO'.\n- Returns 'WIN' if all required numbers are present, otherwise 'LOSE'.\"\"\"\n    return 'WIN' if contains_required_numbers(array) else 'LOSE'\n\ndef contains_required_numbers(array: List[int]) -> bool:\n    \"\"\"Checks if the array contains the required numbers for 'BINGO'.\n\nInputs:\n- array: List[int] - A list of 10 integers from 1 to 26.\n\nOutput:\n- bool: True if the array contains the required numbers, otherwise False.\n\nAlgorithmic Role:\n- Iterates through the required numbers for 'BINGO' (2, 9, 14, 15, 20).\n- Checks if each required number is present in the array.\n- Returns True if all required numbers are found, otherwise False.\"\"\"\n    required_numbers = {2, 9, 14, 15, 20}\n    return required_numbers.issubset(set(array))\n",
+      "public": {
+        "split": "public",
+        "passed": 2,
+        "total": 2,
+        "pass_rate": 1.0,
+        "tests": [
+          {
+            "passed": 1,
+            "expected": "['LOSE']",
+            "actual": "'LOSE'\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.08776
+          },
+          {
+            "passed": 1,
+            "expected": "['LOSE']",
+            "actual": "'LOSE'\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.101644
+          }
+        ],
+        "per_test_timeout_seconds": 10.0,
+        "candidate_timeout_seconds": null,
+        "elapsed_seconds": 0.191763,
+        "budget_exhausted": false
+      }
+    },
+    {
+      "problem_id": "apps-train-2654",
+      "candidate_index": 0,
+      "rewrite": {
+        "valid": true,
+        "original_function_order": [
+          "michael_pays",
+          "calculate_michael_payment"
+        ],
+        "rewritten_function_order": [
+          "michael_pays",
+          "calculate_michael_payment"
+        ],
+        "function_order_changed": false,
+        "inserted_docstrings": 0,
+        "replaced_docstrings": 1,
+        "errors": []
+      },
+      "code_hash": "9949691b1984852da5795d5db4866e71a9d9c0ac712dd07d73f78fee6bc68f59",
+      "rewritten_code": "def michael_pays(costs):\n    \"\"\"Calculates how much Michael is going to pay for a pizza based on its cost.\n\nInputs:\n- costs (float): The total cost of the pizza in euros.\n\nOutput:\n- float: The amount Michael is going to pay, rounded to two decimal places.\n\nAlgorithmic role:\n- Entry point for the calculation.\n- Determines if Kate or Michael pays the full price based on the pizza cost.\n- Calls the appropriate helper function to calculate Michael's payment.\"\"\"\n    return calculate_michael_payment(costs)\n\ndef calculate_michael_payment(costs):\n    \"\"\"Calculates the amount Michael is going to pay based on the pizza cost.\n\nInputs:\n- costs (float): The total cost of the pizza in euros.\n\nOutput:\n- float: The amount Michael is going to pay, rounded to two decimal places.\n\nAlgorithmic role:\n- Determines if Kate or Michael pays the full price based on the pizza cost.\n- If the pizza is less than €5, Michael pays the full price.\n- Otherwise, Kate pays 1/3 of the price, but no more than €10, and Michael pays the rest.\"\"\"\n    if costs < 5:\n        return round(costs, 2)\n    else:\n        kate_payment = min(costs / 3, 10)\n        michael_payment = costs - kate_payment\n        return round(michael_payment, 2)\n",
+      "public": {
+        "split": "public",
+        "passed": 5,
+        "total": 5,
+        "pass_rate": 1.0,
+        "tests": [
+          {
+            "passed": 1,
+            "expected": "[10]",
+            "actual": "10.0\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.103294
+          },
+          {
+            "passed": 1,
+            "expected": "[4]",
+            "actual": "4\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.146668
+          },
+          {
+            "passed": 1,
+            "expected": "[4.99]",
+            "actual": "4.99\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.365024
+          },
+          {
+            "passed": 1,
+            "expected": "[3.33]",
+            "actual": "3.33\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.084064
+          },
+          {
+            "passed": 1,
+            "expected": "[20]",
+            "actual": "20.0\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.635495
+          }
+        ],
+        "per_test_timeout_seconds": 10.0,
+        "candidate_timeout_seconds": null,
+        "elapsed_seconds": 1.339193,
+        "budget_exhausted": false
+      }
+    },
+    {
+      "problem_id": "apps-train-2654",
+      "candidate_index": 1,
+      "rewrite": {
+        "valid": true,
+        "original_function_order": [
+          "michael_pays",
+          "calculate_kate_payment",
+          "calculate_michael_payment"
+        ],
+        "rewritten_function_order": [
+          "michael_pays",
+          "calculate_kate_payment",
+          "calculate_michael_payment"
+        ],
+        "function_order_changed": false,
+        "inserted_docstrings": 3,
+        "replaced_docstrings": 0,
+        "errors": []
+      },
+      "code_hash": "8b26baa37c23cd61a5259f997d69386d8933f156e310f7cf49cef38e0586782d",
+      "rewritten_code": "def michael_pays(costs):\n    \"\"\"Calculate how much Michael is going to pay for a pizza based on its cost.\n\nInputs:\n- costs (float): The total cost of the pizza in euros.\n\nOutput:\n- float: The amount Michael is going to pay, rounded to two decimal places.\n\nAlgorithmic Role:\n- Determines if Kate or Michael pays the full price based on the pizza cost.\n- If the pizza is less than €5, Michael pays the full price.\n- Otherwise, Kate pays up to €10, and Michael pays the rest.\"\"\"\n    kate_payment = calculate_kate_payment(costs)\n    michael_payment = calculate_michael_payment(costs, kate_payment)\n    return michael_payment\n\ndef calculate_kate_payment(costs):\n    \"\"\"Calculate Kate's payment for the pizza.\n\nInputs:\n- costs (float): The total cost of the pizza in euros.\n\nOutput:\n- float: The amount Kate is going to pay, rounded to two decimal places.\n\nAlgorithmic Role:\n- Determines Kate's share of the pizza cost, capped at €10.\"\"\"\n    kate_share = costs / 3\n    kate_payment = min(kate_share, 10.0)\n    return round(kate_payment, 2)\n\ndef calculate_michael_payment(costs, kate_payment):\n    \"\"\"Calculate Michael's payment for the pizza.\n\nInputs:\n- costs (float): The total cost of the pizza in euros.\n- kate_payment (float): The amount Kate is going to pay.\n\nOutput:\n- float: The amount Michael is going to pay, rounded to two decimal places.\n\nAlgorithmic Role:\n- Calculates the remaining cost after Kate's payment and rounds it to two decimal places.\"\"\"\n    michael_payment = costs - kate_payment\n    return round(michael_payment, 2)\n",
+      "public": {
+        "split": "public",
+        "passed": 3,
+        "total": 5,
+        "pass_rate": 0.6,
+        "tests": [
+          {
+            "passed": 1,
+            "expected": "[10]",
+            "actual": "10.0\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.098196
+          },
+          {
+            "passed": 0,
+            "expected": "[4]",
+            "actual": "2.67\n",
+            "stderr": "",
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "duration_seconds": 0.076559
+          },
+          {
+            "passed": 0,
+            "expected": "[4.99]",
+            "actual": "3.33\n",
+            "stderr": "",
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "duration_seconds": 0.361316
+          },
+          {
+            "passed": 1,
+            "expected": "[3.33]",
+            "actual": "3.33\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.106064
+          },
+          {
+            "passed": 1,
+            "expected": "[20]",
+            "actual": "20.0\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.080239
+          }
+        ],
+        "per_test_timeout_seconds": 10.0,
+        "candidate_timeout_seconds": null,
+        "elapsed_seconds": 0.727021,
+        "budget_exhausted": false
+      }
+    },
+    {
+      "problem_id": "apps-train-2655",
+      "candidate_index": 0,
+      "rewrite": {
+        "valid": true,
+        "original_function_order": [
+          "duck_shoot",
+          "calculate_successful_shots",
+          "mark_shots"
+        ],
+        "rewritten_function_order": [
+          "duck_shoot",
+          "calculate_successful_shots",
+          "mark_shots"
+        ],
+        "function_order_changed": false,
+        "inserted_docstrings": 3,
+        "replaced_docstrings": 0,
+        "errors": []
+      },
+      "code_hash": "372e80a6ff4559b91168e5eb6cd34e96ccc081b17b8699526b2afd5c77c2fada",
+      "rewritten_code": "def duck_shoot(ammo, aim, ducks):\n    \"\"\"Calculates the number of successful shots and returns the updated duck string with successful shots marked as 'X'.\n\nInputs:\n- ammo (int): The number of bullets available.\n- aim (float): The aim rating between 1 and 0.\n- ducks (str): A string representing the pool of ducks, where '2' represents a duck.\n\nOutput:\n- str: The updated duck string with successful shots marked as 'X'.\n\nAlgorithmic Role:\n- Determines the number of successful shots based on ammo and aim.\n- Marks the successful shots in the duck string with 'X'.\n- Returns the updated duck string.\"\"\"\n    successful_shots = calculate_successful_shots(ammo, aim)\n    updated_ducks = mark_shots(ducks, successful_shots)\n    return updated_ducks\n\ndef calculate_successful_shots(ammo, aim):\n    \"\"\"Calculates the number of successful shots based on the available ammo and aim rating.\n\nInputs:\n- ammo (int): The number of bullets available.\n- aim (float): The aim rating between 1 and 0.\n\nOutput:\n- int: The number of successful shots.\n\nAlgorithmic Role:\n- Multiplies the ammo by the aim to estimate the number of successful shots.\"\"\"\n    return int(ammo * aim)\n\ndef mark_shots(ducks, successful_shots):\n    \"\"\"Marks the successful shots in the duck string with 'X'.\n\nInputs:\n- ducks (str): A string representing the pool of ducks, where '2' represents a duck.\n- successful_shots (int): The number of successful shots.\n\nOutput:\n- str: The updated duck string with successful shots marked as 'X'.\n\nAlgorithmic Role:\n- Iterates through the duck string and marks the first 'successful_shots' occurrences of '2' with 'X'.\"\"\"\n    updated_ducks = list(ducks)\n    for i in range(successful_shots):\n        if '2' in updated_ducks:\n            index = updated_ducks.index('2')\n            updated_ducks[index] = 'X'\n        else:\n            break\n    return ''.join(updated_ducks)\n",
+      "public": {
+        "split": "public",
+        "passed": 2,
+        "total": 2,
+        "pass_rate": 1.0,
+        "tests": [
+          {
+            "passed": 1,
+            "expected": "['|~~X~~~X2~2~~22~2~~~~2~~~|']",
+            "actual": "'|~~X~~~X2~2~~22~2~~~~2~~~|'\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.090931
+          },
+          {
+            "passed": 1,
+            "expected": "['|~~~~~~~X~2~~~|']",
+            "actual": "'|~~~~~~~X~2~~~|'\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.084892
+          }
+        ],
+        "per_test_timeout_seconds": 10.0,
+        "candidate_timeout_seconds": null,
+        "elapsed_seconds": 0.177016,
+        "budget_exhausted": false
+      }
+    },
+    {
+      "problem_id": "apps-train-2655",
+      "candidate_index": 1,
+      "rewrite": {
+        "valid": true,
+        "original_function_order": [
+          "duck_shoot",
+          "calculate_successful_shots",
+          "aim_to_shots_factor",
+          "mark_ducks"
+        ],
+        "rewritten_function_order": [
+          "duck_shoot",
+          "calculate_successful_shots",
+          "aim_to_shots_factor",
+          "mark_ducks"
+        ],
+        "function_order_changed": false,
+        "inserted_docstrings": 4,
+        "replaced_docstrings": 0,
+        "errors": []
+      },
+      "code_hash": "7480b2b4438ecd7951dd2452cb723500b7377ab8949332644d8dcef36161b502",
+      "rewritten_code": "def duck_shoot(ammo, aim, ducks):\n    \"\"\"Calculate successful shots and return updated duck string.\n\nInputs:\n- ammo (int): Number of bullets available.\n- aim (float): Aim rating between 1 and 0.\n- ducks (str): String representing the pool of ducks.\n\nOutput:\n- str: Updated duck string with 'X' marking successful shots.\n\nAlgorithm:\n1. Calculate the number of successful shots based on ammo and aim.\n2. Iterate through the ducks string from left to right.\n3. For each duck, if ammo is available and aim is high enough, mark it as shot with 'X' and decrement ammo.\n4. Return the updated ducks string.\"\"\"\n    successful_shots = calculate_successful_shots(ammo, aim)\n    updated_ducks = mark_ducks(ducks, successful_shots)\n    return updated_ducks\n\ndef calculate_successful_shots(ammo, aim):\n    \"\"\"Calculate the number of successful shots based on ammo and aim.\n\nInputs:\n- ammo (int): Number of bullets available.\n- aim (float): Aim rating between 1 and 0.\n\nOutput:\n- int: Number of successful shots.\n\nAlgorithm:\n1. Calculate successful shots as the minimum of ammo and a function of aim.\"\"\"\n    return min(ammo, aim_to_shots_factor(aim))\n\ndef aim_to_shots_factor(aim):\n    \"\"\"Convert aim rating to a factor that determines successful shots.\n\nInputs:\n- aim (float): Aim rating between 1 and 0.\n\nOutput:\n- float: Factor representing successful shots.\"\"\"\n    return 10 * aim\n\ndef mark_ducks(ducks, successful_shots):\n    \"\"\"Mark ducks as shot based on successful shots.\n\nInputs:\n- ducks (str): String representing the pool of ducks.\n- successful_shots (int): Number of successful shots.\n\nOutput:\n- str: Updated duck string with 'X' marking successful shots.\n\nAlgorithm:\n1. Iterate through the ducks string from left to right.\n2. For each duck, if successful shots are available, mark it as shot with 'X' and decrement successful shots.\n3. Return the updated ducks string.\"\"\"\n    updated_ducks = list(ducks)\n    for i in range(len(updated_ducks)):\n        if successful_shots > 0 and updated_ducks[i] == '2':\n            updated_ducks[i] = 'X'\n            successful_shots -= 1\n    return ''.join(updated_ducks)\n",
+      "public": {
+        "split": "public",
+        "passed": 0,
+        "total": 2,
+        "pass_rate": 0.0,
+        "tests": [
+          {
+            "passed": 0,
+            "expected": "['|~~X~~~X2~2~~22~2~~~~2~~~|']",
+            "actual": "'|~~X~~~XX~X~~22~2~~~~2~~~|'\n",
+            "stderr": "",
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "duration_seconds": 0.083686
+          },
+          {
+            "passed": 0,
+            "expected": "['|~~~~~~~X~2~~~|']",
+            "actual": "'|~~~~~~~X~X~~~|'\n",
+            "stderr": "",
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "duration_seconds": 0.088517
+          }
+        ],
+        "per_test_timeout_seconds": 10.0,
+        "candidate_timeout_seconds": null,
+        "elapsed_seconds": 0.17384,
+        "budget_exhausted": false
+      }
+    },
+    {
+      "problem_id": "apps-train-2656",
+      "candidate_index": 0,
+      "rewrite": {
+        "valid": true,
+        "original_function_order": [
+          "bird_code",
+          "split_name",
+          "create_code"
+        ],
+        "rewritten_function_order": [
+          "bird_code",
+          "split_name",
+          "create_code"
+        ],
+        "function_order_changed": false,
+        "inserted_docstrings": 3,
+        "replaced_docstrings": 0,
+        "errors": []
+      },
+      "code_hash": "e26544525dca54dc323c9ad862ef9de952bc492e60e1f34a8351d8ece0962cba",
+      "rewritten_code": "from typing import List\n\ndef bird_code(arr: List[str]) -> List[str]:\n    \"\"\"Generate four-letter codes for common bird names based on specific rules. The codes are returned in uppercase and maintain the order of the input names.\"\"\"\n    return [create_code(split_name(name)) for name in arr]\n\ndef split_name(name: str) -> List[str]:\n    \"\"\"Split a bird name into words, treating hyphens as spaces.\"\"\"\n    return name.replace('-', ' ').split()\n\ndef create_code(words: List[str]) -> str:\n    \"\"\"Create a four-letter code based on the number of words in the bird name.\"\"\"\n    if len(words) == 1:\n        return words[0][:4].upper()\n    elif len(words) == 2:\n        return words[0][:2].upper() + words[1][:2].upper()\n    elif len(words) == 3:\n        return words[0][0].upper() + words[1][0].upper() + words[2][:2].upper()\n    elif len(words) == 4:\n        return words[0][0].upper() + words[1][0].upper() + words[2][0].upper() + words[3][0].upper()\n    else:\n        return ''\n",
+      "public": {
+        "split": "public",
+        "passed": 2,
+        "total": 2,
+        "pass_rate": 1.0,
+        "tests": [
+          {
+            "passed": 1,
+            "expected": "[['AMRE', 'NOCA', 'PIGR', 'BAOW', 'STAR', 'COHA', 'PIGE']]",
+            "actual": "['AMRE', 'NOCA', 'PIGR', 'BAOW', 'STAR', 'COHA', 'PIGE']\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.095432
+          },
+          {
+            "passed": 1,
+            "expected": "[['GCFL', 'BOBO', 'AWPE', 'RTHA', 'ESOW', 'BLJA']]",
+            "actual": "['GCFL', 'BOBO', 'AWPE', 'RTHA', 'ESOW', 'BLJA']\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.076773
+          }
+        ],
+        "per_test_timeout_seconds": 10.0,
+        "candidate_timeout_seconds": null,
+        "elapsed_seconds": 0.17415,
+        "budget_exhausted": false
+      }
+    },
+    {
+      "problem_id": "apps-train-2656",
+      "candidate_index": 1,
+      "rewrite": {
+        "valid": false,
+        "errors": [
+          "function_set_mismatch:bird_code!=bird_code,split_name,create_code"
+        ]
+      },
+      "code_hash": null,
+      "rewritten_code": null,
+      "public": null
+    },
+    {
+      "problem_id": "apps-train-2657",
+      "candidate_index": 0,
+      "rewrite": {
+        "valid": true,
+        "original_function_order": [
+          "make_string",
+          "capitalize_words",
+          "split_words",
+          "capitalize_word",
+          "join_words"
+        ],
+        "rewritten_function_order": [
+          "make_string",
+          "capitalize_words",
+          "split_words",
+          "capitalize_word",
+          "join_words"
+        ],
+        "function_order_changed": false,
+        "inserted_docstrings": 0,
+        "replaced_docstrings": 5,
+        "errors": []
+      },
+      "code_hash": "b2fc1ce3e886088af7462bcb507be6357d513207b89ceb24959a1e78d22dba93",
+      "rewritten_code": "def make_string(s):\n    \"\"\"Converts the first character of each word in the input string to uppercase and returns the new string.\n\nInputs:\n- s (str): The input string.\n\nOutput:\n- str: A new string with the first character of each word in uppercase.\n\nAlgorithmic Role:\n- Calls the helper function `capitalize_words` to process the input string and return the result.\"\"\"\n    return capitalize_words(s)\n\ndef capitalize_words(s):\n    \"\"\"Capitalizes the first character of each word in the input string.\n\nInputs:\n- s (str): The input string.\n\nOutput:\n- str: A new string with the first character of each word capitalized.\n\nAlgorithmic Role:\n- Splits the input string into words.\n- Capitalizes the first character of each word.\n- Joins the words back into a single string and returns it.\"\"\"\n    words = split_words(s)\n    capitalized_words = [capitalize_word(word) for word in words]\n    return join_words(capitalized_words)\n\ndef split_words(s):\n    \"\"\"Splits the input string into a list of words.\n\nInputs:\n- s (str): The input string.\n\nOutput:\n- list[str]: A list of words from the input string.\n\nAlgorithmic Role:\n- Uses the `split` method to divide the input string into words based on spaces.\"\"\"\n    return s.split()\n\ndef capitalize_word(word):\n    \"\"\"Capitalizes the first character of the input word.\n\nInputs:\n- word (str): The input word.\n\nOutput:\n- str: The word with the first character capitalized.\n\nAlgorithmic Role:\n- Capitalizes the first character of the input word and returns it.\"\"\"\n    return word[0].upper() + word[1:]\n\ndef join_words(words):\n    \"\"\"Joins a list of words into a single string.\n\nInputs:\n- words (list[str]): The list of words.\n\nOutput:\n- str: A single string containing all the words joined together.\n\nAlgorithmic Role:\n- Uses the `join` method to concatenate the list of words into a single string.\"\"\"\n    return ''.join(words)\n",
+      "public": {
+        "split": "public",
+        "passed": 0,
+        "total": 2,
+        "pass_rate": 0.0,
+        "tests": [
+          {
+            "passed": 0,
+            "expected": "['sexy']",
+            "actual": "'SeesEyesXrayYoat'\n",
+            "stderr": "",
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "duration_seconds": 0.080633
+          },
+          {
+            "passed": 0,
+            "expected": "['bean']",
+            "actual": "'BrownEyesAreNice'\n",
+            "stderr": "",
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "duration_seconds": 0.083253
+          }
+        ],
+        "per_test_timeout_seconds": 10.0,
+        "candidate_timeout_seconds": null,
+        "elapsed_seconds": 0.165637,
+        "budget_exhausted": false
+      }
+    },
+    {
+      "problem_id": "apps-train-2657",
+      "candidate_index": 1,
+      "rewrite": {
+        "valid": false,
+        "original_function_order": [
+          "split_string",
+          "capitalize_words",
+          "make_string"
+        ],
+        "rewritten_function_order": [
+          "make_string",
+          "capitalize_words",
+          "split_string"
+        ],
+        "function_order_changed": true,
+        "inserted_docstrings": 0,
+        "replaced_docstrings": 0,
+        "errors": [
+          "undeclared_contract_call:make_string:split_string",
+          "missing_declared_call:capitalize_words:split_string"
+        ]
+      },
+      "code_hash": null,
+      "rewritten_code": null,
+      "public": null
+    },
+    {
+      "problem_id": "apps-train-2658",
+      "candidate_index": 0,
+      "rewrite": {
+        "valid": true,
+        "original_function_order": [
+          "xor_bits",
+          "count_set_bits",
+          "convert_bits"
+        ],
+        "rewritten_function_order": [
+          "convert_bits",
+          "xor_bits",
+          "count_set_bits"
+        ],
+        "function_order_changed": true,
+        "inserted_docstrings": 0,
+        "replaced_docstrings": 3,
+        "errors": []
+      },
+      "code_hash": "6a132effc0565be534365d3393a1b431c04719e15be367f91a4bf8c35ac91bbf",
+      "rewritten_code": "def convert_bits(a: int, b: int) -> int:\n    \"\"\"Determine the number of bits required to convert integer A to integer B.\nInputs: a (int), b (int)\nOutput: int\nAlgorithmic role: Entry point for the conversion process.\"\"\"\n    return count_set_bits(xor_bits(a, b))\n\ndef xor_bits(a: int, b: int) -> int:\n    \"\"\"Compute the XOR of two integers to find differing bits.\nInputs: a (int), b (int)\nOutput: int\nAlgorithmic role: Helper to find bits that differ between a and b.\"\"\"\n    return a ^ b\n\ndef count_set_bits(n: int) -> int:\n    \"\"\"Count the number of set bits (1s) in an integer.\nInputs: n (int)\nOutput: int\nAlgorithmic role: Helper to count the number of bits that are set in the result of XOR.\"\"\"\n    count = 0\n    while n:\n        count += n & 1\n        n >>= 1\n    return count\n",
+      "public": {
+        "split": "public",
+        "passed": 3,
+        "total": 3,
+        "pass_rate": 1.0,
+        "tests": [
+          {
+            "passed": 1,
+            "expected": "[2]",
+            "actual": "2\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.078876
+          },
+          {
+            "passed": 1,
+            "expected": "[3]",
+            "actual": "3\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.093187
+          },
+          {
+            "passed": 1,
+            "expected": "[5]",
+            "actual": "5\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.086206
+          }
+        ],
+        "per_test_timeout_seconds": 10.0,
+        "candidate_timeout_seconds": null,
+        "elapsed_seconds": 0.260201,
+        "budget_exhausted": false
+      }
+    },
+    {
+      "problem_id": "apps-train-2658",
+      "candidate_index": 1,
+      "rewrite": {
+        "valid": true,
+        "original_function_order": [
+          "convert_bits",
+          "xor_bits",
+          "count_set_bits"
+        ],
+        "rewritten_function_order": [
+          "convert_bits",
+          "xor_bits",
+          "count_set_bits"
+        ],
+        "function_order_changed": false,
+        "inserted_docstrings": 0,
+        "replaced_docstrings": 0,
+        "errors": []
+      },
+      "code_hash": "65a9124cc956d8268fbe2b897ef6e6cee29efafde1b021779608a63a07777adf",
+      "rewritten_code": "def convert_bits(a: int, b: int) -> int:\n    \"\"\"Determine the number of bits required to convert integer A to integer B.\nInputs: a (int), b (int)\nOutput: int\nAlgorithmic role: Entry point for the conversion process.\"\"\"\n    return count_set_bits(xor_bits(a, b))\n\ndef xor_bits(a: int, b: int) -> int:\n    \"\"\"Compute the XOR of two integers.\nInputs: a (int), b (int)\nOutput: int\nAlgorithmic role: Helper function to find differing bits between A and B.\"\"\"\n    return a ^ b\n\ndef count_set_bits(n: int) -> int:\n    \"\"\"Count the number of set bits (1s) in an integer.\nInputs: n (int)\nOutput: int\nAlgorithmic role: Helper function to count the number of bits that need to be flipped.\"\"\"\n    count = 0\n    while n:\n        count += n & 1\n        n >>= 1\n    return count\n",
+      "public": {
+        "split": "public",
+        "passed": 3,
+        "total": 3,
+        "pass_rate": 1.0,
+        "tests": [
+          {
+            "passed": 1,
+            "expected": "[2]",
+            "actual": "2\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.079999
+          },
+          {
+            "passed": 1,
+            "expected": "[3]",
+            "actual": "3\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.076353
+          },
+          {
+            "passed": 1,
+            "expected": "[5]",
+            "actual": "5\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.11911
+          }
+        ],
+        "per_test_timeout_seconds": 10.0,
+        "candidate_timeout_seconds": null,
+        "elapsed_seconds": 0.277527,
+        "budget_exhausted": false
+      }
+    },
+    {
+      "problem_id": "apps-train-2660",
+      "candidate_index": 0,
+      "rewrite": {
+        "valid": false,
+        "original_function_order": [
+          "format_arg",
+          "join_args",
+          "args_to_string"
+        ],
+        "rewritten_function_order": [
+          "args_to_string",
+          "join_args",
+          "format_arg"
+        ],
+        "function_order_changed": true,
+        "inserted_docstrings": 3,
+        "replaced_docstrings": 0,
+        "errors": [
+          "missing_declared_call:args_to_string:format_arg"
+        ]
+      },
+      "code_hash": null,
+      "rewritten_code": null,
+      "public": null
+    },
+    {
+      "problem_id": "apps-train-2660",
+      "candidate_index": 1,
+      "rewrite": {
+        "valid": false,
+        "original_function_order": [
+          "format_element",
+          "join_elements",
+          "args_to_string"
+        ],
+        "rewritten_function_order": [
+          "args_to_string",
+          "join_elements",
+          "format_element"
+        ],
+        "function_order_changed": true,
+        "inserted_docstrings": 3,
+        "replaced_docstrings": 0,
+        "errors": [
+          "missing_declared_call:args_to_string:format_element"
+        ]
+      },
+      "code_hash": null,
+      "rewritten_code": null,
+      "public": null
+    },
+    {
+      "problem_id": "apps-train-2661",
+      "candidate_index": 0,
+      "rewrite": {
+        "valid": true,
+        "original_function_order": [
+          "extract_domain",
+          "is_codwars_domain",
+          "find_codwars"
+        ],
+        "rewritten_function_order": [
+          "find_codwars",
+          "is_codwars_domain",
+          "extract_domain"
+        ],
+        "function_order_changed": true,
+        "inserted_docstrings": 0,
+        "replaced_docstrings": 0,
+        "errors": []
+      },
+      "code_hash": "3479e8903be6a5025ba5d52a7eda36912e861bc6ce6d1834ebeb8a90fc91b5fd",
+      "rewritten_code": "import re\n\ndef find_codwars(url: str) -> bool:\n    \"\"\"Determines if the given URL would result in an HTTP request to codwars.com. Returns true if the URL is in the codwars.com domain, false otherwise.\"\"\"\n    return is_codwars_domain(url)\n\ndef is_codwars_domain(url: str) -> bool:\n    \"\"\"Checks if the domain part of the URL is codwars.com or contains codwars.com as a subdomain.\"\"\"\n    domain = extract_domain(url)\n    return 'codwars.com' in domain\n\ndef extract_domain(url: str) -> str:\n    \"\"\"Extracts the domain part of the URL, handling both http:// and https:// prefixes.\"\"\"\n    match = re.match('https?://([^/]+)', url)\n    if match:\n        return match.group(1)\n    return ''\n",
+      "public": {
+        "split": "public",
+        "passed": 10,
+        "total": 13,
+        "pass_rate": 0.7692307692307693,
+        "tests": [
+          {
+            "passed": 0,
+            "expected": "[True]",
+            "actual": "False\n",
+            "stderr": "",
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "duration_seconds": 0.079602
+          },
+          {
+            "passed": 1,
+            "expected": "[True]",
+            "actual": "True\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.073309
+          },
+          {
+            "passed": 0,
+            "expected": "[False]",
+            "actual": "True\n",
+            "stderr": "",
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "duration_seconds": 0.072355
+          },
+          {
+            "passed": 1,
+            "expected": "[True]",
+            "actual": "True\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.109725
+          },
+          {
+            "passed": 1,
+            "expected": "[True]",
+            "actual": "True\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.065756
+          },
+          {
+            "passed": 0,
+            "expected": "[True]",
+            "actual": "False\n",
+            "stderr": "",
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "duration_seconds": 0.080257
+          },
+          {
+            "passed": 1,
+            "expected": "[True]",
+            "actual": "True\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.089577
+          },
+          {
+            "passed": 1,
+            "expected": "[True]",
+            "actual": "True\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.066824
+          },
+          {
+            "passed": 1,
+            "expected": "[True]",
+            "actual": "True\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.083872
+          },
+          {
+            "passed": 1,
+            "expected": "[False]",
+            "actual": "False\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.073875
+          },
+          {
+            "passed": 1,
+            "expected": "[False]",
+            "actual": "False\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.074588
+          },
+          {
+            "passed": 1,
+            "expected": "[False]",
+            "actual": "False\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.07465
+          },
+          {
+            "passed": 1,
+            "expected": "[False]",
+            "actual": "False\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.074192
+          }
+        ],
+        "per_test_timeout_seconds": 10.0,
+        "candidate_timeout_seconds": null,
+        "elapsed_seconds": 1.028142,
+        "budget_exhausted": false
+      }
+    },
+    {
+      "problem_id": "apps-train-2661",
+      "candidate_index": 1,
+      "rewrite": {
+        "valid": true,
+        "original_function_order": [
+          "find_codwars",
+          "remove_http_prefix",
+          "split_url",
+          "contains_codwars"
+        ],
+        "rewritten_function_order": [
+          "find_codwars",
+          "remove_http_prefix",
+          "split_url",
+          "contains_codwars"
+        ],
+        "function_order_changed": false,
+        "inserted_docstrings": 4,
+        "replaced_docstrings": 0,
+        "errors": []
+      },
+      "code_hash": "e54379f297f55620833490db627689375840a319dfb5b51c44baeff798bccc3f",
+      "rewritten_code": "def find_codwars(url: str) -> bool:\n    \"\"\"Determines if the given URL would result in an HTTP request to codwars.com.\n\nArgs:\n    url (str): The URL to check.\n\nReturns:\n    bool: True if the URL is in the codwars.com domain, False otherwise.\n\nAlgorithm:\n    - Remove any leading 'http://' or 'https://' prefix.\n    - Split the URL by '/' and check if 'codwars.com' is in the list.\n    - If 'codwars.com' is found, return True; otherwise, return False.\"\"\"\n    url = remove_http_prefix(url)\n    components = split_url(url)\n    return contains_codwars(components)\n\ndef remove_http_prefix(url: str) -> str:\n    \"\"\"Removes the 'http://' or 'https://' prefix from the URL if present.\n\nArgs:\n    url (str): The URL to process.\n\nReturns:\n    str: The URL with the prefix removed.\"\"\"\n    if url.startswith('http://'):\n        return url[7:]\n    elif url.startswith('https://'):\n        return url[8:]\n    return url\n\ndef split_url(url: str) -> list:\n    \"\"\"Splits the URL by '/' and returns a list of components.\n\nArgs:\n    url (str): The URL to split.\n\nReturns:\n    list: A list of URL components.\"\"\"\n    return url.split('/')\n\ndef contains_codwars(components: list) -> bool:\n    \"\"\"Checks if 'codwars.com' is in the list of URL components.\n\nArgs:\n    components (list): The list of URL components.\n\nReturns:\n    bool: True if 'codwars.com' is found, False otherwise.\"\"\"\n    return 'codwars.com' in components\n",
+      "public": {
+        "split": "public",
+        "passed": 7,
+        "total": 13,
+        "pass_rate": 0.5384615384615384,
+        "tests": [
+          {
+            "passed": 1,
+            "expected": "[True]",
+            "actual": "True\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.07927
+          },
+          {
+            "passed": 1,
+            "expected": "[True]",
+            "actual": "True\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.083818
+          },
+          {
+            "passed": 1,
+            "expected": "[False]",
+            "actual": "False\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.078291
+          },
+          {
+            "passed": 0,
+            "expected": "[True]",
+            "actual": "False\n",
+            "stderr": "",
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "duration_seconds": 0.076458
+          },
+          {
+            "passed": 0,
+            "expected": "[True]",
+            "actual": "False\n",
+            "stderr": "",
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "duration_seconds": 0.071359
+          },
+          {
+            "passed": 0,
+            "expected": "[True]",
+            "actual": "False\n",
+            "stderr": "",
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "duration_seconds": 0.079567
+          },
+          {
+            "passed": 0,
+            "expected": "[True]",
+            "actual": "False\n",
+            "stderr": "",
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "duration_seconds": 0.069829
+          },
+          {
+            "passed": 0,
+            "expected": "[True]",
+            "actual": "False\n",
+            "stderr": "",
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "duration_seconds": 0.088465
+          },
+          {
+            "passed": 0,
+            "expected": "[True]",
+            "actual": "False\n",
+            "stderr": "",
+            "error_type": "wrong_answer",
+            "message": "output mismatch",
+            "timeout": false,
+            "duration_seconds": 0.097508
+          },
+          {
+            "passed": 1,
+            "expected": "[False]",
+            "actual": "False\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.072639
+          },
+          {
+            "passed": 1,
+            "expected": "[False]",
+            "actual": "False\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.076314
+          },
+          {
+            "passed": 1,
+            "expected": "[False]",
+            "actual": "False\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.062507
+          },
+          {
+            "passed": 1,
+            "expected": "[False]",
+            "actual": "False\n",
+            "stderr": "",
+            "error_type": null,
+            "message": "",
+            "timeout": false,
+            "duration_seconds": 0.10255
+          }
+        ],
+        "per_test_timeout_seconds": 10.0,
+        "candidate_timeout_seconds": null,
+        "elapsed_seconds": 1.050915,
+        "budget_exhausted": false
+      }
+    }
+  ],
+  "source_hashes": {
+    "generations_sha256": "295ca3c3c813870c72a123d89b5621f0cd75591033d9fae062c41140dcab768f",
+    "evaluations_sha256": "4da287c78d82463864fb0f803d912d1fa6a86f7c4abd30111c20f997abce9708",
+    "summary_sha256": "2bbb9abdc3c1f22ec9da1f70fab486ed4fa5d3777d51d06dc8b18eb935632e04"
+  },
+  "evaluated_problem_ids": [
+    "apps-train-2651",
+    "apps-train-2652",
+    "apps-train-2653",
+    "apps-train-2654",
+    "apps-train-2655",
+    "apps-train-2656",
+    "apps-train-2657",
+    "apps-train-2658",
+    "apps-train-2660",
+    "apps-train-2661"
+  ]
+}

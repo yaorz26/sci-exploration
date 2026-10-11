@@ -1,0 +1,179 @@
+{
+  "created_at": "2026-10-09T02:24:33.611408+00:00",
+  "inputs": [
+    {
+      "id": "d01",
+      "data": [
+        1,
+        2,
+        2,
+        3
+      ],
+      "default": null
+    },
+    {
+      "id": "d02",
+      "data": [
+        "a",
+        "b",
+        "b",
+        "a",
+        "a"
+      ],
+      "default": null
+    },
+    {
+      "id": "d03",
+      "data": [
+        3,
+        1,
+        3,
+        1
+      ],
+      "default": null
+    },
+    {
+      "id": "d04",
+      "data": [],
+      "default": -1
+    },
+    {
+      "id": "d05",
+      "data": [
+        0,
+        0,
+        2
+      ],
+      "default": 99
+    },
+    {
+      "id": "d06",
+      "data": [
+        -2,
+        -2,
+        -1
+      ],
+      "default": null
+    }
+  ],
+  "manual_analytic_expected": [
+    {
+      "id": "d01",
+      "expected": {
+        "count": 4,
+        "mode": 2
+      },
+      "reason": "2频数2，其余1"
+    },
+    {
+      "id": "d02",
+      "expected": {
+        "count": 5,
+        "mode": "a"
+      },
+      "reason": "a频数3/b频数2"
+    },
+    {
+      "id": "d03",
+      "expected": {
+        "count": 4,
+        "mode": 3
+      },
+      "reason": "3/1各2，3首次出现"
+    },
+    {
+      "id": "d04",
+      "expected": {
+        "count": 0,
+        "mode": -1
+      },
+      "reason": "数量0，空mode返回显式default=-1"
+    },
+    {
+      "id": "d05",
+      "expected": {
+        "count": 3,
+        "mode": 0
+      },
+      "reason": "0频数2，2频数1"
+    },
+    {
+      "id": "d06",
+      "expected": {
+        "count": 3,
+        "mode": -2
+      },
+      "reason": "-2频数2，-1频数1"
+    }
+  ],
+  "expected_status": "本次执行前逐值解析，原P44执行之后；不能回称P44预注册锚点/人类真值",
+  "controls": [
+    {
+      "id": "bool_count",
+      "expected": {
+        "count": 0,
+        "mode": -1
+      },
+      "observed": {
+        "count": false,
+        "mode": -1
+      },
+      "expect_accept": false
+    },
+    {
+      "id": "bool_mode",
+      "expected": {
+        "count": 3,
+        "mode": 0
+      },
+      "observed": {
+        "count": 3,
+        "mode": false
+      },
+      "expect_accept": false
+    },
+    {
+      "id": "missing_count",
+      "expected": {
+        "count": 3,
+        "mode": 0
+      },
+      "observed": {
+        "mode": 0
+      },
+      "expect_accept": false
+    }
+  ],
+  "old_output_sha256": "364d570839a42005672ba94e790d25f434dff6dba5e7b0736608adf249c4e174",
+  "source_sha256": "0c4d05a17b14244a880e5047c1823d1e1e522e6c5ee76c6b47f54d8bde791e68",
+  "comparator_sha256": "8ecaaae3e58c3e4eef67c3bf22fc329c8465c7655c1174a0b1edccefe1df31f8",
+  "comparator_lines": [
+    10,
+    23
+  ],
+  "source_nodes": [
+    [
+      "_calc_count",
+      227,
+      235
+    ],
+    [
+      "_calc_mode",
+      291,
+      309
+    ],
+    [
+      "__get__",
+      144,
+      153
+    ]
+  ],
+  "source_wrapper": "count用Stats(data,default=0).count；mode用另一Stats(data,default=payload.default).mode",
+  "empty_single_instance_prediction": {
+    "data": [],
+    "default": -1,
+    "count": -1,
+    "mode": -1
+  },
+  "scope": "六新参考包装/18复用结果/三控制/一单对象空域；原P44 solve不重跑"
+}

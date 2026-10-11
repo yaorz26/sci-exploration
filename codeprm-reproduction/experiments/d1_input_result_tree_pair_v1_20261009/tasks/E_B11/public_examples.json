@@ -1,0 +1,210 @@
+[
+  {
+    "case_id": "factor_one",
+    "input": {
+      "tree": {
+        "a": [
+          null,
+          2,
+          -1
+        ],
+        "b": 3
+      },
+      "factor": 1,
+      "drop_null": true,
+      "threshold": 3
+    },
+    "output": {
+      "tree": {
+        "a": [
+          2,
+          -1
+        ],
+        "b": 3
+      },
+      "matches": [
+        {
+          "path": [
+            "b"
+          ],
+          "value": 3
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "factor_two",
+    "input": {
+      "tree": {
+        "a": [
+          null,
+          2,
+          -1
+        ],
+        "b": 3
+      },
+      "factor": 2,
+      "drop_null": true,
+      "threshold": 3
+    },
+    "output": {
+      "tree": {
+        "a": [
+          4,
+          -2
+        ],
+        "b": 6
+      },
+      "matches": [
+        {
+          "path": [
+            "b"
+          ],
+          "value": 3
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "keep_null",
+    "input": {
+      "tree": {
+        "a": [
+          null,
+          4
+        ],
+        "b": [
+          1
+        ]
+      },
+      "factor": 1,
+      "drop_null": false,
+      "threshold": 3
+    },
+    "output": {
+      "tree": {
+        "a": [
+          null,
+          4
+        ],
+        "b": [
+          1
+        ]
+      },
+      "matches": [
+        {
+          "path": [
+            "a",
+            1
+          ],
+          "value": 4
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "drop_null",
+    "input": {
+      "tree": {
+        "a": [
+          null,
+          4
+        ],
+        "b": [
+          1
+        ]
+      },
+      "factor": 1,
+      "drop_null": true,
+      "threshold": 3
+    },
+    "output": {
+      "tree": {
+        "a": [
+          4
+        ],
+        "b": [
+          1
+        ]
+      },
+      "matches": [
+        {
+          "path": [
+            "a",
+            1
+          ],
+          "value": 4
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "factor_zero",
+    "input": {
+      "tree": {
+        "a": [
+          null,
+          -2
+        ],
+        "b": 1
+      },
+      "factor": 0,
+      "drop_null": true,
+      "threshold": 0
+    },
+    "output": {
+      "tree": {
+        "a": [
+          0
+        ],
+        "b": 0
+      },
+      "matches": [
+        {
+          "path": [
+            "b"
+          ],
+          "value": 1
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "factor_negative",
+    "input": {
+      "tree": {
+        "a": [
+          -3,
+          2
+        ],
+        "b": {
+          "z": null,
+          "k": -1
+        }
+      },
+      "factor": -2,
+      "drop_null": true,
+      "threshold": 2
+    },
+    "output": {
+      "tree": {
+        "a": [
+          6,
+          -4
+        ],
+        "b": {
+          "k": 2
+        }
+      },
+      "matches": [
+        {
+          "path": [
+            "a",
+            1
+          ],
+          "value": 2
+        }
+      ]
+    }
+  }
+]

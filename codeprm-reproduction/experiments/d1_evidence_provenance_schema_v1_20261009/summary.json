@@ -1,0 +1,34 @@
+{
+  "created_at": "2026-10-09T05:09:11Z",
+  "schema_valid": true,
+  "p58_records_validated": 6,
+  "candidate_metadata_records_validated": 2,
+  "old_manifest_changed": false,
+  "formal_labels_filled": false,
+  "contract_origin_values_used": [
+    "adaptation_requirement",
+    "additional_local_expectation",
+    "not_specified",
+    "observation_unsettled",
+    "source_public_contract",
+    "specified_interface_condition"
+  ],
+  "necessity_scope_values_used": [
+    "candidate_version_specific",
+    "conditional_on_interface",
+    "counterexample_nonnecessary",
+    "task_final_output",
+    "task_necessity_unsettled",
+    "unknown"
+  ],
+  "evidence_status_values_used": [
+    "supported_finite",
+    "unknown"
+  ],
+  "model_calls": 0,
+  "task_solve_calls": 0,
+  "source_calls": 0,
+  "private_reads": 0,
+  "human_reviews": 0,
+  "decision": "证据字段可作为旁车/增量协议加入，旧正式标签、评分、切分和manifest保持不变"
+}

@@ -1,0 +1,51 @@
+{
+  "full_12_task_review": {
+    "status": "timeout",
+    "timeout_ms": 180000,
+    "valid_response": false
+  },
+  "focused_4_task_review": {
+    "status": "completed",
+    "model": "glm-5.3",
+    "tasks": [
+      "D1_B04",
+      "D1_M03",
+      "D1_F03",
+      "D1_F04"
+    ],
+    "response": "focused_response.txt"
+  },
+  "dispositions": [
+    {
+      "finding": "B04分号解析与编码白名单",
+      "decision": "保留固定上游行为，采纳需要明确的建议，不采纳逻辑矛盾判定",
+      "reason": "题面未要求再解析保持可逆；上游parse_qsl按分号切分，quote_query_part将分号保留，两规则可共存。补a=%3B→a=;明例及测试，不自行改上游输出。"
+    },
+    {
+      "finding": "B04空键/null产生空片段",
+      "decision": "补题面明例和隐藏案例",
+      "reason": "pairs仍保留该条，编码为空片段；原数据未明确展示。"
+    },
+    {
+      "finding": "M03错误返回层级、seek输入域、peek空默认",
+      "decision": "采纳明确表述，既有语义与案例不变",
+      "reason": "所有结果置result内；index输入非负整数；default字段存在即有效，null也有效。"
+    },
+    {
+      "finding": "F03返回别名",
+      "decision": "不新增引用身份测试",
+      "reason": "JSON外部行为无法观察返回引用身份，且输入不变已独立检查。"
+    },
+    {
+      "finding": "F04未发现矛盾",
+      "decision": "保留",
+      "reason": "有限题面审查，不据此宣布独立真值已完成。"
+    },
+    {
+      "finding": "可独立验证的语义粒度",
+      "decision": "补独立用途和输入输出契约判据，类型/参数/错误分支不凑独立行为",
+      "reason": "保留单人初标状态，可靠性仍待人工复核。"
+    }
+  ],
+  "scope": "只读公开文字复核，无隐藏/初标/源码；只覆盖4新任务，不是20题全量审查或人工标注"
+}

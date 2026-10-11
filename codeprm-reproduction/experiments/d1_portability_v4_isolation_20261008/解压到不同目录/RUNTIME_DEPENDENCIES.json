@@ -1,0 +1,425 @@
+[
+  {
+    "name": "boltons",
+    "repository": "mahmoud/boltons",
+    "commit": "4e5faa3d7e4008d89e0d8bf1ea87b6d9a061a16d",
+    "license": "BSD-3-Clause",
+    "license_file": "dataset/private/_runtime/vendor/boltons/UPSTREAM_LICENSE.txt",
+    "license_sha256": "c301912653a8d8c99eab6212aa3aea8d164ea249d8ad53c941e0558a0a5ac1e3",
+    "files": [
+      {
+        "path": "dataset/private/_runtime/vendor/boltons/boltons/__init__.py",
+        "bytes": 25,
+        "sha256": "ba0f4ee941c9a000b66251d4a39263a8ed009c2a3e0b77b8665c8aeff7ebe730"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/boltons/boltons/cacheutils.py",
+        "bytes": 30408,
+        "sha256": "77f6c35dc6332482c2f3f57b13059f3c1962641fbb7a6212aa7fd221c6d8aaad"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/boltons/boltons/debugutils.py",
+        "bytes": 10320,
+        "sha256": "e701ab82126836aa661f7e9272a9a8b339814ae602977b47213f0aebacfda283"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/boltons/boltons/deprutils.py",
+        "bytes": 2478,
+        "sha256": "d8f2c0fdce9d8276466127f093771e1a0a8844bcd1bd92e6880f30d2782e0151"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/boltons/boltons/dictutils.py",
+        "bytes": 38300,
+        "sha256": "6319c07cb68f18c2bfc01aa4393d0423463cf5d6357f229173d2d1e485e7b656"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/boltons/boltons/easterutils.py",
+        "bytes": 1798,
+        "sha256": "1bfc6e9e05606689ab4087b00585c183ff4fcc4eb4a423f9be153a0be6818d40"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/boltons/boltons/ecoutils.py",
+        "bytes": 14123,
+        "sha256": "ce3663d4e772fe871c17dcd0847717f8a610616a6b0141106564bedc5ab8a3b6"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/boltons/boltons/excutils.py",
+        "bytes": 8972,
+        "sha256": "6a2eddd26f46dbdceeda125bd20379d52ffc98a941fe867e3434d17b93119957"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/boltons/boltons/fileutils.py",
+        "bytes": 25539,
+        "sha256": "0c2025cf1e649eabd511a84303b491c19ea59cdcac2f958f9a90b7e39e0a8b0e"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/boltons/boltons/formatutils.py",
+        "bytes": 12728,
+        "sha256": "15c7963d5c97b11ec7a419e9e4aec7c20ca765bcf701306510c9c57c7eaeb1a4"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/boltons/boltons/funcutils.py",
+        "bytes": 39650,
+        "sha256": "f290815c9dbe5c4d73ade849935dfb2814411a89aeff89c7afef60c7b3aaba72"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/boltons/boltons/gcutils.py",
+        "bytes": 6229,
+        "sha256": "e82a32093560c14bb8298532681a3338d2ec6f48d20ccf2f1a4496dd67a17f97"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/boltons/boltons/ioutils.py",
+        "bytes": 18247,
+        "sha256": "e4e73aaeb038bc240f687e8390c60f471a6b5b673a534c54cb9c9af101b995d2"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/boltons/boltons/iterutils.py",
+        "bytes": 59341,
+        "sha256": "7fb67f49dc1d895051549b523c2e21161e3c1f4e21590fa7fd09039386d08510"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/boltons/boltons/jsonutils.py",
+        "bytes": 10175,
+        "sha256": "46b92387597863e6a12d489a370220d03c2d70ebc795121f000d2b724b0fb50a"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/boltons/boltons/listutils.py",
+        "bytes": 12316,
+        "sha256": "5f45432e942b04040d3cc917f08a7a9fee7fc5339768591fa946ae0298ca882d"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/boltons/boltons/mathutils.py",
+        "bytes": 8146,
+        "sha256": "c4f32563bb0a9281d5b7a3770c661e5a3ae3c6c3ae2644f5ff0a608edce2d5e6"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/boltons/boltons/mboxutils.py",
+        "bytes": 5938,
+        "sha256": "426b5211f7b3ce6ee9d1c80d794b56d9544435865b48a016d1955cd0a1e0320d"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/boltons/boltons/namedutils.py",
+        "bytes": 15031,
+        "sha256": "0f5a4a0e196c7d918762928bfd9157c29d411a9d827ae7f45a53c43328887224"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/boltons/boltons/pathutils.py",
+        "bytes": 6497,
+        "sha256": "667a4bb46ed79f66af83b07fac419f3f91576c2e7ed404e11f28cd68b4645fbd"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/boltons/boltons/queueutils.py",
+        "bytes": 7650,
+        "sha256": "a60f04f5f27803429c7a79f3f51f9b286cba3bd997f122161f252c66ca0499bb"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/boltons/boltons/setutils.py",
+        "bytes": 34663,
+        "sha256": "d385936effa655abbd6bae772c08089e6c9ac8b266eff13105f4386fe1a58b43"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/boltons/boltons/socketutils.py",
+        "bytes": 29900,
+        "sha256": "b2d5da2d58dd3d05c14153a83f36da928fe6285a4a44850c2eab9877c1959adc"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/boltons/boltons/statsutils.py",
+        "bytes": 31109,
+        "sha256": "0c4d05a17b14244a880e5047c1823d1e1e522e6c5ee76c6b47f54d8bde791e68"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/boltons/boltons/strutils.py",
+        "bytes": 47294,
+        "sha256": "c5ecb7efd3b2e86f92545c18d8d72193f45a1bd1d0edaf3da65868aa0e8bcdda"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/boltons/boltons/tableutils.py",
+        "bytes": 22145,
+        "sha256": "0f01e27d91ab37d322db529f3e08873feefcea822fdbf760262093b3e01524ff"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/boltons/boltons/tbutils.py",
+        "bytes": 31173,
+        "sha256": "7cd7fb1b7ce1873c37ee3053bb59d8166b671cf667013bd27e2fdbc52ab03e29"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/boltons/boltons/timeutils.py",
+        "bytes": 22962,
+        "sha256": "27f8f2999b698a3e6064f24b1ff312ef86358592a503ad2c0c5b4fd265ff430c"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/boltons/boltons/typeutils.py",
+        "bytes": 5814,
+        "sha256": "4da2b26d71386ee9010dfb52104e461ecba486ba5544a8cf50d9e26cd34e9c09"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/boltons/boltons/urlutils.py",
+        "bytes": 57742,
+        "sha256": "0de5f96e627483f3de1dce10fc4e5f8d913a36c800166842cd55970d4ddd0812"
+      }
+    ],
+    "provenance": "与固定commit的已存codeload ZIP及获取清单逐文件核对",
+    "archive_url": "https://codeload.github.com/mahmoud/boltons/zip/4e5faa3d7e4008d89e0d8bf1ea87b6d9a061a16d",
+    "archive_sha256": "54127e4b533c2a75d8eb97eb3457e7a592b10e0e31b699fe8ffbedff84c878d4"
+  },
+  {
+    "name": "more_itertools",
+    "repository": "more-itertools/more-itertools",
+    "commit": "81c21a8db1c922260cd673841257fb9b112c1318",
+    "license": "MIT",
+    "license_file": "dataset/private/_runtime/vendor/more_itertools/UPSTREAM_LICENSE.txt",
+    "license_sha256": "09f1c8c9e941af3e584d59641ea9b87d83c0cb0fd007eb5ef391a7e2643c1a46",
+    "files": [
+      {
+        "path": "dataset/private/_runtime/vendor/more_itertools/more_itertools/__init__.py",
+        "bytes": 149,
+        "sha256": "19cb2d318e8d45eb7d56136a55f1452c9469d21597571c31d752aa8232a2c07b"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/more_itertools/more_itertools/__init__.pyi",
+        "bytes": 43,
+        "sha256": "e41dde4f338dd4106e38ba1bd6f09f97211bda549deaeb17410f82bfe85791e0"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/more_itertools/more_itertools/more.py",
+        "bytes": 175454,
+        "sha256": "1bdc5f323ea18906436a42268b942d5b4d15ac8b3ff17c1211a59fb192fa068e"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/more_itertools/more_itertools/more.pyi",
+        "bytes": 28838,
+        "sha256": "68a80754717728996043ad56500342dc06b07a4c0bf99051ab3200aca95a79c9"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/more_itertools/more_itertools/py.typed",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/more_itertools/more_itertools/recipes.py",
+        "bytes": 46585,
+        "sha256": "ea9ac19767d3949d72bd0fc24f51aff33f24a693201b5d8e595a0d58ef8f4b1c"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/more_itertools/more_itertools/recipes.pyi",
+        "bytes": 7020,
+        "sha256": "2dd48ac5ef0b502f989bd2e13923c402994244ee50a4187e2f0d59c348bf2583"
+      }
+    ],
+    "provenance": "与固定commit的已存codeload ZIP及获取清单逐文件核对",
+    "archive_url": "https://codeload.github.com/more-itertools/more-itertools/zip/81c21a8db1c922260cd673841257fb9b112c1318",
+    "archive_sha256": "3ca596170eeaa18ed7ada124d27e8747e6268ac87954b5c3cef408838e989b42"
+  },
+  {
+    "name": "cachetools",
+    "repository": "tkem/cachetools",
+    "commit": "9976f1a8076631560f49c5b0dfda7e4d00ee0a4a",
+    "license": "MIT",
+    "license_file": "dataset/private/_runtime/vendor/cachetools/UPSTREAM_LICENSE.txt",
+    "license_sha256": "28c000b52b0ee27138a68ef778227e4057046e86b65f62f1cacb99b0cc49e0d2",
+    "files": [
+      {
+        "path": "dataset/private/_runtime/vendor/cachetools/src/cachetools/__init__.py",
+        "bytes": 23791,
+        "sha256": "c595cd9ea1ce7e52be423397398f33ad9fb8074d568bd664f229570e97f7a660"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/cachetools/src/cachetools/__init__.pyi",
+        "bytes": 7695,
+        "sha256": "ed9551103ba6c51b632604268e7104f649a7b0ec40c4c0a6802540e56e4b7c46"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/cachetools/src/cachetools/_cached.py",
+        "bytes": 7084,
+        "sha256": "f918cb6517d3d2fdb3e5eaecbf187b069b3cb1d7c999791f5f2561c9f49f7f5c"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/cachetools/src/cachetools/_cachedmethod.py",
+        "bytes": 14511,
+        "sha256": "d02cd5a8c33e8b244f78c6ce26580dbfb89ed521fb25b637d5cec6070e390ce0"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/cachetools/src/cachetools/func.py",
+        "bytes": 3275,
+        "sha256": "87724e4fc82303fd5172cc9fd03c7aaf6a767c6c477f3cb74a245fc45ebf7816"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/cachetools/src/cachetools/func.pyi",
+        "bytes": 2235,
+        "sha256": "b55c20d4122014165183e80b3078b402b9a5f1300c509143bd6ec861d5819af2"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/cachetools/src/cachetools/keys.py",
+        "bytes": 1967,
+        "sha256": "9550bd6914744c2fc6fd211dfb83cdae2d6206b1a1bfcf052d017cb23b39b49e"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/cachetools/src/cachetools/keys.pyi",
+        "bytes": 534,
+        "sha256": "594a1166a9c399a375b6095ee1b38408f44b7d7c8b7b57685caab85b4598a24c"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/cachetools/src/cachetools/py.typed",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "provenance": "与固定commit的已存codeload ZIP及获取清单逐文件核对",
+    "archive_url": "https://codeload.github.com/tkem/cachetools/zip/9976f1a8076631560f49c5b0dfda7e4d00ee0a4a",
+    "archive_sha256": "4ca626d43a8c78dac74f93f163b0e23f9043a920afaf2911065e3f5f406fe799"
+  },
+  {
+    "name": "confuse",
+    "repository": "beetbox/confuse",
+    "commit": "bf42783301ac4e9c640328ec95486952fd599ce6",
+    "license": "MIT",
+    "license_file": "dataset/private/_runtime/vendor/confuse/UPSTREAM_LICENSE.txt",
+    "license_sha256": "0b308ae66aaa1412ebbe645bec4002fd262d91e9cdf67b6f198026677ddfafcc",
+    "files": [
+      {
+        "path": "dataset/private/_runtime/vendor/confuse/confuse/__init__.py",
+        "bytes": 393,
+        "sha256": "f3d4e27ad691c5d9c19600b046ab8bc7c42f7c488ca4fd04c7d3cb8089e21913"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/confuse/confuse/core.py",
+        "bytes": 27997,
+        "sha256": "487ceea31cd258e7aaf91ab6509b81be0491cfc42d69086bb0c46275c9fc96b3"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/confuse/confuse/exceptions.py",
+        "bytes": 1656,
+        "sha256": "1617aeb2484f6629cb6c89696c9852558a1a96453b57541afa13e7e752ac3966"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/confuse/confuse/py.typed",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/confuse/confuse/sources.py",
+        "bytes": 8143,
+        "sha256": "93a31e455cf71901734cd3030ee212d37f55346e49de93163c0e83ff4d7baa43"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/confuse/confuse/templates.py",
+        "bytes": 31005,
+        "sha256": "3d402899899c4b919bd1692c434a0dc8e1800ffbfbe59b0bb2a8da3cc9b18030"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/confuse/confuse/util.py",
+        "bytes": 6139,
+        "sha256": "e8868c1dbb37604e543ef279ce3d1e99efd5f101ae55492851ce87f84af155fd"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/confuse/confuse/yaml_util.py",
+        "bytes": 8892,
+        "sha256": "63795f85bf43a36798106f33df64ae36d363783149df0ff583d9352e5d9a727b"
+      }
+    ],
+    "provenance": "与固定commit的已存codeload ZIP及获取清单逐文件核对",
+    "archive_url": "https://codeload.github.com/beetbox/confuse/zip/bf42783301ac4e9c640328ec95486952fd599ce6",
+    "archive_sha256": "6bf0a2572b2d7ba078a588430fbd6a3ed202780297e3132d484e82a07f3d93b5"
+  },
+  {
+    "name": "PyYAML",
+    "version": "6.0.3",
+    "license": "MIT",
+    "license_file": "dataset/private/_runtime/vendor/pyyaml/UPSTREAM_LICENSE.txt",
+    "files": [
+      {
+        "path": "dataset/private/_runtime/vendor/pyyaml/yaml/__init__.py",
+        "bytes": 12311,
+        "sha256": "b19dfcc333d6a75dfd73073901164507252f271b41d3b5f7d85510033a0547a7"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/pyyaml/yaml/composer.py",
+        "bytes": 4883,
+        "sha256": "fcaa37d16afa783594794a5ab94193dcb720f503c19ce3d59539c8311189f453"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/pyyaml/yaml/constructor.py",
+        "bytes": 28639,
+        "sha256": "90d8247da78b524c10618fd0e857f54f3d97570fe91b5c5513d024ef3faf88b0"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/pyyaml/yaml/cyaml.py",
+        "bytes": 3851,
+        "sha256": "e99ac01bd7c062f7557b614aff0d21997a06ed962ca185306a91bc0a20bbd87d"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/pyyaml/yaml/dumper.py",
+        "bytes": 2837,
+        "sha256": "3cb72d66563064ba7b5e679477046ebf89d8399d940670c8532f3e94a7cb17ea"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/pyyaml/yaml/emitter.py",
+        "bytes": 43006,
+        "sha256": "8e086d694ede170837d5b1b407b45979aff6f40762f422a65eafd08e04290a44"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/pyyaml/yaml/error.py",
+        "bytes": 2533,
+        "sha256": "021f73fada072546c4f63f8cf18a7181244ce4280b09cc15cc980b2d1176171a"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/pyyaml/yaml/events.py",
+        "bytes": 2445,
+        "sha256": "e74fd392c810884e2ea7e94aa3f57e9c1cbeb402319083d0c58e6a0e1282787c"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/pyyaml/yaml/loader.py",
+        "bytes": 2061,
+        "sha256": "5156becc8aa6905482218abf3e04869b835226db4763645fff3438fdbd5f1cdd"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/pyyaml/yaml/nodes.py",
+        "bytes": 1440,
+        "sha256": "80f28d8fca4a09d87677882bde021820d9cf39a3b11a12405226211919cf13ce"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/pyyaml/yaml/parser.py",
+        "bytes": 25495,
+        "sha256": "8a55a9e6fbe0a07146cef3990c8b45a068c3e83e369e1959ad9ca30306b4a09a"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/pyyaml/yaml/reader.py",
+        "bytes": 6794,
+        "sha256": "d1d9b38ab3a20c6e17a38d519ee412ecaf6b918df18c78956ac7c330d4ea08dc"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/pyyaml/yaml/representer.py",
+        "bytes": 14190,
+        "sha256": "22e58ff9c016f6c1ca1274b4802a926bcf78935060e1c813c5a0f021c6d143e6"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/pyyaml/yaml/resolver.py",
+        "bytes": 9004,
+        "sha256": "f4bf9561f9b89961f1503d558385fbae30d12bfed565de9bf76c33abb63620a6"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/pyyaml/yaml/scanner.py",
+        "bytes": 51279,
+        "sha256": "60433788b652690c17710460da5d91e0c753d3318fd85f5e1e42862a71f25906"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/pyyaml/yaml/serializer.py",
+        "bytes": 4165,
+        "sha256": "0a1b85826854d35863e31808f0668abfabdf33606e8f06bd8bb7761401e3edc0"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/pyyaml/yaml/tokens.py",
+        "bytes": 2573,
+        "sha256": "953408cd2570f0c83dc2fe39f7e4e388e41eeb05738aa69196a5f6ffcf6ba79e"
+      },
+      {
+        "path": "dataset/private/_runtime/vendor/pyyaml/UPSTREAM_LICENSE.txt",
+        "bytes": 1101,
+        "sha256": "8d3928f9dc4490fd635707cb88eb26bd764102a7282954307d3e5167a577e8a4"
+      }
+    ],
+    "provenance": "本机已安装发行版纯Python文件，逐项RECORD校验；未下载/核验发行版原始wheel，不冒称上游commit冻结",
+    "binary_extension_included": false,
+    "distribution_metadata_sha256": "847a701020334386852b6e07bad1053cb0ce3da9ee1846e7e9d02b24e8bb3f8d"
+  }
+]

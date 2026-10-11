@@ -1,0 +1,18 @@
+{
+  "helpers": [
+    {
+      "name": "_is_ansi_code",
+      "signature": "def _is_ansi_code(code: str) -> bool:",
+      "contract": "判断给定的字符串是否为完整的ANSI控制码。返回True表示是，False表示否。",
+      "depends_on": []
+    },
+    {
+      "name": "_remove_ansi_codes",
+      "signature": "def _remove_ansi_codes(text: str) -> str:",
+      "contract": "从字符串中移除所有完整的ANSI控制码，并返回处理后的字符串。",
+      "depends_on": [
+        "_is_ansi_code"
+      ]
+    }
+  ]
+}

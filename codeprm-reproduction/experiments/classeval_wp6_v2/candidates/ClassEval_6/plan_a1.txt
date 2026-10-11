@@ -1,0 +1,22 @@
+实现计划：
+
+1. **初始化方法 (`__init__`)**:
+   - 初始化类的实例变量 `lst` 和 `limit`。
+   - 检查 `limit` 是否大于 0，如果不是则抛出异常。
+
+2. **计算块大小和余数 (`setNum`)**:
+   - 计算列表的长度 `len(lst)`。
+   - 计算每个块的大小 `block_size = len(lst) // limit`。
+   - 计算余数 `remainder = len(lst) % limit`。
+   - 返回一个包含 `block_size` 和 `remainder` 的元组。
+
+3. **获取指定分区的块 (`get`)**:
+   - 调用 `setNum` 方法获取 `block_size` 和 `remainder`。
+   - 根据 `index` 计算起始位置 `start = index * block_size + min(index, remainder)`。
+   - 计算结束位置 `end = start + block_size + (1 if index < remainder else 0)`。
+   - 返回从 `start` 到 `end` 的子列表。
+
+实现顺序：
+1. 实现 `__init__` 方法。
+2. 实现 `setNum` 方法。
+3. 实现 `get` 方法。

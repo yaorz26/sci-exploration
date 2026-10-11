@@ -1,0 +1,13 @@
+ ```diff
+--- a/confuse/core.py
++++ b/confuse/core.py
+@@ -652,7 +652,7 @@ class Configuration(object):
+         """Parses the file as YAML and inserts it into the configuration
+         sources with highest priority.
+         """
+-        self.set(YamlSource(filename, loader=self.loader))
++        self.set(YamlSource(filename, loader=self.loader, base_for_paths=False))
+ 
+     def set(self, value):
+         self.sources.insert(0, ConfigSource.of(value))
+```

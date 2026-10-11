@@ -1,0 +1,943 @@
+{
+  "status": "前置描述支撑枚举完成，不是效果/因果/标注可靠性验证",
+  "frozen_inputs_sha256": "1dbe8d0e341ec7d4da85322dbc9a798b256e3aa1edde82612a899728f187d256",
+  "reports": {
+    "all20": {
+      "tasks": 20,
+      "all_pairs_denominator": 190,
+      "same_source_pairs": 41,
+      "same_source_changed_axis_histogram": {
+        "3": 16,
+        "2": 19,
+        "0": 3,
+        "1": 3
+      },
+      "axes": {
+        "behavior_dependencies": {
+          "pair_count": 1,
+          "pairs": [
+            [
+              "D1_B03",
+              "D1_B06"
+            ]
+          ],
+          "same_component_pairs": 0,
+          "cross_explicit_pairs": 1,
+          "cross_wider_pairs": 1,
+          "support_by_source": {
+            "mahmoud/boltons": [
+              [
+                "D1_B03",
+                "D1_B06"
+              ]
+            ]
+          },
+          "leave_one_explicit_component_out": [
+            {
+              "removed_component": [
+                "D1_B01"
+              ],
+              "remaining_pairs": 1,
+              "remaining_cross_explicit_pairs": 1
+            },
+            {
+              "removed_component": [
+                "D1_B02",
+                "D1_B04"
+              ],
+              "remaining_pairs": 1,
+              "remaining_cross_explicit_pairs": 1
+            },
+            {
+              "removed_component": [
+                "D1_B03"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_B05"
+              ],
+              "remaining_pairs": 1,
+              "remaining_cross_explicit_pairs": 1
+            },
+            {
+              "removed_component": [
+                "D1_B06"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_C01",
+                "D1_C02",
+                "D1_C03",
+                "D1_C04",
+                "D1_C05"
+              ],
+              "remaining_pairs": 1,
+              "remaining_cross_explicit_pairs": 1
+            },
+            {
+              "removed_component": [
+                "D1_F01"
+              ],
+              "remaining_pairs": 1,
+              "remaining_cross_explicit_pairs": 1
+            },
+            {
+              "removed_component": [
+                "D1_F02"
+              ],
+              "remaining_pairs": 1,
+              "remaining_cross_explicit_pairs": 1
+            },
+            {
+              "removed_component": [
+                "D1_F03"
+              ],
+              "remaining_pairs": 1,
+              "remaining_cross_explicit_pairs": 1
+            },
+            {
+              "removed_component": [
+                "D1_F04"
+              ],
+              "remaining_pairs": 1,
+              "remaining_cross_explicit_pairs": 1
+            },
+            {
+              "removed_component": [
+                "D1_M01"
+              ],
+              "remaining_pairs": 1,
+              "remaining_cross_explicit_pairs": 1
+            },
+            {
+              "removed_component": [
+                "D1_M02"
+              ],
+              "remaining_pairs": 1,
+              "remaining_cross_explicit_pairs": 1
+            },
+            {
+              "removed_component": [
+                "D1_M03"
+              ],
+              "remaining_pairs": 1,
+              "remaining_cross_explicit_pairs": 1
+            },
+            {
+              "removed_component": [
+                "D1_M04"
+              ],
+              "remaining_pairs": 1,
+              "remaining_cross_explicit_pairs": 1
+            },
+            {
+              "removed_component": [
+                "D1_M05"
+              ],
+              "remaining_pairs": 1,
+              "remaining_cross_explicit_pairs": 1
+            }
+          ],
+          "components_whose_removal_erases_all_support": [
+            [
+              "D1_B03"
+            ],
+            [
+              "D1_B06"
+            ]
+          ]
+        },
+        "state_scope": {
+          "pair_count": 2,
+          "pairs": [
+            [
+              "D1_C01",
+              "D1_C04"
+            ],
+            [
+              "D1_C02",
+              "D1_C04"
+            ]
+          ],
+          "same_component_pairs": 2,
+          "cross_explicit_pairs": 0,
+          "cross_wider_pairs": 0,
+          "support_by_source": {
+            "tkem/cachetools": [
+              [
+                "D1_C01",
+                "D1_C04"
+              ],
+              [
+                "D1_C02",
+                "D1_C04"
+              ]
+            ]
+          },
+          "leave_one_explicit_component_out": [
+            {
+              "removed_component": [
+                "D1_B01"
+              ],
+              "remaining_pairs": 2,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_B02",
+                "D1_B04"
+              ],
+              "remaining_pairs": 2,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_B03"
+              ],
+              "remaining_pairs": 2,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_B05"
+              ],
+              "remaining_pairs": 2,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_B06"
+              ],
+              "remaining_pairs": 2,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_C01",
+                "D1_C02",
+                "D1_C03",
+                "D1_C04",
+                "D1_C05"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_F01"
+              ],
+              "remaining_pairs": 2,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_F02"
+              ],
+              "remaining_pairs": 2,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_F03"
+              ],
+              "remaining_pairs": 2,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_F04"
+              ],
+              "remaining_pairs": 2,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_M01"
+              ],
+              "remaining_pairs": 2,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_M02"
+              ],
+              "remaining_pairs": 2,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_M03"
+              ],
+              "remaining_pairs": 2,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_M04"
+              ],
+              "remaining_pairs": 2,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_M05"
+              ],
+              "remaining_pairs": 2,
+              "remaining_cross_explicit_pairs": 0
+            }
+          ],
+          "components_whose_removal_erases_all_support": [
+            [
+              "D1_C01",
+              "D1_C02",
+              "D1_C03",
+              "D1_C04",
+              "D1_C05"
+            ]
+          ]
+        },
+        "separate_behavior_testability": {
+          "pair_count": 0,
+          "pairs": [],
+          "same_component_pairs": 0,
+          "cross_explicit_pairs": 0,
+          "cross_wider_pairs": 0,
+          "support_by_source": {},
+          "leave_one_explicit_component_out": [
+            {
+              "removed_component": [
+                "D1_B01"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_B02",
+                "D1_B04"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_B03"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_B05"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_B06"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_C01",
+                "D1_C02",
+                "D1_C03",
+                "D1_C04",
+                "D1_C05"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_F01"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_F02"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_F03"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_F04"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_M01"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_M02"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_M03"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_M04"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_M05"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            }
+          ],
+          "components_whose_removal_erases_all_support": []
+        }
+      }
+    },
+    "development11": {
+      "tasks": 11,
+      "all_pairs_denominator": 55,
+      "same_source_pairs": 25,
+      "same_source_changed_axis_histogram": {
+        "3": 11,
+        "2": 9,
+        "0": 2,
+        "1": 3
+      },
+      "axes": {
+        "behavior_dependencies": {
+          "pair_count": 1,
+          "pairs": [
+            [
+              "D1_B03",
+              "D1_B06"
+            ]
+          ],
+          "same_component_pairs": 0,
+          "cross_explicit_pairs": 1,
+          "cross_wider_pairs": 1,
+          "support_by_source": {
+            "mahmoud/boltons": [
+              [
+                "D1_B03",
+                "D1_B06"
+              ]
+            ]
+          },
+          "leave_one_explicit_component_out": [
+            {
+              "removed_component": [
+                "D1_B01"
+              ],
+              "remaining_pairs": 1,
+              "remaining_cross_explicit_pairs": 1
+            },
+            {
+              "removed_component": [
+                "D1_B02",
+                "D1_B04"
+              ],
+              "remaining_pairs": 1,
+              "remaining_cross_explicit_pairs": 1
+            },
+            {
+              "removed_component": [
+                "D1_B03"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_B05"
+              ],
+              "remaining_pairs": 1,
+              "remaining_cross_explicit_pairs": 1
+            },
+            {
+              "removed_component": [
+                "D1_B06"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_C01",
+                "D1_C02",
+                "D1_C03",
+                "D1_C04",
+                "D1_C05"
+              ],
+              "remaining_pairs": 1,
+              "remaining_cross_explicit_pairs": 1
+            }
+          ],
+          "components_whose_removal_erases_all_support": [
+            [
+              "D1_B03"
+            ],
+            [
+              "D1_B06"
+            ]
+          ]
+        },
+        "state_scope": {
+          "pair_count": 2,
+          "pairs": [
+            [
+              "D1_C01",
+              "D1_C04"
+            ],
+            [
+              "D1_C02",
+              "D1_C04"
+            ]
+          ],
+          "same_component_pairs": 2,
+          "cross_explicit_pairs": 0,
+          "cross_wider_pairs": 0,
+          "support_by_source": {
+            "tkem/cachetools": [
+              [
+                "D1_C01",
+                "D1_C04"
+              ],
+              [
+                "D1_C02",
+                "D1_C04"
+              ]
+            ]
+          },
+          "leave_one_explicit_component_out": [
+            {
+              "removed_component": [
+                "D1_B01"
+              ],
+              "remaining_pairs": 2,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_B02",
+                "D1_B04"
+              ],
+              "remaining_pairs": 2,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_B03"
+              ],
+              "remaining_pairs": 2,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_B05"
+              ],
+              "remaining_pairs": 2,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_B06"
+              ],
+              "remaining_pairs": 2,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_C01",
+                "D1_C02",
+                "D1_C03",
+                "D1_C04",
+                "D1_C05"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            }
+          ],
+          "components_whose_removal_erases_all_support": [
+            [
+              "D1_C01",
+              "D1_C02",
+              "D1_C03",
+              "D1_C04",
+              "D1_C05"
+            ]
+          ]
+        },
+        "separate_behavior_testability": {
+          "pair_count": 0,
+          "pairs": [],
+          "same_component_pairs": 0,
+          "cross_explicit_pairs": 0,
+          "cross_wider_pairs": 0,
+          "support_by_source": {},
+          "leave_one_explicit_component_out": [
+            {
+              "removed_component": [
+                "D1_B01"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_B02",
+                "D1_B04"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_B03"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_B05"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_B06"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_C01",
+                "D1_C02",
+                "D1_C03",
+                "D1_C04",
+                "D1_C05"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            }
+          ],
+          "components_whose_removal_erases_all_support": []
+        }
+      }
+    },
+    "reserve9": {
+      "tasks": 9,
+      "all_pairs_denominator": 36,
+      "same_source_pairs": 16,
+      "same_source_changed_axis_histogram": {
+        "2": 10,
+        "3": 5,
+        "0": 1
+      },
+      "axes": {
+        "behavior_dependencies": {
+          "pair_count": 0,
+          "pairs": [],
+          "same_component_pairs": 0,
+          "cross_explicit_pairs": 0,
+          "cross_wider_pairs": 0,
+          "support_by_source": {},
+          "leave_one_explicit_component_out": [
+            {
+              "removed_component": [
+                "D1_F01"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_F02"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_F03"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_F04"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_M01"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_M02"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_M03"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_M04"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_M05"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            }
+          ],
+          "components_whose_removal_erases_all_support": []
+        },
+        "state_scope": {
+          "pair_count": 0,
+          "pairs": [],
+          "same_component_pairs": 0,
+          "cross_explicit_pairs": 0,
+          "cross_wider_pairs": 0,
+          "support_by_source": {},
+          "leave_one_explicit_component_out": [
+            {
+              "removed_component": [
+                "D1_F01"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_F02"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_F03"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_F04"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_M01"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_M02"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_M03"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_M04"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_M05"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            }
+          ],
+          "components_whose_removal_erases_all_support": []
+        },
+        "separate_behavior_testability": {
+          "pair_count": 0,
+          "pairs": [],
+          "same_component_pairs": 0,
+          "cross_explicit_pairs": 0,
+          "cross_wider_pairs": 0,
+          "support_by_source": {},
+          "leave_one_explicit_component_out": [
+            {
+              "removed_component": [
+                "D1_F01"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_F02"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_F03"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_F04"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_M01"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_M02"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_M03"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_M04"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            },
+            {
+              "removed_component": [
+                "D1_M05"
+              ],
+              "remaining_pairs": 0,
+              "remaining_cross_explicit_pairs": 0
+            }
+          ],
+          "components_whose_removal_erases_all_support": []
+        }
+      }
+    }
+  },
+  "source_split_support": {
+    "mahmoud/boltons": [
+      "development"
+    ],
+    "more-itertools/more-itertools": [
+      "reserve"
+    ],
+    "tkem/cachetools": [
+      "development"
+    ],
+    "beetbox/confuse": [
+      "reserve"
+    ]
+  },
+  "each_source_nested_in_one_split": true,
+  "cross_operation_scope_combinations": [
+    {
+      "cross_operation_state": "none",
+      "state_scope": "none",
+      "tasks": 12
+    },
+    {
+      "cross_operation_state": "operation_sequence",
+      "state_scope": "global",
+      "tasks": 6
+    },
+    {
+      "cross_operation_state": "operation_sequence",
+      "state_scope": "partitioned",
+      "tasks": 2
+    }
+  ],
+  "explicit_components": 15,
+  "wider_components": 14,
+  "model_calls": 0,
+  "API_calls": 0,
+  "new_hidden_reads": 0,
+  "task_evaluations": 0,
+  "limits": [
+    "作者初标人工0，不是新测量真值",
+    "完整依赖集合严格匹配，空格不代表语义不可比",
+    "跨显式组件不保证独立；宽群为敏感性",
+    "有支撑不保证难度/题面长/功能域相同或因果可识别",
+    "任务对重复共享端点，不以pair_count为样本量",
+    "不按模型成绩挑题，不改切分/初标/原始数据"
+  ]
+}

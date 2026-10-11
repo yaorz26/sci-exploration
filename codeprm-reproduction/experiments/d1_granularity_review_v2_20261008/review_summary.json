@@ -1,0 +1,25 @@
+{
+  "status": "measurement_unit_refinement_supported",
+  "evidence_cases": 2,
+  "saved_relations_used": 3,
+  "logical_paths": 8,
+  "logical_paths_passed": 8,
+  "path_counts": {
+    "contains_unknown": 1,
+    "contract_incompatible_entity": 1,
+    "different_measurement_units": 2,
+    "same_unit_agreement": 2,
+    "same_unit_disagreement": 1,
+    "unsupported_universal_negative": 1
+  },
+  "human_reviewers": 0,
+  "model_calls": 0,
+  "API_calls": 0,
+  "new_task_evaluations": 0,
+  "kappa_computed": false,
+  "evidence_extraction_sha256": "28b66b23d04043bf1c00586dbc0b9d76eefd3e6739495357418cfe701ec14b9f",
+  "script_sha256": "e9eb6a113a05ce1f7abfea532671abbb82f8cea1cf8ebe325204fbe0322c7ca9",
+  "finding": "先核对合法实体/观察/量词/范围，再区分单位选择与同问题判断分歧；不能一律排除粒度分歧或把有限无反例写全域无干扰",
+  "second_pass_revision": "v1将probe_id混入问题单位domain会误排不同证据的同一属性比较；v2移到evidence_ref。规范键反例的跨实体比较标不适用，不用无干扰替代。v1输出保留。",
+  "limits": "两个已有案例与八条助手逻辑路径；路径通过仅程序口径自检，不是人类一致性数据、通用语义校验器或模型效应"
+}

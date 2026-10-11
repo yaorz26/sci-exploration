@@ -1,0 +1,201 @@
+{
+  "reviewer_a": "ai-reviewer-A",
+  "reviewer_b": "ai-reviewer-B",
+  "reviewer_type": "ai_isolated_subagent（非人类，不得当作人工双审）",
+  "input_content_identical": true,
+  "tasks": [
+    "T1",
+    "T2",
+    "T3",
+    "T4",
+    "T5"
+  ],
+  "dimensions": [
+    "需求可理解",
+    "验收可判定",
+    "内部自由",
+    "可纳入正式候选"
+  ],
+  "total_judgements": 20,
+  "agreements": 8,
+  "raw_agreement": 0.4,
+  "expected_agreement_by_independence": 0.36750000000000005,
+  "cohen_kappa_estimate": 0.051383399209486126,
+  "kappa_caveat": "n=20、5 点序数、两位审查者为同一模型家族；kappa 估计仅作参考，不作为正式一致性结论",
+  "rejection_agreement": {
+    "per_task": {
+      "T1": [
+        false,
+        false
+      ],
+      "T2": [
+        false,
+        false
+      ],
+      "T3": [
+        false,
+        false
+      ],
+      "T4": [
+        false,
+        false
+      ],
+      "T5": [
+        true,
+        false
+      ]
+    },
+    "agreements": 4,
+    "total_tasks": 5
+  },
+  "disagreements": [
+    {
+      "task": "T2",
+      "dimension": "验收可判定",
+      "A": 3,
+      "B": 4
+    },
+    {
+      "task": "T2",
+      "dimension": "内部自由",
+      "A": 4,
+      "B": 5
+    },
+    {
+      "task": "T2",
+      "dimension": "可纳入正式候选",
+      "A": 3,
+      "B": 4
+    },
+    {
+      "task": "T3",
+      "dimension": "验收可判定",
+      "A": 3,
+      "B": 4
+    },
+    {
+      "task": "T3",
+      "dimension": "可纳入正式候选",
+      "A": 3,
+      "B": 4
+    },
+    {
+      "task": "T4",
+      "dimension": "需求可理解",
+      "A": 4,
+      "B": 3
+    },
+    {
+      "task": "T4",
+      "dimension": "验收可判定",
+      "A": 4,
+      "B": 3
+    },
+    {
+      "task": "T4",
+      "dimension": "内部自由",
+      "A": 5,
+      "B": 3
+    },
+    {
+      "task": "T4",
+      "dimension": "可纳入正式候选",
+      "A": 4,
+      "B": 3
+    },
+    {
+      "task": "T5",
+      "dimension": "验收可判定",
+      "A": 2,
+      "B": 4
+    },
+    {
+      "task": "T5",
+      "dimension": "内部自由",
+      "A": 4,
+      "B": 5
+    },
+    {
+      "task": "T5",
+      "dimension": "可纳入正式候选",
+      "A": 2,
+      "B": 4
+    }
+  ],
+  "per_task_spread": {
+    "T1": {
+      "A": [
+        4,
+        4,
+        5,
+        4
+      ],
+      "B": [
+        4,
+        4,
+        5,
+        4
+      ]
+    },
+    "T2": {
+      "A": [
+        4,
+        3,
+        4,
+        3
+      ],
+      "B": [
+        4,
+        4,
+        5,
+        4
+      ]
+    },
+    "T3": {
+      "A": [
+        4,
+        3,
+        5,
+        3
+      ],
+      "B": [
+        4,
+        4,
+        5,
+        4
+      ]
+    },
+    "T4": {
+      "A": [
+        4,
+        4,
+        5,
+        4
+      ],
+      "B": [
+        3,
+        3,
+        3,
+        3
+      ]
+    },
+    "T5": {
+      "A": [
+        3,
+        2,
+        4,
+        2
+      ],
+      "B": [
+        3,
+        4,
+        5,
+        4
+      ]
+    }
+  },
+  "rule": "分歧原样保留，不做多数表决、不删条目；AI 审查不产生 formal_labels",
+  "human_reviews": 0,
+  "formal_labels": null,
+  "split": null
+}

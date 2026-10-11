@@ -1,0 +1,121 @@
+{
+  "scores": {
+    "upstream": [
+      6,
+      6
+    ],
+    "independent_scan": [
+      6,
+      6
+    ],
+    "CSI_then_short": [
+      5,
+      6
+    ],
+    "short_then_CSI": [
+      5,
+      6
+    ]
+  },
+  "idempotent_count": 3,
+  "nonidempotent_ids": [
+    "CSI_creates_short",
+    "short_creates_CSI",
+    "CSI_creates_CSI"
+  ],
+  "structures_evaluations": 24,
+  "second_source_queries": 6,
+  "upstream_strip_calls": 12,
+  "all_inputs_unchanged": true,
+  "rows": [
+    {
+      "id": "plain_control",
+      "expected": "plain",
+      "results": {
+        "upstream": "plain",
+        "independent_scan": "plain",
+        "CSI_then_short": "plain",
+        "short_then_CSI": "plain"
+      },
+      "twice_source": "plain",
+      "idempotent": true,
+      "input_unchanged": true
+    },
+    {
+      "id": "ordinary_codes",
+      "expected": "aRedz",
+      "results": {
+        "upstream": "aRedz",
+        "independent_scan": "aRedz",
+        "CSI_then_short": "aRedz",
+        "short_then_CSI": "aRedz"
+      },
+      "twice_source": "aRedz",
+      "idempotent": true,
+      "input_unchanged": true
+    },
+    {
+      "id": "CSI_creates_short",
+      "expected": "\u001bM",
+      "results": {
+        "upstream": "\u001bM",
+        "independent_scan": "\u001bM",
+        "CSI_then_short": "",
+        "short_then_CSI": "\u001bM"
+      },
+      "twice_source": "",
+      "idempotent": false,
+      "input_unchanged": true
+    },
+    {
+      "id": "short_creates_CSI",
+      "expected": "\u001b[31m",
+      "results": {
+        "upstream": "\u001b[31m",
+        "independent_scan": "\u001b[31m",
+        "CSI_then_short": "\u001b[31m",
+        "short_then_CSI": ""
+      },
+      "twice_source": "",
+      "idempotent": false,
+      "input_unchanged": true
+    },
+    {
+      "id": "CSI_creates_CSI",
+      "expected": "\u001b[0m",
+      "results": {
+        "upstream": "\u001b[0m",
+        "independent_scan": "\u001b[0m",
+        "CSI_then_short": "\u001b[0m",
+        "short_then_CSI": "\u001b[0m"
+      },
+      "twice_source": "",
+      "idempotent": false,
+      "input_unchanged": true
+    },
+    {
+      "id": "incomplete_control",
+      "expected": "\u001b[31",
+      "results": {
+        "upstream": "\u001b[31",
+        "independent_scan": "\u001b[31",
+        "CSI_then_short": "\u001b[31",
+        "short_then_CSI": "\u001b[31"
+      },
+      "twice_source": "\u001b[31",
+      "idempotent": true,
+      "input_unchanged": true
+    }
+  ],
+  "interpretation": "原始版本单次删除可能制造新完整码，两个类别分阶段重新扫描各有不同错误；独立扫描保持原串位置，不能把局部类别正确视为连接安全。",
+  "limits": [
+    "仅六新锚点/单次解释来自固定来源",
+    "原题单次措辞待澄清，不改原数据/标签/旧评分",
+    "非旧P9模型失败算法归因，主A效果未知",
+    "人工0/不含原或私测"
+  ],
+  "model_calls": 0,
+  "API_calls": 0,
+  "hidden_reads": 0,
+  "new_downloads": 0
+}

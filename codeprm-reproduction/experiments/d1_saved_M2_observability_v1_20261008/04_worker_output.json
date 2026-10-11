@@ -1,0 +1,94 @@
+{
+  "run": "d1_costed_pilot_b04_c03_v1_20261008",
+  "task_id": "D1_C03",
+  "example_id": 2,
+  "candidate": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_costed_pilot_b04_c03_v1_20261008\\candidates\\D1_C03\\M2\\candidate.py",
+  "helper_names": [
+    "_hash_key",
+    "_update_cache",
+    "_execute_operation"
+  ],
+  "input": {
+    "capacity": 0,
+    "operations": [
+      {
+        "op": "call"
+      },
+      {
+        "op": "call"
+      }
+    ]
+  },
+  "original_public_task_sha256": "d5399e4a7d2ff1ee585c2c8ec78831ebfb46723e07e25c7d91da584fc39dabb3",
+  "public_example_expected": {
+    "value": [
+      {
+        "result": 0,
+        "computations": 1,
+        "size": 0
+      },
+      {
+        "result": 0,
+        "computations": 2,
+        "size": 0
+      }
+    ]
+  },
+  "diagnostic": {
+    "worker_failure": null,
+    "record": {
+      "outcome": {
+        "value": [
+          {
+            "result": 0,
+            "computations": 1,
+            "size": 0
+          },
+          {
+            "result": 0,
+            "computations": 2,
+            "size": 0
+          }
+        ]
+      },
+      "helper_calls": {
+        "_hash_key": 2,
+        "_update_cache": 2,
+        "_execute_operation": 2
+      },
+      "helper_call_events_first1000": [
+        {
+          "helper": "_execute_operation",
+          "caller": "solve"
+        },
+        {
+          "helper": "_hash_key",
+          "caller": "_execute_operation"
+        },
+        {
+          "helper": "_update_cache",
+          "caller": "_execute_operation"
+        },
+        {
+          "helper": "_execute_operation",
+          "caller": "solve"
+        },
+        {
+          "helper": "_hash_key",
+          "caller": "_execute_operation"
+        },
+        {
+          "helper": "_update_cache",
+          "caller": "_execute_operation"
+        }
+      ],
+      "trace_truncated": false,
+      "input_unchanged": true
+    },
+    "stderr_tail": "",
+    "seconds": 0.061460299999907875,
+    "captured_output_bytes": 622
+  },
+  "observation_category": "helper_entered_then_result_or_exception",
+  "interpretation_limit": "call非返回值贡献；异常前未进入非成功旁路；仅原公开路径，旧模型成绩不重写"
+}

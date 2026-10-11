@@ -1,0 +1,9 @@
+{
+  "created_at": "2026-10-09T04:10:00Z",
+  "script_sha256": "f31c6431d1fb0ae1327ee1d3572fb5449d34c81ad3d383845f6ce2bd799165b0",
+  "projection_rules": "正常输出精确count整数与mode类型和值；error两投影null",
+  "controls": "每有效保存返回只改count+1或mode同类型换值，另一字段应过，完整返回应拒",
+  "new_solve_budget": 18,
+  "constructed_output_controls_budget": 24,
+  "prediction_source": "前轮逐值冻结，执行代码在结果前冻结；非人工复审"
+}

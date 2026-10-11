@@ -1,0 +1,135 @@
+{
+  "dataset": "ClassEval（派生物：字段统一 + 公开/私有按方法切分）",
+  "frozen_at": "2026-09-29",
+  "seed_exploratory": 20260929,
+  "layer_rule": "方法数 ≥5 → target；==3 → boundary；==2 → negative；==4 → 不入探索集（reserve_only）",
+  "n_usable": 91,
+  "n_excluded": 9,
+  "exploratory_set": {
+    "n": 24,
+    "task_ids": [
+      "ClassEval_4",
+      "ClassEval_5",
+      "ClassEval_6",
+      "ClassEval_7",
+      "ClassEval_15",
+      "ClassEval_16",
+      "ClassEval_18",
+      "ClassEval_19",
+      "ClassEval_23",
+      "ClassEval_30",
+      "ClassEval_33",
+      "ClassEval_38",
+      "ClassEval_46",
+      "ClassEval_47",
+      "ClassEval_52",
+      "ClassEval_53",
+      "ClassEval_55",
+      "ClassEval_57",
+      "ClassEval_65",
+      "ClassEval_71",
+      "ClassEval_78",
+      "ClassEval_82",
+      "ClassEval_87",
+      "ClassEval_91"
+    ],
+    "replacements": [
+      {
+        "layer": "negative",
+        "skipped": "ClassEval_69",
+        "reason": "公开测试不可用（public_available=False）"
+      }
+    ],
+    "per_layer": {
+      "target": [
+        "ClassEval_4",
+        "ClassEval_18",
+        "ClassEval_23",
+        "ClassEval_30",
+        "ClassEval_33",
+        "ClassEval_65",
+        "ClassEval_82",
+        "ClassEval_87"
+      ],
+      "boundary": [
+        "ClassEval_15",
+        "ClassEval_16",
+        "ClassEval_38",
+        "ClassEval_47",
+        "ClassEval_52",
+        "ClassEval_71",
+        "ClassEval_78",
+        "ClassEval_91"
+      ],
+      "negative": [
+        "ClassEval_5",
+        "ClassEval_6",
+        "ClassEval_7",
+        "ClassEval_19",
+        "ClassEval_46",
+        "ClassEval_53",
+        "ClassEval_55",
+        "ClassEval_57"
+      ]
+    }
+  },
+  "reserve_pool": {
+    "n": 67,
+    "by_layer": {
+      "reserve_only": 23,
+      "target": 24,
+      "negative": 3,
+      "boundary": 17
+    }
+  },
+  "model": {
+    "name": "qwen2.5-coder:7b（Ollama）",
+    "quantization": "Q4（Ollama 默认 4.7 GB）",
+    "context_limit_tokens": 8192,
+    "note": "WP3 实测最大上下文估算 4102 token，低于上限"
+  },
+  "arms": {
+    "M0": "输入骨架（=分解已给），一次性生成完整类实现",
+    "M1": "输入骨架，先写自然语言实现计划，再一次性生成完整类",
+    "M2": "输入骨架，**逐方法独立生成实现**，再组装成完整类（数据集给定分解，检验实现分工与组合）",
+    "aux_decompose_free": "辅助探针（非主对照）：只给类描述+导入，看模型能否自行推断出可判分的 API（预期大多不能，作为“是否该拆分”的诊断）"
+  },
+  "decision_rules": {
+    "selection_public": "按公开测试通过数选最优；并列时取更早生成的候选",
+    "private_use": "只在候选与选择规则冻结后运行"
+  },
+  "budget": {
+    "per_task_candidates": 3,
+    "timeout_seconds_per_test": 60,
+    "max_output_tokens": 2048,
+    "disk_cap_gib": 20
+  },
+  "metrics": [
+    "private_all_pass（题目级）",
+    "M2-M0 成对差异",
+    "候选池上限",
+    "部分测试通过率",
+    "有效候选率",
+    "接口类错误率",
+    "双零题比例"
+  ],
+  "stop_conditions": [
+    "总请求数超预算",
+    "单题超时",
+    "磁盘超限"
+  ],
+  "minimum_meaningful_improvement": "净值 ≥4 题且 bootstrap 95% 区间下界 >0",
+  "hazard_notes": [
+    "private 测试与模型可读文件物理分离",
+    "非确定性题已排除（见 excluded_tasks.json）",
+    "污染风险为 unknown（Qwen 训练边界未披露）"
+  ],
+  "artifact_hashes": {
+    "tasks_public.jsonl": "6a9e37c30b0b1add6213db6faabb40daf145c5d262a2ed4762fa14eb09c370c4",
+    "private_tests.jsonl": "3c398f227e8f7004cd0e78001b3ff4921b89d195bfcafb85de738904e7ab8236",
+    "excluded_tasks.json": "ef47a3473547c8c16913606d0f4d10672c1fd28824bea0ca1b039dacd3f6c15d",
+    "frozen_manifest_revision": "v1.1"
+  },
+  "revision": "v1.1（2026-09-29）：修正对照臂定义——ClassEval 的评测调用固定方法名，若不提供方法签名/文档，模型无法产出可判分的 API，因此**所有臂一律输入 decompose_given（骨架已给）**；M2 的“分解”由数据集给定，检验的是“逐方法实现+组合”这一实现策略。原 v1 写“M0/M1/M2 使用 decompose_free”不成立，如实更正。",
+  "structural_constraint": "ClassEval 的官方测试按固定方法名调用，API 必须给定；因此该数据集**无法检验“拆分方案的选择”**，只能检验“给定分解后的实现策略（整体 vs 逐方法 vs 计划后整体）”。此限制已在 G1 决策与 P0/G2 文档中写明。"
+}

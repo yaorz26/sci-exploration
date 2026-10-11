@@ -1,0 +1,10 @@
+{
+  "time": "2026-10-09T09:45:02.646141+00:00",
+  "failure": "零旧行插入控制得到正确内容但父fixture在Windows写为CRLF，预期写LF，表示控制失败",
+  "attempt": 1,
+  "model_calls": 0,
+  "transport_requests": 0,
+  "behavior_evaluations": 0,
+  "affected_review": "第三轮可信度：合成父fixture固定LF，匹配真实任务存盘口径；不放宽补丁原行匹配",
+  "next": "仅修复fixture换行，v2目录重执行预定条件；v1冻结与失败不覆盖"
+}

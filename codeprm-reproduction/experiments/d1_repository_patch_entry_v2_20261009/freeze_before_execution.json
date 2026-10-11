@@ -1,0 +1,154 @@
+{
+  "time": "2026-10-09T09:45:03.413060+00:00",
+  "fixtures": [
+    {
+      "name": "confuse_complete",
+      "expected": [
+        null,
+        8,
+        8
+      ],
+      "prompt_sha256": "c308633d17c2212e1a572f9f1d5ee0caf5027f563c8c3bb8aa5ba426fe568507",
+      "given_reply_sha256": "4d1528afd80a33373721e8b1ad90649e049af7bc4fa93799b7a582912338e963",
+      "parent_hashes": {
+        "confuse/__init__.py": "7a0ad3e38dd881aa18cf67c2eb91a1a3efc50518ca58f49124c028a72484bfb2",
+        "confuse/core.py": "24ce55bef50eb8438941e9f92e283bd1749f5e47b0079213bb59f09ad0c1052c",
+        "confuse/exceptions.py": "fdde86bcee02fc4a8ed9f64c560e7a5974a0037241027af9ca04d65b4baf6815",
+        "confuse/sources.py": "2db40f643fc6e93569d8ab9e4bf4b067ab87f4e6563e68080c2a50866814d9f9",
+        "confuse/templates.py": "d200a9f3e7cf070dc392f23bd6a3b25a30655f08d81f3805dc2b875c332fb910",
+        "confuse/util.py": "1bfa310c757e5b212b484719257db55227b6738c8cc58d66fe587c819bf48e2a",
+        "confuse/yaml_util.py": "47ee86d9f839300ef436989ba1bac96d894bf9f2085dc7168d6b0ea91c1eb792",
+        "LICENSE": "0b308ae66aaa1412ebbe645bec4002fd262d91e9cdf67b6f198026677ddfafcc"
+      },
+      "evaluator_sha256": "138c07f50905b05df419c3b408cb464aae73cd78a5d2f7b570551f947ebaacb2",
+      "given_text_input_tokens": 1982,
+      "given_text_reply_tokens": 1400
+    },
+    {
+      "name": "confuse_core_omission",
+      "expected": [
+        "behavior_failure",
+        7,
+        8
+      ],
+      "prompt_sha256": "c308633d17c2212e1a572f9f1d5ee0caf5027f563c8c3bb8aa5ba426fe568507",
+      "given_reply_sha256": "552beeb8a26c852e32b2819b49028e2723629cc3b2439276ebb574c1ddcd0eb5",
+      "parent_hashes": {
+        "confuse/__init__.py": "7a0ad3e38dd881aa18cf67c2eb91a1a3efc50518ca58f49124c028a72484bfb2",
+        "confuse/core.py": "24ce55bef50eb8438941e9f92e283bd1749f5e47b0079213bb59f09ad0c1052c",
+        "confuse/exceptions.py": "fdde86bcee02fc4a8ed9f64c560e7a5974a0037241027af9ca04d65b4baf6815",
+        "confuse/sources.py": "2db40f643fc6e93569d8ab9e4bf4b067ab87f4e6563e68080c2a50866814d9f9",
+        "confuse/templates.py": "d200a9f3e7cf070dc392f23bd6a3b25a30655f08d81f3805dc2b875c332fb910",
+        "confuse/util.py": "1bfa310c757e5b212b484719257db55227b6738c8cc58d66fe587c819bf48e2a",
+        "confuse/yaml_util.py": "47ee86d9f839300ef436989ba1bac96d894bf9f2085dc7168d6b0ea91c1eb792",
+        "LICENSE": "0b308ae66aaa1412ebbe645bec4002fd262d91e9cdf67b6f198026677ddfafcc"
+      },
+      "evaluator_sha256": "138c07f50905b05df419c3b408cb464aae73cd78a5d2f7b570551f947ebaacb2",
+      "given_text_input_tokens": 1982,
+      "given_text_reply_tokens": 1170
+    },
+    {
+      "name": "confuse_second_file_invalid",
+      "expected": [
+        "patch_failure",
+        null,
+        null
+      ],
+      "prompt_sha256": "c308633d17c2212e1a572f9f1d5ee0caf5027f563c8c3bb8aa5ba426fe568507",
+      "given_reply_sha256": "8153879f38b7ffdf7e328246364eb3b1a6782441a7043dd4736c6273a1035cd4",
+      "parent_hashes": {
+        "confuse/__init__.py": "7a0ad3e38dd881aa18cf67c2eb91a1a3efc50518ca58f49124c028a72484bfb2",
+        "confuse/core.py": "24ce55bef50eb8438941e9f92e283bd1749f5e47b0079213bb59f09ad0c1052c",
+        "confuse/exceptions.py": "fdde86bcee02fc4a8ed9f64c560e7a5974a0037241027af9ca04d65b4baf6815",
+        "confuse/sources.py": "2db40f643fc6e93569d8ab9e4bf4b067ab87f4e6563e68080c2a50866814d9f9",
+        "confuse/templates.py": "d200a9f3e7cf070dc392f23bd6a3b25a30655f08d81f3805dc2b875c332fb910",
+        "confuse/util.py": "1bfa310c757e5b212b484719257db55227b6738c8cc58d66fe587c819bf48e2a",
+        "confuse/yaml_util.py": "47ee86d9f839300ef436989ba1bac96d894bf9f2085dc7168d6b0ea91c1eb792",
+        "LICENSE": "0b308ae66aaa1412ebbe645bec4002fd262d91e9cdf67b6f198026677ddfafcc"
+      },
+      "evaluator_sha256": "138c07f50905b05df419c3b408cb464aae73cd78a5d2f7b570551f947ebaacb2",
+      "given_text_input_tokens": 1982,
+      "given_text_reply_tokens": 1392
+    },
+    {
+      "name": "before_request_budget_refusal",
+      "expected": [
+        "budget_or_context_failure",
+        null,
+        null
+      ],
+      "prompt_sha256": "c308633d17c2212e1a572f9f1d5ee0caf5027f563c8c3bb8aa5ba426fe568507",
+      "given_reply_sha256": "4d1528afd80a33373721e8b1ad90649e049af7bc4fa93799b7a582912338e963",
+      "parent_hashes": {
+        "confuse/__init__.py": "7a0ad3e38dd881aa18cf67c2eb91a1a3efc50518ca58f49124c028a72484bfb2",
+        "confuse/core.py": "24ce55bef50eb8438941e9f92e283bd1749f5e47b0079213bb59f09ad0c1052c",
+        "confuse/exceptions.py": "fdde86bcee02fc4a8ed9f64c560e7a5974a0037241027af9ca04d65b4baf6815",
+        "confuse/sources.py": "2db40f643fc6e93569d8ab9e4bf4b067ab87f4e6563e68080c2a50866814d9f9",
+        "confuse/templates.py": "d200a9f3e7cf070dc392f23bd6a3b25a30655f08d81f3805dc2b875c332fb910",
+        "confuse/util.py": "1bfa310c757e5b212b484719257db55227b6738c8cc58d66fe587c819bf48e2a",
+        "confuse/yaml_util.py": "47ee86d9f839300ef436989ba1bac96d894bf9f2085dc7168d6b0ea91c1eb792",
+        "LICENSE": "0b308ae66aaa1412ebbe645bec4002fd262d91e9cdf67b6f198026677ddfafcc"
+      },
+      "evaluator_sha256": "138c07f50905b05df419c3b408cb464aae73cd78a5d2f7b570551f947ebaacb2",
+      "given_text_input_tokens": 1982,
+      "given_text_reply_tokens": 1400
+    },
+    {
+      "name": "missing_response_counts",
+      "expected": [
+        "measurement_failure",
+        null,
+        null
+      ],
+      "prompt_sha256": "c308633d17c2212e1a572f9f1d5ee0caf5027f563c8c3bb8aa5ba426fe568507",
+      "given_reply_sha256": "4d1528afd80a33373721e8b1ad90649e049af7bc4fa93799b7a582912338e963",
+      "parent_hashes": {
+        "confuse/__init__.py": "7a0ad3e38dd881aa18cf67c2eb91a1a3efc50518ca58f49124c028a72484bfb2",
+        "confuse/core.py": "24ce55bef50eb8438941e9f92e283bd1749f5e47b0079213bb59f09ad0c1052c",
+        "confuse/exceptions.py": "fdde86bcee02fc4a8ed9f64c560e7a5974a0037241027af9ca04d65b4baf6815",
+        "confuse/sources.py": "2db40f643fc6e93569d8ab9e4bf4b067ab87f4e6563e68080c2a50866814d9f9",
+        "confuse/templates.py": "d200a9f3e7cf070dc392f23bd6a3b25a30655f08d81f3805dc2b875c332fb910",
+        "confuse/util.py": "1bfa310c757e5b212b484719257db55227b6738c8cc58d66fe587c819bf48e2a",
+        "confuse/yaml_util.py": "47ee86d9f839300ef436989ba1bac96d894bf9f2085dc7168d6b0ea91c1eb792",
+        "LICENSE": "0b308ae66aaa1412ebbe645bec4002fd262d91e9cdf67b6f198026677ddfafcc"
+      },
+      "evaluator_sha256": "138c07f50905b05df419c3b408cb464aae73cd78a5d2f7b570551f947ebaacb2",
+      "given_text_input_tokens": 1982,
+      "given_text_reply_tokens": 1400
+    },
+    {
+      "name": "cachetools_complete",
+      "expected": [
+        null,
+        5,
+        5
+      ],
+      "prompt_sha256": "5c7a8ea5b3887fb1f7b1c89f229bb8b8294d86e7db4b1304505619c9cea8858a",
+      "given_reply_sha256": "a401ed0deb777414fe4b533b0f3be0489febb3b1bdac6f3860df90e765885188",
+      "parent_hashes": {
+        "cachetools/__init__.py": "03c880972e6e8427a2396af6ca925daf02c3517f777f5d31dcc8a21971813317",
+        "cachetools/func.py": "68e55f4a4b8d58c4400e99076462bb2de27f559f30963cdb4702009623ae8408",
+        "cachetools/keys.py": "00e81fa22fa88a804e9c4124d75e7ff6ab341ca212ad89db715e05d21c99d729",
+        "LICENSE": "2f4d2ff05f05c5da3879f40292b7600332d775dc7ed320d43dd42f3cd7d92c9b"
+      },
+      "evaluator_sha256": "5ff95bd1d8e4c7c5103e79d6cc30dfb445371faad2d211a2d00137c057585f49",
+      "given_text_input_tokens": 1181,
+      "given_text_reply_tokens": 400
+    }
+  ],
+  "code_sha256": {
+    "probe_repository_patch_entry.py": "4642a7a64075f69d8a6b20915745e934d74112fc7dc113bdb457382ab22e5e18",
+    "repository_patch_entry.py": "770b7e2787abc44e38595b5a93f471f386801e47ad23f067ed1adf1ffe95c9f6"
+  },
+  "tokenizer": {
+    "build": "version: 0.5.0-dev (build 1, commit 631109b34)\nbuilt with Clang 18.1.8 for Windows AMD64",
+    "vocab_only": true,
+    "model_path": "D:\\yaorz\\tools\\ollamaModels\\blobs\\sha256-60e05f2100071479f596b964f89f510f057ce397ea22f2833a0cfe029bfc2463",
+    "model_file_bytes": 4683074048,
+    "dll_sha256": "ac18a06da6978791968d81d9423c763d518b03d61a4426833398f1656150d3b5",
+    "model_hash_status": "blob名称记录上游digest，本次未重算4.6GB文件哈希"
+  },
+  "simulated": true,
+  "model_calls": 0,
+  "scope": "六个给定文本/transport条件，两个真实项目任务；非六独立任务，非模型效果"
+}

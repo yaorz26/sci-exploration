@@ -1,0 +1,15 @@
+{
+  "model": "synthetic-model",
+  "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\n  \"task_id\": \"S03\",\n  \"requirement\": \"合成任务：将payload.value加1并返回value字典。\"\n}\n固定计划：\n{\"helpers\": [{\"name\": \"_inc\", \"signature\": \"def _inc(x):\", \"contract\": \"合成整数加一\", \"depends_on\": []}, {\"name\": \"_wrap\", \"signature\": \"def _wrap(x):\", \"contract\": \"合成结果包装\", \"depends_on\": []}]}\n已实现函数：\n\n仅实现以下函数，签名保持一致，可以添加标准库import，禁止定义其他顶层函数：\n{\"name\": \"_inc\", \"signature\": \"def _inc(x):\", \"contract\": \"合成整数加一\", \"depends_on\": []}<|im_end|>\n<|im_start|>assistant\n",
+  "stream": false,
+  "options": {
+    "temperature": 0.2,
+    "seed": 20261009,
+    "num_ctx": 8192,
+    "stop": [
+      "<D1_END>"
+    ],
+    "num_predict": 128
+  },
+  "raw": true
+}

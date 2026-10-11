@@ -1,0 +1,364 @@
+{
+  "status": "静态来源核对完成；排除当前构建程序从依赖标签计算可测字段",
+  "origin": "task_specs_expansion.py的20任务ID静态五元组；task_specs导入；build_dataset逐字段复制",
+  "target_declaration": {
+    "path": "scripts\\d1\\task_specs_expansion.py",
+    "line": 594,
+    "end_line": 615,
+    "kind": "ast.Dict/ast.literal_eval",
+    "node_sha256": "205bc3252c46d16924ee86b077377a6a641dca2caeead898ea388b8924fba19b"
+  },
+  "copied_fields": [
+    "cross_operation_state",
+    "state_scope",
+    "behavior_dependencies",
+    "separate_behavior_testability",
+    "evidence"
+  ],
+  "compared_tasks": 20,
+  "all_fields_matched_tasks": 20,
+  "comparisons": [
+    {
+      "task_id": "D1_B01",
+      "all_five_fields_match": true,
+      "fields": {
+        "cross_operation_state": true,
+        "state_scope": true,
+        "behavior_dependencies": true,
+        "separate_behavior_testability": true,
+        "evidence": true
+      }
+    },
+    {
+      "task_id": "D1_B02",
+      "all_five_fields_match": true,
+      "fields": {
+        "cross_operation_state": true,
+        "state_scope": true,
+        "behavior_dependencies": true,
+        "separate_behavior_testability": true,
+        "evidence": true
+      }
+    },
+    {
+      "task_id": "D1_M01",
+      "all_five_fields_match": true,
+      "fields": {
+        "cross_operation_state": true,
+        "state_scope": true,
+        "behavior_dependencies": true,
+        "separate_behavior_testability": true,
+        "evidence": true
+      }
+    },
+    {
+      "task_id": "D1_M02",
+      "all_five_fields_match": true,
+      "fields": {
+        "cross_operation_state": true,
+        "state_scope": true,
+        "behavior_dependencies": true,
+        "separate_behavior_testability": true,
+        "evidence": true
+      }
+    },
+    {
+      "task_id": "D1_C01",
+      "all_five_fields_match": true,
+      "fields": {
+        "cross_operation_state": true,
+        "state_scope": true,
+        "behavior_dependencies": true,
+        "separate_behavior_testability": true,
+        "evidence": true
+      }
+    },
+    {
+      "task_id": "D1_C02",
+      "all_five_fields_match": true,
+      "fields": {
+        "cross_operation_state": true,
+        "state_scope": true,
+        "behavior_dependencies": true,
+        "separate_behavior_testability": true,
+        "evidence": true
+      }
+    },
+    {
+      "task_id": "D1_F01",
+      "all_five_fields_match": true,
+      "fields": {
+        "cross_operation_state": true,
+        "state_scope": true,
+        "behavior_dependencies": true,
+        "separate_behavior_testability": true,
+        "evidence": true
+      }
+    },
+    {
+      "task_id": "D1_F02",
+      "all_five_fields_match": true,
+      "fields": {
+        "cross_operation_state": true,
+        "state_scope": true,
+        "behavior_dependencies": true,
+        "separate_behavior_testability": true,
+        "evidence": true
+      }
+    },
+    {
+      "task_id": "D1_B03",
+      "all_five_fields_match": true,
+      "fields": {
+        "cross_operation_state": true,
+        "state_scope": true,
+        "behavior_dependencies": true,
+        "separate_behavior_testability": true,
+        "evidence": true
+      }
+    },
+    {
+      "task_id": "D1_B04",
+      "all_five_fields_match": true,
+      "fields": {
+        "cross_operation_state": true,
+        "state_scope": true,
+        "behavior_dependencies": true,
+        "separate_behavior_testability": true,
+        "evidence": true
+      }
+    },
+    {
+      "task_id": "D1_B05",
+      "all_five_fields_match": true,
+      "fields": {
+        "cross_operation_state": true,
+        "state_scope": true,
+        "behavior_dependencies": true,
+        "separate_behavior_testability": true,
+        "evidence": true
+      }
+    },
+    {
+      "task_id": "D1_B06",
+      "all_five_fields_match": true,
+      "fields": {
+        "cross_operation_state": true,
+        "state_scope": true,
+        "behavior_dependencies": true,
+        "separate_behavior_testability": true,
+        "evidence": true
+      }
+    },
+    {
+      "task_id": "D1_M03",
+      "all_five_fields_match": true,
+      "fields": {
+        "cross_operation_state": true,
+        "state_scope": true,
+        "behavior_dependencies": true,
+        "separate_behavior_testability": true,
+        "evidence": true
+      }
+    },
+    {
+      "task_id": "D1_M04",
+      "all_five_fields_match": true,
+      "fields": {
+        "cross_operation_state": true,
+        "state_scope": true,
+        "behavior_dependencies": true,
+        "separate_behavior_testability": true,
+        "evidence": true
+      }
+    },
+    {
+      "task_id": "D1_M05",
+      "all_five_fields_match": true,
+      "fields": {
+        "cross_operation_state": true,
+        "state_scope": true,
+        "behavior_dependencies": true,
+        "separate_behavior_testability": true,
+        "evidence": true
+      }
+    },
+    {
+      "task_id": "D1_C03",
+      "all_five_fields_match": true,
+      "fields": {
+        "cross_operation_state": true,
+        "state_scope": true,
+        "behavior_dependencies": true,
+        "separate_behavior_testability": true,
+        "evidence": true
+      }
+    },
+    {
+      "task_id": "D1_C04",
+      "all_five_fields_match": true,
+      "fields": {
+        "cross_operation_state": true,
+        "state_scope": true,
+        "behavior_dependencies": true,
+        "separate_behavior_testability": true,
+        "evidence": true
+      }
+    },
+    {
+      "task_id": "D1_C05",
+      "all_five_fields_match": true,
+      "fields": {
+        "cross_operation_state": true,
+        "state_scope": true,
+        "behavior_dependencies": true,
+        "separate_behavior_testability": true,
+        "evidence": true
+      }
+    },
+    {
+      "task_id": "D1_F03",
+      "all_five_fields_match": true,
+      "fields": {
+        "cross_operation_state": true,
+        "state_scope": true,
+        "behavior_dependencies": true,
+        "separate_behavior_testability": true,
+        "evidence": true
+      }
+    },
+    {
+      "task_id": "D1_F04",
+      "all_five_fields_match": true,
+      "fields": {
+        "cross_operation_state": true,
+        "state_scope": true,
+        "behavior_dependencies": true,
+        "separate_behavior_testability": true,
+        "evidence": true
+      }
+    }
+  ],
+  "dependency_groups": [
+    {
+      "dependencies": [
+        "ordered_transform"
+      ],
+      "tasks": [
+        "D1_B01",
+        "D1_B05"
+      ],
+      "testability": [
+        "yes"
+      ]
+    },
+    {
+      "dependencies": [
+        "operation_sequence"
+      ],
+      "tasks": [
+        "D1_B02",
+        "D1_C01",
+        "D1_C02",
+        "D1_M03",
+        "D1_C04"
+      ],
+      "testability": [
+        "partial"
+      ]
+    },
+    {
+      "dependencies": [
+        "branch_rules"
+      ],
+      "tasks": [
+        "D1_M01",
+        "D1_F02"
+      ],
+      "testability": [
+        "partial"
+      ]
+    },
+    {
+      "dependencies": [
+        "branch_rules",
+        "direct"
+      ],
+      "tasks": [
+        "D1_M02",
+        "D1_F01",
+        "D1_B06",
+        "D1_C05"
+      ],
+      "testability": [
+        "no"
+      ]
+    },
+    {
+      "dependencies": [
+        "direct"
+      ],
+      "tasks": [
+        "D1_B03"
+      ],
+      "testability": [
+        "no"
+      ]
+    },
+    {
+      "dependencies": [
+        "operation_sequence",
+        "ordered_transform"
+      ],
+      "tasks": [
+        "D1_B04",
+        "D1_M04"
+      ],
+      "testability": [
+        "yes"
+      ]
+    },
+    {
+      "dependencies": [
+        "branch_rules",
+        "ordered_transform"
+      ],
+      "tasks": [
+        "D1_M05",
+        "D1_F03",
+        "D1_F04"
+      ],
+      "testability": [
+        "yes"
+      ]
+    },
+    {
+      "dependencies": [
+        "branch_rules",
+        "operation_sequence"
+      ],
+      "tasks": [
+        "D1_C03"
+      ],
+      "testability": [
+        "yes"
+      ]
+    }
+  ],
+  "competing_explanations": {
+    "构建时testability由依赖集合直接算出": "当前静态代码排除：两字段各自作为字面量存储并复制",
+    "构建时两字段共同从legacy类别映射": "当前静态复制路径未支持，legacy描述仅附存",
+    "作者逐题指定的表中存在样本/判断对应": "支持；不能据此证明作者判断彼此独立或语义正确"
+  },
+  "decision": "保留样本对应/支撑不足与人工0；不把它错误归因于构建器。P42查非缓存多统计公开功能能否提供不同用途的独立契约而不要求有序转换。",
+  "model_calls": 0,
+  "API_calls": 0,
+  "task_evaluations": 0,
+  "hidden_reads": 0,
+  "limits": [
+    "只查当前静态来源，不解释最初作者心理/先后或生成历史",
+    "逐字段字面量不等真实独立人类标注",
+    "20/20复制一致不等语义正确或主A成立",
+    "原初标/切分/测试保持"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "phase": "G3",
+  "created_at": "2026-10-11T11:30:00Z",
+  "purpose": "记录依据独立审查意见对需求所做的修订，以及修订过程中的纪律偏差",
+  "review_round_1": {
+    "reviewers": ["ai-reviewer-A", "ai-reviewer-B"],
+    "reviewer_type": "ai_isolated_subagent（非人类，不得当作人工双审）",
+    "input_content_identical": true,
+    "input_sha256": "ce65a782efd203ee685791cfaaf5b9f1e9ad49a2c7ea5091d585a5e644700088",
+    "raw_agreement": 0.4000,
+    "agreements_over_total": "8/20",
+    "cohen_kappa_estimate": 0.0514,
+    "rejection_agreement": "4/5（T5 分歧：A 拒收、B 不拒收）",
+    "conclusion": "两位审查者独立指认同一批需求缺陷；评分一致率仅 0.40，说明任务在当前需求文本下**尚不具备稳定可判定的语义**。"
+  },
+  "replicated_defects": {
+    "T1_QUEUE_K2": [
+      "需求未写优先级方向（数值大者先出还是小者先出），只能由公开用例反推",
+      "remove 的返回约定未写（用例里出现 ok:true）",
+      "remove 不存在的任务、pop/peek 无 default 时的异常类型无用例"
+    ],
+    "T2_URL_K3": [
+      "映射视图是否做百分号解码未写进义务；常见查询解析语义（+→空格、%XX 解码）会被判遗漏",
+      "full_quote=True 对 / & = 与非 ASCII 的编码范围无定义",
+      "already_encoded_preserved 的 note 文字自相矛盾"
+    ],
+    "T3_PR142": [
+      "前缀是否含分隔下划线未写（只能从用例倒推 D1APP_）",
+      "嵌套是叶子级合并还是整值替换未写",
+      "调用序列与异常未写"
+    ],
+    "T4_PR440": [
+      "公开用例不含显式 keyfunc/valuefunc，factor 语义靠反推",
+      "reducefunc 调用时机与已返回值保留规则不明确",
+      "需求自承的兜底表述（不是要求任意惰性 reducefunc 永久保存数据）不可判定"
+    ],
+    "T5_PR126": [
+      "public_cases 为 null，验收不可判定（A 据此拒收）",
+      "模板 cwd / in_source_dir / in_app_dir 未定义挂在哪个对象",
+      "优先级写成一句而没有最小判定例；未给调用序列"
+    ]
+  },
+  "revisions_applied": {
+    "T1_QUEUE_K2": "v2：新增‘优先级数值越大越先出队’；补五种方法的返回与异常约定表；补‘移除不存在任务抛 KeyError’；补义务 5 优先级压制",
+    "T2_URL_K3": "v2：新增映射视图不解码口径（含 %20 与 + 两例）；给出两类用途的可保留字符集合表；修掉矛盾 note；明确 & 与 = 为保留字符",
+    "T3_PR142": "v2：明确前缀原样拼接（prefix='D1APP_' vs 'D1APP'）；补 set_env 签名与返回；新增义务 6 嵌套叶子级合并；明确 sep 不参与前缀匹配",
+    "T4_PR440": "v2：新增回调调用时机与‘已返回值不再变化’规则；定义 factor 属 valuefunc 参数；限定 reducefunc 为 list/sum 且须完整消费；删掉不可判定的兜底表述",
+    "T5_PR126": "v2：新增术语表（每个开关挂哪个对象）；给出完整调用序列与真实目录形态；把优先级改写为 8 条有序判定表；补 5 行最小判定例；说明公开诊断内嵌于评价器"
+  },
+  "discipline_deviations": [
+    {
+      "item": "覆盖前未快照",
+      "detail": "T1–T4 的需求文件在写 v2 之前未先复制 v1 原文，导致 v1 原文不可从盘上恢复；T5（PR126）未受影响，其 v1 已快照",
+      "impact": "受限：v1 原文仍可从本轮对话记录与第 1 轮审查输入 review_input_A/B.json 中完整恢复（那两份输入逐字节保留了 v1 需求文本）",
+      "recovery_path": "review_input_A.json / review_input_B.json 内含 T1–T5 的 v1 需求全文，可用于回填快照",
+      "rule_violated": "不覆盖冻结输出；参数或协议变化应建立新版本目录"
+    },
+    {
+      "item": "误写工作区根路径",
+      "detail": "PR126 的 v2 修订版曾被写到工作区根下不存在的 data/... 路径，误建了目录树",
+      "impact": "无：仓库内 v1 未被改动；误建目录已删除；修订版已正确写入仓库路径",
+      "recovery_path": "已清理；无需回滚"
+    }
+  ],
+  "next": "对修订后的 T1/T2/T5 做第二轮隔离复审；T3/T4 的修订留待同一轮复核"
+}

@@ -1,0 +1,19 @@
+{
+  "task_id": "REPO_MORE_PR440_GROUP_LIFETIME_LIMITED",
+  "method": "M2",
+  "status": "budget_refusal",
+  "candidate": null,
+  "behavior": null,
+  "error": "输入与最少输出无法纳入总预算",
+  "spent": 4053,
+  "requests_sent": 2,
+  "refusals": [
+    {
+      "stage": "helper2",
+      "reason": "输入与最少输出无法纳入总预算",
+      "before_request": true
+    }
+  ],
+  "cost_known": true,
+  "budget_compliant": true
+}

@@ -1,0 +1,36 @@
+{
+  "task_id": "D1_B03_future_single_pass_candidate",
+  "requirement": "实现solve(payload)，text是字符串，返回去除完整ANSI控制码后的字符串。ESC表示U+001B。完整码为ESC后接一个ASCII @到Z或反斜线到下划线字符（不包括[）；或ESC+[，再接零或多个ASCII 0到?参数字符、零或多个空格到/中间字符、一个@到~终止字符。这些范围均含端点。不完整、不符合该形式的片段逐字保留；不解释光标或颜色。只用标准库，内部结构自由。 匹配对象始终是传入的原始text。从左到右在原串上识别完整且不重叠的控制码，一次删除这些原串区间；保留其余原字符的次序。删除后新接合形成的完整控制码不再识别或删除。这一规则只规定输入输出语义，不限定内部函数数量、名称或算法。",
+  "entry_point": "solve(payload)",
+  "language": "Python",
+  "allowed_libraries": "仅Python标准库",
+  "public_examples": [
+    {
+      "input": {
+        "text": "a\u001b[31m红\u001b[0mz"
+      },
+      "output": "a红z"
+    },
+    {
+      "input": {
+        "text": "x\u001b[31"
+      },
+      "output": "x\u001b[31"
+    },
+    {
+      "input": {
+        "text": "\u001b\u001b[31mM"
+      },
+      "output": "\u001bM"
+    },
+    {
+      "input": {
+        "text": "\u001b\u001bM[31m"
+      },
+      "output": "\u001b[31m"
+    }
+  ],
+  "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。",
+  "internal_decomposition": "自由选择，不给定helper名称或数量",
+  "research_status": "未来需求候选，非正式冻结；原D1_B03/初标/评分未修改，人工审查0"
+}

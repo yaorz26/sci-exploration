@@ -1,0 +1,42 @@
+{
+  "created_at": "2026-10-08T14:59:54.572392+00:00",
+  "status": "保存浮点差异/原比较器与八比较对冻结，不执行行为程序",
+  "source_summary": "experiments\\d1_noncache_stats_alternative_order_v1_20261008\\summary.json",
+  "source_summary_sha256": "324ba28a6a4ee5c9f3905aaa480823e264f34d1782cbbd648b4a290ac83998dd",
+  "comparator_path": "scripts\\d1\\evaluate_candidate.py",
+  "comparator_sha256": "8ecaaae3e58c3e4eef67c3bf22fc329c8465c7655c1174a0b1edccefe1df31f8",
+  "comparator_line": 10,
+  "comparator_end_line": 23,
+  "comparator_function_source": "def json_equal(left, right, strict_numbers=False, ordered_objects=False):\n    \"\"\"布尔与数值分开；普通JSON数值允许1与1.0相等。输入不变检查更严格。\"\"\"\n    if isinstance(left, bool) or isinstance(right, bool):\n        return type(left) is type(right) and left == right\n    if type(left) in (int, float) and type(right) in (int, float):\n        return (not strict_numbers or type(left) is type(right)) and left == right\n    if type(left) is not type(right):\n        return False\n    if isinstance(left, list):\n        return len(left) == len(right) and all(json_equal(a, b, strict_numbers, ordered_objects) for a, b in zip(left, right))\n    if isinstance(left, dict):\n        keys_match = list(left) == list(right) if ordered_objects else left.keys() == right.keys()\n        return keys_match and all(json_equal(left[key], right[key], strict_numbers, ordered_objects) for key in left)\n    return left == right",
+  "difference": {
+    "id": "a02",
+    "data": [
+      1,
+      1,
+      5
+    ],
+    "center_first": {
+      "mean": 2.3333333333333335,
+      "variance": 3.555555555555556
+    },
+    "pairwise_first": {
+      "mean": 2.3333333333333335,
+      "variance": 3.5555555555555554
+    },
+    "absolute_variance_difference": 4.440892098500626e-16
+  },
+  "controls": [
+    "完整输出差4.44e-16",
+    "原对象同值复制",
+    "1与1.0",
+    "False与0",
+    "方差明确加1e-3",
+    "NaN与NaN（非标准JSON）",
+    "Infinity与Infinity（非标准JSON）",
+    "字典键顺序反转/default ordered_objects=False"
+  ],
+  "model_calls": 0,
+  "API_calls": 0,
+  "task_evaluations": 0,
+  "hidden_reads": 0
+}

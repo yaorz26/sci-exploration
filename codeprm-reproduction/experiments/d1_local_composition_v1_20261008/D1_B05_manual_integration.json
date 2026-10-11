@@ -1,0 +1,29 @@
+[
+  {
+    "case_id": "composition_original_version",
+    "input": {
+      "tree": [
+        null,
+        3
+      ],
+      "factor": 2,
+      "drop_null": true,
+      "threshold": 5
+    },
+    "expected": {
+      "value": {
+        "tree": [
+          6
+        ],
+        "matches": [
+          {
+            "path": [
+              0
+            ],
+            "value": 6
+          }
+        ]
+      }
+    }
+  }
+]

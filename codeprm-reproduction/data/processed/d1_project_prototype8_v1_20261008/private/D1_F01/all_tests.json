@@ -1,0 +1,167 @@
+[
+  {
+    "case_id": "public_1",
+    "input": {
+      "value": "  alpha\tbeta  "
+    },
+    "expected": {
+      "value": [
+        "alpha",
+        "beta"
+      ]
+    }
+  },
+  {
+    "case_id": "public_2",
+    "input": {
+      "value": [
+        "a b",
+        "c"
+      ]
+    },
+    "expected": {
+      "value": [
+        "a b",
+        "c"
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_1",
+    "input": {
+      "value": ""
+    },
+    "expected": {
+      "value": []
+    }
+  },
+  {
+    "case_id": "hidden_2",
+    "input": {
+      "value": "",
+      "split": false
+    },
+    "expected": {
+      "value": [
+        ""
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_3",
+    "input": {
+      "value": "x y",
+      "split": false
+    },
+    "expected": {
+      "value": [
+        "x y"
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_4",
+    "input": {
+      "value": []
+    },
+    "expected": {
+      "value": []
+    }
+  },
+  {
+    "case_id": "hidden_5",
+    "input": {
+      "value": 7
+    },
+    "expected": {
+      "error": "ValueError"
+    }
+  },
+  {
+    "case_id": "hidden_6",
+    "input": {
+      "value": [
+        "a",
+        1
+      ]
+    },
+    "expected": {
+      "error": "ValueError"
+    }
+  },
+  {
+    "case_id": "hidden_7",
+    "input": {
+      "value": null
+    },
+    "expected": {
+      "error": "ValueError"
+    }
+  },
+  {
+    "case_id": "hidden_8",
+    "input": {
+      "value": "你好\n世界"
+    },
+    "expected": {
+      "value": [
+        "你好",
+        "世界"
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_9",
+    "input": {
+      "value": "\n \t"
+    },
+    "expected": {
+      "value": []
+    }
+  },
+  {
+    "case_id": "hidden_10",
+    "input": {
+      "value": [
+        "",
+        " "
+      ]
+    },
+    "expected": {
+      "value": [
+        "",
+        " "
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_11",
+    "input": {
+      "value": true
+    },
+    "expected": {
+      "error": "ValueError"
+    }
+  },
+  {
+    "case_id": "hidden_12",
+    "input": {
+      "value": {}
+    },
+    "expected": {
+      "value": []
+    }
+  },
+  {
+    "case_id": "hidden_13",
+    "input": {
+      "value": [
+        "x",
+        null
+      ]
+    },
+    "expected": {
+      "error": "ValueError"
+    }
+  }
+]

@@ -1,0 +1,45 @@
+ ```diff
+--- a/confuse/sources.py
++++ b/confuse/sources.py
+@@ -38,6 +38,7 @@ class ConfigSource(dict):
+     """A dictionary augmented with metadata about the source of the
+     configuration.
+     """
++    def __init__(self, value, filename=None, default=False, base_for_paths=False):
+         super(ConfigSource, self).__init__(value)
+         if (filename is not None
+                 and not isinstance(filename, BASESTRING)):
+@@ -41,6 +42,7 @@ class ConfigSource(dict):
+             raise TypeError(u'filename must be a string or None')
+         self.filename = filename
+         self.default = default
++        self.base_for_paths = base_for_paths
+
+     def __repr__(self):
+         return 'ConfigSource({0!r}, {1!r}, {2!r})'.format(
+@@ -68,6 +70,7 @@ class YamlSource(ConfigSource):
+         """Create a YAML data source by reading data from a file.
+
+         May raise a `ConfigReadError`. However, if `optional` is
++        enabled, this exception will not be raised in the case when the
+         file does not exist---instead, the source will be silently
+         empty.
+         """
+@@ -75,6 +78,7 @@ class YamlSource(ConfigSource):
+         filename = os.path.abspath(filename)
+         super(YamlSource, self).__init__({}, filename, default)
+         self.loader = loader
++        self.base_for_paths = base_for_paths
+         self.optional = optional
+         self.load()
+
+@@ -83,6 +87,7 @@ class YamlSource(ConfigSource):
+     def load(self):
+         """Load YAML data from the source's filename.
+         """
++        if self.filename and self.base_for_paths:
++            self.filename = os.path.join(os.path.dirname(__file__), self.filename)
+         if self.optional and not os.path.isfile(self.filename):
+             value = {}
+         else:
+```

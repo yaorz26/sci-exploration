@@ -1,0 +1,41 @@
+{
+  "created_at": "2026-10-09T06:29:11.584622+00:00",
+  "stage": "D1-P75-value-path-version-tasks",
+  "seed": null,
+  "expected_solve_calls": 24,
+  "unique_inputs_added": 0,
+  "public_inputs_reused": 6,
+  "task_diagnostic_records_added": 12,
+  "file_sha256": {
+    "public_diagnostic_anchors.json": "e96319400492d38e4f2e2ae96e56cab68e83d3ad324fbd5a5ba5d69e40347814",
+    "tasks/E_B13/public_examples.json": "54f068cda937011fc225f52e48dfcb45590469e5aace2cc06f227394f21498a7",
+    "tasks/E_B13/requirement.md": "e4ea4a6263b29f65980122ea22e14261935958ee3f88383b42d4eac9207aa8d7",
+    "tasks/E_B13/task.json": "4038c627b9286d950d462351009a190f32c3728c4f1d5e6013645b67a04c0d09",
+    "tasks/E_B14/public_examples.json": "1048a481220d66731eb9be3474a14d43a6e4d18a0ac032a17638e424a428f7cf",
+    "tasks/E_B14/requirement.md": "3aa1503660ee54d96572983db1a0100e26057350c9eb45e35e9531aa0890569a",
+    "tasks/E_B14/task.json": "d39422422fab94d5eba5edc8a5357db9f6790d804bd8e15365921e1247fd6bfb",
+    "references/new_value_raw_path/helpers.py": "88116850d7bc2dfd97daeb1d78300a23204aaab78c11a5d7ac72cc28ded73b1b",
+    "references/new_value_raw_path/whole.py": "9441a51132d95448793ef9c24867cf8ae9120c1d1ab5de46f9979ed1825f0e6d",
+    "references/raw_value_new_path/helpers.py": "5d205604c576f2cbdeeed4ee682340694aa2280d415b6c2085ccf6cf918f67b3",
+    "references/raw_value_new_path/whole.py": "f80592085f4115ae0b97852ebd7d55ffe5060a715d2f924272157f2b168d2d62"
+  },
+  "p74_summary_sha256": "f3d393e6382c69075c3bae966023c09ab1919679e560b96e37f452e593a83f98",
+  "p74_anchors_sha256": "be613cbbd2e58effba1358b818d4cf5b64436e54f949cc98942fb31be0a5a882",
+  "contract_sha256": "9895f1a6375c0271d3e7aa9881eb5b4aa120563c2fe6d1a3dcf51cfcb865245f",
+  "predictions": {
+    "each_reference_passes": 6,
+    "input_mutations": 0,
+    "raw_value_new_path": {
+      "factor_equal": true,
+      "drop_null_equal": false
+    },
+    "new_value_raw_path": {
+      "factor_equal": false,
+      "drop_null_equal": true
+    }
+  },
+  "formal_labels": null,
+  "human_reviews": 0,
+  "model_calls": 0,
+  "private_reads": 0
+}

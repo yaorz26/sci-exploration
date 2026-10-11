@@ -1,0 +1,41 @@
+实现计划：
+
+1. **初始化方法 (`__init__`)**:
+   - 初始化一个空的股票列表 (`self.portfolio`) 和一个初始的现金余额 (`self.cash_balance`)。
+
+2. **添加股票方法 (`add_stock`)**:
+   - 将传入的股票字典添加到 `self.portfolio` 列表中。
+
+3. **移除股票方法 (`remove_stock`)**:
+   - 从 `self.portfolio` 列表中移除传入的股票字典。
+
+4. **购买股票方法 (`buy_stock`)**:
+   - 检查现金余额是否足够购买指定数量的股票。
+   - 如果足够，计算购买股票的总费用，并从现金余额中扣除。
+   - 将股票添加到 `self.portfolio` 列表中。
+
+5. **出售股票方法 (`sell_stock`)**:
+   - 检查 `self.portfolio` 列表中是否包含指定数量的股票。
+   - 如果包含，计算出售股票的总收益，并将现金余额增加。
+   - 从 `self.portfolio` 列表中移除股票。
+
+6. **计算总价值方法 (`calculate_portfolio_value`)**:
+   - 遍历 `self.portfolio` 列表，计算所有股票的总价值。
+
+7. **获取总结方法 (`get_portfolio_summary`)**:
+   - 调用 `calculate_portfolio_value` 方法获取总价值。
+   - 遍历 `self.portfolio` 列表，计算每个股票的价值。
+   - 返回一个包含总价值和每个股票价值的元组。
+
+8. **获取股票价值方法 (`get_stock_value`)**:
+   - 计算并返回传入股票的总价值。
+
+实现顺序：
+1. 初始化方法 (`__init__`)
+2. 添加股票方法 (`add_stock`)
+3. 移除股票方法 (`remove_stock`)
+4. 购买股票方法 (`buy_stock`)
+5. 出售股票方法 (`sell_stock`)
+6. 计算总价值方法 (`calculate_portfolio_value`)
+7. 获取总结方法 (`get_portfolio_summary`)
+8. 获取股票价值方法 (`get_stock_value`)

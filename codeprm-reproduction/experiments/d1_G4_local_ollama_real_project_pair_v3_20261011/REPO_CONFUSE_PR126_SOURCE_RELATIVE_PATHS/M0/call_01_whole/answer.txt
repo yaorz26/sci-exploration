@@ -1,0 +1,187 @@
+ ```diff
+--- a/confuse/sources.py
++++ b/confuse/sources.py
+@@ -10,6 +10,7 @@ from .util import BASESTRING
+ from . import yaml_util
+ import os
+ 
++from .templates import Filename
+ 
+ class ConfigSource(dict):
+     """A dictionary augmented with metadata about the source of the
+@@ -26,6 +27,7 @@ class ConfigSource(dict):
+         self.filename = filename
+         self.default = default
+ 
++    def set_base_for_paths(self, base_for_paths):
++        self.base_for_paths = base_for_paths
+ 
+     def __repr__(self):
+         return 'ConfigSource({0!r}, {1!r}, {2!r})'.format(
+@@ -41,6 +43,7 @@ class ConfigSource(dict):
+             return value
+         elif isinstance(value, dict):
+             return ConfigSource(value)
++        elif isinstance(value, Filename):
++            value.set_base_for_paths(self.base_for_paths)
+         else:
+             raise TypeError(u'source value must be a dict')
+ 
+@@ -72,6 +75,7 @@ class YamlSource(ConfigSource):
+         filename = os.path.abspath(filename)
+         super(YamlSource, self).__init__({}, filename, default)
+         self.loader = loader
++        self.base_for_paths = base_for_paths
+         self.optional = optional
+         self.load()
+ 
+@@ -82,6 +86,7 @@ class YamlSource(ConfigSource):
+         if self.optional and not os.path.isfile(self.filename):
+             value = {}
+         else:
++            if self.base_for_paths:
++                value = yaml_util.load_yaml(self.filename, loader=self.loader, base_for_paths=True) or {}
+             else:
+                 value = yaml_util.load_yaml(self.filename, loader=self.loader) or {}
+         self.update(value)
+ 
+--- a/confuse/core.py
++++ b/confuse/core.py
+@@ -10,6 +10,7 @@ from __future__ import division, absolute_import, print_function
+ 
+ import os
+ import yaml
++from collections import OrderedDict
+ from collections.abc import Mapping
+ 
+ from . import util
+@@ -20,6 +21,7 @@ from . import yaml_util
+ from .sources import ConfigSource, YamlSource
+ from .exceptions import ConfigTypeError, NotFoundError, ConfigError
+ 
++from .templates import Filename
+ 
+ CONFIG_FILENAME = 'config.yaml'
+ DEFAULT_FILENAME = 'config_default.yaml'
+@@ -100,6 +102,7 @@ class ConfigView(object):
+         """
+         raise NotImplementedError
+ 
++    def set_base_for_paths(self, base_for_paths):
++        self.base_for_paths = base_for_paths
+ 
+     def first(self):
+         """Return a (value, source) pair for the first object found for
+@@ -110,6 +113,7 @@ class ConfigView(object):
+             raise NotFoundError(u"{0} not found".format(self.name))
+ 
+     def exists(self):
++        self.set_base_for_paths(self.base_for_paths)
+         try:
+             self.first()
+         except NotFoundError:
+@@ -120,6 +124,7 @@ class ConfigView(object):
+ 
+     def add(self, value):
++        self.set_base_for_paths(self.base_for_paths)
+         raise NotImplementedError
+ 
+     def set(self, value):
++        self.set_base_for_paths(self.base_for_paths)
+         raise NotImplementedError
+ 
+     def root(self):
+@@ -130,6 +135,7 @@ class ConfigView(object):
+ 
+     def __repr__(self):
+         return '<{}: {}>'.format(self.__class__.__name__, self.name)
+ 
++    def set_base_for_paths(self, base_for_paths):
++        self.base_for_paths = base_for_paths
+ 
+     def __iter__(self):
+         """Iterate over the keys of a dictionary view or the *subviews*
+@@ -140,6 +146,7 @@ class ConfigView(object):
+             try:
+                 for key in self.keys():
+                     yield key
++                self.set_base_for_paths(self.base_for_paths)
+ 
+             except ConfigTypeError:
+                 try:
+@@ -150,6 +157,7 @@ class ConfigView(object):
+                 raise ConfigTypeError(
+                     u'{0} must be a dictionary or a list, not {1}'.format(
+                         self.name, type(item).__name__
+                     )
+                 )
+ 
++    def set_base_for_paths(self, base_for_paths):
++        self.base_for_paths = base_for_paths
+ 
+     def __getitem__(self, key):
+         """Get a subview of this view."""
+@@ -160,6 +168,7 @@ class ConfigView(object):
+         """Create an overlay source to assign a given key under this
+         view.
+         """
++        self.set_base_for_paths(self.base_for_paths)
+         self.set({key: value})
+ 
+     def __contains__(self, key):
+@@ -170,6 +179,7 @@ class ConfigView(object):
+ 
+     @classmethod
+     def _build_namespace_dict(cls, obj, dots=False):
++        cls.set_base_for_paths(cls.base_for_paths)
+         """Recursively replaces all argparse.Namespace and optparse.Values
+         with dicts and drops any keys with None values.
+ 
+@@ -180,6 +190,7 @@ class ConfigView(object):
+             :param obj: Namespace, Values, or dict to iterate over. Other
+                 values will simply be returned.
+             :type obj: argparse.Namespace or optparse.Values or dict or *
++            :param dots: If True, any properties on obj that contain dots (.)
+                 will be broken down into child dictionaries.
+             :return: A new dictionary or the value passed if obj was not a
+                 dict, Namespace, or Values.
+@@ -190,6 +201,7 @@ class ConfigView(object):
+             return od
+         return obj
+ 
++    def set_base_for_paths(self, base_for_paths):
++        self.base_for_paths = base_for_paths
+ 
+     def get(self, template=templates.REQUIRED):
+         """Retrieve the value for this view according to the template.
+ 
+@@ -200,6 +212,7 @@ class ConfigView(object):
+             May raise a `ConfigValueError` (or its subclass,
+             `ConfigTypeError`) or a `NotFoundError` when the configuration
+             doesn't satisfy the template.
++            """
+             return templates.as_template(template).value(self, template)
+ 
+     # Shortcuts for common templates.
+@@ -210,6 +223,7 @@ class ConfigView(object):
+         """Get the value as a path. Equivalent to `get(Filename())`.
+         """
+         return self.get(templates.Filename())
+ 
++    def set_base_for_paths(self, base_for_paths):
++        self.base_for_paths = base_for_paths
+ 
+     def as_filename(self):
+         """Get the value as a path. Equivalent to `get(Filename())`.
+@@ -220,6 +234,7 @@ class ConfigView(object):
+         """Get the value as a `pathlib.Path` object. Equivalent to `get(Path())`.
+         """
+         return self.get(templates.Path())
+ 
++    def set_base_for_paths(self, base_for_paths):
++        self.base_for_paths = base_for_paths
+ 
+     def as_choice(self, choices):
+         """Get the value from a list of choices. Equivalent to
+@@ -230,6 +245,7 @@ class ConfigView(object):
+         """Get the value as any number type: int or float. Equivalent to

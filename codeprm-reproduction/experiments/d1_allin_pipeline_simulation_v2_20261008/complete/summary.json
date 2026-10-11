@@ -1,0 +1,324 @@
+{
+  "status": "completed",
+  "scope": "合成完整路径检查，非模型结果",
+  "simulated": true,
+  "api_calls": 10,
+  "arm_summary": {
+    "M0": {
+      "tasks": 4,
+      "all_pass_count": 3,
+      "generation_failures": 1,
+      "measurement_failures": 0,
+      "actual_total_tokens": 1326,
+      "api_calls": 3
+    },
+    "M2": {
+      "tasks": 4,
+      "all_pass_count": 1,
+      "generation_failures": 3,
+      "measurement_failures": 0,
+      "actual_total_tokens": 5039,
+      "api_calls": 7
+    }
+  },
+  "candidates": [
+    {
+      "task_id": "S01",
+      "arm": "M0",
+      "candidate_index": 0,
+      "generation_error": null,
+      "failure_category": null,
+      "candidate_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_allin_pipeline_simulation_v2_20261008\\complete\\candidates\\S01\\M0\\candidate.py",
+      "candidate_sha256": "29623908cf013cb2c08aff618e8f2c56fbd04af8109022fcee23c30eea161326",
+      "total_token_spend": 442,
+      "cost_status": "known",
+      "api_calls": 1,
+      "request_ledger_sha256": "0f4aaff8cf9d8a4892cfe4a9a0b4ae6cde170a931c587caf6c646947dfcdee92",
+      "request_ledger_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_allin_pipeline_simulation_v2_20261008\\complete\\candidates\\S01\\M0\\requests\\ledger.json",
+      "budget_limit": 6500,
+      "public": {
+        "cases": 1,
+        "passed": 1,
+        "all_pass": true,
+        "results": [
+          {
+            "case_id": "synthetic_public",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.061891299999842886,
+        "captured_output_bytes": 145
+      },
+      "private": {
+        "cases": 1,
+        "passed": 1,
+        "all_pass": true,
+        "results": [
+          {
+            "case_id": "synthetic_private",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.06108420000236947,
+        "captured_output_bytes": 146
+      },
+      "all_pass": true
+    },
+    {
+      "task_id": "S01",
+      "arm": "M2",
+      "candidate_index": 0,
+      "generation_error": null,
+      "failure_category": null,
+      "candidate_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_allin_pipeline_simulation_v2_20261008\\complete\\candidates\\S01\\M2\\candidate.py",
+      "candidate_sha256": "e11f09fc0a65a29335c1b2f81c0edce3eb3757291c893d5f58d49d0a4aaa6cfe",
+      "total_token_spend": 3024,
+      "cost_status": "known",
+      "api_calls": 4,
+      "request_ledger_sha256": "8c0923cc686ccf890cd26a47ea804fc953d7d869e310df9c7066d0ef6713393e",
+      "request_ledger_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_allin_pipeline_simulation_v2_20261008\\complete\\candidates\\S01\\M2\\requests\\ledger.json",
+      "budget_limit": 6500,
+      "public": {
+        "cases": 1,
+        "passed": 1,
+        "all_pass": true,
+        "results": [
+          {
+            "case_id": "synthetic_public",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.061015799998131115,
+        "captured_output_bytes": 145
+      },
+      "private": {
+        "cases": 1,
+        "passed": 1,
+        "all_pass": true,
+        "results": [
+          {
+            "case_id": "synthetic_private",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.06141340000249329,
+        "captured_output_bytes": 146
+      },
+      "all_pass": true
+    },
+    {
+      "task_id": "S02",
+      "arm": "M0",
+      "candidate_index": 0,
+      "generation_error": null,
+      "failure_category": null,
+      "candidate_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_allin_pipeline_simulation_v2_20261008\\complete\\candidates\\S02\\M0\\candidate.py",
+      "candidate_sha256": "29623908cf013cb2c08aff618e8f2c56fbd04af8109022fcee23c30eea161326",
+      "total_token_spend": 442,
+      "cost_status": "known",
+      "api_calls": 1,
+      "request_ledger_sha256": "512aa1c23b893e80a329bb78607b89c9e5cff541094215ad4539c272b2a1e556",
+      "request_ledger_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_allin_pipeline_simulation_v2_20261008\\complete\\candidates\\S02\\M0\\requests\\ledger.json",
+      "budget_limit": 6500,
+      "public": {
+        "cases": 1,
+        "passed": 1,
+        "all_pass": true,
+        "results": [
+          {
+            "case_id": "synthetic_public",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.061040100001264364,
+        "captured_output_bytes": 145
+      },
+      "private": {
+        "cases": 1,
+        "passed": 1,
+        "all_pass": true,
+        "results": [
+          {
+            "case_id": "synthetic_private",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.06116930000280263,
+        "captured_output_bytes": 146
+      },
+      "all_pass": true
+    },
+    {
+      "task_id": "S02",
+      "arm": "M2",
+      "candidate_index": 0,
+      "generation_error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+      "failure_category": "generation_or_assembly_failure",
+      "candidate_path": null,
+      "candidate_sha256": null,
+      "total_token_spend": 603,
+      "cost_status": "known",
+      "api_calls": 1,
+      "request_ledger_sha256": "7571209c0559e9f1d2c552cddac3c4cf843af06558590cedcdeed47459a137c9",
+      "request_ledger_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_allin_pipeline_simulation_v2_20261008\\complete\\candidates\\S02\\M2\\requests\\ledger.json",
+      "budget_limit": 6500,
+      "public": {
+        "all_pass": false,
+        "generation_failure": true,
+        "cases": 1,
+        "passed": 0
+      },
+      "private": {
+        "all_pass": false,
+        "generation_failure": true,
+        "cases": 1,
+        "passed": 0
+      },
+      "all_pass": false
+    },
+    {
+      "task_id": "S03",
+      "arm": "M0",
+      "candidate_index": 0,
+      "generation_error": null,
+      "failure_category": null,
+      "candidate_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_allin_pipeline_simulation_v2_20261008\\complete\\candidates\\S03\\M0\\candidate.py",
+      "candidate_sha256": "29623908cf013cb2c08aff618e8f2c56fbd04af8109022fcee23c30eea161326",
+      "total_token_spend": 442,
+      "cost_status": "known",
+      "api_calls": 1,
+      "request_ledger_sha256": "ed163ac32540b0b58259ecc09b382b27b9c17f8ab91c799364c01ad2ad5af23e",
+      "request_ledger_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_allin_pipeline_simulation_v2_20261008\\complete\\candidates\\S03\\M0\\requests\\ledger.json",
+      "budget_limit": 6500,
+      "public": {
+        "cases": 1,
+        "passed": 1,
+        "all_pass": true,
+        "results": [
+          {
+            "case_id": "synthetic_public",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.061625700000149664,
+        "captured_output_bytes": 145
+      },
+      "private": {
+        "cases": 1,
+        "passed": 1,
+        "all_pass": true,
+        "results": [
+          {
+            "case_id": "synthetic_private",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.06141199999910896,
+        "captured_output_bytes": 146
+      },
+      "all_pass": true
+    },
+    {
+      "task_id": "S03",
+      "arm": "M2",
+      "candidate_index": 0,
+      "generation_error": "ValueError: completion changed frozen function signature",
+      "failure_category": "generation_or_assembly_failure",
+      "candidate_path": null,
+      "candidate_sha256": null,
+      "total_token_spend": 1412,
+      "cost_status": "known",
+      "api_calls": 2,
+      "request_ledger_sha256": "c3aa97c3c294c5d7192c6f32ce96243946ada7590b0d3c34191ccc6fe8c30ce3",
+      "request_ledger_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_allin_pipeline_simulation_v2_20261008\\complete\\candidates\\S03\\M2\\requests\\ledger.json",
+      "budget_limit": 6500,
+      "public": {
+        "all_pass": false,
+        "generation_failure": true,
+        "cases": 1,
+        "passed": 0
+      },
+      "private": {
+        "all_pass": false,
+        "generation_failure": true,
+        "cases": 1,
+        "passed": 0
+      },
+      "all_pass": false
+    },
+    {
+      "task_id": "S04",
+      "arm": "M0",
+      "candidate_index": 0,
+      "generation_error": "BudgetRefusal: 输入与最少输出无法纳入总预算",
+      "failure_category": "budget_or_context_failure",
+      "candidate_path": null,
+      "candidate_sha256": null,
+      "total_token_spend": 0,
+      "cost_status": "known",
+      "api_calls": 0,
+      "request_ledger_sha256": "8d46aa291a876e64c5d0949a1aff4eaf3b1bc0e0432635bace64374cfe8c26c3",
+      "request_ledger_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_allin_pipeline_simulation_v2_20261008\\complete\\candidates\\S04\\M0\\requests\\ledger.json",
+      "budget_limit": 6500,
+      "public": {
+        "all_pass": false,
+        "generation_failure": true,
+        "cases": 1,
+        "passed": 0
+      },
+      "private": {
+        "all_pass": false,
+        "generation_failure": true,
+        "cases": 1,
+        "passed": 0
+      },
+      "all_pass": false
+    },
+    {
+      "task_id": "S04",
+      "arm": "M2",
+      "candidate_index": 0,
+      "generation_error": "BudgetRefusal: 输入与最少输出无法纳入总预算",
+      "failure_category": "budget_or_context_failure",
+      "candidate_path": null,
+      "candidate_sha256": null,
+      "total_token_spend": 0,
+      "cost_status": "known",
+      "api_calls": 0,
+      "request_ledger_sha256": "c2e595ce4bd5b66a4f82508a388b65da7fae8c57caef2434c523e303833691d8",
+      "request_ledger_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_allin_pipeline_simulation_v2_20261008\\complete\\candidates\\S04\\M2\\requests\\ledger.json",
+      "budget_limit": 6500,
+      "public": {
+        "all_pass": false,
+        "generation_failure": true,
+        "cases": 1,
+        "passed": 0
+      },
+      "private": {
+        "all_pass": false,
+        "generation_failure": true,
+        "cases": 1,
+        "passed": 0
+      },
+      "all_pass": false
+    }
+  ],
+  "freeze_sha256": "635a33bfb3ba3dacd739ac0c81d0ae87e38b352f0b8d2ba7988fffd6823cff57",
+  "wall_seconds": 0.6137741000020469
+}

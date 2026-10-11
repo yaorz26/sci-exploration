@@ -1,0 +1,295 @@
+{
+  "status": "candidate_evidence_with_support_limits",
+  "tasks": 20,
+  "behavior_measured_tasks": 8,
+  "behavior_unmeasured_tasks": 12,
+  "plan_boundary_tasks": 2,
+  "budget_scenarios": 80,
+  "human_reviewers": 0,
+  "model_calls": 0,
+  "original_dataset_changed": false,
+  "supports": [
+    {
+      "facet": "capacity_interference_witness",
+      "task_ids": [
+        "D1_C01",
+        "D1_C02",
+        "D1_C03",
+        "D1_C04"
+      ],
+      "tasks": 4,
+      "repositories": [
+        "tkem/cachetools"
+      ],
+      "explicit_components": [
+        "linked_component_6"
+      ]
+    },
+    {
+      "facet": "global_order_witness",
+      "task_ids": [
+        "D1_B02",
+        "D1_B04"
+      ],
+      "tasks": 2,
+      "repositories": [
+        "mahmoud/boltons"
+      ],
+      "explicit_components": [
+        "linked_component_2"
+      ]
+    },
+    {
+      "facet": "limited_cross_entity_noninterference",
+      "task_ids": [
+        "D1_B02",
+        "D1_B04",
+        "D1_M04",
+        "D1_C04"
+      ],
+      "tasks": 4,
+      "repositories": [
+        "mahmoud/boltons",
+        "more-itertools/more-itertools",
+        "tkem/cachetools"
+      ],
+      "explicit_components": [
+        "linked_component_14",
+        "linked_component_2",
+        "linked_component_6"
+      ]
+    },
+    {
+      "facet": "second_entity_not_applicable",
+      "task_ids": [
+        "D1_M03"
+      ],
+      "tasks": 1,
+      "repositories": [
+        "more-itertools/more-itertools"
+      ],
+      "explicit_components": [
+        "linked_component_13"
+      ]
+    }
+  ],
+  "source_table": [
+    {
+      "repository": "beetbox/confuse",
+      "tasks": 4,
+      "split": {
+        "reserve": 4
+      },
+      "author_state": {
+        "none": 4
+      },
+      "author_testability": {
+        "no": 1,
+        "partial": 1,
+        "yes": 2
+      },
+      "behavior_evidence_tasks": 0,
+      "unmeasured_behavior_tasks": 4
+    },
+    {
+      "repository": "mahmoud/boltons",
+      "tasks": 6,
+      "split": {
+        "development": 6
+      },
+      "author_state": {
+        "none": 4,
+        "operation_sequence": 2
+      },
+      "author_testability": {
+        "yes": 3,
+        "partial": 1,
+        "no": 2
+      },
+      "behavior_evidence_tasks": 2,
+      "unmeasured_behavior_tasks": 4
+    },
+    {
+      "repository": "more-itertools/more-itertools",
+      "tasks": 5,
+      "split": {
+        "reserve": 5
+      },
+      "author_state": {
+        "none": 3,
+        "operation_sequence": 2
+      },
+      "author_testability": {
+        "partial": 2,
+        "no": 1,
+        "yes": 2
+      },
+      "behavior_evidence_tasks": 2,
+      "unmeasured_behavior_tasks": 3
+    },
+    {
+      "repository": "tkem/cachetools",
+      "tasks": 5,
+      "split": {
+        "development": 5
+      },
+      "author_state": {
+        "operation_sequence": 4,
+        "none": 1
+      },
+      "author_testability": {
+        "partial": 3,
+        "yes": 1,
+        "no": 1
+      },
+      "behavior_evidence_tasks": 4,
+      "unmeasured_behavior_tasks": 1
+    }
+  ],
+  "design_diagnostic": {
+    "task_ids": [
+      "D1_B02",
+      "D1_C01",
+      "D1_C02",
+      "D1_B04",
+      "D1_M03",
+      "D1_M04",
+      "D1_C03",
+      "D1_C04"
+    ],
+    "columns": [
+      "intercept",
+      "source=more-itertools/more-itertools",
+      "source=tkem/cachetools",
+      "capacity_interference_witness",
+      "global_order_witness",
+      "limited_cross_entity_noninterference",
+      "second_entity_not_applicable"
+    ],
+    "matrix": [
+      [
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0
+      ]
+    ],
+    "rank": 5,
+    "column_count": 7,
+    "pivot_columns": [
+      0,
+      1,
+      2,
+      5,
+      6
+    ],
+    "nullspace": [
+      [
+        "0",
+        "0",
+        "-1",
+        "1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "-1",
+        "1",
+        "1",
+        "0",
+        "1",
+        "0",
+        "0"
+      ]
+    ],
+    "scope": "仅8题已有候选证据；12未测不填0；精确线性别名非统计模型、成绩或可靠性"
+  },
+  "facts": [
+    "容量干扰4题均cachetools且属同一显式相关组件",
+    "全局顺序2题均boltons且属同一显式相关组件",
+    "有限跨实体隔离4题跨3来源，但粒度/行为不等价，不能合并成全域独立",
+    "单游标1题的跨实体项不适用；12题本阶段未测"
+  ],
+  "gaps": [
+    "优先找非cachetools固定来源的跨键资源干扰及容量对照",
+    "优先找另一来源的全局顺序与局部投影并存功能",
+    "新增相似功能保留家族联系，不能把扩题当独立复现"
+  ],
+  "input_hashes": {
+    "data/processed/d1_project_initial20_v5_20261008/manifest.json": "c3593d11ae85cc23545aa91418c2ab3c97a4b005fd5e49963bdc28ae7e6eda9f",
+    "experiments/d1_semantic_contrasts_v1_20261008/measurement_challenge_review.json": "6dc8edf249bc01669fb595a3e2858f96bdb9b6efb0797a5a4d141f75e65633ff",
+    "experiments/d1_semantic_contrasts_v1_20261008/paired_probes.jsonl": "e1e7aa25089bcde5ebca06b4d857e9211e00ebc92b7a1824befd2f3498304fb0",
+    "experiments/d1_prompt_crowding_v1_20261008/rows.json": "8c1b81c6234fd2f1a26e2502e5f66a0d9f550d41b14ee17956c5993d357ac18d",
+    "experiments/d1_family_link_audit_v1_20261008.json": "34aa268f7077a3fce48affae3293d923f8ed4b4b86906ee6cecec6179f9164e2",
+    "experiments/d1_local_composition_v1_20261008/summary.json": "026ff59aad7906736f815aa2e89ad6c112a584646fa1ae1233b5729bfaa8c0e5"
+  },
+  "script_sha256": "470fb61f7e6a8ab7cbb04bf05c091daf164a91c1aefeaaa46b1fa1f9b1810d6a",
+  "limits": "管理端探索附件，人工0；不修改原20题/307案例/切分/标签，不拟合模型成绩；组件不是独立样本数"
+}

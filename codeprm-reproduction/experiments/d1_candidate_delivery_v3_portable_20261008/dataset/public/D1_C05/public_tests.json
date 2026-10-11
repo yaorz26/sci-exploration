@@ -1,0 +1,71 @@
+[
+  {
+    "case_id": "public_1",
+    "input": {
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ],
+        [
+          {
+            "kwargs": {
+              "a": 1,
+              "b": 2
+            }
+          },
+          {
+            "kwargs": {
+              "b": 2,
+              "a": 1
+            }
+          }
+        ]
+      ]
+    },
+    "expected": {
+      "value": [
+        true,
+        true
+      ]
+    }
+  },
+  {
+    "case_id": "public_2",
+    "input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              true
+            ]
+          }
+        ],
+        [
+          {},
+          {}
+        ]
+      ]
+    },
+    "expected": {
+      "value": [
+        false,
+        true
+      ]
+    }
+  }
+]

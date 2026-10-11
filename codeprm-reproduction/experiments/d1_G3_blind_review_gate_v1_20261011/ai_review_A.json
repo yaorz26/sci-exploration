@@ -1,0 +1,71 @@
+{
+  "reviewer_id": "ai-reviewer-A",
+  "reviewer_type": "ai_isolated_subagent（非人类，不得当作人工双审）",
+  "input_file": "review_input_A.json",
+  "review_scope": "只读取了 review_input_A.json 这一个文件；未打开任何 evaluator、参考实现、programs/ 实现、behavior_result、stage_result、模型输出或作者标注，也未加载任何其它工作区文件。",
+  "scores": {
+    "T1": {"需求可理解": 4, "验收可判定": 4, "内部自由": 5, "可纳入正式候选": 4},
+    "T2": {"需求可理解": 4, "验收可判定": 3, "内部自由": 4, "可纳入正式候选": 3},
+    "T3": {"需求可理解": 4, "验收可判定": 3, "内部自由": 5, "可纳入正式候选": 3},
+    "T4": {"需求可理解": 4, "验收可判定": 4, "内部自由": 5, "可纳入正式候选": 4},
+    "T5": {"需求可理解": 3, "验收可判定": 2, "内部自由": 4, "可纳入正式候选": 2}
+  },
+  "notes": {
+    "T1": {
+      "ambiguities": [
+        "优先级方向在需求正文里没有写死：来源段与对合法输入域的描述只说“优先级为整数或浮点数（含 0 与负值）”，功能义务 1、2 只说“移动到与其优先级相符的位置”，全篇没有一句说明数值越大越先出队。方向只能从公开用例 priority_still_dominates_after_readd 反推（low=1、high=5，peek 返回 high）；负值相对 0 的次序、“相同优先级”里负数与正数混排也无任何用例覆盖。",
+        "remove 的返回值与“移除不存在的任务”未定义：功能义务 4 只要求“被移除任务不再出现；len 相应减一；移除队首后 peek 返回下一个任务”，而公开用例 remove_then_peek 的 expected 里出现 remove 的 \"ok\": true，暗示有布尔返回；同时六个公开用例没有一个覆盖“remove 一个不存在的任务”（返回 False 还是抛异常，无法判定）。",
+        "空队列异常类型与 add 返回值未定：功能义务 5 只写“不传 default 时抛异常”，公开用例只在 peek 上给了 \"expect_exception\": \"IndexError\"；pop 不带 default 在空队列上抛什么没有任何用例；六个用例的 add 期望项都只有 {op, task} 没有 value 字段，暗示 add 返回 None，但需求文本从未规定。",
+        "再 add 改变优先级时在新优先级组内的落点未规定：义务 2 只规定了“相同优先级下先前加入者再 add 后排在后来者之后”（用例 readd_moves_to_back_same_priority），没有规定“a 原为优先级 1、再 add 为优先级 5”时它在优先级 5 组内是排到队尾还是保留原时间戳，也没有对应公开用例。"
+      ],
+      "would_reject": false,
+      "reject_reason": "",
+      "score_rationale": "需求可理解=4：五个公开义务与“只观察返回值与 len”的边界写得清楚，合法输入域明确排除线程安全/peek_n/批量 add；扣分在优先级方向与若干返回值未写。验收可判定=4：六个公开用例给了逐 op 的具体期望（peek=\"a\"、re-add 后 peek=\"b\"、priority 5 先于 1、remove 后 len=1、空队列 default=\"none\"、peek 空队列 IndexError），足以判定主要行为；扣分在 remove 缺省与 pop 无 default 无用例、add/remove 返回值只靠 expected 字段缺失来暗示。内部自由=5：正文明确“内部数据结构、辅助函数、模块划分、是否复用 heapq 或 bisect 均自由”“不检查内部字段”。可纳入正式候选=4：域小、契约可自查、更新语义有公开用例锁死；扣分在作者已登记的“官方文档只承诺更新优先级、同优先级新位置由实现给出”这一处不可文档化边界，以及 remove 缺省无覆盖。"
+    },
+    "T2": {
+      "ambiguities": [
+        "查询映射视图返回“原文”还是“解码值”，需求正文没有钉死：义务 1 只说“两者必须一致，映射视图不得改写查询串”，义务 3 的“不得重复编码”说的是渲染；只有公开用例 already_encoded_preserved 的 get.expected=\"a%20b\"、items=[[\"q\",\"a%20b\"]] 才把口径定为不解码。按常见查询解析惯例（+ 还原为空格、%XX 解码）实现的做法会在这一条上被判遗漏，而 requirement 事先没有声明这是构建者约定（它只声明了“空格→%20”“+ 不作空格”两条约定）。同一用例的 note“两种模式都保留 %25 前的字面 % 序列”表述自相矛盾，无法据以判断孤立 % 或 %25 该怎么处理。",
+        "to_text(full_quote=True) 的编码范围未定：义务 4 只举了空格→%20，义务 3 要求已存在的 %XX 不重复编码；那么 full_quote 下路径/片段里的字面“/”、查询值里的“&”“=”、以及非 ASCII 字符（合法域只排除了非 ASCII 主机，没有排除非 ASCII 路径/片段）是否要编码，从文本无法判定，五个公开用例也都没有覆盖。",
+        "义务 3 与义务 4 在输入本身含孤立“%”时冲突：用例的 note 提到“%25”却没有任何输入含 %25；同时义务 1 的“两种用途读的是同一份解析结果”是一条不可观测的内部结构要求（评价只观察返回值），无法判定，也无法据此加分或扣分。"
+      ],
+      "would_reject": false,
+      "reject_reason": "",
+      "score_rationale": "需求可理解=4：五个义务短、指向明确，并诚实标注了“空格→%20”“+ 不作空格”是构建者约定而非 RFC 唯一要求。验收可判定=3：公开用例给了具体期望（a=1&b=2&a=3 的 keys/items/get/getlist 与两种渲染、%20 保留、%2F 保留、+ 保留、路径与片段空格只在 full_quote 下变 %20），但这些用例恰恰暴露了两处未写进义务的关键判定（映射视图不解码、full_quote 的编码范围），且 already_encoded_preserved 的 note 自相矛盾，“哪些行为算通过”仍有部分取决于未写明的口径。内部自由=4：正文允许复用 urllib.parse 或自写正则、模块划分自由，但义务 1 附带了一条不可观测的“同一份解析”结构要求，加上 full_quote 编码范围未定，等于把部分实现选择交给运气。可纳入正式候选=3：任务本身可控、用例完整度不错，但“与父版本同名的映射视图却采用不解码口径”这一点若不写进义务，忠实于常见查询解析语义的实现会被判遗漏，作正式候选前需先钉死解码口径与 full_quote 作用域。"
+    },
+    "T3": {
+      "ambiguities": [
+        "前缀的确切形式未定义：正文说“指定前缀的环境变量名；剥去前缀后的键转换成小写，__ 映射到嵌套键”，但没有说明前缀是否包含分隔下划线、也没有说匹配是否大小写敏感。公开用例 prefixed_scalar 只给 environment={D1APP_PORT:\"42\", D1OTHER_NOISE:\"99\"} 与 expected（port=42、noise 不存在），完全没有给出 set_env 的入参；从结果倒推前缀必须是 \"D1APP_\"（若传 \"D1APP\"，剥出的是 \"_PORT\"）。用例不含调用序列，模型无法确认评价器传哪个字符串。",
+        "嵌套来源的合并深度未定义：义务 3 只说环境来源优先级更高、未被环境提供的键仍可由较低优先级来源读取。用例 nested_overlay_and_fallback 中环境只给 D1APP_DB__HOST、文件给 db.host 与 db.timeout，expected timeout=7 说明不能把整棵 db 子树整体替换（否则 timeout 应缺失或报错），但正文没有写“按叶子路径合并还是整值替换”。",
+        "set_env 的调用约定与类型口径未定：正文只说 set_env(prefix, sep='__') “用于把环境来源放在当前最高优先级”，未说重复调用的效果、返回值、与 set_file 的先后关系；义务 2 说“通过已有配置视图的 get 读取”，但公开用例用 kind/type（int/str/exists）表述期望，正文没有说明这些 kind 与 confuse 的类型声明/默认值机制是什么关系。"
+      ],
+      "would_reject": false,
+      "reject_reason": "",
+      "score_rationale": "需求可理解=4：四个义务写清了“显式添加、不默认加入”“前缀剥离+小写+__ 嵌套”“标量转换与 YAML 来源一致（42 成整数）”“环境来源优先级更高且不覆盖无关键”，并明确固定外部入口 set_env、内部组织自由。验收可判定=3：三个公开用例（无匹配环境保持 port=11 为 int；D1APP_PORT=42 覆盖空文件且 D1OTHER_NOISE 被排除；db__host 覆盖 db.host 而 db.timeout 仍取文件值）确实覆盖了四条义务的主干，但用例不含 set_env 调用本身、且嵌套深浅合并与类型口径只能在用例里反推，“环境里出现 db 标量与 db__host 同时存在”“前缀不匹配时不加分隔”的判定无法从可见材料确定。内部自由=5：正文明确“内部模块划分、辅助函数、字典构造方式均自由”“其具体内部组织不是答案”，只约束外部入口。可纳入正式候选=3：任务域小、义务可数、用例主干可用，但前缀形式与合并深度两处需写进正文（或补一个含 set_env 调用的公开用例），否则同一份正确实现可能因约定不同被判遗漏；另有来源指向公开 PR142 的污染风险未评估。"
+    },
+    "T4": {
+      "ambiguities": [
+        "reducefunc 的调用时机只有用例的 mode 标签兜底：正文说“reducefunc接受该组变换后的可迭代值，其返回值作为外层 (key, result) 的 result”“reducefunc完成的list/数值结果即使外层迭代继续前进，也应保留已返回值”，但没有规定 reducefunc 是在产出 (key,result) 之前调用（因而天然物化），还是允许推迟到消费时调用；紧接着的“不是要求任意惰性reducefunc都永久保存数据”又把边界交回给一条未写出的判定。若评价器对“返回惰性对象、只被部分消费”的 reducefunc 设例，从文本无法判断对错（虽然有限合法域已声明回调会完整消费传入组，可视为域外）。",
+        "公开用例不自足：用例字段只有 items/factor/reducefunc/mode，没有显式给出 keyfunc 与 valuefunc。retained_lists_after_advance 期望 [[\"a\",[10,20]],[\"b\",[30]],[\"a\",[40]]] 只能反推出 keyfunc=取第一项、valuefunc=第二项乘 factor；用例 3 的 expected 是 {first_key, first_after_advance, second_key, second_now} 这样的观测片段，正文没有定义“推进到下一组”这一动作，mode 取值（retain_after_advance / normal / baseline_lazy）也不是需求语言。",
+        "无 reducefunc 时的基线只由用例 3 锁定：正文说“保留父API的懒组可迭代结果及共享底层迭代器的行为”，但“对某一组先做 list() 再推进外层”与“直接推进外层”两种消费顺序是否都要求返回 []，文本没有给出通用规则，只能靠 itertools.groupby 的既有语义与共享迭代器推断。"
+      ],
+      "would_reject": false,
+      "reject_reason": "",
+      "score_rationale": "需求可理解=4：新增参数与语义（相邻同 key 成组、valuefunc 先逐项变换、reducefunc 收变换后可迭代、返回 (key,result)、不排序不合并）以及“同 key 非相邻组保持分开”都写得明确，并给了完整签名；扣分在惰性/保留那一段的密集对冲措辞与 meta 语言（“本候选不是完整 more-itertools 仓库任务”）混在义务里。验收可判定=4：三个公开用例给了可对表的期望（[10,20]/[30]/[40] 的非相邻两组、sum 用例 6 与 4、无 reducer 的 first_after_advance=[] 与 second_now=[3]），主要行为可判；扣分在用例不自足（keyfunc/valuefunc/factor 语义未写）与“部分消费的惰性 reducefunc”无判定规则。内部自由=5：正文明确“不要求复制合并实现或固定内部 helper/存储结构”“内部可以组合既有 groupby，也可以另组织模块”，只约束外部调用与迭代结果。可纳入正式候选=4：语义边界（组生命周期）是真实难点且有具体用例，域也限得干净（无界流、效率、任意副作用均不测）；扣分在公开用例需补 keyfunc/valuefunc 说明，以及“保留已返回值”的判定规则需写成可执行的一句话。"
+    },
+    "T5": {
+      "ambiguities": [
+        "“模板”一词在需求里从未定义：条目 4 直接使用“模板 cwd”“模板 in_source_dir”“模板 in_app_dir”，但条目 1—3 只引入 base_for_paths 与 in_source_dir，in_app_dir 从何而来（似乎是既有 Filename 参数）也没交代；不借助 confuse 既有模板机制的背景知识，读不出这是什么。",
+        "公开例没有给出调用序列与参数归属：三个场景分别写“默认返回 <app>/assets/a.txt”“源级 base_for_paths=True 或模板 in_source_dir=True 返回 <project>/settings/assets/a.txt”“源级 base_for_paths=True 且模板 in_app_dir=True 返回 <app>/assets/a.txt”，但没有说明这些开关分别传给 set_file、ConfigSource/YamlSource 还是 Filename，占位符 <app>/<project> 也只说“测试运行时创建的真实绝对目录”，无法据以自查。",
+        "条目 4 的优先级次序无法判定：“相对路径优先使用模板 cwd，其次保持现有 relative_to 行为；in_source_dir 对有 filename 的源生效；in_app_dir 覆盖源级 base_for_paths 选项”把多层条件写在一句里，没有给出任何一个“两个开关同时成立”的最小判定例；且 public_cases 为 null、public_cases_note 明确说用例内嵌在评价器中，可见材料里没有任何一条可自查的期望输出。"
+      ],
+      "would_reject": true,
+      "reject_reason": "该任务在可见输入下无法判定验收：public_cases 为 null，note 明确“公开用例内嵌在评价器中；此处不提供”，需求正文又没有一条可自查的期望输出；同时条目 4 依赖 requirement 未定义的“模板 cwd/模板 in_source_dir/模板 in_app_dir”术语与一串未给优先级的条件（源级 base_for_paths、in_source_dir、in_app_dir、relative_to、cwd 的相对次序），条目 1—3 也没有说明这些开关分别从 set_file、Source 还是 Filename 传入。模型只能靠猜评价器口径，容易因约定不同被判遗漏，故不宜作为正式候选；需先补公开用例（含 set_file/Filename 的确切调用）并在正文定义模板与 relative_to/in_app_dir 的先后关系后复审。",
+      "score_rationale": "需求可理解=3：条目 1—3 的意图（加可选开关，让相对路径默认以源文件目录为基准，并保持既有 API 与默认行为）可以读懂，条目 4 与“模板”术语读不懂，公开例只能给出结果形态而给不出调用方式。验收可判定=2：可见材料里没有任何一条可自查的期望输出（public_cases 为 null），三个示例场景的开关归属与优先级次序都需外部知识，无法判定“哪些算通过、哪些算遗漏”。内部自由=4：正文明确“不要求特定内部拆法”“通过修改现有项目代码交付功能”，但外部参数集合与多层优先级语义已被固定，实现只能在代码组织上有自由。可纳入正式候选=2：作为研究池候选可以，作为正式候选不合格（无公开用例 + 术语未定义 + 多开关优先级不可判定），需先补公开用例与术语定义。"
+    }
+  },
+  "overall": {
+    "included_tasks": ["T1", "T2", "T3", "T4"],
+    "rejected_tasks": ["T5"],
+    "summary": "本审查只依据 review_input_A.json（需求文本 + 公开用例）独立打分，未读取任何实现、评价器或模型输出；标注为 ai_isolated_subagent，不构成人工双审。T1、T4 相对最扎实：T1 有 6 个逐 op 公开用例锁定 FIFO、re-add 后移、优先级压制、remove 后 len 与空队列 default，义务与观察面（返回值与 len）写得干净，内部自由明确；T4 的同 key 非相邻成组、sum/list 归约与无 reducer 的懒组基线都有可对表期望。T2、T3 主干可用但存在“正文没写、只在用例里才定死”的口径：T2 的映射视图返回原文（a%20b）与 full_quote 的编码范围，T3 的前缀确切形式（D1APP_ 还是 D1APP）与嵌套合并深度，建议在正文补一句或补一个含调用的公开用例后再作正式候选。T5 建议拒收：public_cases 为 null 且说明用例内嵌在评价器中，正文又依赖未定义的“模板 cwd/in_source_dir/in_app_dir”与一串无优先级的条件，可见输入下无法自查验收。最严重的两处含糊点：(1) T5 条目 4 的“模板”未定义 + 零公开用例，导致验收完全不可判定；(2) T2 的查询映射视图“不解码”口径只出现在已编码用例的期望值里、且该用例 note 自相矛盾（“保留 %25 前的字面 % 序列”），按常见查询解析语义实现的方案会被判遗漏。其余值得注意的：T1 优先级方向（越大越先出队）与 remove 缺省行为未写，T3 前缀形式未写，T4 reducefunc 调用时机与保留语义仅在用例 mode 标签里兜底。"
+  }
+}

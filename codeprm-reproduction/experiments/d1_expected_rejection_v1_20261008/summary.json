@@ -1,0 +1,22 @@
+{
+  "status": "pass",
+  "task_id": "D1_F04",
+  "unique_inputs": 5,
+  "implementation_calls": 10,
+  "correct_input_evaluations": 10,
+  "expected_rejection_inputs": 2,
+  "expected_rejection_evaluations": 4,
+  "distinct_relations": 5,
+  "relation_evaluations": 10,
+  "relation_evaluations_passed": 10,
+  "name_observable_relations": 2,
+  "name_unobservable_relations": 3,
+  "hidden_cases_read": 0,
+  "model_calls": 0,
+  "API_calls": 0,
+  "human_reviewers": 0,
+  "seconds": 0.03781379999782075,
+  "script_sha256": "ce25e4d284a3ba6c938485b34d40f61e02d458fabf9fb765ba7712d581cfef55",
+  "finding": "公开要求的ValueError可为正确拒绝；拒绝后name投影不可用，不因两错误标签相等授予name隔离证据",
+  "limits": "五手算输入两原实现，不泛化异常全合法；条件域/投影区分，不改原20题307/初标或模型成绩"
+}

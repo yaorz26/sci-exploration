@@ -1,0 +1,82 @@
+{
+  "reviewer_id": "ai-reviewer-B",
+  "reviewer_type": "ai_isolated_subagent（非人类，不得当作人工双审）",
+  "input_file": "review_input_B.json",
+  "dimension_names_verbatim": [
+    "需求可理解：不看参考实现也能明白要做什么",
+    "验收可判定：哪些行为算通过、哪些算遗漏，能判定",
+    "内部自由：不把某一种实现当唯一答案",
+    "可纳入正式候选：作为数据集任务合格"
+  ],
+  "scores": {
+    "T1": { "需求可理解": 4, "验收可判定": 4, "内部自由": 5, "可纳入正式候选": 4 },
+    "T2": { "需求可理解": 4, "验收可判定": 4, "内部自由": 5, "可纳入正式候选": 4 },
+    "T3": { "需求可理解": 4, "验收可判定": 4, "内部自由": 5, "可纳入正式候选": 4 },
+    "T4": { "需求可理解": 3, "验收可判定": 3, "内部自由": 3, "可纳入正式候选": 3 },
+    "T5": { "需求可理解": 3, "验收可判定": 4, "内部自由": 5, "可纳入正式候选": 4 }
+  },
+  "notes": {
+    "T1": {
+      "ambiguities": [
+        "优先级方向在 requirement_text 里根本没写：义务 1—5 只说“移动到与其优先级相符的位置”，没有任何一句说明数值大的先出还是小的先出。只能靠公开用例 priority_still_dominates_after_readd（add low=1、add high=5、再 add low=1，peek 期望 \"high\"）反推出“5 先于 1”。不看用例的读者无法判断方向。",
+        "义务 2 的“与其优先级相符的位置”只给出同优先级再 add 的规则（用例 readd_moves_to_back_same_priority：a=1、b=1、再 add a=1，peek 期望 \"b\"）。若再 add 时改了优先级（例如 a 由 1 改成 5），是插到该优先级分组最前、最后、还是按时间戳重排，需求与用例都没有覆盖。",
+        "remove 的返回值没定义：义务 4 只写“移除指定任务”，但用例 remove_then_peek 的期望里出现 \"ok\": true，说明评价观察布尔返回；同时“移除不存在的任务”返回 False、抛异常还是静默无操作也没有规定。",
+        "空队列异常类型：义务 5 只说“不传 default 时抛异常”，类型只在公开用例 empty_without_default_raises 里给出 IndexError；只看需求文本无法确定。",
+        "合法域写明优先级可以是 int 或 float（含 0 与负值），但 int 1 与 float 1.0 是否算同一个优先级分组（直接影响同优先级 FIFO 的先后）没有规定。",
+        "义务 2 自注“更新后移动到同优先级队尾由官方实现语义给出，官方文档未逐字承诺”，即该义务的判据来自实现而非文档：若被判模型按文档只做“更新优先级、保留原位置”，用例 readd_moves_to_back_same_priority 会判其失败，这是需求与来源文档之间的公开张力。"
+      ],
+      "would_reject": false,
+      "reject_reason": ""
+    },
+    "T2": {
+      "ambiguities": [
+        "“违规字符”只以空格举例：义务 4 只说 to_text(full_quote=True) 必须把“空格等违规字符”编码为 %XX，没有给出闭合字符集；公开用例也只覆盖空格（space_in_path_and_fragment 期望 to_text_full=\"http://h/files/report%201.pdf#note%20one\"）。路径里的 '~'、非 ASCII 字节、查询里的引号/花括号等是否要编码，无法判定。",
+        "用例 already_encoded_preserved 的 note 字面写“两种模式都保留 %25 前的字面 % 序列”，而输入是 q=a%20b，同一句话里 %20 与 %25 混用，语义读不通；读者只能靠该用例的 to_text_minimal/to_text_full 期望值反推“不得二次编码”。",
+        "缺键行为只在公开用例里给出：space_in_path_and_fragment 的 get 期望 null、getlist 期望 []；需求义务 1—2 没有写缺键时返回 None/空还是抛异常，也没写 get 是否接受默认值参数。",
+        "keys/items 的返回类型没规定（列表、视图还是迭代器）；公开用例用 JSON 数组表示，无法确定是否要求可重复遍历、是否要求惰性。",
+        "to_text() 在 full_quote=False 时是否等于“输入原文逐字返回”没有明说：三个用例的 to_text_minimal 恰好都等于输入，因此无法区分“保留原始查询串文本”与“重新序列化后碰巧相同”（例如空值项 'a='、键顺序、路径中的重复斜杠是否会被规整）。"
+      ],
+      "would_reject": false,
+      "reject_reason": ""
+    },
+    "T3": {
+      "ambiguities": [
+        "前缀与键的拼接方式未定义：用例里变量是 D1APP_PORT 与 D1APP_DB__HOST，剥前缀后键是 port 与 db(嵌套)host；而入口是 Configuration.set_env(prefix, sep='__')。prefix 应传 \"D1APP_\" 还是 \"D1APP\"、前缀与键之间是否固定用 '_' 连接、sep 是否也参与前缀到键的分隔，文本都没写。",
+        "“值为不含集合语法的有效 YAML 标量”没有闭合转换表：义务 2 只举例“42 成为整数”；按 PyYAML（YAML 1.1），\"no\"/\"on\"/\"yes\" 会被解析成布尔，\"1.0\"、\"null\"、\"0012\"、带引号的字符串如何处理没有规定，而类型又直接决定 get(kind=...) 是否通过。",
+        "set_env 可重复调用的语义没写：义务 3 说环境来源“在文件来源之后”优先，入口说“把环境来源放在当前最高优先级”。若在 set_file 之后调用两次 set_env，是每次插入链首（可能出现两个 env 来源、后者覆盖前者）还是去重，无法判断。",
+        "转换失败路径未定义：环境变量匹配前缀但值不能按查询要求的 kind 转换（如 kind=int 而值为 \"abc\"）时，是忽略该来源、让较低优先级来源兜底、还是抛错，文本没有规定。",
+        "读取协议与现有视图的对应关系不清：公开用例用 queries 的 {path, kind} 形式（其中 kind=\"exists\" 是存在性查询），而需求只说“最终通过已有配置视图的 get 读取，不另建 JSON 求解入口”。读者无法从需求文本确认该 path 列表与 confuse 现有 get 的键/kind 形态如何一致，也无法确认 get 缺键时是返回 None 还是抛 confuse 的异常（用例 excluded 期望 false 而非 null）。"
+      ],
+      "would_reject": false,
+      "reject_reason": ""
+    },
+    "T4": {
+      "ambiguities": [
+        "组的生命周期边界没有闭合定义：需求自己写“不是要求任意惰性 reducefunc 都永久保存数据”，等于承认惰性 reducefunc 下的期望行为未定义；而公开用例 no_reducer_keeps_parent_lazy_groups 又要求 first_after_advance 必须为 []（先取到第一组、推进外层迭代后再读该组得到空）。这个“推进即失效”的判定取决于实现何时消费 group，需求只说“保留父 API 的懒组可迭代结果及共享底层迭代器的行为”，没说这个共享迭代器的失效点算不算被评价的公开结果。",
+        "公开用例里的 factor 字段在需求文本中完全没有定义：retained_lists_after_outer_exhaustion 用 factor=10 把组内 1,2 变成 10,20，实际是评价器构造 valuefunc 的参数，但需求只写“valuefunc 先变换组内每项”，读者必须自行反推 valuefunc = 每项 × factor。",
+        "用例的 mode 字段（retain_after_advance / normal / baseline_lazy）与 baseline_lazy 期望的 {first_key, first_after_advance, second_key, second_now} 探测协议在需求里毫无对应说明，无法只按需求判断这些量分别在什么时刻读取。",
+        "“reducefunc 接受该组变换后的可迭代值”没说明传入的是迭代器还是列表；只能靠 reducefunc=list / reducefunc=sum 两个用例反推，而这恰好决定了“reducefunc 是否必须在让出 (key, result) 之前完成消费”。",
+        "标题与正文先说 PR 初称 groupfunc、后说合并版本公开 API 参数名为 reducefunc，同一段里“函数名”和“参数名”混用（groupby_transform(..., reducefunc=...)），初读容易把 reducefunc 误当成新增函数而非新增参数。",
+        "义务“不能为新功能擅自将全部组永久物化”是对无 reducefunc 路径的行为约束，但它以“内部是否缓冲”来表述，与“不要求复制合并实现或固定内部 helper/存储结构”并置时，读者难以判断一个把每组缓冲成 list 的安全实现是否会被判为违规。"
+      ],
+      "would_reject": false,
+      "reject_reason": ""
+    },
+    "T5": {
+      "ambiguities": [
+        "“相对路径优先使用模板 cwd”里的“模板 cwd”没有定义：它与当前工作目录（cwd）、应用配置目录（<app>）、源文件目录（<project>/settings）是什么关系、在什么条件下生效，文本没写；公开例的三个期望值里也看不出哪一条对应这个优先级。",
+        "“模板”指代不明：第 2 条说 Filename 增加可选参数 in_source_dir，第 4 条又出现 in_app_dir，且写成“模板 in_source_dir=True”“模板 in_app_dir=True”。in_app_dir 是既有属性还是新增参数、属于哪个对象（Filename 还是配置源），文本未交代；“源级 base_for_paths”与“模板级选项”两个层次只靠一条占位符例子区分。",
+        "“保持现有 relative_to 行为”没有给出 relative_to 的现有语义（相对于谁、如何处理 ../ 与绝对路径），也没说明它与“应用配置目录”的关系；公开例只覆盖 assets/a.txt 这种最简单的相对路径，值里含 ../ 或已是绝对路径的情形无法判定。",
+        "组合边界未闭合：第 1 条只说“无 filename 时该标志无效”，但没有说无 filename 时 in_source_dir=True 是否同样无效（第 4 条另有“没有源文件且没有强制应用目录时继续使用当前工作目录”），base_for_paths=True 且无 filename 且 in_app_dir 未设时的结果需要读者自行拼接规则。",
+        "验收材料不完整：public_cases 为 null 并注明“内嵌在评价器中；此处不提供”，读者只能靠需求第 1—4 条的散文与一条公开例判断；例如“输出使用本机路径形式”在 Windows（反斜杠、盘符）下的具体字符串形态无法核对。"
+      ],
+      "would_reject": false,
+      "reject_reason": ""
+    }
+  },
+  "overall": {
+    "included_tasks": ["T1", "T2", "T3", "T4", "T5"],
+    "rejected_tasks": [],
+    "summary": "五个任务都没有到“必须拒收”的程度，但质量分三档。T1/T2/T3 是同一档：外部入口固定、合法域与公开义务成条、且都带可用公开用例，因此四项都在 4—5；扣分主要来自需求文本漏写了核心判据（T1 完全没写优先级方向，只能从用例 priority_still_dominates_after_readd 反推；T2 的“违规字符”字符集不闭合、缺键行为只在用例里；T3 的前缀拼接方式与 YAML 标量转换范围没写）。T4 最弱：需求用“reducefunc 完成的 list/数值结果…也应保留已返回值”“不是要求任意惰性 reducefunc 都永久保存数据”这类自承未定义边界的表述，公开用例又引入需求里没有的 factor 与 mode 探测协议，且“组在推进外层后是否必须为空”这一判据更接近实现机制而非公开语义，所以需求可理解/验收可判定/内部自由/可纳入正式候选四项均为 3；它离拒收最近，建议在正式纳入前补齐三点：factor 与 valuefunc 的对应、惰性 reducefunc 的期望行为、baseline_lazy 探测协议的读取时刻。T5 需求可理解 3 但验收可判定 4：第 4 条把多条优先级规则压成一句话，且“模板 cwd”“in_app_dir 属于谁”都未定义，好在其自带的公开例给出三条确定映射（默认 <app>/assets/a.txt；源级 base_for_paths=True 或模板 in_source_dir=True → <project>/settings/assets/a.txt；再加模板 in_app_dir=True → <app>/assets/a.txt），主路径可判。最严重的两个含糊点：(1) T1 需求正文没有规定优先级方向（大值先出还是小值先出），这是任务的核心语义却只能靠公开用例反推；(2) T4 未定义“惰性 reducefunc + 组生命周期”的期望行为，而 baseline_lazy 期望 first_after_advance 为空，等于用一个由内部消费时机决定的现象参与判定。以上判断只基于 review_input_B.json 的需求文本与公开用例，未读任何评价器、参考实现或模型输出。"
+  }
+}

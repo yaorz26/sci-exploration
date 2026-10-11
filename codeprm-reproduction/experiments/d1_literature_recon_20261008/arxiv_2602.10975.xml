@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/bJbFbL6fXSX5cAZE05JOtAqKjCc</id>
+  <title>arXiv Query: search_query=&amp;id_list=2602.10975&amp;start=0&amp;max_results=10</title>
+  <updated>2026-10-08T05:56:45Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=&amp;start=0&amp;max_results=10&amp;id_list=2602.10975" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+  <opensearch:totalResults>1</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2602.10975v1</id>
+    <title>FeatureBench: Benchmarking Agentic Coding for Complex Feature Development</title>
+    <updated>2026-02-11T16:06:32Z</updated>
+    <link href="https://arxiv.org/abs/2602.10975v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2602.10975v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Agents powered by large language models (LLMs) are increasingly adopted in the software industry, contributing code as collaborators or even autonomous developers. As their presence grows, it becomes important to assess the current boundaries of their coding abilities. Existing agentic coding benchmarks, however, cover a limited task scope, e.g., bug fixing within a single pull request (PR), and often rely on non-executable evaluations or lack an automated approach for continually updating the evaluation coverage. To address such issues, we propose FeatureBench, a benchmark designed to evaluate agentic coding performance in end-to-end, feature-oriented software development. FeatureBench incorporates an execution-based evaluation protocol and a scalable test-driven method that automatically derives tasks from code repositories with minimal human effort. By tracing from unit tests along a dependency graph, our approach can identify feature-level coding tasks spanning multiple commits and PRs scattered across the development timeline, while ensuring the proper functioning of other features after the separation. Using this framework, we curated 200 challenging evaluation tasks and 3825 executable environments from 24 open-source repositories in the first version of our benchmark. Empirical evaluation reveals that the state-of-the-art agentic model, such as Claude 4.5 Opus, which achieves a 74.4% resolved rate on SWE-bench, succeeds on only 11.0% of tasks, opening new opportunities for advancing agentic coding. Moreover, benefiting from our automated task collection toolkit, FeatureBench can be easily scaled and updated over time to mitigate data leakage. The inherent verifiability of constructed environments also makes our method potentially valuable for agent training.</summary>
+    <category term="cs.SE" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-02-11T16:06:32Z</published>
+    <arxiv:comment>Accepted by ICLR 2026</arxiv:comment>
+    <arxiv:primary_category term="cs.SE"/>
+    <author>
+      <name>Qixing Zhou</name>
+    </author>
+    <author>
+      <name>Jiacheng Zhang</name>
+    </author>
+    <author>
+      <name>Haiyang Wang</name>
+    </author>
+    <author>
+      <name>Rui Hao</name>
+    </author>
+    <author>
+      <name>Jiahe Wang</name>
+    </author>
+    <author>
+      <name>Minghao Han</name>
+    </author>
+    <author>
+      <name>Yuxue Yang</name>
+    </author>
+    <author>
+      <name>Shuzhe Wu</name>
+    </author>
+    <author>
+      <name>Feiyang Pan</name>
+    </author>
+    <author>
+      <name>Lue Fan</name>
+    </author>
+    <author>
+      <name>Dandan Tu</name>
+    </author>
+    <author>
+      <name>Zhaoxiang Zhang</name>
+    </author>
+  </entry>
+</feed>

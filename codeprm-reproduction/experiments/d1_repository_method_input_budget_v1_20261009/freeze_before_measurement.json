@@ -1,0 +1,52 @@
+{
+  "created_at": "2026-10-09T09:01:21.835092+00:00",
+  "scenarios": {
+    "whole": [
+      {
+        "file": "whole_call_1.txt",
+        "sha256": "487078b3429be12576092f789e780a37e446fac7e2f589c514f9b2bfdaa1053b"
+      }
+    ],
+    "two_stage": [
+      {
+        "file": "two_stage_call_1.txt",
+        "sha256": "f8dbb40bc44041ba9aa89eca99fd71d12cc9dbef3403919af01a6f52973ae959"
+      },
+      {
+        "file": "two_stage_call_2.txt",
+        "sha256": "72256d093fa37f1eedbbc3d09201d28838e8f8587bf34015d21f1e4f6d46aa11"
+      },
+      {
+        "file": "two_stage_call_3.txt",
+        "sha256": "3f94d8923d3e13ece645740a4c2dc5e65e24170d24dcc22e3040eb7ca5c472c1"
+      },
+      {
+        "file": "two_stage_call_4.txt",
+        "sha256": "e5e3dac478c4a62813927e8f59c828e6fb716d5c67459d7bf677b045f33a3f11"
+      }
+    ],
+    "three_stage": [
+      {
+        "file": "three_stage_call_1.txt",
+        "sha256": "37898a5cf842d4b53f39dd0ce1d464eba02dbcb4a78641b95337da11bbb7774f"
+      },
+      {
+        "file": "three_stage_call_2.txt",
+        "sha256": "890a8284002d1596851f153116dfd249078ac6685e2281b0e99876ace71e31e0"
+      },
+      {
+        "file": "three_stage_call_3.txt",
+        "sha256": "ec8085f979d1fea0af832cf07a32b9ad0915255e98c0318ccd45e56375e8e8fd"
+      },
+      {
+        "file": "three_stage_call_4.txt",
+        "sha256": "c52a3cf9b7d7b15622959cfe386d01a36f9eb0ec20425a4e444e9f3caf241225"
+      },
+      {
+        "file": "three_stage_call_5.txt",
+        "sha256": "71ad8e9f5a33527376233dd285bd8ddb7cd74baa4eb8bfe6d23c03a1277c08de"
+      }
+    ]
+  },
+  "scope": "constructed_pre_generation_inputs；非实际轨迹，不保证任意回答长度单调性"
+}

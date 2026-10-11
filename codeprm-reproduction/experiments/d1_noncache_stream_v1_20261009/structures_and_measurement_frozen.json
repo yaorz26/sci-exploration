@@ -1,0 +1,20 @@
+{
+  "created_at": "2026-10-09T03:02:03.278282+00:00",
+  "script_sha256": "8ea6bc46c8f4722df49420c2051ca7ec3f1349a91ff0f41d35f24abf916f92df",
+  "source_and_anchors_sha256": "8e43bf61e66376c421759b2d606530fcb9117e5a0fb6cb776ae126160001f5a4",
+  "variants": [
+    "persistent",
+    "recompute_prefix",
+    "independent_chunks"
+  ],
+  "snapshot_rule": "每个chunk完成feed后get_text，不调用close；合法重算每次使用完整累计prefix",
+  "terminal_oracle": "六执行前逐值解析预期",
+  "snapshot_oracle": "两个同源合法结构交叉比较，非独立人工真值",
+  "limits": "计数透传子类，不改变算法；不强制helper数/共享可变对象；finite六组",
+  "budget": {
+    "solve_calls": 18,
+    "worker_timeout_seconds": 20,
+    "model_calls": 0,
+    "hidden_reads": 0
+  }
+}

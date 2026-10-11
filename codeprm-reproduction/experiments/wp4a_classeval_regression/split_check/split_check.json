@@ -1,0 +1,538 @@
+{
+  "summary": {
+    "n": 24,
+    "all_ok": 24,
+    "skipped_no_public": [],
+    "failed": []
+  },
+  "results": [
+    {
+      "task_id": "ClassEval_4",
+      "layer": "target",
+      "public_available": true,
+      "runs": [
+        {
+          "case": "public_only",
+          "exit_code": 0,
+          "seconds": 0.28,
+          "ok": true,
+          "tail": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "case": "full",
+          "exit_code": 0,
+          "seconds": 0.28,
+          "ok": true,
+          "tail": "...............................\n----------------------------------------------------------------------\nRan 31 tests in 0.001s\n\nOK\n"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "task_id": "ClassEval_5",
+      "layer": "negative",
+      "public_available": true,
+      "runs": [
+        {
+          "case": "public_only",
+          "exit_code": 0,
+          "seconds": 0.26,
+          "ok": true,
+          "tail": ".........\n----------------------------------------------------------------------\nRan 9 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "case": "full",
+          "exit_code": 0,
+          "seconds": 0.26,
+          "ok": true,
+          "tail": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.000s\n\nOK\n"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "task_id": "ClassEval_6",
+      "layer": "negative",
+      "public_available": true,
+      "runs": [
+        {
+          "case": "public_only",
+          "exit_code": 0,
+          "seconds": 0.28,
+          "ok": true,
+          "tail": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "case": "full",
+          "exit_code": 0,
+          "seconds": 0.26,
+          "ok": true,
+          "tail": "...........\n----------------------------------------------------------------------\nRan 11 tests in 0.000s\n\nOK\n"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "task_id": "ClassEval_7",
+      "layer": "negative",
+      "public_available": true,
+      "runs": [
+        {
+          "case": "public_only",
+          "exit_code": 0,
+          "seconds": 0.26,
+          "ok": true,
+          "tail": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "case": "full",
+          "exit_code": 0,
+          "seconds": 0.26,
+          "ok": true,
+          "tail": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.000s\n\nOK\n"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "task_id": "ClassEval_15",
+      "layer": "boundary",
+      "public_available": true,
+      "runs": [
+        {
+          "case": "public_only",
+          "exit_code": 0,
+          "seconds": 0.26,
+          "ok": true,
+          "tail": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "case": "full",
+          "exit_code": 0,
+          "seconds": 0.28,
+          "ok": true,
+          "tail": "................\n----------------------------------------------------------------------\nRan 16 tests in 0.000s\n\nOK\n"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "task_id": "ClassEval_16",
+      "layer": "boundary",
+      "public_available": true,
+      "runs": [
+        {
+          "case": "public_only",
+          "exit_code": 0,
+          "seconds": 0.26,
+          "ok": true,
+          "tail": ".............\n----------------------------------------------------------------------\nRan 13 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "case": "full",
+          "exit_code": 0,
+          "seconds": 0.25,
+          "ok": true,
+          "tail": "...................\n----------------------------------------------------------------------\nRan 19 tests in 0.000s\n\nOK\n"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "task_id": "ClassEval_18",
+      "layer": "target",
+      "public_available": true,
+      "runs": [
+        {
+          "case": "public_only",
+          "exit_code": 0,
+          "seconds": 0.29,
+          "ok": true,
+          "tail": "....................\n----------------------------------------------------------------------\nRan 20 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "case": "full",
+          "exit_code": 0,
+          "seconds": 0.3,
+          "ok": true,
+          "tail": ".....................................\n----------------------------------------------------------------------\nRan 37 tests in 0.001s\n\nOK\n"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "task_id": "ClassEval_19",
+      "layer": "negative",
+      "public_available": true,
+      "runs": [
+        {
+          "case": "public_only",
+          "exit_code": 0,
+          "seconds": 0.38,
+          "ok": true,
+          "tail": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "case": "full",
+          "exit_code": 0,
+          "seconds": 0.42,
+          "ok": true,
+          "tail": "...........\n----------------------------------------------------------------------\nRan 11 tests in 0.000s\n\nOK\n"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "task_id": "ClassEval_23",
+      "layer": "target",
+      "public_available": true,
+      "runs": [
+        {
+          "case": "public_only",
+          "exit_code": 0,
+          "seconds": 0.39,
+          "ok": true,
+          "tail": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "case": "full",
+          "exit_code": 0,
+          "seconds": 0.3,
+          "ok": true,
+          "tail": "..........................\n----------------------------------------------------------------------\nRan 26 tests in 0.000s\n\nOK\n"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "task_id": "ClassEval_30",
+      "layer": "target",
+      "public_available": true,
+      "runs": [
+        {
+          "case": "public_only",
+          "exit_code": 0,
+          "seconds": 0.28,
+          "ok": true,
+          "tail": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "case": "full",
+          "exit_code": 0,
+          "seconds": 0.27,
+          "ok": true,
+          "tail": "...............................\n----------------------------------------------------------------------\nRan 31 tests in 0.003s\n\nOK\n"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "task_id": "ClassEval_33",
+      "layer": "target",
+      "public_available": true,
+      "runs": [
+        {
+          "case": "public_only",
+          "exit_code": 0,
+          "seconds": 0.28,
+          "ok": true,
+          "tail": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "case": "full",
+          "exit_code": 0,
+          "seconds": 0.26,
+          "ok": true,
+          "tail": "..........................\n----------------------------------------------------------------------\nRan 26 tests in 0.001s\n\nOK\n"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "task_id": "ClassEval_38",
+      "layer": "boundary",
+      "public_available": true,
+      "runs": [
+        {
+          "case": "public_only",
+          "exit_code": 0,
+          "seconds": 2.01,
+          "ok": true,
+          "tail": "............\n----------------------------------------------------------------------\nRan 12 tests in 1.469s\n\nOK\n"
+        },
+        {
+          "case": "full",
+          "exit_code": 0,
+          "seconds": 3.88,
+          "ok": true,
+          "tail": "...................\n----------------------------------------------------------------------\nRan 19 tests in 3.355s\n\nOK\n"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "task_id": "ClassEval_46",
+      "layer": "negative",
+      "public_available": true,
+      "runs": [
+        {
+          "case": "public_only",
+          "exit_code": 0,
+          "seconds": 0.3,
+          "ok": true,
+          "tail": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "case": "full",
+          "exit_code": 0,
+          "seconds": 0.29,
+          "ok": true,
+          "tail": ".............\n----------------------------------------------------------------------\nRan 13 tests in 0.000s\n\nOK\n"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "task_id": "ClassEval_47",
+      "layer": "boundary",
+      "public_available": true,
+      "runs": [
+        {
+          "case": "public_only",
+          "exit_code": 0,
+          "seconds": 0.29,
+          "ok": true,
+          "tail": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "case": "full",
+          "exit_code": 0,
+          "seconds": 0.3,
+          "ok": true,
+          "tail": "................\n----------------------------------------------------------------------\nRan 16 tests in 0.000s\n\nOK\n"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "task_id": "ClassEval_52",
+      "layer": "boundary",
+      "public_available": true,
+      "runs": [
+        {
+          "case": "public_only",
+          "exit_code": 0,
+          "seconds": 3.9,
+          "ok": true,
+          "tail": "]   Package punkt is already up-to-date!\n[nltk_data] Downloading package wordnet to\n[nltk_data]     D:\\yaorz\\research\\.cache\\nltk_data...\n[nltk_data]   Package wordnet is already up-to-date!\n..........\n----------------------------------------------------------------------\nRan 10 tests in 1.686s\n\nOK\n"
+        },
+        {
+          "case": "full",
+          "exit_code": 0,
+          "seconds": 3.78,
+          "ok": true,
+          "tail": "ckage punkt is already up-to-date!\n[nltk_data] Downloading package wordnet to\n[nltk_data]     D:\\yaorz\\research\\.cache\\nltk_data...\n[nltk_data]   Package wordnet is already up-to-date!\n................\n----------------------------------------------------------------------\nRan 16 tests in 1.634s\n\nOK\n"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "task_id": "ClassEval_53",
+      "layer": "negative",
+      "public_available": true,
+      "runs": [
+        {
+          "case": "public_only",
+          "exit_code": 0,
+          "seconds": 0.27,
+          "ok": true,
+          "tail": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "case": "full",
+          "exit_code": 0,
+          "seconds": 0.3,
+          "ok": true,
+          "tail": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.001s\n\nOK\n"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "task_id": "ClassEval_55",
+      "layer": "negative",
+      "public_available": true,
+      "runs": [
+        {
+          "case": "public_only",
+          "exit_code": 0,
+          "seconds": 0.31,
+          "ok": true,
+          "tail": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "case": "full",
+          "exit_code": 0,
+          "seconds": 0.35,
+          "ok": true,
+          "tail": "...........\n----------------------------------------------------------------------\nRan 11 tests in 0.000s\n\nOK\n"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "task_id": "ClassEval_57",
+      "layer": "negative",
+      "public_available": true,
+      "runs": [
+        {
+          "case": "public_only",
+          "exit_code": 0,
+          "seconds": 0.29,
+          "ok": true,
+          "tail": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "case": "full",
+          "exit_code": 0,
+          "seconds": 0.27,
+          "ok": true,
+          "tail": "....................\n----------------------------------------------------------------------\nRan 20 tests in 0.001s\n\nOK\n"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "task_id": "ClassEval_65",
+      "layer": "target",
+      "public_available": true,
+      "runs": [
+        {
+          "case": "public_only",
+          "exit_code": 0,
+          "seconds": 0.26,
+          "ok": true,
+          "tail": "..................\n----------------------------------------------------------------------\nRan 18 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "case": "full",
+          "exit_code": 0,
+          "seconds": 0.26,
+          "ok": true,
+          "tail": "............................\n----------------------------------------------------------------------\nRan 28 tests in 0.001s\n\nOK\n"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "task_id": "ClassEval_71",
+      "layer": "boundary",
+      "public_available": true,
+      "runs": [
+        {
+          "case": "public_only",
+          "exit_code": 0,
+          "seconds": 0.27,
+          "ok": true,
+          "tail": ".........\n----------------------------------------------------------------------\nRan 9 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "case": "full",
+          "exit_code": 0,
+          "seconds": 0.25,
+          "ok": true,
+          "tail": "................\n----------------------------------------------------------------------\nRan 16 tests in 0.000s\n\nOK\n"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "task_id": "ClassEval_78",
+      "layer": "boundary",
+      "public_available": true,
+      "runs": [
+        {
+          "case": "public_only",
+          "exit_code": 0,
+          "seconds": 0.26,
+          "ok": true,
+          "tail": "..........\n----------------------------------------------------------------------\nRan 10 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "case": "full",
+          "exit_code": 0,
+          "seconds": 0.29,
+          "ok": true,
+          "tail": "................\n----------------------------------------------------------------------\nRan 16 tests in 0.000s\n\nOK\n"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "task_id": "ClassEval_82",
+      "layer": "target",
+      "public_available": true,
+      "runs": [
+        {
+          "case": "public_only",
+          "exit_code": 0,
+          "seconds": 0.3,
+          "ok": true,
+          "tail": "....................\n----------------------------------------------------------------------\nRan 20 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "case": "full",
+          "exit_code": 0,
+          "seconds": 0.26,
+          "ok": true,
+          "tail": "......................................\n----------------------------------------------------------------------\nRan 38 tests in 0.001s\n\nOK\n"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "task_id": "ClassEval_87",
+      "layer": "target",
+      "public_available": true,
+      "runs": [
+        {
+          "case": "public_only",
+          "exit_code": 0,
+          "seconds": 0.27,
+          "ok": true,
+          "tail": "....................\n----------------------------------------------------------------------\nRan 20 tests in 0.013s\n\nOK\n"
+        },
+        {
+          "case": "full",
+          "exit_code": 0,
+          "seconds": 0.38,
+          "ok": true,
+          "tail": "....................................\n----------------------------------------------------------------------\nRan 36 tests in 0.010s\n\nOK\n"
+        }
+      ],
+      "ok": true
+    },
+    {
+      "task_id": "ClassEval_91",
+      "layer": "boundary",
+      "public_available": true,
+      "runs": [
+        {
+          "case": "public_only",
+          "exit_code": 0,
+          "seconds": 0.28,
+          "ok": true,
+          "tail": "............\n----------------------------------------------------------------------\nRan 12 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "case": "full",
+          "exit_code": 0,
+          "seconds": 0.32,
+          "ok": true,
+          "tail": "...................\n----------------------------------------------------------------------\nRan 19 tests in 0.000s\n\nOK\n"
+        }
+      ],
+      "ok": true
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "experiment": "funprm_helperfirst_scale_prm_20260924",
+  "phase": "confirmation_scoring_order_repair",
+  "frozen_at": "2026-09-25T22:33:00+08:00",
+  "status": "pass",
+  "problem": "The existing scorer froze a selection and immediately ran private tests in the same invocation. The confirmation manifest requires both A and B selections to be frozen before either split is privately evaluated.",
+  "changes": {
+    "scorer": "scripts/evaluate_funprm_generative.py",
+    "scorer_sha256": "92373fcde3c0ff2a69c89766ede81df664a10f519e3926dfe4ad631807f91776",
+    "new_flag": "--defer-private",
+    "frozen_private_evaluator": "scripts/evaluate_frozen_funprm_selection.py",
+    "frozen_private_evaluator_sha256": "2b79aa6eec95dd5af3ceccb6284bf27d652edf491522e13c72e6da4be57449a9",
+    "test": "tests/test_funprm_generative.py",
+    "test_sha256": "99bfd0c4ebd5039cbd4023594407b954c4728d7f4a85271f0934b3cf8355b242",
+    "cache_key_change": "problem_id plus code_hash, preventing accidental cross-problem reuse if identical code appears in different problems"
+  },
+  "unchanged": [
+    "base model",
+    "adapter",
+    "candidate pools",
+    "function prefix extraction",
+    "generative +/- probability",
+    "mean aggregation across cumulative prefixes",
+    "max_length=768",
+    "lowest candidate index tie-break",
+    "private evaluator semantics and 10-second timeout"
+  ],
+  "cross_problem_duplicate_audit": {
+    "validation20_duplicate_hashes_across_problems": 0,
+    "confirmation_a30_duplicate_hashes_across_problems": 0,
+    "confirmation_b30_duplicate_hashes_across_problems": 0,
+    "interpretation": "The previous cache key did not alter the already recorded validation result or either frozen confirmation pool, but the key was still hardened for future correctness."
+  },
+  "verification": {
+    "compileall": "passed",
+    "targeted_pytest": "11 passed in 3.19s",
+    "full_pytest": "79 passed in 3.32s",
+    "validation_source_selection": "data/processed/funprm_label_calibration_20260924/validation20_new_adapter_selection.json",
+    "validation_deferred_selection": "data/processed/funprm_label_calibration_20260924/validation20_new_adapter_selection_deferred_regression_20260925.json",
+    "validation_deferred_private": "data/processed/funprm_label_calibration_20260924/validation20_new_adapter_selection_deferred_private_regression_20260925.json",
+    "problem_selection_matches": "20/20",
+    "candidate_scores_compared": 137,
+    "maximum_absolute_score_difference": 0.0,
+    "private_rows_compared": 18,
+    "private_row_differences": 0,
+    "metrics_equal": true,
+    "historical_selected_private_all_pass": "9/20",
+    "reproduced_selected_private_all_pass": "9/20",
+    "deferred_selection_private_evaluations": 0,
+    "deferred_selection_sha256": "884062b82a676c8b48c0f3074a92b1585c1e3e8a312b6aaf1ede3cae8bfc12fe",
+    "private_result_recorded_source_sha256": "884062b82a676c8b48c0f3074a92b1585c1e3e8a312b6aaf1ede3cae8bfc12fe"
+  },
+  "decision": "Use --defer-private to score and freeze A and B independently. Verify both selection artifacts and hashes before invoking the frozen-selection private evaluator. Pool oracle remains post-selection only."
+}

@@ -1,0 +1,24 @@
+```json
+{
+  "helpers": [
+    {
+      "name": "_hash_key",
+      "signature": "def _hash_key(args, kwargs):",
+      "contract": "生成调用键，基于有序args和按名匹配的kwargs。kwargs排列不影响键。",
+      "depends_on": []
+    },
+    {
+      "name": "_update_cache",
+      "signature": "def _update_cache(cache, capacity, key, result):",
+      "contract": "更新缓存，满时淘汰最久未用调用。",
+      "depends_on": ["_hash_key"]
+    },
+    {
+      "name": "_execute_operation",
+      "signature": "def _execute_operation(cache, capacity, computations, operation):",
+      "contract": "执行单个操作，返回结果、计算次数和缓存大小。",
+      "depends_on": ["_hash_key", "_update_cache"]
+    }
+  ]
+}
+```

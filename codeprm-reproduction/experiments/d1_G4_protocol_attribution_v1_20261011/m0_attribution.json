@@ -1,0 +1,341 @@
+{
+  "created_at": "2026-10-11T09:04:27.568865+00:00",
+  "phase": "G4-step1",
+  "purpose": "对已保存 M0 输出做只读归因；用确定性夹具校准补丁入口",
+  "code_legend": {
+    "E1": "运输/格式失败（补丁结构不合法）",
+    "E2": "包路径失败（目标不在指定工作区包内）",
+    "E3": "坐标失败（hunk 原行不存在或坐标漂移）",
+    "E4": "语义失败（原行存在，插入位置/内容本身错误）"
+  },
+  "tasks": {
+    "REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS": {
+      "patch_path": "codeprm-reproduction\\experiments\\d1_G4_symbol_context_pair_v1_20261011\\REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS\\M0\\normalized.patch",
+      "package_dir_found": true,
+      "files_declared": [
+        "confuse/sources.py"
+      ],
+      "hunks_declared": 5,
+      "format_errors": [],
+      "verdict": {
+        "codes": [
+          "E3"
+        ],
+        "details": [
+          {
+            "code": "E3",
+            "detail": {
+              "path": "confuse/sources.py",
+              "status": "original_lines_not_found",
+              "declared_start": 41,
+              "found_start": null,
+              "original_lines_total": 6,
+              "original_lines_absent_from_file": 0,
+              "absent_examples": []
+            }
+          },
+          {
+            "code": "E3",
+            "detail": {
+              "path": "confuse/sources.py",
+              "status": "original_lines_not_found",
+              "declared_start": 68,
+              "found_start": null,
+              "original_lines_total": 4,
+              "original_lines_absent_from_file": 2,
+              "absent_examples": [
+                "    \"\"\"Create a YAML data source by reading data from a file.",
+                "    May raise a `ConfigReadError`. However, if `optional` is"
+              ]
+            }
+          },
+          {
+            "code": "E3",
+            "detail": {
+              "path": "confuse/sources.py",
+              "status": "original_lines_not_found",
+              "declared_start": 108,
+              "found_start": null,
+              "original_lines_total": 4,
+              "original_lines_absent_from_file": 3,
+              "absent_examples": [
+                "    \"\"\"A template that validates strings as filenames.",
+                "    Filenames are returned as absolute, tilde-free paths.",
+                "        args = []"
+              ]
+            }
+          },
+          {
+            "code": "E3",
+            "detail": {
+              "path": "confuse/sources.py",
+              "status": "original_lines_not_found",
+              "declared_start": 128,
+              "found_start": null,
+              "original_lines_total": 5,
+              "original_lines_absent_from_file": 5,
+              "absent_examples": [
+                "    def value(self, view, template=None):",
+                "        try:",
+                "            path, source = view.first()"
+              ]
+            }
+          },
+          {
+            "code": "E3",
+            "detail": {
+              "path": "confuse/sources.py",
+              "status": "original_lines_not_found",
+              "declared_start": 652,
+              "found_start": null,
+              "original_lines_total": 5,
+              "original_lines_absent_from_file": 5,
+              "absent_examples": [
+                "    def set_file(self, filename):",
+                "        \"\"\"Parses the file as YAML and inserts it into the configuration",
+                "        sources with highest priority."
+              ]
+            }
+          }
+        ]
+      },
+      "hunk_judgements": [
+        {
+          "path": "confuse/sources.py",
+          "status": "original_lines_not_found",
+          "declared_start": 41,
+          "found_start": null,
+          "original_lines_total": 6,
+          "original_lines_absent_from_file": 0,
+          "absent_examples": []
+        },
+        {
+          "path": "confuse/sources.py",
+          "status": "original_lines_not_found",
+          "declared_start": 68,
+          "found_start": null,
+          "original_lines_total": 4,
+          "original_lines_absent_from_file": 2,
+          "absent_examples": [
+            "    \"\"\"Create a YAML data source by reading data from a file.",
+            "    May raise a `ConfigReadError`. However, if `optional` is"
+          ]
+        },
+        {
+          "path": "confuse/sources.py",
+          "status": "original_lines_not_found",
+          "declared_start": 108,
+          "found_start": null,
+          "original_lines_total": 4,
+          "original_lines_absent_from_file": 3,
+          "absent_examples": [
+            "    \"\"\"A template that validates strings as filenames.",
+            "    Filenames are returned as absolute, tilde-free paths.",
+            "        args = []"
+          ]
+        },
+        {
+          "path": "confuse/sources.py",
+          "status": "original_lines_not_found",
+          "declared_start": 128,
+          "found_start": null,
+          "original_lines_total": 5,
+          "original_lines_absent_from_file": 5,
+          "absent_examples": [
+            "    def value(self, view, template=None):",
+            "        try:",
+            "            path, source = view.first()"
+          ]
+        },
+        {
+          "path": "confuse/sources.py",
+          "status": "original_lines_not_found",
+          "declared_start": 652,
+          "found_start": null,
+          "original_lines_total": 5,
+          "original_lines_absent_from_file": 5,
+          "absent_examples": [
+            "    def set_file(self, filename):",
+            "        \"\"\"Parses the file as YAML and inserts it into the configuration",
+            "        sources with highest priority."
+          ]
+        }
+      ]
+    },
+    "REPO_CONFUSE_PR142_ENV_OVERLAY_LIMITED": {
+      "patch_path": "codeprm-reproduction\\experiments\\d1_G4_symbol_context_pair_v1_20261011\\REPO_CONFUSE_PR142_ENV_OVERLAY_LIMITED\\M0\\normalized.patch",
+      "package_dir_found": true,
+      "files_declared": [
+        "beetbox/confuse/core.py"
+      ],
+      "hunks_declared": 1,
+      "format_errors": [],
+      "verdict": {
+        "codes": [
+          "E2"
+        ],
+        "details": [
+          {
+            "code": "E2",
+            "detail": {
+              "path": "beetbox/confuse/core.py",
+              "expected_root": "confuse"
+            }
+          }
+        ]
+      },
+      "hunk_judgements": [
+        {
+          "path": "beetbox/confuse/core.py",
+          "status": "target_missing"
+        }
+      ]
+    },
+    "REPO_MORE_PR440_GROUP_LIFETIME_LIMITED": {
+      "patch_path": "codeprm-reproduction\\experiments\\d1_G4_symbol_context_pair_v1_20261011\\REPO_MORE_PR440_GROUP_LIFETIME_LIMITED\\M0\\normalized.patch",
+      "package_dir_found": true,
+      "files_declared": [
+        "more_itertools/more.py"
+      ],
+      "hunks_declared": 1,
+      "format_errors": [],
+      "verdict": {
+        "codes": [
+          "E3"
+        ],
+        "details": [
+          {
+            "code": "E3",
+            "detail": {
+              "path": "more_itertools/more.py",
+              "status": "original_lines_not_found",
+              "declared_start": 1764,
+              "found_start": null,
+              "original_lines_total": 3,
+              "original_lines_absent_from_file": 0,
+              "absent_examples": []
+            }
+          }
+        ]
+      },
+      "hunk_judgements": [
+        {
+          "path": "more_itertools/more.py",
+          "status": "original_lines_not_found",
+          "declared_start": 1764,
+          "found_start": null,
+          "original_lines_total": 3,
+          "original_lines_absent_from_file": 0,
+          "absent_examples": []
+        }
+      ]
+    }
+  },
+  "fixtures": {
+    "REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS": [
+      {
+        "fixture": "fixture_good",
+        "expected": "accept",
+        "codes": [
+          "E4"
+        ],
+        "as_expected": true
+      },
+      {
+        "fixture": "fixture_bad_context",
+        "expected": "reject_context",
+        "codes": [
+          "E3"
+        ],
+        "as_expected": true
+      },
+      {
+        "fixture": "fixture_bad_path",
+        "expected": "reject_path",
+        "codes": [
+          "E2"
+        ],
+        "as_expected": true
+      },
+      {
+        "fixture": "fixture_outside_pkg",
+        "expected": "reject_path",
+        "codes": [
+          "E2"
+        ],
+        "as_expected": true
+      }
+    ],
+    "REPO_CONFUSE_PR142_ENV_OVERLAY_LIMITED": [
+      {
+        "fixture": "fixture_good",
+        "expected": "accept",
+        "codes": [
+          "E4"
+        ],
+        "as_expected": true
+      },
+      {
+        "fixture": "fixture_bad_context",
+        "expected": "reject_context",
+        "codes": [
+          "E3"
+        ],
+        "as_expected": true
+      },
+      {
+        "fixture": "fixture_bad_path",
+        "expected": "reject_path",
+        "codes": [
+          "E2"
+        ],
+        "as_expected": true
+      },
+      {
+        "fixture": "fixture_outside_pkg",
+        "expected": "reject_path",
+        "codes": [
+          "E2"
+        ],
+        "as_expected": true
+      }
+    ],
+    "REPO_MORE_PR440_GROUP_LIFETIME_LIMITED": [
+      {
+        "fixture": "fixture_good",
+        "expected": "accept",
+        "codes": [
+          "E4"
+        ],
+        "as_expected": true
+      },
+      {
+        "fixture": "fixture_bad_context",
+        "expected": "reject_context",
+        "codes": [
+          "E3"
+        ],
+        "as_expected": true
+      },
+      {
+        "fixture": "fixture_bad_path",
+        "expected": "reject_path",
+        "codes": [
+          "E2"
+        ],
+        "as_expected": true
+      },
+      {
+        "fixture": "fixture_outside_pkg",
+        "expected": "reject_path",
+        "codes": [
+          "E2"
+        ],
+        "as_expected": true
+      }
+    ]
+  },
+  "model_calls": 0,
+  "behavior_calls": 0,
+  "human_reviews": 0
+}

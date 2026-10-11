@@ -1,0 +1,37 @@
+{
+  "left_prefix": [
+    {
+      "x": {
+        "a": 1
+      }
+    },
+    {
+      "x": 0
+    }
+  ],
+  "right_prefix": [
+    {
+      "x": {
+        "a": 1
+      }
+    },
+    {}
+  ],
+  "suffix": {
+    "x": {
+      "b": 2
+    }
+  },
+  "expected_after_left": {
+    "x": {
+      "a": 1
+    }
+  },
+  "expected_after_right": {
+    "x": {
+      "a": 1,
+      "b": 2
+    }
+  },
+  "execution_status": "手算冻结，未执行"
+}

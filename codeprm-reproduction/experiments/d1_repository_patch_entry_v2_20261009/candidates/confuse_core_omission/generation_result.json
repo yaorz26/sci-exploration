@@ -1,0 +1,28 @@
+{
+  "simulated": true,
+  "failure_category": null,
+  "error": null,
+  "candidate_workspace": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_repository_patch_entry_v2_20261009\\candidates\\confuse_core_omission\\workspace",
+  "candidate_hashes": {
+    "confuse/__init__.py": "7a0ad3e38dd881aa18cf67c2eb91a1a3efc50518ca58f49124c028a72484bfb2",
+    "confuse/core.py": "24ce55bef50eb8438941e9f92e283bd1749f5e47b0079213bb59f09ad0c1052c",
+    "confuse/exceptions.py": "fdde86bcee02fc4a8ed9f64c560e7a5974a0037241027af9ca04d65b4baf6815",
+    "confuse/sources.py": "b9d89a32b5cacdd23982538e4429eedaaf779ad167d1321cb7fb6cbee76df92a",
+    "confuse/templates.py": "2714114575a7ef0c715eb90dc623e2f03291214f7d19ba7b7f348eda61f71f9f",
+    "confuse/util.py": "1bfa310c757e5b212b484719257db55227b6738c8cc58d66fe587c819bf48e2a",
+    "confuse/yaml_util.py": "47ee86d9f839300ef436989ba1bac96d894bf9f2085dc7168d6b0ea91c1eb792",
+    "LICENSE": "0b308ae66aaa1412ebbe645bec4002fd262d91e9cdf67b6f198026677ddfafcc"
+  },
+  "behavior": null,
+  "behavior_executed": false,
+  "changed_files": [
+    "confuse/sources.py",
+    "confuse/templates.py"
+  ],
+  "known_token_spend": 3152,
+  "total_token_spend": 3152,
+  "cost_status": "known",
+  "transport_requests": 1,
+  "ledger_sha256": "335b6505b5393dbf8b95fc2229809d2e8a4babcd410f43e3517c0226a17ba8f6",
+  "parent_unchanged": true
+}

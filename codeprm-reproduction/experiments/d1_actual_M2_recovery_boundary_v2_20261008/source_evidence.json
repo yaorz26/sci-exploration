@@ -1,0 +1,51 @@
+[
+  {
+    "claim": "entry_signature_gate",
+    "source": "scripts/d1/run_allin_pipeline.py",
+    "sha256": "ca91992e33411464719a1fc86db241ded7f01d1bb407a97db3949eb5a3663765",
+    "line": 35,
+    "text": "def same_signature(code, signature, expected):"
+  },
+  {
+    "claim": "all_stages_have_public_requirement",
+    "source": "scripts/d1/run_allin_pipeline.py",
+    "sha256": "ca91992e33411464719a1fc86db241ded7f01d1bb407a97db3949eb5a3663765",
+    "line": 65,
+    "text": "        base = \"你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\\n\" + json.dumps(task, ensure_ascii=False, indent=2) + \"\\n\""
+  },
+  {
+    "claim": "base_in_every_generated_prompt",
+    "source": "scripts/d1/run_allin_pipeline.py",
+    "sha256": "ca91992e33411464719a1fc86db241ded7f01d1bb407a97db3949eb5a3663765",
+    "line": 80,
+    "text": "                prompt = render_chatml(base + suffix)"
+  },
+  {
+    "claim": "entry_prompt_requests_helper_calls",
+    "source": "scripts/d1/run_allin_pipeline.py",
+    "sha256": "ca91992e33411464719a1fc86db241ded7f01d1bb407a97db3949eb5a3663765",
+    "line": 110,
+    "text": "                    entry = extract_code(generate(\"entry\", \"固定计划：\\n\" + json.dumps(plan, ensure_ascii=False) + \"\\n固定函数：\\n\" + \"\\n\\n\".join(chunks) + \"\\n仅实现solve(payload)，调用固定辅助函数，不能定义其他顶层函数。只输出代码。\", protocol[\"entry_cap\"], protocol[\"seed\"] + 10))"
+  },
+  {
+    "claim": "entry_actual_gate",
+    "source": "scripts/d1/run_allin_pipeline.py",
+    "sha256": "ca91992e33411464719a1fc86db241ded7f01d1bb407a97db3949eb5a3663765",
+    "line": 111,
+    "text": "                    same_signature(entry, \"def solve(payload)\", \"solve\")"
+  },
+  {
+    "claim": "assembly_keeps_chunks",
+    "source": "scripts/d1/run_allin_pipeline.py",
+    "sha256": "ca91992e33411464719a1fc86db241ded7f01d1bb407a97db3949eb5a3663765",
+    "line": 112,
+    "text": "                    code = \"\\n\\n\".join(chunks + [entry])"
+  },
+  {
+    "claim": "assembled_solve_exists",
+    "source": "scripts/d1/run_allin_pipeline.py",
+    "sha256": "ca91992e33411464719a1fc86db241ded7f01d1bb407a97db3949eb5a3663765",
+    "line": 113,
+    "text": "                if \"solve\" not in function_names(code):"
+  }
+]

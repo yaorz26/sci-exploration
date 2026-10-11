@@ -1,0 +1,177 @@
+{
+  "task_id": "REPO_CONFUSE_SOURCE_RELATIVE_PATHS",
+  "created_at": "2026-10-09T08:45:01.919495+00:00",
+  "source_repo": "beetbox/confuse",
+  "base_commit": "8b69242b8facdd7d1f87113693ea72017d61a0ff",
+  "reference_commit": "2c1f97e7b6aadbeb8bd6f112bd7ef965dbd977b0",
+  "status": "research_pool_only",
+  "scope": "真实项目包源码任务；非完整Git仓库、非隐藏确认、非模型效果",
+  "formal_structure_labels": null,
+  "split": null,
+  "human_reviews": 0,
+  "model_calls": 0,
+  "control_predictions": {
+    "parent": "新增入口不支持；默认行为保持",
+    "complete": "八个外部行为全部符合需求",
+    "source_only": "源标志可接受但没有被Filename消费；文件载入入口仍缺失",
+    "core_omission": "直接源与模板行为正确，set_file新增参数仍缺失"
+  },
+  "frozen_files": [
+    {
+      "path": "candidate/evaluate.py",
+      "sha256": "138c07f50905b05df419c3b408cb464aae73cd78a5d2f7b570551f947ebaacb2"
+    },
+    {
+      "path": "candidate/requirement.md",
+      "sha256": "f63dbd281ccb5bbcafeaa3e5ef625f4ddf3c1b11ce1a31e3530214b3d61e9af2"
+    },
+    {
+      "path": "candidate/RUN.md",
+      "sha256": "c096a9dc7eef72ddf9d78c2c174bb787f6e0ae981f31f82e19137db75f36f81f"
+    },
+    {
+      "path": "candidate/workspace/confuse/__init__.py",
+      "sha256": "7a0ad3e38dd881aa18cf67c2eb91a1a3efc50518ca58f49124c028a72484bfb2"
+    },
+    {
+      "path": "candidate/workspace/confuse/core.py",
+      "sha256": "24ce55bef50eb8438941e9f92e283bd1749f5e47b0079213bb59f09ad0c1052c"
+    },
+    {
+      "path": "candidate/workspace/confuse/exceptions.py",
+      "sha256": "fdde86bcee02fc4a8ed9f64c560e7a5974a0037241027af9ca04d65b4baf6815"
+    },
+    {
+      "path": "candidate/workspace/confuse/sources.py",
+      "sha256": "2db40f643fc6e93569d8ab9e4bf4b067ab87f4e6563e68080c2a50866814d9f9"
+    },
+    {
+      "path": "candidate/workspace/confuse/templates.py",
+      "sha256": "d200a9f3e7cf070dc392f23bd6a3b25a30655f08d81f3805dc2b875c332fb910"
+    },
+    {
+      "path": "candidate/workspace/confuse/util.py",
+      "sha256": "1bfa310c757e5b212b484719257db55227b6738c8cc58d66fe587c819bf48e2a"
+    },
+    {
+      "path": "candidate/workspace/confuse/yaml_util.py",
+      "sha256": "47ee86d9f839300ef436989ba1bac96d894bf9f2085dc7168d6b0ea91c1eb792"
+    },
+    {
+      "path": "candidate/workspace/LICENSE",
+      "sha256": "0b308ae66aaa1412ebbe645bec4002fd262d91e9cdf67b6f198026677ddfafcc"
+    },
+    {
+      "path": "research_controls/complete/confuse/__init__.py",
+      "sha256": "7a0ad3e38dd881aa18cf67c2eb91a1a3efc50518ca58f49124c028a72484bfb2"
+    },
+    {
+      "path": "research_controls/complete/confuse/core.py",
+      "sha256": "57c720d3dfd0235a0f434471de28ef000bfec9c8020eafb81d9ffbbab5e44466"
+    },
+    {
+      "path": "research_controls/complete/confuse/exceptions.py",
+      "sha256": "fdde86bcee02fc4a8ed9f64c560e7a5974a0037241027af9ca04d65b4baf6815"
+    },
+    {
+      "path": "research_controls/complete/confuse/sources.py",
+      "sha256": "b9d89a32b5cacdd23982538e4429eedaaf779ad167d1321cb7fb6cbee76df92a"
+    },
+    {
+      "path": "research_controls/complete/confuse/templates.py",
+      "sha256": "2714114575a7ef0c715eb90dc623e2f03291214f7d19ba7b7f348eda61f71f9f"
+    },
+    {
+      "path": "research_controls/complete/confuse/util.py",
+      "sha256": "1bfa310c757e5b212b484719257db55227b6738c8cc58d66fe587c819bf48e2a"
+    },
+    {
+      "path": "research_controls/complete/confuse/yaml_util.py",
+      "sha256": "47ee86d9f839300ef436989ba1bac96d894bf9f2085dc7168d6b0ea91c1eb792"
+    },
+    {
+      "path": "research_controls/core_omission/confuse/__init__.py",
+      "sha256": "7a0ad3e38dd881aa18cf67c2eb91a1a3efc50518ca58f49124c028a72484bfb2"
+    },
+    {
+      "path": "research_controls/core_omission/confuse/core.py",
+      "sha256": "24ce55bef50eb8438941e9f92e283bd1749f5e47b0079213bb59f09ad0c1052c"
+    },
+    {
+      "path": "research_controls/core_omission/confuse/exceptions.py",
+      "sha256": "fdde86bcee02fc4a8ed9f64c560e7a5974a0037241027af9ca04d65b4baf6815"
+    },
+    {
+      "path": "research_controls/core_omission/confuse/sources.py",
+      "sha256": "b9d89a32b5cacdd23982538e4429eedaaf779ad167d1321cb7fb6cbee76df92a"
+    },
+    {
+      "path": "research_controls/core_omission/confuse/templates.py",
+      "sha256": "2714114575a7ef0c715eb90dc623e2f03291214f7d19ba7b7f348eda61f71f9f"
+    },
+    {
+      "path": "research_controls/core_omission/confuse/util.py",
+      "sha256": "1bfa310c757e5b212b484719257db55227b6738c8cc58d66fe587c819bf48e2a"
+    },
+    {
+      "path": "research_controls/core_omission/confuse/yaml_util.py",
+      "sha256": "47ee86d9f839300ef436989ba1bac96d894bf9f2085dc7168d6b0ea91c1eb792"
+    },
+    {
+      "path": "research_controls/parent/confuse/__init__.py",
+      "sha256": "7a0ad3e38dd881aa18cf67c2eb91a1a3efc50518ca58f49124c028a72484bfb2"
+    },
+    {
+      "path": "research_controls/parent/confuse/core.py",
+      "sha256": "24ce55bef50eb8438941e9f92e283bd1749f5e47b0079213bb59f09ad0c1052c"
+    },
+    {
+      "path": "research_controls/parent/confuse/exceptions.py",
+      "sha256": "fdde86bcee02fc4a8ed9f64c560e7a5974a0037241027af9ca04d65b4baf6815"
+    },
+    {
+      "path": "research_controls/parent/confuse/sources.py",
+      "sha256": "2db40f643fc6e93569d8ab9e4bf4b067ab87f4e6563e68080c2a50866814d9f9"
+    },
+    {
+      "path": "research_controls/parent/confuse/templates.py",
+      "sha256": "d200a9f3e7cf070dc392f23bd6a3b25a30655f08d81f3805dc2b875c332fb910"
+    },
+    {
+      "path": "research_controls/parent/confuse/util.py",
+      "sha256": "1bfa310c757e5b212b484719257db55227b6738c8cc58d66fe587c819bf48e2a"
+    },
+    {
+      "path": "research_controls/parent/confuse/yaml_util.py",
+      "sha256": "47ee86d9f839300ef436989ba1bac96d894bf9f2085dc7168d6b0ea91c1eb792"
+    },
+    {
+      "path": "research_controls/source_only/confuse/__init__.py",
+      "sha256": "7a0ad3e38dd881aa18cf67c2eb91a1a3efc50518ca58f49124c028a72484bfb2"
+    },
+    {
+      "path": "research_controls/source_only/confuse/core.py",
+      "sha256": "24ce55bef50eb8438941e9f92e283bd1749f5e47b0079213bb59f09ad0c1052c"
+    },
+    {
+      "path": "research_controls/source_only/confuse/exceptions.py",
+      "sha256": "fdde86bcee02fc4a8ed9f64c560e7a5974a0037241027af9ca04d65b4baf6815"
+    },
+    {
+      "path": "research_controls/source_only/confuse/sources.py",
+      "sha256": "b9d89a32b5cacdd23982538e4429eedaaf779ad167d1321cb7fb6cbee76df92a"
+    },
+    {
+      "path": "research_controls/source_only/confuse/templates.py",
+      "sha256": "d200a9f3e7cf070dc392f23bd6a3b25a30655f08d81f3805dc2b875c332fb910"
+    },
+    {
+      "path": "research_controls/source_only/confuse/util.py",
+      "sha256": "1bfa310c757e5b212b484719257db55227b6738c8cc58d66fe587c819bf48e2a"
+    },
+    {
+      "path": "research_controls/source_only/confuse/yaml_util.py",
+      "sha256": "47ee86d9f839300ef436989ba1bac96d894bf9f2085dc7168d6b0ea91c1eb792"
+    }
+  ]
+}

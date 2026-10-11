@@ -1,0 +1,70 @@
+{
+  "experiment": "funprm_helperfirst_scale_20260923",
+  "status": "fail_stop_before_prm_training",
+  "reason": "unit-test-only labels meet data coverage gates but fail the frozen independent k4-to-tail4 stability gate",
+  "inputs": {
+    "nodes": "data\\processed\\funprm_helperfirst_scale_20260923\\train100_prefix_rollouts_k16_seed20261124_v1_unit_reward_nodes.jsonl",
+    "nodes_sha256": "a9ecd9dd2b013d3f154ee6bfcf2a477f38cf47042a65b40c33f42950ec379048",
+    "finals": "data\\processed\\funprm_helperfirst_scale_20260923\\train100_prefix_rollouts_k16_seed20261124_v1_unit_reward_finals.jsonl",
+    "finals_sha256": "d9c7fba1c32ede4aaaf334f610b543bbc16dd6b3992e0d673845e87e6fb91893",
+    "stability": "data\\processed\\funprm_helperfirst_scale_20260923\\train100_prefix_rollouts_k16_seed20261124_v1_stability_audit_v2.json",
+    "stability_sha256": "c604791b473d4be1c8e9b0b1817489e267644c4cefacecd25ffdde4066bfae7b"
+  },
+  "source_problems": 100,
+  "source_final_private_all_pass": 45,
+  "prefix_nodes": 188,
+  "rollout_request_budget": {
+    "k4_initial": 752,
+    "k8_uncertain_additional": 220,
+    "k16_uncertain_additional": 336,
+    "total": 1308
+  },
+  "successful_rollouts": 567,
+  "positive_problems": 57,
+  "positive_problem_coverage": 0.57,
+  "final_label_histogram": {
+    "0.0": 103,
+    "0.125": 4,
+    "0.1875": 1,
+    "0.25": 1,
+    "0.3125": 3,
+    "0.375": 5,
+    "0.4375": 7,
+    "0.5": 3,
+    "0.5625": 1,
+    "0.625": 3,
+    "0.6875": 6,
+    "0.75": 4,
+    "0.8125": 4,
+    "0.875": 13,
+    "1.0": 30
+  },
+  "source_final_positive_with_prefix_positive": 43,
+  "source_final_negative_with_prefix_positive": 14,
+  "stability": {
+    "k4_to_k8_pearson": 0.7594303944595739,
+    "independent_k4_to_tail4_pearson": 0.4305135837350596,
+    "k8_to_k16_pearson": 0.9055415646524593,
+    "independent_k8_to_tail8_pearson": 0.7506852262857262,
+    "mean_abs_k4_k8_change": 0.11818181818181818,
+    "mean_abs_k8_k16_change": 0.06845238095238096,
+    "nodes_with_at_least_k8": 55,
+    "nodes_at_k16": 42
+  },
+  "gates": {
+    "source_problem_count_at_least_100": true,
+    "positive_problem_coverage_at_least_0483": true,
+    "uncertain_k4_nodes_at_least_20": true,
+    "independent_k4_to_tail4_pearson_at_least_070": false
+  },
+  "private_policy": "private tests were used only as training-label feedback after generation; no public/private test field entered source or continuation prompts",
+  "follow_on_actions": {
+    "train_prm": false,
+    "generate_validation_candidates": false,
+    "unblind_confirmation_a": false,
+    "unblind_confirmation_b": false,
+    "compare_stronger_scorer": false,
+    "start_rl": false
+  },
+  "next_experiment_requirement": "pre-register a calibration design that estimates repeat reliability without selecting nodes on their first k4 value before testing the second half"
+}

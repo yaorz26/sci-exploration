@@ -1,0 +1,165 @@
+[
+  {
+    "id": "merged_value_plus_flag_and_count",
+    "left_prefix": [
+      {
+        "a": 1
+      },
+      {
+        "b": 2
+      }
+    ],
+    "right_prefix": [
+      {
+        "a": 1,
+        "b": 2
+      },
+      {}
+    ],
+    "suffix": 0,
+    "projection": [
+      "merged_value",
+      "all_objects",
+      "source_count"
+    ],
+    "prefix_expected": [
+      {
+        "a": 1,
+        "b": 2
+      },
+      {
+        "a": 1,
+        "b": 2
+      }
+    ],
+    "after_suffix_expected": [
+      {
+        "a": 1
+      },
+      {
+        "a": 1,
+        "b": 2
+      }
+    ],
+    "retained_projections": [
+      {
+        "merged_value": {
+          "a": 1,
+          "b": 2
+        },
+        "all_objects": true,
+        "source_count": 2
+      },
+      {
+        "merged_value": {
+          "a": 1,
+          "b": 2
+        },
+        "all_objects": true,
+        "source_count": 2
+      }
+    ],
+    "projections_equal": true,
+    "full_summaries_differ": true,
+    "actual_prefix_values": [
+      {
+        "a": 1,
+        "b": 2
+      },
+      {
+        "a": 1,
+        "b": 2
+      }
+    ],
+    "actual_after_suffix_values": [
+      {
+        "a": 1
+      },
+      {
+        "a": 1,
+        "b": 2
+      }
+    ],
+    "hand_expected_pass": true,
+    "required_suffix_outputs_differ": true
+  },
+  {
+    "id": "first_value_plus_flag_and_count",
+    "left_prefix": [
+      {
+        "a": 1
+      },
+      {
+        "b": 2
+      }
+    ],
+    "right_prefix": [
+      {
+        "a": 1
+      },
+      {}
+    ],
+    "suffix": {},
+    "projection": [
+      "first",
+      "all_objects",
+      "source_count"
+    ],
+    "prefix_expected": [
+      {
+        "a": 1,
+        "b": 2
+      },
+      {
+        "a": 1
+      }
+    ],
+    "after_suffix_expected": [
+      {
+        "a": 1,
+        "b": 2
+      },
+      {
+        "a": 1
+      }
+    ],
+    "retained_projections": [
+      {
+        "first": {
+          "a": 1
+        },
+        "all_objects": true,
+        "source_count": 2
+      },
+      {
+        "first": {
+          "a": 1
+        },
+        "all_objects": true,
+        "source_count": 2
+      }
+    ],
+    "projections_equal": true,
+    "full_summaries_differ": true,
+    "actual_prefix_values": [
+      {
+        "a": 1,
+        "b": 2
+      },
+      {
+        "a": 1
+      }
+    ],
+    "actual_after_suffix_values": [
+      {
+        "a": 1,
+        "b": 2
+      },
+      {
+        "a": 1
+      }
+    ],
+    "hand_expected_pass": true,
+    "required_suffix_outputs_differ": true
+  }
+]

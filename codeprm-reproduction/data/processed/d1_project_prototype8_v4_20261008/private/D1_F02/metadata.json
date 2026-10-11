@@ -1,0 +1,30 @@
+{
+  "task_id": "D1_F02",
+  "name": "混合键值配置规范化",
+  "source": {
+    "repository": "beetbox/confuse",
+    "commit": "bf42783301ac4e9c640328ec95486952fd599ce6",
+    "license": "MIT",
+    "file": "confuse/templates.py",
+    "symbol": "Pairs",
+    "line": 512,
+    "source_sha256": "3d402899899c4b919bd1692c434a0dc8e1800ffbfbe59b0bb2a8da3cc9b18030",
+    "license_sha256": "0b308ae66aaa1412ebbe645bec4002fd262d91e9cdf67b6f198026677ddfafcc",
+    "contamination_risk": "unknown"
+  },
+  "requirement_origin": "上游公开API文档/说明为主，适配器范围与边界补充；已查看实现，需独立泄漏审查",
+  "adaptation": "统一JSON入口和返回值，保留所选功能；不作为完整仓库任务",
+  "split": "reserve",
+  "structure": {
+    "kind": "pipeline",
+    "shared_state": "none",
+    "dependency_evidence": "各条目的格式判定与输出类型一致性",
+    "independent_test_evidence": "每种条目可独立测，整体保序输出可直接比对",
+    "status": "单人预标注，尚未取得独立一致性统计"
+  },
+  "function_family": "pair_config",
+  "public_cases": 2,
+  "private_cases": 11,
+  "status": "候选原型，非冻结确认集",
+  "authoring_seed": 20261008
+}

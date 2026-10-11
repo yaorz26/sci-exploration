@@ -1,0 +1,29 @@
+--- a/beetbox/confuse/core.py
++++ b/beetbox/confuse/core.py
+@@ -657,6 +657,25 @@ class Configuration(object):
+         :param filename: Filename of the YAML file to load.
+         :param base_for_paths: Indicates whether the directory containing the
+             YAML file will be used as the base directory for resolving relative
+-            path values stored in the YAML file. Otherwise, by default, the
+-            directory returned by `config_dir()` will be used as the base.
++            path values stored in the YAML file. Otherwise, by default, the
++            directory returned by `config_dir()` will be used as the base.
++        """
++        self.set(YamlSource(filename, base_for_paths=base_for_paths,
++                            loader=self.loader))
++
++    def set_env(self, prefix, sep='__'):
++        """Adds environment variables as a configuration source with highest priority.
++
++        :param prefix: Prefix of environment variable names to include.
++        :param sep: Separator for nested keys in environment variable names.
++        """
++        env_vars = {}
++        for key, value in os.environ.items():
++            if key.startswith(prefix):
++                env_key = key[len(prefix):].replace(sep, '.').lower()
++                env_vars[env_key] = value
++        self.set(OrderedDict(env_vars))
++
++    def set(self, value):
++        self.sources.insert(0, ConfigSource.of(value))

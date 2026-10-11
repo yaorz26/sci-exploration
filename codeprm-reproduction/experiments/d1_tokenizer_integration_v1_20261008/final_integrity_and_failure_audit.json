@@ -1,0 +1,211 @@
+{
+  "status": "pass",
+  "checks": [
+    {
+      "name": "校准证据001request",
+      "pass": true
+    },
+    {
+      "name": "校准证据001response",
+      "pass": true
+    },
+    {
+      "name": "校准证据002request",
+      "pass": true
+    },
+    {
+      "name": "校准证据002response",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_smoke_b03_v1_20261008冻结哈希",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_smoke_b03_v1_20261008协议哈希",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_smoke_b03_v1_20261008输入计量1",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_smoke_b03_v1_20261008输出额度1",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_smoke_b03_v1_20261008证据1request",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_smoke_b03_v1_20261008证据1response",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_smoke_b03_v1_20261008HTTP原文1",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_smoke_b03_v1_20261008M0预算与账本",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_smoke_b03_v1_20261008M0请求冻结",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_pair_b03_v1_20261008冻结哈希",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_pair_b03_v1_20261008协议哈希",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_pair_b03_v1_20261008输入计量1",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_pair_b03_v1_20261008输出额度1",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_pair_b03_v1_20261008证据1request",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_pair_b03_v1_20261008证据1response",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_pair_b03_v1_20261008HTTP原文1",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_pair_b03_v1_20261008输入计量2",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_pair_b03_v1_20261008输出额度2",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_pair_b03_v1_20261008证据2request",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_pair_b03_v1_20261008证据2response",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_pair_b03_v1_20261008HTTP原文2",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_pair_b03_v1_20261008输入计量3",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_pair_b03_v1_20261008输出额度3",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_pair_b03_v1_20261008证据3request",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_pair_b03_v1_20261008证据3response",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_pair_b03_v1_20261008HTTP原文3",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_pair_b03_v1_20261008输入计量4",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_pair_b03_v1_20261008输出额度4",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_pair_b03_v1_20261008证据4request",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_pair_b03_v1_20261008证据4response",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_pair_b03_v1_20261008HTTP原文4",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_pair_b03_v1_20261008M0预算与账本",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_pair_b03_v1_20261008M0请求冻结",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_pair_b03_v1_20261008M0候选冻结",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_pair_b03_v1_20261008M2预算与账本",
+      "pass": true
+    },
+    {
+      "name": "d1_allin_native_pair_b03_v1_20261008M2请求冻结",
+      "pass": true
+    },
+    {
+      "name": "M2失败原文确认撞名且没有长度截断",
+      "pass": true
+    },
+    {
+      "name": "M0公开失败触发点可复核",
+      "pass": true
+    }
+  ],
+  "phase_real_usage": {
+    "calls": 7,
+    "input_tokens": 2534,
+    "output_tokens": 639,
+    "total_tokens": 3173
+  },
+  "M2_direct_failure_evidence": {
+    "stage": "helper_2",
+    "expected_top_level_functions": [
+      "_is_ansi_sequence"
+    ],
+    "observed_top_level_functions": [
+      "_is_ansi_code",
+      "_is_ansi_sequence"
+    ],
+    "redefined_previous_helper": true,
+    "done_reason": "stop",
+    "limit": "确认本次输出重定义；不能证明所有提示词无效或结构因素导致失败"
+  },
+  "M0_public_trace": {
+    "scope": "事后仅重放第一个公开输入，不改候选/提示/测试，不产生新成绩",
+    "exception": "IndexError",
+    "line": 10,
+    "j": 12,
+    "text_length": 12,
+    "source_line": "                while j < len(text) and text[j].isalnum() or text[j] in ' ;':",
+    "interpretation": "布尔表达式的or右侧仍访问text[j]，j已到字符串末端；仅确认本次IndexError触发点"
+  },
+  "script_snapshots": {
+    "native_tokenizer.py": "5d07a770f90c73e532ff0525fc17148aed759807d5d4d44e8af7fa674cadbd55",
+    "budgeted_generation.py": "d34826980644ff8ac5c54b81111ff748222f29c8d283e2d58ff638ef4dcd5016",
+    "run_allin_pipeline.py": "ca91992e33411464719a1fc86db241ded7f01d1bb407a97db3949eb5a3663765",
+    "run_costed_local_pilot.py": "7f67c4f9a42f16782263a1d80e33582320d1238863635938493bf81038a380bb",
+    "bounded_execution.py": "4bdfdfe50b0c818f99b952c3b9d86855211f78d84d9d8831d3008c348c8c4cd9",
+    "evaluate_candidate.py": "8ecaaae3e58c3e4eef67c3bf22fc329c8465c7655c1174a0b1edccefe1df31f8"
+  },
+  "snapshot_timing": "事后保存本次执行代码，未声称执行前源码冻结",
+  "review_limit": "同一助手事后复核，非独立；单开发题不能回答主问题A；token为逻辑用量，不等价实际GPU耗时"
+}

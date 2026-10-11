@@ -1,0 +1,33 @@
+[
+  {
+    "time":"2026-10-11T07:42:00Z",
+    "event_id":"d1-g5-final-corrected-synthesis-20261011",
+    "kind":"phase_review",
+    "phase":"G5-delivery",
+    "stage":"D1-G5",
+    "status":"complete",
+    "summary":"用完整API上下文批次和严格预检结果纠正230号旧合成；最终只保留窄边界结论，不把旧10/12次超限运行当作预算效果。",
+    "evidence_kind":"artifact",
+    "evidence":["../docs/week3/data-route/20261011/233_g5_d1_final_corrected_synthesis.md","../docs/week3/data-route/20261011/231_g4_preflight_correction.md","../docs/week3/data-route/20261011/232_g4_symbol_context_result.md"],
+    "approval_required":false,
+    "supersedes":[],
+    "budget":"G5仅纠正和合成；无新增模型请求；原始输出/失败保留",
+    "uncertainty":"主A收益、正式labels/split、人工双审仍未测"
+  },
+  {
+    "time":"2026-10-11T07:42:01Z",
+    "event_id":"d1-g5-final-direction-20261011",
+    "kind":"direction_review",
+    "phase":"G5-delivery",
+    "stage":"D1-G5",
+    "status":"complete",
+    "summary":"最终成果交付为真实研究池、评价器契约反例和严格生成边界；不继续同入口重试。",
+    "decision":"若恢复主A，另立局部计划并审查总token、模型身份/计量或补丁接口；宏观总计划保持不变。",
+    "evidence_kind":"artifact",
+    "evidence":["../docs/week3/data-route/20261011/233_g5_d1_final_corrected_synthesis.md"],
+    "approval_required":false,
+    "supersedes":[],
+    "budget":"同上",
+    "uncertainty":"未取得完整候选，主A不可回答"
+  }
+]

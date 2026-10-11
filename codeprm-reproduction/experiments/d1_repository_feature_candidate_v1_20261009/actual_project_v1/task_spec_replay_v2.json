@@ -1,0 +1,34 @@
+{
+  "task_id": "REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS",
+  "snapshot": "2c1f97e7b6aadbeb8bd6f112bd7ef965dbd977b0",
+  "examples": [
+    {
+      "name": "default_preserved",
+      "expected": "D:\\Temp\\d1_task_replay_9fqsdd_3\\assets\\a.txt",
+      "got": "D:\\Temp\\d1_task_replay_9fqsdd_3\\assets\\a.txt",
+      "pass": true
+    },
+    {
+      "name": "source_flag",
+      "expected": "D:\\Temp\\d1_task_replay_9fqsdd_3\\project\\conf\\assets\\a.txt",
+      "got": "D:\\Temp\\d1_task_replay_9fqsdd_3\\project\\conf\\assets\\a.txt",
+      "pass": true
+    },
+    {
+      "name": "template_flag",
+      "expected": "D:\\Temp\\d1_task_replay_9fqsdd_3\\project\\conf\\assets\\a.txt",
+      "got": "D:\\Temp\\d1_task_replay_9fqsdd_3\\project\\conf\\assets\\a.txt",
+      "pass": true
+    },
+    {
+      "name": "absolute_invariant",
+      "expected": "D:\\Temp\\d1_task_replay_9fqsdd_3\\abs\\x",
+      "got": "D:\\Temp\\d1_task_replay_9fqsdd_3\\abs\\x",
+      "pass": true
+    }
+  ],
+  "all_pass": true,
+  "reference_not_in_input": true,
+  "upstream_tests_used": false,
+  "prior_failure": "task_spec_replay_v1.json preserved: placeholder was not expanded"
+}

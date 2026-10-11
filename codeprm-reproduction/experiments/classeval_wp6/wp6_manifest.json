@@ -1,0 +1,1919 @@
+{
+  "work_package": "WP6",
+  "model": "qwen2.5-coder:7b",
+  "seed": 20260929,
+  "temperature": 0.2,
+  "n_candidates_per_arm": 1,
+  "arms": [
+    "M0"
+  ],
+  "sample": [
+    "ClassEval_4",
+    "ClassEval_5",
+    "ClassEval_6",
+    "ClassEval_7",
+    "ClassEval_15",
+    "ClassEval_16",
+    "ClassEval_18",
+    "ClassEval_19",
+    "ClassEval_23",
+    "ClassEval_30",
+    "ClassEval_33",
+    "ClassEval_38",
+    "ClassEval_46",
+    "ClassEval_47",
+    "ClassEval_52",
+    "ClassEval_53",
+    "ClassEval_55",
+    "ClassEval_57",
+    "ClassEval_65",
+    "ClassEval_71",
+    "ClassEval_78",
+    "ClassEval_82",
+    "ClassEval_87",
+    "ClassEval_91"
+  ],
+  "calls_made": 160,
+  "wall_seconds": 1799.9,
+  "tasks": {
+    "ClassEval_4": {
+      "layer": "target",
+      "n_methods": 6,
+      "arms": {
+        "M0": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "code",
+                "seconds": 15.43,
+                "eval_count": 306,
+                "prompt_eval_count": 830
+              }
+            ]
+          },
+          "public_all_pass": true,
+          "public_tests_ran": 15,
+          "private_all_pass": false,
+          "full_tests_ran": 31,
+          "code_runs": true,
+          "tail": "orz2\\.workbuddy\\binaries\\python\\versions\\3.13.12\\Lib\\statistics.py\", line 334, in _exact_ratio\n    raise TypeError(msg)\nTypeError: can't convert type 'NoneType' to numerator/denominator\n\n----------------------------------------------------------------------\nRan 31 tests in 0.006s\n\nFAILED (errors=1)\n"
+        },
+        "M1": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "plan",
+                "seconds": 10.19,
+                "eval_count": 317
+              },
+              {
+                "kind": "code",
+                "seconds": 11.22,
+                "eval_count": 358
+              }
+            ]
+          },
+          "public_all_pass": true,
+          "public_tests_ran": 15,
+          "private_all_pass": false,
+          "full_tests_ran": 31,
+          "code_runs": true,
+          "tail": "ns\\ClassEval_4\\M1_full.py\", line 29, in get_course_average\n    return sum(scores) / len(scores)\n           ~~~^^^^^^^^\nTypeError: unsupported operand type(s) for +: 'int' and 'NoneType'\n\n----------------------------------------------------------------------\nRan 31 tests in 0.003s\n\nFAILED (errors=1)\n"
+        },
+        "M2": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "method:add_student",
+                "seconds": 4.9,
+                "eval_count": 139
+              },
+              {
+                "kind": "method:add_course_score",
+                "seconds": 5.46,
+                "eval_count": 158
+              },
+              {
+                "kind": "method:get_gpa",
+                "seconds": 6.27,
+                "eval_count": 184
+              },
+              {
+                "kind": "method:get_all_students_with_fail_course",
+                "seconds": 4.44,
+                "eval_count": 126
+              },
+              {
+                "kind": "method:get_course_average",
+                "seconds": 3.44,
+                "eval_count": 108
+              },
+              {
+                "kind": "method:get_top_student",
+                "seconds": 2.89,
+                "eval_count": 85
+              }
+            ],
+            "n_method_calls": 6
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 15,
+          "private_all_pass": false,
+          "full_tests_ran": 31,
+          "code_runs": true,
+          "tail": "gpa_5\n    self.assertEqual(assessment_system.get_gpa('Alice'), 90.0)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'AssessmentSystem' object has no attribute 'get_gpa'\n\n----------------------------------------------------------------------\nRan 15 tests in 0.002s\n\nFAILED (errors=10)\n"
+        }
+      }
+    },
+    "ClassEval_5": {
+      "layer": "negative",
+      "n_methods": 2,
+      "arms": {
+        "M0": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "code",
+                "seconds": 9.03,
+                "eval_count": 309,
+                "prompt_eval_count": 575
+              }
+            ]
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 9,
+          "private_all_pass": false,
+          "full_tests_ran": 15,
+          "code_runs": true,
+          "tail": "                ^\n\n+ [{'Chord': 'ABC', 'Tune': '43231323'}, {'Chord': 'DEF', 'Tune': '63231323'}]\n?              ++            ^^^^^^^^                ++            ^^^^^^^^\n\n\n----------------------------------------------------------------------\nRan 9 tests in 0.004s\n\nFAILED (failures=2, errors=5)\n"
+        },
+        "M1": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "plan",
+                "seconds": 6.86,
+                "eval_count": 229
+              },
+              {
+                "kind": "code",
+                "seconds": 9.92,
+                "eval_count": 308
+              }
+            ]
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 9,
+          "private_all_pass": false,
+          "full_tests_ran": 15,
+          "code_runs": true,
+          "tail": "5', 'Tune': '3231323'}\n{'Chord': 'C', 'Tune': '53231323'}\n\n- [{'Chord': 'C5', 'Tune': '3231323'}]\n?              -\n\n+ [{'Chord': 'C', 'Tune': '53231323'}]\n?                          +\n\n\n----------------------------------------------------------------------\nRan 9 tests in 0.003s\n\nFAILED (failures=6)\n"
+        },
+        "M2": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "method:interpret",
+                "seconds": 7.73,
+                "eval_count": 318
+              },
+              {
+                "kind": "method:display",
+                "seconds": 7.62,
+                "eval_count": 174
+              }
+            ],
+            "n_method_calls": 2
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 9,
+          "private_all_pass": false,
+          "full_tests_ran": 15,
+          "code_runs": true,
+          "tail": "_5\\M2_public.py\", line 83, in test_interpret_9\n    context = AutomaticGuitarSimulator(\"\")\n              ^^^^^^^^^^^^^^^^^^^^^^^^\nNameError: name 'AutomaticGuitarSimulator' is not defined\n\n----------------------------------------------------------------------\nRan 9 tests in 0.003s\n\nFAILED (errors=9)\n"
+        }
+      }
+    },
+    "ClassEval_6": {
+      "layer": "negative",
+      "n_methods": 2,
+      "arms": {
+        "M0": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "code",
+                "seconds": 13.6,
+                "eval_count": 336,
+                "prompt_eval_count": 394
+              }
+            ]
+          },
+          "public_all_pass": true,
+          "public_tests_ran": 5,
+          "private_all_pass": true,
+          "full_tests_ran": 11,
+          "code_runs": true,
+          "tail": "...........\n----------------------------------------------------------------------\nRan 11 tests in 0.000s\n\nOK\n"
+        },
+        "M1": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "plan",
+                "seconds": 9.96,
+                "eval_count": 246
+              },
+              {
+                "kind": "code",
+                "seconds": 13.58,
+                "eval_count": 327
+              }
+            ]
+          },
+          "public_all_pass": true,
+          "public_tests_ran": 5,
+          "private_all_pass": true,
+          "full_tests_ran": 11,
+          "code_runs": true,
+          "tail": "...........\n----------------------------------------------------------------------\nRan 11 tests in 0.000s\n\nOK\n"
+        },
+        "M2": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "method:setNum",
+                "seconds": 4.64,
+                "eval_count": 111
+              },
+              {
+                "kind": "method:get",
+                "seconds": 6.2,
+                "eval_count": 147
+              }
+            ],
+            "n_method_calls": 2
+          },
+          "public_all_pass": true,
+          "public_tests_ran": 5,
+          "private_all_pass": false,
+          "full_tests_ran": 11,
+          "code_runs": true,
+          "tail": "evaluations\\ClassEval_6\\M2_full.py\", line 77, in test_main\n    self.assertEqual(a.get(0), [1, 2])\n                     ^^^^^\nAttributeError: 'AvgPartition' object has no attribute 'get'\n\n----------------------------------------------------------------------\nRan 11 tests in 0.004s\n\nFAILED (errors=6)\n"
+        }
+      }
+    },
+    "ClassEval_7": {
+      "layer": "negative",
+      "n_methods": 2,
+      "arms": {
+        "M0": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "code",
+                "seconds": 12.25,
+                "eval_count": 301,
+                "prompt_eval_count": 329
+              }
+            ]
+          },
+          "public_all_pass": true,
+          "public_tests_ran": 5,
+          "private_all_pass": true,
+          "full_tests_ran": 15,
+          "code_runs": true,
+          "tail": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.000s\n\nOK\n"
+        },
+        "M1": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "plan",
+                "seconds": 12.99,
+                "eval_count": 306
+              },
+              {
+                "kind": "code",
+                "seconds": 11.95,
+                "eval_count": 315
+              }
+            ]
+          },
+          "public_all_pass": true,
+          "public_tests_ran": 5,
+          "private_all_pass": true,
+          "full_tests_ran": 15,
+          "code_runs": true,
+          "tail": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.000s\n\nOK\n"
+        },
+        "M2": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "method:clear_expr",
+                "seconds": 2.67,
+                "eval_count": 78
+              },
+              {
+                "kind": "method:check_balanced_brackets",
+                "seconds": 4.38,
+                "eval_count": 140
+              }
+            ],
+            "n_method_calls": 2
+          },
+          "public_all_pass": true,
+          "public_tests_ran": 5,
+          "private_all_pass": false,
+          "full_tests_ran": 15,
+          "code_runs": true,
+          "tail": "self.assertEqual(b.check_balanced_brackets(), False)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'BalancedBrackets' object has no attribute 'check_balanced_brackets'\n\n----------------------------------------------------------------------\nRan 15 tests in 0.002s\n\nFAILED (errors=10)\n"
+        }
+      }
+    },
+    "ClassEval_15": {
+      "layer": "boundary",
+      "n_methods": 3,
+      "arms": {
+        "M0": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "code",
+                "seconds": 16.98,
+                "eval_count": 535,
+                "prompt_eval_count": 539
+              }
+            ]
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 10,
+          "private_all_pass": false,
+          "full_tests_ran": 16,
+          "code_runs": true,
+          "tail": "line 101, in test_mismatch_in_text_5\n    self.assertEqual(boyerMooreSearch.mismatch_in_text(3), 5)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 2 != 5\n\n----------------------------------------------------------------------\nRan 10 tests in 0.002s\n\nFAILED (failures=4)\n"
+        },
+        "M1": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "plan",
+                "seconds": 7.3,
+                "eval_count": 225
+              },
+              {
+                "kind": "code",
+                "seconds": 10.13,
+                "eval_count": 309
+              }
+            ]
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 10,
+          "private_all_pass": false,
+          "full_tests_ran": 16,
+          "code_runs": true,
+          "tail": " line 71, in test_mismatch_in_text_3\n    self.assertEqual(boyerMooreSearch.mismatch_in_text(0), 2)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 1 != 2\n\n----------------------------------------------------------------------\nRan 10 tests in 0.001s\n\nFAILED (failures=1)\n"
+        },
+        "M2": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "method:match_in_pattern",
+                "seconds": 3.41,
+                "eval_count": 100
+              },
+              {
+                "kind": "method:mismatch_in_text",
+                "seconds": 4.98,
+                "eval_count": 152
+              },
+              {
+                "kind": "method:bad_character_heuristic",
+                "seconds": 7.99,
+                "eval_count": 246
+              }
+            ],
+            "n_method_calls": 3
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 10,
+          "private_all_pass": false,
+          "full_tests_ran": 16,
+          "code_runs": true,
+          "tail": "assertEqual(boyerMooreSearch.mismatch_in_text(3), 5)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'BoyerMooreSearch' object has no attribute 'mismatch_in_text'\n\n----------------------------------------------------------------------\nRan 10 tests in 0.001s\n\nFAILED (errors=5)\n"
+        }
+      }
+    },
+    "ClassEval_16": {
+      "layer": "boundary",
+      "n_methods": 3,
+      "arms": {
+        "M0": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "code",
+                "seconds": 21.42,
+                "eval_count": 669,
+                "prompt_eval_count": 568
+              }
+            ]
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 13,
+          "private_all_pass": false,
+          "full_tests_ran": 19,
+          "code_runs": true,
+          "tail": "~~~~~~~~~~^^^^^^^^^^^^\nAssertionError: <function Calculator.__init__.<locals>.<lambda> at 0x000001245B9FECA0> != <function Calculator.__init__.<locals>.<lambda> at 0x000001245B9FEF20>\n\n----------------------------------------------------------------------\nRan 13 tests in 0.001s\n\nFAILED (failures=2)\n"
+        },
+        "M1": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "plan",
+                "seconds": 10.73,
+                "eval_count": 337
+              },
+              {
+                "kind": "code",
+                "seconds": 20.36,
+                "eval_count": 654
+              }
+            ]
+          },
+          "public_all_pass": true,
+          "public_tests_ran": 13,
+          "private_all_pass": true,
+          "full_tests_ran": 19,
+          "code_runs": true,
+          "tail": "...................\n----------------------------------------------------------------------\nRan 19 tests in 0.001s\n\nOK\n"
+        },
+        "M2": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "method:calculate",
+                "seconds": 13.13,
+                "eval_count": 420
+              },
+              {
+                "kind": "method:precedence",
+                "seconds": 5.09,
+                "eval_count": 163
+              },
+              {
+                "kind": "method:apply_operator",
+                "seconds": 4.52,
+                "eval_count": 166
+              }
+            ],
+            "n_method_calls": 3
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 13,
+          "private_all_pass": false,
+          "full_tests_ran": 19,
+          "code_runs": true,
+          "tail": "6\\M2_public.py\", line 147, in test_precedence_5\n    res1 = calculator.precedence('*')\n           ^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'Calculator' object has no attribute 'precedence'\n\n----------------------------------------------------------------------\nRan 13 tests in 0.007s\n\nFAILED (errors=12)\n"
+        }
+      }
+    },
+    "ClassEval_18": {
+      "layer": "target",
+      "n_methods": 7,
+      "arms": {
+        "M0": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "code",
+                "seconds": 20.78,
+                "eval_count": 417,
+                "prompt_eval_count": 794
+              }
+            ]
+          },
+          "public_all_pass": true,
+          "public_tests_ran": 20,
+          "private_all_pass": false,
+          "full_tests_ran": 37,
+          "code_runs": true,
+          "tail": "val_wp6\\evaluations\\ClassEval_18\\M0_full.py\", line 68, in _to_camel_case\n    components = key.split('_')\n                 ^^^^^^^^^\nAttributeError: 'int' object has no attribute 'split'\n\n----------------------------------------------------------------------\nRan 37 tests in 0.003s\n\nFAILED (errors=1)\n"
+        },
+        "M1": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "plan",
+                "seconds": 13.84,
+                "eval_count": 299
+              },
+              {
+                "kind": "code",
+                "seconds": 17.46,
+                "eval_count": 409
+              }
+            ]
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 20,
+          "private_all_pass": false,
+          "full_tests_ran": 37,
+          "code_runs": true,
+          "tail": "    self.assertEqual(camelize_map['first_name'], 'newname')\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'John' != 'newname'\n- John\n+ newname\n\n\n----------------------------------------------------------------------\nRan 20 tests in 0.004s\n\nFAILED (failures=4, errors=2)\n"
+        },
+        "M2": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "method:__getitem__",
+                "seconds": 4.48,
+                "eval_count": 95
+              },
+              {
+                "kind": "method:__setitem__",
+                "seconds": 5.23,
+                "eval_count": 122
+              },
+              {
+                "kind": "method:__delitem__",
+                "seconds": 4.45,
+                "eval_count": 105
+              },
+              {
+                "kind": "method:__iter__",
+                "seconds": 5.42,
+                "eval_count": 123
+              },
+              {
+                "kind": "method:__len__",
+                "seconds": 4.86,
+                "eval_count": 102
+              },
+              {
+                "kind": "method:_convert_key",
+                "seconds": 7.73,
+                "eval_count": 168
+              },
+              {
+                "kind": "method:_to_camel_case",
+                "seconds": 4.85,
+                "eval_count": 94
+              }
+            ],
+            "n_method_calls": 7
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 20,
+          "private_all_pass": false,
+          "full_tests_ran": 37,
+          "code_runs": true,
+          "tail": "al_18\\M2_public.py\", line 81, in test_setitem_5\n    camelize_map['first_name'] = 'John'\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^\nTypeError: 'CamelCaseMap' object does not support item assignment\n\n----------------------------------------------------------------------\nRan 20 tests in 0.005s\n\nFAILED (errors=20)\n"
+        }
+      }
+    },
+    "ClassEval_19": {
+      "layer": "negative",
+      "n_methods": 2,
+      "arms": {
+        "M0": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "code",
+                "seconds": 12.95,
+                "eval_count": 289,
+                "prompt_eval_count": 397
+              }
+            ]
+          },
+          "public_all_pass": true,
+          "public_tests_ran": 5,
+          "private_all_pass": true,
+          "full_tests_ran": 11,
+          "code_runs": true,
+          "tail": "...........\n----------------------------------------------------------------------\nRan 11 tests in 0.000s\n\nOK\n"
+        },
+        "M1": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "plan",
+                "seconds": 8.8,
+                "eval_count": 268
+              },
+              {
+                "kind": "code",
+                "seconds": 9.01,
+                "eval_count": 293
+              }
+            ]
+          },
+          "public_all_pass": true,
+          "public_tests_ran": 5,
+          "private_all_pass": true,
+          "full_tests_ran": 11,
+          "code_runs": true,
+          "tail": "...........\n----------------------------------------------------------------------\nRan 11 tests in 0.000s\n\nOK\n"
+        },
+        "M2": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "method:generate_primes",
+                "seconds": 5.28,
+                "eval_count": 165
+              },
+              {
+                "kind": "method:get_primes",
+                "seconds": 3.11,
+                "eval_count": 92
+              }
+            ],
+            "n_method_calls": 2
+          },
+          "public_all_pass": true,
+          "public_tests_ran": 5,
+          "private_all_pass": false,
+          "full_tests_ran": 11,
+          "code_runs": true,
+          "tail": "tions\\ClassEval_19\\M2_full.py\", line 91, in test_get_primes_5\n    res = cs.get_primes()\n          ^^^^^^^^^^^^^\nAttributeError: 'ChandrasekharSieve' object has no attribute 'get_primes'\n\n----------------------------------------------------------------------\nRan 11 tests in 0.002s\n\nFAILED (errors=6)\n"
+        }
+      }
+    },
+    "ClassEval_23": {
+      "layer": "target",
+      "n_methods": 5,
+      "arms": {
+        "M0": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "code",
+                "seconds": 29.84,
+                "eval_count": 933,
+                "prompt_eval_count": 864
+              }
+            ]
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 15,
+          "private_all_pass": false,
+          "full_tests_ran": 26,
+          "code_runs": true,
+          "tail": "ublic.py\", line 118, in test_count_all_4\n    self.assertEqual(CombinationCalculator.count_all(0), 0)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 1 != 0\n\n----------------------------------------------------------------------\nRan 15 tests in 0.003s\n\nFAILED (failures=3)\n"
+        },
+        "M1": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "plan",
+                "seconds": 8.5,
+                "eval_count": 248
+              },
+              {
+                "kind": "code",
+                "seconds": 29.43,
+                "eval_count": 924
+              }
+            ]
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 15,
+          "private_all_pass": false,
+          "full_tests_ran": 26,
+          "code_runs": true,
+          "tail": "ublic.py\", line 120, in test_count_all_4\n    self.assertEqual(CombinationCalculator.count_all(0), 0)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 1 != 0\n\n----------------------------------------------------------------------\nRan 15 tests in 0.002s\n\nFAILED (failures=4)\n"
+        },
+        "M2": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "method:count",
+                "seconds": 4.32,
+                "eval_count": 120
+              },
+              {
+                "kind": "method:count_all",
+                "seconds": 3.7,
+                "eval_count": 134
+              },
+              {
+                "kind": "method:select",
+                "seconds": 17.89,
+                "eval_count": 417
+              },
+              {
+                "kind": "method:select_all",
+                "seconds": 10.41,
+                "eval_count": 206
+              },
+              {
+                "kind": "method:_select",
+                "seconds": 9.32,
+                "eval_count": 191
+              }
+            ],
+            "n_method_calls": 5
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 15,
+          "private_all_pass": false,
+          "full_tests_ran": 26,
+          "code_runs": true,
+          "tail": "(CombinationCalculator.count_all(63), float(\"inf\"))\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: type object 'CombinationCalculator' has no attribute 'count_all'\n\n----------------------------------------------------------------------\nRan 15 tests in 0.004s\n\nFAILED (errors=5)\n"
+        }
+      }
+    },
+    "ClassEval_30": {
+      "layer": "target",
+      "n_methods": 6,
+      "arms": {
+        "M0": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "code",
+                "seconds": 12.49,
+                "eval_count": 315,
+                "prompt_eval_count": 559
+              }
+            ]
+          },
+          "public_all_pass": true,
+          "public_tests_ran": 15,
+          "private_all_pass": true,
+          "full_tests_ran": 31,
+          "code_runs": true,
+          "tail": "...............................\n----------------------------------------------------------------------\nRan 31 tests in 0.015s\n\nOK\n"
+        },
+        "M1": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "plan",
+                "seconds": 12.99,
+                "eval_count": 341
+              },
+              {
+                "kind": "code",
+                "seconds": 11.14,
+                "eval_count": 288
+              }
+            ]
+          },
+          "public_all_pass": true,
+          "public_tests_ran": 15,
+          "private_all_pass": true,
+          "full_tests_ran": 31,
+          "code_runs": true,
+          "tail": "...............................\n----------------------------------------------------------------------\nRan 31 tests in 0.001s\n\nOK\n"
+        },
+        "M2": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "method:get_sum",
+                "seconds": 2.84,
+                "eval_count": 66
+              },
+              {
+                "kind": "method:get_min",
+                "seconds": 2.88,
+                "eval_count": 67
+              },
+              {
+                "kind": "method:get_max",
+                "seconds": 3.0,
+                "eval_count": 67
+              },
+              {
+                "kind": "method:get_variance",
+                "seconds": 4.36,
+                "eval_count": 104
+              },
+              {
+                "kind": "method:get_std_deviation",
+                "seconds": 3.37,
+                "eval_count": 83
+              },
+              {
+                "kind": "method:get_correlation",
+                "seconds": 5.15,
+                "eval_count": 135
+              }
+            ],
+            "n_method_calls": 6
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 15,
+          "private_all_pass": false,
+          "full_tests_ran": 31,
+          "code_runs": true,
+          "tail": "wp6\\evaluations\\ClassEval_30\\M2_public.py\", line 78, in test_get_min_5\n    res = ds2.get_min()\n          ^^^^^^^^^^^\nAttributeError: 'DataStatistics2' object has no attribute 'get_min'\n\n----------------------------------------------------------------------\nRan 15 tests in 0.005s\n\nFAILED (errors=10)\n"
+        }
+      }
+    },
+    "ClassEval_33": {
+      "layer": "target",
+      "n_methods": 5,
+      "arms": {
+        "M0": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "code",
+                "seconds": 23.18,
+                "eval_count": 618,
+                "prompt_eval_count": 1020
+              }
+            ]
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 15,
+          "private_all_pass": false,
+          "full_tests_ran": 26,
+          "code_runs": true,
+          "tail": "lic.py\", line 177, in test_fidelity_promo_1\n    self.assertEqual(actual_discount, expected_discount)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 0 != 12.5\n\n----------------------------------------------------------------------\nRan 15 tests in 0.002s\n\nFAILED (failures=1)\n"
+        },
+        "M1": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "plan",
+                "seconds": 13.32,
+                "eval_count": 345
+              },
+              {
+                "kind": "code",
+                "seconds": 38.45,
+                "eval_count": 1054
+              }
+            ]
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 15,
+          "private_all_pass": false,
+          "full_tests_ran": 26,
+          "code_runs": true,
+          "tail": "l_33\\M1_public.py\", line 151, in test_total_5\n    self.assertEqual(actual_total, expected_total)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: None != 0\n\n----------------------------------------------------------------------\nRan 15 tests in 0.004s\n\nFAILED (failures=6, errors=5)\n"
+        },
+        "M2": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "method:total",
+                "seconds": 13.44,
+                "eval_count": 145
+              },
+              {
+                "kind": "method:due",
+                "seconds": 2.91,
+                "eval_count": 70
+              },
+              {
+                "kind": "method:FidelityPromo",
+                "seconds": 4.51,
+                "eval_count": 109
+              },
+              {
+                "kind": "method:BulkItemPromo",
+                "seconds": 7.38,
+                "eval_count": 215
+              },
+              {
+                "kind": "method:LargeOrderPromo",
+                "seconds": 4.75,
+                "eval_count": 127
+              }
+            ],
+            "n_method_calls": 5
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 15,
+          "private_all_pass": false,
+          "full_tests_ran": 26,
+          "code_runs": true,
+          "tail": "countStrategy.FidelityPromo)\n                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: type object 'DiscountStrategy' has no attribute 'FidelityPromo'\n\n----------------------------------------------------------------------\nRan 15 tests in 0.004s\n\nFAILED (errors=10)\n"
+        }
+      }
+    },
+    "ClassEval_38": {
+      "layer": "boundary",
+      "n_methods": 3,
+      "arms": {
+        "M0": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "code",
+                "seconds": 13.47,
+                "eval_count": 417,
+                "prompt_eval_count": 515
+              }
+            ]
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 12,
+          "private_all_pass": false,
+          "full_tests_ran": 19,
+          "code_runs": true,
+          "tail": "^\n    )\n    ^\n  File \"D:\\yaorz\\tools\\WorkBuddy\\resources\\app.asar.unpacked\\cli\\vendor\\shim\\sitecustomize.py\", line 826, in _exit_bulk_guard_control\n    raise SystemExit(1)\nSystemExit: 1\n\n----------------------------------------------------------------------\nRan 12 tests in 3.166s\n\nFAILED (errors=6)\n"
+        },
+        "M1": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "plan",
+                "seconds": 10.63,
+                "eval_count": 327
+              },
+              {
+                "kind": "code",
+                "seconds": 14.08,
+                "eval_count": 449
+              }
+            ]
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 12,
+          "private_all_pass": false,
+          "full_tests_ran": 19,
+          "code_runs": true,
+          "tail": "^\n    )\n    ^\n  File \"D:\\yaorz\\tools\\WorkBuddy\\resources\\app.asar.unpacked\\cli\\vendor\\shim\\sitecustomize.py\", line 826, in _exit_bulk_guard_control\n    raise SystemExit(1)\nSystemExit: 1\n\n----------------------------------------------------------------------\nRan 12 tests in 3.227s\n\nFAILED (errors=6)\n"
+        },
+        "M2": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "method:read_excel",
+                "seconds": 4.43,
+                "eval_count": 90
+              },
+              {
+                "kind": "method:write_excel",
+                "seconds": 6.56,
+                "eval_count": 143
+              },
+              {
+                "kind": "method:process_excel_data",
+                "seconds": 7.11,
+                "eval_count": 178
+              }
+            ],
+            "n_method_calls": 3
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 12,
+          "private_all_pass": false,
+          "full_tests_ran": 19,
+          "code_runs": true,
+          "tail": "= processor.write_excel(new_data, save_file_name)\n              ^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'ExcelProcessor' object has no attribute 'write_excel'. Did you mean: 'read_excel'?\n\n----------------------------------------------------------------------\nRan 12 tests in 0.497s\n\nFAILED (errors=7)\n"
+        }
+      }
+    },
+    "ClassEval_46": {
+      "layer": "negative",
+      "n_methods": 2,
+      "arms": {
+        "M0": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "code",
+                "seconds": 23.38,
+                "eval_count": 574,
+                "prompt_eval_count": 526
+              }
+            ]
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 7,
+          "private_all_pass": false,
+          "full_tests_ran": 13,
+          "code_runs": true,
+          "tail": "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Lists differ: [[], []] != []\n\nFirst list contains 2 additional elements.\nFirst extra element 0:\n[]\n\n- [[], []]\n+ []\n\n----------------------------------------------------------------------\nRan 7 tests in 0.003s\n\nFAILED (failures=1)\n"
+        },
+        "M1": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "plan",
+                "seconds": 11.47,
+                "eval_count": 266
+              },
+              {
+                "kind": "code",
+                "seconds": 22.82,
+                "eval_count": 649
+              }
+            ]
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 7,
+          "private_all_pass": false,
+          "full_tests_ran": 13,
+          "code_runs": true,
+          "tail": "lic.py\", line 23, in interpolate_1d\n    if idx == 0:\n       ^^^^^^^^\nValueError: The truth value of an empty array is ambiguous. Use `array.size > 0` to check that an array is not empty.\n\n----------------------------------------------------------------------\nRan 7 tests in 0.004s\n\nFAILED (errors=1)\n"
+        },
+        "M2": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "method:interpolate_1d",
+                "seconds": 9.65,
+                "eval_count": 264
+              },
+              {
+                "kind": "method:interpolate_2d",
+                "seconds": 16.56,
+                "eval_count": 472
+              }
+            ],
+            "n_method_calls": 2
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 7,
+          "private_all_pass": false,
+          "full_tests_ran": 13,
+          "code_runs": true,
+          "tail": "ns\\ClassEval_46\\M2_public.py\", line 23, in interpolate_1d\n    idx = bisect.bisect_left(x, xi)\n          ^^^^^^\nNameError: name 'bisect' is not defined. Did you forget to import 'bisect'?\n\n----------------------------------------------------------------------\nRan 7 tests in 0.004s\n\nFAILED (errors=6)\n"
+        }
+      }
+    },
+    "ClassEval_47": {
+      "layer": "boundary",
+      "n_methods": 3,
+      "arms": {
+        "M0": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "code",
+                "seconds": 11.71,
+                "eval_count": 329,
+                "prompt_eval_count": 491
+              }
+            ]
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 10,
+          "private_all_pass": false,
+          "full_tests_ran": 16,
+          "code_runs": true,
+          "tail": "experiments\\classeval_wp6\\evaluations\\ClassEval_47\\M0_public.py\", line 30, in get_octets\n    if self.is_valid():\n       ~~~~~~~~~~~~~^^\nRecursionError: maximum recursion depth exceeded\n\n----------------------------------------------------------------------\nRan 10 tests in 0.592s\n\nFAILED (errors=10)\n"
+        },
+        "M1": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "plan",
+                "seconds": 10.25,
+                "eval_count": 311
+              },
+              {
+                "kind": "code",
+                "seconds": 12.7,
+                "eval_count": 387
+              }
+            ]
+          },
+          "public_all_pass": true,
+          "public_tests_ran": 10,
+          "private_all_pass": true,
+          "full_tests_ran": 16,
+          "code_runs": true,
+          "tail": "................\n----------------------------------------------------------------------\nRan 16 tests in 0.001s\n\nOK\n"
+        },
+        "M2": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "method:is_valid",
+                "seconds": 5.56,
+                "eval_count": 159
+              },
+              {
+                "kind": "method:get_octets",
+                "seconds": 4.2,
+                "eval_count": 117
+              },
+              {
+                "kind": "method:get_binary",
+                "seconds": 5.61,
+                "eval_count": 158
+              }
+            ],
+            "n_method_calls": 3
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 10,
+          "private_all_pass": false,
+          "full_tests_ran": 16,
+          "code_runs": true,
+          "tail": "valuations\\ClassEval_47\\M2_public.py\", line 22, in is_valid\n    octets = self.get_octets()\n             ^^^^^^^^^^^^^^^\nAttributeError: 'IPAddress' object has no attribute 'get_octets'\n\n----------------------------------------------------------------------\nRan 10 tests in 0.006s\n\nFAILED (errors=10)\n"
+        }
+      }
+    },
+    "ClassEval_52": {
+      "layer": "boundary",
+      "n_methods": 3,
+      "arms": {
+        "M0": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "code",
+                "seconds": 19.58,
+                "eval_count": 572,
+                "prompt_eval_count": 599
+              }
+            ]
+          },
+          "public_all_pass": true,
+          "public_tests_ran": 10,
+          "private_all_pass": true,
+          "full_tests_ran": 16,
+          "code_runs": true,
+          "tail": ". If and only\n[nltk_data]     if the proxy is trusted to be SSRF-safe, opt in via\n[nltk_data]     NLTK_ALLOW_PROXIED_URLOPEN=1 or\n[nltk_data]     nltk.pathsec.ALLOW_PROXIED_FETCH=True.\n................\n----------------------------------------------------------------------\nRan 16 tests in 2.348s\n\nOK\n"
+        },
+        "M1": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "plan",
+                "seconds": 8.11,
+                "eval_count": 233
+              },
+              {
+                "kind": "code",
+                "seconds": 9.65,
+                "eval_count": 279
+              }
+            ]
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 10,
+          "private_all_pass": false,
+          "full_tests_ran": 16,
+          "code_runs": true,
+          "tail": " 'VBG', 'DT', 'NN', 'IN', 'DT', 'NN']\n- [('I', 'PRP'),\n-  ('was', 'VBD'),\n-  ('taking', 'VBG'),\n-  ('a', 'DT'),\n-  ('ride', 'NN'),\n-  ('in', 'IN'),\n-  ('the', 'DT'),\n-  ('car', 'NN')]\n\n----------------------------------------------------------------------\nRan 10 tests in 2.115s\n\nFAILED (failures=5)\n"
+        },
+        "M2": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "method:lemmatize_sentence",
+                "seconds": 11.06,
+                "eval_count": 320
+              },
+              {
+                "kind": "method:get_pos_tag",
+                "seconds": 5.56,
+                "eval_count": 153
+              },
+              {
+                "kind": "method:remove_punctuation",
+                "seconds": 4.0,
+                "eval_count": 97
+              }
+            ],
+            "n_method_calls": 3
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 10,
+          "private_all_pass": false,
+          "full_tests_ran": 16,
+          "code_runs": true,
+          "tail": " lemmatize_sentence\n    sentence = self.remove_punctuation(sentence)\n               ^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'Lemmatization' object has no attribute 'remove_punctuation'\n\n----------------------------------------------------------------------\nRan 10 tests in 0.003s\n\nFAILED (errors=10)\n"
+        }
+      }
+    },
+    "ClassEval_53": {
+      "layer": "negative",
+      "n_methods": 2,
+      "arms": {
+        "M0": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "code",
+                "seconds": 7.51,
+                "eval_count": 294,
+                "prompt_eval_count": 362
+              }
+            ]
+          },
+          "public_all_pass": true,
+          "public_tests_ran": 5,
+          "private_all_pass": false,
+          "full_tests_ran": 10,
+          "code_runs": true,
+          "tail": "lf.assertEqual('apple', longestWord.find_longest_word(sentence))\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'apple' != 'red'\n- apple\n+ red\n\n\n----------------------------------------------------------------------\nRan 10 tests in 0.002s\n\nFAILED (failures=2)\n"
+        },
+        "M1": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "plan",
+                "seconds": 19.15,
+                "eval_count": 233
+              },
+              {
+                "kind": "code",
+                "seconds": 10.18,
+                "eval_count": 273
+              }
+            ]
+          },
+          "public_all_pass": true,
+          "public_tests_ran": 5,
+          "private_all_pass": false,
+          "full_tests_ran": 10,
+          "code_runs": true,
+          "tail": "lf.assertEqual('apple', longestWord.find_longest_word(sentence))\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'apple' != 'red'\n- apple\n+ red\n\n\n----------------------------------------------------------------------\nRan 10 tests in 0.002s\n\nFAILED (failures=2)\n"
+        },
+        "M2": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "method:add_word",
+                "seconds": 1.56,
+                "eval_count": 43
+              },
+              {
+                "kind": "method:find_longest_word",
+                "seconds": 6.53,
+                "eval_count": 207
+              }
+            ],
+            "n_method_calls": 2
+          },
+          "public_all_pass": true,
+          "public_tests_ran": 5,
+          "private_all_pass": false,
+          "full_tests_ran": 10,
+          "code_runs": true,
+          "tail": "l('apple', longestWord.find_longest_word(sentence))\n                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'LongestWord' object has no attribute 'find_longest_word'\n\n----------------------------------------------------------------------\nRan 10 tests in 0.001s\n\nFAILED (errors=5)\n"
+        }
+      }
+    },
+    "ClassEval_55": {
+      "layer": "negative",
+      "n_methods": 2,
+      "arms": {
+        "M0": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "code",
+                "seconds": 17.07,
+                "eval_count": 542,
+                "prompt_eval_count": 434
+              }
+            ]
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 5,
+          "private_all_pass": false,
+          "full_tests_ran": 11,
+          "code_runs": true,
+          "tail": "omic_length_4\n    self.assertEqual(manacher.palindromic_length(9, 2, 'a|b|a|b|a|x'), 0)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 1 != 0\n\n----------------------------------------------------------------------\nRan 5 tests in 0.001s\n\nFAILED (failures=2)\n"
+        },
+        "M1": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "plan",
+                "seconds": 11.1,
+                "eval_count": 321
+              },
+              {
+                "kind": "code",
+                "seconds": 9.19,
+                "eval_count": 276
+              }
+            ]
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 5,
+          "private_all_pass": false,
+          "full_tests_ran": 11,
+          "code_runs": true,
+          "tail": "omic_length_4\n    self.assertEqual(manacher.palindromic_length(9, 2, 'a|b|a|b|a|x'), 0)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 1 != 0\n\n----------------------------------------------------------------------\nRan 5 tests in 0.001s\n\nFAILED (failures=2)\n"
+        },
+        "M2": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "method:palindromic_length",
+                "seconds": 5.61,
+                "eval_count": 168
+              },
+              {
+                "kind": "method:palindromic_string",
+                "seconds": 10.5,
+                "eval_count": 312
+              }
+            ],
+            "n_method_calls": 2
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 5,
+          "private_all_pass": false,
+          "full_tests_ran": 11,
+          "code_runs": true,
+          "tail": "omic_length_5\n    self.assertEqual(manacher.palindromic_length(4, 1, 'a|b|a|b|a|x'), 4)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 8 != 4\n\n----------------------------------------------------------------------\nRan 5 tests in 0.001s\n\nFAILED (failures=3)\n"
+        }
+      }
+    },
+    "ClassEval_57": {
+      "layer": "negative",
+      "n_methods": 2,
+      "arms": {
+        "M0": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "code",
+                "seconds": 31.94,
+                "eval_count": 967,
+                "prompt_eval_count": 828
+              }
+            ]
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 8,
+          "private_all_pass": false,
+          "full_tests_ran": 20,
+          "code_runs": true,
+          "tail": "al_wp6\\evaluations\\ClassEval_57\\M0_public.py\", line 125, in test_mrr_8\n    self.assertEqual(res1, 0.0)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^\nAssertionError: np.float64(0.75) != 0.0\n\n----------------------------------------------------------------------\nRan 8 tests in 0.008s\n\nFAILED (failures=2, errors=2)\n"
+        },
+        "M1": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "plan",
+                "seconds": 15.89,
+                "eval_count": 466
+              },
+              {
+                "kind": "code",
+                "seconds": 38.42,
+                "eval_count": 1076
+              }
+            ]
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 8,
+          "private_all_pass": false,
+          "full_tests_ran": 20,
+          "code_runs": true,
+          "tail": "ts\\classeval_wp6\\evaluations\\ClassEval_57\\M1_public.py\", line 127, in test_mrr_8\n    self.assertEqual(res1, 0.0)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^\nAssertionError: np.float64(0.75) != 0.0\n\n----------------------------------------------------------------------\nRan 8 tests in 0.003s\n\nFAILED (failures=2)\n"
+        },
+        "M2": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "method:mrr",
+                "seconds": 13.42,
+                "eval_count": 415
+              },
+              {
+                "kind": "method:map",
+                "seconds": 16.03,
+                "eval_count": 493
+              }
+            ],
+            "n_method_calls": 2
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 8,
+          "private_all_pass": false,
+          "full_tests_ran": 20,
+          "code_runs": true,
+          "tail": "val_wp6\\evaluations\\ClassEval_57\\M2_public.py\", line 86, in test_mrr_8\n    self.assertEqual(res1, 0.0)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^\nAssertionError: np.float64(0.75) != 0.0\n\n----------------------------------------------------------------------\nRan 8 tests in 0.004s\n\nFAILED (failures=5, errors=2)\n"
+        }
+      }
+    },
+    "ClassEval_65": {
+      "layer": "target",
+      "n_methods": 5,
+      "arms": {
+        "M0": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "code",
+                "seconds": 45.81,
+                "eval_count": 889,
+                "prompt_eval_count": 827
+              }
+            ]
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 18,
+          "private_all_pass": false,
+          "full_tests_ran": 28,
+          "code_runs": true,
+          "tail": "6\n    self.assertEqual(formatter.trans_two(\"80\"), \"EIGHTY\")\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'NINETY' != 'EIGHTY'\n- NINETY\n+ EIGHTY\n\n\n----------------------------------------------------------------------\nRan 18 tests in 0.006s\n\nFAILED (failures=8, errors=6)\n"
+        },
+        "M1": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "plan",
+                "seconds": 22.27,
+                "eval_count": 305
+              },
+              {
+                "kind": "code",
+                "seconds": 37.75,
+                "eval_count": 747
+              }
+            ]
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 18,
+          "private_all_pass": false,
+          "full_tests_ran": 28,
+          "code_runs": true,
+          "tail": "ssertEqual(formatter.trans_two(\"80\"), \"EIGHTY\")\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'EIGHTY ' != 'EIGHTY'\n- EIGHTY \n?       -\n+ EIGHTY\n\n\n----------------------------------------------------------------------\nRan 18 tests in 0.009s\n\nFAILED (failures=8, errors=8)\n"
+        },
+        "M2": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "method:format",
+                "seconds": 5.24,
+                "eval_count": 162
+              },
+              {
+                "kind": "method:format_string",
+                "seconds": 3.53,
+                "eval_count": 107
+              },
+              {
+                "kind": "method:trans_two",
+                "seconds": 5.17,
+                "eval_count": 154
+              },
+              {
+                "kind": "method:trans_three",
+                "seconds": 4.4,
+                "eval_count": 127
+              },
+              {
+                "kind": "method:parse_more",
+                "seconds": 3.63,
+                "eval_count": 109
+              }
+            ],
+            "n_method_calls": 5
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 18,
+          "private_all_pass": false,
+          "full_tests_ran": 28,
+          "code_runs": true,
+          "tail": "trans_two_6\n    self.assertEqual(formatter.trans_two(\"80\"), \"EIGHTY\")\n                     ^^^^^^^^^^^^^^^^^^^\nAttributeError: 'NumberWordFormatter' object has no attribute 'trans_two'\n\n----------------------------------------------------------------------\nRan 18 tests in 0.005s\n\nFAILED (errors=18)\n"
+        }
+      }
+    },
+    "ClassEval_71": {
+      "layer": "boundary",
+      "n_methods": 3,
+      "arms": {
+        "M0": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "code",
+                "seconds": 38.05,
+                "eval_count": 979,
+                "prompt_eval_count": 776
+              }
+            ]
+          },
+          "public_all_pass": true,
+          "public_tests_ran": 9,
+          "private_all_pass": false,
+          "full_tests_ran": 16,
+          "code_runs": true,
+          "tail": "   new_row, new_col = self.player_row + directions[direction][0], self.player_col + directions[direction][1]\n                                         ~~~~~~~~~~^^^^^^^^^^^\nKeyError: '?'\n\n----------------------------------------------------------------------\nRan 16 tests in 0.003s\n\nFAILED (errors=1)\n"
+        },
+        "M1": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "plan",
+                "seconds": 20.04,
+                "eval_count": 259
+              },
+              {
+                "kind": "code",
+                "seconds": 28.21,
+                "eval_count": 525
+              }
+            ]
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 9,
+          "private_all_pass": false,
+          "full_tests_ran": 16,
+          "code_runs": true,
+          "tail": "_public.py\", line 44, in move\n    self.map[self.player_row][self.player_col] = ' '\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\nTypeError: 'str' object does not support item assignment\n\n----------------------------------------------------------------------\nRan 9 tests in 0.001s\n\nFAILED (errors=1)\n"
+        },
+        "M2": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "method:init_game",
+                "seconds": 8.82,
+                "eval_count": 203
+              },
+              {
+                "kind": "method:check_win",
+                "seconds": 7.02,
+                "eval_count": 135
+              },
+              {
+                "kind": "method:move",
+                "seconds": 9.95,
+                "eval_count": 316
+              }
+            ],
+            "n_method_calls": 3
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 9,
+          "private_all_pass": false,
+          "full_tests_ran": 16,
+          "code_runs": true,
+          "tail": "asseval_wp6\\evaluations\\ClassEval_71\\M2_public.py\", line 104, in test_check_win_2\n    self.game.move(move)\n    ^^^^^^^^^^^^^^\nAttributeError: 'PushBoxGame' object has no attribute 'move'\n\n----------------------------------------------------------------------\nRan 9 tests in 0.002s\n\nFAILED (errors=2)\n"
+        }
+      }
+    },
+    "ClassEval_78": {
+      "layer": "boundary",
+      "n_methods": 3,
+      "arms": {
+        "M0": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "code",
+                "seconds": 9.83,
+                "eval_count": 327,
+                "prompt_eval_count": 469
+              }
+            ]
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 10,
+          "private_all_pass": false,
+          "full_tests_ran": 16,
+          "code_runs": true,
+          "tail": "al elements.\nFirst extra element 2:\n'He is a teacher.'\n\n- ['Who is Mr.', 'Smith?', 'He is a teacher.']\n?             ^^^^\n\n+ ['Who is Mr. Smith?', 'He is a teacher.']\n?             ^\n\n\n----------------------------------------------------------------------\nRan 10 tests in 0.003s\n\nFAILED (failures=4)\n"
+        },
+        "M1": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "plan",
+                "seconds": 6.71,
+                "eval_count": 202
+              },
+              {
+                "kind": "code",
+                "seconds": 12.54,
+                "eval_count": 434
+              }
+            ]
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 10,
+          "private_all_pass": false,
+          "full_tests_ran": 16,
+          "code_runs": true,
+          "tail": "aa', 'bb bbbb bbb?'] != ['aaa aaaa.', 'bb bbbb bbb?']\n\nFirst differing element 0:\n'aaa aaaa'\n'aaa aaaa.'\n\n- ['aaa aaaa', 'bb bbbb bbb?']\n+ ['aaa aaaa.', 'bb bbbb bbb?']\n?           +\n\n\n----------------------------------------------------------------------\nRan 10 tests in 0.003s\n\nFAILED (failures=8)\n"
+        },
+        "M2": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "method:split_sentences",
+                "seconds": 13.68,
+                "eval_count": 150
+              },
+              {
+                "kind": "method:count_words",
+                "seconds": 10.18,
+                "eval_count": 108
+              },
+              {
+                "kind": "method:process_text_file",
+                "seconds": 13.52,
+                "eval_count": 147
+              }
+            ],
+            "n_method_calls": 3
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 10,
+          "private_all_pass": false,
+          "full_tests_ran": 16,
+          "code_runs": true,
+          "tail": "s.\nFirst extra element 2:\n'He is a teacher.'\n\n- ['Who is Mr.', 'Smith?', 'He is a teacher.']\n?             ^^^^\n\n+ ['Who is Mr. Smith?', 'He is a teacher.']\n?             ^\n\n\n----------------------------------------------------------------------\nRan 10 tests in 0.003s\n\nFAILED (failures=1, errors=5)\n"
+        }
+      }
+    },
+    "ClassEval_82": {
+      "layer": "target",
+      "n_methods": 7,
+      "arms": {
+        "M0": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "code",
+                "seconds": 58.04,
+                "eval_count": 1248,
+                "prompt_eval_count": 1124
+              }
+            ]
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 20,
+          "private_all_pass": false,
+          "full_tests_ran": 38,
+          "code_runs": true,
+          "tail": " 'quantity': 10}]\n?                                               ^\n\n+  {'name': 'MSFT', 'price': 150.0, 'quantity': 20}]\n?                                               ^\n\n\n----------------------------------------------------------------------\nRan 20 tests in 0.005s\n\nFAILED (failures=3, errors=10)\n"
+        },
+        "M1": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "plan",
+                "seconds": 10.82,
+                "eval_count": 336
+              },
+              {
+                "kind": "code",
+                "seconds": 12.63,
+                "eval_count": 349
+              }
+            ]
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 20,
+          "private_all_pass": false,
+          "full_tests_ran": 38,
+          "code_runs": true,
+          "tail": " 'quantity': 10}]\n?                                               ^\n\n+  {'name': 'MSFT', 'price': 150.0, 'quantity': 20}]\n?                                               ^\n\n\n----------------------------------------------------------------------\nRan 20 tests in 0.006s\n\nFAILED (failures=3, errors=10)\n"
+        },
+        "M2": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "method:add_stock",
+                "seconds": 4.58,
+                "eval_count": 126
+              },
+              {
+                "kind": "method:remove_stock",
+                "seconds": 6.64,
+                "eval_count": 186
+              },
+              {
+                "kind": "method:buy_stock",
+                "seconds": 6.21,
+                "eval_count": 223
+              },
+              {
+                "kind": "method:sell_stock",
+                "seconds": 17.34,
+                "eval_count": 253
+              },
+              {
+                "kind": "method:calculate_portfolio_value",
+                "seconds": 9.18,
+                "eval_count": 135
+              },
+              {
+                "kind": "method:get_portfolio_summary",
+                "seconds": 7.32,
+                "eval_count": 107
+              },
+              {
+                "kind": "method:get_stock_value",
+                "seconds": 7.85,
+                "eval_count": 122
+              }
+            ],
+            "n_method_calls": 7
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 20,
+          "private_all_pass": false,
+          "full_tests_ran": 38,
+          "code_runs": true,
+          "tail": " 'quantity': 10}]\n?                                               ^\n\n+  {'name': 'MSFT', 'price': 150.0, 'quantity': 20}]\n?                                               ^\n\n\n----------------------------------------------------------------------\nRan 20 tests in 0.008s\n\nFAILED (failures=3, errors=15)\n"
+        }
+      }
+    },
+    "ClassEval_87": {
+      "layer": "target",
+      "n_methods": 7,
+      "arms": {
+        "M0": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "code",
+                "seconds": 29.66,
+                "eval_count": 594,
+                "prompt_eval_count": 799
+              }
+            ]
+          },
+          "public_all_pass": true,
+          "public_tests_ran": 20,
+          "private_all_pass": true,
+          "full_tests_ran": 36,
+          "code_runs": true,
+          "tail": "....................................\n----------------------------------------------------------------------\nRan 36 tests in 0.015s\n\nOK\n"
+        },
+        "M1": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "plan",
+                "seconds": 13.13,
+                "eval_count": 301
+              },
+              {
+                "kind": "code",
+                "seconds": 25.07,
+                "eval_count": 592
+              }
+            ]
+          },
+          "public_all_pass": true,
+          "public_tests_ran": 20,
+          "private_all_pass": true,
+          "full_tests_ran": 36,
+          "code_runs": true,
+          "tail": "....................................\n----------------------------------------------------------------------\nRan 36 tests in 0.015s\n\nOK\n"
+        },
+        "M2": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "method:get_current_time",
+                "seconds": 3.46,
+                "eval_count": 76
+              },
+              {
+                "kind": "method:get_current_date",
+                "seconds": 3.22,
+                "eval_count": 72
+              },
+              {
+                "kind": "method:add_seconds",
+                "seconds": 4.82,
+                "eval_count": 109
+              },
+              {
+                "kind": "method:string_to_datetime",
+                "seconds": 4.89,
+                "eval_count": 112
+              },
+              {
+                "kind": "method:datetime_to_string",
+                "seconds": 4.34,
+                "eval_count": 97
+              },
+              {
+                "kind": "method:get_minutes",
+                "seconds": 6.43,
+                "eval_count": 155
+              },
+              {
+                "kind": "method:get_format_time",
+                "seconds": 7.94,
+                "eval_count": 160
+              }
+            ],
+            "n_method_calls": 7
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 20,
+          "private_all_pass": false,
+          "full_tests_ran": 36,
+          "code_runs": true,
+          "tail": "('2001-7-14 1:1:1'), datetime.datetime(2001, 7, 14, 1, 1, 1))\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'TimeUtils' object has no attribute 'string_to_datetime'\n\n----------------------------------------------------------------------\nRan 20 tests in 0.006s\n\nFAILED (errors=15)\n"
+        }
+      }
+    },
+    "ClassEval_91": {
+      "layer": "boundary",
+      "n_methods": 3,
+      "arms": {
+        "M0": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "code",
+                "seconds": 15.99,
+                "eval_count": 399,
+                "prompt_eval_count": 462
+              }
+            ]
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 12,
+          "private_all_pass": false,
+          "full_tests_ran": 19,
+          "code_runs": true,
+          "tail": "ClassEval_91\\M0_public.py\", line 128, in test_parse_7\n    self.assertEqual(url_path.with_end_tag, True)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: False != True\n\n----------------------------------------------------------------------\nRan 12 tests in 0.001s\n\nFAILED (failures=3)\n"
+        },
+        "M1": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "plan",
+                "seconds": 12.9,
+                "eval_count": 304
+              },
+              {
+                "kind": "code",
+                "seconds": 15.67,
+                "eval_count": 388
+              }
+            ]
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 12,
+          "private_all_pass": false,
+          "full_tests_ran": 19,
+          "code_runs": true,
+          "tail": "h.segments, [])\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Lists differ: [''] != []\n\nFirst list contains 1 additional elements.\nFirst extra element 0:\n''\n\n- ['']\n+ []\n\n----------------------------------------------------------------------\nRan 12 tests in 0.003s\n\nFAILED (failures=4)\n"
+        },
+        "M2": {
+          "gen": {
+            "calls": [
+              {
+                "kind": "method:add",
+                "seconds": 3.24,
+                "eval_count": 82
+              },
+              {
+                "kind": "method:parse",
+                "seconds": 5.36,
+                "eval_count": 136
+              },
+              {
+                "kind": "method:fix_path",
+                "seconds": 3.46,
+                "eval_count": 79
+              }
+            ],
+            "n_method_calls": 3
+          },
+          "public_all_pass": false,
+          "public_tests_ran": 12,
+          "private_all_pass": false,
+          "full_tests_ran": 19,
+          "code_runs": true,
+          "tail": "seval_wp6\\evaluations\\ClassEval_91\\M2_public.py\", line 98, in test_parse_7\n    url_path.parse('//', 'utf-8')\n    ^^^^^^^^^^^^^^\nAttributeError: 'UrlPath' object has no attribute 'parse'\n\n----------------------------------------------------------------------\nRan 12 tests in 0.004s\n\nFAILED (errors=7)\n"
+        }
+      }
+    }
+  },
+  "notes": "首候选对照（每臂每题 1 个候选）；M2 为逐方法实现后机械组装",
+  "summary": {
+    "M0": {
+      "n": 24,
+      "private_all_pass": 6,
+      "public_all_pass": 10,
+      "runs_rate": 1.0
+    },
+    "M1": {
+      "n": 24,
+      "private_all_pass": 7,
+      "public_all_pass": 9,
+      "runs_rate": 1.0
+    },
+    "M2": {
+      "n": 24,
+      "private_all_pass": 0,
+      "public_all_pass": 4,
+      "runs_rate": 1.0
+    },
+    "calls_made": 160,
+    "wall_seconds": 1799.9
+  }
+}

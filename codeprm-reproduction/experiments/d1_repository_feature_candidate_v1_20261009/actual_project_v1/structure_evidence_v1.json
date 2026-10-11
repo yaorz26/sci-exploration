@@ -1,0 +1,236 @@
+{
+  "candidate": "REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS",
+  "source": "actual_project_v1/{parent,merge}",
+  "evidence_rows": [
+    {
+      "file": "confuse/sources.py",
+      "parent_sha256": "2db40f643fc6e93569d8ab9e4bf4b067ab87f4e6563e68080c2a50866814d9f9",
+      "merge_sha256": "b9d89a32b5cacdd23982538e4429eedaaf779ad167d1321cb7fb6cbee76df92a",
+      "parent_methods": [
+        "__init__",
+        "__repr__",
+        "load",
+        "of"
+      ],
+      "merge_methods": [
+        "__init__",
+        "__repr__",
+        "load",
+        "of"
+      ],
+      "changed_hunks": 6,
+      "added_lines": 22,
+      "removed_lines": 4,
+      "merge_term_lines": {
+        "base_for_paths": [
+          13,
+          21,
+          25,
+          35,
+          42,
+          63,
+          73
+        ],
+        "in_source_dir": [],
+        "in_app_dir": [],
+        "set_file": []
+      }
+    },
+    {
+      "file": "confuse/templates.py",
+      "parent_sha256": "d200a9f3e7cf070dc392f23bd6a3b25a30655f08d81f3805dc2b875c332fb910",
+      "merge_sha256": "2714114575a7ef0c715eb90dc623e2f03291214f7d19ba7b7f348eda61f71f9f",
+      "parent_methods": [
+        "__call__",
+        "__getattr__",
+        "__init__",
+        "__repr__",
+        "__setattr__",
+        "_convert_value",
+        "as_template",
+        "convert",
+        "fail",
+        "get_default_value",
+        "resolve_relative_to",
+        "value"
+      ],
+      "merge_methods": [
+        "__call__",
+        "__getattr__",
+        "__init__",
+        "__repr__",
+        "__setattr__",
+        "_convert_value",
+        "as_template",
+        "convert",
+        "fail",
+        "get_default_value",
+        "resolve_relative_to",
+        "value"
+      ],
+      "changed_hunks": 6,
+      "added_lines": 21,
+      "removed_lines": 5,
+      "merge_term_lines": {
+        "base_for_paths": [
+          468,
+          589
+        ],
+        "in_source_dir": [
+          469,
+          474,
+          482,
+          490,
+          507,
+          508,
+          588
+        ],
+        "in_app_dir": [
+          474,
+          478,
+          489,
+          504,
+          505,
+          589,
+          593
+        ],
+        "set_file": []
+      }
+    },
+    {
+      "file": "confuse/core.py",
+      "parent_sha256": "24ce55bef50eb8438941e9f92e283bd1749f5e47b0079213bb59f09ad0c1052c",
+      "merge_sha256": "57c720d3dfd0235a0f434471de28ef000bfec9c8020eafb81d9ffbbab5e44466",
+      "parent_methods": [
+        "__bool__",
+        "__contains__",
+        "__getitem__",
+        "__init__",
+        "__iter__",
+        "__nonzero__",
+        "__repr__",
+        "__setitem__",
+        "__str__",
+        "__unicode__",
+        "_add_default_source",
+        "_add_user_source",
+        "_build_namespace_dict",
+        "add",
+        "all_contents",
+        "as_choice",
+        "as_filename",
+        "as_number",
+        "as_pairs",
+        "as_path",
+        "as_str",
+        "as_str_expanded",
+        "as_str_seq",
+        "clear",
+        "config_dir",
+        "dump",
+        "exists",
+        "first",
+        "flatten",
+        "get",
+        "get_redactions",
+        "items",
+        "keys",
+        "read",
+        "redact",
+        "resolve",
+        "root",
+        "sequence",
+        "set",
+        "set_args",
+        "set_file",
+        "set_redaction",
+        "user_config_path",
+        "values"
+      ],
+      "merge_methods": [
+        "__bool__",
+        "__contains__",
+        "__getitem__",
+        "__init__",
+        "__iter__",
+        "__nonzero__",
+        "__repr__",
+        "__setitem__",
+        "__str__",
+        "__unicode__",
+        "_add_default_source",
+        "_add_user_source",
+        "_build_namespace_dict",
+        "add",
+        "all_contents",
+        "as_choice",
+        "as_filename",
+        "as_number",
+        "as_pairs",
+        "as_path",
+        "as_str",
+        "as_str_expanded",
+        "as_str_seq",
+        "clear",
+        "config_dir",
+        "dump",
+        "exists",
+        "first",
+        "flatten",
+        "get",
+        "get_redactions",
+        "items",
+        "keys",
+        "read",
+        "redact",
+        "resolve",
+        "root",
+        "sequence",
+        "set",
+        "set_args",
+        "set_file",
+        "set_redaction",
+        "user_config_path",
+        "values"
+      ],
+      "changed_hunks": 2,
+      "added_lines": 10,
+      "removed_lines": 3,
+      "merge_term_lines": {
+        "base_for_paths": [
+          652,
+          657,
+          662
+        ],
+        "in_source_dir": [],
+        "in_app_dir": [],
+        "set_file": [
+          652
+        ]
+      }
+    }
+  ],
+  "interpretation": {
+    "stage_dependency": {
+      "status": "observed_candidate",
+      "description": "ConfigSource/YamlSource construction stores source metadata; Filename.value later consumes it when resolving a path. This is an ordered data path across sources.py, core.py, and templates.py.",
+      "formal_label": null
+    },
+    "shared_state": {
+      "status": "observed_object_local",
+      "description": "base_for_paths persists on each ConfigSource object between construction and later template evaluation; no process-global or cross-request state was observed in these files.",
+      "formal_label": null
+    },
+    "independent_checkability": {
+      "status": "behaviorally_observable",
+      "description": "The saved API diagnostics distinguish app-directory, source-directory, override, absolute-path, and unsupported-parent behavior; oracle is researcher-derived and has no human double review.",
+      "formal_label": null
+    }
+  },
+  "competing_explanations": [
+    "新增字段只是两个独立API开关，后续模板不依赖源对象元数据",
+    "源对象元数据只在一次调用内传递，不构成跨阶段状态",
+    "行为输出可测，但结构归因仍可能被多个实现路径混淆"
+  ],
+  "scope": "static source evidence plus saved public API diagnostics; no upstream tests, hidden D1 data, model calls, or formal labels"
+}

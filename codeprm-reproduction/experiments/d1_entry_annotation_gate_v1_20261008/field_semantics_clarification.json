@@ -1,0 +1,9 @@
+{
+  "original_field": "saved_P9_all_pass_unchanged",
+  "raw_value": false,
+  "correct_meaning": {
+    "saved_P9_actual_all_pass": false,
+    "saved_P9_outcome_changed_by_entry_candidate": false
+  },
+  "reason": "旧字段名含混，原false为all_pass实际值，不是旧判定改变；原输出保留，未来字段改名，不重跑"
+}

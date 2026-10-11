@@ -1,0 +1,529 @@
+{
+  "work_package": "P0",
+  "model": "qwen2.5-coder:7b",
+  "seed": 20260930,
+  "temperature": 0.2,
+  "num_ctx": 8192,
+  "num_predict": 2048,
+  "n_candidates_per_task": 2,
+  "sample": [
+    "ClassEval_4",
+    "ClassEval_15",
+    "ClassEval_18",
+    "ClassEval_23",
+    "ClassEval_30",
+    "ClassEval_33",
+    "ClassEval_38",
+    "ClassEval_52",
+    "ClassEval_65",
+    "ClassEval_71",
+    "ClassEval_82",
+    "ClassEval_87"
+  ],
+  "calls_made": 24,
+  "wall_seconds": 405.7,
+  "tasks": [
+    {
+      "task_id": "ClassEval_4",
+      "layer": "target",
+      "n_methods": 6,
+      "candidates": [
+        {
+          "k": 1,
+          "gen": {
+            "seconds": 21.23,
+            "eval_count": 544,
+            "prompt_eval_count": 837,
+            "total_duration_ns": 21173420300
+          },
+          "public": true,
+          "public_tests_ran": 15,
+          "public_exit": 0,
+          "private_all_pass": false,
+          "full_tests_ran": 31,
+          "full_exit": 1,
+          "runs": "yes",
+          "tail": "classeval_headroom_probe\\evaluations\\ClassEval_4\\cand1_full.py\", line 67, in get_top_student\n    return max(self.students, key=self.get_gpa)\nValueError: max() iterable argument is empty\n\n----------------------------------------------------------------------\nRan 31 tests in 0.005s\n\nFAILED (errors=3)\n"
+        },
+        {
+          "k": 2,
+          "gen": {
+            "seconds": 14.35,
+            "eval_count": 606,
+            "prompt_eval_count": 837,
+            "total_duration_ns": 14312625200
+          },
+          "public": true,
+          "public_tests_ran": 15,
+          "public_exit": 0,
+          "private_all_pass": false,
+          "full_tests_ran": 31,
+          "full_exit": 1,
+          "runs": "yes",
+          "tail": "orz2\\.workbuddy\\binaries\\python\\versions\\3.13.12\\Lib\\statistics.py\", line 334, in _exact_ratio\n    raise TypeError(msg)\nTypeError: can't convert type 'NoneType' to numerator/denominator\n\n----------------------------------------------------------------------\nRan 31 tests in 0.002s\n\nFAILED (errors=1)\n"
+        }
+      ]
+    },
+    {
+      "task_id": "ClassEval_15",
+      "layer": "boundary",
+      "n_methods": 3,
+      "candidates": [
+        {
+          "k": 1,
+          "gen": {
+            "seconds": 14.33,
+            "eval_count": 585,
+            "prompt_eval_count": 546,
+            "total_duration_ns": 14273562200
+          },
+          "public": false,
+          "public_tests_ran": 10,
+          "public_exit": 1,
+          "private_all_pass": false,
+          "full_tests_ran": 16,
+          "full_exit": 1,
+          "runs": "yes",
+          "tail": "line 108, in test_mismatch_in_text_5\n    self.assertEqual(boyerMooreSearch.mismatch_in_text(3), 5)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 2 != 5\n\n----------------------------------------------------------------------\nRan 10 tests in 0.001s\n\nFAILED (failures=1)\n"
+        },
+        {
+          "k": 2,
+          "gen": {
+            "seconds": 13.1,
+            "eval_count": 562,
+            "prompt_eval_count": 546,
+            "total_duration_ns": 13062557600
+          },
+          "public": false,
+          "public_tests_ran": 10,
+          "public_exit": 1,
+          "private_all_pass": false,
+          "full_tests_ran": 16,
+          "full_exit": 1,
+          "runs": "yes",
+          "tail": "line 106, in test_mismatch_in_text_5\n    self.assertEqual(boyerMooreSearch.mismatch_in_text(3), 5)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 2 != 5\n\n----------------------------------------------------------------------\nRan 10 tests in 0.001s\n\nFAILED (failures=1)\n"
+        }
+      ]
+    },
+    {
+      "task_id": "ClassEval_18",
+      "layer": "target",
+      "n_methods": 7,
+      "candidates": [
+        {
+          "k": 1,
+          "gen": {
+            "seconds": 10.93,
+            "eval_count": 443,
+            "prompt_eval_count": 801,
+            "total_duration_ns": 10918928400
+          },
+          "public": false,
+          "public_tests_ran": 20,
+          "public_exit": 1,
+          "private_all_pass": false,
+          "full_tests_ran": 37,
+          "full_exit": 1,
+          "runs": "yes",
+          "tail": "setitem_4\n    self.assertEqual(camelize_map['first_name'], 'newname')\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'John' != 'newname'\n- John\n+ newname\n\n\n----------------------------------------------------------------------\nRan 20 tests in 0.002s\n\nFAILED (failures=7)\n"
+        },
+        {
+          "k": 2,
+          "gen": {
+            "seconds": 10.49,
+            "eval_count": 417,
+            "prompt_eval_count": 801,
+            "total_duration_ns": 10466212400
+          },
+          "public": true,
+          "public_tests_ran": 20,
+          "public_exit": 0,
+          "private_all_pass": false,
+          "full_tests_ran": 37,
+          "full_exit": 1,
+          "runs": "yes",
+          "tail": "robe\\evaluations\\ClassEval_18\\cand2_full.py\", line 68, in _to_camel_case\n    components = key.split('_')\n                 ^^^^^^^^^\nAttributeError: 'int' object has no attribute 'split'\n\n----------------------------------------------------------------------\nRan 37 tests in 0.002s\n\nFAILED (errors=1)\n"
+        }
+      ]
+    },
+    {
+      "task_id": "ClassEval_23",
+      "layer": "target",
+      "n_methods": 5,
+      "candidates": [
+        {
+          "k": 1,
+          "gen": {
+            "seconds": 23.48,
+            "eval_count": 944,
+            "prompt_eval_count": 871,
+            "total_duration_ns": 23472408300
+          },
+          "public": false,
+          "public_tests_ran": 15,
+          "public_exit": 1,
+          "private_all_pass": false,
+          "full_tests_ran": 26,
+          "full_exit": 1,
+          "runs": "yes",
+          "tail": " self.assertEqual(CombinationCalculator.count_all(63), float(\"inf\"))\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 9223372036854775807 != inf\n\n----------------------------------------------------------------------\nRan 15 tests in 0.003s\n\nFAILED (failures=2)\n"
+        },
+        {
+          "k": 2,
+          "gen": {
+            "seconds": 22.96,
+            "eval_count": 933,
+            "prompt_eval_count": 871,
+            "total_duration_ns": 22916862000
+          },
+          "public": false,
+          "public_tests_ran": 15,
+          "public_exit": 1,
+          "private_all_pass": false,
+          "full_tests_ran": 26,
+          "full_exit": 1,
+          "runs": "yes",
+          "tail": "ublic.py\", line 118, in test_count_all_4\n    self.assertEqual(CombinationCalculator.count_all(0), 0)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 1 != 0\n\n----------------------------------------------------------------------\nRan 15 tests in 0.003s\n\nFAILED (failures=3)\n"
+        }
+      ]
+    },
+    {
+      "task_id": "ClassEval_30",
+      "layer": "target",
+      "n_methods": 6,
+      "candidates": [
+        {
+          "k": 1,
+          "gen": {
+            "seconds": 8.18,
+            "eval_count": 319,
+            "prompt_eval_count": 566,
+            "total_duration_ns": 8165970700
+          },
+          "public": true,
+          "public_tests_ran": 15,
+          "public_exit": 0,
+          "private_all_pass": true,
+          "full_tests_ran": 31,
+          "full_exit": 0,
+          "runs": "yes",
+          "tail": "...............................\n----------------------------------------------------------------------\nRan 31 tests in 0.008s\n\nOK\n"
+        },
+        {
+          "k": 2,
+          "gen": {
+            "seconds": 7.44,
+            "eval_count": 319,
+            "prompt_eval_count": 566,
+            "total_duration_ns": 7405428100
+          },
+          "public": true,
+          "public_tests_ran": 15,
+          "public_exit": 0,
+          "private_all_pass": true,
+          "full_tests_ran": 31,
+          "full_exit": 0,
+          "runs": "yes",
+          "tail": "...............................\n----------------------------------------------------------------------\nRan 31 tests in 0.002s\n\nOK\n"
+        }
+      ]
+    },
+    {
+      "task_id": "ClassEval_33",
+      "layer": "target",
+      "n_methods": 5,
+      "candidates": [
+        {
+          "k": 1,
+          "gen": {
+            "seconds": 26.24,
+            "eval_count": 1074,
+            "prompt_eval_count": 1027,
+            "total_duration_ns": 26228671600
+          },
+          "public": false,
+          "public_tests_ran": 15,
+          "public_exit": 1,
+          "private_all_pass": false,
+          "full_tests_ran": 26,
+          "full_exit": 1,
+          "runs": "yes",
+          "tail": "lic.py\", line 211, in test_fidelity_promo_1\n    self.assertEqual(actual_discount, expected_discount)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 0 != 12.5\n\n----------------------------------------------------------------------\nRan 15 tests in 0.001s\n\nFAILED (failures=1)\n"
+        },
+        {
+          "k": 2,
+          "gen": {
+            "seconds": 16.09,
+            "eval_count": 615,
+            "prompt_eval_count": 1027,
+            "total_duration_ns": 16046289100
+          },
+          "public": false,
+          "public_tests_ran": 15,
+          "public_exit": 1,
+          "private_all_pass": false,
+          "full_tests_ran": 26,
+          "full_exit": 1,
+          "runs": "yes",
+          "tail": "lic.py\", line 177, in test_fidelity_promo_1\n    self.assertEqual(actual_discount, expected_discount)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 0 != 12.5\n\n----------------------------------------------------------------------\nRan 15 tests in 0.002s\n\nFAILED (failures=1)\n"
+        }
+      ]
+    },
+    {
+      "task_id": "ClassEval_38",
+      "layer": "boundary",
+      "n_methods": 3,
+      "candidates": [
+        {
+          "k": 1,
+          "gen": {
+            "seconds": 10.27,
+            "eval_count": 426,
+            "prompt_eval_count": 522,
+            "total_duration_ns": 10264150100
+          },
+          "public": false,
+          "public_tests_ran": 12,
+          "public_exit": 1,
+          "private_all_pass": false,
+          "full_tests_ran": 19,
+          "full_exit": 1,
+          "runs": "yes",
+          "tail": "sg)\nopenpyxl.utils.exceptions.InvalidFileException: openpyxl does not support  file format, please check you can open it with Excel first. Supported formats are: .xlsx,.xlsm,.xltx,.xltm\n\n----------------------------------------------------------------------\nRan 12 tests in 5.910s\n\nFAILED (errors=1)\n"
+        },
+        {
+          "k": 2,
+          "gen": {
+            "seconds": 10.02,
+            "eval_count": 438,
+            "prompt_eval_count": 522,
+            "total_duration_ns": 9988237200
+          },
+          "public": false,
+          "public_tests_ran": 12,
+          "public_exit": 1,
+          "private_all_pass": false,
+          "full_tests_ran": 19,
+          "full_exit": 1,
+          "runs": "yes",
+          "tail": "sg)\nopenpyxl.utils.exceptions.InvalidFileException: openpyxl does not support  file format, please check you can open it with Excel first. Supported formats are: .xlsx,.xlsm,.xltx,.xltm\n\n----------------------------------------------------------------------\nRan 12 tests in 4.847s\n\nFAILED (errors=1)\n"
+        }
+      ]
+    },
+    {
+      "task_id": "ClassEval_52",
+      "layer": "boundary",
+      "n_methods": 3,
+      "candidates": [
+        {
+          "k": 1,
+          "gen": {
+            "seconds": 13.4,
+            "eval_count": 547,
+            "prompt_eval_count": 606,
+            "total_duration_ns": 13382238600
+          },
+          "public": true,
+          "public_tests_ran": 10,
+          "public_exit": 0,
+          "private_all_pass": true,
+          "full_tests_ran": 16,
+          "full_exit": 0,
+          "runs": "yes",
+          "tail": ". If and only\n[nltk_data]     if the proxy is trusted to be SSRF-safe, opt in via\n[nltk_data]     NLTK_ALLOW_PROXIED_URLOPEN=1 or\n[nltk_data]     nltk.pathsec.ALLOW_PROXIED_FETCH=True.\n................\n----------------------------------------------------------------------\nRan 16 tests in 1.739s\n\nOK\n"
+        },
+        {
+          "k": 2,
+          "gen": {
+            "seconds": 14.18,
+            "eval_count": 578,
+            "prompt_eval_count": 606,
+            "total_duration_ns": 14151090700
+          },
+          "public": true,
+          "public_tests_ran": 10,
+          "public_exit": 0,
+          "private_all_pass": true,
+          "full_tests_ran": 16,
+          "full_exit": 0,
+          "runs": "yes",
+          "tail": ". If and only\n[nltk_data]     if the proxy is trusted to be SSRF-safe, opt in via\n[nltk_data]     NLTK_ALLOW_PROXIED_URLOPEN=1 or\n[nltk_data]     nltk.pathsec.ALLOW_PROXIED_FETCH=True.\n................\n----------------------------------------------------------------------\nRan 16 tests in 1.746s\n\nOK\n"
+        }
+      ]
+    },
+    {
+      "task_id": "ClassEval_65",
+      "layer": "target",
+      "n_methods": 5,
+      "candidates": [
+        {
+          "k": 1,
+          "gen": {
+            "seconds": 25.45,
+            "eval_count": 1013,
+            "prompt_eval_count": 834,
+            "total_duration_ns": 25442766100
+          },
+          "public": false,
+          "public_tests_ran": 18,
+          "public_exit": 1,
+          "private_all_pass": false,
+          "full_tests_ran": 28,
+          "full_exit": 1,
+          "runs": "yes",
+          "tail": "mat_string('10'), \"TEN ONLY\")\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'ONE HUNDRED AND ' != 'TEN ONLY'\n- ONE HUNDRED AND \n+ TEN ONLY\n\n\n----------------------------------------------------------------------\nRan 18 tests in 0.006s\n\nFAILED (failures=3, errors=9)\n"
+        },
+        {
+          "k": 2,
+          "gen": {
+            "seconds": 22.85,
+            "eval_count": 863,
+            "prompt_eval_count": 834,
+            "total_duration_ns": 22813806300
+          },
+          "public": false,
+          "public_tests_ran": 18,
+          "public_exit": 1,
+          "private_all_pass": false,
+          "full_tests_ran": 28,
+          "full_exit": 1,
+          "runs": "yes",
+          "tail": "mat_string('10'), \"TEN ONLY\")\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'ONE HUNDRED AND ' != 'TEN ONLY'\n- ONE HUNDRED AND \n+ TEN ONLY\n\n\n----------------------------------------------------------------------\nRan 18 tests in 0.005s\n\nFAILED (failures=3, errors=9)\n"
+        }
+      ]
+    },
+    {
+      "task_id": "ClassEval_71",
+      "layer": "boundary",
+      "n_methods": 3,
+      "candidates": [
+        {
+          "k": 1,
+          "gen": {
+            "seconds": 25.23,
+            "eval_count": 979,
+            "prompt_eval_count": 783,
+            "total_duration_ns": 25224903100
+          },
+          "public": true,
+          "public_tests_ran": 9,
+          "public_exit": 0,
+          "private_all_pass": false,
+          "full_tests_ran": 16,
+          "full_exit": 1,
+          "runs": "yes",
+          "tail": "   new_row, new_col = self.player_row + directions[direction][0], self.player_col + directions[direction][1]\n                                         ~~~~~~~~~~^^^^^^^^^^^\nKeyError: '?'\n\n----------------------------------------------------------------------\nRan 16 tests in 0.002s\n\nFAILED (errors=1)\n"
+        },
+        {
+          "k": 2,
+          "gen": {
+            "seconds": 25.46,
+            "eval_count": 1060,
+            "prompt_eval_count": 783,
+            "total_duration_ns": 25417867700
+          },
+          "public": false,
+          "public_tests_ran": 9,
+          "public_exit": 1,
+          "private_all_pass": false,
+          "full_tests_ran": 16,
+          "full_exit": 1,
+          "runs": "yes",
+          "tail": "\\evaluations\\ClassEval_71\\cand2_public.py\", line 106, in move\n    self.map[new_row][new_col] = 'O'\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^\nTypeError: 'str' object does not support item assignment\n\n----------------------------------------------------------------------\nRan 9 tests in 0.001s\n\nFAILED (errors=1)\n"
+        }
+      ]
+    },
+    {
+      "task_id": "ClassEval_82",
+      "layer": "target",
+      "n_methods": 7,
+      "candidates": [
+        {
+          "k": 1,
+          "gen": {
+            "seconds": 18.15,
+            "eval_count": 745,
+            "prompt_eval_count": 1131,
+            "total_duration_ns": 18143000400
+          },
+          "public": false,
+          "public_tests_ran": 20,
+          "public_exit": 1,
+          "private_all_pass": false,
+          "full_tests_ran": 38,
+          "full_exit": 1,
+          "runs": "yes",
+          "tail": " 'quantity': 10}]\n?                                               ^\n\n+  {'name': 'MSFT', 'price': 150.0, 'quantity': 20}]\n?                                               ^\n\n\n----------------------------------------------------------------------\nRan 20 tests in 0.007s\n\nFAILED (failures=3, errors=12)\n"
+        },
+        {
+          "k": 2,
+          "gen": {
+            "seconds": 17.74,
+            "eval_count": 741,
+            "prompt_eval_count": 1131,
+            "total_duration_ns": 17704922700
+          },
+          "public": false,
+          "public_tests_ran": 20,
+          "public_exit": 1,
+          "private_all_pass": false,
+          "full_tests_ran": 38,
+          "full_exit": 1,
+          "runs": "yes",
+          "tail": " 'quantity': 10}]\n?                                               ^\n\n+  {'name': 'MSFT', 'price': 150.0, 'quantity': 20}]\n?                                               ^\n\n\n----------------------------------------------------------------------\nRan 20 tests in 0.005s\n\nFAILED (failures=3, errors=12)\n"
+        }
+      ]
+    },
+    {
+      "task_id": "ClassEval_87",
+      "layer": "target",
+      "n_methods": 7,
+      "candidates": [
+        {
+          "k": 1,
+          "gen": {
+            "seconds": 14.43,
+            "eval_count": 592,
+            "prompt_eval_count": 806,
+            "total_duration_ns": 14407430000
+          },
+          "public": true,
+          "public_tests_ran": 20,
+          "public_exit": 0,
+          "private_all_pass": true,
+          "full_tests_ran": 36,
+          "full_exit": 0,
+          "runs": "yes",
+          "tail": "....................................\n----------------------------------------------------------------------\nRan 36 tests in 0.012s\n\nOK\n"
+        },
+        {
+          "k": 2,
+          "gen": {
+            "seconds": 19.78,
+            "eval_count": 837,
+            "prompt_eval_count": 806,
+            "total_duration_ns": 19739444500
+          },
+          "public": true,
+          "public_tests_ran": 20,
+          "public_exit": 0,
+          "private_all_pass": true,
+          "full_tests_ran": 36,
+          "full_exit": 0,
+          "runs": "yes",
+          "tail": "....................................\n----------------------------------------------------------------------\nRan 36 tests in 0.013s\n\nOK\n"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "n_tasks": 12,
+    "n_candidates": 24,
+    "calls_made": 24,
+    "first_candidate_all_pass": 3,
+    "pool_ceiling_all_pass": 3,
+    "double_zero_tasks": 9,
+    "effective_candidate_rate": 1.0,
+    "wall_seconds": 405.7
+  }
+}

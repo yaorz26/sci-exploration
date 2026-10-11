@@ -1,0 +1,33 @@
+[
+  {
+    "time": "2026-10-11T06:25:00Z",
+    "event_id": "d1-g4-preflight-correction-20261011",
+    "kind": "phase_review",
+    "phase": "G4-local-execution",
+    "stage": "D1-G4",
+    "status": "revise",
+    "summary": "纠正v1/v2计量口径：实际为10次请求且未做事前预算预检，超限不能当作合规预算拒绝；原始输出保留。第三版加入本地ChatML预检与剩余预算截断。",
+    "evidence_kind": "artifact",
+    "evidence": ["../docs/week3/data-route/20261011/231_g4_preflight_correction.md", "experiments/d1_G4_local_ollama_real_project_pair_v1_20261011/run_summary.json", "experiments/d1_G4_local_ollama_real_project_pair_v2_20261011/run_summary.json", "experiments/d1_G4_local_ollama_real_project_pair_v3_20261011/run_summary.json"],
+    "approval_required": false,
+    "supersedes": ["d1-g4-local-ollama-result-20261011"],
+    "budget": "v3严格预检；4次请求发送、1次预算拒绝；每臂6500服务端token；本地无云端付费",
+    "uncertainty": "v3四臂仍无完整候选；主A未测"
+  },
+  {
+    "time": "2026-10-11T06:25:01Z",
+    "event_id": "d1-g4-preflight-direction-20261011",
+    "kind": "direction_review",
+    "phase": "G4-local-execution",
+    "stage": "D1-G4",
+    "status": "complete",
+    "summary": "严格预检后仍无完整候选；否决继续同模型同上下文重发，保留v1/v2协议失误并将资源结论降级为当前配置失败。",
+    "decision": "不把旧超限当预算结论；若要区分模型、上下文和预算因素，另立局部计划并三审，宏观总计划不变。",
+    "evidence_kind": "artifact",
+    "evidence": ["../docs/week3/data-route/20261011/231_g4_preflight_correction.md", "experiments/d1_G4_local_ollama_real_project_pair_v3_20261011/strict_run_summary.md"],
+    "approval_required": false,
+    "supersedes": ["d1-g4-local-ollama-direction-20261011"],
+    "budget": "同上",
+    "uncertainty": "没有行为分子；正式labels/split/human_reviews仍null/0"
+  }
+]

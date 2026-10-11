@@ -1,0 +1,14 @@
+{
+  "model": "qwen2.5-coder:7b",
+  "created_at": "2026-10-11T07:25:55.4341795Z",
+  "response": " ```diff\n--- a/confuse/sources.py\n+++ b/confuse/sources.py\n@@ -38,6 +38,7 @@ class ConfigSource(dict):\n     \"\"\"A dictionary augmented with metadata about the source of the\n     configuration.\n     \"\"\"\n+    def __init__(self, value, filename=None, default=False, base_for_paths=False):\n         super(ConfigSource, self).__init__(value)\n         if (filename is not None\n                 and not isinstance(filename, BASESTRING)):\n@@ -41,6 +42,7 @@ class ConfigSource(dict):\n             raise TypeError(u'filename must be a string or None')\n         self.filename = filename\n         self.default = default\n+        self.base_for_paths = base_for_paths\n\n     def __repr__(self):\n         return 'ConfigSource({0!r}, {1!r}, {2!r})'.format(\n@@ -68,6 +70,7 @@ class YamlSource(ConfigSource):\n         \"\"\"Create a YAML data source by reading data from a file.\n\n         May raise a `ConfigReadError`. However, if `optional` is\n+        enabled, this exception will not be raised in the case when the\n         file does not exist---instead, the source will be silently\n         empty.\n         \"\"\"\n@@ -75,6 +78,7 @@ class YamlSource(ConfigSource):\n         filename = os.path.abspath(filename)\n         super(YamlSource, self).__init__({}, filename, default)\n         self.loader = loader\n+        self.base_for_paths = base_for_paths\n         self.optional = optional\n         self.load()\n\n@@ -83,6 +87,7 @@ class YamlSource(ConfigSource):\n     def load(self):\n         \"\"\"Load YAML data from the source's filename.\n         \"\"\"\n+        if self.filename and self.base_for_paths:\n+            self.filename = os.path.join(os.path.dirname(__file__), self.filename)\n         if self.optional and not os.path.isfile(self.filename):\n             value = {}\n         else:\n```",
+  "done": true,
+  "done_reason": "stop",
+  "total_duration": 9831276100,
+  "load_duration": 4156700,
+  "prompt_eval_count": 1213,
+  "prompt_eval_cached_count": 403,
+  "prompt_eval_duration": 358949000,
+  "eval_count": 424,
+  "eval_duration": 9463999000
+}

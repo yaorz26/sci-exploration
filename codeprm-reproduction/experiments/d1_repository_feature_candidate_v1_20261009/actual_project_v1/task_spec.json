@@ -1,0 +1,31 @@
+{
+  "task_id": "REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS",
+  "task_kind": "repository_feature_candidate",
+  "status": "research_pool_only",
+  "source_repo": "beetbox/confuse",
+  "base_commit": "8b69242b8facdd7d1f87113693ea72017d61a0ff",
+  "reference_commit": "2c1f97e7b6aadbeb8bd6f112bd7ef965dbd977b0",
+  "source_snapshot": "actual_project_v1/parent",
+  "reference_snapshot": "actual_project_v1/merge",
+  "requirement": "为配置源和文件名模板增加可选的源文件目录相对路径解析能力。默认行为必须保持：普通相对路径仍按应用配置目录解析；绝对路径保持不变。配置源可声明其相对路径以源文件目录为基准；单个 Filename 模板也可选择源文件目录；从文件载入配置时可传入同一选项。应用目录选项应能明确覆盖源目录选项。",
+  "path_placeholders": {"<app>": "运行时临时应用目录"},
+  "evaluation": {
+    "oracle_type": "behavioral_api_diagnostic",
+    "public_examples": 4,
+    "hidden_examples": 0,
+    "human_labels": 0,
+    "formal_structure_labels": null,
+    "split": null,
+    "model_results": null,
+    "leakage_note": "合并提交仅作为研究侧参考；不进入模型输入。上游测试未作为本任务期望来源。"
+  },
+  "examples": [
+    {"name": "default_preserved", "source_filename": "<app>/project/conf/local.yaml", "source_flag": false, "template": {}, "value": "assets/a.txt", "expected_base": "<app>"},
+    {"name": "source_flag", "source_filename": "<app>/project/conf/local.yaml", "source_flag": true, "template": {}, "value": "assets/a.txt", "expected_base": "<app>/project/conf"},
+    {"name": "template_flag", "source_filename": "<app>/project/conf/local.yaml", "source_flag": false, "template": {"in_source_dir": true}, "value": "assets/a.txt", "expected_base": "<app>/project/conf"},
+    {"name": "absolute_invariant", "source_filename": "<app>/project/conf/local.yaml", "source_flag": true, "template": {}, "value": "<app>/abs/x", "expected": "<app>/abs/x"}
+  ],
+  "evidence": "real_feature_diagnostics.json",
+  "limitations": ["候选尚未经过模型生成", "未完成人工双审", "结构三轴未知", "污染状态未知", "仅证明可执行功能候选，不证明拆分收益"]
+}
+

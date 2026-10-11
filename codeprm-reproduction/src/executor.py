@@ -9,9 +9,13 @@ import signal
 import subprocess
 import sys
 import tempfile
+import threading
 import time
 from pathlib import Path
 from typing import Any
+
+
+MAX_CAPTURED_OUTPUT_BYTES = 1_048_576
 
 
 def normalize_output(value: str) -> str:
@@ -134,13 +138,17 @@ def _run_limited(
     stdin: str,
     cwd: str,
     timeout_seconds: float,
-) -> tuple[int | None, str, str, bool]:
-    """Run one candidate with a timeout that survives child-process escapes."""
+) -> tuple[int | None, str, str, bool, bool]:
+    """Run one candidate with time and combined-output limits.
+
+    ``Popen.communicate(timeout=...)`` can keep draining an unbounded pipe long
+    enough to defeat the intended wall-clock safeguard. Reader threads cap the
+    combined stdout/stderr capture, then the parent kills the candidate tree.
+    """
     popen_options: dict[str, Any] = {
         "stdin": subprocess.PIPE,
         "stdout": subprocess.PIPE,
         "stderr": subprocess.PIPE,
-        "text": True,
         "cwd": cwd,
         "env": {"PATH": os.environ.get("PATH", ""), "PYTHONIOENCODING": "utf-8"},
     }
@@ -149,18 +157,83 @@ def _run_limited(
     else:
         popen_options["start_new_session"] = True
     process = subprocess.Popen(command, **popen_options)
-    try:
-        stdout, stderr = process.communicate(input=stdin, timeout=timeout_seconds)
-        return process.returncode, stdout, stderr, False
-    except subprocess.TimeoutExpired as exc:
-        _terminate_process_tree(process)
+    captured = {"bytes": 0}
+    capture_lock = threading.Lock()
+    output_limit_reached = threading.Event()
+    stdout_chunks: list[bytes] = []
+    stderr_chunks: list[bytes] = []
+
+    def capture(stream: Any, chunks: list[bytes]) -> None:
         try:
-            stdout, stderr = process.communicate(timeout=5)
+            while True:
+                chunk = stream.read(8192)
+                if not chunk:
+                    return
+                with capture_lock:
+                    remaining = MAX_CAPTURED_OUTPUT_BYTES - captured["bytes"]
+                    if remaining > 0:
+                        chunks.append(chunk[:remaining])
+                        captured["bytes"] += min(len(chunk), remaining)
+                    if len(chunk) > remaining:
+                        output_limit_reached.set()
+                if output_limit_reached.is_set():
+                    return
+        except (OSError, ValueError):
+            return
+
+    stdout_reader = threading.Thread(target=capture, args=(process.stdout, stdout_chunks), daemon=True)
+    stderr_reader = threading.Thread(target=capture, args=(process.stderr, stderr_chunks), daemon=True)
+
+    def feed_stdin() -> None:
+        if process.stdin is None:
+            return
+        try:
+            process.stdin.write(stdin.encode("utf-8"))
+        except (BrokenPipeError, OSError, ValueError):
+            pass
+        finally:
+            try:
+                process.stdin.close()
+            except (OSError, ValueError):
+                pass
+
+    stdin_writer = threading.Thread(target=feed_stdin, daemon=True)
+    stdout_reader.start()
+    stderr_reader.start()
+    stdin_writer.start()
+    timed_out = False
+    output_limited = False
+    try:
+        deadline = time.monotonic() + timeout_seconds
+        while process.poll() is None:
+            if output_limit_reached.is_set():
+                output_limited = True
+                _terminate_process_tree(process)
+                break
+            if time.monotonic() >= deadline:
+                timed_out = True
+                _terminate_process_tree(process)
+                break
+            time.sleep(0.01)
+        if output_limit_reached.is_set():
+            output_limited = True
+        try:
+            process.wait(timeout=5)
         except subprocess.TimeoutExpired:
             process.kill()
-            stdout, stderr = process.communicate()
-        return None, _as_text(exc.stdout) or stdout, _as_text(exc.stderr) or stderr, True
-
+            process.wait(timeout=5)
+    finally:
+        if process.poll() is None:
+            _terminate_process_tree(process)
+        stdin_writer.join(timeout=5)
+        stdout_reader.join(timeout=5)
+        stderr_reader.join(timeout=5)
+    stdout = b"".join(stdout_chunks).decode("utf-8", errors="replace")
+    stderr = b"".join(stderr_chunks).decode("utf-8", errors="replace")
+    if output_limited:
+        marker = f"\n[captured output capped at {MAX_CAPTURED_OUTPUT_BYTES} bytes]"
+        stderr = (stderr + marker).strip()
+    return process.returncode, stdout, stderr, timed_out, output_limited
 
 def execute_test(
     code: str,
@@ -180,19 +253,28 @@ def execute_test(
         runner_path.write_text(_function_runner(function_name or "solution", function_arity), encoding="utf-8")
         command = [sys.executable, "-I", str(runner_path)]
     try:
-        returncode, stdout, stderr, timed_out = _run_limited(
+        returncode, stdout, stderr, timed_out, output_limited = _run_limited(
             command,
             test.get("input", ""),
             temp_dir,
             timeout_seconds,
         )
-        failure = classify_failure(returncode, stderr, timed_out, test.get("output", ""), stdout, execution_mode)
+        failure = "output_limit" if output_limited else classify_failure(
+            returncode, stderr, timed_out, test.get("output", ""), stdout, execution_mode
+        )
+        if failure == "output_limit":
+            message = f"candidate output exceeded {MAX_CAPTURED_OUTPUT_BYTES} bytes"
+        elif failure not in {"passed", "wrong_answer"}:
+            message = stderr.strip()
+        else:
+            message = "output mismatch" if failure == "wrong_answer" else ""
         return {
             "passed": int(failure == "passed"), "expected": test.get("output", ""),
             "actual": stdout, "stderr": stderr,
             "error_type": None if failure == "passed" else failure,
-            "message": stderr.strip() if failure not in {"passed", "wrong_answer"} else ("output mismatch" if failure == "wrong_answer" else ""),
-            "timeout": timed_out, "duration_seconds": round(time.perf_counter() - started, 6),
+            "message": message,
+            "timeout": timed_out, "output_limited": output_limited,
+            "duration_seconds": round(time.perf_counter() - started, 6),
         }
     finally:
         try:

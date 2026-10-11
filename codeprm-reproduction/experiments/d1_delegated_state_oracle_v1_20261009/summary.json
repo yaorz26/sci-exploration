@@ -1,0 +1,64 @@
+{
+  "organizations": 4,
+  "reused_public_inputs": 1,
+  "new_unique_inputs": 0,
+  "model_calls": 0,
+  "api_calls": 0,
+  "human_reviews": 0,
+  "rows": [
+    {
+      "name": "complete",
+      "expected": [
+        true,
+        true
+      ],
+      "observed": [
+        null,
+        null
+      ],
+      "prediction_match": false,
+      "actual_path": "complete_actual.json"
+    },
+    {
+      "name": "delegated",
+      "expected": [
+        true,
+        false
+      ],
+      "observed": [
+        null,
+        null
+      ],
+      "prediction_match": false,
+      "actual_path": "delegated_actual.json"
+    },
+    {
+      "name": "report_only",
+      "expected": [
+        false,
+        false
+      ],
+      "observed": [
+        null,
+        null
+      ],
+      "prediction_match": false,
+      "actual_path": "report_only_actual.json"
+    },
+    {
+      "name": "deferred",
+      "expected": [
+        false,
+        true
+      ],
+      "observed": [
+        null,
+        null
+      ],
+      "prediction_match": false,
+      "actual_path": "deferred_actual.json"
+    }
+  ],
+  "all_predictions_match": false,
+  "scope": "一个任务/API的存储位置误拒反例；不推全库/模型效果；原oracle不改"
+}

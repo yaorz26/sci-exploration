@@ -1,0 +1,92 @@
+{
+  "created_at": "2026-10-09T03:11:30.784974+00:00",
+  "cases": [
+    {
+      "id": "plain_control",
+      "text": "plain",
+      "expected": "plain",
+      "reason": "无ESC，逐字保留"
+    },
+    {
+      "id": "ordinary_codes",
+      "text": "a\u001b[31mRed\u001bMz",
+      "expected": "aRedz",
+      "reason": "原串一CSI和一短码，各独立删除"
+    },
+    {
+      "id": "CSI_creates_short",
+      "text": "\u001b\u001b[31mM",
+      "expected": "\u001bM",
+      "reason": "最前ESC在原串无有效下一字，删第二个ESC的CSI后才邻接M"
+    },
+    {
+      "id": "short_creates_CSI",
+      "text": "\u001b\u001bM[31m",
+      "expected": "\u001b[31m",
+      "reason": "删第二个ESC的短码后，最前ESC才邻接CSI后缀"
+    },
+    {
+      "id": "CSI_creates_CSI",
+      "text": "\u001b\u001b[31m[0m",
+      "expected": "\u001b[0m",
+      "reason": "一次原串删中间CSI，保留原来不完整首ESC/余下后缀"
+    },
+    {
+      "id": "incomplete_control",
+      "text": "\u001b[31",
+      "expected": "\u001b[31",
+      "reason": "缺CSI终止字，完整片段未匹配"
+    }
+  ],
+  "task": {
+    "task_id": "D1_B03",
+    "requirement": "实现solve(payload)，text是字符串，返回去除完整ANSI控制码后的字符串。ESC表示U+001B。完整码为ESC后接一个ASCII @到Z或反斜线到下划线字符（不包括[）；或ESC+[，再接零或多个ASCII 0到?参数字符、零或多个空格到/中间字符、一个@到~终止字符。这些范围均含端点。不完整、不符合该形式的片段逐字保留；不解释光标或颜色。只用标准库，内部结构自由。",
+    "entry_point": "solve(payload)",
+    "language": "Python",
+    "allowed_libraries": "仅Python标准库",
+    "public_examples": [
+      {
+        "input": {
+          "text": "a\u001b[31m红\u001b[0mz"
+        },
+        "output": "a红z"
+      },
+      {
+        "input": {
+          "text": "x\u001b[31"
+        },
+        "output": "x\u001b[31"
+      }
+    ],
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。",
+    "internal_decomposition": "自由选择，不给定helper名称或数量"
+  },
+  "task_sha256": "8899f382241f28a4cf9561ce07a09d4c408482058356393f9ae295f3e81e3fd4",
+  "source_sha256": "c5ecb7efd3b2e86f92545c18d8d72193f45a1bd1d0edaf3da65868aa0e8bcdda",
+  "script_sha256": "0980f0942ab882abeba7b4865a3cdd7482bb8533f6828df4f7c3316dd12fa594",
+  "source_commit": "4e5faa3d7e4008d89e0d8bf1ea87b6d9a061a16d",
+  "source_nodes": [
+    {
+      "lines": [
+        361,
+        375
+      ],
+      "text": "ANSI_SEQUENCES = re.compile(r'''\n    \\x1B            # Sequence starts with ESC, i.e. hex 0x1B\n    (?:\n        [@-Z\\\\-_]   # Second byte:\n                    #   all 0x40–0x5F range but CSI char, i.e ASCII @A–Z\\]^_\n    |               # Or\n        \\[          # CSI sequences, starting with [\n        [0-?]*      # Parameter bytes:\n                    #   range 0x30–0x3F, ASCII 0–9:;<=>?\n        [ -/]*      # Intermediate bytes:\n                    #   range 0x20–0x2F, ASCII space and !\"#$%&'()*+,-./\n        [@-~]       # Final byte\n                    #   range 0x40–0x7E, ASCII @A–Z[\\]^_`a–z{|}~\n    )\n''', re.VERBOSE)"
+    },
+    {
+      "lines": [
+        378,
+        413
+      ],
+      "text": "def strip_ansi(text):\n    \"\"\"Strips ANSI escape codes from *text*. Useful for the occasional\n    time when a log or redirected output accidentally captures console\n    color codes and the like.\n\n    >>> strip_ansi('\\x1b[0m\\x1b[1;36mart\\x1b[46;34m')\n    'art'\n\n    Supports str, bytes and bytearray content as input. Returns the\n    same type as the input.\n\n    There's a lot of ANSI art available for testing on `sixteencolors.net`_.\n    This function does not interpret or render ANSI art, but you can do so with\n    `ansi2img`_ or `escapes.js`_.\n\n    .. _sixteencolors.net: http://sixteencolors.net\n    .. _ansi2img: http://www.bedroomlan.org/projects/ansi2img\n    .. _escapes.js: https://github.com/atdt/escapes.js\n    \"\"\"\n    # TODO: move to cliutils.py\n\n    # Transform any ASCII-like content to unicode to allow regex to match, and\n    # save input type for later.\n    target_type = None\n    # Unicode type aliased to str is code-smell for Boltons in Python 3 env.\n    if isinstance(text, (bytes, bytearray)):\n        target_type = type(text)\n        text = text.decode('utf-8')\n\n    cleaned = ANSI_SEQUENCES.sub('', text)\n\n    # Transform back the result to the same bytearray type provided by the user.\n    if target_type and target_type != type(cleaned):\n        cleaned = target_type(cleaned, 'utf-8')\n\n    return cleaned"
+    }
+  ],
+  "interpretation": "按来源单次sub的原串非重叠匹配；原题尚未显式写单次，不回称规范完全独立冻结",
+  "expected_provenance": "执行前逐值解析，未从执行结果导出，非人类真值",
+  "budget": {
+    "structure_evaluations": 24,
+    "second_source_queries": 6,
+    "model_calls": 0,
+    "hidden_reads": 0
+  }
+}

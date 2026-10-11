@@ -1,0 +1,362 @@
+[
+  {
+    "program": "whole",
+    "case_id": "count2_mode_int4",
+    "changed_field": "count",
+    "observed": {
+      "value": {
+        "count": 3,
+        "mode": 4
+      }
+    },
+    "whole_pass": false,
+    "applicability": "候选正常返回域",
+    "count_pass": false,
+    "mode_pass": true
+  },
+  {
+    "program": "whole",
+    "case_id": "count2_mode_int4",
+    "changed_field": "mode",
+    "observed": {
+      "value": {
+        "count": 2,
+        "mode": 5
+      }
+    },
+    "whole_pass": false,
+    "applicability": "候选正常返回域",
+    "count_pass": true,
+    "mode_pass": false
+  },
+  {
+    "program": "whole",
+    "case_id": "count2_mode_strx",
+    "changed_field": "count",
+    "observed": {
+      "value": {
+        "count": 3,
+        "mode": "x"
+      }
+    },
+    "whole_pass": false,
+    "applicability": "候选正常返回域",
+    "count_pass": false,
+    "mode_pass": true
+  },
+  {
+    "program": "whole",
+    "case_id": "count2_mode_strx",
+    "changed_field": "mode",
+    "observed": {
+      "value": {
+        "count": 2,
+        "mode": "x_错"
+      }
+    },
+    "whole_pass": false,
+    "applicability": "候选正常返回域",
+    "count_pass": true,
+    "mode_pass": false
+  },
+  {
+    "program": "whole",
+    "case_id": "count3_mode_int4",
+    "changed_field": "count",
+    "observed": {
+      "value": {
+        "count": 4,
+        "mode": 4
+      }
+    },
+    "whole_pass": false,
+    "applicability": "候选正常返回域",
+    "count_pass": false,
+    "mode_pass": true
+  },
+  {
+    "program": "whole",
+    "case_id": "count3_mode_int4",
+    "changed_field": "mode",
+    "observed": {
+      "value": {
+        "count": 3,
+        "mode": 5
+      }
+    },
+    "whole_pass": false,
+    "applicability": "候选正常返回域",
+    "count_pass": true,
+    "mode_pass": false
+  },
+  {
+    "program": "whole",
+    "case_id": "count3_mode_strx",
+    "changed_field": "count",
+    "observed": {
+      "value": {
+        "count": 4,
+        "mode": "x"
+      }
+    },
+    "whole_pass": false,
+    "applicability": "候选正常返回域",
+    "count_pass": false,
+    "mode_pass": true
+  },
+  {
+    "program": "whole",
+    "case_id": "count3_mode_strx",
+    "changed_field": "mode",
+    "observed": {
+      "value": {
+        "count": 3,
+        "mode": "x_错"
+      }
+    },
+    "whole_pass": false,
+    "applicability": "候选正常返回域",
+    "count_pass": true,
+    "mode_pass": false
+  },
+  {
+    "program": "helpers",
+    "case_id": "count2_mode_int4",
+    "changed_field": "count",
+    "observed": {
+      "value": {
+        "count": 3,
+        "mode": 4
+      }
+    },
+    "whole_pass": false,
+    "applicability": "候选正常返回域",
+    "count_pass": false,
+    "mode_pass": true
+  },
+  {
+    "program": "helpers",
+    "case_id": "count2_mode_int4",
+    "changed_field": "mode",
+    "observed": {
+      "value": {
+        "count": 2,
+        "mode": 5
+      }
+    },
+    "whole_pass": false,
+    "applicability": "候选正常返回域",
+    "count_pass": true,
+    "mode_pass": false
+  },
+  {
+    "program": "helpers",
+    "case_id": "count2_mode_strx",
+    "changed_field": "count",
+    "observed": {
+      "value": {
+        "count": 3,
+        "mode": "x"
+      }
+    },
+    "whole_pass": false,
+    "applicability": "候选正常返回域",
+    "count_pass": false,
+    "mode_pass": true
+  },
+  {
+    "program": "helpers",
+    "case_id": "count2_mode_strx",
+    "changed_field": "mode",
+    "observed": {
+      "value": {
+        "count": 2,
+        "mode": "x_错"
+      }
+    },
+    "whole_pass": false,
+    "applicability": "候选正常返回域",
+    "count_pass": true,
+    "mode_pass": false
+  },
+  {
+    "program": "helpers",
+    "case_id": "count3_mode_int4",
+    "changed_field": "count",
+    "observed": {
+      "value": {
+        "count": 4,
+        "mode": 4
+      }
+    },
+    "whole_pass": false,
+    "applicability": "候选正常返回域",
+    "count_pass": false,
+    "mode_pass": true
+  },
+  {
+    "program": "helpers",
+    "case_id": "count3_mode_int4",
+    "changed_field": "mode",
+    "observed": {
+      "value": {
+        "count": 3,
+        "mode": 5
+      }
+    },
+    "whole_pass": false,
+    "applicability": "候选正常返回域",
+    "count_pass": true,
+    "mode_pass": false
+  },
+  {
+    "program": "helpers",
+    "case_id": "count3_mode_strx",
+    "changed_field": "count",
+    "observed": {
+      "value": {
+        "count": 4,
+        "mode": "x"
+      }
+    },
+    "whole_pass": false,
+    "applicability": "候选正常返回域",
+    "count_pass": false,
+    "mode_pass": true
+  },
+  {
+    "program": "helpers",
+    "case_id": "count3_mode_strx",
+    "changed_field": "mode",
+    "observed": {
+      "value": {
+        "count": 3,
+        "mode": "x_错"
+      }
+    },
+    "whole_pass": false,
+    "applicability": "候选正常返回域",
+    "count_pass": true,
+    "mode_pass": false
+  },
+  {
+    "program": "source_adapter",
+    "case_id": "count2_mode_int4",
+    "changed_field": "count",
+    "observed": {
+      "value": {
+        "count": 3,
+        "mode": 4
+      }
+    },
+    "whole_pass": false,
+    "applicability": "候选正常返回域",
+    "count_pass": false,
+    "mode_pass": true
+  },
+  {
+    "program": "source_adapter",
+    "case_id": "count2_mode_int4",
+    "changed_field": "mode",
+    "observed": {
+      "value": {
+        "count": 2,
+        "mode": 5
+      }
+    },
+    "whole_pass": false,
+    "applicability": "候选正常返回域",
+    "count_pass": true,
+    "mode_pass": false
+  },
+  {
+    "program": "source_adapter",
+    "case_id": "count2_mode_strx",
+    "changed_field": "count",
+    "observed": {
+      "value": {
+        "count": 3,
+        "mode": "x"
+      }
+    },
+    "whole_pass": false,
+    "applicability": "候选正常返回域",
+    "count_pass": false,
+    "mode_pass": true
+  },
+  {
+    "program": "source_adapter",
+    "case_id": "count2_mode_strx",
+    "changed_field": "mode",
+    "observed": {
+      "value": {
+        "count": 2,
+        "mode": "x_错"
+      }
+    },
+    "whole_pass": false,
+    "applicability": "候选正常返回域",
+    "count_pass": true,
+    "mode_pass": false
+  },
+  {
+    "program": "source_adapter",
+    "case_id": "count3_mode_int4",
+    "changed_field": "count",
+    "observed": {
+      "value": {
+        "count": 4,
+        "mode": 4
+      }
+    },
+    "whole_pass": false,
+    "applicability": "候选正常返回域",
+    "count_pass": false,
+    "mode_pass": true
+  },
+  {
+    "program": "source_adapter",
+    "case_id": "count3_mode_int4",
+    "changed_field": "mode",
+    "observed": {
+      "value": {
+        "count": 3,
+        "mode": 5
+      }
+    },
+    "whole_pass": false,
+    "applicability": "候选正常返回域",
+    "count_pass": true,
+    "mode_pass": false
+  },
+  {
+    "program": "source_adapter",
+    "case_id": "count3_mode_strx",
+    "changed_field": "count",
+    "observed": {
+      "value": {
+        "count": 4,
+        "mode": "x"
+      }
+    },
+    "whole_pass": false,
+    "applicability": "候选正常返回域",
+    "count_pass": false,
+    "mode_pass": true
+  },
+  {
+    "program": "source_adapter",
+    "case_id": "count3_mode_strx",
+    "changed_field": "mode",
+    "observed": {
+      "value": {
+        "count": 3,
+        "mode": "x_错"
+      }
+    },
+    "whole_pass": false,
+    "applicability": "候选正常返回域",
+    "count_pass": true,
+    "mode_pass": false
+  }
+]

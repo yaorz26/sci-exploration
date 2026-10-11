@@ -1,0 +1,21 @@
+实现计划：
+
+1. **实现 `fix_path` 静态方法**：
+   - 该方法接收一个路径字符串 `path` 和一个字符编码 `charset`。
+   - 使用 `urllib.parse.unquote` 对路径字符串进行解码。
+   - 使用字符串操作去除路径字符串前后的斜杠。
+   - 返回处理后的路径字符串。
+
+2. **实现 `parse` 方法**：
+   - 该方法接收一个路径字符串 `path` 和一个字符编码 `charset`。
+   - 使用 `fix_path` 方法对路径字符串进行预处理。
+   - 使用 `urllib.parse.urlsplit` 将路径字符串拆分为各个部分。
+   - 将拆分后的路径部分（不包括协议和域名）按斜杠分割成多个段，并存储在 `self.segments` 列表中。
+   - 如果路径字符串以斜杠结尾，设置 `self.with_end_tag` 为 `True`。
+
+3. **实现 `add` 方法**：
+   - 该方法接收一个路径段 `segment`。
+   - 将路径段添加到 `self.segments` 列表中。
+   - 如果 `self.with_end_tag` 为 `True`，在添加路径段后，将 `self.with_end_tag` 重置为 `False`。
+
+实现顺序：先实现 `fix_path` 静态方法，然后实现 `parse` 方法，最后实现 `add` 方法。

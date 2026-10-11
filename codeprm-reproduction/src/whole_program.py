@@ -1,4 +1,4 @@
-"""Whole-program generation protocols for direct (M0) and plan-first (M1) baselines."""
+"""Whole-program generation protocols, including function-ordered variants."""
 
 from __future__ import annotations
 
@@ -80,8 +80,8 @@ class WholeProgramGenerator:
 
 
 def build_whole_program_prompt(problem: dict[str, Any], method: str) -> str:
-    if method not in {"direct", "plan"}:
-        raise ValueError("method must be direct or plan")
+    if method not in {"direct", "plan", "functionized", "top_down_cof", "top_down_cof_fewshot"}:
+        raise ValueError("unknown whole-program method")
     starter = str(problem.get("starter_code", "") or "").strip()
     if starter:
         api = (
@@ -93,16 +93,60 @@ def build_whole_program_prompt(problem: dict[str, Any], method: str) -> str:
         api = "This is a standard-input task. Read stdin and print only the required answer.\n"
     if method == "direct":
         contract = "Return ONLY one complete executable Python 3 program. Do not use markdown fences, tests, plans, or explanations."
-    else:
+    elif method == "plan":
         contract = (
             "First write a concise solution plan inside <plan> and </plan>. Then return exactly one complete executable "
             "Python 3 program inside <code> and </code>. Do not put tests or explanations inside <code>."
+        )
+    elif method == "functionized":
+        contract = (
+            "Return exactly one complete executable Python 3 program inside <code> and </code>. Organize the program as "
+            "a coherent chain of 2-5 top-level functions: use helpers for independently testable stages, then use the "
+            "required starter entrypoint as the final orchestration function. Keep all functions in this one program; "
+            "do not generate a skeleton, do not define nested functions, and do not combine functions from separate responses."
+        )
+    else:
+        entrypoint_rule = (
+            "The exact starter entrypoint must be the FIRST top-level function"
+            if starter
+            else "Define solve() as the FIRST top-level function"
+        )
+        contract = (
+            "Return exactly one complete executable Python 3 program inside <code> and </code>. Organize the program as "
+            "a coherent top-down Chain-of-Function with 2-5 top-level functions. "
+            f"{entrypoint_rule}; it must describe and orchestrate the full strategy, even when it calls helper functions "
+            "defined later in the file. Follow it with lower-level helper functions that implement specific subtasks. "
+            "A one-function response is invalid even for a simple problem: extract at least one meaningful operation into "
+            "a helper. Every function definition must start at column zero, so helpers must never be nested inside the "
+            "entrypoint or another helper. "
+            "Begin every function body with a non-empty triple-quoted docstring describing its role and logic. "
+            "Do not move the entrypoint to the end, define nested functions, generate a skeleton, include tests, or combine "
+            "functions from separate responses. Before closing </code>, verify that there are 2-5 column-zero function "
+            "definitions, the entrypoint is first, and every function has a docstring. For standard-input tasks, call "
+            "solve() only after all helper definitions."
+        )
+    fewshot = ""
+    if method == "top_down_cof_fewshot":
+        fewshot = (
+            "\nStructural few-shot example (a separate toy task; do not copy its algorithm):\n"
+            "Task: Return the sum of all integer tokens in a whitespace-delimited string.\n"
+            "```python\n"
+            "def sum_text(text):\n"
+            '    \"\"\"Parse the input text into integers, then return their sum.\"\"\"\n'
+            "    values = parse_values(text)\n"
+            "    return sum(values)\n\n"
+            "def parse_values(text):\n"
+            '    \"\"\"Convert each whitespace-delimited token into an integer.\"\"\"\n'
+            "    return [int(token) for token in text.split()]\n"
+            "```\n"
+            "The example demonstrates only the organization: high-level entrypoint first, helpers afterward, and a call from the entrypoint to its later helper.\n"
         )
     return (
         "You are a competitive programming assistant.\n"
         f"{contract}\n"
         "You do not have access to public or private tests.\n"
         f"{api}\n"
+        f"{fewshot}"
         f"Problem:\n{problem.get('question', '')}\n"
     )
 
@@ -139,6 +183,65 @@ def parse_whole_program(
         errors.append(f"signature_mismatch:{required_name}")
     if method == "plan" and not plan:
         errors.append("missing_plan")
+    if method == "functionized":
+        if not 2 <= len(definitions) <= 5:
+            errors.append(f"function_count_out_of_range:{len(definitions)}")
+        if required_name and (not matches or definitions[-1].name != required_name):
+            errors.append(f"entrypoint_not_last:{required_name}")
+        nested = [
+            node.name
+            for definition in definitions
+            for node in ast.walk(definition)
+            if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node is not definition
+        ]
+        if nested:
+            errors.append("nested_function_definitions:" + ",".join(nested))
+    if method in {"top_down_cof", "top_down_cof_fewshot"}:
+        structural_entrypoint = required_name or "solve"
+        structural_matches = [node for node in definitions if node.name == structural_entrypoint]
+        if not 2 <= len(definitions) <= 5:
+            errors.append(f"function_count_out_of_range:{len(definitions)}")
+        if not structural_matches:
+            if required_name is None:
+                errors.append(f"missing_entrypoint:{structural_entrypoint}")
+        elif not definitions or definitions[0].name != structural_entrypoint:
+            errors.append(f"entrypoint_not_first:{structural_entrypoint}")
+        if required_name is None and structural_matches and _argument_shape(structural_matches[0].args) != ((), (), None, (), None):
+            errors.append("signature_mismatch:solve")
+        missing_docstrings = [
+            node.name for node in definitions
+            if not str(ast.get_docstring(node, clean=False) or "").strip()
+        ]
+        if missing_docstrings:
+            errors.append("missing_function_docstrings:" + ",".join(missing_docstrings))
+        nested = [
+            node.name
+            for definition in definitions
+            for node in ast.walk(definition)
+            if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node is not definition
+        ]
+        if nested:
+            errors.append("nested_function_definitions:" + ",".join(nested))
+        if required_name is None:
+            definition_positions = [
+                index for index, node in enumerate(tree.body)
+                if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
+            ]
+            solve_call_positions = [
+                index
+                for index, node in enumerate(tree.body)
+                if not isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
+                and any(
+                    isinstance(candidate, ast.Call)
+                    and isinstance(candidate.func, ast.Name)
+                    and candidate.func.id == "solve"
+                    for candidate in ast.walk(node)
+                )
+            ]
+            if not solve_call_positions:
+                errors.append("missing_solve_call")
+            elif definition_positions and min(solve_call_positions) < max(definition_positions):
+                errors.append("entrypoint_called_before_helpers:solve")
     return (
         source.rstrip() + "\n" if not errors else None,
         plan,

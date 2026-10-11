@@ -1,0 +1,25 @@
+{
+  "task_id": "E_M07",
+  "title": "整数上下界报告",
+  "requirements": "requirements.md",
+  "diagnostics": "public_diagnostics.json",
+  "entry": "solve(payload)",
+  "source": {
+    "repository": "more-itertools/more-itertools",
+    "commit": "81c21a8db1c922260cd673841257fb9b112c1318",
+    "module_sha256": "1bdc5f323ea18906436a42268b942d5b4d15ac8b3ff17c1211a59fb192fa068e",
+    "license": "MIT",
+    "license_sha256": "09f1c8c9e941af3e584d59641ea9b87d83c0cb0fd007eb5ef391a7e2643c1a46",
+    "license_file": "sources/LICENSE"
+  },
+  "labels": {
+    "dependency": null,
+    "state_scope": null,
+    "testability": null
+  },
+  "formal_split": null,
+  "human_reviews": 0,
+  "source_contamination": "未知",
+  "status": "研究池公开候选，未正式冻结/不改原储备",
+  "family_relation": "同more-itertools来源及迭代工具关联，不是第五独立来源；未称与E_M06统计独立"
+}

@@ -1,0 +1,76 @@
+{
+  "protocol_sha256": "8347af52445fd02a1eed25bbe293b9d7b8dc6dd7bfa4324e001089f47aff3ada",
+  "public_input_hashes": {
+    "D:\\yaorz\\research\\codeprm-reproduction\\data\\processed\\d1_project_prototype8_v4_20261008\\public\\D1_B01\\task.json": "43db056412220c0cf528d72e9ed4a7cd2ef2a382d2d5b1d27ffaa3b8f8acd67c",
+    "D:\\yaorz\\research\\codeprm-reproduction\\data\\processed\\d1_project_prototype8_v4_20261008\\public\\D1_B02\\task.json": "911678153f8ae3e61dceb2eec076af48ed2cf6888239f93ff849d8c8bf95710c",
+    "D:\\yaorz\\research\\codeprm-reproduction\\data\\processed\\d1_project_prototype8_v4_20261008\\public\\D1_C01\\task.json": "58832086e85073a400d69a880d323b940cdf91349df0cd49a26d37e86a5a6ab1",
+    "D:\\yaorz\\research\\codeprm-reproduction\\data\\processed\\d1_project_prototype8_v4_20261008\\public\\D1_C02\\task.json": "8c0c574a4b77079bb269a293c54e4b39eb2dab34888b6899e155cf4ae6f07bb2"
+  },
+  "rule": "每题每臂固定首个候选；不重试、不依据公开或私有成绩选择",
+  "candidates": [
+    {
+      "task_id": "D1_B01",
+      "arm": "M0",
+      "candidate_index": 0,
+      "generation_error": null,
+      "allocated_output_cap": 4096,
+      "candidate_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_project_development_pilot_v1_20261008\\candidates\\D1_B01\\M0\\candidate.py",
+      "candidate_sha256": "a7fbbb91841f14180332c331140091521cd15083394732e8ef33fd76bb44abcc"
+    },
+    {
+      "task_id": "D1_B01",
+      "arm": "M2",
+      "candidate_index": 0,
+      "generation_error": "ValueError: dependencies must precede helper",
+      "allocated_output_cap": 4096
+    },
+    {
+      "task_id": "D1_B02",
+      "arm": "M0",
+      "candidate_index": 0,
+      "generation_error": null,
+      "allocated_output_cap": 4096,
+      "candidate_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_project_development_pilot_v1_20261008\\candidates\\D1_B02\\M0\\candidate.py",
+      "candidate_sha256": "830d9ed08d5f02c0d88775ea310fe41d5efd310137800ee8864d22c78138899b"
+    },
+    {
+      "task_id": "D1_B02",
+      "arm": "M2",
+      "candidate_index": 0,
+      "generation_error": "ValueError: invalid or duplicated helper name",
+      "allocated_output_cap": 4096
+    },
+    {
+      "task_id": "D1_C01",
+      "arm": "M0",
+      "candidate_index": 0,
+      "generation_error": null,
+      "allocated_output_cap": 4096,
+      "candidate_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_project_development_pilot_v1_20261008\\candidates\\D1_C01\\M0\\candidate.py",
+      "candidate_sha256": "6a75c371318595cc4995accf477b19223fef093a1ca5949a7b56888ab1549f1f"
+    },
+    {
+      "task_id": "D1_C01",
+      "arm": "M2",
+      "candidate_index": 0,
+      "generation_error": "ValueError: invalid or duplicated helper name",
+      "allocated_output_cap": 4096
+    },
+    {
+      "task_id": "D1_C02",
+      "arm": "M0",
+      "candidate_index": 0,
+      "generation_error": null,
+      "allocated_output_cap": 4096,
+      "candidate_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_project_development_pilot_v1_20261008\\candidates\\D1_C02\\M0\\candidate.py",
+      "candidate_sha256": "29a4a4900671000986fce0729d954d7b7a8a3df8b7bd6f036fef323767d6bf9e"
+    },
+    {
+      "task_id": "D1_C02",
+      "arm": "M2",
+      "candidate_index": 0,
+      "generation_error": "ValueError: invalid or duplicated helper name",
+      "allocated_output_cap": 4096
+    }
+  ]
+}

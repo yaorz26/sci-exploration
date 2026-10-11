@@ -1,0 +1,5 @@
+{
+  "returncode": 0,
+  "stdout": "{\"rows\": [{\"id\": \"split_tag\", \"observed\": {\"snapshots\": [\"\", \"A\", \"A\"], \"final\": \"A\"}, \"terminal_matches\": true, \"input_unchanged\": true}, {\"id\": \"split_entity\", \"observed\": {\"snapshots\": [\"A &am\", \"A & B\"], \"final\": \"A & B\"}, \"terminal_matches\": true, \"input_unchanged\": true}, {\"id\": \"split_names\", \"observed\": {\"snapshots\": [\"<\", \"A</\", \"A\"], \"final\": \"A\"}, \"terminal_matches\": true, \"input_unchanged\": true}, {\"id\": \"plain_control\", \"observed\": {\"snapshots\": [\"A\", \"A B\"], \"final\": \"A B\"}, \"terminal_matches\": true, \"input_unchanged\": true}, {\"id\": \"split_numeric_entity\", \"observed\": {\"snapshots\": [\"&#\", \"A\"], \"final\": \"A\"}, \"terminal_matches\": true, \"input_unchanged\": true}, {\"id\": \"split_attribute_quote\", \"observed\": {\"snapshots\": [\"\", \"Z\"], \"final\": \"Z\"}, \"terminal_matches\": true, \"input_unchanged\": true}], \"solve_calls\": 6, \"calls\": {\"objects\": 14, \"feed\": 14, \"close\": 14, \"get_text\": 14, \"fed_characters\": 85}}\n",
+  "stderr": ""
+}

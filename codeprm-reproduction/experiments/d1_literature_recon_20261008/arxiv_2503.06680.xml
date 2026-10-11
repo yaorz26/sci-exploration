@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/jjEbLZ/g36KO1n5CvE2drQLmbiQ</id>
+  <title>arXiv Query: search_query=&amp;id_list=2503.06680&amp;start=0&amp;max_results=10</title>
+  <updated>2026-10-08T05:07:15Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=&amp;start=0&amp;max_results=10&amp;id_list=2503.06680" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>10</opensearch:itemsPerPage>
+  <opensearch:totalResults>1</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2503.06680v2</id>
+    <title>FEA-Bench: A Benchmark for Evaluating Repository-Level Code Generation for Feature Implementation</title>
+    <updated>2025-06-19T02:42:41Z</updated>
+    <link href="https://arxiv.org/abs/2503.06680v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2503.06680v2" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Implementing new features in repository-level codebases is a crucial application of code generation models. However, current benchmarks lack a dedicated evaluation framework for this capability. To fill this gap, we introduce FEA-Bench, a benchmark designed to assess the ability of large language models (LLMs) to perform incremental development within code repositories. We collect pull requests from 83 GitHub repositories and use rule-based and intent-based filtering to construct task instances focused on new feature development. Each task instance containing code changes is paired with relevant unit test files to ensure that the solution can be verified. The feature implementation requires LLMs to simultaneously possess code completion capabilities for new components and code editing abilities for other relevant parts in the code repository, providing a more comprehensive evaluation method of LLMs' automated software engineering capabilities. Experimental results show that LLMs perform significantly worse in the FEA-Bench, highlighting considerable challenges in such repository-level incremental code development.</summary>
+    <category term="cs.SE" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2025-03-09T16:11:57Z</published>
+    <arxiv:comment>V2, Accepted by ACL 2025 main conference</arxiv:comment>
+    <arxiv:primary_category term="cs.SE"/>
+    <author>
+      <name>Wei Li</name>
+    </author>
+    <author>
+      <name>Xin Zhang</name>
+    </author>
+    <author>
+      <name>Zhongxin Guo</name>
+    </author>
+    <author>
+      <name>Shaoguang Mao</name>
+    </author>
+    <author>
+      <name>Wen Luo</name>
+    </author>
+    <author>
+      <name>Guangyue Peng</name>
+    </author>
+    <author>
+      <name>Yangyu Huang</name>
+    </author>
+    <author>
+      <name>Houfeng Wang</name>
+    </author>
+    <author>
+      <name>Scarlett Li</name>
+    </author>
+  </entry>
+</feed>

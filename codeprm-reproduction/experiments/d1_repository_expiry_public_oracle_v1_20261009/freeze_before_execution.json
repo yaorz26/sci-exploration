@@ -1,0 +1,154 @@
+{
+  "time": "2026-10-09T10:10:42.933617+00:00",
+  "scenarios": [
+    {
+      "name": "empty",
+      "puts": [],
+      "time": 4,
+      "returns": [
+        []
+      ],
+      "stored": []
+    },
+    {
+      "name": "boundary_mixed",
+      "puts": [
+        [
+          0,
+          "a",
+          1
+        ],
+        [
+          2,
+          "b",
+          2
+        ]
+      ],
+      "time": 4,
+      "returns": [
+        [
+          [
+            "a",
+            1
+          ]
+        ]
+      ],
+      "stored": [
+        [
+          "b",
+          2
+        ]
+      ]
+    },
+    {
+      "name": "repeat",
+      "puts": [
+        [
+          0,
+          "a",
+          1
+        ]
+      ],
+      "time": 4,
+      "returns": [
+        [
+          [
+            "a",
+            1
+          ]
+        ],
+        []
+      ],
+      "stored": []
+    },
+    {
+      "name": "same_deadline",
+      "puts": [
+        [
+          0,
+          "a",
+          1
+        ],
+        [
+          0,
+          "b",
+          2
+        ]
+      ],
+      "time": 4,
+      "returns": [
+        [
+          [
+            "a",
+            1
+          ],
+          [
+            "b",
+            2
+          ]
+        ]
+      ],
+      "stored": []
+    },
+    {
+      "name": "insertion_cleanup",
+      "puts": [
+        [
+          0,
+          "a",
+          1
+        ],
+        [
+          4,
+          "b",
+          2
+        ]
+      ],
+      "time": 4,
+      "returns": [
+        []
+      ],
+      "stored": [
+        [
+          "b",
+          2
+        ]
+      ]
+    }
+  ],
+  "workspace_hashes": {
+    "complete": {
+      "cachetools/__init__.py": "a9dc6d3bf2d69c7ea7cf94f646b64e4d675fda22679f695c5c250d809702b7b4",
+      "cachetools/func.py": "68e55f4a4b8d58c4400e99076462bb2de27f559f30963cdb4702009623ae8408",
+      "cachetools/keys.py": "00e81fa22fa88a804e9c4124d75e7ff6ab341ca212ad89db715e05d21c99d729"
+    },
+    "delegated": {
+      "cachetools/__init__.py": "7fb8ccaa7fdc67702b51e4e7f07701d200cfaf83381471fa43a19ca6ab0c3e60",
+      "cachetools/func.py": "68e55f4a4b8d58c4400e99076462bb2de27f559f30963cdb4702009623ae8408",
+      "cachetools/keys.py": "00e81fa22fa88a804e9c4124d75e7ff6ab341ca212ad89db715e05d21c99d729"
+    },
+    "report_only": {
+      "cachetools/__init__.py": "3b17340a8d0f1a3780643053d1eeb0a8037360b41969d3330a10ebbafeb24d61",
+      "cachetools/func.py": "68e55f4a4b8d58c4400e99076462bb2de27f559f30963cdb4702009623ae8408",
+      "cachetools/keys.py": "00e81fa22fa88a804e9c4124d75e7ff6ab341ca212ad89db715e05d21c99d729"
+    },
+    "deferred": {
+      "cachetools/__init__.py": "f921a369ecf14513a524bbbc3600c9de856b4135563a1a8ebea80527d9b309d2",
+      "cachetools/func.py": "68e55f4a4b8d58c4400e99076462bb2de27f559f30963cdb4702009623ae8408",
+      "cachetools/keys.py": "00e81fa22fa88a804e9c4124d75e7ff6ab341ca212ad89db715e05d21c99d729"
+    }
+  },
+  "requirement_sha256": "5eded7d685d9ffba6de3ee5056cdfa890ccbe4b72a042cd7b6551dfbedbe279a",
+  "requirement_unchanged_from_P90": true,
+  "evaluator_sha256": "1faeea3f937e8299864488dd431eb83394848b29b1729ab55ea2b37cbfaa5e80",
+  "prediction_complete_all_pass": {
+    "complete": true,
+    "delegated": true,
+    "report_only": false,
+    "deferred": false
+  },
+  "formal_labels": null,
+  "formal_split": null,
+  "human_reviews": 0,
+  "scope": "评价器修订，五输入四组织20场景；新增独特输入0/正式任务0/模型0"
+}

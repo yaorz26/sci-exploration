@@ -1,0 +1,31 @@
+{
+  "stage": "D1-G3-contract-integrity",
+  "status": "complete",
+  "question_solved": "旧PR126评价是否误收遗漏直接YamlSource参数的项目实现？",
+  "evidence": [
+    "results_legacy_control.json",
+    "results_direct_control.json",
+    "results_direct_complete.json",
+    "results_direct_alternative.json",
+    "api_structure_mapping.json"
+  ],
+  "new_information": "控制旧8/8而直接入口0/1；两个合法组织直接入口1/1。",
+  "excluded_explanations": [
+    "旧8项足以覆盖所有明示入口",
+    "新增接口必然是新的结构轴"
+  ],
+  "remaining_unknowns": [
+    "全域API完整性",
+    "内部状态所有权",
+    "结构与主A收益关系",
+    "正式人工一致性",
+    "模型收益"
+  ],
+  "decision": "不继续补PR142/PR440同类默认条款；当前资源下其主要收益是重复接口覆盖，不能区分结构—收益解释。",
+  "model_calls": 0,
+  "human_reviews": 0,
+  "formal_labels": null,
+  "split": null,
+  "background_work": false,
+  "status_note": "边界结论：完成本轮审查，但不代表结构字段已识别"
+}

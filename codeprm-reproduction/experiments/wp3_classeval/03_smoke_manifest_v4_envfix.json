@@ -1,0 +1,799 @@
+{
+  "work_package": "WP3",
+  "dataset": "FudanSELab/ClassEval",
+  "seed": 20260929,
+  "n_per_layer": {
+    "target": 4,
+    "negative": 3,
+    "boundary": 3
+  },
+  "repeats": 3,
+  "timeout_sec": 180,
+  "llm_calls": 0,
+  "context_budget_tokens": 8192,
+  "layer_pool_sizes": {
+    "unused": 27,
+    "target": 34,
+    "negative": 12,
+    "boundary": 27
+  },
+  "layer_stats": {
+    "target": {
+      "n": 34,
+      "n_methods_median": 5.0,
+      "context_est_tokens_median": 3298
+    },
+    "negative": {
+      "n": 12,
+      "n_methods_median": 2.0,
+      "context_est_tokens_median": 1193
+    },
+    "boundary": {
+      "n": 27,
+      "n_methods_median": 3,
+      "context_est_tokens_median": 1948
+    }
+  },
+  "tasks": [
+    {
+      "task_id": "ClassEval_5",
+      "layer": "negative",
+      "class_name": "AutomaticGuitarSimulator",
+      "n_methods": 2,
+      "n_methods_with_deps": 2,
+      "context_est_tokens": 1697,
+      "split": {
+        "mode": "by_method",
+        "public_classes": [
+          "AutomaticGuitarSimulatorTestInterpret"
+        ],
+        "private_classes": [
+          "AutomaticGuitarSimulatorTestDisplay",
+          "AutomaticGuitarSimulatorTest"
+        ],
+        "index": {
+          "AutomaticGuitarSimulatorTestInterpret": 0,
+          "AutomaticGuitarSimulatorTestDisplay": 1,
+          "AutomaticGuitarSimulatorTest": 2
+        }
+      },
+      "runs_full": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.67,
+          "ok": true,
+          "tail": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.67,
+          "ok": true,
+          "tail": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.7,
+          "ok": true,
+          "tail": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.000s\n\nOK\n"
+        }
+      ],
+      "runs_public_only": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.68,
+          "ok": true,
+          "tail": ".........\n----------------------------------------------------------------------\nRan 9 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.8,
+          "ok": true,
+          "tail": ".........\n----------------------------------------------------------------------\nRan 9 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.68,
+          "ok": true,
+          "tail": ".........\n----------------------------------------------------------------------\nRan 9 tests in 0.000s\n\nOK\n"
+        }
+      ],
+      "stable_full": true,
+      "stable_public": true
+    },
+    {
+      "task_id": "ClassEval_44",
+      "layer": "boundary",
+      "class_name": "HtmlUtil",
+      "n_methods": 3,
+      "n_methods_with_deps": 3,
+      "context_est_tokens": 3404,
+      "split": {
+        "mode": "by_method",
+        "public_classes": [
+          "HtmlUtilTestFormatLineFeed",
+          "HtmlUtilTestFormatLineHtmlText"
+        ],
+        "private_classes": [
+          "HtmlUtilTestExtractCodeFromHtmlText",
+          "HtmlUtilTest"
+        ],
+        "index": {
+          "HtmlUtilTestFormatLineFeed": 0,
+          "HtmlUtilTestFormatLineHtmlText": 1,
+          "HtmlUtilTestExtractCodeFromHtmlText": 2,
+          "HtmlUtilTest": 3
+        }
+      },
+      "runs_full": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 1.8,
+          "ok": true,
+          "tail": ".......................\n----------------------------------------------------------------------\nRan 23 tests in 0.006s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 1.85,
+          "ok": true,
+          "tail": ".......................\n----------------------------------------------------------------------\nRan 23 tests in 0.006s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 1.88,
+          "ok": true,
+          "tail": ".......................\n----------------------------------------------------------------------\nRan 23 tests in 0.008s\n\nOK\n"
+        }
+      ],
+      "runs_public_only": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 1.81,
+          "ok": true,
+          "tail": ".................\n----------------------------------------------------------------------\nRan 17 tests in 0.003s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 1.75,
+          "ok": true,
+          "tail": ".................\n----------------------------------------------------------------------\nRan 17 tests in 0.003s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 1.99,
+          "ok": true,
+          "tail": ".................\n----------------------------------------------------------------------\nRan 17 tests in 0.003s\n\nOK\n"
+        }
+      ],
+      "stable_full": true,
+      "stable_public": true
+    },
+    {
+      "task_id": "ClassEval_51",
+      "layer": "negative",
+      "class_name": "KappaCalculator",
+      "n_methods": 2,
+      "n_methods_with_deps": 2,
+      "context_est_tokens": 2270,
+      "split": {
+        "mode": "by_method",
+        "public_classes": [
+          "KappaCalculatorTestKappa"
+        ],
+        "private_classes": [
+          "KappaCalculatorTestFleissKappa",
+          "KappaCalculatorTest"
+        ],
+        "index": {
+          "KappaCalculatorTestKappa": 0,
+          "KappaCalculatorTestFleissKappa": 1,
+          "KappaCalculatorTest": 2
+        }
+      },
+      "runs_full": [
+        {
+          "run": 1,
+          "exit_code": 1,
+          "seconds": 0.67,
+          "ok": false,
+          "tail": "^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\experiments\\wp3_classeval\\work\\ClassEval_51\\ref_full.py\", line 15, in kappa\n    Pe = float(ysum * xsum) / sum / sum\n         ~~~~~^^^^^^^^^^^^^\nTypeError: only 0-dimensional arrays can be converted to Python scalars\n\n----------------------------------------------------------------------\nRan 11 tests in 0.003s\n\nFAILED (errors=6)\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 1,
+          "seconds": 0.67,
+          "ok": false,
+          "tail": "^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\experiments\\wp3_classeval\\work\\ClassEval_51\\ref_full.py\", line 15, in kappa\n    Pe = float(ysum * xsum) / sum / sum\n         ~~~~~^^^^^^^^^^^^^\nTypeError: only 0-dimensional arrays can be converted to Python scalars\n\n----------------------------------------------------------------------\nRan 11 tests in 0.005s\n\nFAILED (errors=6)\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 1,
+          "seconds": 0.69,
+          "ok": false,
+          "tail": "^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\experiments\\wp3_classeval\\work\\ClassEval_51\\ref_full.py\", line 15, in kappa\n    Pe = float(ysum * xsum) / sum / sum\n         ~~~~~^^^^^^^^^^^^^\nTypeError: only 0-dimensional arrays can be converted to Python scalars\n\n----------------------------------------------------------------------\nRan 11 tests in 0.003s\n\nFAILED (errors=6)\n"
+        }
+      ],
+      "runs_public_only": [
+        {
+          "run": 1,
+          "exit_code": 1,
+          "seconds": 0.64,
+          "ok": false,
+          "tail": "^^^^^^^^^^^^^^^^\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\experiments\\wp3_classeval\\work\\ClassEval_51\\ref_public_only.py\", line 15, in kappa\n    Pe = float(ysum * xsum) / sum / sum\n         ~~~~~^^^^^^^^^^^^^\nTypeError: only 0-dimensional arrays can be converted to Python scalars\n\n----------------------------------------------------------------------\nRan 5 tests in 0.003s\n\nFAILED (errors=5)\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 1,
+          "seconds": 0.66,
+          "ok": false,
+          "tail": "^^^^^^^^^^^^^^^^\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\experiments\\wp3_classeval\\work\\ClassEval_51\\ref_public_only.py\", line 15, in kappa\n    Pe = float(ysum * xsum) / sum / sum\n         ~~~~~^^^^^^^^^^^^^\nTypeError: only 0-dimensional arrays can be converted to Python scalars\n\n----------------------------------------------------------------------\nRan 5 tests in 0.002s\n\nFAILED (errors=5)\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 1,
+          "seconds": 0.66,
+          "ok": false,
+          "tail": "^^^^^^^^^^^^^^^^\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\experiments\\wp3_classeval\\work\\ClassEval_51\\ref_public_only.py\", line 15, in kappa\n    Pe = float(ysum * xsum) / sum / sum\n         ~~~~~^^^^^^^^^^^^^\nTypeError: only 0-dimensional arrays can be converted to Python scalars\n\n----------------------------------------------------------------------\nRan 5 tests in 0.002s\n\nFAILED (errors=5)\n"
+        }
+      ],
+      "stable_full": true,
+      "stable_public": true
+    },
+    {
+      "task_id": "ClassEval_52",
+      "layer": "boundary",
+      "class_name": "Lemmatization",
+      "n_methods": 3,
+      "n_methods_with_deps": 3,
+      "context_est_tokens": 2169,
+      "split": {
+        "mode": "by_method",
+        "public_classes": [
+          "LemmatizationTestLemmatizeSentence",
+          "LemmatizationTestGetPosTag"
+        ],
+        "private_classes": [
+          "LemmatizationTestRemovePunctuation",
+          "LemmatizationTestMain"
+        ],
+        "index": {
+          "LemmatizationTestLemmatizeSentence": 0,
+          "LemmatizationTestGetPosTag": 1,
+          "LemmatizationTestRemovePunctuation": 2,
+          "LemmatizationTestMain": 3
+        }
+      },
+      "runs_full": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 3.98,
+          "ok": true,
+          "tail": "so NLTK cannot pin the validated IP and SSRF\n[nltk_data]     protection cannot be enforced (CWE-918). If and only\n[nltk_data]     if the proxy is trusted to be SSRF-safe, opt in via\n[nltk_data]     NLTK_ALLOW_PROXIED_URLOPEN=1 or\n[nltk_data]     nltk.pathsec.ALLOW_PROXIED_FETCH=True.\n................\n----------------------------------------------------------------------\nRan 16 tests in 1.883s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 3.74,
+          "ok": true,
+          "tail": "so NLTK cannot pin the validated IP and SSRF\n[nltk_data]     protection cannot be enforced (CWE-918). If and only\n[nltk_data]     if the proxy is trusted to be SSRF-safe, opt in via\n[nltk_data]     NLTK_ALLOW_PROXIED_URLOPEN=1 or\n[nltk_data]     nltk.pathsec.ALLOW_PROXIED_FETCH=True.\n................\n----------------------------------------------------------------------\nRan 16 tests in 1.684s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 3.77,
+          "ok": true,
+          "tail": "so NLTK cannot pin the validated IP and SSRF\n[nltk_data]     protection cannot be enforced (CWE-918). If and only\n[nltk_data]     if the proxy is trusted to be SSRF-safe, opt in via\n[nltk_data]     NLTK_ALLOW_PROXIED_URLOPEN=1 or\n[nltk_data]     nltk.pathsec.ALLOW_PROXIED_FETCH=True.\n................\n----------------------------------------------------------------------\nRan 16 tests in 1.691s\n\nOK\n"
+        }
+      ],
+      "runs_public_only": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 3.83,
+          "ok": true,
+          "tail": "ress, so NLTK cannot pin the validated IP and SSRF\n[nltk_data]     protection cannot be enforced (CWE-918). If and only\n[nltk_data]     if the proxy is trusted to be SSRF-safe, opt in via\n[nltk_data]     NLTK_ALLOW_PROXIED_URLOPEN=1 or\n[nltk_data]     nltk.pathsec.ALLOW_PROXIED_FETCH=True.\n..........\n----------------------------------------------------------------------\nRan 10 tests in 1.729s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 3.85,
+          "ok": true,
+          "tail": "ress, so NLTK cannot pin the validated IP and SSRF\n[nltk_data]     protection cannot be enforced (CWE-918). If and only\n[nltk_data]     if the proxy is trusted to be SSRF-safe, opt in via\n[nltk_data]     NLTK_ALLOW_PROXIED_URLOPEN=1 or\n[nltk_data]     nltk.pathsec.ALLOW_PROXIED_FETCH=True.\n..........\n----------------------------------------------------------------------\nRan 10 tests in 1.728s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 3.89,
+          "ok": true,
+          "tail": "ress, so NLTK cannot pin the validated IP and SSRF\n[nltk_data]     protection cannot be enforced (CWE-918). If and only\n[nltk_data]     if the proxy is trusted to be SSRF-safe, opt in via\n[nltk_data]     NLTK_ALLOW_PROXIED_URLOPEN=1 or\n[nltk_data]     nltk.pathsec.ALLOW_PROXIED_FETCH=True.\n..........\n----------------------------------------------------------------------\nRan 10 tests in 1.717s\n\nOK\n"
+        }
+      ],
+      "stable_full": true,
+      "stable_public": true
+    },
+    {
+      "task_id": "ClassEval_57",
+      "layer": "negative",
+      "class_name": "MetricsCalculator2",
+      "n_methods": 2,
+      "n_methods_with_deps": 2,
+      "context_est_tokens": 1882,
+      "split": {
+        "mode": "by_method",
+        "public_classes": [
+          "MetricsCalculator2TestMrr"
+        ],
+        "private_classes": [
+          "MetricsCalculator2TestMap",
+          "MetricsCalculator2Test"
+        ],
+        "index": {
+          "MetricsCalculator2TestMrr": 0,
+          "MetricsCalculator2TestMap": 1,
+          "MetricsCalculator2Test": 2
+        }
+      },
+      "runs_full": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.89,
+          "ok": true,
+          "tail": "....................\n----------------------------------------------------------------------\nRan 20 tests in 0.001s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.72,
+          "ok": true,
+          "tail": "....................\n----------------------------------------------------------------------\nRan 20 tests in 0.001s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.66,
+          "ok": true,
+          "tail": "....................\n----------------------------------------------------------------------\nRan 20 tests in 0.001s\n\nOK\n"
+        }
+      ],
+      "runs_public_only": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.71,
+          "ok": true,
+          "tail": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.69,
+          "ok": true,
+          "tail": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.66,
+          "ok": true,
+          "tail": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.000s\n\nOK\n"
+        }
+      ],
+      "stable_full": true,
+      "stable_public": true
+    },
+    {
+      "task_id": "ClassEval_61",
+      "layer": "target",
+      "class_name": "MusicPlayer",
+      "n_methods": 8,
+      "n_methods_with_deps": 8,
+      "context_est_tokens": 4102,
+      "split": {
+        "mode": "by_method",
+        "public_classes": [
+          "MusicPlayerTestAddSong",
+          "MusicPlayerTestRemoveSong",
+          "MusicPlayerTestPlay",
+          "MusicPlayerTestStop"
+        ],
+        "private_classes": [
+          "MusicPlayerTestSwitchSong",
+          "MusicPlayerTestPreviousSong",
+          "MusicPlayerTestSetVolume",
+          "MusicPlayerTestShuffle",
+          "MusicPlayerTestMain"
+        ],
+        "index": {
+          "MusicPlayerTestAddSong": 0,
+          "MusicPlayerTestRemoveSong": 1,
+          "MusicPlayerTestPlay": 2,
+          "MusicPlayerTestStop": 3,
+          "MusicPlayerTestSwitchSong": 4,
+          "MusicPlayerTestPreviousSong": 5,
+          "MusicPlayerTestSetVolume": 6,
+          "MusicPlayerTestShuffle": 7,
+          "MusicPlayerTestMain": 8
+        }
+      },
+      "runs_full": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.68,
+          "ok": true,
+          "tail": "..........................................\n----------------------------------------------------------------------\nRan 42 tests in 0.001s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.69,
+          "ok": true,
+          "tail": "..........................................\n----------------------------------------------------------------------\nRan 42 tests in 0.001s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.72,
+          "ok": true,
+          "tail": "..........................................\n----------------------------------------------------------------------\nRan 42 tests in 0.001s\n\nOK\n"
+        }
+      ],
+      "runs_public_only": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.68,
+          "ok": true,
+          "tail": ".....................\n----------------------------------------------------------------------\nRan 21 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.72,
+          "ok": true,
+          "tail": ".....................\n----------------------------------------------------------------------\nRan 21 tests in 0.001s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.68,
+          "ok": true,
+          "tail": ".....................\n----------------------------------------------------------------------\nRan 21 tests in 0.000s\n\nOK\n"
+        }
+      ],
+      "stable_full": true,
+      "stable_public": true
+    },
+    {
+      "task_id": "ClassEval_67",
+      "layer": "boundary",
+      "class_name": "Order",
+      "n_methods": 3,
+      "n_methods_with_deps": 3,
+      "context_est_tokens": 3835,
+      "split": {
+        "mode": "by_method",
+        "public_classes": [
+          "OrderTestAddDish",
+          "OrderTestCalculateTotal"
+        ],
+        "private_classes": [
+          "OrderTestCheckout",
+          "OrderTest"
+        ],
+        "index": {
+          "OrderTestAddDish": 0,
+          "OrderTestCalculateTotal": 1,
+          "OrderTestCheckout": 2,
+          "OrderTest": 3
+        }
+      },
+      "runs_full": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.64,
+          "ok": true,
+          "tail": ".................\n----------------------------------------------------------------------\nRan 17 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.68,
+          "ok": true,
+          "tail": ".................\n----------------------------------------------------------------------\nRan 17 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.68,
+          "ok": true,
+          "tail": ".................\n----------------------------------------------------------------------\nRan 17 tests in 0.000s\n\nOK\n"
+        }
+      ],
+      "runs_public_only": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.67,
+          "ok": true,
+          "tail": "...........\n----------------------------------------------------------------------\nRan 11 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.68,
+          "ok": true,
+          "tail": "...........\n----------------------------------------------------------------------\nRan 11 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.69,
+          "ok": true,
+          "tail": "...........\n----------------------------------------------------------------------\nRan 11 tests in 0.000s\n\nOK\n"
+        }
+      ],
+      "stable_full": true,
+      "stable_public": true
+    },
+    {
+      "task_id": "ClassEval_76",
+      "layer": "target",
+      "class_name": "SignInSystem",
+      "n_methods": 5,
+      "n_methods_with_deps": 5,
+      "context_est_tokens": 2657,
+      "split": {
+        "mode": "by_method",
+        "public_classes": [
+          "SignInSystemTestAddUser",
+          "SignInSystemTestSignIn",
+          "SignInSystemTestCheckSignIn"
+        ],
+        "private_classes": [
+          "SignInSystemTestAllSignedIn",
+          "SignInSystemTestAllNotSignedIn",
+          "SignInSystemTestMain"
+        ],
+        "index": {
+          "SignInSystemTestAddUser": 0,
+          "SignInSystemTestSignIn": 1,
+          "SignInSystemTestCheckSignIn": 2,
+          "SignInSystemTestAllSignedIn": 3,
+          "SignInSystemTestAllNotSignedIn": 4,
+          "SignInSystemTestMain": 5
+        }
+      },
+      "runs_full": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.7,
+          "ok": true,
+          "tail": "..........................\n----------------------------------------------------------------------\nRan 26 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.71,
+          "ok": true,
+          "tail": "..........................\n----------------------------------------------------------------------\nRan 26 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.79,
+          "ok": true,
+          "tail": "..........................\n----------------------------------------------------------------------\nRan 26 tests in 0.001s\n\nOK\n"
+        }
+      ],
+      "runs_public_only": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.76,
+          "ok": true,
+          "tail": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.68,
+          "ok": true,
+          "tail": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.85,
+          "ok": true,
+          "tail": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.000s\n\nOK\n"
+        }
+      ],
+      "stable_full": true,
+      "stable_public": true
+    },
+    {
+      "task_id": "ClassEval_87",
+      "layer": "target",
+      "class_name": "TimeUtils",
+      "n_methods": 7,
+      "n_methods_with_deps": 7,
+      "context_est_tokens": 3234,
+      "split": {
+        "mode": "by_method",
+        "public_classes": [
+          "TimeUtilsTestGetCurrentTime",
+          "TimeUtilsTestGetCurrentDate",
+          "TimeUtilsTestAddSeconds",
+          "TimeUtilsTestStringToDatetime"
+        ],
+        "private_classes": [
+          "TimeUtilsTestDatetimeToString",
+          "TimeUtilsTestGetMinutes",
+          "TimeUtilsTestGetFormatTime",
+          "TimeUtilsTest"
+        ],
+        "index": {
+          "TimeUtilsTestGetCurrentTime": 0,
+          "TimeUtilsTestGetCurrentDate": 1,
+          "TimeUtilsTestAddSeconds": 2,
+          "TimeUtilsTestStringToDatetime": 3,
+          "TimeUtilsTestDatetimeToString": 4,
+          "TimeUtilsTestGetMinutes": 5,
+          "TimeUtilsTestGetFormatTime": 6,
+          "TimeUtilsTest": 7
+        }
+      },
+      "runs_full": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.69,
+          "ok": true,
+          "tail": "....................................\n----------------------------------------------------------------------\nRan 36 tests in 0.013s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.68,
+          "ok": true,
+          "tail": "....................................\n----------------------------------------------------------------------\nRan 36 tests in 0.012s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.71,
+          "ok": true,
+          "tail": "....................................\n----------------------------------------------------------------------\nRan 36 tests in 0.011s\n\nOK\n"
+        }
+      ],
+      "runs_public_only": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.7,
+          "ok": true,
+          "tail": "....................\n----------------------------------------------------------------------\nRan 20 tests in 0.012s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.67,
+          "ok": true,
+          "tail": "....................\n----------------------------------------------------------------------\nRan 20 tests in 0.010s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.81,
+          "ok": true,
+          "tail": "....................\n----------------------------------------------------------------------\nRan 20 tests in 0.011s\n\nOK\n"
+        }
+      ],
+      "stable_full": true,
+      "stable_public": true
+    },
+    {
+      "task_id": "ClassEval_95",
+      "layer": "target",
+      "class_name": "Warehouse",
+      "n_methods": 6,
+      "n_methods_with_deps": 6,
+      "context_est_tokens": 3714,
+      "split": {
+        "mode": "by_method",
+        "public_classes": [
+          "WarehouseTestAddProduct",
+          "WarehouseTestUpdateProductQuantity",
+          "WarehouseTestGetProductQuantity"
+        ],
+        "private_classes": [
+          "WarehouseTestCreateOrder",
+          "WarehouseTestChangeOrderStatus",
+          "WarehouseTestTrackOrder",
+          "WarehouseTestMain"
+        ],
+        "index": {
+          "WarehouseTestAddProduct": 0,
+          "WarehouseTestUpdateProductQuantity": 1,
+          "WarehouseTestGetProductQuantity": 2,
+          "WarehouseTestCreateOrder": 3,
+          "WarehouseTestChangeOrderStatus": 4,
+          "WarehouseTestTrackOrder": 5,
+          "WarehouseTestMain": 6
+        }
+      },
+      "runs_full": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.68,
+          "ok": true,
+          "tail": "................................\n----------------------------------------------------------------------\nRan 32 tests in 0.001s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.79,
+          "ok": true,
+          "tail": "................................\n----------------------------------------------------------------------\nRan 32 tests in 0.001s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.69,
+          "ok": true,
+          "tail": "................................\n----------------------------------------------------------------------\nRan 32 tests in 0.001s\n\nOK\n"
+        }
+      ],
+      "runs_public_only": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.66,
+          "ok": true,
+          "tail": "................\n----------------------------------------------------------------------\nRan 16 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.71,
+          "ok": true,
+          "tail": "................\n----------------------------------------------------------------------\nRan 16 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.65,
+          "ok": true,
+          "tail": "................\n----------------------------------------------------------------------\nRan 16 tests in 0.000s\n\nOK\n"
+        }
+      ],
+      "stable_full": true,
+      "stable_public": true
+    }
+  ],
+  "summary": {
+    "tasks": 10,
+    "full_all_3_pass": 9,
+    "public_only_all_3_pass": 9,
+    "all_stable": true,
+    "max_context_est_tokens": 4102,
+    "median_seconds_full": 0.695
+  }
+}

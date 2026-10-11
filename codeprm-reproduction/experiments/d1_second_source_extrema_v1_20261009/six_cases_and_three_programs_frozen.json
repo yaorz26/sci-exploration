@@ -1,0 +1,108 @@
+{
+  "created_at": "2026-10-09T04:21:15Z",
+  "cases": [
+    {
+      "id": "lower0_upper2",
+      "input": {
+        "data": [
+          0,
+          2
+        ]
+      },
+      "expected": {
+        "value": {
+          "minimum": 0,
+          "maximum": 2
+        }
+      }
+    },
+    {
+      "id": "lower1_upper2",
+      "input": {
+        "data": [
+          1,
+          2,
+          2
+        ]
+      },
+      "expected": {
+        "value": {
+          "minimum": 1,
+          "maximum": 2
+        }
+      }
+    },
+    {
+      "id": "lower0_upper3",
+      "input": {
+        "data": [
+          3,
+          0,
+          2
+        ]
+      },
+      "expected": {
+        "value": {
+          "minimum": 0,
+          "maximum": 3
+        }
+      }
+    },
+    {
+      "id": "lower1_upper3",
+      "input": {
+        "data": [
+          1,
+          3,
+          2
+        ]
+      },
+      "expected": {
+        "value": {
+          "minimum": 1,
+          "maximum": 3
+        }
+      }
+    },
+    {
+      "id": "single_negative",
+      "input": {
+        "data": [
+          -4
+        ]
+      },
+      "expected": {
+        "value": {
+          "minimum": -4,
+          "maximum": -4
+        }
+      }
+    },
+    {
+      "id": "empty_rejection",
+      "input": {
+        "data": []
+      },
+      "expected": {
+        "error": "ValueError"
+      }
+    }
+  ],
+  "programs": {
+    "one_pass": "def solve(payload):\n    iterator = iter(payload[\"data\"])\n    try:\n        low = high = next(iterator)\n    except StopIteration:\n        raise ValueError(\"空数据\") from None\n    for value in iterator:\n        if value < low:\n            low = value\n        if value > high:\n            high = value\n    return {\"minimum\": low, \"maximum\": high}\n",
+    "two_pass": "def solve(payload):\n    data = payload[\"data\"]\n    return {\"minimum\": min(data), \"maximum\": max(data)}\n",
+    "source_adapter": "import sys\nfrom pathlib import Path\nsys.path.insert(0, str(Path(__file__).resolve().parent / \"sources\"))\nimport more_itertools\n\ndef solve(payload):\n    low, high = more_itertools.minmax(payload[\"data\"])\n    return {\"minimum\": low, \"maximum\": high}\n"
+  },
+  "predictions_out_of_six": {
+    "one_pass": 6,
+    "two_pass": 6,
+    "source_adapter": 6
+  },
+  "solve_upper_limit": 18,
+  "hashes": {
+    "data\\raw\\d1_project_v1_20261008\\repositories\\more_itertools\\more_itertools\\more.py": "1bdc5f323ea18906436a42268b942d5b4d15ac8b3ff17c1211a59fb192fa068e",
+    "data\\raw\\d1_project_v1_20261008\\manifests\\more_itertools.json": "9454628d673b0420fe7d006277f789c79d84c54c98f91bc1fe30eaef54ccc6fa",
+    "scripts\\d1\\build_extrema_candidate.py": "ed2596de72738c38d23e7c44855ee1aea74210ac2472e26cd737468877480431"
+  },
+  "valid_use_grid": "minimum0/1与maximum2/3四格；极值共同使用同一有效列表，非算法/统计独立"
+}

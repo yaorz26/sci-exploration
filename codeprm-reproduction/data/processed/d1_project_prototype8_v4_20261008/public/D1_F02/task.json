@@ -1,0 +1,64 @@
+{
+  "task_id": "D1_F02",
+  "requirement": "实现solve(payload)。value为列表，每项允许三种形式：字符串（作为键，值取default，default默认null）；仅有一项的JSON对象（转为其键和值）；长度正好2的列表（作为[key,value]）。键为字符串，值可为任意JSON值。返回[[key,value],...]，保留输入顺序和重复键，输入不得被修改。其他条目格式引发ValueError。只用标准库，内部结构自由。",
+  "entry_point": "solve(payload)",
+  "language": "Python",
+  "allowed_libraries": "仅Python标准库",
+  "public_examples": [
+    {
+      "case_id": "public_1",
+      "input": {
+        "value": [
+          "a",
+          {
+            "b": 2
+          },
+          [
+            "c",
+            3
+          ]
+        ]
+      },
+      "expected": {
+        "value": [
+          [
+            "a",
+            null
+          ],
+          [
+            "b",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "public_2",
+      "input": {
+        "value": [
+          "a",
+          "a"
+        ],
+        "default": "x"
+      },
+      "expected": {
+        "value": [
+          [
+            "a",
+            "x"
+          ],
+          [
+            "a",
+            "x"
+          ]
+        ]
+      }
+    }
+  ],
+  "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。",
+  "internal_decomposition": "自由选择，不给定helper名称或数量"
+}

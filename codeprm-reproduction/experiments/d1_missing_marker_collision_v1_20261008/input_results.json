@@ -1,0 +1,422 @@
+[
+  {
+    "id": "found_marker",
+    "input": {
+      "tree": {
+        "x": {
+          "error": "missing"
+        }
+      },
+      "queries": [
+        {
+          "path": [
+            "x"
+          ]
+        }
+      ]
+    },
+    "expected": [
+      {
+        "error": "missing"
+      }
+    ],
+    "hand_branch": "found",
+    "outputs": {
+      "reference": {
+        "outcome": {
+          "value": [
+            {
+              "error": "missing"
+            }
+          ]
+        },
+        "input_unchanged": true,
+        "hand_expected_pass": true
+      },
+      "alternate": {
+        "outcome": {
+          "value": [
+            {
+              "error": "missing"
+            }
+          ]
+        },
+        "input_unchanged": true,
+        "hand_expected_pass": true
+      }
+    }
+  },
+  {
+    "id": "missing_marker",
+    "input": {
+      "tree": {},
+      "queries": [
+        {
+          "path": [
+            "x"
+          ]
+        }
+      ]
+    },
+    "expected": [
+      {
+        "error": "missing"
+      }
+    ],
+    "hand_branch": "missing",
+    "outputs": {
+      "reference": {
+        "outcome": {
+          "value": [
+            {
+              "error": "missing"
+            }
+          ]
+        },
+        "input_unchanged": true,
+        "hand_expected_pass": true
+      },
+      "alternate": {
+        "outcome": {
+          "value": [
+            {
+              "error": "missing"
+            }
+          ]
+        },
+        "input_unchanged": true,
+        "hand_expected_pass": true
+      }
+    }
+  },
+  {
+    "id": "found_null",
+    "input": {
+      "tree": {
+        "x": null
+      },
+      "queries": [
+        {
+          "path": [
+            "x"
+          ],
+          "default": null
+        }
+      ]
+    },
+    "expected": [
+      null
+    ],
+    "hand_branch": "found",
+    "outputs": {
+      "reference": {
+        "outcome": {
+          "value": [
+            null
+          ]
+        },
+        "input_unchanged": true,
+        "hand_expected_pass": true
+      },
+      "alternate": {
+        "outcome": {
+          "value": [
+            null
+          ]
+        },
+        "input_unchanged": true,
+        "hand_expected_pass": true
+      }
+    }
+  },
+  {
+    "id": "missing_default_null",
+    "input": {
+      "tree": {},
+      "queries": [
+        {
+          "path": [
+            "x"
+          ],
+          "default": null
+        }
+      ]
+    },
+    "expected": [
+      null
+    ],
+    "hand_branch": "missing",
+    "outputs": {
+      "reference": {
+        "outcome": {
+          "value": [
+            null
+          ]
+        },
+        "input_unchanged": true,
+        "hand_expected_pass": true
+      },
+      "alternate": {
+        "outcome": {
+          "value": [
+            null
+          ]
+        },
+        "input_unchanged": true,
+        "hand_expected_pass": true
+      }
+    }
+  },
+  {
+    "id": "found_marker_default_0",
+    "input": {
+      "tree": {
+        "x": {
+          "error": "missing"
+        }
+      },
+      "queries": [
+        {
+          "path": [
+            "x"
+          ],
+          "default": 0
+        }
+      ]
+    },
+    "expected": [
+      {
+        "error": "missing"
+      }
+    ],
+    "hand_branch": "found",
+    "outputs": {
+      "reference": {
+        "outcome": {
+          "value": [
+            {
+              "error": "missing"
+            }
+          ]
+        },
+        "input_unchanged": true,
+        "hand_expected_pass": true
+      },
+      "alternate": {
+        "outcome": {
+          "value": [
+            {
+              "error": "missing"
+            }
+          ]
+        },
+        "input_unchanged": true,
+        "hand_expected_pass": true
+      }
+    }
+  },
+  {
+    "id": "found_marker_default_1",
+    "input": {
+      "tree": {
+        "x": {
+          "error": "missing"
+        }
+      },
+      "queries": [
+        {
+          "path": [
+            "x"
+          ],
+          "default": 1
+        }
+      ]
+    },
+    "expected": [
+      {
+        "error": "missing"
+      }
+    ],
+    "hand_branch": "found",
+    "outputs": {
+      "reference": {
+        "outcome": {
+          "value": [
+            {
+              "error": "missing"
+            }
+          ]
+        },
+        "input_unchanged": true,
+        "hand_expected_pass": true
+      },
+      "alternate": {
+        "outcome": {
+          "value": [
+            {
+              "error": "missing"
+            }
+          ]
+        },
+        "input_unchanged": true,
+        "hand_expected_pass": true
+      }
+    }
+  },
+  {
+    "id": "missing_default_0",
+    "input": {
+      "tree": {},
+      "queries": [
+        {
+          "path": [
+            "x"
+          ],
+          "default": 0
+        }
+      ]
+    },
+    "expected": [
+      0
+    ],
+    "hand_branch": "missing",
+    "outputs": {
+      "reference": {
+        "outcome": {
+          "value": [
+            0
+          ]
+        },
+        "input_unchanged": true,
+        "hand_expected_pass": true
+      },
+      "alternate": {
+        "outcome": {
+          "value": [
+            0
+          ]
+        },
+        "input_unchanged": true,
+        "hand_expected_pass": true
+      }
+    }
+  },
+  {
+    "id": "missing_default_1",
+    "input": {
+      "tree": {},
+      "queries": [
+        {
+          "path": [
+            "x"
+          ],
+          "default": 1
+        }
+      ]
+    },
+    "expected": [
+      1
+    ],
+    "hand_branch": "missing",
+    "outputs": {
+      "reference": {
+        "outcome": {
+          "value": [
+            1
+          ]
+        },
+        "input_unchanged": true,
+        "hand_expected_pass": true
+      },
+      "alternate": {
+        "outcome": {
+          "value": [
+            1
+          ]
+        },
+        "input_unchanged": true,
+        "hand_expected_pass": true
+      }
+    }
+  },
+  {
+    "id": "found_null_default_0",
+    "input": {
+      "tree": {
+        "x": null
+      },
+      "queries": [
+        {
+          "path": [
+            "x"
+          ],
+          "default": 0
+        }
+      ]
+    },
+    "expected": [
+      null
+    ],
+    "hand_branch": "found",
+    "outputs": {
+      "reference": {
+        "outcome": {
+          "value": [
+            null
+          ]
+        },
+        "input_unchanged": true,
+        "hand_expected_pass": true
+      },
+      "alternate": {
+        "outcome": {
+          "value": [
+            null
+          ]
+        },
+        "input_unchanged": true,
+        "hand_expected_pass": true
+      }
+    }
+  },
+  {
+    "id": "found_null_default_1",
+    "input": {
+      "tree": {
+        "x": null
+      },
+      "queries": [
+        {
+          "path": [
+            "x"
+          ],
+          "default": 1
+        }
+      ]
+    },
+    "expected": [
+      null
+    ],
+    "hand_branch": "found",
+    "outputs": {
+      "reference": {
+        "outcome": {
+          "value": [
+            null
+          ]
+        },
+        "input_unchanged": true,
+        "hand_expected_pass": true
+      },
+      "alternate": {
+        "outcome": {
+          "value": [
+            null
+          ]
+        },
+        "input_unchanged": true,
+        "hand_expected_pass": true
+      }
+    }
+  }
+]

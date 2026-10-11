@@ -1,0 +1,34 @@
+{
+  "source": "仅基于冻结的公开输入计划；未读取开发隐藏分数来修改规范",
+  "normalized_plans": [
+    {
+      "call": "002_D1_B01_M2_plan.response.json",
+      "helpers": [
+        "_split_text",
+        "_parse_range",
+        "_parse_segment"
+      ]
+    },
+    {
+      "call": "004_D1_B02_M2_plan.response.json",
+      "helpers": [
+        "_initialize",
+        "_execute_operation"
+      ]
+    },
+    {
+      "call": "006_D1_C01_M2_plan.response.json",
+      "helpers": [
+        "_initialize_cache",
+        "_execute_operation"
+      ]
+    },
+    {
+      "call": "008_D1_C02_M2_plan.response.json",
+      "helpers": [
+        "_update_cache",
+        "_get_record"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "new_inputs": 6,
+  "new_solve_calls": 18,
+  "scores_out_of_six": {
+    "materialize_then_scan": 6,
+    "original_product_predicate": 6,
+    "original_division_predicate": 5
+  },
+  "original_product_selection_trace_matches": [
+    6,
+    6
+  ],
+  "division_failed_ids": [
+    "rounded_multiply_boundary"
+  ],
+  "boundary_arithmetic": {
+    "product": 0.30000000000000004,
+    "inverse_threshold": 3.0000000000000004,
+    "product_predicate": true,
+    "division_predicate": false
+  },
+  "input_unchanged": true,
+  "predictions_all_match": true,
+  "model_calls": 0,
+  "private_reads": 0,
+  "original_test_runs": 0,
+  "conclusion": "原树先选用实际乘积谓词与原—新路径映射可以满足本六例；浮点除法阈值逆变换不普遍等价",
+  "limits": "手工构造/同助手有限诊断，不推模型失败根因/所有逆变换/最优拆法，不改旧标签/评分"
+}

@@ -1,0 +1,209 @@
+--- a/confuse/core.py
++++ b/confuse/core.py
+@@ -1,6 +1,7 @@
+ # -*- coding: utf-8 -*-
+ # This file is part of Confuse.
+ # Copyright 2016, Adrian Sampson.
++
+ # Permission is hereby granted, free of charge, to any person obtaining
+ # a copy of this software and associated documentation files (the
+ # "Software"), to deal in the Software without restriction, including
+@@ -13,6 +14,7 @@
+ # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ # See the License for the specific language governing permissions and
+ # limitations under the License.
++
+ """Worry-free YAML configuration files.
+ """
+ from __future__ import division, absolute_import, print_function
+@@ -20,6 +22,7 @@
+ import errno
+ import os
+ import yaml
++import re
+ from collections import OrderedDict
+ 
+ from . import util
+@@ -27,6 +30,7 @@
+ from . import yaml_util
+ from .sources import ConfigSource, YamlSource
+ from .exceptions import ConfigTypeError, NotFoundError, ConfigError
+ 
+ CONFIG_FILENAME = 'config.yaml'
+ DEFAULT_FILENAME = 'config_default.yaml'
+ ROOT_NAME = 'root'
+ 
+ REDACTED_TOMBSTONE = 'REDACTED'
+ 
+ 
+ class ConfigView(object):
+     """A configuration "view" is a query into a program's configuration
+     data. A view represents a hypothetical location in the configuration
+     tree; to extract the data from the location, a client typically
+     calls the ``view.get()`` method. The client can access children in
+     the tree (subviews) by subscripting the parent view (i.e.,
+     ``view[key]``).
+     """
+ 
+     name = None
+     """The name of the view, depicting the path taken through the
+     configuration in Python-like syntax (e.g., ``foo['bar'][42]``).
+     """
+ 
+     def resolve(self):
+         """The core (internal) data retrieval method. Generates (value,
+         source) pairs for each source that contains a value for this
+         view. May raise `ConfigTypeError` if a type error occurs while
+         traversing a source.
+         """
+         raise NotImplementedError
+ 
+     def first(self):
+         """Return a (value, source) pair for the first object found for
+         this view. This amounts to the first element returned by
+         `resolve`. If no values are available, a `NotFoundError` is
+         raised.
+         """
+         pairs = self.resolve()
+         try:
+             return util.iter_first(pairs)
+         except ValueError:
+             raise NotFoundError(u"{0} not found".format(self.name))
+ 
+     def exists(self):
+         """Determine whether the view has a setting in any source.
+         """
+         try:
+             self.first()
+         except NotFoundError:
+             return False
+         return True
+ 
+     def add(self, value):
+         """Set the *default* value for this configuration view. The
+         specified value is added as the lowest-priority configuration
+         data source.
+         """
+         raise NotImplementedError
+ 
+     def set(self, value):
+         """*Override* the value for this configuration view. The
+         specified value is added as the highest-priority configuration
+         data source.
+         """
+         raise NotImplementedError
+ 
+     def root(self):
+         """The RootView object from which this view is descended.
+         """
+         raise NotImplementedError
+ 
+     def __repr__(self):
+         return '<{}: {}>'.format(self.__class__.__name__, self.name)
+ 
+     def __iter__(self):
+         """Iterate over the keys of a dictionary view or the *subviews*
+         of a list view.
+         """
+         # Try iterating over the keys, if this is a dictionary view.
+         try:
+             for key in self.keys():
+                 yield key
+ 
+         except ConfigTypeError:
+             # Otherwise, try iterating over a list view.
+             try:
+                 for subview in self.sequence():
+                     yield subview
+ 
+ 
+ class Configuration(RootView):
+     def __init__(self, appname, modname=None, read=True,
+                  loader=yaml_util.Loader):
+         """Create a configuration object by reading the
+         automatically-discovered config files for the application for a
+         given name. If `modname` is specified, it should be the import
+         name of a module whose package will be searched for a default
+         config file. (Otherwise, no defaults are used.) Pass `False` for
+         `read` to disable automatic reading of all discovered
+         configuration files. Use this when creating a configuration
+         object at module load time and then call the `read` method
+         later. Specify the Loader class as `loader`.
+         """
+         super(Configuration, self).__init__([])
+         self.appname = appname
+         self.modname = modname
+         self.loader = loader
+ 
+         # Resolve default source location. We do this ahead of time to
+         # avoid unexpected problems if the working directory changes.
+         if self.modname:
+             self._package_path = util.find_package_path(self.modname)
+         else:
+             self._package_path = None
+ 
+         self._env_var = '{0}DIR'.format(self.appname.upper())
+ 
+         if read:
+             self.read()
+ 
+     def user_config_path(self):
+         """Points to the location of the user configuration.
+ 
+         The file may not exist.
+         """
+         return os.path.join(self.config_dir(), CONFIG_FILENAME)
+ 
+     def _add_user_source(self):
+         """Add the configuration options from the YAML file in the
+         user's configuration directory (given by `config_dir`) if it
+         exists.
+         """
+         filename = self.user_config_path()
+         self.add(YamlSource(filename, loader=self.loader, optional=True))
+ 
+     def _add_default_source(self):
+         """Add the package's default configuration settings. This looks
+         for a YAML file located inside the package for the module
+         `modname` if it was given.
+         """
+         if self.modname:
+             if self._package_path:
+                 filename = os.path.join(self._package_path, DEFAULT_FILENAME)
+                 self.add(YamlSource(filename, loader=self.loader,
+                                     optional=True, default=True))
+ 
+     def read(self, user=True, defaults=True):
+         """Find and read the files for this configuration and set them
+         as the sources for this configuration. To disable either
+         discovered user configuration files or the in-package defaults,
+         set `user` or `defaults` to `False`.
+         """
+         if user:
+             self._add_user_source()
+         if defaults:
+             self._add_default_source()
+ 
+     def config_dir(self):
+         """Get the path to the user configuration directory. The
+         directory is guaranteed to exist as a postcondition (one may be
+         created if none exist).
+ 
+         If the application's ``...DIR`` environment variable is set, it
+         is used as the configuration directory. Otherwise,
+         platform-specific standard configuration locations are searched
+         for a ``config.yaml`` file. If no configuration file is found, a
+         fallback path is used.
+         """
+         # If environment variable is set, use it.
+         if self._env_var in os.environ:
+             appdir = os.environ[self._env_var]
+             appdir = os.path.abspath(os.path.expanduser(appdir))
+             if os.path.isfile(appdir):
+                 raise ConfigError(u'{0} must be a directory'.format(
+                     self._env_var
+                 ))
+ 
+         else:
+             # Search platform-specific locations. If no config file is
+             # found, fall back to the first directory

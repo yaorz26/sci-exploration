@@ -1,0 +1,246 @@
+{
+  "experiment": "topdown_ab_phase1c_20260923",
+  "evidence_scope": "public-only development diagnostics; no private evaluation",
+  "inputs": {
+    "generations": "data\\processed\\topdown_ab_phase1c_20260923\\qwen25coder_7b_n2_seed20260923_v1_generations.jsonl",
+    "generations_sha256": "06048e2a07f6845484df497fca3b0664fcf51a93bd2c42cee7b9f6eff7f739f6",
+    "split_manifest": "data\\splits\\topdown_ab_phase1c_20260923\\apps_train_intro10_competition10_manifest.json",
+    "split_manifest_sha256": "17e2f09cfa54b65766ffb6eb969e053de593db31fd03cf4f7fc37d7d430ce3fd"
+  },
+  "rows": 80,
+  "requests": 80,
+  "private_evaluation_performed": false,
+  "per_stratum": {
+    "introductory": {
+      "json_bodies_deterministic_assembly": {
+        "problems": 10,
+        "candidates": 20,
+        "valid_candidates": 13,
+        "structural_coverage": 8,
+        "structural_coverage_ids": [
+          "apps-train-2795",
+          "apps-train-2797",
+          "apps-train-2798",
+          "apps-train-2799",
+          "apps-train-2801",
+          "apps-train-2803",
+          "apps-train-2804",
+          "apps-train-2805"
+        ],
+        "candidate_pool_public_oracle": 2,
+        "candidate_pool_public_oracle_ids": [
+          "apps-train-2795",
+          "apps-train-2798"
+        ],
+        "generator_error_families": {
+          "invalid_signature": 8,
+          "invalid_contract": 5,
+          "unreachable_helpers": 2,
+          "unknown_dependency": 2,
+          "missing_declared_call": 1,
+          "dependency_not_lower_level": 1,
+          "undeclared_call": 1,
+          "entrypoint_not_first": 1
+        },
+        "common_error_families": {
+          "generation_invalid": 7
+        },
+        "request_error_families": {},
+        "prompt_tokens": 12110,
+        "output_tokens": 6285,
+        "reported_request_duration_seconds": 148.993
+      },
+      "top_down_cof_fewshot": {
+        "problems": 10,
+        "candidates": 20,
+        "valid_candidates": 9,
+        "structural_coverage": 5,
+        "structural_coverage_ids": [
+          "apps-train-2795",
+          "apps-train-2798",
+          "apps-train-2801",
+          "apps-train-2802",
+          "apps-train-2804"
+        ],
+        "candidate_pool_public_oracle": 3,
+        "candidate_pool_public_oracle_ids": [
+          "apps-train-2795",
+          "apps-train-2798",
+          "apps-train-2802"
+        ],
+        "generator_error_families": {
+          "function_count_out_of_range": 9,
+          "nested_function_definitions": 2,
+          "signature_mismatch": 1
+        },
+        "common_error_families": {
+          "generation_invalid": 9,
+          "non_forward_helper_call": 3,
+          "unreachable_helpers": 2
+        },
+        "request_error_families": {},
+        "prompt_tokens": 16530,
+        "output_tokens": 4107,
+        "reported_request_duration_seconds": 94.335
+      }
+    },
+    "competition": {
+      "json_bodies_deterministic_assembly": {
+        "problems": 10,
+        "candidates": 20,
+        "valid_candidates": 3,
+        "structural_coverage": 3,
+        "structural_coverage_ids": [
+          "apps-train-2041",
+          "apps-train-2045",
+          "apps-train-2046"
+        ],
+        "candidate_pool_public_oracle": 0,
+        "candidate_pool_public_oracle_ids": [],
+        "generator_error_families": {
+          "invalid_signature": 57,
+          "unknown_dependency": 28,
+          "invalid_contract": 17,
+          "entrypoint_not_first": 14,
+          "unreachable_helpers": 14
+        },
+        "common_error_families": {
+          "generation_invalid": 17
+        },
+        "request_error_families": {},
+        "prompt_tokens": 16652,
+        "output_tokens": 9749,
+        "reported_request_duration_seconds": 223.706
+      },
+      "top_down_cof_fewshot": {
+        "problems": 10,
+        "candidates": 20,
+        "valid_candidates": 7,
+        "structural_coverage": 5,
+        "structural_coverage_ids": [
+          "apps-train-2040",
+          "apps-train-2041",
+          "apps-train-2042",
+          "apps-train-2043",
+          "apps-train-2046"
+        ],
+        "candidate_pool_public_oracle": 0,
+        "candidate_pool_public_oracle_ids": [],
+        "generator_error_families": {
+          "function_count_out_of_range": 7,
+          "nested_function_definitions": 4,
+          "missing_solve_call": 2
+        },
+        "common_error_families": {
+          "generation_invalid": 13
+        },
+        "request_error_families": {},
+        "prompt_tokens": 20412,
+        "output_tokens": 6123,
+        "reported_request_duration_seconds": 140.498
+      }
+    }
+  },
+  "overall": {
+    "json_bodies_deterministic_assembly": {
+      "problems": 20,
+      "candidates": 40,
+      "valid_candidates": 16,
+      "structural_coverage": 11,
+      "structural_coverage_ids": [
+        "apps-train-2041",
+        "apps-train-2045",
+        "apps-train-2046",
+        "apps-train-2795",
+        "apps-train-2797",
+        "apps-train-2798",
+        "apps-train-2799",
+        "apps-train-2801",
+        "apps-train-2803",
+        "apps-train-2804",
+        "apps-train-2805"
+      ],
+      "candidate_pool_public_oracle": 2,
+      "candidate_pool_public_oracle_ids": [
+        "apps-train-2795",
+        "apps-train-2798"
+      ],
+      "generator_error_families": {
+        "invalid_signature": 65,
+        "unknown_dependency": 30,
+        "invalid_contract": 22,
+        "unreachable_helpers": 16,
+        "entrypoint_not_first": 15,
+        "missing_declared_call": 1,
+        "dependency_not_lower_level": 1,
+        "undeclared_call": 1
+      },
+      "common_error_families": {
+        "generation_invalid": 24
+      },
+      "request_error_families": {},
+      "prompt_tokens": 28762,
+      "output_tokens": 16034,
+      "reported_request_duration_seconds": 372.699
+    },
+    "top_down_cof_fewshot": {
+      "problems": 20,
+      "candidates": 40,
+      "valid_candidates": 16,
+      "structural_coverage": 10,
+      "structural_coverage_ids": [
+        "apps-train-2040",
+        "apps-train-2041",
+        "apps-train-2042",
+        "apps-train-2043",
+        "apps-train-2046",
+        "apps-train-2795",
+        "apps-train-2798",
+        "apps-train-2801",
+        "apps-train-2802",
+        "apps-train-2804"
+      ],
+      "candidate_pool_public_oracle": 3,
+      "candidate_pool_public_oracle_ids": [
+        "apps-train-2795",
+        "apps-train-2798",
+        "apps-train-2802"
+      ],
+      "generator_error_families": {
+        "function_count_out_of_range": 16,
+        "nested_function_definitions": 6,
+        "missing_solve_call": 2,
+        "signature_mismatch": 1
+      },
+      "common_error_families": {
+        "generation_invalid": 22,
+        "non_forward_helper_call": 3,
+        "unreachable_helpers": 2
+      },
+      "request_error_families": {},
+      "prompt_tokens": 36942,
+      "output_tokens": 10230,
+      "reported_request_duration_seconds": 234.833
+    }
+  },
+  "paired_structure": {
+    "not_a_b": 4,
+    "a_b": 6,
+    "not_a_not_b": 5,
+    "a_not_b": 5
+  },
+  "paired_public_oracle": {
+    "not_a_not_b": 17,
+    "a_b": 2,
+    "not_a_b": 1
+  },
+  "threshold": {
+    "structural_coverage": 16,
+    "candidate_pool_public_oracle": 4
+  },
+  "method_pass": {
+    "json_bodies_deterministic_assembly": false,
+    "top_down_cof_fewshot": false
+  },
+  "decision": "stop_local_7b_topdown"
+}

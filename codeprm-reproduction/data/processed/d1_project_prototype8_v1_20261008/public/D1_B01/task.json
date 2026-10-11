@@ -1,0 +1,41 @@
+{
+  "task_id": "D1_B01",
+  "requirement": "实现solve(payload)。text为由非负整数或闭区间组成的文本，separator默认为逗号，range_separator默认为连字符；分隔符保证非空且不同。返回升序整数列表，重复项保留；区间可正向或反向，均包含两端。首尾空白去除，空分段忽略；非法数值引发ValueError。仅使用标准库，内部函数数量和实现结构自由。",
+  "entry_point": "solve(payload)",
+  "language": "Python",
+  "allowed_libraries": "仅Python标准库",
+  "public_examples": [
+    {
+      "case_id": "public_1",
+      "input": {
+        "text": "1,3-5,3"
+      },
+      "expected": {
+        "value": [
+          1,
+          3,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    {
+      "case_id": "public_2",
+      "input": {
+        "text": "9:7;2",
+        "separator": ";",
+        "range_separator": ":"
+      },
+      "expected": {
+        "value": [
+          2,
+          7,
+          8,
+          9
+        ]
+      }
+    }
+  ],
+  "internal_decomposition": "自由选择，不给定helper名称或数量"
+}

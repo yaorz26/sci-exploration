@@ -1,0 +1,16 @@
+```json
+{
+  "components": [
+    {
+      "name": "EnvironmentSource",
+      "files": ["confuse/sources.py"],
+      "contract": "负责处理环境变量来源，提供键值对并进行前缀匹配和键名转换。"
+    },
+    {
+      "name": "Configuration",
+      "files": ["confuse/core.py"],
+      "contract": "负责管理配置文件和环境变量来源，提供统一的配置视图，并根据优先级读取配置值。"
+    }
+  ]
+}
+```

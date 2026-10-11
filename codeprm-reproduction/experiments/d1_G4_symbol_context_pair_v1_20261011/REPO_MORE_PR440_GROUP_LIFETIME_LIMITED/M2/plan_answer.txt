@@ -1,0 +1,16 @@
+```json
+{
+  "components": [
+    {
+      "name": "c1",
+      "files": ["more_itertools/more.py"],
+      "contract": "负责处理keyfunc和valuefunc，将输入的可迭代对象分组，并应用valuefunc进行变换。"
+    },
+    {
+      "name": "c2",
+      "files": ["more_itertools/more.py"],
+      "contract": "负责处理reducefunc，对每个分组应用reducefunc进行最终结果的计算，并返回包含key和计算结果的元组。"
+    }
+  ]
+}
+```

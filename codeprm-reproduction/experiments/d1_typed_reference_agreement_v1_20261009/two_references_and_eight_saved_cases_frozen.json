@@ -1,0 +1,23 @@
+{
+  "created_at": "2026-10-09T03:58:01Z",
+  "file_hashes": {
+    "experiments\\d1_typed_candidate_execution_v1_20261009\\candidate_v2\\public_diagnostics_v2_new.json": "1f03f9db512d71ac056d44a47d7b73f586641024b0e52d6c75c837b6110d7580",
+    "experiments\\d1_typed_candidate_execution_v1_20261009\\candidate_v2\\evaluate_typed_candidate.py": "c71b5ca52defc4217c68999d776bcdb3d57c093c25aa0fb3c89763b055ebc0d0",
+    "experiments\\d1_typed_candidate_execution_v1_20261009\\candidate_v2\\typed_comparison.py": "b5088cf118746800d7ed9dacd75ebbd4756abe03a427034cf298aa0b6f2a2014",
+    "experiments\\d1_typed_candidate_execution_v1_20261009\\candidate_v2\\helpers.py": "87dfb7eb6e36ff5364a01706b300e547f4debec25494fd6198bbc7f17d1ee403",
+    "experiments\\d1_typed_candidate_execution_v1_20261009\\candidate_v2\\source_adapter.py": "d8246ad07b64fb174925e76660249f78b3c919ffec486d796a409673704addc9",
+    "experiments\\d1_typed_candidate_execution_v1_20261009\\candidate_v2\\sources\\statsutils.py": "0c4d05a17b14244a880e5047c1823d1e1e522e6c5ee76c6b47f54d8bde791e68",
+    "experiments\\d1_typed_candidate_execution_v1_20261009\\five_execution_results.json": "dc07c141ed9be62501209251a68a66dcd7d6fa4b066cdd6be47115d20bde4c8a",
+    "scripts\\d1\\probe_typed_reference_agreement.py": "61608f493859f89f6762dd11ac49d299f2ceebf37cad0e1e9298651849cba626"
+  },
+  "predictions_out_of_eight": {
+    "helpers": 8,
+    "source_adapter": 8
+  },
+  "new_solve_upper_limit": 16,
+  "new_solve_calls_so_far": 0,
+  "whole_and_control_reruns": 0,
+  "old_twelve_diagnostic_reruns": 0,
+  "limits": "同来源/共享guard，不是三独立oracle；源API未实际计数不冒报",
+  "next_command": "python -B -X utf8 scripts/d1/probe_typed_reference_agreement.py --execute"
+}

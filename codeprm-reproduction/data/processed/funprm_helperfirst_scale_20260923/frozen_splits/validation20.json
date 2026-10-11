@@ -1,0 +1,838 @@
+[
+  {
+    "problem_id": "apps-train-2970",
+    "dataset": "APPS",
+    "source_problem_id": 2970,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Given a natural number n, we want to know in how many ways we may express these numbers as product of other numbers.\n\nFor example the number\n```python\n 18 = 2 x 9 = 3 x 6 = 2 x 3 x 3 # (we do not consider the product 18 x 1), (3 ways) \n```\n\nSee this example a bit more complicated,\n```python\n60 = 2 x 30 = 3 x 20 =  4 x 15 = 5 x 12 = 6 x 10 = 2 x 2 x 15 = 2 x 3 x 10 = 2 x 5 x 6 =  3 x 4 x 5 = 2 x 2 x 3 x 5 (10 ways)\n```\nWe need the function ```prod_int_part()```, that receives a number n, and ouputs the amount of total different products with all the products of max length sorted in this way:\n\n1) each product will be expressed in a list of its factors in incresing order from left to right\n\n2) if there is more than one list-product, these lists should be ordered by the value of the first term, if two lists have the same term equal thay should be ordered by the value of the second term.\n\nLet's see some cases:\n```python\nprod_int_part(18) == [3, [2, 3, 3]]\n\nprod_int_part(60) == [10, [2, 2, 3, 5]\n```\n\nIf we have only one list-product with the maximum length, there is no use to have it with two nested braces, so the result will be like this case:\n```python\nprod_int_part(54) == [6, [2, 3, 3, 3]]\n```\n\nNow, let's see examples when ```n``` cannot be partitioned:\n```python\nprod_int_part(37) == [0, []]\n\nprod_int_part(61) == [0, []]\n```\nEnjoy it!!",
+    "starter_code": "\ndef prod_int_part(n):\n\t",
+    "public_tests": [
+      {
+        "input": "[18]",
+        "output": "[[3, [2, 3, 3]]]"
+      },
+      {
+        "input": "[60]",
+        "output": "[[10, [2, 2, 3, 5]]]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[54]",
+        "output": "[[6, [2, 3, 3, 3]]]"
+      },
+      {
+        "input": "[37]",
+        "output": "[[0, []]]"
+      },
+      {
+        "input": "[61]",
+        "output": "[[0, []]]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2971",
+    "dataset": "APPS",
+    "source_problem_id": 2971,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "You have to build a pyramid.\n\nThis pyramid should be built from characters from a given string.\n\nYou have to create the code for these four methods:\n```python\nwatch_pyramid_from_the_side(characters):\n\nwatch_pyramid_from_above(characters):\n\ncount_visible_characters_of_the_pyramid(characters):\n\ncount_all_characters_of_the_pyramid(characters):\n```\n\nThe first method (\"FromTheSide\") shows the pyramid as you would see from the side.\nThe second method (\"FromAbove\") shows the pyramid as you would see from above.\nThe third method (\"CountVisibleCharacters\") should return the count of all characters, that are visible from outside the pyramid.\nThe forth method (\"CountAllCharacters\") should count all characters of the pyramid. Consider that the pyramid is completely solid and has no holes or rooms in it.\n\nEvery character will be used for building one layer of the pyramid. So the length of the given string will be the height of the pyramid. Every layer will be built with stones from the given character. There is no limit of stones.\nThe pyramid should have perfect angles of 45 degrees.\n\nExample: Given string: \"abc\"\n\nPyramid from the side:\n```\n  c\n bbb\naaaaa\n```\nPyramid from above:\n```\naaaaa\nabbba\nabcba\nabbba\naaaaa\n```\nCount of visible stones/characters: \n```\n25\n```\nCount of all used stones/characters:\n```\n35\n```\n\nThere is no meaning in the order or the choice of the characters. It should work the same for example \"aaaaa\" or \"54321\".\n\nHint: Your output for the side must always be a rectangle! So spaces at the end of a line must not be deleted or trimmed!\n\nIf the string is null or empty, you should exactly return this value for the watch-methods and -1 for the count-methods.\n\nHave fun coding it and please don't forget to vote and rank this kata! :-) \n\nI have created other katas. Have a look if you like coding and challenges.",
+    "starter_code": "\ndef watch_pyramid_from_the_side(characters):\n\t",
+    "public_tests": [
+      {
+        "input": "[None]",
+        "output": "[None]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['']",
+        "output": "['']"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2972",
+    "dataset": "APPS",
+    "source_problem_id": 2972,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Your task is to write function which takes string and list of delimiters as an input and returns list of strings/characters after splitting given string.\n\nExample:\n```python\nmultiple_split('Hi, how are you?', [' ']) => ['Hi,', 'how', 'are', 'you?']\nmultiple_split('1+2-3', ['+', '-']) => ['1', '2', '3']\n```\n\nList of delimiters is optional and can be empty, so take that into account.\n\nImportant note: Result cannot contain empty string.",
+    "starter_code": "\ndef multiple_split(string, delimiters=[]):\n\t",
+    "public_tests": [
+      {
+        "input": "['Hi everybody!', [' ', '!']]",
+        "output": "[['Hi', 'everybody']]"
+      },
+      {
+        "input": "['(1+2)*6-3^9', ['+', '-', '(', ')', '^', '*']]",
+        "output": "[['1', '2', '6', '3', '9']]"
+      },
+      {
+        "input": "['Solve_this|kata-very\\\\quickly!', ['!', '|', '\\\\', '_', '-']]",
+        "output": "[['Solve', 'this', 'kata', 'very', 'quickly']]"
+      },
+      {
+        "input": "['', []]",
+        "output": "[[]]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['']",
+        "output": "[[]]"
+      },
+      {
+        "input": "['some strange string']",
+        "output": "[['some strange string']]"
+      },
+      {
+        "input": "['1_2_3_huhuh_hahaha', ['_']]",
+        "output": "[['1', '2', '3', 'huhuh', 'hahaha']]"
+      },
+      {
+        "input": "['((1+2))*(6-3)^9', ['+', '-', '(', ')', '^', '*']]",
+        "output": "[['1', '2', '6', '3', '9']]"
+      },
+      {
+        "input": "['(((1+2)-(3)))', ['(', ')']]",
+        "output": "[['1+2', '-', '3']]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2973",
+    "dataset": "APPS",
+    "source_problem_id": 2973,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "# Task\n Given an array of 2^(k) integers (for some integer `k`), perform the following operations until the array contains only one element:\n```\nOn the 1st, 3rd, 5th, etc. \niterations (1-based) replace each pair of consecutive elements with their sum;\nOn the 2nd, 4th, 6th, etc. \niterations replace each pair of consecutive elements with their product.\n```\nAfter the algorithm has finished, there will be a single element left in the array. Return that element.\n\n# Example\n\n For inputArray = [1, 2, 3, 4, 5, 6, 7, 8], the output should be 186.\n\n We have `[1, 2, 3, 4, 5, 6, 7, 8] -> [3, 7, 11, 15] -> [21, 165] -> [186]`, so the answer is 186.\n\n# Input/Output\n\n - `[input]` integer array `arr`\n\n   Constraints: 2^(1) ≤ arr.length ≤ 2^(5), -9 ≤ arr[i] ≤ 99.\n\n - `[output]` an integer",
+    "starter_code": "\ndef array_conversion(arr):\n\t",
+    "public_tests": [
+      {
+        "input": "[[1, 2, 3, 4, 5, 6, 7, 8]]",
+        "output": "[186]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]]",
+        "output": "[64]"
+      },
+      {
+        "input": "[[3, 3, 5, 5]]",
+        "output": "[60]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2974",
+    "dataset": "APPS",
+    "source_problem_id": 2974,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Write a function that calculates the original product price, without VAT.\n\n## Example\nIf a product price is `200.00` and VAT is `15%`, then the final product price (with VAT) is: `200.00 + 15% = 230.00`\n\nThus, if your function receives `230.00` as input, it should return `200.00`\n\n**Notes:** \n\n* VAT is *always* `15%` for the purposes of this Kata.\n* Round the result to 2 decimal places.\n* If `null` value given then return `-1`",
+    "starter_code": "\ndef excluding_vat_price(price):\n\t",
+    "public_tests": [
+      {
+        "input": "[230.0]",
+        "output": "[200.0]"
+      },
+      {
+        "input": "[123]",
+        "output": "[106.96]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[777]",
+        "output": "[675.65]"
+      },
+      {
+        "input": "[460.0]",
+        "output": "[400.0]"
+      },
+      {
+        "input": "[None]",
+        "output": "[-1]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2975",
+    "dataset": "APPS",
+    "source_problem_id": 2975,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Polycarpus works as a DJ in the best Berland nightclub, and he often uses dubstep music in his performance. Recently, he has decided to take a couple of old songs and make dubstep remixes from them.\n\nLet's assume that a song consists of some number of words (that don't contain WUB). To make the dubstep remix of this song, Polycarpus inserts a certain number of words \"WUB\" before the first word of the song (the number may be zero), after the last word (the number may be zero), and between words (at least one between any pair of neighbouring words), and then the boy glues together all the words, including \"WUB\", in one string and plays the song at the club.\n\nFor example, a song with words \"I AM X\" can transform into a dubstep remix as \"WUBWUBIWUBAMWUBWUBX\" and cannot transform into \"WUBWUBIAMWUBX\".\n\nRecently, Jonny has heard Polycarpus's new dubstep track, but since he isn't into modern music, he decided to find out what was the initial song that Polycarpus remixed. Help Jonny restore the original song.\n\n## Input\nThe input consists of a single non-empty string, consisting only of uppercase English letters, the string's length doesn't exceed 200 characters\n\n## Output\nReturn the words of the initial song that Polycarpus used to make a dubsteb remix. Separate the words with a space.\n\n## Examples\n\n```python\nsong_decoder(\"WUBWEWUBAREWUBWUBTHEWUBCHAMPIONSWUBMYWUBFRIENDWUB\")\n  # =>  WE ARE THE CHAMPIONS MY FRIEND\n```",
+    "starter_code": "\ndef song_decoder(song):\n\t",
+    "public_tests": [
+      {
+        "input": "['AWUBBWUBC']",
+        "output": "['A B C']"
+      },
+      {
+        "input": "['AWUBWUBWUBBWUBWUBWUBC']",
+        "output": "['A B C']"
+      },
+      {
+        "input": "['WUBAWUBBWUBCWUB']",
+        "output": "['A B C']"
+      },
+      {
+        "input": "['RWUBWUBWUBLWUB']",
+        "output": "['R L']"
+      },
+      {
+        "input": "['WUBJKDWUBWUBWBIRAQKFWUBWUBYEWUBWUBWUBWVWUBWUB']",
+        "output": "['JKD WBIRAQKF YE WV']"
+      },
+      {
+        "input": "['WUBKSDHEMIXUJWUBWUBRWUBWUBWUBSWUBWUBWUBHWUBWUBWUB']",
+        "output": "['KSDHEMIXUJ R S H']"
+      },
+      {
+        "input": "['QWUBQQWUBWUBWUBIWUBWUBWWWUBWUBWUBJOPJPBRH']",
+        "output": "['Q QQ I WW JOPJPBRH']"
+      },
+      {
+        "input": "['WUBWUBOWUBWUBWUBIPVCQAFWYWUBWUBWUBQWUBWUBWUBXHDKCPYKCTWWYWUBWUBWUBVWUBWUBWUBFZWUBWUB']",
+        "output": "['O IPVCQAFWY Q XHDKCPYKCTWWY V FZ']"
+      },
+      {
+        "input": "['WUBYYRTSMNWUWUBWUBWUBCWUBWUBWUBCWUBWUBWUBFSYUINDWOBVWUBWUBWUBFWUBWUBWUBAUWUBWUBWUBVWUBWUBWUBJB']",
+        "output": "['YYRTSMNWU C C FSYUINDWOBV F AU V JB']"
+      },
+      {
+        "input": "['AWUBWUBWUB']",
+        "output": "['A']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['AWUBBWUBCWUBD']",
+        "output": "['A B C D']"
+      },
+      {
+        "input": "['WUBWWUBWUBWUBUWUBWUBBWUB']",
+        "output": "['W U B']"
+      },
+      {
+        "input": "['WUWUBBWWUBUB']",
+        "output": "['WU BW UB']"
+      },
+      {
+        "input": "['WUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUABWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUBWUB']",
+        "output": "['WUAB']"
+      },
+      {
+        "input": "['U']",
+        "output": "['U']"
+      },
+      {
+        "input": "['WUWUB']",
+        "output": "['WU']"
+      },
+      {
+        "input": "['UBWUB']",
+        "output": "['UB']"
+      },
+      {
+        "input": "['WUWUBUBWUBUWUB']",
+        "output": "['WU UB U']"
+      },
+      {
+        "input": "['WUBWWUBAWUB']",
+        "output": "['W A']"
+      },
+      {
+        "input": "['WUUUUU']",
+        "output": "['WUUUUU']"
+      },
+      {
+        "input": "['WUBWUBA']",
+        "output": "['A']"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2976",
+    "dataset": "APPS",
+    "source_problem_id": 2976,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "This time no story, no theory. The examples below show you how to write function `accum`:\n\n**Examples:**\n```\naccum(\"abcd\") -> \"A-Bb-Ccc-Dddd\"\naccum(\"RqaEzty\") -> \"R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy\"\naccum(\"cwAt\") -> \"C-Ww-Aaa-Tttt\"\n```\n\nThe parameter of accum is a string which includes only letters from `a..z` and `A..Z`.",
+    "starter_code": "\ndef accum(s):\n\t",
+    "public_tests": [
+      {
+        "input": "['ZpglnRxqenU']",
+        "output": "['Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu']"
+      },
+      {
+        "input": "['NyffsGeyylB']",
+        "output": "['N-Yy-Fff-Ffff-Sssss-Gggggg-Eeeeeee-Yyyyyyyy-Yyyyyyyyy-Llllllllll-Bbbbbbbbbbb']"
+      },
+      {
+        "input": "['MjtkuBovqrU']",
+        "output": "['M-Jj-Ttt-Kkkk-Uuuuu-Bbbbbb-Ooooooo-Vvvvvvvv-Qqqqqqqqq-Rrrrrrrrrr-Uuuuuuuuuuu']"
+      },
+      {
+        "input": "['EvidjUnokmM']",
+        "output": "['E-Vv-Iii-Dddd-Jjjjj-Uuuuuu-Nnnnnnn-Oooooooo-Kkkkkkkkk-Mmmmmmmmmm-Mmmmmmmmmmm']"
+      },
+      {
+        "input": "['HbideVbxncC']",
+        "output": "['H-Bb-Iii-Dddd-Eeeee-Vvvvvv-Bbbbbbb-Xxxxxxxx-Nnnnnnnnn-Cccccccccc-Ccccccccccc']"
+      },
+      {
+        "input": "['VwhvtHtrxfE']",
+        "output": "['V-Ww-Hhh-Vvvv-Ttttt-Hhhhhh-Ttttttt-Rrrrrrrr-Xxxxxxxxx-Ffffffffff-Eeeeeeeeeee']"
+      },
+      {
+        "input": "['KurgiKmkphY']",
+        "output": "['K-Uu-Rrr-Gggg-Iiiii-Kkkkkk-Mmmmmmm-Kkkkkkkk-Ppppppppp-Hhhhhhhhhh-Yyyyyyyyyyy']"
+      },
+      {
+        "input": "['NctlfBlnmfH']",
+        "output": "['N-Cc-Ttt-Llll-Fffff-Bbbbbb-Lllllll-Nnnnnnnn-Mmmmmmmmm-Ffffffffff-Hhhhhhhhhhh']"
+      },
+      {
+        "input": "['WegunHvbdmV']",
+        "output": "['W-Ee-Ggg-Uuuu-Nnnnn-Hhhhhh-Vvvvvvv-Bbbbbbbb-Ddddddddd-Mmmmmmmmmm-Vvvvvvvvvvv']"
+      },
+      {
+        "input": "['VoywwSpqidE']",
+        "output": "['V-Oo-Yyy-Wwww-Wwwww-Ssssss-Ppppppp-Qqqqqqqq-Iiiiiiiii-Dddddddddd-Eeeeeeeeeee']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['VbaixFpxdcO']",
+        "output": "['V-Bb-Aaa-Iiii-Xxxxx-Ffffff-Ppppppp-Xxxxxxxx-Ddddddddd-Cccccccccc-Ooooooooooo']"
+      },
+      {
+        "input": "['OlyqvYwkuzF']",
+        "output": "['O-Ll-Yyy-Qqqq-Vvvvv-Yyyyyy-Wwwwwww-Kkkkkkkk-Uuuuuuuuu-Zzzzzzzzzz-Fffffffffff']"
+      },
+      {
+        "input": "['JrhfdMtchiH']",
+        "output": "['J-Rr-Hhh-Ffff-Ddddd-Mmmmmm-Ttttttt-Cccccccc-Hhhhhhhhh-Iiiiiiiiii-Hhhhhhhhhhh']"
+      },
+      {
+        "input": "['JiwpcSwslvW']",
+        "output": "['J-Ii-Www-Pppp-Ccccc-Ssssss-Wwwwwww-Ssssssss-Lllllllll-Vvvvvvvvvv-Wwwwwwwwwww']"
+      },
+      {
+        "input": "['EagpiEvmabJ']",
+        "output": "['E-Aa-Ggg-Pppp-Iiiii-Eeeeee-Vvvvvvv-Mmmmmmmm-Aaaaaaaaa-Bbbbbbbbbb-Jjjjjjjjjjj']"
+      },
+      {
+        "input": "['RznlcEmuxxP']",
+        "output": "['R-Zz-Nnn-Llll-Ccccc-Eeeeee-Mmmmmmm-Uuuuuuuu-Xxxxxxxxx-Xxxxxxxxxx-Ppppppppppp']"
+      },
+      {
+        "input": "['OrggaExarzP']",
+        "output": "['O-Rr-Ggg-Gggg-Aaaaa-Eeeeee-Xxxxxxx-Aaaaaaaa-Rrrrrrrrr-Zzzzzzzzzz-Ppppppppppp']"
+      },
+      {
+        "input": "['DriraMtedfB']",
+        "output": "['D-Rr-Iii-Rrrr-Aaaaa-Mmmmmm-Ttttttt-Eeeeeeee-Ddddddddd-Ffffffffff-Bbbbbbbbbbb']"
+      },
+      {
+        "input": "['BjxseRxgtjT']",
+        "output": "['B-Jj-Xxx-Ssss-Eeeee-Rrrrrr-Xxxxxxx-Gggggggg-Ttttttttt-Jjjjjjjjjj-Ttttttttttt']"
+      },
+      {
+        "input": "['EquhxOswchE']",
+        "output": "['E-Qq-Uuu-Hhhh-Xxxxx-Oooooo-Sssssss-Wwwwwwww-Ccccccccc-Hhhhhhhhhh-Eeeeeeeeeee']"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2977",
+    "dataset": "APPS",
+    "source_problem_id": 2977,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "The numbers 12, 63 and 119 have something in common related with their divisors and their prime factors, let's see it.\n```\nNumbers PrimeFactorsSum(pfs)        DivisorsSum(ds)              Is ds divisible by pfs\n12         2 + 2 + 3 = 7         1 + 2 + 3 + 4 + 6 + 12 = 28            28 / 7 = 4,  Yes\n63         3 + 3 + 7 = 13        1 + 3 + 7 + 9 + 21 + 63 = 104         104 / 13 = 8, Yes\n119        7 + 17 = 24           1 + 7 + 17 + 119 = 144                144 / 24 = 6, Yes\n```\nThere is an obvius property you can see: the sum of the divisors of a number is divisible by the sum of its prime factors.\n\nWe need the function ```ds_multof_pfs()``` that receives two arguments: ```nMin``` and  ```nMax```, as a lower and upper limit (inclusives), respectively, and outputs a sorted list with the numbers that fulfill the property described above.\n\nWe represent the features of the described function:\n```python\nds_multof_pfs(nMin, nMax) -----> [n1, n2, ....., nl] # nMin ≤ n1 < n2 < ..< nl ≤ nMax\n```\nLet's see some cases:\n```python\nds_multof_pfs(10, 100) == [12, 15, 35, 42, 60, 63, 66, 68, 84, 90, 95]\n\nds_multof_pfs(20, 120) == [35, 42, 60, 63, 66, 68, 84, 90, 95, 110, 114, 119]\n```\nEnjoy it!!",
+    "starter_code": "\ndef ds_multof_pfs(n_min, n_max):\n\t",
+    "public_tests": [
+      {
+        "input": "[10, 100]",
+        "output": "[[12, 15, 35, 42, 60, 63, 66, 68, 84, 90, 95]]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[20, 120]",
+        "output": "[[35, 42, 60, 63, 66, 68, 84, 90, 95, 110, 114, 119]]"
+      },
+      {
+        "input": "[50, 140]",
+        "output": "[[60, 63, 66, 68, 84, 90, 95, 110, 114, 119, 140]]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2978",
+    "dataset": "APPS",
+    "source_problem_id": 2978,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "We need a function ```count_sel()``` that receives an array or list of integers (positive and negative) and may give us the following information in the order and  structure presented bellow:\n\n```[(1), (2), (3), [[(4)], 5]]```\n\n(1) - Total amount of received integers.\n\n(2) - Total amount of different values the array has.\n\n(3) - Total amount of values that occur only once.\n\n(4) and (5) both in a list\n\n(4) - It is (or they are) the element(s) that has (or have) the maximum occurrence. If there are more than one, the elements should be sorted (by their value obviously)\n\n(5) - Maximum occurrence of the integer(s)\n\nLet's see some cases\n```python\n____ count_sel([-3, -2, -1, 3, 4, -5, -5, 5, -1, -5]) ----> [10, 7, 5, [[-5], 3]]\n\n(1) - The list has ten elements (10 numbers)\n\n(2) - We have seven different values: -5, -3, -2, -1, 3, 4, 5 (7 values)\n\n(3) - The numbers that occur only once: -3, -2, 3, 4, 5 (5 values)\n\n(4) and (5) - The number -5 occurs three times (3 occurrences)\n\n____ count_sel([4, 4, 2, -3, 1, 4, 3, 2, 0, -5, 2, -2, -2, -5]) ----> [14, 8, 4, [[2, 4], 3]]\n```\nEnjoy it and happy coding!!",
+    "starter_code": "\ndef count_sel(lst):\n\t",
+    "public_tests": [
+      {
+        "input": "[[-3, -2, -1, 3, 4, -5, -5, 5, -1, -5]]",
+        "output": "[[10, 7, 5, [[-5], 3]]]"
+      },
+      {
+        "input": "[[5, -1, 1, -1, -2, 5, 0, -2, -5, 3]]",
+        "output": "[[10, 7, 4, [[-2, -1, 5], 2]]]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[[-2, 4, 4, -2, -2, -1, 3, 5, -5, 5]]",
+        "output": "[[10, 6, 3, [[-2], 3]]]"
+      },
+      {
+        "input": "[[4, -5, 1, -5, 2, 4, -1, 4, -1, 1]]",
+        "output": "[[10, 5, 1, [[4], 3]]]"
+      },
+      {
+        "input": "[[4, 4, 2, -3, 1, 4, 3, 2, 0, -5, 2, -2, -2, -5]]",
+        "output": "[[14, 8, 4, [[2, 4], 3]]]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2979",
+    "dataset": "APPS",
+    "source_problem_id": 2979,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Ask a small girl - \"How old are you?\". She always says strange things... Lets help her!\n\n\nFor correct answer program should return int from 0 to 9.\n\nAssume test input string always valid and may look like \n\"1 year old\" or \"5 years old\", etc.. The first char is number only.",
+    "starter_code": "\ndef get_age(age):\n\t",
+    "public_tests": [
+      {
+        "input": "['1 year old']",
+        "output": "[1]"
+      },
+      {
+        "input": "['2 years old']",
+        "output": "[2]"
+      },
+      {
+        "input": "['3 years old']",
+        "output": "[3]"
+      },
+      {
+        "input": "['4 years old']",
+        "output": "[4]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['5 years old']",
+        "output": "[5]"
+      },
+      {
+        "input": "['6 years old']",
+        "output": "[6]"
+      },
+      {
+        "input": "['7 years old']",
+        "output": "[7]"
+      },
+      {
+        "input": "['8 years old']",
+        "output": "[8]"
+      },
+      {
+        "input": "['9 years old']",
+        "output": "[9]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2980",
+    "dataset": "APPS",
+    "source_problem_id": 2980,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "The number ```12``` is the first number in having six divisors, they are: ```1, 2, 3, 4, 6 and 12.```\nYour challenge for this kata is to find the minimum number that has a certain number of divisors.\nFor this purpose we have to create the function \n\n```find_min_num() or findMinNum() or similar in the other languages```\n\nthat receives the wanted number of divisors ```num_div```, and outputs the smallest number having an amount of divisors equals to ```num_div```.\n\nLet's see some cases:\n```\nfind_min_num(10) = 48 # divisors are: 1, 2, 3, 4, 6, 8, 12, 16, 24 and  48\nfind_min_num(12) = 60\n```\nIn this kata all the tests will be with ```numDiv < 80```\n\n(There will be a next kata with numDiv < 10000, Find the First Number Having a Certain Number of Divisors II, should have the help of number theory)\n\nEnjoy it and happy coding!\n(Memoization is advisable)",
+    "starter_code": "\ndef find_min_num(d, n=1):\n\t",
+    "public_tests": [
+      {
+        "input": "[6]",
+        "output": "[12]"
+      },
+      {
+        "input": "[10]",
+        "output": "[48]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[12]",
+        "output": "[60]"
+      },
+      {
+        "input": "[13]",
+        "output": "[4096]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2981",
+    "dataset": "APPS",
+    "source_problem_id": 2981,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Your job is to write function last_digits(n,d) which return the last `d` digits of an integer `n` as a list.\n`n` will be from 0 to 10^10\n\nExamples:\n\n`last_digits(1,1)     --> [1]`\n\n`last_digits(1234,2)   --> [3,4]`\n\n`last_digits(637547,6) --> [6,3,7,5,4,7]`\n\nSpecial cases:\n\nIf `d` > the number of digits, just return the number's digits as a list.\n\nIf `d` <= 0, then return an empty list.\n\nThis is the first kata I have made, so please report any issues.",
+    "starter_code": "\ndef solution(n,d):\n\t",
+    "public_tests": [
+      {
+        "input": "[1, 1]",
+        "output": "[[1]]"
+      },
+      {
+        "input": "[123767, 4]",
+        "output": "[[3, 7, 6, 7]]"
+      },
+      {
+        "input": "[0, 1]",
+        "output": "[[0]]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[34625647867585, 10]",
+        "output": "[[5, 6, 4, 7, 8, 6, 7, 5, 8, 5]]"
+      },
+      {
+        "input": "[1234, 0]",
+        "output": "[[]]"
+      },
+      {
+        "input": "[24134, -4]",
+        "output": "[[]]"
+      },
+      {
+        "input": "[1343, 5]",
+        "output": "[[1, 3, 4, 3]]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2982",
+    "dataset": "APPS",
+    "source_problem_id": 2982,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Here you will create the classic [Pascal's triangle](https://en.wikipedia.org/wiki/Pascal%27s_triangle).\nYour function will be passed the depth of the triangle and you code has to return the corresponding pascal triangle up to that depth.\n\nThe triangle should be returned as a nested array.\n\nfor example:\n```python\npascal(5) # should return [[1], [1,1], [1,2,1], [1,3,3,1], [1,4,6,4,1]]\n```\n\nTo build the triangle, start with a single 1 at the top, for each number in the next row you just take the two numbers above it and add them together (except for the edges, which are all `1`), e.g.:\n```\n              [1]\n            [1   1]\n          [1   2   1]\n        [1   3   3   1]\n```",
+    "starter_code": "\ndef pascal(p):\n\t",
+    "public_tests": [
+      {
+        "input": "[1]",
+        "output": "[[[1]]]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[5]",
+        "output": "[[[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1]]]"
+      },
+      {
+        "input": "[10]",
+        "output": "[[[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1], [1, 5, 10, 10, 5, 1], [1, 6, 15, 20, 15, 6, 1], [1, 7, 21, 35, 35, 21, 7, 1], [1, 8, 28, 56, 70, 56, 28, 8, 1], [1, 9, 36, 84, 126, 126, 84, 36, 9, 1]]]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2983",
+    "dataset": "APPS",
+    "source_problem_id": 2983,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "A `bouncy number` is a positive integer whose digits neither increase nor decrease. For example, 1235 is an increasing number, 5321 is a decreasing number, and 2351 is a bouncy number. By definition, all numbers under 100 are non-bouncy, and 101 is the first bouncy number.\n\nDetermining if a number is bouncy is easy, but counting all bouncy numbers with N digits can be challenging for large values of N. To complete this kata, you must write a function that takes a number N and return the count of bouncy numbers with N digits. For example, a \"4 digit\" number includes zero-padded, smaller numbers, such as 0001, 0002, up to 9999.\n\nFor clarification, the bouncy numbers between 100 and 125 are: 101, 102, 103, 104, 105, 106, 107, 108, 109, 120, and 121.",
+    "starter_code": "\ndef bouncy_count(n):\n\t",
+    "public_tests": [
+      {
+        "input": "[0]",
+        "output": "[0]"
+      },
+      {
+        "input": "[1]",
+        "output": "[0]"
+      },
+      {
+        "input": "[2]",
+        "output": "[0]"
+      },
+      {
+        "input": "[3]",
+        "output": "[525]"
+      },
+      {
+        "input": "[4]",
+        "output": "[8325]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[5]",
+        "output": "[95046]"
+      },
+      {
+        "input": "[6]",
+        "output": "[987048]"
+      },
+      {
+        "input": "[10]",
+        "output": "[9999722967]"
+      },
+      {
+        "input": "[20]",
+        "output": "[99999999999959940181]"
+      },
+      {
+        "input": "[50]",
+        "output": "[99999999999999999999999999999999999999912040301674]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2984",
+    "dataset": "APPS",
+    "source_problem_id": 2984,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "In this kata, the number 0 is infected. You are given a list. Every turn, any item in the list that is adjacent to a 0 becomes infected and transforms into a 0. How many turns will it take for the whole list to become infected?\n\n```\n[0,1,1,0] ==> [0,0,0,0] \nAll infected in 1 turn.\n\n[1,1,0,1,1] --> [1,0,0,0,1] --> [0,0,0,0,0]\nAll infected in 2 turns\n\n[0,1,1,1] --> [0,0,1,1] --> [0,0,0,1] --> [0,0,0,0]\nAll infected in 3 turns.\n```\n\nAll lists will contain at least one item, and at least one zero, and the only items will be 0s and 1s. Lists may be very very long, so pure brute force approach will not work.",
+    "starter_code": "\ndef infected_zeroes(lst):\n\t",
+    "public_tests": [
+      {
+        "input": "[[0]]",
+        "output": "[0]"
+      },
+      {
+        "input": "[[0, 1, 1, 0]]",
+        "output": "[1]"
+      },
+      {
+        "input": "[[0, 1, 1, 1, 0]]",
+        "output": "[2]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[[1, 1, 0, 1, 1]]",
+        "output": "[2]"
+      },
+      {
+        "input": "[[0, 1, 1, 1]]",
+        "output": "[3]"
+      },
+      {
+        "input": "[[1, 1, 1, 0]]",
+        "output": "[3]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2985",
+    "dataset": "APPS",
+    "source_problem_id": 2985,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "## **Task**\n\nFour mirrors are placed in a way that they form a rectangle with corners at coordinates `(0, 0)`, `(max_x, 0)`, `(0, max_y)`, and `(max_x, max_y)`. A light ray enters this rectangle through a hole at the position `(0, 0)` and moves at an angle of 45 degrees relative to the axes. Each time it hits one of the mirrors, it gets reflected. In the end, the light ray hits one of the rectangle's corners, and flies out. Your function must determine whether the exit point is either `(0, 0)` or `(max_x, max_y)`. If it is either `(0, 0)` or `(max_x, max_y)`, return `True` and `False` otherwise.\n\n**Example**\n\nFor `max_x = 10` and `max_y = 20`, the ray goes through the following lattice points: `(1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6), (7, 7), (8, 8), (9, 9), (10, 10), (9, 11), (8, 12), (7, 13), (6, 14), (5, 15), (4, 16), (3, 17), (2, 18), (1, 19), (0, 20)`.\n\nThe ray left the rectangle at position `(0, 20)`, so the result is `False`.\n\nHere is an image of the light being reflected.\n![d](https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Arithmetic-billiard-40-10.jpg/450px-Arithmetic-billiard-40-10.jpg)\n\n\nAlso, once completing this kata, please do not rate it based off of the difficulty level(kyu) and instead on whether you think it is a good kata.",
+    "starter_code": "\ndef reflections(max_x, max_y):\n\t",
+    "public_tests": [
+      {
+        "input": "[10, 10]",
+        "output": "[True]"
+      },
+      {
+        "input": "[10, 20]",
+        "output": "[False]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[12, 23]",
+        "output": "[False]"
+      },
+      {
+        "input": "[5, 25]",
+        "output": "[True]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2986",
+    "dataset": "APPS",
+    "source_problem_id": 2986,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "You are given a set of `n` segments on the axis `Ox`, each segment has integer endpoints between `0` and `m` inclusive.\n Segments may intersect, overlap or even coincide with each other. Each segment is characterized by two integers li and ri — coordinates of the left and of the right endpoints.\n\n Consider all integer points between `0` and `m` inclusive. Your task is to print all such points that don't belong to any segment. The point x belongs to the segment `[l;r]` if and only if `l ≤ x ≤ r`.\n\n**Input:**\n `m` — the upper bound for coordinates;\n array of coordinates li and ri `0 ≤ li ≤ ri ≤ m` — the endpoints of the `i`-th segment. Segments may intersect, overlap or even coincide with each other.\n\n**Output:**\n All points from `0` to `m` that don't belong to any segment.\n\n**Examples:**\n```python\nsegments(5, [(2,2),(1,2),(5,5)]) => [0,3,4]\nsegments(7, [(0,7)]) => []\n```",
+    "starter_code": "\ndef segments(m, a):\n\t",
+    "public_tests": [
+      {
+        "input": "[7, [[0, 7]]]",
+        "output": "[[]]"
+      },
+      {
+        "input": "[2, []]",
+        "output": "[[0, 1, 2]]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[0, []]",
+        "output": "[[0]]"
+      },
+      {
+        "input": "[0, [[0, 0]]]",
+        "output": "[[]]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2987",
+    "dataset": "APPS",
+    "source_problem_id": 2987,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Your task is to create function```isDivideBy``` (or ```is_divide_by```) to check if an integer number is divisible by each out of two arguments.\n\nA few cases:\n\n```\n\n(-12, 2, -6)  ->  true\n(-12, 2, -5)  ->  false\n\n(45, 1, 6)    ->  false\n(45, 5, 15)   ->  true\n\n(4, 1, 4)     ->  true\n(15, -5, 3)   ->  true\n\n```",
+    "starter_code": "\ndef is_divide_by(number, a, b):\n\t",
+    "public_tests": [
+      {
+        "input": "[8, 2, 4]",
+        "output": "[True]"
+      },
+      {
+        "input": "[12, -3, 4]",
+        "output": "[True]"
+      },
+      {
+        "input": "[8, 3, 4]",
+        "output": "[False]"
+      },
+      {
+        "input": "[48, 2, -5]",
+        "output": "[False]"
+      },
+      {
+        "input": "[-100, -25, 10]",
+        "output": "[True]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[10000, 5, -3]",
+        "output": "[False]"
+      },
+      {
+        "input": "[4, 4, 2]",
+        "output": "[True]"
+      },
+      {
+        "input": "[5, 2, 3]",
+        "output": "[False]"
+      },
+      {
+        "input": "[-96, 25, 17]",
+        "output": "[False]"
+      },
+      {
+        "input": "[33, 1, 33]",
+        "output": "[True]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2988",
+    "dataset": "APPS",
+    "source_problem_id": 2988,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Your task is to ___Reverse and Combine Words___. It's not too difficult, but there are some things you have to consider...\n\n### So what to do?\n\n\nInput: String containing different \"words\" separated by spaces\n\n```\n1. More than one word? Reverse each word and combine first with second, third with fourth and so on...\n   (odd number of words => last one stays alone, but has to be reversed too)\n2. Start it again until there's only one word without spaces\n3. Return your result...\n```\n\n### Some easy examples:\n```\nInput:  \"abc def\"\nOutput: \"cbafed\"\n\nInput:  \"abc def ghi 123\"\nOutput: \"defabc123ghi\"\n\nInput:  \"abc def gh34 434ff 55_eri 123 343\"\nOutput: \"43hgff434cbafed343ire_55321\"\n```\n\nI think it's clear?! First there are some static tests, later on random tests too...\n\n### Hope you have fun! :-)",
+    "starter_code": "\ndef reverse_and_combine_text(text):\n\t",
+    "public_tests": [
+      {
+        "input": "['abc def']",
+        "output": "['cbafed']"
+      },
+      {
+        "input": "['abc def ghi jkl']",
+        "output": "['defabcjklghi']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['dfghrtcbafed']",
+        "output": "['dfghrtcbafed']"
+      },
+      {
+        "input": "['234hh54 53455 sdfqwzrt rtteetrt hjhjh lllll12  44']",
+        "output": "['trzwqfdstrteettr45hh4325543544hjhjh21lllll']"
+      },
+      {
+        "input": "['sdfsdf wee sdffg 342234 ftt']",
+        "output": "['gffds432243fdsfdseewttf']"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2989",
+    "dataset": "APPS",
+    "source_problem_id": 2989,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "The odd and even numbers are fighting against each other!\n\nYou are given a list of positive integers. The odd numbers from the list will fight using their `1` bits from their binary representation, while the even numbers will fight using their `0` bits. If present in the list, number `0` will be neutral, hence not fight for either side.\n\nYou should return:\n\n* `odds win` if number of `1`s from odd numbers is larger than `0`s from even numbers\n* `evens win` if number of `1`s from odd numbers is smaller than `0`s from even numbers\n* `tie` if equal, including if list is empty\n\nPlease note that any prefix that might appear in the binary representation, e.g. `0b`, should not be counted towards the battle.\n\n### Example:\nFor an input list of `[5, 3, 14]`:\n\n* odds: `5` and `3` => `101` and `11` => four `1`s\n* evens: `14` => `1110` => one `0`\n\nResult: `odds win` the battle with 4-1\n\nIf you enjoyed this kata, you can find a nice variation of it [here](https://www.codewars.com/kata/world-bits-war).",
+    "starter_code": "\ndef bits_battle(numbers):\n\t",
+    "public_tests": [
+      {
+        "input": "[[5, 3, 14]]",
+        "output": "['odds win']"
+      },
+      {
+        "input": "[[3, 8, 22, 15, 78]]",
+        "output": "['evens win']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[[]]",
+        "output": "['tie']"
+      },
+      {
+        "input": "[[1, 13, 16]]",
+        "output": "['tie']"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  }
+]

@@ -1,0 +1,16 @@
+```json
+{
+  "components": [
+    {
+      "name": "EnvironmentVariableSource",
+      "files": ["confuse/sources.py"],
+      "contract": "A new class that extends ConfigSource to handle environment variable sources. It should parse environment variables based on a specified prefix, convert keys to lowercase, and handle nested keys using '__'."
+    },
+    {
+      "name": "ConfigurationEnvMixin",
+      "files": ["confuse/core.py"],
+      "contract": "A mixin class for Configuration that adds a method to set environment variable sources with a specified prefix. This method should insert the new source at the highest priority."
+    }
+  ]
+}
+```

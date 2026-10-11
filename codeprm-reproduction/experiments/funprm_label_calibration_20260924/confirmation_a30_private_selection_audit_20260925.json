@@ -1,0 +1,26 @@
+{
+  "audit_time": "2026-09-25T23:18:27+08:00",
+  "status": "pass",
+  "frozen_selection": "data/processed/funprm_label_calibration_20260924/confirmation_a30_new_adapter_selection_deferred_20260925.json",
+  "frozen_selection_sha256": "2763cfc01934f4249c0cb661631111515f1bb5e4872da890505fb2c3d06fc7a2",
+  "private_result": "data/processed/funprm_label_calibration_20260924/confirmation_a30_new_adapter_selection_private_20260925.json",
+  "private_result_sha256": "de2ac5543d41986dc5fceeac05375264b7ccef6067366034ac615b9d6b6f50fe",
+  "checks": {
+    "source_hash_matches": true,
+    "selection_rows_exact": true,
+    "expected_private_ids": 28,
+    "actual_private_ids": 28,
+    "private_id_sets_equal": true,
+    "private_evaluations_match": true,
+    "private_fields_used_for_selection": 0,
+    "reported_metrics_reproduced": true
+  },
+  "metrics": {
+    "total_problems": 30,
+    "covered_problems": 28,
+    "selected_private_all_pass": 5,
+    "selected_private_pass_at_1_all_problems": 0.16666666666666666,
+    "selected_private_pass_rate_mean_on_covered": 0.37017907311359943
+  },
+  "interpretation": "A单批私有评测已按冻结选择完成并通过完整性审计；该结果不得单独用于改变模型、候选或最终门槛。"
+}

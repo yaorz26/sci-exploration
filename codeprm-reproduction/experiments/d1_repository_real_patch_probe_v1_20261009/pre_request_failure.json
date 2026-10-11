@@ -1,0 +1,21 @@
+{
+  "time": "2026-10-09T09:59:52.196816+00:00",
+  "failure_category": "measurement_identity_failure_before_request",
+  "expected_native_dll_sha256": "8eeb51bbe0cda0ba2864c40abf7d73a13ac92f0857086185b357a95a858aee5b",
+  "actual_tokenizer_identity": {
+    "build": "version: 0.5.0-dev (build 1, commit 631109b34)\nbuilt with Clang 18.1.8 for Windows AMD64",
+    "vocab_only": true,
+    "model_path": "D:\\yaorz\\tools\\ollamaModels\\blobs\\sha256-60e05f2100071479f596b964f89f510f057ce397ea22f2833a0cfe029bfc2463",
+    "model_file_bytes": 4683074048,
+    "dll_sha256": "ac18a06da6978791968d81d9423c763d518b03d61a4426833398f1656150d3b5",
+    "model_hash_status": "blob名称记录上游digest，本次未重算4.6GB文件哈希"
+  },
+  "real_generation_requests": 0,
+  "behavior_executed": false,
+  "behavior": null,
+  "total_new_token_spend": 0,
+  "budget_closed": false,
+  "source_code_sha256": "bb4a13b2e44bec2afc1080f8063318c09ff51db629a56e3562aed9891c528ec7",
+  "decision": "按审定条件停止此生成支路，不绕过身份检查或新发校准调用；旧约98/100保持，转内部组织自由的评价器未知",
+  "uncertainty": "DLL来源改变原因未调查；不等于模型无法完成或任务不可用"
+}

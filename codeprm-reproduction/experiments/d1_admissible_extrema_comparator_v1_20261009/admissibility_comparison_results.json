@@ -1,0 +1,320 @@
+{
+  "created_at": "2026-10-09T04:43:35Z",
+  "frozen_input": "experiments\\d1_admissible_extrema_comparator_v1_20261009\\fourteen_pairs_and_admissibility_predictions_frozen.json",
+  "frozen_input_sha256": "771c6b7852c4aba17ae87d1fde12578694d913a6dc4e16e28909f6675d052968",
+  "comparison_scope": "14个冻结输入/输出对；不调用source/builtin/solve/model",
+  "rules": {
+    "key_only": "dict至少含minimum/maximum；只检查abs输出达到输入abs极值",
+    "strict": "dict正好两字段；精确int；两值来自输入；abs值达到输入极值"
+  },
+  "rows": [
+    {
+      "id": "source:tie_positive_first",
+      "kind": "P64保存合法返回",
+      "data": [
+        0,
+        5,
+        -5
+      ],
+      "output": {
+        "minimum": 0,
+        "maximum": -5
+      },
+      "predicted": {
+        "key_only": true,
+        "strict": true
+      },
+      "observed": {
+        "key_only": true,
+        "strict": true
+      },
+      "prediction_matches": true
+    },
+    {
+      "id": "source:tie_negative_first",
+      "kind": "P64保存合法返回",
+      "data": [
+        0,
+        -5,
+        5
+      ],
+      "output": {
+        "minimum": 0,
+        "maximum": 5
+      },
+      "predicted": {
+        "key_only": true,
+        "strict": true
+      },
+      "observed": {
+        "key_only": true,
+        "strict": true
+      },
+      "prediction_matches": true
+    },
+    {
+      "id": "source:unique_zero_min",
+      "kind": "P64保存合法返回",
+      "data": [
+        0,
+        2,
+        -5
+      ],
+      "output": {
+        "minimum": 0,
+        "maximum": -5
+      },
+      "predicted": {
+        "key_only": true,
+        "strict": true
+      },
+      "observed": {
+        "key_only": true,
+        "strict": true
+      },
+      "prediction_matches": true
+    },
+    {
+      "id": "source:unique_nonzero_min",
+      "kind": "P64保存合法返回",
+      "data": [
+        2,
+        -6,
+        4
+      ],
+      "output": {
+        "minimum": 2,
+        "maximum": -6
+      },
+      "predicted": {
+        "key_only": true,
+        "strict": true
+      },
+      "observed": {
+        "key_only": true,
+        "strict": true
+      },
+      "prediction_matches": true
+    },
+    {
+      "id": "builtin:tie_positive_first",
+      "kind": "P64保存合法返回",
+      "data": [
+        0,
+        5,
+        -5
+      ],
+      "output": {
+        "minimum": 0,
+        "maximum": 5
+      },
+      "predicted": {
+        "key_only": true,
+        "strict": true
+      },
+      "observed": {
+        "key_only": true,
+        "strict": true
+      },
+      "prediction_matches": true
+    },
+    {
+      "id": "builtin:tie_negative_first",
+      "kind": "P64保存合法返回",
+      "data": [
+        0,
+        -5,
+        5
+      ],
+      "output": {
+        "minimum": 0,
+        "maximum": -5
+      },
+      "predicted": {
+        "key_only": true,
+        "strict": true
+      },
+      "observed": {
+        "key_only": true,
+        "strict": true
+      },
+      "prediction_matches": true
+    },
+    {
+      "id": "builtin:unique_zero_min",
+      "kind": "P64保存合法返回",
+      "data": [
+        0,
+        2,
+        -5
+      ],
+      "output": {
+        "minimum": 0,
+        "maximum": -5
+      },
+      "predicted": {
+        "key_only": true,
+        "strict": true
+      },
+      "observed": {
+        "key_only": true,
+        "strict": true
+      },
+      "prediction_matches": true
+    },
+    {
+      "id": "builtin:unique_nonzero_min",
+      "kind": "P64保存合法返回",
+      "data": [
+        2,
+        -6,
+        4
+      ],
+      "output": {
+        "minimum": 2,
+        "maximum": -6
+      },
+      "predicted": {
+        "key_only": true,
+        "strict": true
+      },
+      "observed": {
+        "key_only": true,
+        "strict": true
+      },
+      "prediction_matches": true
+    },
+    {
+      "id": "nonmember_same_key",
+      "kind": "新构造输出对象非程序",
+      "data": [
+        0,
+        2,
+        -5
+      ],
+      "output": {
+        "minimum": 0,
+        "maximum": 5
+      },
+      "predicted": {
+        "key_only": true,
+        "strict": false
+      },
+      "observed": {
+        "key_only": true,
+        "strict": false
+      },
+      "prediction_matches": true
+    },
+    {
+      "id": "bool_minimum",
+      "kind": "新构造输出对象非程序",
+      "data": [
+        0,
+        2,
+        -5
+      ],
+      "output": {
+        "minimum": false,
+        "maximum": -5
+      },
+      "predicted": {
+        "key_only": true,
+        "strict": false
+      },
+      "observed": {
+        "key_only": true,
+        "strict": false
+      },
+      "prediction_matches": true
+    },
+    {
+      "id": "wrong_maximum",
+      "kind": "新构造输出对象非程序",
+      "data": [
+        0,
+        2,
+        -5
+      ],
+      "output": {
+        "minimum": 0,
+        "maximum": 2
+      },
+      "predicted": {
+        "key_only": false,
+        "strict": false
+      },
+      "observed": {
+        "key_only": false,
+        "strict": false
+      },
+      "prediction_matches": true
+    },
+    {
+      "id": "wrong_minimum",
+      "kind": "新构造输出对象非程序",
+      "data": [
+        0,
+        2,
+        -5
+      ],
+      "output": {
+        "minimum": 2,
+        "maximum": -5
+      },
+      "predicted": {
+        "key_only": false,
+        "strict": false
+      },
+      "observed": {
+        "key_only": false,
+        "strict": false
+      },
+      "prediction_matches": true
+    },
+    {
+      "id": "missing_maximum",
+      "kind": "新构造输出对象非程序",
+      "data": [
+        0,
+        2,
+        -5
+      ],
+      "output": {
+        "minimum": 0
+      },
+      "predicted": {
+        "key_only": false,
+        "strict": false
+      },
+      "observed": {
+        "key_only": false,
+        "strict": false
+      },
+      "prediction_matches": true
+    },
+    {
+      "id": "extra_field",
+      "kind": "新构造输出对象非程序",
+      "data": [
+        0,
+        2,
+        -5
+      ],
+      "output": {
+        "minimum": 0,
+        "maximum": -5,
+        "extra": 1
+      },
+      "predicted": {
+        "key_only": true,
+        "strict": false
+      },
+      "observed": {
+        "key_only": true,
+        "strict": false
+      },
+      "prediction_matches": true
+    }
+  ]
+}

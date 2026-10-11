@@ -1,0 +1,506 @@
+[
+  {
+    "input_id": "identity_lost",
+    "program": "indices_preserve_identity",
+    "intervention": "wrong_return_in_declared_representation",
+    "baseline_source": "P34保存结果未重跑",
+    "baseline": {
+      "outcome": {
+        "value": [
+          [
+            1,
+            2
+          ],
+          [
+            "b",
+            "a"
+          ]
+        ]
+      },
+      "input_unchanged": true,
+      "sorted_callers": [
+        "_sorted_indices"
+      ]
+    },
+    "actual": {
+      "outcome": {
+        "value": [
+          [
+            2,
+            1
+          ],
+          [
+            "a",
+            "b"
+          ]
+        ]
+      },
+      "input_unchanged": true,
+      "observed_helper_calls": [
+        "_sorted_indices"
+      ],
+      "helper_call_count": 1
+    },
+    "outcome_changed": true,
+    "expected_mechanism": "return_drives_output",
+    "expected_mechanism_pass": true
+  },
+  {
+    "input_id": "identity_lost",
+    "program": "indices_preserve_identity",
+    "intervention": "raises_RuntimeError",
+    "baseline_source": "P34保存结果未重跑",
+    "baseline": {
+      "outcome": {
+        "value": [
+          [
+            1,
+            2
+          ],
+          [
+            "b",
+            "a"
+          ]
+        ]
+      },
+      "input_unchanged": true,
+      "sorted_callers": [
+        "_sorted_indices"
+      ]
+    },
+    "actual": {
+      "outcome": {
+        "error": "RuntimeError"
+      },
+      "input_unchanged": true,
+      "observed_helper_calls": [
+        "_sorted_indices"
+      ],
+      "helper_call_count": 1
+    },
+    "outcome_changed": true,
+    "expected_mechanism": "error_propagation",
+    "expected_mechanism_pass": true
+  },
+  {
+    "input_id": "identity_lost",
+    "program": "original_input_recovery",
+    "intervention": "wrong_return_in_declared_representation",
+    "baseline_source": "P34保存结果未重跑",
+    "baseline": {
+      "outcome": {
+        "value": [
+          [
+            1,
+            2
+          ],
+          [
+            "b",
+            "a"
+          ]
+        ]
+      },
+      "input_unchanged": true,
+      "sorted_callers": [
+        "_sorted_keys",
+        "solve"
+      ]
+    },
+    "actual": {
+      "outcome": {
+        "error": "AssertionError"
+      },
+      "input_unchanged": true,
+      "observed_helper_calls": [
+        "_sorted_keys"
+      ],
+      "helper_call_count": 1
+    },
+    "outcome_changed": true,
+    "expected_mechanism": "return_checked_but_mapping_recomputed",
+    "expected_mechanism_pass": true
+  },
+  {
+    "input_id": "identity_lost",
+    "program": "original_input_recovery",
+    "intervention": "raises_RuntimeError",
+    "baseline_source": "P34保存结果未重跑",
+    "baseline": {
+      "outcome": {
+        "value": [
+          [
+            1,
+            2
+          ],
+          [
+            "b",
+            "a"
+          ]
+        ]
+      },
+      "input_unchanged": true,
+      "sorted_callers": [
+        "_sorted_keys",
+        "solve"
+      ]
+    },
+    "actual": {
+      "outcome": {
+        "error": "RuntimeError"
+      },
+      "input_unchanged": true,
+      "observed_helper_calls": [
+        "_sorted_keys"
+      ],
+      "helper_call_count": 1
+    },
+    "outcome_changed": true,
+    "expected_mechanism": "error_propagation",
+    "expected_mechanism_pass": true
+  },
+  {
+    "input_id": "identity_lost",
+    "program": "called_but_return_discarded",
+    "intervention": "wrong_return_in_declared_representation",
+    "baseline_source": "本阶段六新正常求值",
+    "baseline": {
+      "outcome": {
+        "value": [
+          [
+            1,
+            2
+          ],
+          [
+            "b",
+            "a"
+          ]
+        ]
+      },
+      "input_unchanged": true,
+      "observed_helper_calls": [
+        "_sorted_keys"
+      ],
+      "helper_call_count": 1
+    },
+    "actual": {
+      "outcome": {
+        "value": [
+          [
+            1,
+            2
+          ],
+          [
+            "b",
+            "a"
+          ]
+        ]
+      },
+      "input_unchanged": true,
+      "observed_helper_calls": [
+        "_sorted_keys"
+      ],
+      "helper_call_count": 1
+    },
+    "outcome_changed": false,
+    "expected_mechanism": "return_discarded",
+    "expected_mechanism_pass": true
+  },
+  {
+    "input_id": "identity_lost",
+    "program": "called_but_return_discarded",
+    "intervention": "raises_RuntimeError",
+    "baseline_source": "本阶段六新正常求值",
+    "baseline": {
+      "outcome": {
+        "value": [
+          [
+            1,
+            2
+          ],
+          [
+            "b",
+            "a"
+          ]
+        ]
+      },
+      "input_unchanged": true,
+      "observed_helper_calls": [
+        "_sorted_keys"
+      ],
+      "helper_call_count": 1
+    },
+    "actual": {
+      "outcome": {
+        "error": "RuntimeError"
+      },
+      "input_unchanged": true,
+      "observed_helper_calls": [
+        "_sorted_keys"
+      ],
+      "helper_call_count": 1
+    },
+    "outcome_changed": true,
+    "expected_mechanism": "error_propagation",
+    "expected_mechanism_pass": true
+  },
+  {
+    "input_id": "reverse_ties_still_stable",
+    "program": "indices_preserve_identity",
+    "intervention": "wrong_return_in_declared_representation",
+    "baseline_source": "P34保存结果未重跑",
+    "baseline": {
+      "outcome": {
+        "value": [
+          [
+            2,
+            1,
+            1
+          ],
+          [
+            "b",
+            "a",
+            "c"
+          ]
+        ]
+      },
+      "input_unchanged": true,
+      "sorted_callers": [
+        "_sorted_indices"
+      ]
+    },
+    "actual": {
+      "outcome": {
+        "value": [
+          [
+            1,
+            2,
+            1
+          ],
+          [
+            "a",
+            "b",
+            "c"
+          ]
+        ]
+      },
+      "input_unchanged": true,
+      "observed_helper_calls": [
+        "_sorted_indices"
+      ],
+      "helper_call_count": 1
+    },
+    "outcome_changed": true,
+    "expected_mechanism": "return_drives_output",
+    "expected_mechanism_pass": true
+  },
+  {
+    "input_id": "reverse_ties_still_stable",
+    "program": "indices_preserve_identity",
+    "intervention": "raises_RuntimeError",
+    "baseline_source": "P34保存结果未重跑",
+    "baseline": {
+      "outcome": {
+        "value": [
+          [
+            2,
+            1,
+            1
+          ],
+          [
+            "b",
+            "a",
+            "c"
+          ]
+        ]
+      },
+      "input_unchanged": true,
+      "sorted_callers": [
+        "_sorted_indices"
+      ]
+    },
+    "actual": {
+      "outcome": {
+        "error": "RuntimeError"
+      },
+      "input_unchanged": true,
+      "observed_helper_calls": [
+        "_sorted_indices"
+      ],
+      "helper_call_count": 1
+    },
+    "outcome_changed": true,
+    "expected_mechanism": "error_propagation",
+    "expected_mechanism_pass": true
+  },
+  {
+    "input_id": "reverse_ties_still_stable",
+    "program": "original_input_recovery",
+    "intervention": "wrong_return_in_declared_representation",
+    "baseline_source": "P34保存结果未重跑",
+    "baseline": {
+      "outcome": {
+        "value": [
+          [
+            2,
+            1,
+            1
+          ],
+          [
+            "b",
+            "a",
+            "c"
+          ]
+        ]
+      },
+      "input_unchanged": true,
+      "sorted_callers": [
+        "_sorted_keys",
+        "solve"
+      ]
+    },
+    "actual": {
+      "outcome": {
+        "error": "AssertionError"
+      },
+      "input_unchanged": true,
+      "observed_helper_calls": [
+        "_sorted_keys"
+      ],
+      "helper_call_count": 1
+    },
+    "outcome_changed": true,
+    "expected_mechanism": "return_checked_but_mapping_recomputed",
+    "expected_mechanism_pass": true
+  },
+  {
+    "input_id": "reverse_ties_still_stable",
+    "program": "original_input_recovery",
+    "intervention": "raises_RuntimeError",
+    "baseline_source": "P34保存结果未重跑",
+    "baseline": {
+      "outcome": {
+        "value": [
+          [
+            2,
+            1,
+            1
+          ],
+          [
+            "b",
+            "a",
+            "c"
+          ]
+        ]
+      },
+      "input_unchanged": true,
+      "sorted_callers": [
+        "_sorted_keys",
+        "solve"
+      ]
+    },
+    "actual": {
+      "outcome": {
+        "error": "RuntimeError"
+      },
+      "input_unchanged": true,
+      "observed_helper_calls": [
+        "_sorted_keys"
+      ],
+      "helper_call_count": 1
+    },
+    "outcome_changed": true,
+    "expected_mechanism": "error_propagation",
+    "expected_mechanism_pass": true
+  },
+  {
+    "input_id": "reverse_ties_still_stable",
+    "program": "called_but_return_discarded",
+    "intervention": "wrong_return_in_declared_representation",
+    "baseline_source": "本阶段六新正常求值",
+    "baseline": {
+      "outcome": {
+        "value": [
+          [
+            2,
+            1,
+            1
+          ],
+          [
+            "b",
+            "a",
+            "c"
+          ]
+        ]
+      },
+      "input_unchanged": true,
+      "observed_helper_calls": [
+        "_sorted_keys"
+      ],
+      "helper_call_count": 1
+    },
+    "actual": {
+      "outcome": {
+        "value": [
+          [
+            2,
+            1,
+            1
+          ],
+          [
+            "b",
+            "a",
+            "c"
+          ]
+        ]
+      },
+      "input_unchanged": true,
+      "observed_helper_calls": [
+        "_sorted_keys"
+      ],
+      "helper_call_count": 1
+    },
+    "outcome_changed": false,
+    "expected_mechanism": "return_discarded",
+    "expected_mechanism_pass": true
+  },
+  {
+    "input_id": "reverse_ties_still_stable",
+    "program": "called_but_return_discarded",
+    "intervention": "raises_RuntimeError",
+    "baseline_source": "本阶段六新正常求值",
+    "baseline": {
+      "outcome": {
+        "value": [
+          [
+            2,
+            1,
+            1
+          ],
+          [
+            "b",
+            "a",
+            "c"
+          ]
+        ]
+      },
+      "input_unchanged": true,
+      "observed_helper_calls": [
+        "_sorted_keys"
+      ],
+      "helper_call_count": 1
+    },
+    "actual": {
+      "outcome": {
+        "error": "RuntimeError"
+      },
+      "input_unchanged": true,
+      "observed_helper_calls": [
+        "_sorted_keys"
+      ],
+      "helper_call_count": 1
+    },
+    "outcome_changed": true,
+    "expected_mechanism": "error_propagation",
+    "expected_mechanism_pass": true
+  }
+]

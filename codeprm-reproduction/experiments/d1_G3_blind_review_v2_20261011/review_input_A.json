@@ -1,0 +1,76 @@
+{
+  "created_at": "2026-10-11T09:06:07.400954+00:00",
+  "round": 2,
+  "note": "这是需求修订后的第二轮审查；需求文本已按第一轮意见修改",
+  "blind_discipline": "本文件是审查者可见的唯一材料；不含评价器、参考实现、模型结果与作者初标",
+  "scale": "1=完全不同意 … 5=完全同意",
+  "dimensions": [
+    "需求可理解：不看参考实现也能明白要做什么",
+    "验收可判定：哪些行为算通过、哪些算遗漏，能判定",
+    "内部自由：不把某一种实现当唯一答案",
+    "可纳入正式候选：作为数据集任务合格"
+  ],
+  "instructions": [
+    "你是独立审查者。只依据下面给出的需求文本作判断。",
+    "禁止读取工作区中的任何其它文件（评价器、参考实现、模型输出、作者初标都不许看）。",
+    "对每个任务在四个维度上给出 1—5 的整数分（1=完全不同意，5=完全同意）。",
+    "下面另附‘上一轮被指认的缺陷清单’。请对每条明确回答 resolved=true/false 并给出依据引用。",
+    "必须为每个任务写出至少一条‘仍含糊或可能有两种解释的地方’；确实没有就写 [\"未发现\"]。",
+    "不得为了配合而同意。"
+  ],
+  "flagged_in_round_1": {
+    "T1": [
+      "需求未写优先级方向（数值大者先出还是小者先出）",
+      "remove 的返回约定未写",
+      "remove 不存在的任务的异常类型未写",
+      "pop/peek 无 default 时的异常类型未写"
+    ],
+    "T2": [
+      "映射视图是否做百分号解码未写进义务",
+      "full_quote=True 对 / & = 与非 ASCII 的编码范围无定义",
+      "already_encoded_preserved 的 note 文字自相矛盾"
+    ],
+    "T3": [
+      "前缀是否含分隔下划线未写",
+      "嵌套是叶子级合并还是整值替换未写",
+      "调用序列与异常未写"
+    ],
+    "T4": [
+      "公开用例不含显式 keyfunc/valuefunc，factor 语义靠反推",
+      "reducefunc 调用时机与已返回值保留规则不明确",
+      "兜底表述不可判定"
+    ],
+    "T5": [
+      "公开用例缺失，验收不可判定",
+      "模板 cwd / in_source_dir / in_app_dir 未定义挂在哪个对象",
+      "优先级写成一句而没有最小判定例；未给调用序列"
+    ]
+  },
+  "tasks": {
+    "T1": {
+      "requirement_text": "# 任务列表队首语义的有限功能任务（修订版 v2）\n\n修订说明（v2，2026-10-11）：依据独立审查意见补齐三处口径——① 明确优先级方向；② 明确 `remove` 与异常的返回/抛出约定；③ 明确再次 `add` 的位置语义。修订前的 v1 已快照保存。\n\n任务来源：`boltons` 官方模块 `boltons.queueutils`（官方文档 `docs/queueutils.rst`、模块 docstring 的 doctest、`CHANGELOG.md`）与固定父提交源码 `data/raw/d1_project_v1_20261008/repositories/boltons/boltons/queueutils.py`。\n\n给定该模块的父版本，实现一个**有限域**的任务队列。内部数据结构、辅助函数、模块划分、是否复用 `heapq` 或 `bisect` 均自由。\n\n## 一、优先级方向（必须按此实现）\n\n**优先级数值越大越先出队**。`priority=5` 的任务排在 `priority=1` 之前。未传 `priority` 时视为 `priority=0`。优先级可为整数或浮点数（含 `0` 与负值）。\n\n## 二、公开调用入口与返回约定\n\n固定五个方法，名称与签名如下；评价只观察返回值与 `len`，不检查内部字段。\n\n| 方法 | 返回约定 |\n| --- | --- |\n| `add(task, priority=None)` | 无返回值（返回 `None`） |\n| `remove(task)` | 成功时返回 `None`；任务不在队列时抛 `KeyError` |\n| `pop(default=None)` | 返回并移除当前队首任务；队列为空且给了 `default` 时返回该 `default`；队列为空且未给 `default` 时抛 `IndexError` |\n| `peek(default=None)` | 返回当前队首任务但不移除；空队列时的行为与 `pop` 相同 |\n| `__len__()` | 返回队列中的任务数（不含已 `remove` 的条目） |\n\n## 三、公开功能义务\n\n1. **同优先级先入先出**：依次加入同一优先级的多个任务后，`peek`/`pop` 按加入先后返回。\n2. **对已在队列的任务再次 `add` 视为更新**：该任务不产生重复条目（`len` 不变），并且**移动到与其优先级相符的位置**——在相同优先级下，先前加入的任务再 `add` 之后排在后来者之后。\n3. **`peek` 不改变公开结果**：连续两次 `peek` 返回同一任务；`peek` 不减少 `len`。\n4. **`remove` 移除指定任务**：被移除任务不再出现；`len` 相应减一；移除队首后 `peek` 返回下一个任务。移除不存在的任务抛 `KeyError`。\n5. **更高优先级的任务压制较低优先级**：无论 `add` 顺序如何，`peek`/`pop` 始终给出当前优先级最高的任务；同优先级内按义务 1、2 的顺序规则。\n6. **空队列语义**：见上表。\n\n## 四、合法输入域\n\n任务名为可哈希的短字符串；优先级为整数或浮点数；调用序列只包含上表五种操作。不纳入：线程安全、并发消费、`peek_n`、批量添加的扩展 API、性能或内存特性。\n\n来源说明：同优先级先入先出、更新既有任务、`peek` 不弹出、`default` 语义与\"数值越大越先出队\"均来自官方模块文档、doctest 与实现；**\"更新后移动到同优先级队尾\"由官方实现语义给出，官方文档只承诺\"更新优先级\"，未逐字承诺同优先级下的新位置**——该差异是一处未解决边界，已登记。\n\n状态：`research_pool_only`；`formal_labels=null`；`split=null`；真实人工双审 0；公开来源污染风险未知。\n",
+      "requirement_sha256": "2eab70511a1ecd165629d180bd869c6ab74d1952ca23e25c21938a903cfa1b25",
+      "requirement_path": "experiments/d1_G2_queue_history_candidate_v1_20261011/candidate/requirement.md"
+    },
+    "T2": {
+      "requirement_text": "# URL 渲染双用途的有限功能任务（修订版 v2）\n\n修订说明（v2，2026-10-11）：依据独立审查意见补齐四处口径——① 明确映射视图**不做百分号解码**；② 明确各组件可原样保留的字符集合；③ 删掉自相矛盾的注释表述；④ 明确空查询串与无查询串的差别。修订前的 v1 已快照保存。\n\n任务来源：`boltons` 官方模块 `boltons.urlutils`（官方文档 `docs/urlutils.rst`；`URL.to_text` 的 docstring 明示两种用途）与固定父提交源码 `data/raw/d1_project_v1_20261008/repositories/boltons/boltons/urlutils.py`。\n\n给定该模块的父版本，实现一个**有限域**的 URL 对象，使同一次解析既能按\"给人看\"的方式渲染，也能按\"发到网络\"的方式渲染。内部是否复用 `urllib.parse`、是否自写正则、辅助函数与模块划分均自由。\n\n## 一、映射视图的取值口径（必须按此实现）\n\n查询串映射视图返回的是**原文片段**，**不做百分号解码、不把 `+` 还原成空格**：\n\n- 输入 `?q=a%20b` → `get('q')` 返回字符串 `a%20b`（不是 `a b`）。\n- 输入 `?q=a+b` → `get('q')` 返回字符串 `a+b`（不是 `a b`）。\n\n理由：本任务的两种用途都建立在\"保留已编码文本\"之上；解码属另一种用途，不在本任务范围内。\n\n## 二、渲染的两类用途与字符集合\n\n同一对象提供两种渲染，读同一份解析结果：\n\n| 用途 | 调用 | 可原样保留的字符 | 空格处理 |\n| --- | --- | --- | --- |\n| 显示 | `to_text()` | 字母数字 `-._~`、以及 `!$&'()*+,-./:;=?@` 和 `%` | **原样保留** |\n| 发送 | `to_text(full_quote=True)` | 字母数字 `-._~`、以及 `!$&'()*+,-./:;=?@` 和 `%` | **编码为 `%20`** |\n\n- `%` 在两种用途下都在保留集合内，因此已存在的 `%XX` 序列**不得被重复编码**（`%20` 不得变成 `%2520`）。\n- 本任务合法域内不含非 ASCII 字符；非 ASCII 的编码方式不在判定范围内。\n- 查询串中的 `&` 与 `=` 属保留字符（它们分隔查询项），映射视图与渲染都不得改写它们。\n\n## 三、公开功能义务\n\n1. **映射视图与渲染读同一份解析**：映射视图不得改写查询串。\n2. **保留重复键与顺序**：同一键出现多次时，`keys`/`items` 按出现顺序给出全部条目；`getlist` 返回该键的全部值；`get` 返回该键的第一个值，键不存在时返回 `default`（默认 `None`）。\n3. **保留已有的百分号编码文本**：见第二节。\n4. **两种渲染用途的区别**：见第二节；区别只在空格等违规字符，不在 URL 结构分隔符。\n5. **不把 `+` 当空格**：映射视图与渲染都不得把 `+` 还原成空格。\n\n## 四、公开调用入口\n\n固定为：`URL(url)`、`URL.to_text(full_quote=False)`，以及查询串映射视图的 `keys()`、`items()`、`get(key, default=None)`、`getlist(key)`。这些名称与官方 API 同名；内部实现自由。\n\n## 五、合法输入域\n\n以 `http://` 或 `https://` 开头、主机为普通 ASCII 域名、可含路径/查询串/片段的 URL；查询项为普通键值对（允许重复键）。不纳入：用户信息（userinfo）、IPv6 主机、相对 URL、非 ASCII 主机与字符、空查询串与无查询串的区分（`?` 后为空视为无查询串）、性能或内存特性。\n\n来源说明：两种渲染用途与\"已编码文本不要重复编码\"来自官方 docstring 与 docs；\"空格在发送用途下编码为 `%20`\"、\"映射视图不解码\"与\"`+` 不作空格\"是任务构建者为有限域明确的约定，不假装是 RFC 的唯一要求。\n\n状态：`research_pool_only`；`formal_labels=null`；`split=null`；真实人工双审 0；公开来源污染风险未知。\n",
+      "requirement_sha256": "1080eec794027bdce3d32b1ade9d98ea58130fbe0a8232bb47dd8a230412c500",
+      "requirement_path": "experiments/d1_G2_url_dual_render_candidate_v1_20261011/candidate/requirement.md"
+    },
+    "T3": {
+      "requirement_text": "# 环境变量进入项目配置的有限功能任务（修订版 v2）\n\n修订说明（v2，2026-10-11）：依据独立审查意见补齐三处口径——① 明确前缀拼接方式（前缀直接拼键，不额外插分隔符）；② 明确嵌套键是**叶子级合并**而非整树替换；③ 明确调用入口签名、取值类型与异常。修订前的 v1 已快照保存。\n\n任务来源：beetbox/confuse PR142 的公开功能说明。给定直接父提交 `cd1db04b07db00050900d2f548baf144bb92d261` 的非测试包源码。在真实 `confuse.Configuration` 对象中增加显式选择的环境变量配置来源。内部模块划分、辅助函数、字典构造方式均自由。\n\n## 一、调用入口与签名（固定）\n\n```python\nconfig.set_env(prefix, sep='__')\n```\n\n- `prefix` 是**原样前缀**：环境变量名必须以 `prefix` 开头，例如 `prefix='D1APP_'` 匹配 `D1APP_HOST`（**前缀与键之间不再另插分隔符**，下划线属于前缀本身）。若写成 `prefix='D1APP'` 则同时匹配 `D1APPHOST` 与 `D1APP_HOST`。\n- `sep` 默认 `'__'`，用于在剥去前缀后的键名中表示嵌套层级。`sep` 不参与前缀匹配。\n- 本方法把该来源放到**当前最高优先级**，返回 `None`。\n\n## 二、公开功能义务\n\n1. **显式加入，不在构造时默认加入**：只有显式调用 `set_env` 之后，环境变量才参与配置读取；仅构造 `Configuration` 对象时不得自动加入环境来源。\n2. **前缀匹配与键名转换**：只取以 `prefix` 开头的变量；剥去前缀后的键名转小写；键名中的 `sep` 表示嵌套层级。\n3. **标量类型转换与 YAML 文件来源一致**：例如 `42` 读作整数、`hello` 读作字符串；最终通过已有配置视图的 `get` 读取，不另建 JSON 求解入口。\n4. **优先级**：在文件来源之后显式加入的环境变量来源优先级更高；未被环境变量提供的键仍可由较低优先级来源读取。\n5. **无匹配时保持原值**：没有任何匹配变量时，现有配置值保持不变。\n6. **嵌套为叶子级合并**：当环境变量与文件同时提供同一父键下的不同子键时，两者必须**合并**，环境值覆盖同名的叶子键，未被子键覆盖。\n\n## 三、合法输入域\n\n指定前缀的环境变量名；剥去前缀后非空且无父子键冲突的普通字符串键；`sep` 表示嵌套；值为不含集合语法的有效 YAML 标量；普通映射型配置文件。不纳入：列表转换、完整 YAML 文档值、重新加载、空键、与文件冲突的同名父键为标量时的行为、性能或线程安全。\n\n来源说明：前缀、键名转换、嵌套、标量转换与显式选择来自公开 PR 说明；\"最高优先级入口\"与\"调用方必须显式调用\"是任务构建者为现有 `set`/`set_file` 约定选定的调用约束；\"前缀不再另插分隔符\"与\"叶子级合并\"是构建者为消除歧义明确的约定。评价材料、合并版本与手写控制不属于未来模型可见输入。\n\n状态：`research_pool_only`；`formal_labels=null`；`split=null`；真实人工双审 0；公开来源污染风险未知。\n",
+      "requirement_sha256": "2bb3995c577447c80d1c25debd72fe2595a8a461266fd78ce317e098d89bb372",
+      "requirement_path": "experiments/d1_G2_confuse_pr142_env_source_v1_20261009/candidate/requirement.md"
+    },
+    "T4": {
+      "requirement_text": "# 相邻组变换在迭代生命周期内完成（修订版 v2）\n\n修订说明（v2，2026-10-11）：依据独立审查意见补齐四处口径——① 公开用例中的 `keyfunc`/`valuefunc` 改为**显式给出**，不再靠反推；② 明确 `factor` 的含义；③ 明确 `reducefunc` 的调用时机与\"已返回值保留\"的判定规则；④ 删掉\"不是要求任意惰性 reducefunc 都永久保存数据\"这类不可判定的兜底表述。修订前的 v1 已快照保存。\n\n来源：more-itertools PR440，官方合并 `78405e9b24d0ccdd67785136ecd56774f38ae95e`，直接父 `38d070c9252d2138dbd86f8f85b9970741401cb6`。PR 标题/正文初称 `groupfunc`，合并版本的公开 API 参数名为 `reducefunc`，任务采用实际公开 API 名。不要求复制合并实现或固定内部 helper/存储结构。\n\n给定父包源码，为 `more_itertools.groupby_transform(iterable, keyfunc=None, valuefunc=None, reducefunc=None)` 增加整组变换：仅相邻且 key 相同的项分为一组，`keyfunc` 计算 key，`valuefunc` 先变换组内每项，`reducefunc` 接受该组变换后的可迭代值，其返回值作为外层 `(key, result)` 的 `result`。\n\n## 一、回调的调用时机（必须按此实现）\n\n- `reducefunc` **在该组被外层消费到时调用一次**，入参是该组经 `valuefunc` 变换后的可迭代值。\n- `reducefunc` 返回之后，对应的 `(key, result)` 即可被外层继续消费；**返回值一旦产生就不再变化**，即使外层迭代继续前进、后续组继续被消费。\n- `keyfunc`/`valuefunc` 未提供时保留父默认行为（key 为元素本身、value 为元素本身）。`reducefunc` 未提供时，保留父 API 的懒组可迭代结果与共享底层迭代器的行为，**不得**为新功能把全部组永久物化。\n\n## 二、合法输入域与术语定义\n\n- 有限可迭代数据；纯函数式的 `keyfunc`/`valuefunc`（无副作用）。\n- `reducefunc` 限定为两类：`list`（收集整组）或 `sum`（数值求和）；两类都必须在调用时**完整消费**传入的可迭代值。\n- `factor`：仅出现在公开用例中，指 `valuefunc` 使用的一个整数缩放系数，即 `valuefunc = lambda x: x * factor`；它**不是** `groupby_transform` 的参数。\n- 同 key 的非相邻组保持分开，不排序、不合并。\n\n## 三、公开功能义务\n\n1. **相邻分组**：只有相邻且 key 相同的项进同一组。\n2. **valuefunc 先于 reducefunc**：`reducefunc` 收到的是经 `valuefunc` 变换后的值。\n3. **整组变换结果作为 result**：`reducefunc` 的返回值即 `(key, result)` 中的 `result`。\n4. **已返回值保留**：`list`/`sum` 这类完整消费型回调产生的结果在外层继续前进后**仍然可用且不变**；外层迭代推进不得把先前已产出的 result 变成空值。\n5. **无 reducefunc 时保持父行为**：返回懒组可迭代值，行为与父版本一致。\n6. **回调默认值**：`keyfunc`/`valuefunc` 省略时保留父默认行为。\n\n## 四、不纳入范围\n\n不测无界流、内存/效率、任意带副作用的回调、非 list/sum 的自定义惰性 reducer、以及 `groupby_transform` 以外的 API。\n\n状态：`research_pool_only`；`formal_labels=null`；`split=null`；真实人工双审 0；模型效果 0；公共污染 unknown；既有暴露另存。\n",
+      "requirement_sha256": "434ede715612025c737754877798b0069d8a62602140b228b37161d39be2987d",
+      "requirement_path": "experiments/d1_G2_more_pr440_group_lifetime_v1_20261009/candidate/requirement.md"
+    },
+    "T5": {
+      "requirement_text": "# 配置文件来源的相对路径（修订版 v2）\n\n修订说明（v2，2026-10-11）：依据独立审查意见补齐四处——① 给出**完整调用序列**与真实目录形态，不再只给结果形态；② 定义\"应用配置目录/源文件目录/cwd/relative_to\"四个术语分别属于哪个对象；③ 把优先级写成**有序判定表**并在源文件内附最小判定例；③ 说明公开诊断内嵌于评价器。修订前的 v1 已快照保存。\n\n在给定项目包源码中实现源文件目录相对路径功能，保持现有外部 API 和默认行为。Python 3，依赖 PyYAML。通过修改现有项目代码交付功能，不要求特定内部拆法。\n\n## 一、术语定义（每个开关挂在哪个对象上）\n\n| 术语 | 含义 | 挂在哪个对象 |\n| --- | --- | --- |\n| 源文件目录 | 当前 `ConfigSource`/`YamlSource` 所用配置文件的所在目录（由该来源的 `filename` 决定） | 由来源的 `filename` 决定 |\n| 应用配置目录 | `Configuration` 对象的应用配置根目录（由 `Configuration('appname')` 的名字与 `app_dir` 决定） | `Configuration` |\n| `base_for_paths` | 开关：相对路径是否以**源文件目录**为基准 | 源级：`ConfigSource` / `YamlSource` 的构造参数 |\n| `in_source_dir` | 开关：模板是否明确选择**源文件目录** | 模板级：`Filename(...)` 的构造参数 |\n| `in_app_dir` | 开关：模板是否强制回到**应用配置目录** | 模板级：`Filename(...)` 的构造参数 |\n| `set_file(..., base_for_paths=...)` | 载入文件的入口，可把源级开关传给该来源 | `Configuration.set_file` |\n| `cwd` | 进程当前工作目录，是无源文件时的兜底 | 进程环境 |\n| `relative_to` | 现有行为：模板可指定相对于某个视图键解析 | 模板级 |\n\n## 二、调用序列（评价按此序列调用，公开例即此形态）\n\n```python\n# 真实目录在测试运行时创建，形态如下（<...> 为实际绝对路径）\n# <project>/settings/config.yaml   内容: path: assets/a.txt\n# <app>/                           应用配置目录（Configuration 的 app_dir）\n\nconfig = confuse.Configuration('appname', read=False)          # 构造时不自动加入任何来源\nconfig.set_file('<project>/settings/config.yaml')              # 或带 base_for_paths=True\nvalue = config['path'].get(confuse.Filename(cwd=<app>))        # 或 Filename(cwd=<app>, in_source_dir=True)\n                                                               # 或 Filename(cwd=<app>, in_app_dir=True)\n```\n\n## 三、有序判定表（自上而下第一条命中者生效）\n\n对\"值为相对路径的模板求值\"这一动作，按下列顺序判定基准目录：\n\n1. 若路径为**绝对路径** → 原样返回，不看任何开关。\n2. 若模板给了 `cwd` → 以该 `cwd` 为基准。\n3. 否则若模板 `in_app_dir=True` → 以**应用配置目录**为基准（覆盖源级 `base_for_paths`）。\n4. 否则若模板 `in_source_dir=True` 且该来源有 `filename` → 以**源文件目录**为基准。\n5. 否则若该来源的 `base_for_paths=True` 且该来源有 `filename` → 以**源文件目录**为基准。\n6. 否则若模板给了 `relative_to` → 保持现有 `relative_to` 行为。\n7. 否则若该来源有 `filename` → 以**应用配置目录**为基准（默认行为）。\n8. 否则 → 以**当前工作目录**为基准。\n\n源级 `base_for_paths=True` 但该来源**没有** `filename` 时，该开关无效，落回第 7/8 条。\n\n## 四、最小判定例（与公开例一致）\n\n假定应用目录 `<app>`、配置文件 `<project>/settings/config.yaml`、文件内值为 `assets/a.txt`：\n\n| 调用 | 期望输出 |\n| --- | --- |\n| `set_file(path)` + `Filename(cwd=<app>)` | `<app>/assets/a.txt` |\n| `set_file(path)` + `Filename(cwd=<app>, in_source_dir=True)` | `<project>/settings/assets/a.txt` |\n| `set_file(path, base_for_paths=True)` + `Filename(cwd=<app>)` | `<project>/settings/assets/a.txt` |\n| `set_file(path, base_for_paths=True)` + `Filename(cwd=<app>, in_app_dir=True)` | `<app>/assets/a.txt` |\n| 文件内值为绝对路径（如 `<tmp>/x.txt`）+ 任意开关 | `<tmp>/x.txt`（保持不变） |\n\n## 五、公开诊断的位置\n\n本任务的公开诊断（公开用例）**内嵌在评价器脚本中**，不单独提供用例文件；未来模型可见输入只有本需求、父包源码与公开例形态。\n\n该任务为研究池候选，公开诊断用于说明功能义务。没有正式结构标签、人工双审或模型效果结论。\n",
+      "requirement_sha256": "e2c569f7571820381501bde6c9c17d045f4ac3c0d8cae8a7a926bcdcc73f0cad",
+      "requirement_path": "data/processed/d1_actual_project_candidate_v2_20261009/public/REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS/requirement.md"
+    }
+  }
+}

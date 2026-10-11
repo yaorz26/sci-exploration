@@ -1,0 +1,351 @@
+{
+  "status": "不同用途/不同合法计算次序获有限支持，发现浮点表示比较的新边界",
+  "rows": [
+    {
+      "id": "a01",
+      "data": [
+        1,
+        2,
+        3
+      ],
+      "expected_fraction": {
+        "mean": "2",
+        "variance": "2/3"
+      },
+      "results": {
+        "upstream_saved": {
+          "mean": 2.0,
+          "variance": 0.6666666666666666
+        },
+        "center_first": {
+          "mean": 2.0,
+          "variance": 0.6666666666666666
+        },
+        "pairwise_first": {
+          "mean": 2.0,
+          "variance": 0.6666666666666666
+        }
+      }
+    },
+    {
+      "id": "a02",
+      "data": [
+        1,
+        1,
+        5
+      ],
+      "expected_fraction": {
+        "mean": "7/3",
+        "variance": "32/9"
+      },
+      "results": {
+        "upstream_saved": {
+          "mean": 2.3333333333333335,
+          "variance": 3.555555555555556
+        },
+        "center_first": {
+          "mean": 2.3333333333333335,
+          "variance": 3.555555555555556
+        },
+        "pairwise_first": {
+          "mean": 2.3333333333333335,
+          "variance": 3.5555555555555554
+        }
+      }
+    },
+    {
+      "id": "a03",
+      "data": [],
+      "expected_fraction": {
+        "mean": "0",
+        "variance": "0"
+      },
+      "results": {
+        "upstream_saved": {
+          "mean": 0.0,
+          "variance": 0.0
+        },
+        "center_first": {
+          "mean": 0.0,
+          "variance": 0.0
+        },
+        "pairwise_first": {
+          "mean": 0.0,
+          "variance": 0.0
+        }
+      }
+    },
+    {
+      "id": "a04",
+      "data": [
+        -2,
+        0,
+        2
+      ],
+      "expected_fraction": {
+        "mean": "0",
+        "variance": "8/3"
+      },
+      "results": {
+        "upstream_saved": {
+          "mean": 0.0,
+          "variance": 2.6666666666666665
+        },
+        "center_first": {
+          "mean": 0.0,
+          "variance": 2.6666666666666665
+        },
+        "pairwise_first": {
+          "mean": 0.0,
+          "variance": 2.6666666666666665
+        }
+      }
+    },
+    {
+      "id": "a05",
+      "data": [
+        1.5,
+        2.5
+      ],
+      "expected_fraction": {
+        "mean": "2",
+        "variance": "1/4"
+      },
+      "results": {
+        "upstream_saved": {
+          "mean": 2.0,
+          "variance": 0.25
+        },
+        "center_first": {
+          "mean": 2.0,
+          "variance": 0.25
+        },
+        "pairwise_first": {
+          "mean": 2.0,
+          "variance": 0.25
+        }
+      }
+    },
+    {
+      "id": "a06",
+      "data": [
+        100,
+        101,
+        102
+      ],
+      "expected_fraction": {
+        "mean": "101",
+        "variance": "2/3"
+      },
+      "results": {
+        "upstream_saved": {
+          "mean": 101.0,
+          "variance": 0.6666666666666666
+        },
+        "center_first": {
+          "mean": 101.0,
+          "variance": 0.6666666666666666
+        },
+        "pairwise_first": {
+          "mean": 101.0,
+          "variance": 0.6666666666666666
+        }
+      }
+    },
+    {
+      "id": "a07",
+      "data": [
+        0,
+        2,
+        4
+      ],
+      "expected_fraction": {
+        "mean": "2",
+        "variance": "8/3"
+      },
+      "results": {
+        "upstream_new": {
+          "mean": 2.0,
+          "variance": 2.6666666666666665
+        },
+        "center_first": {
+          "mean": 2.0,
+          "variance": 2.6666666666666665
+        },
+        "pairwise_first": {
+          "mean": 2.0,
+          "variance": 2.6666666666666665
+        }
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "a01",
+      "program": "upstream_saved",
+      "matches_analytic_with_diagnostic_tolerance": true
+    },
+    {
+      "id": "a01",
+      "program": "center_first",
+      "matches_analytic_with_diagnostic_tolerance": true
+    },
+    {
+      "id": "a01",
+      "program": "pairwise_first",
+      "matches_analytic_with_diagnostic_tolerance": true
+    },
+    {
+      "id": "a02",
+      "program": "upstream_saved",
+      "matches_analytic_with_diagnostic_tolerance": true
+    },
+    {
+      "id": "a02",
+      "program": "center_first",
+      "matches_analytic_with_diagnostic_tolerance": true
+    },
+    {
+      "id": "a02",
+      "program": "pairwise_first",
+      "matches_analytic_with_diagnostic_tolerance": true
+    },
+    {
+      "id": "a03",
+      "program": "upstream_saved",
+      "matches_analytic_with_diagnostic_tolerance": true
+    },
+    {
+      "id": "a03",
+      "program": "center_first",
+      "matches_analytic_with_diagnostic_tolerance": true
+    },
+    {
+      "id": "a03",
+      "program": "pairwise_first",
+      "matches_analytic_with_diagnostic_tolerance": true
+    },
+    {
+      "id": "a04",
+      "program": "upstream_saved",
+      "matches_analytic_with_diagnostic_tolerance": true
+    },
+    {
+      "id": "a04",
+      "program": "center_first",
+      "matches_analytic_with_diagnostic_tolerance": true
+    },
+    {
+      "id": "a04",
+      "program": "pairwise_first",
+      "matches_analytic_with_diagnostic_tolerance": true
+    },
+    {
+      "id": "a05",
+      "program": "upstream_saved",
+      "matches_analytic_with_diagnostic_tolerance": true
+    },
+    {
+      "id": "a05",
+      "program": "center_first",
+      "matches_analytic_with_diagnostic_tolerance": true
+    },
+    {
+      "id": "a05",
+      "program": "pairwise_first",
+      "matches_analytic_with_diagnostic_tolerance": true
+    },
+    {
+      "id": "a06",
+      "program": "upstream_saved",
+      "matches_analytic_with_diagnostic_tolerance": true
+    },
+    {
+      "id": "a06",
+      "program": "center_first",
+      "matches_analytic_with_diagnostic_tolerance": true
+    },
+    {
+      "id": "a06",
+      "program": "pairwise_first",
+      "matches_analytic_with_diagnostic_tolerance": true
+    },
+    {
+      "id": "a07",
+      "program": "upstream_new",
+      "matches_analytic_with_diagnostic_tolerance": true
+    },
+    {
+      "id": "a07",
+      "program": "center_first",
+      "matches_analytic_with_diagnostic_tolerance": true
+    },
+    {
+      "id": "a07",
+      "program": "pairwise_first",
+      "matches_analytic_with_diagnostic_tolerance": true
+    }
+  ],
+  "matches_with_diagnostic_tolerance": 21,
+  "result_units": 21,
+  "reused_upstream_results": 6,
+  "new_program_evaluations": 15,
+  "new_upstream_objects": 1,
+  "new_stdlib_program_evaluations": 14,
+  "relations": [
+    {
+      "pair": [
+        "a01",
+        "a07"
+      ],
+      "purpose": "相同均值2，方差2/3与8/3不同；中心输出不能恢复离散程度",
+      "analytic_pass": true
+    },
+    {
+      "pair": [
+        "a01",
+        "a06"
+      ],
+      "purpose": "相同方差2/3，均值2与101不同；离散程度输出不能恢复中心",
+      "analytic_pass": true
+    }
+  ],
+  "raw_float_differences": [
+    {
+      "id": "a02",
+      "data": [
+        1,
+        1,
+        5
+      ],
+      "center_first": {
+        "mean": 2.3333333333333335,
+        "variance": 3.555555555555556
+      },
+      "pairwise_first": {
+        "mean": 2.3333333333333335,
+        "variance": 3.5555555555555554
+      },
+      "absolute_variance_difference": 4.440892098500626e-16
+    }
+  ],
+  "corrected_interpretation": "variance可以不读取mean结果先求，任务不强制均值先于方差；共享原输入和源码属性缓存不等外部跨操作状态。候选存在局部契约机会但组合域/数值判定仍需另定。",
+  "candidate_id": "E_B08",
+  "candidate_labels": {
+    "cross_operation_state": null,
+    "behavior_dependencies": null,
+    "separate_behavior_testability": null
+  },
+  "scope": "扩展研究候选，未接入数据集/正式协议/旧评分；标签保留未判，人工0，主20/307/11—9保持",
+  "next": "P43核对实数等价方案的浮点差异与现有精确比较含义，先冻结最小差异，不扩大随机数字样例",
+  "model_calls": 0,
+  "API_calls": 0,
+  "hidden_reads": 0,
+  "new_downloads": 0,
+  "limits": [
+    "21结果单位含6旧结果，15新求值不能写21全新",
+    "abs_tol只为预先声明的诊断，非正式通过率",
+    "a01—a06解析值事后记录，a07事前冻结",
+    "不声称新候选已填P40标签格、独立人类真值或收益"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "recorded_at": "2026-10-09T06:50:40Z",
+  "occurred_after_execution": true,
+  "execution_completed_at": "2026-10-09T06:47:00.272818+00:00",
+  "upstream_public_test_fragments": [
+    "tests/test_more.py:2660,2697,2701,4104,4112,4122,4128",
+    "tests/test_recipes.py:185"
+  ],
+  "stored_description": "rg排除tests glob未生效，输出公开调用匹配行；没有完整测试或本任务隐藏期望",
+  "reserve_public_read": [
+    "D1_M04/task.json",
+    "D1_M04/public_tests.json",
+    "D1_M04/starter.py"
+  ],
+  "d1_private_reads": 0,
+  "model_prompt_exposure": 0,
+  "subsequent_p76_runs": 0,
+  "decision": "不得声称上游测试内容零暴露；不用于后续未见确认"
+}

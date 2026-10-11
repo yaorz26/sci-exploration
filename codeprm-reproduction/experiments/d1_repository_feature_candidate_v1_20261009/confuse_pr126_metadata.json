@@ -1,0 +1,55 @@
+{
+  "number": 126,
+  "title": "Add options for Filename templates to resolve relative paths using source file location",
+  "body": "These two commits allow confuse ConfigSources and Filename templates to be set up to resolve relative paths from the base directory of the configuration file itself, rather than the application's configuration directory. The new behavior is opt-in.\r\n\r\nThe first commit implements the new relative path behavior at the ConfigSource level, by allowing the source file to be marked as resolving paths relative to its base directory. This was the suggested approach in response to #125.\r\n\r\nThe second commit provides an additional way to invoke the new relative path behavior at the level of an individual template, regardless of the setting for the source. This could potentially allow applications to have more fine-grained control over path resolution. It would also allow applications to resolve paths in the application's default `config_default.yaml` file relative to that location within the package. This could be useful for packages with default settings that refer to a default data file. However, if it is not desirable to have two ways to invoke the same behavior, the second commit could be dropped.",
+  "html_url": "https://github.com/beetbox/confuse/pull/126",
+  "state": "closed",
+  "merged": true,
+  "merged_at": "2021-06-27T19:50:16Z",
+  "created_at": "2021-04-11T02:29:23Z",
+  "updated_at": "2021-06-29T03:23:08Z",
+  "merge_commit_sha": "2c1f97e7b6aadbeb8bd6f112bd7ef965dbd977b0",
+  "base": {
+    "ref": "master",
+    "sha": "8b69242b8facdd7d1f87113693ea72017d61a0ff",
+    "repo": {
+      "full_name": "beetbox/confuse",
+      "html_url": "https://github.com/beetbox/confuse",
+      "default_branch": "main"
+    }
+  },
+  "head": {
+    "ref": "filename_relative_to_source",
+    "sha": "cf23f736e8c96f572cf0bd6d36774719d3ff872c",
+    "repo": {
+      "full_name": "arroyoj/confuse",
+      "html_url": "https://github.com/arroyoj/confuse",
+      "default_branch": "master"
+    }
+  },
+  "user": {
+    "login": "arroyoj",
+    "id": 82246664,
+    "node_id": "MDQ6VXNlcjgyMjQ2NjY0",
+    "avatar_url": "https://avatars.githubusercontent.com/u/82246664?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/arroyoj",
+    "html_url": "https://github.com/arroyoj",
+    "followers_url": "https://api.github.com/users/arroyoj/followers",
+    "following_url": "https://api.github.com/users/arroyoj/following{/other_user}",
+    "gists_url": "https://api.github.com/users/arroyoj/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/arroyoj/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/arroyoj/subscriptions",
+    "organizations_url": "https://api.github.com/users/arroyoj/orgs",
+    "repos_url": "https://api.github.com/users/arroyoj/repos",
+    "events_url": "https://api.github.com/users/arroyoj/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/arroyoj/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "changed_files": 6,
+  "additions": 339,
+  "deletions": 23,
+  "commits": 7
+}

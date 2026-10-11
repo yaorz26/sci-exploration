@@ -1,0 +1,52 @@
+{
+  "schema_kind": "多层次候选证据记录，非新标签真值",
+  "layers": [
+    "task_behavior_observation",
+    "particular_handwritten_plan",
+    "method_cost"
+  ],
+  "unit_fields": [
+    "history_or_input_domain",
+    "entity_definition",
+    "equivalence_rule",
+    "observer",
+    "quantifier",
+    "allowed_domain",
+    "conditions"
+  ],
+  "evidence_ref_is_not_question_unit": true,
+  "task_rows": 20,
+  "candidate_rows_separate": 2,
+  "human_reviewers": 0,
+  "original_author_labels_changed": false,
+  "original_split_changed": false,
+  "model_input_allowed": false,
+  "unknown_policy": "未测null；不适用/不可观察不是无依赖；有限相等不是普遍独立",
+  "v1_correction": "E_M06同规范实体关系的跨实体问题不适用，但目标记录投影仍可观察，v2分别登记；v1保留",
+  "input_hashes": {
+    "data/processed/d1_project_initial20_v5_20261008/manifest.json": "c3593d11ae85cc23545aa91418c2ab3c97a4b005fd5e49963bdc28ae7e6eda9f",
+    "experiments/d1_structure_evidence_sidecar_v1_20261008/task_evidence.json": "da7911091efacb67ff8bcfd1a2e2e8d2565fa48003490fc58132fdaaab6d38e2",
+    "experiments/d1_semantic_contrasts_v1_20261008/paired_probes.jsonl": "e1e7aa25089bcde5ebca06b4d857e9211e00ebc92b7a1824befd2f3498304fb0",
+    "experiments/d1_unmeasured_task_probes_v1_20261008/paired_results.jsonl": "fdf4f324fb7a02b9f0902df757877b2afb3fc604de718a1a6d71d5ddeb7f3a31",
+    "experiments/d1_expected_rejection_v1_20261008/relation_results.json": "2f04ddcfdbf955cac67de02a00652395951c29c62fbdec707585e1d6a632c06b",
+    "experiments/d1_expansion_order_candidate_v1_20261008/paired_relations.json": "7c1b738770ecaa291cbfd1b3577a2260bc7fb67a109bd7eed5ca5a0da3186c0d",
+    "experiments/d1_expansion_support_v1_20261008/encoding_frozen.json": "1dbb8b855ba3cb61c2c5fbfc1e31a7df0862339abe750a706eadcd050868d279",
+    "experiments/d1_plan_state_distribution_v1_20261008/candidate_state_profiles_frozen.json": "70fc05c3463f7a9a63a9e55975e830b9b4189d9aab58c4beff0d87c5947b05de",
+    "experiments/d1_alignment_composition_v1_20261008/summary.json": "532618d7ddf95067cacc8cbed4365353cc80a106d688c3f6aa2ecb64de573b71",
+    "experiments/d1_local_composition_v1_20261008/summary.json": "026ff59aad7906736f815aa2e89ad6c112a584646fa1ae1233b5729bfaa8c0e5",
+    "experiments/d1_valid_text_budget_v1_20261008/rows.json": "89a40462693d97d53435f89a00616e0d3dd5d09ab3315397f528be8abae81fe7",
+    "experiments/d1_valid_text_budget_v1_20261008/P9_saved_output_audit.json": "c92156850ff130e24783a0f93c41ac32673aec120a825a3489ccbafba19fb8f1",
+    "experiments/d1_expansion_cache_candidate_v1_20261008/task_contract.json": "d6d1b43184d3192b32b895740e7e759be0bb708b51cec6a91ebcd58a2d6ad6c2",
+    "experiments/d1_expansion_order_candidate_v1_20261008/task_contract.json": "fd0b416b72f7834ed7ac142cc20544b1e5612386846e5f9753c115f339734aad",
+    "experiments/d1_relation_vacuity_v1_20261008/summary.json": "ae828cdf5757651f175f5d0e312d021296531c262acc91bf7002aa536f3c5588",
+    "experiments/d1_expansion_support_v1_20261008/summary.json": "c7b66b7dc0025cf7ab5920f4a78290a6e64cf49f4bf20dd0b45705cc35180a36",
+    "experiments/d1_prompt_crowding_v1_20261008/rows.json": "8c1b81c6234fd2f1a26e2502e5f66a0d9f550d41b14ee17956c5993d357ac18d",
+    "experiments/d1_measurement_record_v1_20261008/evidence_sources_extracted.json": "c1552001bd6318d38a956eca81e61764233dc0d39c9e0e172e45b8d90ca35e11",
+    "experiments/d1_granularity_review_v2_20261008/review_summary.json": "4585b7dfbf1f434951c325ee3b822e3bc9c19cfce75273092f3236149e8b1e23",
+    "experiments/d1_valid_text_budget_v1_20261008/summary.json": "06ad245ac53140c8ab256ed55d4b52798d985a0f192a3e8871d378d3d5177096",
+    "experiments/d1_plan_state_distribution_v1_20261008/summary.json": "841ea11e3b4da4b264849b7498ea080b93190fb057d2eab540a35fd4a950ab34",
+    "experiments/d1_unmeasured_task_probes_v1_20261008/summary.json": "fa33ae8598cf4c85bd634f5e6b530483013a1174fa0e7fbdaa3ea1a6761ebb4e",
+    "experiments/d1_expected_rejection_v1_20261008/summary.json": "04bc7aa904748fc8992ddc59177c83b82d3c273b147ffd51a5233861c54c355e"
+  },
+  "script_sha256": "2dd55a0118bfb19711abe2b9507b60404b4669b0dc205badc64e9fbe82f3fc7d"
+}

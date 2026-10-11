@@ -1,0 +1,24 @@
+{
+  "mode": "format_only_diagnostic",
+  "model_calls": 0,
+  "tasks": {
+    "REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS": {
+      "task_id": "REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS",
+      "raw_prefix": " ```diff\n--- a/confu",
+      "normalized_prefix": "--- a/confuse/source",
+      "candidate": {
+        "ok": false,
+        "failure": "PatchFailure: 原行内容不匹配，拒绝模糊应用"
+      }
+    },
+    "REPO_CONFUSE_PR142_ENV_OVERLAY_LIMITED": {
+      "task_id": "REPO_CONFUSE_PR142_ENV_OVERLAY_LIMITED",
+      "raw_prefix": " ```diff\n--- a/confu",
+      "normalized_prefix": "--- a/confuse/core.p",
+      "candidate": {
+        "ok": false,
+        "failure": "PatchFailure: 原行内容不匹配，拒绝模糊应用"
+      }
+    }
+  }
+}

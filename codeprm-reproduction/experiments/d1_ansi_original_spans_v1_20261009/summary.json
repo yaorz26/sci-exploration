@@ -1,0 +1,30 @@
+{
+  "scores": {
+    "short_first": [
+      6,
+      6
+    ],
+    "CSI_first": [
+      6,
+      6
+    ]
+  },
+  "local_span_matches": [
+    24,
+    24
+  ],
+  "solve_calls": 12,
+  "helper_calls": 24,
+  "new_source_calls": 0,
+  "grammar_argument": "完整码只有开头一个ESC，后续ASCII范围均排除ESC；不同码区间不能包含另一开头。短码第二字符排除[，与CSI同位置互斥。因此两类别原串区间不重叠，原区间并集一次删除等价单次匹配；非最小/唯一或形式化验证。",
+  "interpretation": "原始坐标接口修复两个类别调用次序；无须将任务改成反复清理，不用一条错误连接证明不能按类别分解。",
+  "limits": [
+    "六输入/同助手区间预期，非人工真值或模型效果",
+    "未在实际M2总预算运行，不宣称策略可生成",
+    "原B03单次措辞待澄清，原20/初标/旧成绩不改"
+  ],
+  "model_calls": 0,
+  "API_calls": 0,
+  "hidden_reads": 0,
+  "new_downloads": 0
+}

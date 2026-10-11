@@ -1,0 +1,59 @@
+{
+  "experiment": "funprm_helperfirst_scale_prm_20260924",
+  "phase": "confirmation_ab_private_analysis_freeze",
+  "frozen_at": "2026-09-25T23:03:27+08:00",
+  "status": "frozen_before_private_reveal",
+  "selection_inputs": {
+    "A": {
+      "path": "data/processed/funprm_label_calibration_20260924/confirmation_a30_new_adapter_selection_deferred_20260925.json",
+      "sha256": "2763cfc01934f4249c0cb661631111515f1bb5e4872da890505fb2c3d06fc7a2"
+    },
+    "B": {
+      "path": "data/processed/funprm_label_calibration_20260924/confirmation_b30_new_adapter_selection_deferred_20260925.json",
+      "sha256": "74e22c8c46fa40164d6bf47ce871b09fe78aa354716fd93d788416dae332a5c2"
+    }
+  },
+  "analysis_code": {
+    "frozen_selection_private_evaluator": {
+      "path": "scripts/evaluate_frozen_funprm_selection.py",
+      "sha256": "2b79aa6eec95dd5af3ceccb6284bf27d652edf491522e13c72e6da4be57449a9"
+    },
+    "pool_oracle": {
+      "path": "scripts/analyze_funprm_pool_oracle.py",
+      "sha256": "da18cd81927854afdcf697fb7b37fca77eea256882e652bd69210053ca332e06"
+    },
+    "confirmation_gate": {
+      "path": "scripts/analyze_funprm_confirmation_gate.py",
+      "sha256": "19f465415fe1f36b3e9354588b7d199cc427999472e9386afd3db4b94b9786a6"
+    },
+    "confirmation_gate_tests": {
+      "path": "tests/test_analyze_funprm_confirmation_gate.py",
+      "sha256": "9a591d51c6d64c324ab4017bb93aad2efd25e70c0a63a6a1a5287afb454eaf6b"
+    }
+  },
+  "verification": {
+    "targeted_tests": "13 passed in 3.12s",
+    "full_tests": "83 passed in 3.35s",
+    "compileall": "passed",
+    "planned_outputs_preexisting": 0,
+    "active_private_or_oracle_processes": 0
+  },
+  "frozen_gate": {
+    "candidate_slots_per_problem": 10,
+    "a_neural_minus_first_nonnegative": true,
+    "b_neural_minus_first_nonnegative": true,
+    "minimum_combined_gain_over_first": 4,
+    "bootstrap_repetitions": 10000,
+    "bootstrap_seed": 20260924,
+    "combined_bootstrap_lower_bound_vs_uniform_random_must_be_positive": true,
+    "pool_oracle_is_post_selection_diagnostic_only": true
+  },
+  "execution_order": [
+    "A frozen-selection private evaluation",
+    "B frozen-selection private evaluation",
+    "A post-selection pool oracle",
+    "B post-selection pool oracle",
+    "combined confirmation gate"
+  ],
+  "retuning_after_reveal": false
+}

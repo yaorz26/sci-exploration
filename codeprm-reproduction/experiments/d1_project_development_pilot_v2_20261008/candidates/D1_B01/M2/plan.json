@@ -1,0 +1,24 @@
+{
+  "helpers": [
+    {
+      "name": "_split_text",
+      "signature": "def _split_text(text, separator):",
+      "contract": "将文本按分隔符分割成子字符串列表，去除首尾空白，忽略空分段。",
+      "depends_on": []
+    },
+    {
+      "name": "_is_valid_number",
+      "signature": "def _is_valid_number(s):",
+      "contract": "检查字符串是否为非负整数。",
+      "depends_on": []
+    },
+    {
+      "name": "_parse_segment",
+      "signature": "def _parse_segment(segment, range_separator):",
+      "contract": "解析单个子字符串，生成升序整数列表。支持非负整数和闭区间，区间可正向或反向，均包含两端。非法数值引发ValueError。",
+      "depends_on": [
+        "_is_valid_number"
+      ]
+    }
+  ]
+}

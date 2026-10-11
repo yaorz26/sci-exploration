@@ -1,0 +1,40 @@
+{
+  "forms": [
+    {
+      "id": "wrong_identity_join",
+      "entry": "def solve(payload):\n    sorted_keys = _sorted_keys(payload)\n    result = _gather(payload, list(range(len(sorted_keys))))\n    if not result:\n        return result\n    for position, column in enumerate(payload.get('keys', [0])):\n        result[column] = [row[position] for row in sorted_keys]\n    return result\n",
+      "helpers": "def _sorted_keys(payload):\n    columns = payload['columns']\n    lengths = [len(col) for col in columns]\n    if payload.get('strict', False) and len(set(lengths)) > 1:\n        raise ValueError('unequal lengths')\n    length = min(lengths)\n    keys = payload.get('keys', [0])\n    return sorted([tuple(columns[k][i] for k in keys) for i in range(length)], reverse=payload.get('reverse', False))\n\ndef _gather(payload, indices):\n    if not indices:\n        return []\n    return [[col[i] for i in indices] for col in payload['columns']]",
+      "source": "experiments/d1_interface_information_recovery_v1_20261008/wrong_identity_join.py",
+      "source_sha256": "600fe1845d8267d0ac763fa0949396fc1ba440cc2ea8a71d7a75094adcf6a4b6",
+      "expected_gate_accept": true,
+      "behavior_evidence": "沿用P34，不重新评分",
+      "entry_file": "wrong_identity_join_entry.py",
+      "entry_sha256": "c4949d7881380079462e402a1b2f91429cb7bbf43ebab1785fd95606ac366b72"
+    },
+    {
+      "id": "original_input_recovery",
+      "entry": "def solve(payload):\n    sorted_keys = _sorted_keys(payload)\n    keys = payload.get('keys', [0])\n    indices = sorted(range(len(sorted_keys)), key=lambda i: tuple(payload['columns'][k][i] for k in keys), reverse=payload.get('reverse', False))\n    assert [tuple(payload['columns'][k][i] for k in keys) for i in indices] == sorted_keys\n    return _gather(payload, indices)\n",
+      "helpers": "def _sorted_keys(payload):\n    columns = payload['columns']\n    lengths = [len(col) for col in columns]\n    if payload.get('strict', False) and len(set(lengths)) > 1:\n        raise ValueError('unequal lengths')\n    length = min(lengths)\n    keys = payload.get('keys', [0])\n    return sorted([tuple(columns[k][i] for k in keys) for i in range(length)], reverse=payload.get('reverse', False))\n\ndef _gather(payload, indices):\n    if not indices:\n        return []\n    return [[col[i] for i in indices] for col in payload['columns']]",
+      "source": "experiments/d1_interface_information_recovery_v1_20261008/original_input_recovery.py",
+      "source_sha256": "6641614ddf5a3d02e9d789e76070b835c6ee7830b504d31c0e96e49a29e98b3a",
+      "expected_gate_accept": true,
+      "behavior_evidence": "沿用P34，不重新评分",
+      "entry_file": "original_input_recovery_entry.py",
+      "entry_sha256": "0522fa1ee5186f9bc7dfc28d9d6e362247fccc71aa28b4638298ff493b5afb1d"
+    },
+    {
+      "id": "no_helper_prompt_control",
+      "entry": "def solve(payload):\n    columns = payload['columns']\n    lengths = [len(col) for col in columns]\n    if payload.get('strict', False) and len(set(lengths)) > 1:\n        raise ValueError('unequal lengths')\n    length = min(lengths)\n    keys = payload.get('keys', [0])\n    indices = sorted(range(length), key=lambda i: tuple(columns[k][i] for k in keys), reverse=payload.get('reverse', False))\n    return [[col[i] for i in indices] for col in columns] if indices else []\n",
+      "helpers": "def _sorted_keys(payload):\n    columns = payload['columns']\n    lengths = [len(col) for col in columns]\n    if payload.get('strict', False) and len(set(lengths)) > 1:\n        raise ValueError('unequal lengths')\n    length = min(lengths)\n    keys = payload.get('keys', [0])\n    return sorted([tuple(columns[k][i] for k in keys) for i in range(length)], reverse=payload.get('reverse', False))\n\ndef _gather(payload, indices):\n    if not indices:\n        return []\n    return [[col[i] for i in indices] for col in payload['columns']]",
+      "expected_gate_accept": true,
+      "behavior_evidence": "本阶段不求值，不声称通过",
+      "entry_file": "no_helper_prompt_control_entry.py",
+      "entry_sha256": "3deb461b0f1fa6f994427f38dc4da1b448e9acb0426e04751fb03af35549127c"
+    }
+  ],
+  "pipeline_sha256": "ca91992e33411464719a1fc86db241ded7f01d1bb407a97db3949eb5a3663765",
+  "given_text_sha256": "f4d6e64977f33836820a922d6fbfbd8a0b9d66da9c773c435197426c40d5103d",
+  "P9_saved_ledger_sha256": "81f350ff3056f54c3726cdd3810198809fa146405b221188eefe1fa50003a580",
+  "script_sha256": "3b73e52e00f404dca5f9a5393f83a4ce4afde738bdfa37165928f55581ab4c2b",
+  "rule": "实际签名/函数存在门槛新调用；不执行pipeline生成、不实例化词表、不评分任务，已保存文本不是API请求"
+}

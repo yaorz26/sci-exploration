@@ -1,0 +1,1372 @@
+[
+  {
+    "problem_id": "apps-train-2795",
+    "dataset": "APPS",
+    "source_problem_id": 2795,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "The cockroach is one of the fastest insects. Write a function which takes its speed in km per hour and returns it in cm per second, rounded down to the integer (= floored).\n\nFor example:\n\n```python\ncockroach_speed(1.08) == 30\n```\n\nNote! The input is a Real number (actual type is language dependent) and is >= 0. The result should be an Integer.",
+    "starter_code": "\ndef cockroach_speed(s):\n\t",
+    "public_tests": [
+      {
+        "input": "[1.08]",
+        "output": "[30]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[1.09]",
+        "output": "[30]"
+      },
+      {
+        "input": "[0]",
+        "output": "[0]"
+      }
+    ]
+  },
+  {
+    "problem_id": "apps-train-2796",
+    "dataset": "APPS",
+    "source_problem_id": 2796,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Create a function which answers the question \"Are you playing banjo?\".  \nIf your name starts with the letter \"R\" or lower case \"r\", you are playing banjo!\n\nThe function takes a name as its only argument, and returns one of the following strings:\n```\nname + \" plays banjo\" \nname + \" does not play banjo\"\n```\nNames given are always valid strings.",
+    "starter_code": "\ndef areYouPlayingBanjo(name):\n\t",
+    "public_tests": [
+      {
+        "input": "['Adam']",
+        "output": "['Adam does not play banjo']"
+      },
+      {
+        "input": "['Paul']",
+        "output": "['Paul does not play banjo']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['Ringo']",
+        "output": "['Ringo plays banjo']"
+      },
+      {
+        "input": "['bravo']",
+        "output": "['bravo does not play banjo']"
+      },
+      {
+        "input": "['rolf']",
+        "output": "['rolf plays banjo']"
+      }
+    ]
+  },
+  {
+    "problem_id": "apps-train-2797",
+    "dataset": "APPS",
+    "source_problem_id": 2797,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Mobile Display Keystrokes\n\nDo you remember the old mobile display keyboards? Do you also remember how inconvenient it was to write on it?\nWell, here you have to calculate how much keystrokes you have to do for a specific word.\n\nThis is the layout:\n\n\n\nReturn the amount of keystrokes of input str (! only letters, digits and special characters in lowercase included in layout without whitespaces !)\n\ne.g:\n\n\nmobileKeyboard(\"123\") => 3 (1+1+1)\nmobileKeyboard(\"abc\") => 9 (2+3+4)\nmobileKeyboard(\"codewars\") => 26 (4+4+2+3+2+2+4+5)",
+    "starter_code": "\ndef mobile_keyboard(s):\n\t",
+    "public_tests": [
+      {
+        "input": "['']",
+        "output": "[0]"
+      },
+      {
+        "input": "['123']",
+        "output": "[3]"
+      },
+      {
+        "input": "['codewars']",
+        "output": "[26]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['zruf']",
+        "output": "[16]"
+      },
+      {
+        "input": "['thisisasms']",
+        "output": "[37]"
+      },
+      {
+        "input": "['longwordwhichdontreallymakessense']",
+        "output": "[107]"
+      }
+    ]
+  },
+  {
+    "problem_id": "apps-train-2798",
+    "dataset": "APPS",
+    "source_problem_id": 2798,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "# altERnaTIng cAsE <=> ALTerNAtiNG CaSe\n\nDefine `String.prototype.toAlternatingCase` (or a similar function/method *such as* `to_alternating_case`/`toAlternatingCase`/`ToAlternatingCase` in your selected language; **see the initial solution for details**) such that each lowercase letter becomes uppercase and each uppercase letter becomes lowercase. For example:\n``` haskell\ntoAlternatingCase \"hello world\" `shouldBe` \"HELLO WORLD\"\ntoAlternatingCase \"HELLO WORLD\" `shouldBe` \"hello world\"\ntoAlternatingCase \"hello WORLD\" `shouldBe` \"HELLO world\"\ntoAlternatingCase \"HeLLo WoRLD\" `shouldBe` \"hEllO wOrld\"\ntoAlternatingCase \"12345\"       `shouldBe` \"12345\"\ntoAlternatingCase \"1a2b3c4d5e\"  `shouldBe` \"1A2B3C4D5E\"\n```\n```C++\nstring source = \"HeLLo WoRLD\";\nstring upperCase = to_alternating_case(source);\ncout << upperCase << endl; // outputs: hEllO wOrld\n```\nAs usual, your function/method should be pure, i.e. it should **not** mutate the original string.",
+    "starter_code": "\ndef to_alternating_case(string):\n\t",
+    "public_tests": [
+      {
+        "input": "['hello world']",
+        "output": "['HELLO WORLD']"
+      },
+      {
+        "input": "['HELLO WORLD']",
+        "output": "['hello world']"
+      },
+      {
+        "input": "['hello WORLD']",
+        "output": "['HELLO world']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['HeLLo WoRLD']",
+        "output": "['hEllO wOrld']"
+      },
+      {
+        "input": "['12345']",
+        "output": "['12345']"
+      },
+      {
+        "input": "['1a2b3c4d5e']",
+        "output": "['1A2B3C4D5E']"
+      },
+      {
+        "input": "['String.prototype.toAlternatingCase']",
+        "output": "['sTRING.PROTOTYPE.TOaLTERNATINGcASE']"
+      }
+    ]
+  },
+  {
+    "problem_id": "apps-train-2799",
+    "dataset": "APPS",
+    "source_problem_id": 2799,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "You're in ancient Greece and giving Philoctetes a hand in preparing a training exercise for Hercules! You've filled a pit with two different ferocious mythical creatures for Hercules to battle!\n\nThe formidable **\"Orthus\"** is a 2 headed dog with 1 tail.  The mighty **\"Hydra\"** has 5 heads and 1 tail. \n\nBefore Hercules goes in, he asks you \"How many of each beast am  I up against!?\".\n\nYou know the total number of heads and the total number of tails, that's the dangerous parts, right? But you didn't consider how many of each beast. \n\n## Task\n\nGiven the number of heads and the number of tails, work out the number of each mythical beast! \n\nThe data is given as two parameters. Your answer should be returned as an array:\n```python \n VALID ->      [24 , 15]           INVALID ->  \"No solutions\"\n```\n\nIf there aren't any cases for the given amount of heads and tails - return \"No solutions\" or null (C#).",
+    "starter_code": "\ndef beasts(heads, tails):\n\t",
+    "public_tests": [
+      {
+        "input": "[123, 39]",
+        "output": "[[24, 15]]"
+      },
+      {
+        "input": "[371, 88]",
+        "output": "[[23, 65]]"
+      },
+      {
+        "input": "[24, 12]",
+        "output": "[[12, 0]]"
+      },
+      {
+        "input": "[113, 37]",
+        "output": "[[24, 13]]"
+      },
+      {
+        "input": "[635, 181]",
+        "output": "[[90, 91]]"
+      },
+      {
+        "input": "[25, 555]",
+        "output": "['No solutions']"
+      },
+      {
+        "input": "[12, 25]",
+        "output": "['No solutions']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[54, 956]",
+        "output": "['No solutions']"
+      },
+      {
+        "input": "[5455, 54956]",
+        "output": "['No solutions']"
+      },
+      {
+        "input": "[0, 0]",
+        "output": "[[0, 0]]"
+      },
+      {
+        "input": "[-1, -1]",
+        "output": "['No solutions']"
+      },
+      {
+        "input": "[-45, 5]",
+        "output": "['No solutions']"
+      },
+      {
+        "input": "[99, 0]",
+        "output": "['No solutions']"
+      },
+      {
+        "input": "[0, 99]",
+        "output": "['No solutions']"
+      },
+      {
+        "input": "[5, -55]",
+        "output": "['No solutions']"
+      }
+    ]
+  },
+  {
+    "problem_id": "apps-train-2801",
+    "dataset": "APPS",
+    "source_problem_id": 2801,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "< PREVIOUS KATA\nNEXT KATA >\n\n## Task:\n\nYou have to write a function `pattern` which returns the following Pattern(See Examples) upto desired number of rows. \n\n* Note:```Returning``` the pattern is not the same as ```Printing``` the pattern.\n\n### Parameters:\n    \n    pattern(        n        ,        x        ,        y        );\n                    ^                 ^                 ^   \n                    |                 |                 |\n             Term upto which   Number of times   Number of times\n              Basic Pattern     Basic Pattern     Basic Pattern\n                should be         should be         should be\n                 created          repeated           repeated\n                                horizontally        vertically\n    \n* Note: `Basic Pattern` means what we created in Complete The Pattern #12\n\n## Rules/Note:\n\n* The pattern should be created using only unit digits.\n* If `n < 1` then it should return \"\" i.e. empty string.\n* If `x <= 1` then the basic pattern should not be repeated horizontally.\n* If `y <= 1` then the basic pattern should not be repeated vertically.\n* `The length of each line is same`, and is equal to the length of longest line in the pattern.\n* Range of Parameters (for the sake of CW Compiler) :\n  + `n ∈ (-∞,25]`\n  + `x ∈ (-∞,10]`\n  + `y ∈ (-∞,10]`\n* If only two arguments are passed then the function `pattern` should run as if `y <= 1`.\n* If only one argument is passed then the function `pattern` should run as if `x <= 1` & `y <= 1`.\n* The function `pattern` should work when extra arguments are passed, by ignoring the extra arguments.\n   \n   \n## Examples:\n\n* Having Three Arguments-\n\n + pattern(4,3,2):\n\n        1     1     1     1\n         2   2 2   2 2   2 \n          3 3   3 3   3 3  \n           4     4     4   \n          3 3   3 3   3 3  \n         2   2 2   2 2   2 \n        1     1     1     1\n         2   2 2   2 2   2 \n          3 3   3 3   3 3  \n           4     4     4   \n          3 3   3 3   3 3  \n         2   2 2   2 2   2 \n        1     1     1     1\n       \n* Having Two Arguments-\n\n  + pattern(10,2):\n\n        1                 1                 1\n         2               2 2               2 \n          3             3   3             3  \n           4           4     4           4   \n            5         5       5         5    \n             6       6         6       6     \n              7     7           7     7      \n               8   8             8   8       \n                9 9               9 9        \n                 0                 0         \n                9 9               9 9        \n               8   8             8   8       \n              7     7           7     7      \n             6       6         6       6     \n            5         5       5         5    \n           4           4     4           4   \n          3             3   3             3  \n         2               2 2               2 \n        1                 1                 1\n\n* Having Only One Argument-\n\n  + pattern(25):\n\n        1                                               1\n         2                                             2 \n          3                                           3  \n           4                                         4   \n            5                                       5    \n             6                                     6     \n              7                                   7      \n               8                                 8       \n                9                               9        \n                 0                             0         \n                  1                           1          \n                   2                         2           \n                    3                       3            \n                     4                     4             \n                      5                   5              \n                       6                 6               \n                        7               7                \n                         8             8                 \n                          9           9                  \n                           0         0                   \n                            1       1                    \n                             2     2                     \n                              3   3                      \n                               4 4                       \n                                5                        \n                               4 4                       \n                              3   3                      \n                             2     2                     \n                            1       1                    \n                           0         0                   \n                          9           9                  \n                         8             8                 \n                        7               7                \n                       6                 6               \n                      5                   5              \n                     4                     4             \n                    3                       3            \n                   2                         2           \n                  1                           1          \n                 0                             0         \n                9                               9        \n               8                                 8       \n              7                                   7      \n             6                                     6     \n            5                                       5    \n           4                                         4   \n          3                                           3  \n         2                                             2 \n        1                                               1\n        \n>>>LIST OF ALL MY KATAS<<<",
+    "starter_code": "\ndef pattern(n, x=1, y=1, *args):\n\t",
+    "public_tests": [
+      {
+        "input": "[4, 2, 3]",
+        "output": "['1     1     1\\n 2   2 2   2 \\n  3 3   3 3  \\n   4     4   \\n  3 3   3 3  \\n 2   2 2   2 \\n1     1     1\\n 2   2 2   2 \\n  3 3   3 3  \\n   4     4   \\n  3 3   3 3  \\n 2   2 2   2 \\n1     1     1\\n 2   2 2   2 \\n  3 3   3 3  \\n   4     4   \\n  3 3   3 3  \\n 2   2 2   2 \\n1     1     1']"
+      },
+      {
+        "input": "[3, -29, 4]",
+        "output": "['1   1\\n 2 2 \\n  3  \\n 2 2 \\n1   1\\n 2 2 \\n  3  \\n 2 2 \\n1   1\\n 2 2 \\n  3  \\n 2 2 \\n1   1\\n 2 2 \\n  3  \\n 2 2 \\n1   1']"
+      },
+      {
+        "input": "[5, -28, 0]",
+        "output": "['1       1\\n 2     2 \\n  3   3  \\n   4 4   \\n    5    \\n   4 4   \\n  3   3  \\n 2     2 \\n1       1']"
+      },
+      {
+        "input": "[7, 2]",
+        "output": "['1           1           1\\n 2         2 2         2 \\n  3       3   3       3  \\n   4     4     4     4   \\n    5   5       5   5    \\n     6 6         6 6     \\n      7           7      \\n     6 6         6 6     \\n    5   5       5   5    \\n   4     4     4     4   \\n  3       3   3       3  \\n 2         2 2         2 \\n1           1           1']"
+      },
+      {
+        "input": "[10, -2999]",
+        "output": "['1                 1\\n 2               2 \\n  3             3  \\n   4           4   \\n    5         5    \\n     6       6     \\n      7     7      \\n       8   8       \\n        9 9        \\n         0         \\n        9 9        \\n       8   8       \\n      7     7      \\n     6       6     \\n    5         5    \\n   4           4   \\n  3             3  \\n 2               2 \\n1                 1']"
+      },
+      {
+        "input": "[5]",
+        "output": "['1       1\\n 2     2 \\n  3   3  \\n   4 4   \\n    5    \\n   4 4   \\n  3   3  \\n 2     2 \\n1       1']"
+      },
+      {
+        "input": "[4, 2, 3, 5, 7, -8]",
+        "output": "['1     1     1\\n 2   2 2   2 \\n  3 3   3 3  \\n   4     4   \\n  3 3   3 3  \\n 2   2 2   2 \\n1     1     1\\n 2   2 2   2 \\n  3 3   3 3  \\n   4     4   \\n  3 3   3 3  \\n 2   2 2   2 \\n1     1     1\\n 2   2 2   2 \\n  3 3   3 3  \\n   4     4   \\n  3 3   3 3  \\n 2   2 2   2 \\n1     1     1']"
+      },
+      {
+        "input": "[-3, -5, 0]",
+        "output": "['']"
+      },
+      {
+        "input": "[-11, 1, 3]",
+        "output": "['']"
+      },
+      {
+        "input": "[-25, 5, -9]",
+        "output": "['']"
+      },
+      {
+        "input": "[-25, -11, 9]",
+        "output": "['']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[-3, -5]",
+        "output": "['']"
+      },
+      {
+        "input": "[-11, 3]",
+        "output": "['']"
+      },
+      {
+        "input": "[-9999999]",
+        "output": "['']"
+      },
+      {
+        "input": "[-25, 5, -9, 55, -8, -7, 8]",
+        "output": "['']"
+      },
+      {
+        "input": "[0, 1, 2]",
+        "output": "['']"
+      },
+      {
+        "input": "[0, -1, 0]",
+        "output": "['']"
+      },
+      {
+        "input": "[0, -1, 2]",
+        "output": "['']"
+      },
+      {
+        "input": "[0, 1, -2]",
+        "output": "['']"
+      },
+      {
+        "input": "[0, 1]",
+        "output": "['']"
+      },
+      {
+        "input": "[0, -1]",
+        "output": "['']"
+      },
+      {
+        "input": "[0]",
+        "output": "['']"
+      },
+      {
+        "input": "[0, -5, 8, -7, 10]",
+        "output": "['']"
+      }
+    ]
+  },
+  {
+    "problem_id": "apps-train-2802",
+    "dataset": "APPS",
+    "source_problem_id": 2802,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "*Based on this Numberphile video: https://www.youtube.com/watch?v=Wim9WJeDTHQ*\n\n---\n\nMultiply all the digits of a nonnegative integer `n` by each other, repeating with the product until a single digit is obtained. The number of steps required is known as the **multiplicative persistence**.\n\nCreate a function that calculates the individual results of each step, not including the original number, but including the single digit, and outputs the result as a list/array. If the input is a single digit, return an empty list/array.\n\n## Examples\n```\nper(1)  = []\n\nper(10) = [0]\n// 1*0 = 0\n\nper(69) = [54, 20, 0]\n// 6*9 = 54 --> 5*4 = 20 --> 2*0 = 0\n\nper(277777788888899) = [4996238671872, 438939648, 4478976, 338688, 27648, 2688, 768, 336, 54, 20, 0]\n// 2*7*7*7*7*7*7*8*8*8*8*8*8*9*9 = 4996238671872 --> 4*9*9*6*2*3*8*6*7*1*8*7*2 = 4478976 --> ...\n```",
+    "starter_code": "\ndef per(n):\n\t",
+    "public_tests": [
+      {
+        "input": "[1234567890]",
+        "output": "[[0]]"
+      },
+      {
+        "input": "[123456789]",
+        "output": "[[362880, 0]]"
+      },
+      {
+        "input": "[12345678]",
+        "output": "[[40320, 0]]"
+      },
+      {
+        "input": "[1234567]",
+        "output": "[[5040, 0]]"
+      },
+      {
+        "input": "[123456]",
+        "output": "[[720, 0]]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[12345]",
+        "output": "[[120, 0]]"
+      },
+      {
+        "input": "[2379]",
+        "output": "[[378, 168, 48, 32, 6]]"
+      },
+      {
+        "input": "[777]",
+        "output": "[[343, 36, 18, 8]]"
+      },
+      {
+        "input": "[25]",
+        "output": "[[10, 0]]"
+      },
+      {
+        "input": "[277777788888899]",
+        "output": "[[4996238671872, 438939648, 4478976, 338688, 27648, 2688, 768, 336, 54, 20, 0]]"
+      },
+      {
+        "input": "[3778888999]",
+        "output": "[[438939648, 4478976, 338688, 27648, 2688, 768, 336, 54, 20, 0]]"
+      }
+    ]
+  },
+  {
+    "problem_id": "apps-train-2803",
+    "dataset": "APPS",
+    "source_problem_id": 2803,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "# Task\n You are given a string consisting of `\"D\", \"P\" and \"C\"`. A positive integer N is called DPC of this string if it satisfies the following properties: \n \n ```\n For each i = 1, 2, ... , size of the string:\n\n If i-th character is \"D\", then N can be divided by i\n If i-th character is \"P\", then N and i should be relatively prime\n If i-th character is \"C\", then N should neither be divided by i \n                           nor be relatively prime with i```\n\nYour task is to find the smallest DPC of a given string, or return `-1` if there is no such. The result is guaranteed to be `<= 10^9`.\n\n# Example\n For `s = \"DDPDD\"`, the result should be `20`.\n \n `\"DDPDD\"` means `N` should `divided by 1,2,4,5`, and `N,3` should be relatively prime. The smallest N should be `20`.\n\n# Input/Output\n\n\n - `[input]` string `s`\n\n  The given string\n\n\n - `[output]` an integer\n\n  The smallest DPC of `s` or `-1` if it doesn't exist.",
+    "starter_code": "\ndef DPC_sequence(s):\n\t",
+    "public_tests": [
+      {
+        "input": "['DDPDD']",
+        "output": "[20]"
+      },
+      {
+        "input": "['DDDDPDDCCCDDPDCCPCDCDDPCPCCDDCD']",
+        "output": "[15782844]"
+      },
+      {
+        "input": "['DPCPDPPPDCPDPDPC']",
+        "output": "[-1]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['DDDDDDCD']",
+        "output": "[-1]"
+      },
+      {
+        "input": "['CDDDPDDD']",
+        "output": "[-1]"
+      },
+      {
+        "input": "['DDDDDDPCCDPDPP']",
+        "output": "[-1]"
+      }
+    ]
+  },
+  {
+    "problem_id": "apps-train-2804",
+    "dataset": "APPS",
+    "source_problem_id": 2804,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "# Task\n\nChristmas is coming, and your task is to build a custom Christmas tree with the specified characters and the specified height.\n\n# Inputs:\n- `chars`: the specified characters. \n- `n`: the specified height. A positive integer greater than 2.\n\n# Output:\n- A multiline string. Each line is separated by `\\n`. A tree contains two parts: leaves and trunks. \n\nThe leaves should be `n` rows. The first row fill in 1 char, the second row fill in 3 chars, and so on. A single space will be added between two adjust chars, and some of the necessary spaces will be added to the left side, to keep the shape of the tree. No space need to be added to the right side.\n\nThe trunk should be at least 1 unit height, it depends on the value of the `n`. The minimum value of n is 3, and the height of the tree trunk is 1 unit height. If `n` increased by 3, and the tree trunk increased by 1 unit. For example, when n is 3,4 or 5, trunk should be 1 row; when n is 6,7 or 8, trunk should be 2 row; and so on.\n\nStill not understand the task? Look at the following example ;-)\n\n# Examples\n\nFor `chars = \"*@o\" and n = 3`,the output should be:\n```\n  *\n @ o\n* @ o\n  |\n```\n\nFor `chars = \"*@o\" and n = 6`,the output should be:\n```\n     *\n    @ o\n   * @ o\n  * @ o *\n @ o * @ o\n* @ o * @ o\n     |\n     |\n```\n\nFor `chars = \"1234\" and n = 6`,the output should be:\n```\n     1\n    2 3\n   4 1 2\n  3 4 1 2\n 3 4 1 2 3\n4 1 2 3 4 1\n     |\n     |\n```\n\nFor `chars = \"123456789\" and n = 3`,the output should be:\n```\n  1\n 2 3\n4 5 6\n  |\n```",
+    "starter_code": "\ndef custom_christmas_tree(chars, n):\n\t",
+    "public_tests": [
+      {
+        "input": "['*@o', 3]",
+        "output": "['  *\\n @ o\\n* @ o\\n  |']"
+      },
+      {
+        "input": "['*@o', 6]",
+        "output": "['     *\\n    @ o\\n   * @ o\\n  * @ o *\\n @ o * @ o\\n* @ o * @ o\\n     |\\n     |']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['1234', 6]",
+        "output": "['     1\\n    2 3\\n   4 1 2\\n  3 4 1 2\\n 3 4 1 2 3\\n4 1 2 3 4 1\\n     |\\n     |']"
+      },
+      {
+        "input": "['123456789', 3]",
+        "output": "['  1\\n 2 3\\n4 5 6\\n  |']"
+      }
+    ]
+  },
+  {
+    "problem_id": "apps-train-2805",
+    "dataset": "APPS",
+    "source_problem_id": 2805,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "The Fibonacci numbers are the numbers in the following integer sequence (Fn):\n>0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, ...\n\nsuch as \n>F(n) = F(n-1) + F(n-2) with F(0) = 0 and F(1) = 1.\n\nGiven a number, say prod (for product), we search two Fibonacci numbers F(n) and F(n+1) verifying \n>F(n) * F(n+1) = prod.\n\nYour function productFib takes an integer (prod) and returns\nan array: \n```\n[F(n), F(n+1), true] or {F(n), F(n+1), 1} or (F(n), F(n+1), True)\n```\ndepending on the language if F(n) * F(n+1) = prod.\n\nIf you don't find two consecutive F(m) verifying `F(m) * F(m+1) = prod`you will return\n```\n[F(m), F(m+1), false] or {F(n), F(n+1), 0} or (F(n), F(n+1), False)\n```\nF(m) being the smallest one such as `F(m) * F(m+1) > prod`.\n\n\n### Some Examples of Return:\n(depend on the language)\n\n```\nproductFib(714) # should return (21, 34, true), \n                # since F(8) = 21, F(9) = 34 and 714 = 21 * 34\n\nproductFib(800) # should return (34, 55, false), \n                # since F(8) = 21, F(9) = 34, F(10) = 55 and 21 * 34 < 800 < 34 * 55\n-----\nproductFib(714) # should return [21, 34, true], \nproductFib(800) # should return [34, 55, false], \n-----\nproductFib(714) # should return {21, 34, 1}, \nproductFib(800) # should return {34, 55, 0},        \n-----\nproductFib(714) # should return {21, 34, true}, \nproductFib(800) # should return {34, 55, false}, \n```\n\n### Note:\n\n- You can see examples for your language in \"Sample Tests\".",
+    "starter_code": "\ndef productFib(prod):\n\t",
+    "public_tests": [
+      {
+        "input": "[4895]",
+        "output": "[[55, 89, True]]"
+      },
+      {
+        "input": "[5895]",
+        "output": "[[89, 144, False]]"
+      },
+      {
+        "input": "[74049690]",
+        "output": "[[6765, 10946, True]]"
+      },
+      {
+        "input": "[84049690]",
+        "output": "[[10946, 17711, False]]"
+      },
+      {
+        "input": "[193864606]",
+        "output": "[[10946, 17711, True]]"
+      },
+      {
+        "input": "[447577]",
+        "output": "[[610, 987, False]]"
+      },
+      {
+        "input": "[602070]",
+        "output": "[[610, 987, True]]"
+      },
+      {
+        "input": "[602070602070]",
+        "output": "[[832040, 1346269, False]]"
+      },
+      {
+        "input": "[1120149658760]",
+        "output": "[[832040, 1346269, True]]"
+      },
+      {
+        "input": "[256319508074468182850]",
+        "output": "[[12586269025, 20365011074, True]]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[203023208030065646654504166904697594722575]",
+        "output": "[[354224848179261915075, 573147844013817084101, True]]"
+      },
+      {
+        "input": "[203023208030065646654504166904697594722576]",
+        "output": "[[573147844013817084101, 927372692193078999176, False]]"
+      },
+      {
+        "input": "[0]",
+        "output": "[[0, 1, True]]"
+      },
+      {
+        "input": "[1]",
+        "output": "[[1, 1, True]]"
+      },
+      {
+        "input": "[2]",
+        "output": "[[1, 2, True]]"
+      },
+      {
+        "input": "[3]",
+        "output": "[[2, 3, False]]"
+      },
+      {
+        "input": "[4]",
+        "output": "[[2, 3, False]]"
+      },
+      {
+        "input": "[5]",
+        "output": "[[2, 3, False]]"
+      },
+      {
+        "input": "[6]",
+        "output": "[[2, 3, True]]"
+      },
+      {
+        "input": "[7]",
+        "output": "[[3, 5, False]]"
+      },
+      {
+        "input": "[105]",
+        "output": "[[13, 21, False]]"
+      }
+    ]
+  },
+  {
+    "problem_id": "apps-train-2806",
+    "dataset": "APPS",
+    "source_problem_id": 2806,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "# Task\n Imagine a standard chess board with only two white and two black knights placed in their standard starting positions: the white knights on b1 and g1; the black knights on b8 and g8.\n\n There are two players: one plays for `white`, the other for `black`. During each move, the player picks one of his knights and moves it to an unoccupied square according to standard chess rules. Thus, a knight on d5 can move to any of the following squares: b6, c7, e7, f6, f4, e3, c3, and b4, as long as it is not occupied by either a friendly or an enemy knight.\n\n The players take turns in making moves, starting with the white player. Given the configuration `positions` of the knights after an unspecified number of moves, determine whose turn it is.\n\n# Example\n\n For `positions = \"b1;g1;b8;g8\"`, the output should be `true`.\n\n The configuration corresponds to the initial state of the game. Thus, it's white's turn.\n\n# Input/Output\n\n\n - `[input]` string `positions`\n\n    The positions of the four knights, starting with white knights, separated by a semicolon, in the chess notation.\n\n\n - `[output]` a boolean value\n\n    `true` if white is to move, `false` otherwise.",
+    "starter_code": "\ndef whose_turn(positions):\n\t",
+    "public_tests": [
+      {
+        "input": "['b1;g1;b8;g8']",
+        "output": "[True]"
+      },
+      {
+        "input": "['c3;g1;b8;g8']",
+        "output": "[False]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['g1;g2;g3;g4']",
+        "output": "[True]"
+      },
+      {
+        "input": "['f8;h1;f3;c2']",
+        "output": "[False]"
+      }
+    ]
+  },
+  {
+    "problem_id": "apps-train-2807",
+    "dataset": "APPS",
+    "source_problem_id": 2807,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Positive integers have so many gorgeous features. \nSome of them could be expressed as a sum of two or more consecutive positive numbers.\n___\n\n# Consider an Example :\n\n* `10` , could be expressed as a sum of `1 + 2 + 3 + 4 `.\n___\n# Task\n\n**_Given_** *Positive integer*, N , **_Return_** true if it could be expressed as a sum of two or more consecutive positive numbers , OtherWise return false .\n___\n\n# Notes \n\n~~~if-not:clojure,csharp,java\n* Guaranteed constraint  :  **_2  ≤  N  ≤  (2^32) -1_** .\n~~~\n~~~if:clojure,csharp,java\n* Guaranteed constraint  :  **_2  ≤  N  ≤  (2^31) -1_** .\n~~~\n___\n# Input >> Output Examples:\n\n___\n___\n___\n\n# [Playing with Numbers Series](https://www.codewars.com/collections/playing-with-numbers)\n\n# [Playing With Lists/Arrays Series](https://www.codewars.com/collections/playing-with-lists-slash-arrays)\n\n# [Bizarre Sorting-katas](https://www.codewars.com/collections/bizarre-sorting-katas)\n\n# [For More Enjoyable Katas](http://www.codewars.com/users/MrZizoScream/authored)\n___\n\n## ALL translations are welcomed\n\n## Enjoy Learning !!\n# Zizou",
+    "starter_code": "\ndef consecutive_ducks(n):\n\t",
+    "public_tests": [
+      {
+        "input": "[69]",
+        "output": "[True]"
+      },
+      {
+        "input": "[8]",
+        "output": "[False]"
+      },
+      {
+        "input": "[57]",
+        "output": "[True]"
+      },
+      {
+        "input": "[6]",
+        "output": "[True]"
+      },
+      {
+        "input": "[13]",
+        "output": "[True]"
+      },
+      {
+        "input": "[16]",
+        "output": "[False]"
+      },
+      {
+        "input": "[91]",
+        "output": "[True]"
+      },
+      {
+        "input": "[75]",
+        "output": "[True]"
+      },
+      {
+        "input": "[38]",
+        "output": "[True]"
+      },
+      {
+        "input": "[25]",
+        "output": "[True]"
+      },
+      {
+        "input": "[32]",
+        "output": "[False]"
+      },
+      {
+        "input": "[65]",
+        "output": "[True]"
+      },
+      {
+        "input": "[99]",
+        "output": "[True]"
+      },
+      {
+        "input": "[522]",
+        "output": "[True]"
+      },
+      {
+        "input": "[974]",
+        "output": "[True]"
+      },
+      {
+        "input": "[755]",
+        "output": "[True]"
+      },
+      {
+        "input": "[512]",
+        "output": "[False]"
+      },
+      {
+        "input": "[739]",
+        "output": "[True]"
+      },
+      {
+        "input": "[1006]",
+        "output": "[True]"
+      },
+      {
+        "input": "[838]",
+        "output": "[True]"
+      },
+      {
+        "input": "[1092]",
+        "output": "[True]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[727]",
+        "output": "[True]"
+      },
+      {
+        "input": "[648]",
+        "output": "[True]"
+      },
+      {
+        "input": "[1024]",
+        "output": "[False]"
+      },
+      {
+        "input": "[851]",
+        "output": "[True]"
+      },
+      {
+        "input": "[541]",
+        "output": "[True]"
+      },
+      {
+        "input": "[1011]",
+        "output": "[True]"
+      },
+      {
+        "input": "[822]",
+        "output": "[True]"
+      },
+      {
+        "input": "[382131]",
+        "output": "[True]"
+      },
+      {
+        "input": "[118070]",
+        "output": "[True]"
+      },
+      {
+        "input": "[17209]",
+        "output": "[True]"
+      },
+      {
+        "input": "[32768]",
+        "output": "[False]"
+      },
+      {
+        "input": "[161997]",
+        "output": "[True]"
+      },
+      {
+        "input": "[400779]",
+        "output": "[True]"
+      },
+      {
+        "input": "[198331]",
+        "output": "[True]"
+      },
+      {
+        "input": "[325482]",
+        "output": "[True]"
+      },
+      {
+        "input": "[88441]",
+        "output": "[True]"
+      },
+      {
+        "input": "[65536]",
+        "output": "[False]"
+      },
+      {
+        "input": "[323744]",
+        "output": "[True]"
+      },
+      {
+        "input": "[183540]",
+        "output": "[True]"
+      },
+      {
+        "input": "[65271]",
+        "output": "[True]"
+      },
+      {
+        "input": "[5263987]",
+        "output": "[True]"
+      }
+    ]
+  },
+  {
+    "problem_id": "apps-train-2808",
+    "dataset": "APPS",
+    "source_problem_id": 2808,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Implement the [Polybius square cipher](http://en.wikipedia.org/wiki/Polybius_square).\n\nReplace every letter with a two digit number. The first digit is the row number, and the second digit is the column number of following square. Letters `'I'` and `'J'` are both 24 in this cipher:\n\n\ntable#polybius-square {width: 100px;}\ntable#polybius-square td {background-color: #2f2f2f;}\ntable#polybius-square th {background-color: #3f3f3f;}\n\n\n12345\n1ABCDE\n2FGHI/JK\n3LMNOP\n4QRSTU\n5VWXYZ\n\n\nInput will be valid (only spaces and uppercase letters from A to Z), so no need to validate them.\n\n## Examples\n\n```python\npolybius('A')  # \"11\"\npolybius('IJ') # \"2424\"\npolybius('CODEWARS') # \"1334141552114243\"\npolybius('POLYBIUS SQUARE CIPHER') # \"3534315412244543 434145114215 132435231542\"\n```",
+    "starter_code": "\ndef polybius(text):\n\t",
+    "public_tests": [
+      {
+        "input": "['POLYBIUS']",
+        "output": "['3534315412244543']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['CODEWARS']",
+        "output": "['1334141552114243']"
+      },
+      {
+        "input": "['POLYBIUS SQUARE CIPHER']",
+        "output": "['3534315412244543 434145114215 132435231542']"
+      }
+    ]
+  },
+  {
+    "problem_id": "apps-train-2809",
+    "dataset": "APPS",
+    "source_problem_id": 2809,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "# Convert number to reversed array of digits\n\nGiven a random non-negative number, you have to return the digits of this number within an array in reverse order.\n\n## Example:\n\n```\n348597 => [7,9,5,8,4,3]\n```",
+    "starter_code": "\ndef digitize(n):\n\t",
+    "public_tests": [
+      {
+        "input": "[35231]",
+        "output": "[[1, 3, 2, 5, 3]]"
+      },
+      {
+        "input": "[23582357]",
+        "output": "[[7, 5, 3, 2, 8, 5, 3, 2]]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[984764738]",
+        "output": "[[8, 3, 7, 4, 6, 7, 4, 8, 9]]"
+      },
+      {
+        "input": "[45762893920]",
+        "output": "[[0, 2, 9, 3, 9, 8, 2, 6, 7, 5, 4]]"
+      },
+      {
+        "input": "[548702838394]",
+        "output": "[[4, 9, 3, 8, 3, 8, 2, 0, 7, 8, 4, 5]]"
+      }
+    ]
+  },
+  {
+    "problem_id": "apps-train-2810",
+    "dataset": "APPS",
+    "source_problem_id": 2810,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Consider the word `\"abode\"`. We can see that the letter `a` is in position `1` and `b` is in position `2`. In the alphabet, `a` and `b` are also in positions `1` and `2`. Notice also that `d` and `e` in `abode` occupy the positions they would occupy in the alphabet, which are positions `4` and `5`. \n\nGiven an array of words, return an array of the number of letters that occupy their positions in the alphabet for each word. For example,\n```\nsolve([\"abode\",\"ABc\",\"xyzD\"]) = [4, 3, 1]\n```\nSee test cases for more examples.\n\nInput will consist of alphabet characters, both uppercase and lowercase. No spaces.\n\nGood luck!\n\nIf you like this Kata, please try: \n\n[Last digit symmetry](https://www.codewars.com/kata/59a9466f589d2af4c50001d8)\n\n[Alternate capitalization](https://www.codewars.com/kata/59cfc000aeb2844d16000075)\n\n~~~if:fortran\n## Fortran-Specific Notes\n\nDue to how strings and arrays work in Fortran, some of the strings in the input array will inevitably contain trailing whitespace.  **For this reason, please [trim](https://gcc.gnu.org/onlinedocs/gcc-4.3.4/gfortran/TRIM.html) your input strings before processing them.**\n~~~",
+    "starter_code": "\ndef solve(arr):\n\t",
+    "public_tests": [
+      {
+        "input": "[['abode', 'ABc', 'xyzD']]",
+        "output": "[[4, 3, 1]]"
+      },
+      {
+        "input": "[['abide', 'ABc', 'xyz']]",
+        "output": "[[4, 3, 0]]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[['IAMDEFANDJKL', 'thedefgh', 'xyzDEFghijabc']]",
+        "output": "[[6, 5, 7]]"
+      },
+      {
+        "input": "[['encode', 'abc', 'xyzD', 'ABmD']]",
+        "output": "[[1, 3, 1, 3]]"
+      }
+    ]
+  },
+  {
+    "problem_id": "apps-train-2811",
+    "dataset": "APPS",
+    "source_problem_id": 2811,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Binary with 0 and 1 is good, but binary with only 0 is even better! Originally, this is a concept designed by Chuck Norris to send so called unary messages.\n\nCan you write a program that can send and receive this messages?\n\nRules\n\nThe input message consists of ASCII characters between 32 and 127 (7-bit)\nThe encoded output message consists of blocks of 0\nA block is separated from another block by a space\nTwo consecutive blocks are used to produce a series of same value bits (only 1 or 0 values):\n\nFirst block is always 0 or 00. If it is 0, then the series contains 1, if not, it contains 0\nThe number of 0 in the second block is the number of bits in the series\n\n\nExample\nLet’s take a simple example with a message which consists of only one character (Letter 'C').'C' in binary is represented as 1000011, so with Chuck Norris’ technique this gives:\n\n0 0 - the first series consists of only a single 1\n00 0000 - the second series consists of four 0\n0 00 - the third consists of two 1\n\nSo 'C' is coded as: 0 0 00 0000 0 00\nSecond example, we want to encode the message \"CC\" (i.e. the 14 bits 10000111000011) :\n\n0 0 - one single 1\n00 0000 - four 0\n0 000 - three 1\n00 0000 - four 0\n0 00 - two 1\n\nSo \"CC\" is coded as: 0 0 00 0000 0 000 00 0000 0 00\nNote of thanks\nThanks to the author of the original kata. I really liked this kata. I hope that other warriors will enjoy it too.",
+    "starter_code": "\ndef send(s):\n\t",
+    "public_tests": [
+      {
+        "input": "['C']",
+        "output": "['0 0 00 0000 0 00']"
+      },
+      {
+        "input": "['CC']",
+        "output": "['0 0 00 0000 0 000 00 0000 0 00']"
+      },
+      {
+        "input": "['%']",
+        "output": "['00 0 0 0 00 00 0 0 00 0 0 0']"
+      },
+      {
+        "input": "[\"Chuck Norris' keyboard has 2 keys: 0 and white space.\"]",
+        "output": "['0 0 00 0000 0 0000 00 0 0 0 00 000 0 000 00 0 0 0 00 0 0 000 00 000 0 0000 00 0 0 0 00 0 0 00 00 0 0 0 00 00000 0 0 00 00 0 000 00 0 0 00 00 0 0 0000000 00 00 0 0 00 0 0 000 00 00 0 0 00 0 0 00 00 0 0 0 00 00 0 0000 00 00 0 00 00 0 0 0 00 00 0 000 00 0 0 0 00 00000 0 00 00 0 0 0 00 0 0 0000 00 00 0 0 00 0 0 00000 00 00 0 000 00 000 0 0 00 0 0 00 00 0 0 000000 00 0000 0 0000 00 00 0 0 00 0 0 00 00 00 0 0 00 000 0 0 00 00000 0 00 00 0 0 0 00 000 0 00 00 0000 0 0000 00 00 0 00 00 0 0 0 00 000000 0 00 00 00 0 0 00 00 0 0 00 00000 0 00 00 0 0 0 00 0 0 0000 00 00 0 0 00 0 0 00000 00 00 0 0000 00 00 0 00 00 0 0 000 00 0 0 0 00 00 0 0 00 000000 0 00 00 00000 0 0 00 00000 0 00 00 0000 0 000 00 0 0 000 00 0 0 00 00 00 0 0 00 000 0 0 00 00000 0 000 00 0 0 00000 00 0 0 0 00 000 0 00 00 0 0 0 00 00 0 0000 00 0 0 0 00 00 0 00 00 00 0 0 00 0 0 0 00 0 0 0 00 00000 0 000 00 00 0 00000 00 0000 0 00 00 0000 0 000 00 000 0 0000 00 00 0 0 00 0 0 0 00 0 0 0 00 0 0 000 00 0']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['abcdefghijklmnopqrstuvwxyz']",
+        "output": "['0 00 00 0000 0 000 00 000 0 0 00 0 0 00 00 000 0 0000 00 00 0 0 00 00 0 00 00 00 0 0 00 0 0 000 00 00 0 00 00 0 0 00 00 00 0 00000 00 0 0 0 00 000 0 00 00 0 0 0 00 00 0 000 00 0 0 0 00 0 0 0 00 0 0 00 00 0 0 0 00 0 0 0000 00 0 0 00 00 00 0 00 00 0 0 00 00 0 0 000 00 0 0 000 00 0 0 00 00 0 0 0000000 00 0000 0 000 00 000 0 0000 00 00 0 0 00 0 0 000 00 00 0 00000 00 0 0 0 00 00 0 000 00 0 0 0 00 0 0 0000 00 0 0 00 00 0 0 000 00 0 0 0000000 00 000 0 0000 00 00 0 00000 00 0 0 0 00 0']"
+      },
+      {
+        "input": "['!\"#$&']",
+        "output": "['00 0 0 0 00 0000 0 0 00 0 0 0 00 000 0 0 00 00 0 0 00 000 0 00 00 0 0 0 00 00 0 0 00 000 0 0 00 00 0 00 00 0']"
+      },
+      {
+        "input": "['Chuck Norris can divide by zero.']",
+        "output": "['0 0 00 0000 0 0000 00 0 0 0 00 000 0 000 00 0 0 0 00 0 0 000 00 000 0 0000 00 0 0 0 00 0 0 00 00 0 0 0 00 00000 0 0 00 00 0 000 00 0 0 00 00 0 0 0000000 00 00 0 0 00 0 0 000 00 00 0 0 00 0 0 00 00 0 0 0 00 00 0 0000 00 00 0 00 00 0 0 0 00 00000 0 00 00 000 0 0000 00 0000 0 000 00 0 0 000 00 00 0 0 00 00000 0 00 00 00 0 0 00 00 0 00 00 0 0 0 00 00 0 0000 00 0 0 00 00 0 0 00 00 0 0 0 00 00 0 000 00 00 0 0 00 00 0 00 00 00 0 0 00 0 0 0 00 0 0 0 00 00000 0 00 00 000 0 0 00 0 0 0000 00 00 0 0 00 0 0 0 00 00000 0 0000 00 0 0 0 00 0 0 00 00 00 0 0 00 0 0 0000 00 00 0 0 00 0 0 00 00 0 0 0000 00 0 0 0 00 0 0 000 00 0']"
+      },
+      {
+        "input": "['Chuck Norris counted to infinity - three times.']",
+        "output": "['0 0 00 0000 0 0000 00 0 0 0 00 000 0 000 00 0 0 0 00 0 0 000 00 000 0 0000 00 0 0 0 00 0 0 00 00 0 0 0 00 00000 0 0 00 00 0 000 00 0 0 00 00 0 0 0000000 00 00 0 0 00 0 0 000 00 00 0 0 00 0 0 00 00 0 0 0 00 00 0 0000 00 00 0 00 00 0 0 0 00 00000 0 00 00 000 0 0000 00 0 0 0000000 00 0 0 0 00 0 0 000 00 0 0 000 00 0 0 000 00 0 0 0 00 00 0 00 00 00 0 0 00 0 0 000 00 00 0 0 00 000 0 0 00 00000 0 000 00 0 0 0 00 00 0 00 00 0 0 0000 00 0 0 0 00 00000 0 00 00 0 0 0 00 00 0 000 00 0 0 000 00 0 0 00 00 00 0 00 00 0 0 00 00 0 0 0 00 00 0 000 00 0 0 000 00 0 0 00 00 0 0 0 00 00 0 0000 00 0 0 0 00 00 0 0000 00 00 0 0 00 0 0 0 00 000000 0 0 00 0 0 00 00 0 0 0 00 0 0 0 00 00000 0 000 00 0 0 0 00 00 0 00 00 0 0 0 00 000 0 000 00 00 0 0 00 0 0 00 00 00 0 0 00 0 0 000 00 00 0 0 00 0 0 0 00 0 0 0 00 00000 0 000 00 0 0 0 00 00 0 00 00 0 0 0 00 00 0 000 00 0 0 00 00 0 0 000 00 00 0 0 00 0 0 0000 00 00 0 00 00 0 0 0 00 0 0 000 00 0']"
+      }
+    ]
+  },
+  {
+    "problem_id": "apps-train-2812",
+    "dataset": "APPS",
+    "source_problem_id": 2812,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "##Task:\n\nYou have to write a function **pattern** which creates the following pattern upto n number of rows. \n\n* If the Argument is 0 or a Negative Integer then it should return \"\" i.e. empty string.\n\n* If any odd number is passed as argument then the pattern should last upto the largest even number which is smaller than the passed odd number.\n\n* If the argument is 1 then also it should return \"\".\n\n##Examples:\n\npattern(8):\n\n    22\n    4444\n    666666\n    88888888\n    \npattern(5):\n \n    22\n    4444\n\n\n\n```Note: There are no spaces in the pattern```\n\n```Hint: Use \\n in string to jump to next line```",
+    "starter_code": "\ndef pattern(n):\n\t",
+    "public_tests": [
+      {
+        "input": "[2]",
+        "output": "['22']"
+      },
+      {
+        "input": "[1]",
+        "output": "['']"
+      },
+      {
+        "input": "[5]",
+        "output": "['22\\n4444']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[6]",
+        "output": "['22\\n4444\\n666666']"
+      },
+      {
+        "input": "[0]",
+        "output": "['']"
+      },
+      {
+        "input": "[-25]",
+        "output": "['']"
+      }
+    ]
+  },
+  {
+    "problem_id": "apps-train-2813",
+    "dataset": "APPS",
+    "source_problem_id": 2813,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Given an array of numbers (in string format), you must return a string. The numbers correspond to the letters of the alphabet in reverse order: a=26, z=1 etc. You should also account for `'!'`, `'?'` and `' '` that are represented by '27', '28' and '29' respectively.\n\nAll inputs will be valid.",
+    "starter_code": "\ndef switcher(arr):\n\t",
+    "public_tests": [
+      {
+        "input": "[['24', '12', '23', '22', '4', '26', '9', '8']]",
+        "output": "['codewars']"
+      },
+      {
+        "input": "[['25', '7', '8', '4', '14', '23', '8', '25', '23', '29', '16', '16', '4']]",
+        "output": "['btswmdsbd kkw']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[['4', '24']]",
+        "output": "['wc']"
+      },
+      {
+        "input": "[['12']]",
+        "output": "['o']"
+      },
+      {
+        "input": "[['12', '28', '25', '21', '25', '7', '11', '22', '15']]",
+        "output": "['o?bfbtpel']"
+      }
+    ]
+  },
+  {
+    "problem_id": "apps-train-2814",
+    "dataset": "APPS",
+    "source_problem_id": 2814,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Triangular number is the amount of points that can fill equilateral triangle. \n\nExample: the number 6 is a triangular number because all sides of a triangle has the same amount of points.\n\n```\nHint!\nT(n) = n * (n + 1) / 2,\nn - is the size of one side.\nT(n) - is the triangular number.\n```\n\nGiven a number 'T' from interval [1; 2147483646], find if it is triangular number or not.",
+    "starter_code": "\ndef is_triangular(t):\n\t",
+    "public_tests": [
+      {
+        "input": "[1]",
+        "output": "[True]"
+      },
+      {
+        "input": "[3]",
+        "output": "[True]"
+      },
+      {
+        "input": "[6]",
+        "output": "[True]"
+      },
+      {
+        "input": "[10]",
+        "output": "[True]"
+      },
+      {
+        "input": "[15]",
+        "output": "[True]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[21]",
+        "output": "[True]"
+      },
+      {
+        "input": "[28]",
+        "output": "[True]"
+      },
+      {
+        "input": "[2]",
+        "output": "[False]"
+      },
+      {
+        "input": "[7]",
+        "output": "[False]"
+      },
+      {
+        "input": "[14]",
+        "output": "[False]"
+      },
+      {
+        "input": "[27]",
+        "output": "[False]"
+      }
+    ]
+  },
+  {
+    "problem_id": "apps-train-2815",
+    "dataset": "APPS",
+    "source_problem_id": 2815,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Your task is to make a program takes in a sentence (without puncuation), adds all words to a list and returns the sentence as a string which is the positions of the word in the list. Casing should not matter too.\n\n\nExample\n-----\n\n`\"Ask not what your COUNTRY can do for you ASK WHAT YOU CAN DO FOR YOUR country\"`\n\nbecomes\n\n`\"01234567802856734\"`\n\nAnother example\n-----\n\n`\"the one bumble bee one bumble the bee\"`\n\nbecomes\n\n`\"01231203\"`",
+    "starter_code": "\ndef compress(sentence):\n\t",
+    "public_tests": [
+      {
+        "input": "['The bumble bee']",
+        "output": "['012']"
+      },
+      {
+        "input": "['SILLY LITTLE BOYS silly little boys']",
+        "output": "['012012']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['Ask not what your COUNTRY can do for you ASK WHAT YOU CAN DO FOR YOUR country']",
+        "output": "['01234567802856734']"
+      },
+      {
+        "input": "['The number 0 is such a strange number Strangely it has zero meaning']",
+        "output": "['012345617891011']"
+      }
+    ]
+  },
+  {
+    "problem_id": "apps-train-2816",
+    "dataset": "APPS",
+    "source_problem_id": 2816,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "In this kata, you will do addition and subtraction on a given string. The return value must be also a string.\n\n**Note:** the input will not be empty.\n\n## Examples\n\n```\n\"1plus2plus3plus4\"  --> \"10\"\n\"1plus2plus3minus4\" -->  \"2\"\n```",
+    "starter_code": "\ndef calculate(s):\n\t",
+    "public_tests": [
+      {
+        "input": "['1plus2plus3plus4']",
+        "output": "['10']"
+      },
+      {
+        "input": "['1minus2minus3minus4']",
+        "output": "['-8']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['1plus2plus3minus4']",
+        "output": "['2']"
+      },
+      {
+        "input": "['1minus2plus3minus4']",
+        "output": "['-2']"
+      },
+      {
+        "input": "['1plus2minus3plus4minus5']",
+        "output": "['-1']"
+      }
+    ]
+  },
+  {
+    "problem_id": "apps-train-2817",
+    "dataset": "APPS",
+    "source_problem_id": 2817,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Deoxyribonucleic acid (DNA) is a chemical found in the nucleus of cells and carries the \"instructions\" for the development and functioning of living organisms.\n\nIf you want to know more http://en.wikipedia.org/wiki/DNA\n\nIn DNA strings, symbols \"A\" and \"T\" are complements of each other, as \"C\" and \"G\". \nYou have function with one side of the DNA (string, except for Haskell); you need to get the other complementary side. DNA strand is never empty or there is no DNA at all (again, except for Haskell).\n\nMore similar exercise are found here http://rosalind.info/problems/list-view/ (source)\n\n```python\nDNA_strand (\"ATTGC\") # return \"TAACG\"\n\nDNA_strand (\"GTAT\") # return \"CATA\"\n```",
+    "starter_code": "\ndef DNA_strand(dna):\n\t",
+    "public_tests": [
+      {
+        "input": "['AAAA']",
+        "output": "['TTTT']"
+      },
+      {
+        "input": "['ATTGC']",
+        "output": "['TAACG']"
+      },
+      {
+        "input": "['GTAT']",
+        "output": "['CATA']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['AAGG']",
+        "output": "['TTCC']"
+      },
+      {
+        "input": "['CGCG']",
+        "output": "['GCGC']"
+      },
+      {
+        "input": "['GTATCGATCGATCGATCGATTATATTTTCGACGAGATTTAAATATATATATATACGAGAGAATACAGATAGACAGATTA']",
+        "output": "['CATAGCTAGCTAGCTAGCTAATATAAAAGCTGCTCTAAATTTATATATATATATGCTCTCTTATGTCTATCTGTCTAAT']"
+      }
+    ]
+  },
+  {
+    "problem_id": "apps-train-2818",
+    "dataset": "APPS",
+    "source_problem_id": 2818,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "The goal of this exercise is to convert a string to a new string where each character in the new string is `\"(\"` if that character appears only once in the original string, or `\")\"` if that character appears more than once in the original string. Ignore capitalization when determining if a character is a duplicate.\n\n## Examples\n```\n\"din\"      =>  \"(((\"\n\"recede\"   =>  \"()()()\"\n\"Success\"  =>  \")())())\"\n\"(( @\"     =>  \"))((\" \n```\n\n**Notes**\n\nAssertion messages may be unclear about what they display in some languages. If you read `\"...It Should encode XXX\"`, the `\"XXX\"` is the expected result, not the input!",
+    "starter_code": "\ndef duplicate_encode(word):\n\t",
+    "public_tests": [
+      {
+        "input": "['din']",
+        "output": "['(((']"
+      },
+      {
+        "input": "['recede']",
+        "output": "['()()()']"
+      },
+      {
+        "input": "['Success']",
+        "output": "[')())())']"
+      },
+      {
+        "input": "['CodeWarrior']",
+        "output": "['()(((())())']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['Supralapsarian']",
+        "output": "[')()))()))))()(']"
+      },
+      {
+        "input": "['iiiiii']",
+        "output": "['))))))']"
+      },
+      {
+        "input": "['(( @']",
+        "output": "['))((']"
+      },
+      {
+        "input": "[' ( ( )']",
+        "output": "[')))))(']"
+      }
+    ]
+  },
+  {
+    "problem_id": "apps-train-2819",
+    "dataset": "APPS",
+    "source_problem_id": 2819,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "### Problem Context\n\nThe [Fibonacci](http://en.wikipedia.org/wiki/Fibonacci_number) sequence is traditionally used to explain tree recursion.  \n\n```python\ndef fibonacci(n):\n    if n in [0, 1]:\n        return n\n    return fibonacci(n - 1) + fibonacci(n - 2)\n```\n\nThis algorithm serves welll its educative purpose but it's [tremendously inefficient](http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-11.html#%_sec_1.2.2), not only because of recursion, but because we invoke the fibonacci function twice, and the right branch of recursion (i.e. `fibonacci(n-2)`) recalculates all the Fibonacci numbers already calculated by the left branch (i.e. `fibonacci(n-1)`).\n\nThis algorithm is so inefficient that the time to calculate any Fibonacci number over 50 is simply too much. You may go for a cup of coffee or go take a nap while you wait for the answer. But if you try it here in Code Wars you will most likely get a code timeout before any answers.\n\nFor this particular Kata we want to **implement the memoization solution**. This will be cool because it will let us *keep using the tree recursion* algorithm while still keeping it sufficiently optimized to get an answer very rapidly.\n\nThe trick of the memoized version is that we will keep a cache data structure (most likely an associative array) where we will store the Fibonacci numbers as we calculate them. When a Fibonacci number is calculated, we first look it up in the cache, if it's not there, we calculate it and put it in the cache, otherwise we returned the cached number.\n\nRefactor the function into a recursive Fibonacci function that using  a memoized data structure avoids the deficiencies of tree recursion Can you make it so the memoization cache is private to this function?",
+    "starter_code": "\ndef fibonacci(n):\n\t",
+    "public_tests": [
+      {
+        "input": "[70]",
+        "output": "[190392490709135]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[60]",
+        "output": "[1548008755920]"
+      },
+      {
+        "input": "[50]",
+        "output": "[12586269025]"
+      }
+    ]
+  },
+  {
+    "problem_id": "apps-train-2820",
+    "dataset": "APPS",
+    "source_problem_id": 2820,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "This kata is part of the collection [Mary's Puzzle Books](https://www.codewars.com/collections/marys-puzzle-books).\n\nMary brought home a \"spot the differences\" book. The book is full of a bunch of problems, and each problem consists of two strings that are similar. However, in each string there are a few characters that are different. An example puzzle from her book is:\n```\nString 1: \"abcdefg\"\nString 2: \"abcqetg\"\n```\nNotice how the \"d\" from String 1 has become a \"q\" in String 2, and \"f\" from String 1 has become a \"t\" in String 2.\n\nIt's your job to help Mary solve the puzzles. Write a program `spot_diff`/`Spot` that will compare the two strings and return a list with the positions where the two strings differ. In the example above, your program should return `[3, 5]` because String 1 is different from String 2 at positions 3 and 5.\n\nNOTES:\n\n```if-not:csharp\n• If both strings are the same, return `[]`\n```\n```if:csharp\n• If both strings are the same, return `new List()`\n```\n\n• Both strings will always be the same length\n\n• Capitalization and punctuation matter",
+    "starter_code": "\ndef spot_diff(s1, s2):\n\t",
+    "public_tests": [
+      {
+        "input": "['abcdefg', 'abcqetg']",
+        "output": "[[3, 5]]"
+      },
+      {
+        "input": "['Hello World!', 'hello world.']",
+        "output": "[[0, 6, 11]]"
+      },
+      {
+        "input": "['FixedGrey', 'FixedGrey']",
+        "output": "[[]]"
+      },
+      {
+        "input": "['HACKER', 'H4CK3R']",
+        "output": "[[1, 4]]"
+      },
+      {
+        "input": "['This is a really long sentence.', 'That is a_really long sentence,']",
+        "output": "[[2, 3, 9, 30]]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['', '']",
+        "output": "[[]]"
+      },
+      {
+        "input": "['abcdefghijklmnopqrstuvwxyz', 'zyxwvutsrqponmlkjihgfedcba']",
+        "output": "[[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]]"
+      },
+      {
+        "input": "['YOLO lol', 'ROLO mom']",
+        "output": "[[0, 5, 7]]"
+      },
+      {
+        "input": "['www.youtube.com/zedaphplays', 'www.twitter.com/zedaphplays']",
+        "output": "[[4, 5, 6, 8, 9, 10]]"
+      },
+      {
+        "input": "['Congratulations! You did it!', 'Conglaturations! U did this!']",
+        "output": "[[4, 8, 17, 18, 19, 20, 22, 23, 24, 26]]"
+      }
+    ]
+  },
+  {
+    "problem_id": "apps-train-2821",
+    "dataset": "APPS",
+    "source_problem_id": 2821,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Today was a sad day. Having bought a new beard trimmer, I set it to the max setting and shaved away at my joyous beard. Stupidly, I hadnt checked just how long the max setting was, and now I look like Ive just started growing it!\n\nYour task, given a beard represented as an arrayof arrays, is to trim the beard as follows:\n\n['|', 'J', '|', '|'],\n['|', '|', '|', 'J'],\n['...', '...', '...', '...'];\n\nTo trim the beard use the following rules:\n\ntrim any curled hair --> replace 'J' with '|'\ntrim any hair from the chin (last array) --> replace '|' or 'J' with '...'\n\nAll sub arrays will be same length. Return the corrected array of arrays",
+    "starter_code": "\ndef trim(beard):\n\t",
+    "public_tests": [
+      {
+        "input": "[[['J', '|'], ['J', '|'], ['...', '|']]]",
+        "output": "[[['|', '|'], ['|', '|'], ['...', '...']]]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[[['J', '|', 'J'], ['J', '|', '|'], ['...', '|', 'J']]]",
+        "output": "[[['|', '|', '|'], ['|', '|', '|'], ['...', '...', '...']]]"
+      },
+      {
+        "input": "[[['J', '|', 'J', 'J'], ['J', '|', '|', 'J'], ['...', '|', 'J', '|']]]",
+        "output": "[[['|', '|', '|', '|'], ['|', '|', '|', '|'], ['...', '...', '...', '...']]]"
+      }
+    ]
+  },
+  {
+    "problem_id": "apps-train-2822",
+    "dataset": "APPS",
+    "source_problem_id": 2822,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "In this kata, you'll be given an integer of range `0 <= x <= 99` and have to return that number spelt out in English. A few examples:\n\n```python\nname_that_number(4)   # returns \"four\"\nname_that_number(19)  # returns \"nineteen\"\nname_that_number(99)  # returns \"ninety nine\"\n```\n\nWords should be separated by only spaces and not hyphens. No need to validate parameters, they will always be in the range [0, 99]. Make sure that the returned String has no leading of trailing spaces. Good luck!",
+    "starter_code": "\ndef name_that_number(x):\n\t",
+    "public_tests": [
+      {
+        "input": "[1]",
+        "output": "['one']"
+      },
+      {
+        "input": "[52]",
+        "output": "['fifty two']"
+      },
+      {
+        "input": "[21]",
+        "output": "['twenty one']"
+      },
+      {
+        "input": "[99]",
+        "output": "['ninety nine']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[0]",
+        "output": "['zero']"
+      },
+      {
+        "input": "[53]",
+        "output": "['fifty three']"
+      },
+      {
+        "input": "[23]",
+        "output": "['twenty three']"
+      },
+      {
+        "input": "[76]",
+        "output": "['seventy six']"
+      }
+    ]
+  },
+  {
+    "problem_id": "apps-train-2823",
+    "dataset": "APPS",
+    "source_problem_id": 2823,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Given an array, find the duplicates in that array, and return a new array of those duplicates. The elements of the returned array should appear in the order when they first appeared as duplicates.\n\n__*Note*__: numbers and their corresponding string representations should not be treated as duplicates (i.e., `\"1\" != 1`).\n\n## Examples\n```\n[1, 2, 4, 4, 3, 3, 1, 5, 3, \"5\"]  ==>  [4, 3, 1]\n[0, 1, 2, 3, 4, 5]                ==>  []\n```",
+    "starter_code": "\ndef duplicates(array):\n\t",
+    "public_tests": [
+      {
+        "input": "[[1, 2, 4, 4, 3, 3, 1, 5, 3, '5']]",
+        "output": "[[4, 3, 1]]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[[0, 1, 2, 3, 4, 5]]",
+        "output": "[[]]"
+      },
+      {
+        "input": "[[1, 1, 2, 3, 4, 5, 4]]",
+        "output": "[[1, 4]]"
+      }
+    ]
+  },
+  {
+    "problem_id": "apps-train-2825",
+    "dataset": "APPS",
+    "source_problem_id": 2825,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "A Magic Square contains the integers 1 to n^(2), arranged in an n by n array such that the columns, rows and both main diagonals add up to the same number.For doubly even positive integers (multiples of 4) the following method can be used to create a magic square.\nFill an array with the numbers 1 to n^(2) in succession. Then, for each 4 by 4 subarray, replace the entries on the blue and red diagonals by n^(2)+1-aij.\nSo, in the following example, a11 (row 1, column 1) was initially 1 and is replaced by 8^(2)+1-1 = 64\n\n\n    tab1 { padding-left: 2em; }\n    fc1  { font color=\"blue\"}\n\n\nn=8\n642 3 61606 7 57 \n9 55541213515016\n1747462021434224\n4026273736303133\n3234352928383925\n4123224445191848\n4915145253111056\n8 58595 4 62631 \n\nThe function even_magic() should return a 2D array as follows:-\nExample:\nn=4: Output: [[16,2,3,13],[5,11,10,8],[9,7,6,12],[4,14,15,1]]\n\n162 3 13\n5 11108 \n9 7 6 12\n4 14151 \n\n\nOnly doubly even numbers will be passed to the function in the tests.\n\nSee mathworld.wolfram.com for further details.",
+    "starter_code": "\ndef even_magic(n):\n\t",
+    "public_tests": [
+      {
+        "input": "[4]",
+        "output": "[[[16, 2, 3, 13], [5, 11, 10, 8], [9, 7, 6, 12], [4, 14, 15, 1]]]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[8]",
+        "output": "[[[64, 2, 3, 61, 60, 6, 7, 57], [9, 55, 54, 12, 13, 51, 50, 16], [17, 47, 46, 20, 21, 43, 42, 24], [40, 26, 27, 37, 36, 30, 31, 33], [32, 34, 35, 29, 28, 38, 39, 25], [41, 23, 22, 44, 45, 19, 18, 48], [49, 15, 14, 52, 53, 11, 10, 56], [8, 58, 59, 5, 4, 62, 63, 1]]]"
+      }
+    ]
+  },
+  {
+    "problem_id": "apps-train-2826",
+    "dataset": "APPS",
+    "source_problem_id": 2826,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Write a function that when given a number >= 0, returns an Array of ascending length subarrays.\n\n```\npyramid(0) => [ ]\npyramid(1) => [ [1] ]\npyramid(2) => [ [1], [1, 1] ]\npyramid(3) => [ [1], [1, 1], [1, 1, 1] ]\n```\n\n**Note:** the subarrays should be filled with `1`s",
+    "starter_code": "\ndef pyramid(n):\n\t",
+    "public_tests": [
+      {
+        "input": "[0]",
+        "output": "[[]]"
+      },
+      {
+        "input": "[1]",
+        "output": "[[[1]]]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[2]",
+        "output": "[[[1], [1, 1]]]"
+      },
+      {
+        "input": "[3]",
+        "output": "[[[1], [1, 1], [1, 1, 1]]]"
+      }
+    ]
+  }
+]

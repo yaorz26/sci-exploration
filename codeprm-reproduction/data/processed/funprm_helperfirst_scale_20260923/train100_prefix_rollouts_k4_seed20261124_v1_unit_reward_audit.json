@@ -1,0 +1,466 @@
+{
+  "experiment": "funprm_helperfirst_scale_20260923",
+  "inputs": {
+    "nodes": "data\\processed\\funprm_helperfirst_scale_20260923\\train100_prefix_rollouts_k4_seed20261124_v1_unit_reward_nodes.jsonl",
+    "nodes_sha256": "a50d437bc3e5f35127c6b8919745502b12b12f462b05d65681642ab9519ed52a",
+    "finals": "data\\processed\\funprm_helperfirst_scale_20260923\\train100_prefix_rollouts_k4_seed20261124_v1_finals.jsonl",
+    "finals_sha256": "4cea3a8b55741bc35a06f31f906202818c932f37a1069401adb45d4f4f5ddd79"
+  },
+  "source_problems": 100,
+  "source_final_private_all_pass": 45,
+  "prefix_nodes": 188,
+  "rollouts": 752,
+  "successful_rollouts": 240,
+  "successful_rollout_rate": 0.3191489361702128,
+  "positive_nodes": 85,
+  "positive_problems": 57,
+  "positive_problem_coverage": 0.57,
+  "positive_problem_ids": [
+    "apps-train-2827",
+    "apps-train-2830",
+    "apps-train-2832",
+    "apps-train-2833",
+    "apps-train-2834",
+    "apps-train-2835",
+    "apps-train-2836",
+    "apps-train-2842",
+    "apps-train-2843",
+    "apps-train-2844",
+    "apps-train-2846",
+    "apps-train-2847",
+    "apps-train-2848",
+    "apps-train-2849",
+    "apps-train-2850",
+    "apps-train-2854",
+    "apps-train-2857",
+    "apps-train-2859",
+    "apps-train-2860",
+    "apps-train-2861",
+    "apps-train-2862",
+    "apps-train-2865",
+    "apps-train-2866",
+    "apps-train-2868",
+    "apps-train-2870",
+    "apps-train-2871",
+    "apps-train-2872",
+    "apps-train-2874",
+    "apps-train-2877",
+    "apps-train-2881",
+    "apps-train-2888",
+    "apps-train-2890",
+    "apps-train-2894",
+    "apps-train-2897",
+    "apps-train-2899",
+    "apps-train-2903",
+    "apps-train-2905",
+    "apps-train-2909",
+    "apps-train-2911",
+    "apps-train-2915",
+    "apps-train-2916",
+    "apps-train-2917",
+    "apps-train-2920",
+    "apps-train-2922",
+    "apps-train-2924",
+    "apps-train-2925",
+    "apps-train-2929",
+    "apps-train-2934",
+    "apps-train-2938",
+    "apps-train-2939",
+    "apps-train-2940",
+    "apps-train-2942",
+    "apps-train-2945",
+    "apps-train-2946",
+    "apps-train-2947",
+    "apps-train-2952",
+    "apps-train-2953"
+  ],
+  "label_histogram": {
+    "0.0": 103,
+    "0.25": 14,
+    "0.5": 17,
+    "0.75": 24,
+    "1.0": 30
+  },
+  "uncertain_nodes_025_to_075": 55,
+  "uncertain_node_keys": [
+    {
+      "problem_id": "apps-train-2827",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "label_k4": 0.75
+    },
+    {
+      "problem_id": "apps-train-2830",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "label_k4": 0.25
+    },
+    {
+      "problem_id": "apps-train-2830",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "label_k4": 0.25
+    },
+    {
+      "problem_id": "apps-train-2832",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "label_k4": 0.25
+    },
+    {
+      "problem_id": "apps-train-2835",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "label_k4": 0.5
+    },
+    {
+      "problem_id": "apps-train-2842",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "label_k4": 0.25
+    },
+    {
+      "problem_id": "apps-train-2842",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "label_k4": 0.75
+    },
+    {
+      "problem_id": "apps-train-2843",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "label_k4": 0.75
+    },
+    {
+      "problem_id": "apps-train-2846",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "label_k4": 0.75
+    },
+    {
+      "problem_id": "apps-train-2847",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "label_k4": 0.75
+    },
+    {
+      "problem_id": "apps-train-2848",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "label_k4": 0.25
+    },
+    {
+      "problem_id": "apps-train-2849",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "label_k4": 0.75
+    },
+    {
+      "problem_id": "apps-train-2849",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "label_k4": 0.5
+    },
+    {
+      "problem_id": "apps-train-2854",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "label_k4": 0.5
+    },
+    {
+      "problem_id": "apps-train-2854",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "label_k4": 0.5
+    },
+    {
+      "problem_id": "apps-train-2859",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "label_k4": 0.5
+    },
+    {
+      "problem_id": "apps-train-2860",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "label_k4": 0.25
+    },
+    {
+      "problem_id": "apps-train-2861",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "label_k4": 0.75
+    },
+    {
+      "problem_id": "apps-train-2862",
+      "source_candidate_index": 2,
+      "function_index": 0,
+      "label_k4": 0.75
+    },
+    {
+      "problem_id": "apps-train-2866",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "label_k4": 0.5
+    },
+    {
+      "problem_id": "apps-train-2866",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "label_k4": 0.75
+    },
+    {
+      "problem_id": "apps-train-2870",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "label_k4": 0.5
+    },
+    {
+      "problem_id": "apps-train-2877",
+      "source_candidate_index": 1,
+      "function_index": 0,
+      "label_k4": 0.5
+    },
+    {
+      "problem_id": "apps-train-2881",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "label_k4": 0.75
+    },
+    {
+      "problem_id": "apps-train-2881",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "label_k4": 0.25
+    },
+    {
+      "problem_id": "apps-train-2881",
+      "source_candidate_index": 0,
+      "function_index": 2,
+      "label_k4": 0.5
+    },
+    {
+      "problem_id": "apps-train-2888",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "label_k4": 0.75
+    },
+    {
+      "problem_id": "apps-train-2894",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "label_k4": 0.75
+    },
+    {
+      "problem_id": "apps-train-2899",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "label_k4": 0.5
+    },
+    {
+      "problem_id": "apps-train-2899",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "label_k4": 0.25
+    },
+    {
+      "problem_id": "apps-train-2899",
+      "source_candidate_index": 0,
+      "function_index": 2,
+      "label_k4": 0.25
+    },
+    {
+      "problem_id": "apps-train-2905",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "label_k4": 0.75
+    },
+    {
+      "problem_id": "apps-train-2909",
+      "source_candidate_index": 3,
+      "function_index": 0,
+      "label_k4": 0.5
+    },
+    {
+      "problem_id": "apps-train-2911",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "label_k4": 0.75
+    },
+    {
+      "problem_id": "apps-train-2915",
+      "source_candidate_index": 3,
+      "function_index": 0,
+      "label_k4": 0.75
+    },
+    {
+      "problem_id": "apps-train-2915",
+      "source_candidate_index": 3,
+      "function_index": 1,
+      "label_k4": 0.25
+    },
+    {
+      "problem_id": "apps-train-2916",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "label_k4": 0.25
+    },
+    {
+      "problem_id": "apps-train-2917",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "label_k4": 0.5
+    },
+    {
+      "problem_id": "apps-train-2920",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "label_k4": 0.75
+    },
+    {
+      "problem_id": "apps-train-2922",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "label_k4": 0.5
+    },
+    {
+      "problem_id": "apps-train-2924",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "label_k4": 0.75
+    },
+    {
+      "problem_id": "apps-train-2925",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "label_k4": 0.75
+    },
+    {
+      "problem_id": "apps-train-2929",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "label_k4": 0.75
+    },
+    {
+      "problem_id": "apps-train-2934",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "label_k4": 0.25
+    },
+    {
+      "problem_id": "apps-train-2934",
+      "source_candidate_index": 0,
+      "function_index": 2,
+      "label_k4": 0.75
+    },
+    {
+      "problem_id": "apps-train-2938",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "label_k4": 0.25
+    },
+    {
+      "problem_id": "apps-train-2939",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "label_k4": 0.5
+    },
+    {
+      "problem_id": "apps-train-2940",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "label_k4": 0.5
+    },
+    {
+      "problem_id": "apps-train-2940",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "label_k4": 0.5
+    },
+    {
+      "problem_id": "apps-train-2942",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "label_k4": 0.5
+    },
+    {
+      "problem_id": "apps-train-2942",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "label_k4": 0.75
+    },
+    {
+      "problem_id": "apps-train-2945",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "label_k4": 0.25
+    },
+    {
+      "problem_id": "apps-train-2947",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "label_k4": 0.75
+    },
+    {
+      "problem_id": "apps-train-2952",
+      "source_candidate_index": 1,
+      "function_index": 0,
+      "label_k4": 0.75
+    },
+    {
+      "problem_id": "apps-train-2953",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "label_k4": 0.75
+    }
+  ],
+  "source_final_positive_with_prefix_success": 43,
+  "source_final_negative_with_prefix_success": 14,
+  "completion_modes": {
+    "appended_completion": 663,
+    "full_code_with_exact_prefix": 88,
+    "request_failed": 1
+  },
+  "parse_error_families": {
+    "entrypoint_not_last": 362,
+    "nested_function_definitions": 160,
+    "function_count_out_of_range": 81,
+    "missing_entrypoint": 40,
+    "signature_mismatch": 10,
+    "invalid syntax (<unknown>, line 7)": 9,
+    "invalid syntax (<unknown>, line 4)": 7,
+    "invalid syntax (<unknown>, line 10)": 4,
+    "invalid syntax (<unknown>, line 5)": 4,
+    "invalid syntax (<unknown>, line 16)": 3,
+    "Generator expression must be parenthesized (<unknown>, line 9)": 3,
+    "invalid syntax (<unknown>, line 15)": 2,
+    "invalid syntax (<unknown>, line 9)": 2,
+    "invalid syntax (<unknown>, line 11)": 2,
+    "invalid syntax (<unknown>, line 21)": 2,
+    "invalid syntax (<unknown>, line 35)": 2,
+    "invalid syntax (<unknown>, line 17)": 2,
+    "invalid syntax (<unknown>, line 14)": 2,
+    "invalid syntax (<unknown>, line 8)": 1,
+    "RuntimeError": 1,
+    "invalid syntax (<unknown>, line 20)": 1,
+    "invalid syntax (<unknown>, line 19)": 1,
+    "invalid syntax (<unknown>, line 26)": 1,
+    "invalid syntax (<unknown>, line 36)": 1,
+    "Generator expression must be parenthesized (<unknown>, line 8)": 1,
+    "invalid syntax (<unknown>, line 12)": 1,
+    "unexpected indent (<unknown>, line 5)": 1,
+    "unindent does not match any outer indentation level (<unknown>, line 15)": 1,
+    "unexpected indent (<unknown>, line 15)": 1
+  },
+  "request_error_families": {
+    "RuntimeError": 1
+  },
+  "gates": {
+    "source_problem_count_at_least_100": true,
+    "positive_problem_coverage_at_least_0483": true,
+    "uncertain_nodes_at_least_20": true,
+    "split_half_stability": "not_run_because_positive_coverage_gate_failed"
+  },
+  "decision": "eligible_for_k8_stability_stage",
+  "private_policy": "training tests only; never included in generation or continuation prompts"
+}

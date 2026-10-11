@@ -1,0 +1,67 @@
+[
+  {
+    "id": "marker_collision",
+    "left": "found_marker",
+    "right": "missing_marker",
+    "expected_equal": true,
+    "expected_same_branch": false,
+    "observed_equal": {
+      "reference": true,
+      "alternate": true
+    },
+    "hand_same_branch": false,
+    "pass": true
+  },
+  {
+    "id": "null_collision",
+    "left": "found_null",
+    "right": "missing_default_null",
+    "expected_equal": true,
+    "expected_same_branch": false,
+    "observed_equal": {
+      "reference": true,
+      "alternate": true
+    },
+    "hand_same_branch": false,
+    "pass": true
+  },
+  {
+    "id": "found_marker_default_change",
+    "left": "found_marker_default_0",
+    "right": "found_marker_default_1",
+    "expected_equal": true,
+    "expected_same_branch": true,
+    "observed_equal": {
+      "reference": true,
+      "alternate": true
+    },
+    "hand_same_branch": true,
+    "pass": true
+  },
+  {
+    "id": "missing_default_change",
+    "left": "missing_default_0",
+    "right": "missing_default_1",
+    "expected_equal": false,
+    "expected_same_branch": true,
+    "observed_equal": {
+      "reference": false,
+      "alternate": false
+    },
+    "hand_same_branch": true,
+    "pass": true
+  },
+  {
+    "id": "found_null_default_change",
+    "left": "found_null_default_0",
+    "right": "found_null_default_1",
+    "expected_equal": true,
+    "expected_same_branch": true,
+    "observed_equal": {
+      "reference": true,
+      "alternate": true
+    },
+    "hand_same_branch": true,
+    "pass": true
+  }
+]

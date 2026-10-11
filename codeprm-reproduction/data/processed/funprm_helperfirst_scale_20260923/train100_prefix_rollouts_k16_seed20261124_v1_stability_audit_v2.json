@@ -1,0 +1,29 @@
+{
+  "experiment": "funprm_helperfirst_scale_20260923",
+  "input": "data\\processed\\funprm_helperfirst_scale_20260923\\train100_prefix_rollouts_k16_seed20261124_v1_unit_reward_nodes.jsonl",
+  "input_sha256": "a9ecd9dd2b013d3f154ee6bfcf2a477f38cf47042a65b40c33f42950ec379048",
+  "nodes": 188,
+  "nodes_at_k4": 133,
+  "nodes_at_exact_k8": 13,
+  "nodes_with_at_least_k8": 55,
+  "nodes_at_k16": 42,
+  "k4_positive_problem_count": 57,
+  "k8_positive_problem_count": 57,
+  "k4_positive_problem_coverage": 0.57,
+  "k8_positive_problem_coverage": 0.57,
+  "k4_to_k8_pearson": 0.7594303944595739,
+  "k4_to_tail4_pearson": 0.4305135837350596,
+  "mean_abs_k4_k8_change": 0.11818181818181818,
+  "k8_to_k16_pearson": 0.9055415646524593,
+  "k8_to_tail8_pearson": 0.7506852262857262,
+  "mean_abs_k8_k16_change": 0.06845238095238096,
+  "k8_still_uncertain_nodes": 0,
+  "k16_candidate_keys": [],
+  "stability_gate": {
+    "expanded_nodes_at_least_20": true,
+    "k4_to_tail4_pearson_at_least_070": false,
+    "k16_nodes_reported": 42,
+    "k8_to_tail8_pearson_at_least_070": true
+  },
+  "decision": "stop_at_k16_or_stable_k8"
+}

@@ -1,0 +1,389 @@
+{
+  "whole": {
+    "rows": [
+      {
+        "case_id": "count2_mode_int4",
+        "actual": {
+          "value": {
+            "count": 2,
+            "mode": 4
+          }
+        },
+        "expected": {
+          "value": {
+            "count": 2,
+            "mode": 4
+          }
+        },
+        "input_unchanged": true,
+        "raw_content_pass": true,
+        "typed_content_pass": true,
+        "raw_pass": true,
+        "typed_pass": true,
+        "expected_error": false,
+        "value_only_without_input_or_error_pass": true
+      },
+      {
+        "case_id": "count2_mode_strx",
+        "actual": {
+          "value": {
+            "count": 2,
+            "mode": "x"
+          }
+        },
+        "expected": {
+          "value": {
+            "count": 2,
+            "mode": "x"
+          }
+        },
+        "input_unchanged": true,
+        "raw_content_pass": true,
+        "typed_content_pass": true,
+        "raw_pass": true,
+        "typed_pass": true,
+        "expected_error": false,
+        "value_only_without_input_or_error_pass": true
+      },
+      {
+        "case_id": "count3_mode_int4",
+        "actual": {
+          "value": {
+            "count": 3,
+            "mode": 4
+          }
+        },
+        "expected": {
+          "value": {
+            "count": 3,
+            "mode": 4
+          }
+        },
+        "input_unchanged": true,
+        "raw_content_pass": true,
+        "typed_content_pass": true,
+        "raw_pass": true,
+        "typed_pass": true,
+        "expected_error": false,
+        "value_only_without_input_or_error_pass": true
+      },
+      {
+        "case_id": "count3_mode_strx",
+        "actual": {
+          "value": {
+            "count": 3,
+            "mode": "x"
+          }
+        },
+        "expected": {
+          "value": {
+            "count": 3,
+            "mode": "x"
+          }
+        },
+        "input_unchanged": true,
+        "raw_content_pass": true,
+        "typed_content_pass": true,
+        "raw_pass": true,
+        "typed_pass": true,
+        "expected_error": false,
+        "value_only_without_input_or_error_pass": true
+      },
+      {
+        "case_id": "container_default_blocks_count2",
+        "actual": {
+          "error": "TypeError"
+        },
+        "expected": {
+          "error": "TypeError"
+        },
+        "input_unchanged": true,
+        "raw_content_pass": true,
+        "typed_content_pass": true,
+        "raw_pass": true,
+        "typed_pass": true,
+        "expected_error": true,
+        "value_only_without_input_or_error_pass": false
+      },
+      {
+        "case_id": "container_default_blocks_count3",
+        "actual": {
+          "error": "TypeError"
+        },
+        "expected": {
+          "error": "TypeError"
+        },
+        "input_unchanged": true,
+        "raw_content_pass": true,
+        "typed_content_pass": true,
+        "raw_pass": true,
+        "typed_pass": true,
+        "expected_error": true,
+        "value_only_without_input_or_error_pass": false
+      }
+    ],
+    "solve_calls": 6,
+    "raw_comparison_decisions": 6,
+    "input_comparison_decisions": 6,
+    "typed_value_gate_calls": 4,
+    "typed_error_comparison_decisions": 2
+  },
+  "helpers": {
+    "rows": [
+      {
+        "case_id": "count2_mode_int4",
+        "actual": {
+          "value": {
+            "count": 2,
+            "mode": 4
+          }
+        },
+        "expected": {
+          "value": {
+            "count": 2,
+            "mode": 4
+          }
+        },
+        "input_unchanged": true,
+        "raw_content_pass": true,
+        "typed_content_pass": true,
+        "raw_pass": true,
+        "typed_pass": true,
+        "expected_error": false,
+        "value_only_without_input_or_error_pass": true
+      },
+      {
+        "case_id": "count2_mode_strx",
+        "actual": {
+          "value": {
+            "count": 2,
+            "mode": "x"
+          }
+        },
+        "expected": {
+          "value": {
+            "count": 2,
+            "mode": "x"
+          }
+        },
+        "input_unchanged": true,
+        "raw_content_pass": true,
+        "typed_content_pass": true,
+        "raw_pass": true,
+        "typed_pass": true,
+        "expected_error": false,
+        "value_only_without_input_or_error_pass": true
+      },
+      {
+        "case_id": "count3_mode_int4",
+        "actual": {
+          "value": {
+            "count": 3,
+            "mode": 4
+          }
+        },
+        "expected": {
+          "value": {
+            "count": 3,
+            "mode": 4
+          }
+        },
+        "input_unchanged": true,
+        "raw_content_pass": true,
+        "typed_content_pass": true,
+        "raw_pass": true,
+        "typed_pass": true,
+        "expected_error": false,
+        "value_only_without_input_or_error_pass": true
+      },
+      {
+        "case_id": "count3_mode_strx",
+        "actual": {
+          "value": {
+            "count": 3,
+            "mode": "x"
+          }
+        },
+        "expected": {
+          "value": {
+            "count": 3,
+            "mode": "x"
+          }
+        },
+        "input_unchanged": true,
+        "raw_content_pass": true,
+        "typed_content_pass": true,
+        "raw_pass": true,
+        "typed_pass": true,
+        "expected_error": false,
+        "value_only_without_input_or_error_pass": true
+      },
+      {
+        "case_id": "container_default_blocks_count2",
+        "actual": {
+          "error": "TypeError"
+        },
+        "expected": {
+          "error": "TypeError"
+        },
+        "input_unchanged": true,
+        "raw_content_pass": true,
+        "typed_content_pass": true,
+        "raw_pass": true,
+        "typed_pass": true,
+        "expected_error": true,
+        "value_only_without_input_or_error_pass": false
+      },
+      {
+        "case_id": "container_default_blocks_count3",
+        "actual": {
+          "error": "TypeError"
+        },
+        "expected": {
+          "error": "TypeError"
+        },
+        "input_unchanged": true,
+        "raw_content_pass": true,
+        "typed_content_pass": true,
+        "raw_pass": true,
+        "typed_pass": true,
+        "expected_error": true,
+        "value_only_without_input_or_error_pass": false
+      }
+    ],
+    "solve_calls": 6,
+    "raw_comparison_decisions": 6,
+    "input_comparison_decisions": 6,
+    "typed_value_gate_calls": 4,
+    "typed_error_comparison_decisions": 2
+  },
+  "source_adapter": {
+    "rows": [
+      {
+        "case_id": "count2_mode_int4",
+        "actual": {
+          "value": {
+            "count": 2,
+            "mode": 4
+          }
+        },
+        "expected": {
+          "value": {
+            "count": 2,
+            "mode": 4
+          }
+        },
+        "input_unchanged": true,
+        "raw_content_pass": true,
+        "typed_content_pass": true,
+        "raw_pass": true,
+        "typed_pass": true,
+        "expected_error": false,
+        "value_only_without_input_or_error_pass": true
+      },
+      {
+        "case_id": "count2_mode_strx",
+        "actual": {
+          "value": {
+            "count": 2,
+            "mode": "x"
+          }
+        },
+        "expected": {
+          "value": {
+            "count": 2,
+            "mode": "x"
+          }
+        },
+        "input_unchanged": true,
+        "raw_content_pass": true,
+        "typed_content_pass": true,
+        "raw_pass": true,
+        "typed_pass": true,
+        "expected_error": false,
+        "value_only_without_input_or_error_pass": true
+      },
+      {
+        "case_id": "count3_mode_int4",
+        "actual": {
+          "value": {
+            "count": 3,
+            "mode": 4
+          }
+        },
+        "expected": {
+          "value": {
+            "count": 3,
+            "mode": 4
+          }
+        },
+        "input_unchanged": true,
+        "raw_content_pass": true,
+        "typed_content_pass": true,
+        "raw_pass": true,
+        "typed_pass": true,
+        "expected_error": false,
+        "value_only_without_input_or_error_pass": true
+      },
+      {
+        "case_id": "count3_mode_strx",
+        "actual": {
+          "value": {
+            "count": 3,
+            "mode": "x"
+          }
+        },
+        "expected": {
+          "value": {
+            "count": 3,
+            "mode": "x"
+          }
+        },
+        "input_unchanged": true,
+        "raw_content_pass": true,
+        "typed_content_pass": true,
+        "raw_pass": true,
+        "typed_pass": true,
+        "expected_error": false,
+        "value_only_without_input_or_error_pass": true
+      },
+      {
+        "case_id": "container_default_blocks_count2",
+        "actual": {
+          "error": "TypeError"
+        },
+        "expected": {
+          "error": "TypeError"
+        },
+        "input_unchanged": true,
+        "raw_content_pass": true,
+        "typed_content_pass": true,
+        "raw_pass": true,
+        "typed_pass": true,
+        "expected_error": true,
+        "value_only_without_input_or_error_pass": false
+      },
+      {
+        "case_id": "container_default_blocks_count3",
+        "actual": {
+          "error": "TypeError"
+        },
+        "expected": {
+          "error": "TypeError"
+        },
+        "input_unchanged": true,
+        "raw_content_pass": true,
+        "typed_content_pass": true,
+        "raw_pass": true,
+        "typed_pass": true,
+        "expected_error": true,
+        "value_only_without_input_or_error_pass": false
+      }
+    ],
+    "solve_calls": 6,
+    "raw_comparison_decisions": 6,
+    "input_comparison_decisions": 6,
+    "typed_value_gate_calls": 4,
+    "typed_error_comparison_decisions": 2
+  }
+}

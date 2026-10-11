@@ -1,0 +1,78 @@
+{
+  "created_at": "2026-10-11T13:40:00Z",
+  "phase": "G3",
+  "stage_name": "决策 2：四个真实候选的上游保真度实测",
+  "purpose": "逐项比较任务规则与上游源码、文档与确定性行为；发现不一致则降级候选资格并保留原始证据",
+  "discipline": [
+    "只读上游源码/文档，不读上游测试补规范",
+    "不修改任何冻结候选（除按实测结论修订任务文本，且保留修订说明）",
+    "子进程隔离，零模型调用"
+  ],
+  "results": {
+    "PR126": {
+      "verdict": "真实项目功能（保真）",
+      "merged_vs_contract": "7/8",
+      "parent_vs_contract": "2/8",
+      "counterexample_evidence": "父版对 set_file(..., base_for_paths=True)、Filename(in_source_dir=...) 等 5 处调用直接抛 TypeError（缺 API），合并版正常返回 → 功能为真实新增",
+      "rule_fixes_from_probe": [
+        "判定表原把源级 base_for_paths / 模板 in_source_dir 排在 cwd 之上，与上游合并版不一致；上游 Filename docstring 原文为 'Relative paths are relative to the template cwd argument when it is specified.'，即 cwd 指定时无条件优先。已按此重排判定表（cwd 第 2 位），并按实测重写全部最小判定例。"
+      ],
+      "probe_artifact": "第 6 条（不给 cwd、期望应用配置目录）实测落到 C:\\Users\\...\\AppData\\Roaming\\appname\\...，原因是探针未给 Configuration 指定 app_dir；属装置问题，非候选缺陷。",
+      "raw": "fidelity_PR126.json"
+    },
+    "PR142": {
+      "verdict": "真实项目功能（保真），但异常约定需按上游放宽",
+      "merged_vs_contract": "9/12",
+      "mismatches": [
+        {"rule": "empty_segment_A__ 应抛 ValueError", "upstream": "忽略（无异常）", "note": "上游对 D1X_A__ 不报错"},
+        {"rule": "prefix='' 应抛 ValueError", "upstream": "不抛异常（no_exception）", "note": "上游接受空前缀"},
+        {"rule": "值为集合语法应抛 ValueError", "upstream": "当作字面字符串 '[1,2]'", "note": "上游不做集合值拒绝"}
+      ],
+      "confirmed_by_probe": [
+        "set_env 返回 None",
+        "前缀原样拼接（D1X_ 与 D1X 两种写法均如契约预期）",
+        "键名转小写、sep='__' 嵌套（5432 正确读到）",
+        "叶子级合并（文件给 db.host，环境给 db.port，两者共存）",
+        "无匹配时保持原值"
+      ],
+      "action": "候选资格保留；但‘域外必须抛错’的三条约定与上游不符，须改为‘忽略’或在需求中明确声明为构建者新增的更严格检查（后者会降低保真度）",
+      "raw": "fidelity_PR142_PR440.json"
+    },
+    "PR440": {
+      "verdict": "真实项目功能（保真），但需更正一处惰性组期望",
+      "feature_vs_contract": "2/3",
+      "mismatches": [
+        {"rule": "不传 reducefunc 时，推进到第二组后第一组应为空 []",
+         "upstream": "[1, 2]",
+         "note": "上游返回第一组的全部元素；我原先写的期望与上游不符，属我的判断错误"}
+      ],
+      "confirmed_by_probe": [
+        "公开用例 1（外层完全消费后各 result 保留）：[['a',[10,20]], ['b',[30]], ['a',[40]]] 与契约一致",
+        "公开用例 2（group_sums）：[[0,6],[1,4]] 与契约一致"
+      ],
+      "action": "候选资格保留；第三例的观察序列与期望须按上游真实行为重写（不能把‘变空’当成义务）",
+      "raw": "fidelity_PR142_PR440.json"
+    },
+    "QUEUE_K2": {
+      "verdict": "真实项目功能（保真）",
+      "merged_vs_contract": "24/24",
+      "detail": "优先级方向、默认 0、同优先级 FIFO、再次 add 移到同优先级队尾、remove 返回 None 与缺任务 KeyError、空队列 pop/peek 的 IndexError 与 default/None 三种情形，在 PriorityQueue 与 HeapPriorityQueue 两个实现上全部与契约一致",
+      "note": "首轮显示的 3 处‘不一致’经查为比较脚本未剥离契约字段中的中文解释，属工具缺陷，已修。",
+      "raw": "fidelity_QUEUE_K2.json"
+    }
+  },
+  "summary": {
+    "real_project_candidates_checked": 4,
+    "fully_faithful": ["QUEUE_K2"],
+    "faithful_with_required_text_fixes": ["PR126", "PR142", "PR440"],
+    "downgraded_earlier": ["URL_K3（合成任务，6/18）"],
+    "real_project_candidates_after_check": 4,
+    "synthetic_candidates": 1
+  },
+  "limits": [
+    "实测覆盖的是各候选公开义务中最能判定的一组固定调用，不是全部行为空间",
+    "上游为冻结快照（boltons 4e5faa3d…；PR126/PR142/PR440 为各自父/合并提交）",
+    "PR126 第 6 条与 PR440 第 3 例为装置/判断问题，已在文中标明，未作为候选缺陷计入"
+  ],
+  "next": "按各候选的 action 修订需求文本，然后冻结候选版本并做二值缺陷清单复核"
+}

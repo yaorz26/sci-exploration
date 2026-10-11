@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "task_id": "D1_B06",
+  "distinct_new_inputs": 10,
+  "actual_implementation_calls": 20,
+  "hand_expected_evaluations_passed": 20,
+  "distinct_pair_relations": 5,
+  "pair_relations_passed": 5,
+  "different_semantic_branches_with_same_output_pairs": 2,
+  "default_intervention_pairs": 3,
+  "old_tests_or_grid_runs": 0,
+  "hidden_cases_read_or_selected": 0,
+  "model_calls": 0,
+  "API_calls": 0,
+  "human_reviewers": 0,
+  "seconds": 0.02990130000011959,
+  "limits": "十输入/五关系公开规则诊断，分支由手算需求而非输出标签推断；相等不是相同分支；默认成对规则有限验证，非模型收益/独立真值，P31暴露保持"
+}

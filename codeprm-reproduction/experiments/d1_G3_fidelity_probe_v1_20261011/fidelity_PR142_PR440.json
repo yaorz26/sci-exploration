@@ -1,0 +1,266 @@
+{
+  "created_at": "2026-10-11T10:14:16.789278+00:00",
+  "purpose": "决策 2：上游保真度实测",
+  "model_calls": 0,
+  "discipline": "只读；不读上游测试；不修改冻结候选；子进程隔离",
+  "candidates": {
+    "PR142": {
+      "upstream_parent": "codeprm-reproduction\\experiments\\d1_G2_confuse_pr142_env_source_v1_20261009\\parent",
+      "upstream_merge": "codeprm-reproduction\\experiments\\d1_G2_confuse_pr142_env_source_v1_20261009\\merge",
+      "merge_core_sha256": "3f1f101b45216f326953c43c1d6de94fea2c752de37f505ea129f0540fb67f7d",
+      "parent_has_set_env": false,
+      "merge_has_set_env": true,
+      "raw": {
+        "set_env_returns": "None",
+        "prefix_with_underscore": "5",
+        "prefix_without_underscore_matches_joined": "5",
+        "lowercase_key": "'h'",
+        "nested_key": "5432",
+        "leaf_merge": {
+          "host": "'filehost'",
+          "port": "5432"
+        },
+        "no_match_keeps_value": "7",
+        "empty_suffix_ignored": "ok:None",
+        "empty_segment_A__": "ok:None",
+        "empty_segment_A___B": "ok:None",
+        "nested_positive_A__B": "ok:1",
+        "empty_prefix": "no_exception",
+        "collection_value": "'[1,2]'"
+      },
+      "rows": [
+        {
+          "rule": "set_env_returns",
+          "upstream": "None",
+          "contract": "None",
+          "matches": true
+        },
+        {
+          "rule": "prefix_with_underscore",
+          "upstream": "5",
+          "contract": "5",
+          "matches": true
+        },
+        {
+          "rule": "prefix_without_underscore_matches_joined",
+          "upstream": "5",
+          "contract": "5",
+          "matches": true
+        },
+        {
+          "rule": "lowercase_key",
+          "upstream": "'h'",
+          "contract": "'h'",
+          "matches": true
+        },
+        {
+          "rule": "nested_key",
+          "upstream": "5432",
+          "contract": "5432",
+          "matches": true
+        },
+        {
+          "rule": "leaf_merge",
+          "upstream": {
+            "host": "'filehost'",
+            "port": "5432"
+          },
+          "contract": {
+            "host": "'filehost'",
+            "port": "5432"
+          },
+          "matches": true
+        },
+        {
+          "rule": "no_match_keeps_value",
+          "upstream": "7",
+          "contract": "7",
+          "matches": true
+        },
+        {
+          "rule": "empty_suffix_ignored",
+          "upstream": "ok:None",
+          "contract": "ok:None",
+          "matches": true
+        },
+        {
+          "rule": "empty_segment_A__",
+          "upstream": "ok:None",
+          "contract": "<ValueError",
+          "matches": false
+        },
+        {
+          "rule": "nested_positive_A__B",
+          "upstream": "ok:1",
+          "contract": "ok:1",
+          "matches": true
+        },
+        {
+          "rule": "empty_prefix",
+          "upstream": "no_exception",
+          "contract": "<ValueError",
+          "matches": false
+        },
+        {
+          "rule": "collection_value",
+          "upstream": "'[1,2]'",
+          "contract": "<ValueError",
+          "matches": false
+        }
+      ],
+      "agreement": {
+        "matches": 9,
+        "total": 12
+      }
+    },
+    "PR440": {
+      "upstream_parent": "codeprm-reproduction\\experiments\\d1_G2_more_pr440_group_lifetime_v1_20261009\\parent",
+      "upstream_feature": "codeprm-reproduction\\experiments\\d1_G2_more_pr440_group_lifetime_v1_20261009\\feature",
+      "feature_more_sha256": "654c2befb86233848b18a9feda0ce250542f9c8c6bae7db75abf84efba86bd75",
+      "raw": {
+        "case1_retained_lists": [
+          [
+            "a",
+            [
+              10,
+              20
+            ]
+          ],
+          [
+            "b",
+            [
+              30
+            ]
+          ],
+          [
+            "a",
+            [
+              40
+            ]
+          ]
+        ],
+        "case2_group_sums": [
+          [
+            0,
+            6
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "case3_no_reducer": {
+          "first_key": "a",
+          "first_after_advance": [
+            1,
+            2
+          ],
+          "second_key": "b",
+          "second_now": [
+            3
+          ]
+        },
+        "signature": "(iterable, keyfunc=None, valuefunc=None, reducefunc=None)"
+      },
+      "rows": [
+        {
+          "rule": "case1_retained_lists",
+          "upstream": [
+            [
+              "a",
+              [
+                10,
+                20
+              ]
+            ],
+            [
+              "b",
+              [
+                30
+              ]
+            ],
+            [
+              "a",
+              [
+                40
+              ]
+            ]
+          ],
+          "contract": [
+            [
+              "a",
+              [
+                10,
+                20
+              ]
+            ],
+            [
+              "b",
+              [
+                30
+              ]
+            ],
+            [
+              "a",
+              [
+                40
+              ]
+            ]
+          ],
+          "matches": true
+        },
+        {
+          "rule": "case2_group_sums",
+          "upstream": [
+            [
+              0,
+              6
+            ],
+            [
+              1,
+              4
+            ]
+          ],
+          "contract": [
+            [
+              0,
+              6
+            ],
+            [
+              1,
+              4
+            ]
+          ],
+          "matches": true
+        },
+        {
+          "rule": "case3_no_reducer",
+          "upstream": {
+            "first_key": "a",
+            "first_after_advance": [
+              1,
+              2
+            ],
+            "second_key": "b",
+            "second_now": [
+              3
+            ]
+          },
+          "contract": {
+            "first_key": "a",
+            "first_after_advance": [],
+            "second_key": "b",
+            "second_now": [
+              3
+            ]
+          },
+          "matches": false
+        }
+      ],
+      "agreement": {
+        "matches": 2,
+        "total": 3
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "primary_estimand": "全部预定题上的策略整题全部通过，生成失败仍Y=0，不因无代码而排除",
+  "conditional_estimand": "仅达到行为评分的候选；M2覆盖0/1时不可定义行为准确率，不与主方法指标混用",
+  "plan_observation": "计划文本是提出方案，不是完成实现；实际共享状态图或局部正确性不可由缺程序编码none",
+  "causal_limit": "不估计入口放宽/补entry后的反事实正确性；M0与M2观察阶段不同，不归因哪项结构造成效果",
+  "original_primary_outcome_changed": false,
+  "original_cost_changed": false,
+  "scope": "一对工程烟测，非正式效应或适用边界确认"
+}

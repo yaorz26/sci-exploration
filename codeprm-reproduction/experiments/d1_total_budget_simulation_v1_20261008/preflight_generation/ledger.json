@@ -1,0 +1,56 @@
+{
+  "simulated": true,
+  "token_limit": 35,
+  "call_limit": 5,
+  "known_token_spend": 35,
+  "blocked": false,
+  "calls": [
+    {
+      "call_id": "001",
+      "stage": "preflight",
+      "simulated": true,
+      "prompt_token_upper_bound": 10,
+      "assigned_output_cap": 1,
+      "status": "completed",
+      "cost_status": "known",
+      "request": {
+        "path": "001_request.json",
+        "sha256": "dea2ce12e2696ceefc13e560ae34ec60fd731e5a6a304e73bb62f487267455b1"
+      },
+      "response": {
+        "path": "001_response.json",
+        "sha256": "0ab79ef862748a77d2418dfd71c0261fe18e01c391932edfcb256086af39560a"
+      },
+      "prompt_tokens": 10,
+      "output_tokens": 1,
+      "seconds": 0.000442300002760021
+    },
+    {
+      "call_id": "002",
+      "stage": "generation",
+      "simulated": true,
+      "prompt_token_upper_bound": 10,
+      "assigned_output_cap": 14,
+      "status": "completed",
+      "cost_status": "known",
+      "request": {
+        "path": "002_request.json",
+        "sha256": "d68523f2d24058152df6c813a08ecb65c9df52b4e24de424e00977912d87dd84"
+      },
+      "response": {
+        "path": "002_response.json",
+        "sha256": "56cf5e0c67c8fb27c007e596f14f09f6e39014e2b53bbc32c1887a4a7e1d6595"
+      },
+      "prompt_tokens": 10,
+      "output_tokens": 14,
+      "seconds": 0.0004791999999724794
+    }
+  ],
+  "refusals": [
+    {
+      "stage": "合成阶段",
+      "reason": "输入与最少输出无法纳入总预算",
+      "before_request": true
+    }
+  ]
+}

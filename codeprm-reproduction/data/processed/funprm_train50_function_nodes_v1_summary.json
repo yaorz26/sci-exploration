@@ -1,0 +1,12 @@
+{
+  "input": "data\\processed\\codeprm_continuation_train50_seed42_deployment_aligned.jsonl",
+  "output": "data\\processed\\funprm_train50_function_nodes_v1.jsonl",
+  "source_rows": 1196,
+  "candidate_groups": 200,
+  "function_node_records": 189,
+  "problems": 49,
+  "skipped_candidates": {
+    "syntax_or_ast_error": 15
+  },
+  "label_definition": "exact continuation step_label mapped by function order; mapping is derived, not author-original"
+}

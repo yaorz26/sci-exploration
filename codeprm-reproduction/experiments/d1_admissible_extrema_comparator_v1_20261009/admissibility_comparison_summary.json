@@ -1,0 +1,26 @@
+{
+  "created_at": "2026-10-09T04:43:35Z",
+  "rows": 14,
+  "counts_accepted": {
+    "key_only": 11,
+    "strict": 8
+  },
+  "prediction_matches": true,
+  "legal_saved_rows_strict": 8,
+  "controls_rejected_strict": 6,
+  "key_only_false_accept_controls": [
+    "nonmember_same_key",
+    "bool_minimum",
+    "extra_field"
+  ],
+  "source_calls": 0,
+  "task_solve_calls": 0,
+  "model_calls": 0,
+  "private_reads": 0,
+  "human_reviews": 0,
+  "limits": [
+    "有限非空精确整数列表；不验证输入修改、异常语义或任意key",
+    "构造控制是输出对象比较，不是新的程序执行",
+    "不填E_M07正式标签、切分或主问题A效果"
+  ]
+}

@@ -1,0 +1,300 @@
+{
+  "disagreements": [
+    {
+      "case_id": "public_1",
+      "input": {
+        "value": {
+          "name": "demo",
+          "retries": 2.9,
+          "scores": [
+            1.9,
+            -2.9,
+            true
+          ],
+          "options": {
+            "extra": 7
+          }
+        }
+      },
+      "expected": {
+        "value": {
+          "name": "demo",
+          "retries": 2,
+          "scores": [
+            1,
+            -2,
+            true
+          ],
+          "options": {
+            "mode": "safe",
+            "limit": 10
+          }
+        }
+      },
+      "reference": {
+        "value": {
+          "name": "demo",
+          "retries": 2,
+          "scores": [
+            1,
+            -2,
+            true
+          ],
+          "options": {
+            "mode": "safe",
+            "limit": 10
+          }
+        }
+      },
+      "alternate": {
+        "value": {
+          "name": "demo",
+          "retries": 2,
+          "scores": [
+            1,
+            -2,
+            true
+          ],
+          "options": {
+            "mode": "safe",
+            "limit": 10
+          }
+        }
+      }
+    },
+    {
+      "case_id": "public_2",
+      "input": {
+        "value": {
+          "name": "x"
+        },
+        "default_retries": 5
+      },
+      "expected": {
+        "value": {
+          "name": "x",
+          "retries": 5,
+          "scores": [],
+          "options": {
+            "mode": "safe",
+            "limit": 10
+          }
+        }
+      },
+      "reference": {
+        "value": {
+          "name": "x",
+          "retries": 5,
+          "scores": [],
+          "options": {
+            "mode": "safe",
+            "limit": 10
+          }
+        }
+      },
+      "alternate": {
+        "value": {
+          "name": "x",
+          "retries": 5,
+          "scores": [],
+          "options": {
+            "mode": "safe",
+            "limit": 10
+          }
+        }
+      }
+    },
+    {
+      "case_id": "hidden_3",
+      "input": {
+        "value": {
+          "name": "",
+          "scores": []
+        }
+      },
+      "expected": {
+        "value": {
+          "name": "",
+          "retries": 3,
+          "scores": [],
+          "options": {
+            "mode": "safe",
+            "limit": 10
+          }
+        }
+      },
+      "reference": {
+        "value": {
+          "name": "",
+          "retries": 3,
+          "scores": [],
+          "options": {
+            "mode": "safe",
+            "limit": 10
+          }
+        }
+      },
+      "alternate": {
+        "value": {
+          "name": "",
+          "retries": 3,
+          "scores": [],
+          "options": {
+            "mode": "safe",
+            "limit": 10
+          }
+        }
+      }
+    },
+    {
+      "case_id": "hidden_10",
+      "input": {
+        "value": {
+          "name": "x",
+          "retries": false,
+          "scores": [
+            false,
+            0.0
+          ],
+          "options": {
+            "mode": "",
+            "limit": -1.9
+          }
+        }
+      },
+      "expected": {
+        "value": {
+          "name": "x",
+          "retries": false,
+          "scores": [
+            false,
+            0
+          ],
+          "options": {
+            "mode": "",
+            "limit": -1
+          }
+        }
+      },
+      "reference": {
+        "value": {
+          "name": "x",
+          "retries": false,
+          "scores": [
+            false,
+            0
+          ],
+          "options": {
+            "mode": "",
+            "limit": -1
+          }
+        }
+      },
+      "alternate": {
+        "value": {
+          "name": "x",
+          "retries": false,
+          "scores": [
+            false,
+            0
+          ],
+          "options": {
+            "mode": "",
+            "limit": -1
+          }
+        }
+      }
+    },
+    {
+      "case_id": "hidden_11",
+      "input": {
+        "value": {
+          "name": "x",
+          "extra": 1,
+          "options": {
+            "mode": "fast",
+            "limit": 2,
+            "extra": 4
+          }
+        }
+      },
+      "expected": {
+        "value": {
+          "name": "x",
+          "retries": 3,
+          "scores": [],
+          "options": {
+            "mode": "fast",
+            "limit": 2
+          }
+        }
+      },
+      "reference": {
+        "value": {
+          "name": "x",
+          "retries": 3,
+          "scores": [],
+          "options": {
+            "mode": "fast",
+            "limit": 2
+          }
+        }
+      },
+      "alternate": {
+        "value": {
+          "name": "x",
+          "retries": 3,
+          "scores": [],
+          "options": {
+            "mode": "fast",
+            "limit": 2
+          }
+        }
+      }
+    },
+    {
+      "case_id": "hidden_14",
+      "input": {
+        "value": {
+          "name": "x"
+        },
+        "default_retries": 0
+      },
+      "expected": {
+        "value": {
+          "name": "x",
+          "retries": 0,
+          "scores": [],
+          "options": {
+            "mode": "safe",
+            "limit": 10
+          }
+        }
+      },
+      "reference": {
+        "value": {
+          "name": "x",
+          "retries": 0,
+          "scores": [],
+          "options": {
+            "mode": "safe",
+            "limit": 10
+          }
+        }
+      },
+      "alternate": {
+        "value": {
+          "name": "x",
+          "retries": 0,
+          "scores": [],
+          "options": {
+            "mode": "safe",
+            "limit": 10
+          }
+        }
+      }
+    }
+  ],
+  "manual_public_anchors": 2,
+  "comparison": "上游实现与另一种纯标准库实现；同一作者，不等于独立审查"
+}

@@ -1,0 +1,21 @@
+{
+  "created_at": "2026-10-09T03:36:20Z",
+  "public_rows": 2,
+  "public_distinguishing_rows": 0,
+  "saved_diagnostic_rows": 6,
+  "saved_distinguishing_rows": 3,
+  "future_added_examples": 2,
+  "new_solve_calls": 0,
+  "source_calls": 0,
+  "model_calls": 0,
+  "private_reads": 0,
+  "human_reviews": 0,
+  "input_hashes": {
+    "data\\processed\\d1_project_initial20_v5_20261008\\public\\D1_B03\\task.json": "8899f382241f28a4cf9561ce07a09d4c408482058356393f9ae295f3e81e3fd4",
+    "experiments\\d1_ansi_single_pass_v1_20261009\\structure_result.json": "4bcdd1fe25601201880c034ba0716548ad9266fefe819dc0cdf3f7b1235905f1",
+    "experiments\\d1_ansi_single_pass_v1_20261009\\public_rules_and_six_anchors_frozen.json": "9416d51804be033da6f838ad764fd2f220050e76d04341e4ef8306ff8e5d966f"
+  },
+  "excluded_explanation": "两个原公开例子已区分单次/稳定删除，被本例子对照排除",
+  "remaining_unknown": "读者误解、澄清对模型生成的作用、正式标签均未测",
+  "next_direction": "停止ANSI同类反例；回到尚未测量的开发题B01局部契约可观察边界"
+}

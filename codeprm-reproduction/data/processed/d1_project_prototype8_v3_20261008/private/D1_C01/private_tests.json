@@ -1,0 +1,5355 @@
+[
+  {
+    "case_id": "hidden_1",
+    "input": {
+      "capacity": 0,
+      "operations": [
+        {
+          "op": "snapshot",
+          "key": "a"
+        },
+        {
+          "op": "clear",
+          "key": "d"
+        },
+        {
+          "op": "clear",
+          "key": "d"
+        },
+        {
+          "op": "delete",
+          "key": "d"
+        },
+        {
+          "op": "put",
+          "key": "d",
+          "value": 0
+        },
+        {
+          "op": "clear",
+          "key": "c"
+        },
+        {
+          "op": "put",
+          "key": "a",
+          "value": null
+        },
+        {
+          "op": "get",
+          "key": "d"
+        },
+        {
+          "op": "contains",
+          "key": "b"
+        },
+        {
+          "op": "snapshot",
+          "key": "d"
+        },
+        {
+          "op": "snapshot",
+          "key": "d"
+        },
+        {
+          "op": "put",
+          "key": "b",
+          "value": 1
+        },
+        {
+          "op": "get",
+          "key": "d"
+        },
+        {
+          "op": "get",
+          "key": "d"
+        },
+        {
+          "op": "delete",
+          "key": "c"
+        },
+        {
+          "op": "contains",
+          "key": "b"
+        },
+        {
+          "op": "get",
+          "key": "b"
+        },
+        {
+          "op": "snapshot",
+          "key": "c"
+        },
+        {
+          "op": "get",
+          "key": "d"
+        },
+        {
+          "op": "contains",
+          "key": "d"
+        },
+        {
+          "op": "clear",
+          "key": "a"
+        },
+        {
+          "op": "put",
+          "key": "c",
+          "value": [
+            2
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": false,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": false,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": false,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_2",
+    "input": {
+      "capacity": 1,
+      "operations": [
+        {
+          "op": "put",
+          "key": "d",
+          "value": null
+        },
+        {
+          "op": "snapshot",
+          "key": "d"
+        },
+        {
+          "op": "snapshot",
+          "key": "d"
+        },
+        {
+          "op": "contains",
+          "key": "b"
+        },
+        {
+          "op": "put",
+          "key": "b",
+          "value": 0
+        },
+        {
+          "op": "snapshot",
+          "key": "d"
+        },
+        {
+          "op": "get",
+          "key": "c"
+        },
+        {
+          "op": "get",
+          "key": "c"
+        },
+        {
+          "op": "delete",
+          "key": "d"
+        },
+        {
+          "op": "delete",
+          "key": "b"
+        },
+        {
+          "op": "snapshot",
+          "key": "d"
+        },
+        {
+          "op": "delete",
+          "key": "a"
+        },
+        {
+          "op": "snapshot",
+          "key": "a"
+        },
+        {
+          "op": "snapshot",
+          "key": "c"
+        },
+        {
+          "op": "delete",
+          "key": "d"
+        },
+        {
+          "op": "clear",
+          "key": "a"
+        },
+        {
+          "op": "put",
+          "key": "d",
+          "value": "x"
+        },
+        {
+          "op": "clear",
+          "key": "c"
+        },
+        {
+          "op": "snapshot",
+          "key": "b"
+        },
+        {
+          "op": "get",
+          "key": "d"
+        },
+        {
+          "op": "delete",
+          "key": "a"
+        },
+        {
+          "op": "get",
+          "key": "d"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": null,
+          "items": [
+            [
+              "d",
+              null
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "d",
+              null
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "d",
+              null
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": false,
+          "items": [
+            [
+              "d",
+              null
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "b",
+              0
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "b",
+              0
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "b",
+              0
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "b",
+              0
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "b",
+              0
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "d",
+              "x"
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_3",
+    "input": {
+      "capacity": 0,
+      "operations": [
+        {
+          "op": "delete",
+          "key": "b"
+        },
+        {
+          "op": "clear",
+          "key": "c"
+        },
+        {
+          "op": "get",
+          "key": "c"
+        },
+        {
+          "op": "get",
+          "key": "a"
+        },
+        {
+          "op": "delete",
+          "key": "c"
+        },
+        {
+          "op": "delete",
+          "key": "b"
+        },
+        {
+          "op": "contains",
+          "key": "d"
+        },
+        {
+          "op": "put",
+          "key": "a",
+          "value": 0
+        },
+        {
+          "op": "snapshot",
+          "key": "c"
+        },
+        {
+          "op": "delete",
+          "key": "b"
+        },
+        {
+          "op": "get",
+          "key": "d"
+        },
+        {
+          "op": "delete",
+          "key": "d"
+        },
+        {
+          "op": "get",
+          "key": "d"
+        },
+        {
+          "op": "contains",
+          "key": "c"
+        },
+        {
+          "op": "get",
+          "key": "c"
+        },
+        {
+          "op": "snapshot",
+          "key": "c"
+        },
+        {
+          "op": "snapshot",
+          "key": "a"
+        },
+        {
+          "op": "put",
+          "key": "b",
+          "value": 0
+        },
+        {
+          "op": "put",
+          "key": "d",
+          "value": null
+        },
+        {
+          "op": "put",
+          "key": "d",
+          "value": [
+            2
+          ]
+        },
+        {
+          "op": "clear",
+          "key": "a"
+        },
+        {
+          "op": "put",
+          "key": "c",
+          "value": 1
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": false,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": false,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_4",
+    "input": {
+      "capacity": 3,
+      "operations": [
+        {
+          "op": "put",
+          "key": "d",
+          "value": 0
+        },
+        {
+          "op": "put",
+          "key": "a",
+          "value": 0
+        },
+        {
+          "op": "put",
+          "key": "d",
+          "value": "x"
+        },
+        {
+          "op": "put",
+          "key": "d",
+          "value": 0
+        },
+        {
+          "op": "clear",
+          "key": "b"
+        },
+        {
+          "op": "delete",
+          "key": "b"
+        },
+        {
+          "op": "clear",
+          "key": "d"
+        },
+        {
+          "op": "snapshot",
+          "key": "d"
+        },
+        {
+          "op": "put",
+          "key": "b",
+          "value": 0
+        },
+        {
+          "op": "clear",
+          "key": "b"
+        },
+        {
+          "op": "contains",
+          "key": "a"
+        },
+        {
+          "op": "delete",
+          "key": "a"
+        },
+        {
+          "op": "get",
+          "key": "b"
+        },
+        {
+          "op": "put",
+          "key": "c",
+          "value": null
+        },
+        {
+          "op": "clear",
+          "key": "b"
+        },
+        {
+          "op": "get",
+          "key": "b"
+        },
+        {
+          "op": "get",
+          "key": "c"
+        },
+        {
+          "op": "put",
+          "key": "a",
+          "value": "x"
+        },
+        {
+          "op": "put",
+          "key": "c",
+          "value": 0
+        },
+        {
+          "op": "get",
+          "key": "c"
+        },
+        {
+          "op": "put",
+          "key": "b",
+          "value": 1
+        },
+        {
+          "op": "snapshot",
+          "key": "b"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": null,
+          "items": [
+            [
+              "d",
+              0
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              0
+            ],
+            [
+              "d",
+              0
+            ]
+          ],
+          "size": 2
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              0
+            ],
+            [
+              "d",
+              "x"
+            ]
+          ],
+          "size": 2
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              0
+            ],
+            [
+              "d",
+              0
+            ]
+          ],
+          "size": 2
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "b",
+              0
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": false,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "c",
+              null
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              "x"
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              "x"
+            ],
+            [
+              "c",
+              0
+            ]
+          ],
+          "size": 2
+        },
+        {
+          "result": 0,
+          "items": [
+            [
+              "a",
+              "x"
+            ],
+            [
+              "c",
+              0
+            ]
+          ],
+          "size": 2
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              "x"
+            ],
+            [
+              "b",
+              1
+            ],
+            [
+              "c",
+              0
+            ]
+          ],
+          "size": 3
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              "x"
+            ],
+            [
+              "b",
+              1
+            ],
+            [
+              "c",
+              0
+            ]
+          ],
+          "size": 3
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_5",
+    "input": {
+      "capacity": 3,
+      "operations": [
+        {
+          "op": "put",
+          "key": "c",
+          "value": [
+            2
+          ]
+        },
+        {
+          "op": "put",
+          "key": "b",
+          "value": "x"
+        },
+        {
+          "op": "get",
+          "key": "a"
+        },
+        {
+          "op": "put",
+          "key": "d",
+          "value": null
+        },
+        {
+          "op": "contains",
+          "key": "b"
+        },
+        {
+          "op": "contains",
+          "key": "d"
+        },
+        {
+          "op": "delete",
+          "key": "b"
+        },
+        {
+          "op": "put",
+          "key": "c",
+          "value": null
+        },
+        {
+          "op": "snapshot",
+          "key": "a"
+        },
+        {
+          "op": "get",
+          "key": "b"
+        },
+        {
+          "op": "put",
+          "key": "a",
+          "value": "x"
+        },
+        {
+          "op": "clear",
+          "key": "a"
+        },
+        {
+          "op": "get",
+          "key": "a"
+        },
+        {
+          "op": "put",
+          "key": "a",
+          "value": "x"
+        },
+        {
+          "op": "snapshot",
+          "key": "b"
+        },
+        {
+          "op": "get",
+          "key": "d"
+        },
+        {
+          "op": "contains",
+          "key": "d"
+        },
+        {
+          "op": "contains",
+          "key": "a"
+        },
+        {
+          "op": "put",
+          "key": "b",
+          "value": null
+        },
+        {
+          "op": "get",
+          "key": "c"
+        },
+        {
+          "op": "put",
+          "key": "b",
+          "value": 0
+        },
+        {
+          "op": "clear",
+          "key": "d"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": null,
+          "items": [
+            [
+              "c",
+              [
+                2
+              ]
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "b",
+              "x"
+            ],
+            [
+              "c",
+              [
+                2
+              ]
+            ]
+          ],
+          "size": 2
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "b",
+              "x"
+            ],
+            [
+              "c",
+              [
+                2
+              ]
+            ]
+          ],
+          "size": 2
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "b",
+              "x"
+            ],
+            [
+              "c",
+              [
+                2
+              ]
+            ],
+            [
+              "d",
+              null
+            ]
+          ],
+          "size": 3
+        },
+        {
+          "result": true,
+          "items": [
+            [
+              "b",
+              "x"
+            ],
+            [
+              "c",
+              [
+                2
+              ]
+            ],
+            [
+              "d",
+              null
+            ]
+          ],
+          "size": 3
+        },
+        {
+          "result": true,
+          "items": [
+            [
+              "b",
+              "x"
+            ],
+            [
+              "c",
+              [
+                2
+              ]
+            ],
+            [
+              "d",
+              null
+            ]
+          ],
+          "size": 3
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "c",
+              [
+                2
+              ]
+            ],
+            [
+              "d",
+              null
+            ]
+          ],
+          "size": 2
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "c",
+              null
+            ],
+            [
+              "d",
+              null
+            ]
+          ],
+          "size": 2
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "c",
+              null
+            ],
+            [
+              "d",
+              null
+            ]
+          ],
+          "size": 2
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "c",
+              null
+            ],
+            [
+              "d",
+              null
+            ]
+          ],
+          "size": 2
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              "x"
+            ],
+            [
+              "c",
+              null
+            ],
+            [
+              "d",
+              null
+            ]
+          ],
+          "size": 3
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              "x"
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              "x"
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "a",
+              "x"
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": false,
+          "items": [
+            [
+              "a",
+              "x"
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": true,
+          "items": [
+            [
+              "a",
+              "x"
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              "x"
+            ],
+            [
+              "b",
+              null
+            ]
+          ],
+          "size": 2
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "a",
+              "x"
+            ],
+            [
+              "b",
+              null
+            ]
+          ],
+          "size": 2
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              "x"
+            ],
+            [
+              "b",
+              0
+            ]
+          ],
+          "size": 2
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_6",
+    "input": {
+      "capacity": 2,
+      "operations": [
+        {
+          "op": "get",
+          "key": "a"
+        },
+        {
+          "op": "clear",
+          "key": "d"
+        },
+        {
+          "op": "get",
+          "key": "d"
+        },
+        {
+          "op": "get",
+          "key": "a"
+        },
+        {
+          "op": "clear",
+          "key": "c"
+        },
+        {
+          "op": "put",
+          "key": "d",
+          "value": [
+            2
+          ]
+        },
+        {
+          "op": "put",
+          "key": "d",
+          "value": null
+        },
+        {
+          "op": "clear",
+          "key": "c"
+        },
+        {
+          "op": "delete",
+          "key": "c"
+        },
+        {
+          "op": "put",
+          "key": "d",
+          "value": 1
+        },
+        {
+          "op": "delete",
+          "key": "a"
+        },
+        {
+          "op": "put",
+          "key": "c",
+          "value": 0
+        },
+        {
+          "op": "get",
+          "key": "c"
+        },
+        {
+          "op": "clear",
+          "key": "b"
+        },
+        {
+          "op": "put",
+          "key": "a",
+          "value": [
+            2
+          ]
+        },
+        {
+          "op": "delete",
+          "key": "b"
+        },
+        {
+          "op": "clear",
+          "key": "c"
+        },
+        {
+          "op": "put",
+          "key": "c",
+          "value": [
+            2
+          ]
+        },
+        {
+          "op": "get",
+          "key": "b"
+        },
+        {
+          "op": "get",
+          "key": "d"
+        },
+        {
+          "op": "delete",
+          "key": "a"
+        },
+        {
+          "op": "snapshot",
+          "key": "a"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "d",
+              [
+                2
+              ]
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "d",
+              null
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "d",
+              1
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "d",
+              1
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "c",
+              0
+            ],
+            [
+              "d",
+              1
+            ]
+          ],
+          "size": 2
+        },
+        {
+          "result": 0,
+          "items": [
+            [
+              "c",
+              0
+            ],
+            [
+              "d",
+              1
+            ]
+          ],
+          "size": 2
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              [
+                2
+              ]
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "a",
+              [
+                2
+              ]
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "c",
+              [
+                2
+              ]
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "c",
+              [
+                2
+              ]
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "c",
+              [
+                2
+              ]
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "c",
+              [
+                2
+              ]
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "c",
+              [
+                2
+              ]
+            ]
+          ],
+          "size": 1
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_7",
+    "input": {
+      "capacity": 1,
+      "operations": [
+        {
+          "op": "delete",
+          "key": "c"
+        },
+        {
+          "op": "snapshot",
+          "key": "b"
+        },
+        {
+          "op": "snapshot",
+          "key": "c"
+        },
+        {
+          "op": "put",
+          "key": "d",
+          "value": 0
+        },
+        {
+          "op": "get",
+          "key": "a"
+        },
+        {
+          "op": "put",
+          "key": "d",
+          "value": 1
+        },
+        {
+          "op": "put",
+          "key": "c",
+          "value": 1
+        },
+        {
+          "op": "contains",
+          "key": "c"
+        },
+        {
+          "op": "snapshot",
+          "key": "a"
+        },
+        {
+          "op": "get",
+          "key": "a"
+        },
+        {
+          "op": "put",
+          "key": "b",
+          "value": 0
+        },
+        {
+          "op": "put",
+          "key": "c",
+          "value": 0
+        },
+        {
+          "op": "put",
+          "key": "c",
+          "value": 1
+        },
+        {
+          "op": "get",
+          "key": "d"
+        },
+        {
+          "op": "put",
+          "key": "c",
+          "value": null
+        },
+        {
+          "op": "delete",
+          "key": "d"
+        },
+        {
+          "op": "put",
+          "key": "d",
+          "value": [
+            2
+          ]
+        },
+        {
+          "op": "snapshot",
+          "key": "d"
+        },
+        {
+          "op": "contains",
+          "key": "b"
+        },
+        {
+          "op": "get",
+          "key": "b"
+        },
+        {
+          "op": "delete",
+          "key": "a"
+        },
+        {
+          "op": "clear",
+          "key": "a"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "d",
+              0
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "d",
+              0
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "d",
+              1
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "c",
+              1
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": true,
+          "items": [
+            [
+              "c",
+              1
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "c",
+              1
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "c",
+              1
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "b",
+              0
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "c",
+              0
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "c",
+              1
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "c",
+              1
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "c",
+              null
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "c",
+              null
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "d",
+              [
+                2
+              ]
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "d",
+              [
+                2
+              ]
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": false,
+          "items": [
+            [
+              "d",
+              [
+                2
+              ]
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "d",
+              [
+                2
+              ]
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "d",
+              [
+                2
+              ]
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_8",
+    "input": {
+      "capacity": 2,
+      "operations": [
+        {
+          "op": "delete",
+          "key": "a"
+        },
+        {
+          "op": "get",
+          "key": "a"
+        },
+        {
+          "op": "clear",
+          "key": "d"
+        },
+        {
+          "op": "snapshot",
+          "key": "b"
+        },
+        {
+          "op": "put",
+          "key": "d",
+          "value": 0
+        },
+        {
+          "op": "delete",
+          "key": "d"
+        },
+        {
+          "op": "get",
+          "key": "c"
+        },
+        {
+          "op": "clear",
+          "key": "a"
+        },
+        {
+          "op": "delete",
+          "key": "c"
+        },
+        {
+          "op": "delete",
+          "key": "c"
+        },
+        {
+          "op": "get",
+          "key": "b"
+        },
+        {
+          "op": "get",
+          "key": "a"
+        },
+        {
+          "op": "get",
+          "key": "a"
+        },
+        {
+          "op": "contains",
+          "key": "c"
+        },
+        {
+          "op": "snapshot",
+          "key": "c"
+        },
+        {
+          "op": "put",
+          "key": "a",
+          "value": "x"
+        },
+        {
+          "op": "put",
+          "key": "d",
+          "value": null
+        },
+        {
+          "op": "contains",
+          "key": "a"
+        },
+        {
+          "op": "clear",
+          "key": "d"
+        },
+        {
+          "op": "contains",
+          "key": "b"
+        },
+        {
+          "op": "put",
+          "key": "a",
+          "value": [
+            2
+          ]
+        },
+        {
+          "op": "delete",
+          "key": "b"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "d",
+              0
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": false,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              "x"
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              "x"
+            ],
+            [
+              "d",
+              null
+            ]
+          ],
+          "size": 2
+        },
+        {
+          "result": true,
+          "items": [
+            [
+              "a",
+              "x"
+            ],
+            [
+              "d",
+              null
+            ]
+          ],
+          "size": 2
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": false,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              [
+                2
+              ]
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "a",
+              [
+                2
+              ]
+            ]
+          ],
+          "size": 1
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_9",
+    "input": {
+      "capacity": 1,
+      "operations": [
+        {
+          "op": "get",
+          "key": "a"
+        },
+        {
+          "op": "get",
+          "key": "c"
+        },
+        {
+          "op": "put",
+          "key": "c",
+          "value": [
+            2
+          ]
+        },
+        {
+          "op": "put",
+          "key": "c",
+          "value": "x"
+        },
+        {
+          "op": "put",
+          "key": "c",
+          "value": 0
+        },
+        {
+          "op": "put",
+          "key": "b",
+          "value": 0
+        },
+        {
+          "op": "get",
+          "key": "a"
+        },
+        {
+          "op": "contains",
+          "key": "a"
+        },
+        {
+          "op": "snapshot",
+          "key": "c"
+        },
+        {
+          "op": "put",
+          "key": "d",
+          "value": "x"
+        },
+        {
+          "op": "contains",
+          "key": "b"
+        },
+        {
+          "op": "put",
+          "key": "b",
+          "value": "x"
+        },
+        {
+          "op": "delete",
+          "key": "d"
+        },
+        {
+          "op": "get",
+          "key": "a"
+        },
+        {
+          "op": "put",
+          "key": "c",
+          "value": [
+            2
+          ]
+        },
+        {
+          "op": "get",
+          "key": "d"
+        },
+        {
+          "op": "contains",
+          "key": "d"
+        },
+        {
+          "op": "contains",
+          "key": "a"
+        },
+        {
+          "op": "delete",
+          "key": "d"
+        },
+        {
+          "op": "delete",
+          "key": "c"
+        },
+        {
+          "op": "put",
+          "key": "b",
+          "value": null
+        },
+        {
+          "op": "contains",
+          "key": "d"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "c",
+              [
+                2
+              ]
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "c",
+              "x"
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "c",
+              0
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "b",
+              0
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "b",
+              0
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": false,
+          "items": [
+            [
+              "b",
+              0
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "b",
+              0
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "d",
+              "x"
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": false,
+          "items": [
+            [
+              "d",
+              "x"
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "b",
+              "x"
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "b",
+              "x"
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "b",
+              "x"
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "c",
+              [
+                2
+              ]
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "c",
+              [
+                2
+              ]
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": false,
+          "items": [
+            [
+              "c",
+              [
+                2
+              ]
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": false,
+          "items": [
+            [
+              "c",
+              [
+                2
+              ]
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "c",
+              [
+                2
+              ]
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "b",
+              null
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": false,
+          "items": [
+            [
+              "b",
+              null
+            ]
+          ],
+          "size": 1
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_10",
+    "input": {
+      "capacity": 1,
+      "operations": [
+        {
+          "op": "put",
+          "key": "c",
+          "value": 0
+        },
+        {
+          "op": "delete",
+          "key": "d"
+        },
+        {
+          "op": "snapshot",
+          "key": "b"
+        },
+        {
+          "op": "snapshot",
+          "key": "d"
+        },
+        {
+          "op": "contains",
+          "key": "d"
+        },
+        {
+          "op": "contains",
+          "key": "a"
+        },
+        {
+          "op": "snapshot",
+          "key": "a"
+        },
+        {
+          "op": "put",
+          "key": "a",
+          "value": [
+            2
+          ]
+        },
+        {
+          "op": "clear",
+          "key": "d"
+        },
+        {
+          "op": "get",
+          "key": "c"
+        },
+        {
+          "op": "contains",
+          "key": "b"
+        },
+        {
+          "op": "contains",
+          "key": "b"
+        },
+        {
+          "op": "put",
+          "key": "d",
+          "value": null
+        },
+        {
+          "op": "put",
+          "key": "a",
+          "value": [
+            2
+          ]
+        },
+        {
+          "op": "contains",
+          "key": "c"
+        },
+        {
+          "op": "get",
+          "key": "c"
+        },
+        {
+          "op": "snapshot",
+          "key": "a"
+        },
+        {
+          "op": "get",
+          "key": "c"
+        },
+        {
+          "op": "clear",
+          "key": "a"
+        },
+        {
+          "op": "put",
+          "key": "b",
+          "value": 1
+        },
+        {
+          "op": "delete",
+          "key": "a"
+        },
+        {
+          "op": "put",
+          "key": "a",
+          "value": null
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": null,
+          "items": [
+            [
+              "c",
+              0
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "c",
+              0
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "c",
+              0
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "c",
+              0
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": false,
+          "items": [
+            [
+              "c",
+              0
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": false,
+          "items": [
+            [
+              "c",
+              0
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "c",
+              0
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              [
+                2
+              ]
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": false,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": false,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "d",
+              null
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              [
+                2
+              ]
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": false,
+          "items": [
+            [
+              "a",
+              [
+                2
+              ]
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "a",
+              [
+                2
+              ]
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              [
+                2
+              ]
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "a",
+              [
+                2
+              ]
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "b",
+              1
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "b",
+              1
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              null
+            ]
+          ],
+          "size": 1
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_11",
+    "input": {
+      "capacity": 0,
+      "operations": [
+        {
+          "op": "clear",
+          "key": "b"
+        },
+        {
+          "op": "get",
+          "key": "c"
+        },
+        {
+          "op": "put",
+          "key": "c",
+          "value": 0
+        },
+        {
+          "op": "contains",
+          "key": "b"
+        },
+        {
+          "op": "put",
+          "key": "d",
+          "value": 0
+        },
+        {
+          "op": "get",
+          "key": "b"
+        },
+        {
+          "op": "get",
+          "key": "d"
+        },
+        {
+          "op": "contains",
+          "key": "b"
+        },
+        {
+          "op": "contains",
+          "key": "c"
+        },
+        {
+          "op": "contains",
+          "key": "b"
+        },
+        {
+          "op": "put",
+          "key": "a",
+          "value": "x"
+        },
+        {
+          "op": "get",
+          "key": "a"
+        },
+        {
+          "op": "snapshot",
+          "key": "b"
+        },
+        {
+          "op": "put",
+          "key": "c",
+          "value": null
+        },
+        {
+          "op": "put",
+          "key": "d",
+          "value": "x"
+        },
+        {
+          "op": "snapshot",
+          "key": "c"
+        },
+        {
+          "op": "contains",
+          "key": "d"
+        },
+        {
+          "op": "snapshot",
+          "key": "b"
+        },
+        {
+          "op": "get",
+          "key": "c"
+        },
+        {
+          "op": "delete",
+          "key": "d"
+        },
+        {
+          "op": "get",
+          "key": "b"
+        },
+        {
+          "op": "get",
+          "key": "c"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": false,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": false,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": false,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": false,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": false,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_12",
+    "input": {
+      "capacity": 3,
+      "operations": [
+        {
+          "op": "get",
+          "key": "c"
+        },
+        {
+          "op": "delete",
+          "key": "a"
+        },
+        {
+          "op": "delete",
+          "key": "b"
+        },
+        {
+          "op": "contains",
+          "key": "a"
+        },
+        {
+          "op": "get",
+          "key": "a"
+        },
+        {
+          "op": "clear",
+          "key": "a"
+        },
+        {
+          "op": "put",
+          "key": "a",
+          "value": "x"
+        },
+        {
+          "op": "snapshot",
+          "key": "d"
+        },
+        {
+          "op": "clear",
+          "key": "a"
+        },
+        {
+          "op": "get",
+          "key": "d"
+        },
+        {
+          "op": "snapshot",
+          "key": "a"
+        },
+        {
+          "op": "get",
+          "key": "c"
+        },
+        {
+          "op": "get",
+          "key": "d"
+        },
+        {
+          "op": "get",
+          "key": "d"
+        },
+        {
+          "op": "clear",
+          "key": "c"
+        },
+        {
+          "op": "get",
+          "key": "b"
+        },
+        {
+          "op": "delete",
+          "key": "a"
+        },
+        {
+          "op": "delete",
+          "key": "a"
+        },
+        {
+          "op": "put",
+          "key": "a",
+          "value": 0
+        },
+        {
+          "op": "contains",
+          "key": "d"
+        },
+        {
+          "op": "contains",
+          "key": "a"
+        },
+        {
+          "op": "clear",
+          "key": "c"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": false,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              "x"
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              "x"
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              0
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": false,
+          "items": [
+            [
+              "a",
+              0
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": true,
+          "items": [
+            [
+              "a",
+              0
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_13",
+    "input": {
+      "capacity": 2,
+      "operations": [
+        {
+          "op": "contains",
+          "key": "b"
+        },
+        {
+          "op": "put",
+          "key": "a",
+          "value": "x"
+        },
+        {
+          "op": "put",
+          "key": "d",
+          "value": 0
+        },
+        {
+          "op": "put",
+          "key": "a",
+          "value": null
+        },
+        {
+          "op": "get",
+          "key": "c"
+        },
+        {
+          "op": "get",
+          "key": "d"
+        },
+        {
+          "op": "delete",
+          "key": "b"
+        },
+        {
+          "op": "put",
+          "key": "c",
+          "value": 1
+        },
+        {
+          "op": "snapshot",
+          "key": "c"
+        },
+        {
+          "op": "clear",
+          "key": "c"
+        },
+        {
+          "op": "get",
+          "key": "c"
+        },
+        {
+          "op": "contains",
+          "key": "c"
+        },
+        {
+          "op": "get",
+          "key": "d"
+        },
+        {
+          "op": "clear",
+          "key": "a"
+        },
+        {
+          "op": "put",
+          "key": "b",
+          "value": "x"
+        },
+        {
+          "op": "clear",
+          "key": "a"
+        },
+        {
+          "op": "delete",
+          "key": "b"
+        },
+        {
+          "op": "clear",
+          "key": "a"
+        },
+        {
+          "op": "put",
+          "key": "c",
+          "value": "x"
+        },
+        {
+          "op": "get",
+          "key": "d"
+        },
+        {
+          "op": "put",
+          "key": "b",
+          "value": null
+        },
+        {
+          "op": "put",
+          "key": "d",
+          "value": "x"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": false,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              "x"
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              "x"
+            ],
+            [
+              "d",
+              0
+            ]
+          ],
+          "size": 2
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              null
+            ],
+            [
+              "d",
+              0
+            ]
+          ],
+          "size": 2
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "a",
+              null
+            ],
+            [
+              "d",
+              0
+            ]
+          ],
+          "size": 2
+        },
+        {
+          "result": 0,
+          "items": [
+            [
+              "a",
+              null
+            ],
+            [
+              "d",
+              0
+            ]
+          ],
+          "size": 2
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "a",
+              null
+            ],
+            [
+              "d",
+              0
+            ]
+          ],
+          "size": 2
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "c",
+              1
+            ],
+            [
+              "d",
+              0
+            ]
+          ],
+          "size": 2
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "c",
+              1
+            ],
+            [
+              "d",
+              0
+            ]
+          ],
+          "size": 2
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": false,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "b",
+              "x"
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "c",
+              "x"
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "c",
+              "x"
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "b",
+              null
+            ],
+            [
+              "c",
+              "x"
+            ]
+          ],
+          "size": 2
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "b",
+              null
+            ],
+            [
+              "d",
+              "x"
+            ]
+          ],
+          "size": 2
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_14",
+    "input": {
+      "capacity": 1,
+      "operations": [
+        {
+          "op": "put",
+          "key": "b",
+          "value": "x"
+        },
+        {
+          "op": "put",
+          "key": "a",
+          "value": "x"
+        },
+        {
+          "op": "clear",
+          "key": "d"
+        },
+        {
+          "op": "put",
+          "key": "d",
+          "value": "x"
+        },
+        {
+          "op": "contains",
+          "key": "c"
+        },
+        {
+          "op": "put",
+          "key": "a",
+          "value": 1
+        },
+        {
+          "op": "delete",
+          "key": "b"
+        },
+        {
+          "op": "get",
+          "key": "c"
+        },
+        {
+          "op": "clear",
+          "key": "b"
+        },
+        {
+          "op": "get",
+          "key": "c"
+        },
+        {
+          "op": "get",
+          "key": "d"
+        },
+        {
+          "op": "get",
+          "key": "a"
+        },
+        {
+          "op": "get",
+          "key": "a"
+        },
+        {
+          "op": "delete",
+          "key": "d"
+        },
+        {
+          "op": "snapshot",
+          "key": "d"
+        },
+        {
+          "op": "get",
+          "key": "a"
+        },
+        {
+          "op": "put",
+          "key": "c",
+          "value": 1
+        },
+        {
+          "op": "clear",
+          "key": "a"
+        },
+        {
+          "op": "put",
+          "key": "b",
+          "value": 0
+        },
+        {
+          "op": "get",
+          "key": "a"
+        },
+        {
+          "op": "contains",
+          "key": "a"
+        },
+        {
+          "op": "put",
+          "key": "d",
+          "value": 0
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": null,
+          "items": [
+            [
+              "b",
+              "x"
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              "x"
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "d",
+              "x"
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": false,
+          "items": [
+            [
+              "d",
+              "x"
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              1
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "a",
+              1
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "a",
+              1
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "c",
+              1
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "b",
+              0
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "b",
+              0
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": false,
+          "items": [
+            [
+              "b",
+              0
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "d",
+              0
+            ]
+          ],
+          "size": 1
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_15",
+    "input": {
+      "capacity": 1,
+      "operations": [
+        {
+          "op": "delete",
+          "key": "a"
+        },
+        {
+          "op": "snapshot",
+          "key": "b"
+        },
+        {
+          "op": "clear",
+          "key": "d"
+        },
+        {
+          "op": "contains",
+          "key": "b"
+        },
+        {
+          "op": "snapshot",
+          "key": "c"
+        },
+        {
+          "op": "clear",
+          "key": "d"
+        },
+        {
+          "op": "clear",
+          "key": "d"
+        },
+        {
+          "op": "put",
+          "key": "d",
+          "value": "x"
+        },
+        {
+          "op": "put",
+          "key": "b",
+          "value": null
+        },
+        {
+          "op": "get",
+          "key": "b"
+        },
+        {
+          "op": "snapshot",
+          "key": "b"
+        },
+        {
+          "op": "get",
+          "key": "b"
+        },
+        {
+          "op": "get",
+          "key": "b"
+        },
+        {
+          "op": "snapshot",
+          "key": "c"
+        },
+        {
+          "op": "get",
+          "key": "d"
+        },
+        {
+          "op": "contains",
+          "key": "a"
+        },
+        {
+          "op": "contains",
+          "key": "d"
+        },
+        {
+          "op": "snapshot",
+          "key": "d"
+        },
+        {
+          "op": "get",
+          "key": "b"
+        },
+        {
+          "op": "put",
+          "key": "b",
+          "value": 0
+        },
+        {
+          "op": "clear",
+          "key": "c"
+        },
+        {
+          "op": "get",
+          "key": "d"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": false,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "d",
+              "x"
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "b",
+              null
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "b",
+              null
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "b",
+              null
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "b",
+              null
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "b",
+              null
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "b",
+              null
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [
+            [
+              "b",
+              null
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": false,
+          "items": [
+            [
+              "b",
+              null
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": false,
+          "items": [
+            [
+              "b",
+              null
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "b",
+              null
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "b",
+              null
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "b",
+              0
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_16",
+    "input": {
+      "capacity": 0,
+      "operations": [
+        {
+          "op": "put",
+          "key": "a",
+          "value": null
+        },
+        {
+          "op": "put",
+          "key": "a",
+          "value": 0
+        },
+        {
+          "op": "get",
+          "key": "b"
+        },
+        {
+          "op": "get",
+          "key": "c"
+        },
+        {
+          "op": "put",
+          "key": "a",
+          "value": [
+            2
+          ]
+        },
+        {
+          "op": "snapshot",
+          "key": "d"
+        },
+        {
+          "op": "snapshot",
+          "key": "c"
+        },
+        {
+          "op": "contains",
+          "key": "c"
+        },
+        {
+          "op": "contains",
+          "key": "a"
+        },
+        {
+          "op": "get",
+          "key": "a"
+        },
+        {
+          "op": "contains",
+          "key": "d"
+        },
+        {
+          "op": "contains",
+          "key": "b"
+        },
+        {
+          "op": "contains",
+          "key": "d"
+        },
+        {
+          "op": "contains",
+          "key": "c"
+        },
+        {
+          "op": "contains",
+          "key": "b"
+        },
+        {
+          "op": "clear",
+          "key": "a"
+        },
+        {
+          "op": "get",
+          "key": "a"
+        },
+        {
+          "op": "put",
+          "key": "b",
+          "value": "x"
+        },
+        {
+          "op": "get",
+          "key": "b"
+        },
+        {
+          "op": "get",
+          "key": "c"
+        },
+        {
+          "op": "put",
+          "key": "b",
+          "value": null
+        },
+        {
+          "op": "delete",
+          "key": "b"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": false,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": false,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": false,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": false,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": false,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": false,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": false,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_17",
+    "input": {
+      "capacity": 0,
+      "operations": [
+        {
+          "op": "snapshot",
+          "key": "a"
+        },
+        {
+          "op": "clear",
+          "key": "a"
+        },
+        {
+          "op": "snapshot",
+          "key": "c"
+        },
+        {
+          "op": "get",
+          "key": "c"
+        },
+        {
+          "op": "put",
+          "key": "c",
+          "value": 0
+        },
+        {
+          "op": "put",
+          "key": "c",
+          "value": null
+        },
+        {
+          "op": "get",
+          "key": "a"
+        },
+        {
+          "op": "get",
+          "key": "d"
+        },
+        {
+          "op": "put",
+          "key": "b",
+          "value": [
+            2
+          ]
+        },
+        {
+          "op": "get",
+          "key": "a"
+        },
+        {
+          "op": "clear",
+          "key": "c"
+        },
+        {
+          "op": "put",
+          "key": "d",
+          "value": null
+        },
+        {
+          "op": "snapshot",
+          "key": "d"
+        },
+        {
+          "op": "get",
+          "key": "d"
+        },
+        {
+          "op": "delete",
+          "key": "a"
+        },
+        {
+          "op": "get",
+          "key": "c"
+        },
+        {
+          "op": "put",
+          "key": "a",
+          "value": "x"
+        },
+        {
+          "op": "put",
+          "key": "c",
+          "value": [
+            2
+          ]
+        },
+        {
+          "op": "clear",
+          "key": "d"
+        },
+        {
+          "op": "get",
+          "key": "c"
+        },
+        {
+          "op": "get",
+          "key": "a"
+        },
+        {
+          "op": "put",
+          "key": "c",
+          "value": [
+            2
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_18",
+    "input": {
+      "capacity": 0,
+      "operations": [
+        {
+          "op": "put",
+          "key": "c",
+          "value": null
+        },
+        {
+          "op": "put",
+          "key": "d",
+          "value": 1
+        },
+        {
+          "op": "delete",
+          "key": "d"
+        },
+        {
+          "op": "put",
+          "key": "c",
+          "value": 0
+        },
+        {
+          "op": "contains",
+          "key": "a"
+        },
+        {
+          "op": "snapshot",
+          "key": "d"
+        },
+        {
+          "op": "clear",
+          "key": "b"
+        },
+        {
+          "op": "clear",
+          "key": "a"
+        },
+        {
+          "op": "put",
+          "key": "d",
+          "value": null
+        },
+        {
+          "op": "delete",
+          "key": "b"
+        },
+        {
+          "op": "get",
+          "key": "d"
+        },
+        {
+          "op": "put",
+          "key": "a",
+          "value": 1
+        },
+        {
+          "op": "clear",
+          "key": "a"
+        },
+        {
+          "op": "contains",
+          "key": "d"
+        },
+        {
+          "op": "delete",
+          "key": "a"
+        },
+        {
+          "op": "put",
+          "key": "c",
+          "value": [
+            2
+          ]
+        },
+        {
+          "op": "snapshot",
+          "key": "c"
+        },
+        {
+          "op": "put",
+          "key": "d",
+          "value": [
+            2
+          ]
+        },
+        {
+          "op": "delete",
+          "key": "d"
+        },
+        {
+          "op": "snapshot",
+          "key": "d"
+        },
+        {
+          "op": "snapshot",
+          "key": "b"
+        },
+        {
+          "op": "get",
+          "key": "b"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": false,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": false,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "ValueError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": null,
+          "items": [],
+          "size": 0
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_19",
+    "input": {
+      "capacity": 2,
+      "operations": [
+        {
+          "op": "put",
+          "key": "a",
+          "value": 1
+        },
+        {
+          "op": "put",
+          "key": "b",
+          "value": 2
+        },
+        {
+          "op": "contains",
+          "key": "a"
+        },
+        {
+          "op": "snapshot"
+        },
+        {
+          "op": "put",
+          "key": "c",
+          "value": 3
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              1
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              1
+            ],
+            [
+              "b",
+              2
+            ]
+          ],
+          "size": 2
+        },
+        {
+          "result": true,
+          "items": [
+            [
+              "a",
+              1
+            ],
+            [
+              "b",
+              2
+            ]
+          ],
+          "size": 2
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              1
+            ],
+            [
+              "b",
+              2
+            ]
+          ],
+          "size": 2
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "b",
+              2
+            ],
+            [
+              "c",
+              3
+            ]
+          ],
+          "size": 2
+        }
+      ]
+    }
+  }
+]

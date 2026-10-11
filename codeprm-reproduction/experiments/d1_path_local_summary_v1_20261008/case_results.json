@@ -1,0 +1,313 @@
+[
+  {
+    "left_prefix": [
+      {
+        "x": {
+          "a": 1
+        }
+      },
+      {
+        "x": 0
+      }
+    ],
+    "right_prefix": [
+      {
+        "x": {
+          "a": 1
+        }
+      },
+      {}
+    ],
+    "suffix": {
+      "x": {
+        "b": 2
+      }
+    },
+    "expected_after_left": {
+      "x": {
+        "a": 1
+      }
+    },
+    "expected_after_right": {
+      "x": {
+        "a": 1,
+        "b": 2
+      }
+    },
+    "execution_status": "手算冻结，未执行",
+    "id": "x_path_block",
+    "path": [
+      "x"
+    ],
+    "expected_different": true,
+    "root_projections": [
+      {
+        "first": {
+          "x": {
+            "a": 1
+          }
+        },
+        "merged_value": {
+          "x": {
+            "a": 1
+          }
+        },
+        "all_objects": true,
+        "source_count": 2
+      },
+      {
+        "first": {
+          "x": {
+            "a": 1
+          }
+        },
+        "merged_value": {
+          "x": {
+            "a": 1
+          }
+        },
+        "all_objects": true,
+        "source_count": 2
+      }
+    ],
+    "root_projections_equal": true,
+    "path_all_objects_flags": [
+      false,
+      true
+    ],
+    "path_flags_differ": true,
+    "actual_suffix_values": [
+      {
+        "x": {
+          "a": 1
+        }
+      },
+      {
+        "x": {
+          "a": 1,
+          "b": 2
+        }
+      }
+    ],
+    "actual_values_differ": true,
+    "hand_expected_pass": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "nested_path_block",
+    "left_prefix": [
+      {
+        "outer": {
+          "x": {
+            "a": 1
+          }
+        }
+      },
+      {
+        "outer": {
+          "x": 0
+        }
+      }
+    ],
+    "right_prefix": [
+      {
+        "outer": {
+          "x": {
+            "a": 1
+          }
+        }
+      },
+      {
+        "outer": {}
+      }
+    ],
+    "suffix": {
+      "outer": {
+        "x": {
+          "b": 2
+        }
+      }
+    },
+    "expected_after_left": {
+      "outer": {
+        "x": {
+          "a": 1
+        }
+      }
+    },
+    "expected_after_right": {
+      "outer": {
+        "x": {
+          "a": 1,
+          "b": 2
+        }
+      }
+    },
+    "path": [
+      "outer",
+      "x"
+    ],
+    "expected_different": true,
+    "root_projections": [
+      {
+        "first": {
+          "outer": {
+            "x": {
+              "a": 1
+            }
+          }
+        },
+        "merged_value": {
+          "outer": {
+            "x": {
+              "a": 1
+            }
+          }
+        },
+        "all_objects": true,
+        "source_count": 2
+      },
+      {
+        "first": {
+          "outer": {
+            "x": {
+              "a": 1
+            }
+          }
+        },
+        "merged_value": {
+          "outer": {
+            "x": {
+              "a": 1
+            }
+          }
+        },
+        "all_objects": true,
+        "source_count": 2
+      }
+    ],
+    "root_projections_equal": true,
+    "path_all_objects_flags": [
+      false,
+      true
+    ],
+    "path_flags_differ": true,
+    "actual_suffix_values": [
+      {
+        "outer": {
+          "x": {
+            "a": 1
+          }
+        }
+      },
+      {
+        "outer": {
+          "x": {
+            "a": 1,
+            "b": 2
+          }
+        }
+      }
+    ],
+    "actual_values_differ": true,
+    "hand_expected_pass": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "left_prefix": [
+      {
+        "x": {
+          "a": 1
+        }
+      },
+      {
+        "x": 0
+      }
+    ],
+    "right_prefix": [
+      {
+        "x": {
+          "a": 1
+        }
+      },
+      {}
+    ],
+    "suffix": {
+      "y": 2
+    },
+    "expected_after_left": {
+      "x": {
+        "a": 1
+      },
+      "y": 2
+    },
+    "expected_after_right": {
+      "x": {
+        "a": 1
+      },
+      "y": 2
+    },
+    "execution_status": "手算冻结，未执行",
+    "id": "foreign_key_control",
+    "path": [
+      "x"
+    ],
+    "expected_different": false,
+    "root_projections": [
+      {
+        "first": {
+          "x": {
+            "a": 1
+          }
+        },
+        "merged_value": {
+          "x": {
+            "a": 1
+          }
+        },
+        "all_objects": true,
+        "source_count": 2
+      },
+      {
+        "first": {
+          "x": {
+            "a": 1
+          }
+        },
+        "merged_value": {
+          "x": {
+            "a": 1
+          }
+        },
+        "all_objects": true,
+        "source_count": 2
+      }
+    ],
+    "root_projections_equal": true,
+    "path_all_objects_flags": [
+      false,
+      true
+    ],
+    "path_flags_differ": true,
+    "actual_suffix_values": [
+      {
+        "x": {
+          "a": 1
+        },
+        "y": 2
+      },
+      {
+        "x": {
+          "a": 1
+        },
+        "y": 2
+      }
+    ],
+    "actual_values_differ": false,
+    "hand_expected_pass": true,
+    "input_unchanged": true,
+    "pass": true
+  }
+]

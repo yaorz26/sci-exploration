@@ -1,0 +1,432 @@
+{
+  "status": "fail",
+  "archive": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_candidate_delivery_v2_20261008\\d1_project_initial20_v5_candidate.zip",
+  "archive_sha256": "c12352870ad816a6d6cd77011cd5cd533367ef2aba866021d1af0468402cdfdc",
+  "python": "3.13.7 (tags/v3.13.7:bcee1c3, Aug 14 2025, 14:15:11) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "D:\\yaorz\\tools\\python_new\\python.exe",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "cwd": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\空白工作目录",
+  "extracted": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\解压到不同目录",
+  "interpreter_flags": [
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8"
+  ],
+  "allowed_standard_library_paths": [
+    "D:\\yaorz\\tools\\python_new\\Lib",
+    "D:\\yaorz\\tools\\python_new\\DLLs"
+  ],
+  "task_count": 20,
+  "runs": 40,
+  "passed_runs": 0,
+  "reference_passed_tasks": 0,
+  "alternate_passed_tasks": 0,
+  "case_executions": 614,
+  "passed_case_executions": 307,
+  "failures": [
+    {
+      "task_id": "D1_B01",
+      "implementation": "reference",
+      "execution_error": null,
+      "passed": 0,
+      "cases": 21,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_B01",
+      "implementation": "alternate",
+      "execution_error": null,
+      "passed": 21,
+      "cases": 21,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_B02",
+      "implementation": "reference",
+      "execution_error": null,
+      "passed": 0,
+      "cases": 20,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_B02",
+      "implementation": "alternate",
+      "execution_error": null,
+      "passed": 20,
+      "cases": 20,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_M01",
+      "implementation": "reference",
+      "execution_error": null,
+      "passed": 0,
+      "cases": 18,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_M01",
+      "implementation": "alternate",
+      "execution_error": null,
+      "passed": 18,
+      "cases": 18,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_M02",
+      "implementation": "reference",
+      "execution_error": null,
+      "passed": 0,
+      "cases": 19,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_M02",
+      "implementation": "alternate",
+      "execution_error": null,
+      "passed": 19,
+      "cases": 19,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_C01",
+      "implementation": "reference",
+      "execution_error": null,
+      "passed": 0,
+      "cases": 22,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_C01",
+      "implementation": "alternate",
+      "execution_error": null,
+      "passed": 22,
+      "cases": 22,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_C02",
+      "implementation": "reference",
+      "execution_error": null,
+      "passed": 0,
+      "cases": 23,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_C02",
+      "implementation": "alternate",
+      "execution_error": null,
+      "passed": 23,
+      "cases": 23,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_F01",
+      "implementation": "reference",
+      "execution_error": null,
+      "passed": 0,
+      "cases": 15,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_F01",
+      "implementation": "alternate",
+      "execution_error": null,
+      "passed": 15,
+      "cases": 15,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_F02",
+      "implementation": "reference",
+      "execution_error": null,
+      "passed": 0,
+      "cases": 13,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_F02",
+      "implementation": "alternate",
+      "execution_error": null,
+      "passed": 13,
+      "cases": 13,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_B03",
+      "implementation": "reference",
+      "execution_error": null,
+      "passed": 0,
+      "cases": 14,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_B03",
+      "implementation": "alternate",
+      "execution_error": null,
+      "passed": 14,
+      "cases": 14,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_B04",
+      "implementation": "reference",
+      "execution_error": null,
+      "passed": 0,
+      "cases": 17,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_B04",
+      "implementation": "alternate",
+      "execution_error": null,
+      "passed": 17,
+      "cases": 17,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_B05",
+      "implementation": "reference",
+      "execution_error": null,
+      "passed": 0,
+      "cases": 14,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_B05",
+      "implementation": "alternate",
+      "execution_error": null,
+      "passed": 14,
+      "cases": 14,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_B06",
+      "implementation": "reference",
+      "execution_error": null,
+      "passed": 0,
+      "cases": 11,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_B06",
+      "implementation": "alternate",
+      "execution_error": null,
+      "passed": 11,
+      "cases": 11,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_M03",
+      "implementation": "reference",
+      "execution_error": null,
+      "passed": 0,
+      "cases": 12,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_M03",
+      "implementation": "alternate",
+      "execution_error": null,
+      "passed": 12,
+      "cases": 12,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_M04",
+      "implementation": "reference",
+      "execution_error": null,
+      "passed": 0,
+      "cases": 10,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_M04",
+      "implementation": "alternate",
+      "execution_error": null,
+      "passed": 10,
+      "cases": 10,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_M05",
+      "implementation": "reference",
+      "execution_error": null,
+      "passed": 0,
+      "cases": 13,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_M05",
+      "implementation": "alternate",
+      "execution_error": null,
+      "passed": 13,
+      "cases": 13,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_C03",
+      "implementation": "reference",
+      "execution_error": null,
+      "passed": 0,
+      "cases": 11,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_C03",
+      "implementation": "alternate",
+      "execution_error": null,
+      "passed": 11,
+      "cases": 11,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_C04",
+      "implementation": "reference",
+      "execution_error": null,
+      "passed": 0,
+      "cases": 10,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_C04",
+      "implementation": "alternate",
+      "execution_error": null,
+      "passed": 10,
+      "cases": 10,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_C05",
+      "implementation": "reference",
+      "execution_error": null,
+      "passed": 0,
+      "cases": 14,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_C05",
+      "implementation": "alternate",
+      "execution_error": null,
+      "passed": 14,
+      "cases": 14,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_F03",
+      "implementation": "reference",
+      "execution_error": null,
+      "passed": 0,
+      "cases": 14,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_F03",
+      "implementation": "alternate",
+      "execution_error": null,
+      "passed": 14,
+      "cases": 14,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_F04",
+      "implementation": "reference",
+      "execution_error": null,
+      "passed": 0,
+      "cases": 16,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    },
+    {
+      "task_id": "D1_F04",
+      "implementation": "alternate",
+      "execution_error": null,
+      "passed": 16,
+      "cases": 16,
+      "external_loaded_files": {
+        "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+      }
+    }
+  ],
+  "model_calls": 0,
+  "scope": "仅依赖隔离和已存案例复跑；非操作系统沙箱、非跨平台确认、非独立人类复核"
+}

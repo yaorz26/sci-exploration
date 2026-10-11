@@ -1,0 +1,44 @@
+[
+  {
+    "helper": {
+      "name": "_is_ansi_code",
+      "signature": "def _is_ansi_code(char):",
+      "contract": "检查单个字符是否为ANSI控制码的一部分。返回True或False。",
+      "depends_on": []
+    },
+    "response_path": "experiments/d1_allin_native_pair_b03_v1_20261008/candidates/D1_B03/M2/requests/002_response.json",
+    "response_sha256": "a651b851cd80303b7afae783ec48b772d2fbf48660595e8c03670bdd9e192259",
+    "code": "import re\n\ndef _is_ansi_code(char):\n    return re.match(r'[\\x1b@-Z\\\\-_]', char) is not None\n",
+    "strict_helper_gate": {
+      "accepted": true,
+      "error": null
+    },
+    "candidate_workflow_helper_gate": {
+      "accepted": true,
+      "error": null
+    },
+    "no_entry_available": true
+  },
+  {
+    "helper": {
+      "name": "_is_ansi_sequence",
+      "signature": "def _is_ansi_sequence(text):",
+      "contract": "检查字符串是否为完整的ANSI控制码序列。返回True或False。",
+      "depends_on": [
+        "_is_ansi_code"
+      ]
+    },
+    "response_path": "experiments/d1_allin_native_pair_b03_v1_20261008/candidates/D1_B03/M2/requests/003_response.json",
+    "response_sha256": "ffe82430da897c066c7286dd59b64d58d99683c1fb411e50b2e646f6f0d2811a",
+    "code": "import re\n\ndef _is_ansi_code(char):\n    return re.match(r'[\\x1b@-Z\\\\-_]', char) is not None\n\ndef _is_ansi_sequence(text):\n    ansi_pattern = re.compile(r'\\x1b[@-Z\\\\-_]|\\x1b\\[[0-?]*[ -/]*[@-~]')\n    return bool(ansi_pattern.match(text))\n",
+    "strict_helper_gate": {
+      "accepted": false,
+      "error": "ValueError: completion changed frozen function names"
+    },
+    "candidate_workflow_helper_gate": {
+      "accepted": false,
+      "error": "ValueError: completion changed frozen function names"
+    },
+    "no_entry_available": true
+  }
+]

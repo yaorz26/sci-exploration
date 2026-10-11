@@ -1,0 +1,166 @@
+ ```diff
+--- a/confuse/core.py
++++ b/confuse/core.py
+@@ -1,6 +1,7 @@
+ # -*- coding: utf-8 -*-
+ # This file is part of Confuse.
+ # Copyright 2016, Adrian Sampson.
++
+ # Permission is hereby granted, free of charge, to any person obtaining
+ # a copy of this software and associated documentation files (the
+ # "Software"), to deal in the Software without restriction, including
+@@ -11,6 +12,7 @@
+ # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ # See the License for the specific language governing permissions and
+ # limitations under the License.
++
+ """Worry-free YAML configuration files.
+ """
+ from __future__ import division, absolute_import, print_function
+@@ -20,6 +22,7 @@
+ from . import util
+ from . import templates
+ from . import yaml_util
++from .sources import ConfigSource, YamlSource
+ from .exceptions import ConfigTypeError, NotFoundError, ConfigError
+
+ CONFIG_FILENAME = 'config.yaml'
+@@ -27,6 +30,7 @@
+ DEFAULT_FILENAME = 'config_default.yaml'
+ ROOT_NAME = 'root'
+
++ENV_VAR_PREFIX = 'D1APP_'
+
+ REDACTED_TOMBSTONE = 'REDACTED'
+
+
+@@ -100,6 +104,7 @@ class Configuration(RootView):
+         self.appname = appname
+         self.modname = modname
+         self.loader = loader
++        self.env_prefix = ENV_VAR_PREFIX
+
+         # Resolve default source location. We do this ahead of time to
+         # avoid unexpected problems if the working directory changes.
+@@ -110,6 +115,7 @@ class Configuration(RootView):
+         else:
+             self._package_path = None
+
++        self._env_var = '{0}DIR'.format(self.appname.upper())
+         if read:
+             self.read()
+
+@@ -120,6 +126,7 @@ class Configuration(RootView):
+         """Points to the location of the user configuration.
+
+         The file may not exist.
++        """
+         return os.path.join(self.config_dir(), CONFIG_FILENAME)
+
+     def _add_user_source(self):
+@@ -128,6 +135,7 @@ class Configuration(RootView):
+         """Add the configuration options from the YAML file in the
+         user's configuration directory (given by `config_dir`) if it
+         exists.
++        """
+         filename = self.user_config_path()
+         self.add(YamlSource(filename, loader=self.loader, optional=True))
+
+@@ -136,6 +144,7 @@ class Configuration(RootView):
+         """Add the package's default configuration settings. This looks
+         for a YAML file located inside the package for the module
+         `modname` if it was given.
++        """
+         if self.modname:
+             if self._package_path:
+                 filename = os.path.join(self._package_path, DEFAULT_FILENAME)
+@@ -144,6 +153,7 @@ class Configuration(RootView):
+         """Find and read the files for this configuration and set them
+         as the sources for this configuration. To disable either
+         discovered user configuration files or the in-package defaults,
++        """
+         if user:
+             self._add_user_source()
+         if defaults:
+@@ -152,6 +162,7 @@ class Configuration(RootView):
+         """Get the path to the user configuration directory. The
+         directory is guaranteed to exist as a postcondition (one may be
+         created if none exist).
++        """
+         # If environment variable is set, use it.
+         if self._env_var in os.environ:
+             appdir = os.environ[self._env_var]
+@@ -162,6 +173,7 @@ class Configuration(RootView):
+             appdir = os.path.abspath(os.path.expanduser(appdir))
+             if os.path.isfile(appdir):
+                 raise ConfigError(u'{0} must be a directory'.format(
++                    self._env_var
+                     self._env_var
+                 ))
+
+         else:
+@@ -172,6 +184,7 @@ class Configuration(RootView):
+             configdirs = util.config_dirs()
+             for confdir in configdirs:
+                 appdir = os.path.join(confdir, self.appname)
+@@ -182,6 +195,7 @@ class Configuration(RootView):
+         # Ensure that the directory exists.
+         try:
+             os.makedirs(appdir)
+@@ -192,6 +206,7 @@ class Configuration(RootView):
+         """Reload all sources from the file system.
+         """
+         for source in self.sources:
++            if isinstance(source, YamlSource):
+                 source.load()
+
+     def set_file(self, filename, base_for_paths=False):
+@@ -200,6 +215,7 @@ class Configuration(RootView):
+         """Parses the file as YAML and inserts it into the configuration
+         sources with highest priority.
+
++        """
+         self.set(YamlSource(filename, base_for_paths=base_for_paths,
+                             loader=self.loader))
+
+     def dump(self, full=True, redact=False):
+@@ -208,6 +224,7 @@ class Configuration(RootView):
+         """Dump the Configuration object to a YAML file.
+
+         The order of the keys is determined from the default
++        """
+         if full:
+             out_dict = self.flatten(redact=redact)
+         else:
+@@ -216,6 +233,7 @@ class Configuration(RootView):
+         yaml_out = yaml.dump(out_dict, Dumper=yaml_util.Dumper,
+                              default_flow_style=None, indent=4,
+                              width=1000)
+
++        # Restore comments to the YAML text.
+         default_source = None
+         for source in self.sources:
+             if source.default:
+@@ -224,6 +242,7 @@ class Configuration(RootView):
+         return yaml_out
+
+     def reload(self):
+@@ -232,6 +251,7 @@ class Configuration(RootView):
+         """Reload all sources from the file system.
+         """
+         for source in self.sources:
++            if isinstance(source, YamlSource):
+                 source.load()
+
+     def set_env(self, prefix, sep='__'):
+@@ -240,6 +260,7 @@ class Configuration(RootView):
+         """Set the environment variable source with the given prefix.
+         """
+         env_vars = {k: v for k, v in os.environ.items() if k.startswith(prefix)}
++        env_dict = {}
+         for k, v in env_vars.items():
+             key = k[len(prefix):].lower().replace(sep, '__')
+             env_dict[key] = v
+@@ -248,6 +269,7 @@ class Configuration(RootView):
+         self.add(ConfigSource(env_dict, default=True))
+```

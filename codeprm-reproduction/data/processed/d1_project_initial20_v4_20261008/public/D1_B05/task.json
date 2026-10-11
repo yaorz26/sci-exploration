@@ -1,0 +1,60 @@
+{
+  "task_id": "D1_B05",
+  "requirement": "实现solve(payload)。tree为嵌套JSON对象或数组。先把所有数值叶子乘factor（默认1），布尔值不算数值；drop_null默认false，为true时删除对象中值为null的条目及数组中的null元素，空容器仍保留。再对变换结果找数值>=threshold的全部叶子，threshold为有限数。返回{tree:变换结果,matches:[{path,value}]}，path从根开始用对象字符串键和数组整数索引表示，数组索引以删除后的结果为准。matches按深度优先顺序，对象沿输入键顺序、数组沿结果索引顺序。factor为有限数，保证结果有限。不能修改输入。只用标准库，内部结构自由。",
+  "entry_point": "solve(payload)",
+  "language": "Python",
+  "allowed_libraries": "仅Python标准库",
+  "public_examples": [
+    {
+      "input": {
+        "tree": {
+          "a": [
+            null,
+            2,
+            true
+          ],
+          "b": 3
+        },
+        "drop_null": true,
+        "factor": 2,
+        "threshold": 4
+      },
+      "output": {
+        "tree": {
+          "a": [
+            4,
+            true
+          ],
+          "b": 6
+        },
+        "matches": [
+          {
+            "path": [
+              "a",
+              0
+            ],
+            "value": 4
+          },
+          {
+            "path": [
+              "b"
+            ],
+            "value": 6
+          }
+        ]
+      }
+    },
+    {
+      "input": {
+        "tree": [],
+        "threshold": 0
+      },
+      "output": {
+        "tree": [],
+        "matches": []
+      }
+    }
+  ],
+  "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。",
+  "internal_decomposition": "自由选择，不给定helper名称或数量"
+}

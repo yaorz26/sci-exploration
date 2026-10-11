@@ -1,0 +1,18 @@
+{
+  "components": [
+    {
+      "name": "confuse/sources.py",
+      "files": [
+        "confuse/sources.py"
+      ],
+      "contract": "1. Add optional parameter base_for_paths to ConfigSource and YamlSource. 2. Add optional parameter in_source_dir to Filename."
+    },
+    {
+      "name": "confuse/core.py",
+      "files": [
+        "confuse/core.py"
+      ],
+      "contract": "1. Modify Configuration.set_file to accept optional base_for_paths parameter. 2. Update path resolution logic in Filename to use base_for_paths and in_source_dir."
+    }
+  ]
+}

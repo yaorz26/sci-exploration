@@ -1,0 +1,69 @@
+[
+  {
+    "case_id": "public_1",
+    "input": {
+      "capacity": 2,
+      "ttl": 3,
+      "operations": [
+        {
+          "op": "put",
+          "key": "a",
+          "value": 1,
+          "time": 0
+        },
+        {
+          "op": "get",
+          "key": "a",
+          "time": 2
+        },
+        {
+          "op": "get",
+          "key": "a",
+          "time": 3
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              1
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": 1,
+          "items": [
+            [
+              "a",
+              1
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "public_2",
+    "input": {
+      "capacity": 1,
+      "ttl": 1,
+      "operations": []
+    },
+    "expected": {
+      "value": []
+    }
+  }
+]

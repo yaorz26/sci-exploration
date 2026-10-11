@@ -1,0 +1,110 @@
+{
+  "rows": [
+    {
+      "id": "integer",
+      "literal": "1",
+      "predicted_original_pass": true,
+      "predicted_consumer_correct": true,
+      "predicted_joint_gate": true,
+      "original_pass": true,
+      "consumer_correct": true,
+      "count_shape_int": true,
+      "joint_gate": true,
+      "trace": {
+        "returned": {
+          "count": 1,
+          "mode": "x"
+        },
+        "count_type": "int",
+        "consumer": {
+          "value": [
+            0
+          ]
+        }
+      },
+      "predictions_matched": true
+    },
+    {
+      "id": "float",
+      "literal": "1.0",
+      "predicted_original_pass": true,
+      "predicted_consumer_correct": false,
+      "predicted_joint_gate": false,
+      "original_pass": true,
+      "consumer_correct": false,
+      "count_shape_int": false,
+      "joint_gate": false,
+      "trace": {
+        "returned": {
+          "count": 1.0,
+          "mode": "x"
+        },
+        "count_type": "float",
+        "consumer": {
+          "error": "TypeError"
+        }
+      },
+      "predictions_matched": true
+    },
+    {
+      "id": "bool",
+      "literal": "True",
+      "predicted_original_pass": false,
+      "predicted_consumer_correct": true,
+      "predicted_joint_gate": false,
+      "original_pass": false,
+      "consumer_correct": true,
+      "count_shape_int": false,
+      "joint_gate": false,
+      "trace": {
+        "returned": {
+          "count": true,
+          "mode": "x"
+        },
+        "count_type": "bool",
+        "consumer": {
+          "value": [
+            0
+          ]
+        }
+      },
+      "predictions_matched": true
+    },
+    {
+      "id": "wrong_integer",
+      "literal": "2",
+      "predicted_original_pass": false,
+      "predicted_consumer_correct": false,
+      "predicted_joint_gate": false,
+      "original_pass": false,
+      "consumer_correct": false,
+      "count_shape_int": true,
+      "joint_gate": false,
+      "trace": {
+        "returned": {
+          "count": 2,
+          "mode": "x"
+        },
+        "count_type": "int",
+        "consumer": {
+          "value": [
+            0,
+            1
+          ]
+        }
+      },
+      "predictions_matched": true
+    }
+  ],
+  "predictions_matched": 4,
+  "new_solve_calls": 4,
+  "consumer_calls": 4,
+  "shape_comparisons": 4,
+  "original_pass_float_consumer_error": true,
+  "interpretation": "相同JSON数值计分不保证显式整数数量的消费兼容；只证公开构造消费者与E_B09整数声明冲突，不证明已有真实项目调用点。",
+  "future_candidate_decision": "E_B09需候选专属整数输出门槛/类型等价，正式冻结前验证；原评分器与原20/旧成绩不改",
+  "model_calls": 0,
+  "API_calls": 0,
+  "hidden_reads": 0,
+  "old_candidate_diagnostic_calls": 0
+}

@@ -1,0 +1,1 @@
+缓存候选未纳入可用任务清单。原物理完成时点条款保留；公开读取会补清理，无法证明先前物理时点。原requirement提evaluate_timing.py而该交付目录缺少脚本，缺口未修复。现有完整/委托5/5是有限公开行为，不代表强条款已验收。源码/许可/原始结果仍在项目experiments/d1_repository_expiry_public_oracle_v1_20261009及G1纳入表。正式标签/split null、人类0、模型0。

@@ -1,0 +1,29 @@
+[
+  {
+    "case_id": "public_1",
+    "input": {
+      "value": "  alpha\tbeta  "
+    },
+    "expected": {
+      "value": [
+        "alpha",
+        "beta"
+      ]
+    }
+  },
+  {
+    "case_id": "public_2",
+    "input": {
+      "value": [
+        "a b",
+        "c"
+      ]
+    },
+    "expected": {
+      "value": [
+        "a b",
+        "c"
+      ]
+    }
+  }
+]

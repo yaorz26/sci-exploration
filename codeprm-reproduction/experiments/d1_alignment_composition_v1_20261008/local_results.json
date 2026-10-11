@@ -1,0 +1,593 @@
+[
+  {
+    "program": "align_domain_then_sort",
+    "helper": "_domain",
+    "args": [
+      {
+        "columns": [
+          [
+            2,
+            1
+          ],
+          [
+            "a"
+          ]
+        ]
+      }
+    ],
+    "expected": {
+      "value": [
+        1,
+        2,
+        [
+          0
+        ],
+        false
+      ]
+    },
+    "actual": {
+      "value": [
+        1,
+        2,
+        [
+          0
+        ],
+        false
+      ]
+    },
+    "pass": true
+  },
+  {
+    "program": "align_domain_then_sort",
+    "helper": "_domain",
+    "args": [
+      {
+        "columns": [
+          [
+            2,
+            1
+          ],
+          [
+            "a"
+          ]
+        ],
+        "strict": true
+      }
+    ],
+    "expected": {
+      "error": "ValueError"
+    },
+    "actual": {
+      "error": "ValueError"
+    },
+    "pass": true
+  },
+  {
+    "program": "align_domain_then_sort",
+    "helper": "_domain",
+    "args": [
+      {
+        "columns": [
+          [
+            2,
+            1
+          ],
+          []
+        ]
+      }
+    ],
+    "expected": {
+      "value": [
+        0,
+        2,
+        [
+          0
+        ],
+        false
+      ]
+    },
+    "actual": {
+      "value": [
+        0,
+        2,
+        [
+          0
+        ],
+        false
+      ]
+    },
+    "pass": true
+  },
+  {
+    "program": "align_domain_then_sort",
+    "helper": "_order",
+    "args": [
+      [
+        [
+          2,
+          1
+        ],
+        [
+          "a"
+        ]
+      ],
+      [
+        0
+      ],
+      2,
+      false
+    ],
+    "expected": {
+      "value": [
+        1,
+        0
+      ]
+    },
+    "actual": {
+      "value": [
+        1,
+        0
+      ]
+    },
+    "pass": true
+  },
+  {
+    "program": "align_domain_then_sort",
+    "helper": "_order",
+    "args": [
+      [
+        [
+          2,
+          1
+        ],
+        [
+          "a"
+        ]
+      ],
+      [
+        0
+      ],
+      1,
+      false
+    ],
+    "expected": {
+      "value": [
+        0
+      ]
+    },
+    "actual": {
+      "value": [
+        0
+      ]
+    },
+    "pass": true
+  },
+  {
+    "program": "align_domain_then_sort",
+    "helper": "_order",
+    "args": [
+      [
+        [
+          1,
+          1
+        ],
+        [
+          "a",
+          "b"
+        ]
+      ],
+      [
+        0
+      ],
+      2,
+      true
+    ],
+    "expected": {
+      "value": [
+        0,
+        1
+      ]
+    },
+    "actual": {
+      "value": [
+        0,
+        1
+      ]
+    },
+    "pass": true
+  },
+  {
+    "program": "sort_key_domain_then_filter",
+    "helper": "_domain",
+    "args": [
+      {
+        "columns": [
+          [
+            2,
+            1
+          ],
+          [
+            "a"
+          ]
+        ]
+      }
+    ],
+    "expected": {
+      "value": [
+        1,
+        2,
+        [
+          0
+        ],
+        false
+      ]
+    },
+    "actual": {
+      "value": [
+        1,
+        2,
+        [
+          0
+        ],
+        false
+      ]
+    },
+    "pass": true
+  },
+  {
+    "program": "sort_key_domain_then_filter",
+    "helper": "_domain",
+    "args": [
+      {
+        "columns": [
+          [
+            2,
+            1
+          ],
+          [
+            "a"
+          ]
+        ],
+        "strict": true
+      }
+    ],
+    "expected": {
+      "error": "ValueError"
+    },
+    "actual": {
+      "error": "ValueError"
+    },
+    "pass": true
+  },
+  {
+    "program": "sort_key_domain_then_filter",
+    "helper": "_domain",
+    "args": [
+      {
+        "columns": [
+          [
+            2,
+            1
+          ],
+          []
+        ]
+      }
+    ],
+    "expected": {
+      "value": [
+        0,
+        2,
+        [
+          0
+        ],
+        false
+      ]
+    },
+    "actual": {
+      "value": [
+        0,
+        2,
+        [
+          0
+        ],
+        false
+      ]
+    },
+    "pass": true
+  },
+  {
+    "program": "sort_key_domain_then_filter",
+    "helper": "_order",
+    "args": [
+      [
+        [
+          2,
+          1
+        ],
+        [
+          "a"
+        ]
+      ],
+      [
+        0
+      ],
+      2,
+      false
+    ],
+    "expected": {
+      "value": [
+        1,
+        0
+      ]
+    },
+    "actual": {
+      "value": [
+        1,
+        0
+      ]
+    },
+    "pass": true
+  },
+  {
+    "program": "sort_key_domain_then_filter",
+    "helper": "_order",
+    "args": [
+      [
+        [
+          2,
+          1
+        ],
+        [
+          "a"
+        ]
+      ],
+      [
+        0
+      ],
+      1,
+      false
+    ],
+    "expected": {
+      "value": [
+        0
+      ]
+    },
+    "actual": {
+      "value": [
+        0
+      ]
+    },
+    "pass": true
+  },
+  {
+    "program": "sort_key_domain_then_filter",
+    "helper": "_order",
+    "args": [
+      [
+        [
+          1,
+          1
+        ],
+        [
+          "a",
+          "b"
+        ]
+      ],
+      [
+        0
+      ],
+      2,
+      true
+    ],
+    "expected": {
+      "value": [
+        0,
+        1
+      ]
+    },
+    "actual": {
+      "value": [
+        0,
+        1
+      ]
+    },
+    "pass": true
+  },
+  {
+    "program": "wrong_prefix_instead_of_filter",
+    "helper": "_domain",
+    "args": [
+      {
+        "columns": [
+          [
+            2,
+            1
+          ],
+          [
+            "a"
+          ]
+        ]
+      }
+    ],
+    "expected": {
+      "value": [
+        1,
+        2,
+        [
+          0
+        ],
+        false
+      ]
+    },
+    "actual": {
+      "value": [
+        1,
+        2,
+        [
+          0
+        ],
+        false
+      ]
+    },
+    "pass": true
+  },
+  {
+    "program": "wrong_prefix_instead_of_filter",
+    "helper": "_domain",
+    "args": [
+      {
+        "columns": [
+          [
+            2,
+            1
+          ],
+          [
+            "a"
+          ]
+        ],
+        "strict": true
+      }
+    ],
+    "expected": {
+      "error": "ValueError"
+    },
+    "actual": {
+      "error": "ValueError"
+    },
+    "pass": true
+  },
+  {
+    "program": "wrong_prefix_instead_of_filter",
+    "helper": "_domain",
+    "args": [
+      {
+        "columns": [
+          [
+            2,
+            1
+          ],
+          []
+        ]
+      }
+    ],
+    "expected": {
+      "value": [
+        0,
+        2,
+        [
+          0
+        ],
+        false
+      ]
+    },
+    "actual": {
+      "value": [
+        0,
+        2,
+        [
+          0
+        ],
+        false
+      ]
+    },
+    "pass": true
+  },
+  {
+    "program": "wrong_prefix_instead_of_filter",
+    "helper": "_order",
+    "args": [
+      [
+        [
+          2,
+          1
+        ],
+        [
+          "a"
+        ]
+      ],
+      [
+        0
+      ],
+      2,
+      false
+    ],
+    "expected": {
+      "value": [
+        1,
+        0
+      ]
+    },
+    "actual": {
+      "value": [
+        1,
+        0
+      ]
+    },
+    "pass": true
+  },
+  {
+    "program": "wrong_prefix_instead_of_filter",
+    "helper": "_order",
+    "args": [
+      [
+        [
+          2,
+          1
+        ],
+        [
+          "a"
+        ]
+      ],
+      [
+        0
+      ],
+      1,
+      false
+    ],
+    "expected": {
+      "value": [
+        0
+      ]
+    },
+    "actual": {
+      "value": [
+        0
+      ]
+    },
+    "pass": true
+  },
+  {
+    "program": "wrong_prefix_instead_of_filter",
+    "helper": "_order",
+    "args": [
+      [
+        [
+          1,
+          1
+        ],
+        [
+          "a",
+          "b"
+        ]
+      ],
+      [
+        0
+      ],
+      2,
+      true
+    ],
+    "expected": {
+      "value": [
+        0,
+        1
+      ]
+    },
+    "actual": {
+      "value": [
+        0,
+        1
+      ]
+    },
+    "pass": true
+  }
+]

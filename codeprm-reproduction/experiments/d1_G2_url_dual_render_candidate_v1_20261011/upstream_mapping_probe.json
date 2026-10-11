@@ -1,0 +1,70 @@
+[
+  {
+    "input": "http://h/p?q=a+b",
+    "query_params_to_text": "q=a b",
+    "dict_like": {
+      "q": "a b"
+    },
+    "get_a": null,
+    "getlist_a": [],
+    "items": [
+      [
+        "q",
+        "a b"
+      ]
+    ]
+  },
+  {
+    "input": "http://h/p?q=a%20b",
+    "query_params_to_text": "q=a b",
+    "dict_like": {
+      "q": "a b"
+    },
+    "get_a": null,
+    "getlist_a": [],
+    "items": [
+      [
+        "q",
+        "a b"
+      ]
+    ]
+  },
+  {
+    "input": "http://h/p?q=a%2Fb",
+    "query_params_to_text": "q=a/b",
+    "dict_like": {
+      "q": "a/b"
+    },
+    "get_a": null,
+    "getlist_a": [],
+    "items": [
+      [
+        "q",
+        "a/b"
+      ]
+    ]
+  },
+  {
+    "input": "http://h/p?a=1&b=2&a=3",
+    "query_params_to_text": "a=1&b=2&a=3",
+    "dict_like": {
+      "a": "3",
+      "b": "2"
+    },
+    "get_a": "3",
+    "getlist_a": [
+      "1",
+      "3"
+    ],
+    "items": [
+      [
+        "a",
+        "3"
+      ],
+      [
+        "b",
+        "2"
+      ]
+    ]
+  }
+]

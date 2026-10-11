@@ -1,0 +1,67 @@
+{
+  "task_id": "D1_C04",
+  "name": "多实例方法缓存隔离",
+  "source": {
+    "repository": "tkem/cachetools",
+    "commit": "9976f1a8076631560f49c5b0dfda7e4d00ee0a4a",
+    "license": "MIT",
+    "file": "src/cachetools/__init__.py",
+    "symbol": "cachedmethod",
+    "line": 768,
+    "source_sha256": "c595cd9ea1ce7e52be423397398f33ad9fb8074d568bd664f229570e97f7a660",
+    "license_sha256": "28c000b52b0ee27138a68ef778227e4057046e86b65f62f1cacb99b0cc49e0d2",
+    "contamination_risk": "unknown",
+    "additional_symbols": [
+      {
+        "file": "src/cachetools/__init__.py",
+        "symbol": "LRUCache",
+        "line": 287,
+        "source_sha256": "c595cd9ea1ce7e52be423397398f33ad9fb8074d568bd664f229570e97f7a660"
+      },
+      {
+        "file": "src/cachetools/keys.py",
+        "symbol": "methodkey",
+        "line": 46,
+        "source_sha256": "9550bd6914744c2fc6fd211dfb83cdae2d6206b1a1bfcf052d017cb23b39b49e"
+      }
+    ]
+  },
+  "requirement_origin": "上游公开API文档/说明为主，适配器范围与边界补充；已查看实现，需独立泄漏审查",
+  "adaptation": "统一JSON入口和返回值，保留所选功能；不作为完整仓库任务",
+  "split": "development",
+  "structure": {
+    "kind": "stateful",
+    "shared_state": "per_instance_cache_counter",
+    "dependency_evidence": "实例内命中/淘汰有历史约束，实例之间不共享缓存或计数",
+    "independent_test_evidence": "单实例行为可测，隔离需交错操作对照",
+    "status": "单人预标注，尚未取得独立一致性统计"
+  },
+  "function_family": "instance_method_cache",
+  "public_cases": 2,
+  "private_cases": 8,
+  "status": "候选原型，非冻结确认集",
+  "authoring_seed": 20261008,
+  "structure_v2": {
+    "schema_version": "0.2",
+    "cross_operation_state": "operation_sequence",
+    "state_scope": "partitioned",
+    "behavior_dependencies": [
+      "operation_sequence"
+    ],
+    "separate_behavior_testability": "partial",
+    "evidence": "同实例x的淘汰依赖历史；实例之间不影响缓存与计数",
+    "status": "单人初标；依据外部契约，未取得独立人工一致性统计",
+    "legacy_author_description": {
+      "kind": "stateful",
+      "shared_state": "per_instance_cache_counter",
+      "dependency_evidence": "实例内命中/淘汰有历史约束，实例之间不共享缓存或计数",
+      "independent_test_evidence": "单实例行为可测，隔离需交错操作对照",
+      "status": "单人预标注，尚未取得独立一致性统计"
+    }
+  },
+  "related_families": [
+    "memoized_calls",
+    "cache_lru",
+    "cache_ttl"
+  ]
+}

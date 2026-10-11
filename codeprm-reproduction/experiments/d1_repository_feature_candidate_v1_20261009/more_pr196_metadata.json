@@ -1,0 +1,55 @@
+{
+  "number": 196,
+  "title": "Add map_reduce function",
+  "body": "Re: issue #195 , this PR adds a variant of the \"dirt simple map/reduce\" [recipe](https://code.activestate.com/recipes/577676-dirt-simple-mapreduce/?in=user-178123). \r\n\r\nPer the discussion in the issue, I've modified things a bit:\r\n* With the default arguments, this now scratches the itch I noted in PR #188: \"easily make a `defaultdict(list)`\"\r\n* The original asks that you filter in the `mapper` function; here I encourage users to filter using standard itertools idioms (generator expressions or list comprehensions). This keeps the functions passed in simple, such that they just have to do one thing.\r\n\r\nI think these modifications make the docstring easy to comprehend, which I usually see as a strong virtue:\r\n\r\n![image](https://user-images.githubusercontent.com/1922815/36057848-ecf028e2-0dd9-11e8-9b4b-eb1cd4598ec7.png)\r\n",
+  "html_url": "https://github.com/more-itertools/more-itertools/pull/196",
+  "state": "closed",
+  "merged": true,
+  "merged_at": "2018-02-20T12:04:56Z",
+  "created_at": "2018-02-10T02:44:14Z",
+  "updated_at": "2018-07-04T16:16:11Z",
+  "merge_commit_sha": "edfb4704efe9bdb2dc6022fb4b665c62a1525a2c",
+  "base": {
+    "ref": "master",
+    "sha": "a2f4c884e0651309952a9a0827429d14edfd2655",
+    "repo": {
+      "full_name": "more-itertools/more-itertools",
+      "html_url": "https://github.com/more-itertools/more-itertools",
+      "default_branch": "master"
+    }
+  },
+  "head": {
+    "ref": "map-reduce",
+    "sha": "d676b69f0a6ae0fd4ea849319833dcd81fe42d43",
+    "repo": {
+      "full_name": "more-itertools/more-itertools",
+      "html_url": "https://github.com/more-itertools/more-itertools",
+      "default_branch": "master"
+    }
+  },
+  "user": {
+    "login": "bbayles",
+    "id": 1922815,
+    "node_id": "MDQ6VXNlcjE5MjI4MTU=",
+    "avatar_url": "https://avatars.githubusercontent.com/u/1922815?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/bbayles",
+    "html_url": "https://github.com/bbayles",
+    "followers_url": "https://api.github.com/users/bbayles/followers",
+    "following_url": "https://api.github.com/users/bbayles/following{/other_user}",
+    "gists_url": "https://api.github.com/users/bbayles/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/bbayles/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/bbayles/subscriptions",
+    "organizations_url": "https://api.github.com/users/bbayles/orgs",
+    "repos_url": "https://api.github.com/users/bbayles/repos",
+    "events_url": "https://api.github.com/users/bbayles/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/bbayles/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "changed_files": 3,
+  "additions": 103,
+  "deletions": 1,
+  "commits": 4
+}

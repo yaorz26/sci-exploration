@@ -1,0 +1,262 @@
+{
+  "P19_given_entry_records": [
+    {
+      "task_id": "D1_B05",
+      "format": "pretty",
+      "saved_metadata": {
+        "task_id": "D1_B05",
+        "format": "pretty",
+        "arm": "M2",
+        "context": "all_previous",
+        "plan": {
+          "helpers": [
+            {
+              "name": "_transform",
+              "signature": "def _transform(node, factor, drop_null):",
+              "contract": "输入node、factor、drop_null；递归变换数值但不变布尔；按规则删除null并保持顺序，返回新树、不修改输入。",
+              "depends_on": []
+            },
+            {
+              "name": "_select",
+              "signature": "def _select(tree, threshold):",
+              "contract": "输入已经变换的tree和threshold；返回数值达阈值的path/value，路径使用该树索引与顺序、不修改输入。",
+              "depends_on": []
+            }
+          ]
+        }
+      },
+      "has_public_requirement": true,
+      "has_fixed_functions": true,
+      "requests_helper_calls": true,
+      "record_status": "P19给定正确文本情景，非真实API调用",
+      "prompt_sha256": "d17716d14afd198d0656ee3f0719ac7414f2f945db69d8390042d0ada357f508"
+    },
+    {
+      "task_id": "D1_B05",
+      "format": "pretty",
+      "saved_metadata": {
+        "task_id": "D1_B05",
+        "format": "pretty",
+        "arm": "M2",
+        "context": "only_referenced_symbols",
+        "plan": {
+          "helpers": [
+            {
+              "name": "_transform",
+              "signature": "def _transform(node, factor, drop_null):",
+              "contract": "输入node、factor、drop_null；递归变换数值但不变布尔；按规则删除null并保持顺序，返回新树、不修改输入。",
+              "depends_on": []
+            },
+            {
+              "name": "_select",
+              "signature": "def _select(tree, threshold):",
+              "contract": "输入已经变换的tree和threshold；返回数值达阈值的path/value，路径使用该树索引与顺序、不修改输入。",
+              "depends_on": []
+            }
+          ]
+        }
+      },
+      "has_public_requirement": true,
+      "has_fixed_functions": true,
+      "requests_helper_calls": true,
+      "record_status": "P19给定正确文本情景，非真实API调用",
+      "prompt_sha256": "d17716d14afd198d0656ee3f0719ac7414f2f945db69d8390042d0ada357f508"
+    },
+    {
+      "task_id": "D1_B05",
+      "format": "compact",
+      "saved_metadata": {
+        "task_id": "D1_B05",
+        "format": "compact",
+        "arm": "M2",
+        "context": "all_previous",
+        "plan": {
+          "helpers": [
+            {
+              "name": "_transform",
+              "signature": "def _transform(node, factor, drop_null):",
+              "contract": "输入node、factor、drop_null；递归变换数值但不变布尔；按规则删除null并保持顺序，返回新树、不修改输入。",
+              "depends_on": []
+            },
+            {
+              "name": "_select",
+              "signature": "def _select(tree, threshold):",
+              "contract": "输入已经变换的tree和threshold；返回数值达阈值的path/value，路径使用该树索引与顺序、不修改输入。",
+              "depends_on": []
+            }
+          ]
+        }
+      },
+      "has_public_requirement": true,
+      "has_fixed_functions": true,
+      "requests_helper_calls": true,
+      "record_status": "P19给定正确文本情景，非真实API调用",
+      "prompt_sha256": "292a654299a46fa20f3b3b0bd9789d3b44648cc02e16aab8e7f0197923d247b4"
+    },
+    {
+      "task_id": "D1_B05",
+      "format": "compact",
+      "saved_metadata": {
+        "task_id": "D1_B05",
+        "format": "compact",
+        "arm": "M2",
+        "context": "only_referenced_symbols",
+        "plan": {
+          "helpers": [
+            {
+              "name": "_transform",
+              "signature": "def _transform(node, factor, drop_null):",
+              "contract": "输入node、factor、drop_null；递归变换数值但不变布尔；按规则删除null并保持顺序，返回新树、不修改输入。",
+              "depends_on": []
+            },
+            {
+              "name": "_select",
+              "signature": "def _select(tree, threshold):",
+              "contract": "输入已经变换的tree和threshold；返回数值达阈值的path/value，路径使用该树索引与顺序、不修改输入。",
+              "depends_on": []
+            }
+          ]
+        }
+      },
+      "has_public_requirement": true,
+      "has_fixed_functions": true,
+      "requests_helper_calls": true,
+      "record_status": "P19给定正确文本情景，非真实API调用",
+      "prompt_sha256": "292a654299a46fa20f3b3b0bd9789d3b44648cc02e16aab8e7f0197923d247b4"
+    },
+    {
+      "task_id": "D1_C03",
+      "format": "pretty",
+      "saved_metadata": {
+        "task_id": "D1_C03",
+        "format": "pretty",
+        "arm": "M2",
+        "context": "all_previous",
+        "plan": {
+          "helpers": [
+            {
+              "name": "_call_key",
+              "signature": "def _call_key(args,kwargs):",
+              "contract": "输入整数args与kwargs；返回完整位置参数tuple及排序关键词tuple，不混同参数来源、键名和顺序。",
+              "depends_on": []
+            },
+            {
+              "name": "_compute",
+              "signature": "def _compute(args,kwargs):",
+              "contract": "输入整数args与kwargs，返回两者全部值之和，不修改输入。",
+              "depends_on": []
+            }
+          ]
+        }
+      },
+      "has_public_requirement": true,
+      "has_fixed_functions": true,
+      "requests_helper_calls": true,
+      "record_status": "P19给定正确文本情景，非真实API调用",
+      "prompt_sha256": "9ff5b38f0484d58279fd08eec0c5fe63ccce8957f194d107a0722a4a1e032b43"
+    },
+    {
+      "task_id": "D1_C03",
+      "format": "pretty",
+      "saved_metadata": {
+        "task_id": "D1_C03",
+        "format": "pretty",
+        "arm": "M2",
+        "context": "only_referenced_symbols",
+        "plan": {
+          "helpers": [
+            {
+              "name": "_call_key",
+              "signature": "def _call_key(args,kwargs):",
+              "contract": "输入整数args与kwargs；返回完整位置参数tuple及排序关键词tuple，不混同参数来源、键名和顺序。",
+              "depends_on": []
+            },
+            {
+              "name": "_compute",
+              "signature": "def _compute(args,kwargs):",
+              "contract": "输入整数args与kwargs，返回两者全部值之和，不修改输入。",
+              "depends_on": []
+            }
+          ]
+        }
+      },
+      "has_public_requirement": true,
+      "has_fixed_functions": true,
+      "requests_helper_calls": true,
+      "record_status": "P19给定正确文本情景，非真实API调用",
+      "prompt_sha256": "9ff5b38f0484d58279fd08eec0c5fe63ccce8957f194d107a0722a4a1e032b43"
+    },
+    {
+      "task_id": "D1_C03",
+      "format": "compact",
+      "saved_metadata": {
+        "task_id": "D1_C03",
+        "format": "compact",
+        "arm": "M2",
+        "context": "all_previous",
+        "plan": {
+          "helpers": [
+            {
+              "name": "_call_key",
+              "signature": "def _call_key(args,kwargs):",
+              "contract": "输入整数args与kwargs；返回完整位置参数tuple及排序关键词tuple，不混同参数来源、键名和顺序。",
+              "depends_on": []
+            },
+            {
+              "name": "_compute",
+              "signature": "def _compute(args,kwargs):",
+              "contract": "输入整数args与kwargs，返回两者全部值之和，不修改输入。",
+              "depends_on": []
+            }
+          ]
+        }
+      },
+      "has_public_requirement": true,
+      "has_fixed_functions": true,
+      "requests_helper_calls": true,
+      "record_status": "P19给定正确文本情景，非真实API调用",
+      "prompt_sha256": "9e30246346278b4512b8d46bde80ae7b816f0ebd5ebbb017088e93f7a2fdccd9"
+    },
+    {
+      "task_id": "D1_C03",
+      "format": "compact",
+      "saved_metadata": {
+        "task_id": "D1_C03",
+        "format": "compact",
+        "arm": "M2",
+        "context": "only_referenced_symbols",
+        "plan": {
+          "helpers": [
+            {
+              "name": "_call_key",
+              "signature": "def _call_key(args,kwargs):",
+              "contract": "输入整数args与kwargs；返回完整位置参数tuple及排序关键词tuple，不混同参数来源、键名和顺序。",
+              "depends_on": []
+            },
+            {
+              "name": "_compute",
+              "signature": "def _compute(args,kwargs):",
+              "contract": "输入整数args与kwargs，返回两者全部值之和，不修改输入。",
+              "depends_on": []
+            }
+          ]
+        }
+      },
+      "has_public_requirement": true,
+      "has_fixed_functions": true,
+      "requests_helper_calls": true,
+      "record_status": "P19给定正确文本情景，非真实API调用",
+      "prompt_sha256": "9e30246346278b4512b8d46bde80ae7b816f0ebd5ebbb017088e93f7a2fdccd9"
+    }
+  ],
+  "P9_actual_stages": [
+    "plan",
+    "helper_1",
+    "helper_2"
+  ],
+  "P9_has_actual_entry_request": false,
+  "generation_visibility": "模型看到公开需求/例子、计划及固定helper源码；不看到所有评分输入",
+  "runtime_visibility": "solve(payload)的程序接收本次完整输入，语法门槛不限制payload访问或排序重计算",
+  "prompt_vs_gate": "提示要求调用固定helper；门槛只检查顶层函数名/参数AST、组装solve存在，没有helper调用或重计算限制",
+  "limits": "P9未走entry，不能称已真实生成/违反入口调用约束；旁路控制违反提示，但当前门槛不拒绝，非效果频率"
+}

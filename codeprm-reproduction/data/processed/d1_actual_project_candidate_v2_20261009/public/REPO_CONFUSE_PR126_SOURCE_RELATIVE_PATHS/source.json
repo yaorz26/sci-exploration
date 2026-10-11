@@ -1,0 +1,10 @@
+{
+  "number": 126,
+  "title": "Add options for Filename templates to resolve relative paths using source file location",
+  "body": "These two commits allow confuse ConfigSources and Filename templates to be set up to resolve relative paths from the base directory of the configuration file itself, rather than the application's configuration directory. The new behavior is opt-in.\r\n\r\nThe first commit implements the new relative path behavior at the ConfigSource level, by allowing the source file to be marked as resolving paths relative to its base directory. This was the suggested approach in response to #125.\r\n\r\nThe second commit provides an additional way to invoke the new relative path behavior at the level of an individual template, regardless of the setting for the source. This could potentially allow applications to have more fine-grained control over path resolution. It would also allow applications to resolve paths in the application's default `config_default.yaml` file relative to that location within the package. This could be useful for packages with default settings that refer to a default data file. However, if it is not desirable to have two ways to invoke the same behavior, the second commit could be dropped.",
+  "html_url": "https://github.com/beetbox/confuse/pull/126",
+  "merged": true,
+  "merge_commit_sha": "2c1f97e7b6aadbeb8bd6f112bd7ef965dbd977b0",
+  "merged_at": "2021-06-27T19:50:16Z",
+  "visibility": "公开来源说明不等模型可见内部答案；任务有限域另见requirement"
+}

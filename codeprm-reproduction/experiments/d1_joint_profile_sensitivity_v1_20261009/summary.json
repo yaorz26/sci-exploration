@@ -1,0 +1,1138 @@
+{
+  "status": "联合画像留一敏感性完成，不支持独立画像效应",
+  "base": {
+    "all20": {
+      "tasks": 20,
+      "profiles": 10,
+      "repeated_profiles": 5,
+      "repeated": [
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "ordered_transform"
+            ],
+            "state_scope": "none",
+            "separate_behavior_testability": "yes"
+          },
+          "tasks": [
+            "D1_B01",
+            "D1_B05"
+          ],
+          "count": 2,
+          "sources": [
+            "mahmoud/boltons"
+          ],
+          "explicit_components": [
+            0,
+            3
+          ],
+          "wider_components": [
+            0,
+            16
+          ]
+        },
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "operation_sequence"
+            ],
+            "state_scope": "global",
+            "separate_behavior_testability": "partial"
+          },
+          "tasks": [
+            "D1_B02",
+            "D1_C01",
+            "D1_C02",
+            "D1_M03"
+          ],
+          "count": 4,
+          "sources": [
+            "mahmoud/boltons",
+            "more-itertools/more-itertools",
+            "tkem/cachetools"
+          ],
+          "explicit_components": [
+            1,
+            5,
+            12
+          ],
+          "wider_components": [
+            12,
+            15,
+            17
+          ]
+        },
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "branch_rules"
+            ],
+            "state_scope": "none",
+            "separate_behavior_testability": "partial"
+          },
+          "tasks": [
+            "D1_M01",
+            "D1_F02"
+          ],
+          "count": 2,
+          "sources": [
+            "beetbox/confuse",
+            "more-itertools/more-itertools"
+          ],
+          "explicit_components": [
+            7,
+            10
+          ],
+          "wider_components": [
+            7,
+            10
+          ]
+        },
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "branch_rules",
+              "direct"
+            ],
+            "state_scope": "none",
+            "separate_behavior_testability": "no"
+          },
+          "tasks": [
+            "D1_M02",
+            "D1_F01",
+            "D1_B06",
+            "D1_C05"
+          ],
+          "count": 4,
+          "sources": [
+            "beetbox/confuse",
+            "mahmoud/boltons",
+            "more-itertools/more-itertools",
+            "tkem/cachetools"
+          ],
+          "explicit_components": [
+            4,
+            5,
+            6,
+            11
+          ],
+          "wider_components": [
+            6,
+            11,
+            16,
+            17
+          ]
+        },
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "branch_rules",
+              "ordered_transform"
+            ],
+            "state_scope": "none",
+            "separate_behavior_testability": "yes"
+          },
+          "tasks": [
+            "D1_M05",
+            "D1_F03",
+            "D1_F04"
+          ],
+          "count": 3,
+          "sources": [
+            "beetbox/confuse",
+            "more-itertools/more-itertools"
+          ],
+          "explicit_components": [
+            8,
+            9,
+            14
+          ],
+          "wider_components": [
+            8,
+            9,
+            14
+          ]
+        }
+      ]
+    },
+    "development11": {
+      "tasks": 11,
+      "profiles": 7,
+      "repeated_profiles": 3,
+      "repeated": [
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "ordered_transform"
+            ],
+            "state_scope": "none",
+            "separate_behavior_testability": "yes"
+          },
+          "tasks": [
+            "D1_B01",
+            "D1_B05"
+          ],
+          "count": 2,
+          "sources": [
+            "mahmoud/boltons"
+          ],
+          "explicit_components": [
+            0,
+            3
+          ],
+          "wider_components": [
+            0,
+            16
+          ]
+        },
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "operation_sequence"
+            ],
+            "state_scope": "global",
+            "separate_behavior_testability": "partial"
+          },
+          "tasks": [
+            "D1_B02",
+            "D1_C01",
+            "D1_C02"
+          ],
+          "count": 3,
+          "sources": [
+            "mahmoud/boltons",
+            "tkem/cachetools"
+          ],
+          "explicit_components": [
+            1,
+            5
+          ],
+          "wider_components": [
+            15,
+            17
+          ]
+        },
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "branch_rules",
+              "direct"
+            ],
+            "state_scope": "none",
+            "separate_behavior_testability": "no"
+          },
+          "tasks": [
+            "D1_B06",
+            "D1_C05"
+          ],
+          "count": 2,
+          "sources": [
+            "mahmoud/boltons",
+            "tkem/cachetools"
+          ],
+          "explicit_components": [
+            4,
+            5
+          ],
+          "wider_components": [
+            16,
+            17
+          ]
+        }
+      ]
+    },
+    "reserve9": {
+      "tasks": 9,
+      "profiles": 5,
+      "repeated_profiles": 3,
+      "repeated": [
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "branch_rules"
+            ],
+            "state_scope": "none",
+            "separate_behavior_testability": "partial"
+          },
+          "tasks": [
+            "D1_M01",
+            "D1_F02"
+          ],
+          "count": 2,
+          "sources": [
+            "beetbox/confuse",
+            "more-itertools/more-itertools"
+          ],
+          "explicit_components": [
+            7,
+            10
+          ],
+          "wider_components": [
+            7,
+            10
+          ]
+        },
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "branch_rules",
+              "direct"
+            ],
+            "state_scope": "none",
+            "separate_behavior_testability": "no"
+          },
+          "tasks": [
+            "D1_M02",
+            "D1_F01"
+          ],
+          "count": 2,
+          "sources": [
+            "beetbox/confuse",
+            "more-itertools/more-itertools"
+          ],
+          "explicit_components": [
+            6,
+            11
+          ],
+          "wider_components": [
+            6,
+            11
+          ]
+        },
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "branch_rules",
+              "ordered_transform"
+            ],
+            "state_scope": "none",
+            "separate_behavior_testability": "yes"
+          },
+          "tasks": [
+            "D1_M05",
+            "D1_F03",
+            "D1_F04"
+          ],
+          "count": 3,
+          "sources": [
+            "beetbox/confuse",
+            "more-itertools/more-itertools"
+          ],
+          "explicit_components": [
+            8,
+            9,
+            14
+          ],
+          "wider_components": [
+            8,
+            9,
+            14
+          ]
+        }
+      ]
+    }
+  },
+  "scenarios": [
+    {
+      "kind": "leave_one_source",
+      "removed": "mahmoud/boltons",
+      "remaining": {
+        "tasks": 5,
+        "profiles": 4,
+        "repeated_profiles": 1,
+        "repeated": [
+          {
+            "profile": {
+              "behavior_dependencies": [
+                "operation_sequence"
+              ],
+              "state_scope": "global",
+              "separate_behavior_testability": "partial"
+            },
+            "tasks": [
+              "D1_C01",
+              "D1_C02"
+            ],
+            "count": 2,
+            "sources": [
+              "tkem/cachetools"
+            ],
+            "explicit_components": [
+              5
+            ],
+            "wider_components": [
+              17
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "leave_one_source",
+      "removed": "tkem/cachetools",
+      "remaining": {
+        "tasks": 6,
+        "profiles": 5,
+        "repeated_profiles": 1,
+        "repeated": [
+          {
+            "profile": {
+              "behavior_dependencies": [
+                "ordered_transform"
+              ],
+              "state_scope": "none",
+              "separate_behavior_testability": "yes"
+            },
+            "tasks": [
+              "D1_B01",
+              "D1_B05"
+            ],
+            "count": 2,
+            "sources": [
+              "mahmoud/boltons"
+            ],
+            "explicit_components": [
+              0,
+              3
+            ],
+            "wider_components": [
+              0,
+              16
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "leave_one_explicit_component",
+      "removed": 0,
+      "remaining": {
+        "tasks": 10,
+        "profiles": 7,
+        "repeated_profiles": 2,
+        "repeated": [
+          {
+            "profile": {
+              "behavior_dependencies": [
+                "operation_sequence"
+              ],
+              "state_scope": "global",
+              "separate_behavior_testability": "partial"
+            },
+            "tasks": [
+              "D1_B02",
+              "D1_C01",
+              "D1_C02"
+            ],
+            "count": 3,
+            "sources": [
+              "mahmoud/boltons",
+              "tkem/cachetools"
+            ],
+            "explicit_components": [
+              1,
+              5
+            ],
+            "wider_components": [
+              15,
+              17
+            ]
+          },
+          {
+            "profile": {
+              "behavior_dependencies": [
+                "branch_rules",
+                "direct"
+              ],
+              "state_scope": "none",
+              "separate_behavior_testability": "no"
+            },
+            "tasks": [
+              "D1_B06",
+              "D1_C05"
+            ],
+            "count": 2,
+            "sources": [
+              "mahmoud/boltons",
+              "tkem/cachetools"
+            ],
+            "explicit_components": [
+              4,
+              5
+            ],
+            "wider_components": [
+              16,
+              17
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "leave_one_explicit_component",
+      "removed": 1,
+      "remaining": {
+        "tasks": 9,
+        "profiles": 6,
+        "repeated_profiles": 3,
+        "repeated": [
+          {
+            "profile": {
+              "behavior_dependencies": [
+                "ordered_transform"
+              ],
+              "state_scope": "none",
+              "separate_behavior_testability": "yes"
+            },
+            "tasks": [
+              "D1_B01",
+              "D1_B05"
+            ],
+            "count": 2,
+            "sources": [
+              "mahmoud/boltons"
+            ],
+            "explicit_components": [
+              0,
+              3
+            ],
+            "wider_components": [
+              0,
+              16
+            ]
+          },
+          {
+            "profile": {
+              "behavior_dependencies": [
+                "operation_sequence"
+              ],
+              "state_scope": "global",
+              "separate_behavior_testability": "partial"
+            },
+            "tasks": [
+              "D1_C01",
+              "D1_C02"
+            ],
+            "count": 2,
+            "sources": [
+              "tkem/cachetools"
+            ],
+            "explicit_components": [
+              5
+            ],
+            "wider_components": [
+              17
+            ]
+          },
+          {
+            "profile": {
+              "behavior_dependencies": [
+                "branch_rules",
+                "direct"
+              ],
+              "state_scope": "none",
+              "separate_behavior_testability": "no"
+            },
+            "tasks": [
+              "D1_B06",
+              "D1_C05"
+            ],
+            "count": 2,
+            "sources": [
+              "mahmoud/boltons",
+              "tkem/cachetools"
+            ],
+            "explicit_components": [
+              4,
+              5
+            ],
+            "wider_components": [
+              16,
+              17
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "leave_one_explicit_component",
+      "removed": 2,
+      "remaining": {
+        "tasks": 10,
+        "profiles": 6,
+        "repeated_profiles": 3,
+        "repeated": [
+          {
+            "profile": {
+              "behavior_dependencies": [
+                "ordered_transform"
+              ],
+              "state_scope": "none",
+              "separate_behavior_testability": "yes"
+            },
+            "tasks": [
+              "D1_B01",
+              "D1_B05"
+            ],
+            "count": 2,
+            "sources": [
+              "mahmoud/boltons"
+            ],
+            "explicit_components": [
+              0,
+              3
+            ],
+            "wider_components": [
+              0,
+              16
+            ]
+          },
+          {
+            "profile": {
+              "behavior_dependencies": [
+                "operation_sequence"
+              ],
+              "state_scope": "global",
+              "separate_behavior_testability": "partial"
+            },
+            "tasks": [
+              "D1_B02",
+              "D1_C01",
+              "D1_C02"
+            ],
+            "count": 3,
+            "sources": [
+              "mahmoud/boltons",
+              "tkem/cachetools"
+            ],
+            "explicit_components": [
+              1,
+              5
+            ],
+            "wider_components": [
+              15,
+              17
+            ]
+          },
+          {
+            "profile": {
+              "behavior_dependencies": [
+                "branch_rules",
+                "direct"
+              ],
+              "state_scope": "none",
+              "separate_behavior_testability": "no"
+            },
+            "tasks": [
+              "D1_B06",
+              "D1_C05"
+            ],
+            "count": 2,
+            "sources": [
+              "mahmoud/boltons",
+              "tkem/cachetools"
+            ],
+            "explicit_components": [
+              4,
+              5
+            ],
+            "wider_components": [
+              16,
+              17
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "leave_one_explicit_component",
+      "removed": 3,
+      "remaining": {
+        "tasks": 10,
+        "profiles": 7,
+        "repeated_profiles": 2,
+        "repeated": [
+          {
+            "profile": {
+              "behavior_dependencies": [
+                "operation_sequence"
+              ],
+              "state_scope": "global",
+              "separate_behavior_testability": "partial"
+            },
+            "tasks": [
+              "D1_B02",
+              "D1_C01",
+              "D1_C02"
+            ],
+            "count": 3,
+            "sources": [
+              "mahmoud/boltons",
+              "tkem/cachetools"
+            ],
+            "explicit_components": [
+              1,
+              5
+            ],
+            "wider_components": [
+              15,
+              17
+            ]
+          },
+          {
+            "profile": {
+              "behavior_dependencies": [
+                "branch_rules",
+                "direct"
+              ],
+              "state_scope": "none",
+              "separate_behavior_testability": "no"
+            },
+            "tasks": [
+              "D1_B06",
+              "D1_C05"
+            ],
+            "count": 2,
+            "sources": [
+              "mahmoud/boltons",
+              "tkem/cachetools"
+            ],
+            "explicit_components": [
+              4,
+              5
+            ],
+            "wider_components": [
+              16,
+              17
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "leave_one_explicit_component",
+      "removed": 4,
+      "remaining": {
+        "tasks": 10,
+        "profiles": 7,
+        "repeated_profiles": 2,
+        "repeated": [
+          {
+            "profile": {
+              "behavior_dependencies": [
+                "ordered_transform"
+              ],
+              "state_scope": "none",
+              "separate_behavior_testability": "yes"
+            },
+            "tasks": [
+              "D1_B01",
+              "D1_B05"
+            ],
+            "count": 2,
+            "sources": [
+              "mahmoud/boltons"
+            ],
+            "explicit_components": [
+              0,
+              3
+            ],
+            "wider_components": [
+              0,
+              16
+            ]
+          },
+          {
+            "profile": {
+              "behavior_dependencies": [
+                "operation_sequence"
+              ],
+              "state_scope": "global",
+              "separate_behavior_testability": "partial"
+            },
+            "tasks": [
+              "D1_B02",
+              "D1_C01",
+              "D1_C02"
+            ],
+            "count": 3,
+            "sources": [
+              "mahmoud/boltons",
+              "tkem/cachetools"
+            ],
+            "explicit_components": [
+              1,
+              5
+            ],
+            "wider_components": [
+              15,
+              17
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "leave_one_explicit_component",
+      "removed": 5,
+      "remaining": {
+        "tasks": 6,
+        "profiles": 5,
+        "repeated_profiles": 1,
+        "repeated": [
+          {
+            "profile": {
+              "behavior_dependencies": [
+                "ordered_transform"
+              ],
+              "state_scope": "none",
+              "separate_behavior_testability": "yes"
+            },
+            "tasks": [
+              "D1_B01",
+              "D1_B05"
+            ],
+            "count": 2,
+            "sources": [
+              "mahmoud/boltons"
+            ],
+            "explicit_components": [
+              0,
+              3
+            ],
+            "wider_components": [
+              0,
+              16
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "leave_one_wider_component",
+      "removed": 0,
+      "remaining": {
+        "tasks": 10,
+        "profiles": 7,
+        "repeated_profiles": 2,
+        "repeated": [
+          {
+            "profile": {
+              "behavior_dependencies": [
+                "operation_sequence"
+              ],
+              "state_scope": "global",
+              "separate_behavior_testability": "partial"
+            },
+            "tasks": [
+              "D1_B02",
+              "D1_C01",
+              "D1_C02"
+            ],
+            "count": 3,
+            "sources": [
+              "mahmoud/boltons",
+              "tkem/cachetools"
+            ],
+            "explicit_components": [
+              1,
+              5
+            ],
+            "wider_components": [
+              15,
+              17
+            ]
+          },
+          {
+            "profile": {
+              "behavior_dependencies": [
+                "branch_rules",
+                "direct"
+              ],
+              "state_scope": "none",
+              "separate_behavior_testability": "no"
+            },
+            "tasks": [
+              "D1_B06",
+              "D1_C05"
+            ],
+            "count": 2,
+            "sources": [
+              "mahmoud/boltons",
+              "tkem/cachetools"
+            ],
+            "explicit_components": [
+              4,
+              5
+            ],
+            "wider_components": [
+              16,
+              17
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "leave_one_wider_component",
+      "removed": 2,
+      "remaining": {
+        "tasks": 10,
+        "profiles": 6,
+        "repeated_profiles": 3,
+        "repeated": [
+          {
+            "profile": {
+              "behavior_dependencies": [
+                "ordered_transform"
+              ],
+              "state_scope": "none",
+              "separate_behavior_testability": "yes"
+            },
+            "tasks": [
+              "D1_B01",
+              "D1_B05"
+            ],
+            "count": 2,
+            "sources": [
+              "mahmoud/boltons"
+            ],
+            "explicit_components": [
+              0,
+              3
+            ],
+            "wider_components": [
+              0,
+              16
+            ]
+          },
+          {
+            "profile": {
+              "behavior_dependencies": [
+                "operation_sequence"
+              ],
+              "state_scope": "global",
+              "separate_behavior_testability": "partial"
+            },
+            "tasks": [
+              "D1_B02",
+              "D1_C01",
+              "D1_C02"
+            ],
+            "count": 3,
+            "sources": [
+              "mahmoud/boltons",
+              "tkem/cachetools"
+            ],
+            "explicit_components": [
+              1,
+              5
+            ],
+            "wider_components": [
+              15,
+              17
+            ]
+          },
+          {
+            "profile": {
+              "behavior_dependencies": [
+                "branch_rules",
+                "direct"
+              ],
+              "state_scope": "none",
+              "separate_behavior_testability": "no"
+            },
+            "tasks": [
+              "D1_B06",
+              "D1_C05"
+            ],
+            "count": 2,
+            "sources": [
+              "mahmoud/boltons",
+              "tkem/cachetools"
+            ],
+            "explicit_components": [
+              4,
+              5
+            ],
+            "wider_components": [
+              16,
+              17
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "leave_one_wider_component",
+      "removed": 15,
+      "remaining": {
+        "tasks": 9,
+        "profiles": 6,
+        "repeated_profiles": 3,
+        "repeated": [
+          {
+            "profile": {
+              "behavior_dependencies": [
+                "ordered_transform"
+              ],
+              "state_scope": "none",
+              "separate_behavior_testability": "yes"
+            },
+            "tasks": [
+              "D1_B01",
+              "D1_B05"
+            ],
+            "count": 2,
+            "sources": [
+              "mahmoud/boltons"
+            ],
+            "explicit_components": [
+              0,
+              3
+            ],
+            "wider_components": [
+              0,
+              16
+            ]
+          },
+          {
+            "profile": {
+              "behavior_dependencies": [
+                "operation_sequence"
+              ],
+              "state_scope": "global",
+              "separate_behavior_testability": "partial"
+            },
+            "tasks": [
+              "D1_C01",
+              "D1_C02"
+            ],
+            "count": 2,
+            "sources": [
+              "tkem/cachetools"
+            ],
+            "explicit_components": [
+              5
+            ],
+            "wider_components": [
+              17
+            ]
+          },
+          {
+            "profile": {
+              "behavior_dependencies": [
+                "branch_rules",
+                "direct"
+              ],
+              "state_scope": "none",
+              "separate_behavior_testability": "no"
+            },
+            "tasks": [
+              "D1_B06",
+              "D1_C05"
+            ],
+            "count": 2,
+            "sources": [
+              "mahmoud/boltons",
+              "tkem/cachetools"
+            ],
+            "explicit_components": [
+              4,
+              5
+            ],
+            "wider_components": [
+              16,
+              17
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "leave_one_wider_component",
+      "removed": 16,
+      "remaining": {
+        "tasks": 9,
+        "profiles": 7,
+        "repeated_profiles": 1,
+        "repeated": [
+          {
+            "profile": {
+              "behavior_dependencies": [
+                "operation_sequence"
+              ],
+              "state_scope": "global",
+              "separate_behavior_testability": "partial"
+            },
+            "tasks": [
+              "D1_B02",
+              "D1_C01",
+              "D1_C02"
+            ],
+            "count": 3,
+            "sources": [
+              "mahmoud/boltons",
+              "tkem/cachetools"
+            ],
+            "explicit_components": [
+              1,
+              5
+            ],
+            "wider_components": [
+              15,
+              17
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "kind": "leave_one_wider_component",
+      "removed": 17,
+      "remaining": {
+        "tasks": 6,
+        "profiles": 5,
+        "repeated_profiles": 1,
+        "repeated": [
+          {
+            "profile": {
+              "behavior_dependencies": [
+                "ordered_transform"
+              ],
+              "state_scope": "none",
+              "separate_behavior_testability": "yes"
+            },
+            "tasks": [
+              "D1_B01",
+              "D1_B05"
+            ],
+            "count": 2,
+            "sources": [
+              "mahmoud/boltons"
+            ],
+            "explicit_components": [
+              0,
+              3
+            ],
+            "wider_components": [
+              0,
+              16
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "interpretation": "开发11的重复画像主要由来源与组件共同承载；留一结果用于显示支撑脆弱性，不构成独立样本校正或因果估计。",
+  "limits": [
+    "删除分析不是重新标注/重新采样",
+    "显式组件是描述性关联，宽组件存在重叠定义",
+    "作者标签人工0、没有模型成绩/测试求值/private读取",
+    "不把剩余画像数当统计有效样本量"
+  ],
+  "model_calls": 0,
+  "API_calls": 0,
+  "hidden_reads": 0,
+  "task_evaluations": 0
+}

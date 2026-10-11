@@ -1,0 +1,153 @@
+{
+  "url": "https://api.github.com/search/commits?q=repo%3Atkem%2Fcachetools+expire+return&per_page=4",
+  "result": {
+    "total_count": 1,
+    "incomplete_results": false,
+    "items": [
+      {
+        "url": "https://api.github.com/repos/tkem/cachetools/commits/c0fdf6abab38040947d6fe2e38c507401d5e2350",
+        "sha": "c0fdf6abab38040947d6fe2e38c507401d5e2350",
+        "node_id": "MDY6Q29tbWl0MTgwMDY3OTE6YzBmZGY2YWJhYjM4MDQwOTQ3ZDZmZTJlMzhjNTA3NDAxZDVlMjM1MA==",
+        "html_url": "https://github.com/tkem/cachetools/commit/c0fdf6abab38040947d6fe2e38c507401d5e2350",
+        "comments_url": "https://api.github.com/repos/tkem/cachetools/commits/c0fdf6abab38040947d6fe2e38c507401d5e2350/comments",
+        "commit": {
+          "url": "https://api.github.com/repos/tkem/cachetools/git/commits/c0fdf6abab38040947d6fe2e38c507401d5e2350",
+          "author": {
+            "date": "2026-06-24T14:49:55.000+02:00",
+            "name": "Vincent Gao",
+            "email": "gaobing1230@gmail.com"
+          },
+          "committer": {
+            "date": "2026-07-23T01:26:36.000+02:00",
+            "name": "Thomas Kemmer",
+            "email": "tkemmer@computer.org"
+          },
+          "message": "Fix TLRUCache silently keeping stale value on expired overwrite\n\nAssigning an already-expired value (ttu yields a time that is not in the\nfuture) to an existing key returned early before storing it, but left the\nprevious entry untouched.  As a result the assignment was silently ignored\nand the cache kept returning the old value, violating the mapping contract\nthat `cache[key] = value` either stores `value` or removes the key.\n\nDrop the existing entry in that case so the key is evicted instead of\nretaining a stale value.",
+          "tree": {
+            "url": "https://api.github.com/repos/tkem/cachetools/git/trees/48a0782a2968bcc36372478929425fe8d2369a6e",
+            "sha": "48a0782a2968bcc36372478929425fe8d2369a6e"
+          },
+          "comment_count": 0
+        },
+        "author": {
+          "login": "binggao1230",
+          "id": 3355843,
+          "node_id": "MDQ6VXNlcjMzNTU4NDM=",
+          "avatar_url": "https://avatars.githubusercontent.com/u/3355843?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/binggao1230",
+          "html_url": "https://github.com/binggao1230",
+          "followers_url": "https://api.github.com/users/binggao1230/followers",
+          "following_url": "https://api.github.com/users/binggao1230/following{/other_user}",
+          "gists_url": "https://api.github.com/users/binggao1230/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/binggao1230/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/binggao1230/subscriptions",
+          "organizations_url": "https://api.github.com/users/binggao1230/orgs",
+          "repos_url": "https://api.github.com/users/binggao1230/repos",
+          "events_url": "https://api.github.com/users/binggao1230/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/binggao1230/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "committer": {
+          "login": "tkem",
+          "id": 2833077,
+          "node_id": "MDQ6VXNlcjI4MzMwNzc=",
+          "avatar_url": "https://avatars.githubusercontent.com/u/2833077?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/tkem",
+          "html_url": "https://github.com/tkem",
+          "followers_url": "https://api.github.com/users/tkem/followers",
+          "following_url": "https://api.github.com/users/tkem/following{/other_user}",
+          "gists_url": "https://api.github.com/users/tkem/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/tkem/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/tkem/subscriptions",
+          "organizations_url": "https://api.github.com/users/tkem/orgs",
+          "repos_url": "https://api.github.com/users/tkem/repos",
+          "events_url": "https://api.github.com/users/tkem/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/tkem/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "parents": [
+          {
+            "url": "https://api.github.com/repos/tkem/cachetools/commits/978d34d40cdbf3b4cbfce104f3166032cc4ea028",
+            "html_url": "https://github.com/tkem/cachetools/commit/978d34d40cdbf3b4cbfce104f3166032cc4ea028",
+            "sha": "978d34d40cdbf3b4cbfce104f3166032cc4ea028"
+          }
+        ],
+        "repository": {
+          "id": 18006791,
+          "node_id": "MDEwOlJlcG9zaXRvcnkxODAwNjc5MQ==",
+          "name": "cachetools",
+          "full_name": "tkem/cachetools",
+          "private": false,
+          "owner": {
+            "login": "tkem",
+            "id": 2833077,
+            "node_id": "MDQ6VXNlcjI4MzMwNzc=",
+            "avatar_url": "https://avatars.githubusercontent.com/u/2833077?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/tkem",
+            "html_url": "https://github.com/tkem",
+            "followers_url": "https://api.github.com/users/tkem/followers",
+            "following_url": "https://api.github.com/users/tkem/following{/other_user}",
+            "gists_url": "https://api.github.com/users/tkem/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/tkem/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/tkem/subscriptions",
+            "organizations_url": "https://api.github.com/users/tkem/orgs",
+            "repos_url": "https://api.github.com/users/tkem/repos",
+            "events_url": "https://api.github.com/users/tkem/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/tkem/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "html_url": "https://github.com/tkem/cachetools",
+          "description": "Extensible memoizing collections and decorators",
+          "fork": false,
+          "url": "https://api.github.com/repos/tkem/cachetools",
+          "forks_url": "https://api.github.com/repos/tkem/cachetools/forks",
+          "keys_url": "https://api.github.com/repos/tkem/cachetools/keys{/key_id}",
+          "collaborators_url": "https://api.github.com/repos/tkem/cachetools/collaborators{/collaborator}",
+          "teams_url": "https://api.github.com/repos/tkem/cachetools/teams",
+          "hooks_url": "https://api.github.com/repos/tkem/cachetools/hooks",
+          "issue_events_url": "https://api.github.com/repos/tkem/cachetools/issues/events{/number}",
+          "events_url": "https://api.github.com/repos/tkem/cachetools/events",
+          "assignees_url": "https://api.github.com/repos/tkem/cachetools/assignees{/user}",
+          "branches_url": "https://api.github.com/repos/tkem/cachetools/branches{/branch}",
+          "tags_url": "https://api.github.com/repos/tkem/cachetools/tags",
+          "blobs_url": "https://api.github.com/repos/tkem/cachetools/git/blobs{/sha}",
+          "git_tags_url": "https://api.github.com/repos/tkem/cachetools/git/tags{/sha}",
+          "git_refs_url": "https://api.github.com/repos/tkem/cachetools/git/refs{/sha}",
+          "trees_url": "https://api.github.com/repos/tkem/cachetools/git/trees{/sha}",
+          "statuses_url": "https://api.github.com/repos/tkem/cachetools/statuses/{sha}",
+          "languages_url": "https://api.github.com/repos/tkem/cachetools/languages",
+          "stargazers_url": "https://api.github.com/repos/tkem/cachetools/stargazers",
+          "contributors_url": "https://api.github.com/repos/tkem/cachetools/contributors",
+          "subscribers_url": "https://api.github.com/repos/tkem/cachetools/subscribers",
+          "subscription_url": "https://api.github.com/repos/tkem/cachetools/subscription",
+          "commits_url": "https://api.github.com/repos/tkem/cachetools/commits{/sha}",
+          "git_commits_url": "https://api.github.com/repos/tkem/cachetools/git/commits{/sha}",
+          "comments_url": "https://api.github.com/repos/tkem/cachetools/comments{/number}",
+          "issue_comment_url": "https://api.github.com/repos/tkem/cachetools/issues/comments{/number}",
+          "contents_url": "https://api.github.com/repos/tkem/cachetools/contents/{+path}",
+          "compare_url": "https://api.github.com/repos/tkem/cachetools/compare/{base}...{head}",
+          "merges_url": "https://api.github.com/repos/tkem/cachetools/merges",
+          "archive_url": "https://api.github.com/repos/tkem/cachetools/{archive_format}{/ref}",
+          "downloads_url": "https://api.github.com/repos/tkem/cachetools/downloads",
+          "issues_url": "https://api.github.com/repos/tkem/cachetools/issues{/number}",
+          "pulls_url": "https://api.github.com/repos/tkem/cachetools/pulls{/number}",
+          "milestones_url": "https://api.github.com/repos/tkem/cachetools/milestones{/number}",
+          "notifications_url": "https://api.github.com/repos/tkem/cachetools/notifications{?since,all,participating}",
+          "labels_url": "https://api.github.com/repos/tkem/cachetools/labels{/name}",
+          "releases_url": "https://api.github.com/repos/tkem/cachetools/releases{/id}",
+          "deployments_url": "https://api.github.com/repos/tkem/cachetools/deployments"
+        },
+        "score": 1.0
+      }
+    ]
+  }
+}

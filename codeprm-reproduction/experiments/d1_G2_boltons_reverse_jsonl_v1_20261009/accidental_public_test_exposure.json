@@ -1,0 +1,10 @@
+{
+  "time": "2026-10-09T11:40:26.507964+00:00",
+  "origin": "完整读取boltons_commit_metadata.json，未预先过滤files[].patch",
+  "public_test_path": "tests/test_ioutils.py",
+  "upstream_pr": 513,
+  "related_feature": "SpooledBytesIO/SpooledStringIO写入和seek兼容，与本次JSONL任务无关",
+  "scope": "上游公开测试补丁内容误输出；没有D1 private新内容",
+  "used_for_current_requirement_expected_tuning_model": false,
+  "followup": "只取git commit/tree及指定非测试blob；保留原元数据与暴露，不追读测试"
+}

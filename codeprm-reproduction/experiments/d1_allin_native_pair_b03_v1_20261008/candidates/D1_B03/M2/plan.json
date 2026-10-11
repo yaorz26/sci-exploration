@@ -1,0 +1,18 @@
+{
+  "helpers": [
+    {
+      "name": "_is_ansi_code",
+      "signature": "def _is_ansi_code(char):",
+      "contract": "检查单个字符是否为ANSI控制码的一部分。返回True或False。",
+      "depends_on": []
+    },
+    {
+      "name": "_is_ansi_sequence",
+      "signature": "def _is_ansi_sequence(text):",
+      "contract": "检查字符串是否为完整的ANSI控制码序列。返回True或False。",
+      "depends_on": [
+        "_is_ansi_code"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "workspace": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_repository_patch_entry_v2_20261009\\candidates\\cachetools_complete\\workspace",
+  "python": "3.13.7",
+  "cases": [
+    {
+      "case": "empty",
+      "expected_returns": [
+        []
+      ],
+      "actual_returns": [
+        []
+      ],
+      "expected_stored": [],
+      "actual_stored": [],
+      "expected_size": 0,
+      "actual_size": 0,
+      "return_pass": true,
+      "state_pass": true,
+      "pass": true
+    },
+    {
+      "case": "boundary_mixed",
+      "expected_returns": [
+        [
+          [
+            "a",
+            1
+          ]
+        ]
+      ],
+      "actual_returns": [
+        [
+          [
+            "a",
+            1
+          ]
+        ]
+      ],
+      "expected_stored": [
+        [
+          "b",
+          2
+        ]
+      ],
+      "actual_stored": [
+        [
+          "b",
+          2
+        ]
+      ],
+      "expected_size": 2,
+      "actual_size": 2,
+      "return_pass": true,
+      "state_pass": true,
+      "pass": true
+    },
+    {
+      "case": "repeat",
+      "expected_returns": [
+        [
+          [
+            "a",
+            1
+          ]
+        ],
+        []
+      ],
+      "actual_returns": [
+        [
+          [
+            "a",
+            1
+          ]
+        ],
+        []
+      ],
+      "expected_stored": [],
+      "actual_stored": [],
+      "expected_size": 0,
+      "actual_size": 0,
+      "return_pass": true,
+      "state_pass": true,
+      "pass": true
+    },
+    {
+      "case": "same_deadline",
+      "expected_returns": [
+        [
+          [
+            "a",
+            1
+          ],
+          [
+            "b",
+            2
+          ]
+        ]
+      ],
+      "actual_returns": [
+        [
+          [
+            "a",
+            1
+          ],
+          [
+            "b",
+            2
+          ]
+        ]
+      ],
+      "expected_stored": [],
+      "actual_stored": [],
+      "expected_size": 0,
+      "actual_size": 0,
+      "return_pass": true,
+      "state_pass": true,
+      "pass": true
+    },
+    {
+      "case": "insertion_cleanup",
+      "expected_returns": [
+        []
+      ],
+      "actual_returns": [
+        []
+      ],
+      "expected_stored": [
+        [
+          "b",
+          2
+        ]
+      ],
+      "actual_stored": [
+        [
+          "b",
+          2
+        ]
+      ],
+      "expected_size": 2,
+      "actual_size": 2,
+      "return_pass": true,
+      "state_pass": true,
+      "pass": true
+    }
+  ],
+  "passed": 5,
+  "return_passed": 5,
+  "state_passed": 5,
+  "total": 5,
+  "scope": "公开确定性项目诊断，不要求返回顺序/列表类型，非模型/人工/未见确认"
+}

@@ -1,0 +1,50 @@
+{
+  "task_id": "D1_B03",
+  "name": "日志转义控制码清理",
+  "source": {
+    "repository": "mahmoud/boltons",
+    "commit": "4e5faa3d7e4008d89e0d8bf1ea87b6d9a061a16d",
+    "license": "BSD-3-Clause",
+    "file": "boltons/strutils.py",
+    "symbol": "strip_ansi",
+    "line": 378,
+    "source_sha256": "c5ecb7efd3b2e86f92545c18d8d72193f45a1bd1d0edaf3da65868aa0e8bcdda",
+    "license_sha256": "c301912653a8d8c99eab6212aa3aea8d164ea249d8ad53c941e0558a0a5ac1e3",
+    "contamination_risk": "unknown",
+    "additional_symbols": []
+  },
+  "requirement_origin": "上游公开API文档/说明为主，适配器范围与边界补充；已查看实现，需独立泄漏审查",
+  "adaptation": "统一JSON入口和返回值，保留所选功能；不作为完整仓库任务",
+  "split": "development",
+  "structure": {
+    "kind": "single_pass_control",
+    "shared_state": "none",
+    "dependency_evidence": "识别完整控制码后删除，其余字符原序保留",
+    "independent_test_evidence": "单一清理转换，未指定额外语义阶段",
+    "status": "单人预标注，尚未取得独立一致性统计"
+  },
+  "function_family": "ansi_cleanup",
+  "public_cases": 2,
+  "private_cases": 12,
+  "status": "候选原型，非冻结确认集",
+  "authoring_seed": 20261008,
+  "structure_v2": {
+    "schema_version": "0.2",
+    "cross_operation_state": "none",
+    "state_scope": "none",
+    "behavior_dependencies": [
+      "direct"
+    ],
+    "separate_behavior_testability": "no",
+    "evidence": "仅给出完整控制码清理这一整体转换",
+    "status": "单人初标；依据外部契约，未取得独立人工一致性统计",
+    "legacy_author_description": {
+      "kind": "single_pass_control",
+      "shared_state": "none",
+      "dependency_evidence": "识别完整控制码后删除，其余字符原序保留",
+      "independent_test_evidence": "单一清理转换，未指定额外语义阶段",
+      "status": "单人预标注，尚未取得独立一致性统计"
+    }
+  },
+  "related_families": []
+}

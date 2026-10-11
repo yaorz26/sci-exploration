@@ -1,0 +1,70 @@
+[
+  {
+    "task_id": "D1_B01",
+    "arm": "M0",
+    "candidate_index": 0,
+    "generation_error": null,
+    "allocated_output_cap": 4096,
+    "candidate_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_project_development_pilot_v2_20261008\\candidates\\D1_B01\\M0\\candidate.py",
+    "candidate_sha256": "7635614eb1b21694cccf9b46a7dbe53f08d7ce9176125f191d4d36fa5452504a"
+  },
+  {
+    "task_id": "D1_B01",
+    "arm": "M2",
+    "candidate_index": 0,
+    "generation_error": "ValueError: helper completion changed frozen functions",
+    "allocated_output_cap": 4096
+  },
+  {
+    "task_id": "D1_B02",
+    "arm": "M0",
+    "candidate_index": 0,
+    "generation_error": null,
+    "allocated_output_cap": 4096,
+    "candidate_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_project_development_pilot_v2_20261008\\candidates\\D1_B02\\M0\\candidate.py",
+    "candidate_sha256": "381cf369b66a47586c3a45ccaaaa4cc4ee108e2f95472863f19ac0b5bf58a7e9"
+  },
+  {
+    "task_id": "D1_B02",
+    "arm": "M2",
+    "candidate_index": 0,
+    "generation_error": null,
+    "allocated_output_cap": 4096,
+    "candidate_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_project_development_pilot_v2_20261008\\candidates\\D1_B02\\M2\\candidate.py",
+    "candidate_sha256": "7f2b7799d7991cbaf72d1d7acd77890653899922d2eebf400721158e66f3a6e3"
+  },
+  {
+    "task_id": "D1_C01",
+    "arm": "M0",
+    "candidate_index": 0,
+    "generation_error": null,
+    "allocated_output_cap": 4096,
+    "candidate_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_project_development_pilot_v2_20261008\\candidates\\D1_C01\\M0\\candidate.py",
+    "candidate_sha256": "15cad6bbd222699c093538efae08b3a04fd3b0fa83dfac6bb2d70ae9cca76471"
+  },
+  {
+    "task_id": "D1_C01",
+    "arm": "M2",
+    "candidate_index": 0,
+    "generation_error": "ValueError: plan requires 2--3 helpers",
+    "allocated_output_cap": 4096
+  },
+  {
+    "task_id": "D1_C02",
+    "arm": "M0",
+    "candidate_index": 0,
+    "generation_error": null,
+    "allocated_output_cap": 4096,
+    "candidate_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_project_development_pilot_v2_20261008\\candidates\\D1_C02\\M0\\candidate.py",
+    "candidate_sha256": "92746121cb984283d854bac35c7765aeea6886c3e7473a38f0cdfa2115093f69"
+  },
+  {
+    "task_id": "D1_C02",
+    "arm": "M2",
+    "candidate_index": 0,
+    "generation_error": null,
+    "allocated_output_cap": 4096,
+    "candidate_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_project_development_pilot_v2_20261008\\candidates\\D1_C02\\M2\\candidate.py",
+    "candidate_sha256": "acea9c9cc7768773141afae1103545f51d44c2ed5794c58aea640c8aed45b8e3"
+  }
+]

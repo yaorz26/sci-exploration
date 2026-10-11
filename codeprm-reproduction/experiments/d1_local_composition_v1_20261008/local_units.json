@@ -1,0 +1,1723 @@
+[
+  {
+    "task_id": "D1_B05",
+    "program": "staged_correct",
+    "checks": [
+      {
+        "unit_id": 0,
+        "function": "_transform",
+        "arguments": [
+          {
+            "a": [
+              null,
+              2,
+              true
+            ]
+          },
+          2,
+          true
+        ],
+        "expected": {
+          "a": [
+            4,
+            true
+          ]
+        },
+        "actual": {
+          "a": [
+            4,
+            true
+          ]
+        },
+        "pass": true
+      },
+      {
+        "unit_id": 1,
+        "function": "_transform",
+        "arguments": [
+          {
+            "x": null,
+            "y": []
+          },
+          1,
+          false
+        ],
+        "expected": {
+          "x": null,
+          "y": []
+        },
+        "actual": {
+          "x": null,
+          "y": []
+        },
+        "pass": true
+      },
+      {
+        "unit_id": 2,
+        "function": "_transform",
+        "arguments": [
+          [
+            1,
+            -1,
+            false
+          ],
+          0,
+          false
+        ],
+        "expected": [
+          0,
+          0,
+          false
+        ],
+        "actual": [
+          0,
+          0,
+          false
+        ],
+        "pass": true
+      },
+      {
+        "unit_id": 3,
+        "function": "_transform",
+        "arguments": [
+          {
+            "a": {
+              "b": 2.5
+            }
+          },
+          -2,
+          false
+        ],
+        "expected": {
+          "a": {
+            "b": -5.0
+          }
+        },
+        "actual": {
+          "a": {
+            "b": -5.0
+          }
+        },
+        "pass": true
+      },
+      {
+        "unit_id": 4,
+        "function": "_transform",
+        "arguments": [
+          [],
+          1,
+          true
+        ],
+        "expected": [],
+        "actual": [],
+        "pass": true
+      },
+      {
+        "unit_id": 5,
+        "function": "_transform",
+        "arguments": [
+          {
+            "a": null
+          },
+          1,
+          true
+        ],
+        "expected": {},
+        "actual": {},
+        "pass": true
+      },
+      {
+        "unit_id": 6,
+        "function": "_select",
+        "arguments": [
+          {
+            "a": [
+              6,
+              true,
+              -1
+            ],
+            "b": 5
+          },
+          5
+        ],
+        "expected": [
+          {
+            "path": [
+              "a",
+              0
+            ],
+            "value": 6
+          },
+          {
+            "path": [
+              "b"
+            ],
+            "value": 5
+          }
+        ],
+        "actual": [
+          {
+            "path": [
+              "a",
+              0
+            ],
+            "value": 6
+          },
+          {
+            "path": [
+              "b"
+            ],
+            "value": 5
+          }
+        ],
+        "pass": true
+      },
+      {
+        "unit_id": 7,
+        "function": "_select",
+        "arguments": [
+          [
+            null,
+            4
+          ],
+          4
+        ],
+        "expected": [
+          {
+            "path": [
+              1
+            ],
+            "value": 4
+          }
+        ],
+        "actual": [
+          {
+            "path": [
+              1
+            ],
+            "value": 4
+          }
+        ],
+        "pass": true
+      },
+      {
+        "unit_id": 8,
+        "function": "_select",
+        "arguments": [
+          [
+            1,
+            1
+          ],
+          2
+        ],
+        "expected": [],
+        "actual": [],
+        "pass": true
+      },
+      {
+        "unit_id": 9,
+        "function": "_select",
+        "arguments": [
+          [],
+          0
+        ],
+        "expected": [],
+        "actual": [],
+        "pass": true
+      },
+      {
+        "unit_id": 10,
+        "function": "_select",
+        "arguments": [
+          {
+            "z": 2,
+            "a": 3
+          },
+          2
+        ],
+        "expected": [
+          {
+            "path": [
+              "z"
+            ],
+            "value": 2
+          },
+          {
+            "path": [
+              "a"
+            ],
+            "value": 3
+          }
+        ],
+        "actual": [
+          {
+            "path": [
+              "z"
+            ],
+            "value": 2
+          },
+          {
+            "path": [
+              "a"
+            ],
+            "value": 3
+          }
+        ],
+        "pass": true
+      },
+      {
+        "unit_id": 11,
+        "function": "_select",
+        "arguments": [
+          {
+            "x": [
+              [
+                2
+              ]
+            ]
+          },
+          2
+        ],
+        "expected": [
+          {
+            "path": [
+              "x",
+              0,
+              0
+            ],
+            "value": 2
+          }
+        ],
+        "actual": [
+          {
+            "path": [
+              "x",
+              0,
+              0
+            ],
+            "value": 2
+          }
+        ],
+        "pass": true
+      }
+    ],
+    "pass": true,
+    "component_ast_unchanged": true
+  },
+  {
+    "task_id": "D1_B05",
+    "program": "fused_correct",
+    "checks": [],
+    "pass": null,
+    "component_ast_unchanged": null
+  },
+  {
+    "task_id": "D1_B05",
+    "program": "glue_original_tree",
+    "checks": [
+      {
+        "unit_id": 0,
+        "function": "_transform",
+        "arguments": [
+          {
+            "a": [
+              null,
+              2,
+              true
+            ]
+          },
+          2,
+          true
+        ],
+        "expected": {
+          "a": [
+            4,
+            true
+          ]
+        },
+        "actual": {
+          "a": [
+            4,
+            true
+          ]
+        },
+        "pass": true
+      },
+      {
+        "unit_id": 1,
+        "function": "_transform",
+        "arguments": [
+          {
+            "x": null,
+            "y": []
+          },
+          1,
+          false
+        ],
+        "expected": {
+          "x": null,
+          "y": []
+        },
+        "actual": {
+          "x": null,
+          "y": []
+        },
+        "pass": true
+      },
+      {
+        "unit_id": 2,
+        "function": "_transform",
+        "arguments": [
+          [
+            1,
+            -1,
+            false
+          ],
+          0,
+          false
+        ],
+        "expected": [
+          0,
+          0,
+          false
+        ],
+        "actual": [
+          0,
+          0,
+          false
+        ],
+        "pass": true
+      },
+      {
+        "unit_id": 3,
+        "function": "_transform",
+        "arguments": [
+          {
+            "a": {
+              "b": 2.5
+            }
+          },
+          -2,
+          false
+        ],
+        "expected": {
+          "a": {
+            "b": -5.0
+          }
+        },
+        "actual": {
+          "a": {
+            "b": -5.0
+          }
+        },
+        "pass": true
+      },
+      {
+        "unit_id": 4,
+        "function": "_transform",
+        "arguments": [
+          [],
+          1,
+          true
+        ],
+        "expected": [],
+        "actual": [],
+        "pass": true
+      },
+      {
+        "unit_id": 5,
+        "function": "_transform",
+        "arguments": [
+          {
+            "a": null
+          },
+          1,
+          true
+        ],
+        "expected": {},
+        "actual": {},
+        "pass": true
+      },
+      {
+        "unit_id": 6,
+        "function": "_select",
+        "arguments": [
+          {
+            "a": [
+              6,
+              true,
+              -1
+            ],
+            "b": 5
+          },
+          5
+        ],
+        "expected": [
+          {
+            "path": [
+              "a",
+              0
+            ],
+            "value": 6
+          },
+          {
+            "path": [
+              "b"
+            ],
+            "value": 5
+          }
+        ],
+        "actual": [
+          {
+            "path": [
+              "a",
+              0
+            ],
+            "value": 6
+          },
+          {
+            "path": [
+              "b"
+            ],
+            "value": 5
+          }
+        ],
+        "pass": true
+      },
+      {
+        "unit_id": 7,
+        "function": "_select",
+        "arguments": [
+          [
+            null,
+            4
+          ],
+          4
+        ],
+        "expected": [
+          {
+            "path": [
+              1
+            ],
+            "value": 4
+          }
+        ],
+        "actual": [
+          {
+            "path": [
+              1
+            ],
+            "value": 4
+          }
+        ],
+        "pass": true
+      },
+      {
+        "unit_id": 8,
+        "function": "_select",
+        "arguments": [
+          [
+            1,
+            1
+          ],
+          2
+        ],
+        "expected": [],
+        "actual": [],
+        "pass": true
+      },
+      {
+        "unit_id": 9,
+        "function": "_select",
+        "arguments": [
+          [],
+          0
+        ],
+        "expected": [],
+        "actual": [],
+        "pass": true
+      },
+      {
+        "unit_id": 10,
+        "function": "_select",
+        "arguments": [
+          {
+            "z": 2,
+            "a": 3
+          },
+          2
+        ],
+        "expected": [
+          {
+            "path": [
+              "z"
+            ],
+            "value": 2
+          },
+          {
+            "path": [
+              "a"
+            ],
+            "value": 3
+          }
+        ],
+        "actual": [
+          {
+            "path": [
+              "z"
+            ],
+            "value": 2
+          },
+          {
+            "path": [
+              "a"
+            ],
+            "value": 3
+          }
+        ],
+        "pass": true
+      },
+      {
+        "unit_id": 11,
+        "function": "_select",
+        "arguments": [
+          {
+            "x": [
+              [
+                2
+              ]
+            ]
+          },
+          2
+        ],
+        "expected": [
+          {
+            "path": [
+              "x",
+              0,
+              0
+            ],
+            "value": 2
+          }
+        ],
+        "actual": [
+          {
+            "path": [
+              "x",
+              0,
+              0
+            ],
+            "value": 2
+          }
+        ],
+        "pass": true
+      }
+    ],
+    "pass": true,
+    "component_ast_unchanged": true
+  },
+  {
+    "task_id": "D1_B05",
+    "program": "glue_scaled_threshold",
+    "checks": [
+      {
+        "unit_id": 0,
+        "function": "_transform",
+        "arguments": [
+          {
+            "a": [
+              null,
+              2,
+              true
+            ]
+          },
+          2,
+          true
+        ],
+        "expected": {
+          "a": [
+            4,
+            true
+          ]
+        },
+        "actual": {
+          "a": [
+            4,
+            true
+          ]
+        },
+        "pass": true
+      },
+      {
+        "unit_id": 1,
+        "function": "_transform",
+        "arguments": [
+          {
+            "x": null,
+            "y": []
+          },
+          1,
+          false
+        ],
+        "expected": {
+          "x": null,
+          "y": []
+        },
+        "actual": {
+          "x": null,
+          "y": []
+        },
+        "pass": true
+      },
+      {
+        "unit_id": 2,
+        "function": "_transform",
+        "arguments": [
+          [
+            1,
+            -1,
+            false
+          ],
+          0,
+          false
+        ],
+        "expected": [
+          0,
+          0,
+          false
+        ],
+        "actual": [
+          0,
+          0,
+          false
+        ],
+        "pass": true
+      },
+      {
+        "unit_id": 3,
+        "function": "_transform",
+        "arguments": [
+          {
+            "a": {
+              "b": 2.5
+            }
+          },
+          -2,
+          false
+        ],
+        "expected": {
+          "a": {
+            "b": -5.0
+          }
+        },
+        "actual": {
+          "a": {
+            "b": -5.0
+          }
+        },
+        "pass": true
+      },
+      {
+        "unit_id": 4,
+        "function": "_transform",
+        "arguments": [
+          [],
+          1,
+          true
+        ],
+        "expected": [],
+        "actual": [],
+        "pass": true
+      },
+      {
+        "unit_id": 5,
+        "function": "_transform",
+        "arguments": [
+          {
+            "a": null
+          },
+          1,
+          true
+        ],
+        "expected": {},
+        "actual": {},
+        "pass": true
+      },
+      {
+        "unit_id": 6,
+        "function": "_select",
+        "arguments": [
+          {
+            "a": [
+              6,
+              true,
+              -1
+            ],
+            "b": 5
+          },
+          5
+        ],
+        "expected": [
+          {
+            "path": [
+              "a",
+              0
+            ],
+            "value": 6
+          },
+          {
+            "path": [
+              "b"
+            ],
+            "value": 5
+          }
+        ],
+        "actual": [
+          {
+            "path": [
+              "a",
+              0
+            ],
+            "value": 6
+          },
+          {
+            "path": [
+              "b"
+            ],
+            "value": 5
+          }
+        ],
+        "pass": true
+      },
+      {
+        "unit_id": 7,
+        "function": "_select",
+        "arguments": [
+          [
+            null,
+            4
+          ],
+          4
+        ],
+        "expected": [
+          {
+            "path": [
+              1
+            ],
+            "value": 4
+          }
+        ],
+        "actual": [
+          {
+            "path": [
+              1
+            ],
+            "value": 4
+          }
+        ],
+        "pass": true
+      },
+      {
+        "unit_id": 8,
+        "function": "_select",
+        "arguments": [
+          [
+            1,
+            1
+          ],
+          2
+        ],
+        "expected": [],
+        "actual": [],
+        "pass": true
+      },
+      {
+        "unit_id": 9,
+        "function": "_select",
+        "arguments": [
+          [],
+          0
+        ],
+        "expected": [],
+        "actual": [],
+        "pass": true
+      },
+      {
+        "unit_id": 10,
+        "function": "_select",
+        "arguments": [
+          {
+            "z": 2,
+            "a": 3
+          },
+          2
+        ],
+        "expected": [
+          {
+            "path": [
+              "z"
+            ],
+            "value": 2
+          },
+          {
+            "path": [
+              "a"
+            ],
+            "value": 3
+          }
+        ],
+        "actual": [
+          {
+            "path": [
+              "z"
+            ],
+            "value": 2
+          },
+          {
+            "path": [
+              "a"
+            ],
+            "value": 3
+          }
+        ],
+        "pass": true
+      },
+      {
+        "unit_id": 11,
+        "function": "_select",
+        "arguments": [
+          {
+            "x": [
+              [
+                2
+              ]
+            ]
+          },
+          2
+        ],
+        "expected": [
+          {
+            "path": [
+              "x",
+              0,
+              0
+            ],
+            "value": 2
+          }
+        ],
+        "actual": [
+          {
+            "path": [
+              "x",
+              0,
+              0
+            ],
+            "value": 2
+          }
+        ],
+        "pass": true
+      }
+    ],
+    "pass": true,
+    "component_ast_unchanged": true
+  },
+  {
+    "task_id": "D1_C03",
+    "program": "staged_correct",
+    "checks": [
+      {
+        "unit_id": 12,
+        "function": "_call_key",
+        "arguments": [
+          [],
+          {}
+        ],
+        "expected": [
+          [],
+          []
+        ],
+        "actual": [
+          [],
+          []
+        ],
+        "pass": true
+      },
+      {
+        "unit_id": 13,
+        "function": "_call_key",
+        "arguments": [
+          [
+            1
+          ],
+          {
+            "b": 2,
+            "a": 3
+          }
+        ],
+        "expected": [
+          [
+            1
+          ],
+          [
+            [
+              "a",
+              3
+            ],
+            [
+              "b",
+              2
+            ]
+          ]
+        ],
+        "actual": [
+          [
+            1
+          ],
+          [
+            [
+              "a",
+              3
+            ],
+            [
+              "b",
+              2
+            ]
+          ]
+        ],
+        "pass": true
+      },
+      {
+        "unit_id": 14,
+        "function": "_call_key",
+        "arguments": [
+          [
+            2,
+            1
+          ],
+          {}
+        ],
+        "expected": [
+          [
+            2,
+            1
+          ],
+          []
+        ],
+        "actual": [
+          [
+            2,
+            1
+          ],
+          []
+        ],
+        "pass": true
+      },
+      {
+        "unit_id": 15,
+        "function": "_call_key",
+        "arguments": [
+          [],
+          {
+            "a": 0
+          }
+        ],
+        "expected": [
+          [],
+          [
+            [
+              "a",
+              0
+            ]
+          ]
+        ],
+        "actual": [
+          [],
+          [
+            [
+              "a",
+              0
+            ]
+          ]
+        ],
+        "pass": true
+      },
+      {
+        "unit_id": 16,
+        "function": "_call_key",
+        "arguments": [
+          [
+            1,
+            2
+          ],
+          {}
+        ],
+        "expected": [
+          [
+            1,
+            2
+          ],
+          []
+        ],
+        "actual": [
+          [
+            1,
+            2
+          ],
+          []
+        ],
+        "pass": true
+      },
+      {
+        "unit_id": 17,
+        "function": "_call_key",
+        "arguments": [
+          [],
+          {
+            "x": 1
+          }
+        ],
+        "expected": [
+          [],
+          [
+            [
+              "x",
+              1
+            ]
+          ]
+        ],
+        "actual": [
+          [],
+          [
+            [
+              "x",
+              1
+            ]
+          ]
+        ],
+        "pass": true
+      },
+      {
+        "unit_id": 18,
+        "function": "_compute",
+        "arguments": [
+          [],
+          {}
+        ],
+        "expected": 0,
+        "actual": 0,
+        "pass": true
+      },
+      {
+        "unit_id": 19,
+        "function": "_compute",
+        "arguments": [
+          [
+            1,
+            -2
+          ],
+          {
+            "x": 3
+          }
+        ],
+        "expected": 2,
+        "actual": 2,
+        "pass": true
+      },
+      {
+        "unit_id": 20,
+        "function": "_compute",
+        "arguments": [
+          [
+            0
+          ],
+          {}
+        ],
+        "expected": 0,
+        "actual": 0,
+        "pass": true
+      },
+      {
+        "unit_id": 21,
+        "function": "_compute",
+        "arguments": [
+          [],
+          {
+            "b": 2,
+            "a": -1
+          }
+        ],
+        "expected": 1,
+        "actual": 1,
+        "pass": true
+      },
+      {
+        "unit_id": 22,
+        "function": "_compute",
+        "arguments": [
+          [
+            -5,
+            -2
+          ],
+          {}
+        ],
+        "expected": -7,
+        "actual": -7,
+        "pass": true
+      },
+      {
+        "unit_id": 23,
+        "function": "_compute",
+        "arguments": [
+          [
+            2,
+            3
+          ],
+          {
+            "x": 4,
+            "y": 5
+          }
+        ],
+        "expected": 14,
+        "actual": 14,
+        "pass": true
+      }
+    ],
+    "pass": true,
+    "component_ast_unchanged": true
+  },
+  {
+    "task_id": "D1_C03",
+    "program": "records_correct",
+    "checks": [],
+    "pass": null,
+    "component_ast_unchanged": null
+  },
+  {
+    "task_id": "D1_C03",
+    "program": "glue_partial_key",
+    "checks": [
+      {
+        "unit_id": 12,
+        "function": "_call_key",
+        "arguments": [
+          [],
+          {}
+        ],
+        "expected": [
+          [],
+          []
+        ],
+        "actual": [
+          [],
+          []
+        ],
+        "pass": true
+      },
+      {
+        "unit_id": 13,
+        "function": "_call_key",
+        "arguments": [
+          [
+            1
+          ],
+          {
+            "b": 2,
+            "a": 3
+          }
+        ],
+        "expected": [
+          [
+            1
+          ],
+          [
+            [
+              "a",
+              3
+            ],
+            [
+              "b",
+              2
+            ]
+          ]
+        ],
+        "actual": [
+          [
+            1
+          ],
+          [
+            [
+              "a",
+              3
+            ],
+            [
+              "b",
+              2
+            ]
+          ]
+        ],
+        "pass": true
+      },
+      {
+        "unit_id": 14,
+        "function": "_call_key",
+        "arguments": [
+          [
+            2,
+            1
+          ],
+          {}
+        ],
+        "expected": [
+          [
+            2,
+            1
+          ],
+          []
+        ],
+        "actual": [
+          [
+            2,
+            1
+          ],
+          []
+        ],
+        "pass": true
+      },
+      {
+        "unit_id": 15,
+        "function": "_call_key",
+        "arguments": [
+          [],
+          {
+            "a": 0
+          }
+        ],
+        "expected": [
+          [],
+          [
+            [
+              "a",
+              0
+            ]
+          ]
+        ],
+        "actual": [
+          [],
+          [
+            [
+              "a",
+              0
+            ]
+          ]
+        ],
+        "pass": true
+      },
+      {
+        "unit_id": 16,
+        "function": "_call_key",
+        "arguments": [
+          [
+            1,
+            2
+          ],
+          {}
+        ],
+        "expected": [
+          [
+            1,
+            2
+          ],
+          []
+        ],
+        "actual": [
+          [
+            1,
+            2
+          ],
+          []
+        ],
+        "pass": true
+      },
+      {
+        "unit_id": 17,
+        "function": "_call_key",
+        "arguments": [
+          [],
+          {
+            "x": 1
+          }
+        ],
+        "expected": [
+          [],
+          [
+            [
+              "x",
+              1
+            ]
+          ]
+        ],
+        "actual": [
+          [],
+          [
+            [
+              "x",
+              1
+            ]
+          ]
+        ],
+        "pass": true
+      },
+      {
+        "unit_id": 18,
+        "function": "_compute",
+        "arguments": [
+          [],
+          {}
+        ],
+        "expected": 0,
+        "actual": 0,
+        "pass": true
+      },
+      {
+        "unit_id": 19,
+        "function": "_compute",
+        "arguments": [
+          [
+            1,
+            -2
+          ],
+          {
+            "x": 3
+          }
+        ],
+        "expected": 2,
+        "actual": 2,
+        "pass": true
+      },
+      {
+        "unit_id": 20,
+        "function": "_compute",
+        "arguments": [
+          [
+            0
+          ],
+          {}
+        ],
+        "expected": 0,
+        "actual": 0,
+        "pass": true
+      },
+      {
+        "unit_id": 21,
+        "function": "_compute",
+        "arguments": [
+          [],
+          {
+            "b": 2,
+            "a": -1
+          }
+        ],
+        "expected": 1,
+        "actual": 1,
+        "pass": true
+      },
+      {
+        "unit_id": 22,
+        "function": "_compute",
+        "arguments": [
+          [
+            -5,
+            -2
+          ],
+          {}
+        ],
+        "expected": -7,
+        "actual": -7,
+        "pass": true
+      },
+      {
+        "unit_id": 23,
+        "function": "_compute",
+        "arguments": [
+          [
+            2,
+            3
+          ],
+          {
+            "x": 4,
+            "y": 5
+          }
+        ],
+        "expected": 14,
+        "actual": 14,
+        "pass": true
+      }
+    ],
+    "pass": true,
+    "component_ast_unchanged": true
+  },
+  {
+    "task_id": "D1_C03",
+    "program": "glue_clear_count",
+    "checks": [
+      {
+        "unit_id": 12,
+        "function": "_call_key",
+        "arguments": [
+          [],
+          {}
+        ],
+        "expected": [
+          [],
+          []
+        ],
+        "actual": [
+          [],
+          []
+        ],
+        "pass": true
+      },
+      {
+        "unit_id": 13,
+        "function": "_call_key",
+        "arguments": [
+          [
+            1
+          ],
+          {
+            "b": 2,
+            "a": 3
+          }
+        ],
+        "expected": [
+          [
+            1
+          ],
+          [
+            [
+              "a",
+              3
+            ],
+            [
+              "b",
+              2
+            ]
+          ]
+        ],
+        "actual": [
+          [
+            1
+          ],
+          [
+            [
+              "a",
+              3
+            ],
+            [
+              "b",
+              2
+            ]
+          ]
+        ],
+        "pass": true
+      },
+      {
+        "unit_id": 14,
+        "function": "_call_key",
+        "arguments": [
+          [
+            2,
+            1
+          ],
+          {}
+        ],
+        "expected": [
+          [
+            2,
+            1
+          ],
+          []
+        ],
+        "actual": [
+          [
+            2,
+            1
+          ],
+          []
+        ],
+        "pass": true
+      },
+      {
+        "unit_id": 15,
+        "function": "_call_key",
+        "arguments": [
+          [],
+          {
+            "a": 0
+          }
+        ],
+        "expected": [
+          [],
+          [
+            [
+              "a",
+              0
+            ]
+          ]
+        ],
+        "actual": [
+          [],
+          [
+            [
+              "a",
+              0
+            ]
+          ]
+        ],
+        "pass": true
+      },
+      {
+        "unit_id": 16,
+        "function": "_call_key",
+        "arguments": [
+          [
+            1,
+            2
+          ],
+          {}
+        ],
+        "expected": [
+          [
+            1,
+            2
+          ],
+          []
+        ],
+        "actual": [
+          [
+            1,
+            2
+          ],
+          []
+        ],
+        "pass": true
+      },
+      {
+        "unit_id": 17,
+        "function": "_call_key",
+        "arguments": [
+          [],
+          {
+            "x": 1
+          }
+        ],
+        "expected": [
+          [],
+          [
+            [
+              "x",
+              1
+            ]
+          ]
+        ],
+        "actual": [
+          [],
+          [
+            [
+              "x",
+              1
+            ]
+          ]
+        ],
+        "pass": true
+      },
+      {
+        "unit_id": 18,
+        "function": "_compute",
+        "arguments": [
+          [],
+          {}
+        ],
+        "expected": 0,
+        "actual": 0,
+        "pass": true
+      },
+      {
+        "unit_id": 19,
+        "function": "_compute",
+        "arguments": [
+          [
+            1,
+            -2
+          ],
+          {
+            "x": 3
+          }
+        ],
+        "expected": 2,
+        "actual": 2,
+        "pass": true
+      },
+      {
+        "unit_id": 20,
+        "function": "_compute",
+        "arguments": [
+          [
+            0
+          ],
+          {}
+        ],
+        "expected": 0,
+        "actual": 0,
+        "pass": true
+      },
+      {
+        "unit_id": 21,
+        "function": "_compute",
+        "arguments": [
+          [],
+          {
+            "b": 2,
+            "a": -1
+          }
+        ],
+        "expected": 1,
+        "actual": 1,
+        "pass": true
+      },
+      {
+        "unit_id": 22,
+        "function": "_compute",
+        "arguments": [
+          [
+            -5,
+            -2
+          ],
+          {}
+        ],
+        "expected": -7,
+        "actual": -7,
+        "pass": true
+      },
+      {
+        "unit_id": 23,
+        "function": "_compute",
+        "arguments": [
+          [
+            2,
+            3
+          ],
+          {
+            "x": 4,
+            "y": 5
+          }
+        ],
+        "expected": 14,
+        "actual": 14,
+        "pass": true
+      }
+    ],
+    "pass": true,
+    "component_ast_unchanged": true
+  }
+]

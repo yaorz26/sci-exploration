@@ -1,0 +1,289 @@
+[
+  {
+    "case_id": "hidden_1",
+    "input": {
+      "text": ""
+    },
+    "expected": {
+      "value": []
+    }
+  },
+  {
+    "case_id": "hidden_2",
+    "input": {
+      "text": ",,"
+    },
+    "expected": {
+      "value": []
+    }
+  },
+  {
+    "case_id": "hidden_3",
+    "input": {
+      "text": "  0,2-0  "
+    },
+    "expected": {
+      "value": [
+        0,
+        0,
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_4",
+    "input": {
+      "text": "3-3"
+    },
+    "expected": {
+      "value": [
+        3
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_5",
+    "input": {
+      "text": "a"
+    },
+    "expected": {
+      "error": "ValueError"
+    }
+  },
+  {
+    "case_id": "hidden_6",
+    "input": {
+      "text": "2-a"
+    },
+    "expected": {
+      "error": "ValueError"
+    }
+  },
+  {
+    "case_id": "hidden_7",
+    "input": {
+      "text": "1,1,1"
+    },
+    "expected": {
+      "value": [
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_8",
+    "input": {
+      "text": "9-1,14,9"
+    },
+    "expected": {
+      "value": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        9,
+        14
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_9",
+    "input": {
+      "text": "7-4,8,7"
+    },
+    "expected": {
+      "value": [
+        4,
+        5,
+        6,
+        7,
+        7,
+        8
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_10",
+    "input": {
+      "text": "2-6,9,2"
+    },
+    "expected": {
+      "value": [
+        2,
+        2,
+        3,
+        4,
+        5,
+        6,
+        9
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_11",
+    "input": {
+      "text": "6-13,3,6"
+    },
+    "expected": {
+      "value": [
+        3,
+        6,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_12",
+    "input": {
+      "text": "18-14,0,18"
+    },
+    "expected": {
+      "value": [
+        0,
+        14,
+        15,
+        16,
+        17,
+        18,
+        18
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_13",
+    "input": {
+      "text": "12-11,7,12"
+    },
+    "expected": {
+      "value": [
+        7,
+        11,
+        12,
+        12
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_14",
+    "input": {
+      "text": "7-9,14,7"
+    },
+    "expected": {
+      "value": [
+        7,
+        7,
+        8,
+        9,
+        14
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_15",
+    "input": {
+      "text": "1-6,2,1"
+    },
+    "expected": {
+      "value": [
+        1,
+        1,
+        2,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_16",
+    "input": {
+      "text": "17-9,12,17"
+    },
+    "expected": {
+      "value": [
+        9,
+        10,
+        11,
+        12,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        17
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_17",
+    "input": {
+      "text": "15-14,14,15"
+    },
+    "expected": {
+      "value": [
+        14,
+        14,
+        15,
+        15
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_18",
+    "input": {
+      "text": "1-0,11,1"
+    },
+    "expected": {
+      "value": [
+        0,
+        1,
+        1,
+        11
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_19",
+    "input": {
+      "text": "2-15,2,2"
+    },
+    "expected": {
+      "value": [
+        2,
+        2,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    }
+  }
+]

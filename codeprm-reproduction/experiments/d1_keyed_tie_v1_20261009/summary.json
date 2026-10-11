@@ -1,0 +1,27 @@
+{
+  "new_inputs": 4,
+  "new_solve_calls": 8,
+  "source_minmax_calls": 4,
+  "predicted_outputs_matched": [
+    8,
+    8
+  ],
+  "admissible_public_semantics": [
+    8,
+    8
+  ],
+  "different_but_legal_pair_ids": [
+    "tie_positive_first",
+    "tie_negative_first"
+  ],
+  "source_exact_scores_out_of_four": {
+    "source": 4,
+    "builtin": 2
+  },
+  "old_six_case_reruns": 0,
+  "model_calls": 0,
+  "private_reads": 0,
+  "human_reviews": 0,
+  "conclusion": "未来abs-key两个并列例合法代表不同；单一来源精确预期会拒builtin两例。当前无key候选不受影响",
+  "next": "为未来variant检验成员与极值key的充分判定，不能只比较绝对值而忽略输入代表成员"
+}

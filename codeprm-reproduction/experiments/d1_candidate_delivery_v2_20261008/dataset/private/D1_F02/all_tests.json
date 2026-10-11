@@ -1,0 +1,255 @@
+[
+  {
+    "case_id": "public_1",
+    "input": {
+      "value": [
+        "a",
+        {
+          "b": 2
+        },
+        [
+          "c",
+          3
+        ]
+      ]
+    },
+    "expected": {
+      "value": [
+        [
+          "a",
+          null
+        ],
+        [
+          "b",
+          2
+        ],
+        [
+          "c",
+          3
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "public_2",
+    "input": {
+      "value": [
+        "a",
+        "a"
+      ],
+      "default": "x"
+    },
+    "expected": {
+      "value": [
+        [
+          "a",
+          "x"
+        ],
+        [
+          "a",
+          "x"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_1",
+    "input": {
+      "value": []
+    },
+    "expected": {
+      "value": []
+    }
+  },
+  {
+    "case_id": "hidden_2",
+    "input": {
+      "value": [
+        {}
+      ]
+    },
+    "expected": {
+      "error": "ValueError"
+    }
+  },
+  {
+    "case_id": "hidden_3",
+    "input": {
+      "value": [
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    "expected": {
+      "error": "ValueError"
+    }
+  },
+  {
+    "case_id": "hidden_4",
+    "input": {
+      "value": [
+        [
+          "a"
+        ]
+      ]
+    },
+    "expected": {
+      "error": "ValueError"
+    }
+  },
+  {
+    "case_id": "hidden_5",
+    "input": {
+      "value": [
+        7
+      ]
+    },
+    "expected": {
+      "error": "ValueError"
+    }
+  },
+  {
+    "case_id": "hidden_6",
+    "input": {
+      "value": [
+        [
+          "a",
+          null
+        ],
+        "b"
+      ],
+      "default": 0
+    },
+    "expected": {
+      "value": [
+        [
+          "a",
+          null
+        ],
+        [
+          "b",
+          0
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_7",
+    "input": {
+      "value": [
+        "",
+        {
+          "x": [
+            1,
+            2
+          ]
+        },
+        [
+          "x",
+          {
+            "a": 3
+          }
+        ]
+      ]
+    },
+    "expected": {
+      "value": [
+        [
+          "",
+          null
+        ],
+        [
+          "x",
+          [
+            1,
+            2
+          ]
+        ],
+        [
+          "x",
+          {
+            "a": 3
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_8",
+    "input": {
+      "value": [
+        [
+          "a",
+          1,
+          2
+        ]
+      ]
+    },
+    "expected": {
+      "error": "ValueError"
+    }
+  },
+  {
+    "case_id": "hidden_9",
+    "input": {
+      "value": [
+        null
+      ]
+    },
+    "expected": {
+      "error": "ValueError"
+    }
+  },
+  {
+    "case_id": "hidden_10",
+    "input": {
+      "value": [
+        "你好",
+        {
+          "世界": true
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        [
+          "你好",
+          null
+        ],
+        [
+          "世界",
+          true
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_11",
+    "input": {
+      "value": [
+        [
+          "x",
+          0
+        ],
+        [
+          "x",
+          1
+        ]
+      ]
+    },
+    "expected": {
+      "value": [
+        [
+          "x",
+          0
+        ],
+        [
+          "x",
+          1
+        ]
+      ]
+    }
+  }
+]

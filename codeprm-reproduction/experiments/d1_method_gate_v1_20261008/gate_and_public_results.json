@@ -1,0 +1,184 @@
+[
+  {
+    "task_id": "D1_B05",
+    "variant": "baseline",
+    "code_file": "D1_B05_baseline.py",
+    "entry_file": "D1_B05_baseline_entry.py",
+    "code_sha256": "24d58e50c442f9e579966906f64f472890387c97a5f2232dc181488151a46b9e",
+    "entry_sha256": "c490b14eb6b068dc70ef249991f989545df6f1354abfaab05b9fef71056d766f",
+    "source_sha256": "24d58e50c442f9e579966906f64f472890387c97a5f2232dc181488151a46b9e",
+    "body_and_call_signature_except_annotations_unchanged": true,
+    "M0_actual_gate_accepted": true,
+    "M2_actual_entry_gate_accepted": true,
+    "M2_gate_error": null,
+    "public": null,
+    "public_not_rerun_reason": "旧正确基线无修改/无新评分疑问",
+    "not_model_candidate": true,
+    "helper_gate_tested": false
+  },
+  {
+    "task_id": "D1_B05",
+    "variant": "parameter_annotation",
+    "code_file": "D1_B05_parameter_annotation.py",
+    "entry_file": "D1_B05_parameter_annotation_entry.py",
+    "code_sha256": "9a6e8920aa1996eba84d10e8ebd53afe82d552ed241b3d55e49bec4e782c129d",
+    "entry_sha256": "9a6c682ccdad945f78c389e74f8776f42a12bf2f49bc7a075ac120b67443fa4c",
+    "source_sha256": "24d58e50c442f9e579966906f64f472890387c97a5f2232dc181488151a46b9e",
+    "body_and_call_signature_except_annotations_unchanged": true,
+    "M0_actual_gate_accepted": true,
+    "M2_actual_entry_gate_accepted": false,
+    "M2_gate_error": "completion changed frozen function signature",
+    "public": {
+      "cases": 2,
+      "passed": 2,
+      "all_pass": true,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "public_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        }
+      ],
+      "execution_seconds": 0.06175299999813433,
+      "captured_output_bytes": 216
+    },
+    "public_not_rerun_reason": null,
+    "not_model_candidate": true,
+    "helper_gate_tested": false
+  },
+  {
+    "task_id": "D1_B05",
+    "variant": "return_annotation",
+    "code_file": "D1_B05_return_annotation.py",
+    "entry_file": "D1_B05_return_annotation_entry.py",
+    "code_sha256": "da2124bb0bd2fd951d7badc95941de364336c024f83cd4be88887ed85fdd2d50",
+    "entry_sha256": "c57fa71805fe63e59ecbc7ef91a721e0f663f7d95c47d4fac00b9ee80375712b",
+    "source_sha256": "24d58e50c442f9e579966906f64f472890387c97a5f2232dc181488151a46b9e",
+    "body_and_call_signature_except_annotations_unchanged": true,
+    "M0_actual_gate_accepted": true,
+    "M2_actual_entry_gate_accepted": true,
+    "M2_gate_error": null,
+    "public": {
+      "cases": 2,
+      "passed": 2,
+      "all_pass": true,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "public_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        }
+      ],
+      "execution_seconds": 0.061920700001792284,
+      "captured_output_bytes": 216
+    },
+    "public_not_rerun_reason": null,
+    "not_model_candidate": true,
+    "helper_gate_tested": false
+  },
+  {
+    "task_id": "D1_C03",
+    "variant": "baseline",
+    "code_file": "D1_C03_baseline.py",
+    "entry_file": "D1_C03_baseline_entry.py",
+    "code_sha256": "03e922b593df66361356943933c7f68cc8260b31dc319325d86b3bacdad3e4b2",
+    "entry_sha256": "e0a18fc5136d6ee4129b619c7001f3d99cd01bdb07527085e224a3648ecea7a1",
+    "source_sha256": "03e922b593df66361356943933c7f68cc8260b31dc319325d86b3bacdad3e4b2",
+    "body_and_call_signature_except_annotations_unchanged": true,
+    "M0_actual_gate_accepted": true,
+    "M2_actual_entry_gate_accepted": true,
+    "M2_gate_error": null,
+    "public": null,
+    "public_not_rerun_reason": "旧正确基线无修改/无新评分疑问",
+    "not_model_candidate": true,
+    "helper_gate_tested": false
+  },
+  {
+    "task_id": "D1_C03",
+    "variant": "parameter_annotation",
+    "code_file": "D1_C03_parameter_annotation.py",
+    "entry_file": "D1_C03_parameter_annotation_entry.py",
+    "code_sha256": "7b310770135a679855b712d93be77e4a6a4087a86e2c5984e378dbb0262b30bc",
+    "entry_sha256": "536a45fbf28813ed80d75b0c69666bd4194fb5b33d091064160c3e63c3ba6454",
+    "source_sha256": "03e922b593df66361356943933c7f68cc8260b31dc319325d86b3bacdad3e4b2",
+    "body_and_call_signature_except_annotations_unchanged": true,
+    "M0_actual_gate_accepted": true,
+    "M2_actual_entry_gate_accepted": false,
+    "M2_gate_error": "completion changed frozen function signature",
+    "public": {
+      "cases": 2,
+      "passed": 2,
+      "all_pass": true,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "public_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        }
+      ],
+      "execution_seconds": 0.06158329999743728,
+      "captured_output_bytes": 216
+    },
+    "public_not_rerun_reason": null,
+    "not_model_candidate": true,
+    "helper_gate_tested": false
+  },
+  {
+    "task_id": "D1_C03",
+    "variant": "return_annotation",
+    "code_file": "D1_C03_return_annotation.py",
+    "entry_file": "D1_C03_return_annotation_entry.py",
+    "code_sha256": "6db138d64eca27b71b26981def7ad2ec2488d831d2c930fae9ad54d82dacaff1",
+    "entry_sha256": "be49c3ff79231ca371cbcf2f46b780251e808025592986c7d2387140f273c27c",
+    "source_sha256": "03e922b593df66361356943933c7f68cc8260b31dc319325d86b3bacdad3e4b2",
+    "body_and_call_signature_except_annotations_unchanged": true,
+    "M0_actual_gate_accepted": true,
+    "M2_actual_entry_gate_accepted": true,
+    "M2_gate_error": null,
+    "public": {
+      "cases": 2,
+      "passed": 2,
+      "all_pass": true,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "public_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        }
+      ],
+      "execution_seconds": 0.061523500000475906,
+      "captured_output_bytes": 216
+    },
+    "public_not_rerun_reason": null,
+    "not_model_candidate": true,
+    "helper_gate_tested": false
+  }
+]

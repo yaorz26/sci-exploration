@@ -1,0 +1,1255 @@
+[
+  {
+    "blind_id": "T01",
+    "requirement": "实现solve(payload)。capacity为非负整数，初始空缓存和计算次数0。operations为call或clear。call带args整数列表（默认[]）、kwargs字符串键到整数的对象（默认{}）；真实计算为args及kwargs全部值之和。调用键由有序args和按名匹配的kwargs决定，kwargs排列不影响键；位置传参与关键字传参仍不同。同键命中不增加计算次数并刷新最近使用顺序；未命中计算次数+1，capacity>0时存入，满时淘汰最久未用调用；capacity=0仍返回计算结果而不存。clear清空但不重置计算次数，result为null。每步返回{result,computations,size}，size为缓存调用数。只用标准库，内部结构自由。",
+    "entry_point": "solve(payload)",
+    "public_examples": [
+      {
+        "input": {
+          "capacity": 1,
+          "operations": [
+            {
+              "op": "call",
+              "args": [
+                2
+              ],
+              "kwargs": {
+                "b": 3
+              }
+            },
+            {
+              "op": "call",
+              "args": [
+                2
+              ],
+              "kwargs": {
+                "b": 3
+              }
+            },
+            {
+              "op": "clear"
+            },
+            {
+              "op": "call",
+              "args": [
+                2
+              ],
+              "kwargs": {
+                "b": 3
+              }
+            }
+          ]
+        },
+        "output": [
+          {
+            "result": 5,
+            "computations": 1,
+            "size": 1
+          },
+          {
+            "result": 5,
+            "computations": 1,
+            "size": 1
+          },
+          {
+            "result": null,
+            "computations": 1,
+            "size": 0
+          },
+          {
+            "result": 5,
+            "computations": 2,
+            "size": 1
+          }
+        ]
+      },
+      {
+        "input": {
+          "capacity": 0,
+          "operations": [
+            {
+              "op": "call"
+            },
+            {
+              "op": "call"
+            }
+          ]
+        },
+        "output": [
+          {
+            "result": 0,
+            "computations": 1,
+            "size": 0
+          },
+          {
+            "result": 0,
+            "computations": 2,
+            "size": 0
+          }
+        ]
+      }
+    ],
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。"
+  },
+  {
+    "blind_id": "T02",
+    "requirement": "实现solve(payload)，text是字符串，返回去除完整ANSI控制码后的字符串。ESC表示U+001B。完整码为ESC后接一个ASCII @到Z或反斜线到下划线字符（不包括[）；或ESC+[，再接零或多个ASCII 0到?参数字符、零或多个空格到/中间字符、一个@到~终止字符。这些范围均含端点。不完整、不符合该形式的片段逐字保留；不解释光标或颜色。只用标准库，内部结构自由。",
+    "entry_point": "solve(payload)",
+    "public_examples": [
+      {
+        "input": {
+          "text": "a\u001b[31m红\u001b[0mz"
+        },
+        "output": "a红z"
+      },
+      {
+        "input": {
+          "text": "x\u001b[31"
+        },
+        "output": "x\u001b[31"
+      }
+    ],
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。"
+  },
+  {
+    "blind_id": "T03",
+    "requirement": "实现solve(payload)。items为数值列表，遇到前一项大于后一项时在两项之间分段，相等不分。maxsplit为-1或非负整数，默认-1表示不限，达到非负上限后剩余全部放到当前最后一段。保留输入顺序；空列表返回[]。只用标准库，内部结构自由。",
+    "entry_point": "solve(payload)",
+    "public_examples": [
+      {
+        "input": {
+          "items": [
+            1,
+            3,
+            2,
+            2,
+            4,
+            0
+          ]
+        },
+        "output": [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            2,
+            4
+          ],
+          [
+            0
+          ]
+        ]
+      },
+      {
+        "input": {
+          "items": []
+        },
+        "output": []
+      }
+    ],
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。"
+  },
+  {
+    "blind_id": "T04",
+    "requirement": "实现solve(payload)。text为由非负整数或闭区间组成的文本，separator默认为逗号，range_separator默认为连字符；分隔符保证非空且不同。返回升序整数列表，重复项保留；区间可正向或反向，均包含两端。首尾空白去除，空分段忽略；非法数值引发ValueError。仅使用标准库，内部函数数量和实现结构自由。",
+    "entry_point": "solve(payload)",
+    "public_examples": [
+      {
+        "input": {
+          "text": "1,3-5,3"
+        },
+        "output": [
+          1,
+          3,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "input": {
+          "text": "9:7;2",
+          "separator": ";",
+          "range_separator": ":"
+        },
+        "output": [
+          2,
+          7,
+          8,
+          9
+        ]
+      }
+    ],
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。"
+  },
+  {
+    "blind_id": "T05",
+    "requirement": "实现solve(payload)。columns为至少一列JSON列表，keys为非空有效列索引列表（默认[0]），对应键列保证可比较。按keys列组成的字典序键稳定排序行，再返回排序后的列列表；reverse默认false，为true则按键降序，同键行仍保持输入次序。strict默认false，各列先截到最短长度；strict=true且长度不齐则引发ValueError。没有任何行时返回[]（不是多个空列）。非键列保持行对齐。只用标准库，内部结构自由。",
+    "entry_point": "solve(payload)",
+    "public_examples": [
+      {
+        "input": {
+          "columns": [
+            [
+              2,
+              1,
+              2
+            ],
+            [
+              "a",
+              "b",
+              "c"
+            ]
+          ]
+        },
+        "output": [
+          [
+            1,
+            2,
+            2
+          ],
+          [
+            "b",
+            "a",
+            "c"
+          ]
+        ]
+      },
+      {
+        "input": {
+          "columns": [
+            [
+              1
+            ],
+            []
+          ],
+          "strict": true
+        },
+        "raises": "ValueError"
+      }
+    ],
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。"
+  },
+  {
+    "blind_id": "T06",
+    "requirement": "实现solve(payload)。tree为嵌套JSON对象或数组；queries为带path及可选default的对象列表。path为字符串/整数的列表：对象按键查找，数组按整数索引查找，数组的字符串索引可先转int；支持负索引。保证查询不会在字符串叶子之后继续索引。路径任一段找不到、索引越界、不能转换索引或遇到其他不可索引值时，该查询返回default；未给default则返回{error:'missing'}。空路径返回整棵tree。返回按queries顺序排列的结果列表，不改变输入和其他查询。只用标准库，内部结构自由。",
+    "entry_point": "solve(payload)",
+    "public_examples": [
+      {
+        "input": {
+          "tree": {
+            "a": [
+              {
+                "x": 2
+              }
+            ]
+          },
+          "queries": [
+            {
+              "path": [
+                "a",
+                "0",
+                "x"
+              ]
+            },
+            {
+              "path": [
+                "a",
+                2
+              ],
+              "default": 0
+            }
+          ]
+        },
+        "output": [
+          2,
+          0
+        ]
+      },
+      {
+        "input": {
+          "tree": {},
+          "queries": [
+            {
+              "path": []
+            },
+            {
+              "path": [
+                "x"
+              ]
+            }
+          ]
+        },
+        "output": [
+          {},
+          {
+            "error": "missing"
+          }
+        ]
+      }
+    ],
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。"
+  },
+  {
+    "blind_id": "T07",
+    "requirement": "实现solve(payload)。pairs中每项是两个调用对象，每调用含args列表（默认[]）和kwargs对象（默认{}）。参数值仅字符串、有限数、布尔或null，均可哈希。返回每对是否同缓存键的布尔列表：位置参数必须长度、顺序和值相等；kwargs必须名称和值相等，名称排列无影响；args与kwargs互不互换。typed默认false，值按Python相等比较（如1、1.0、true相等）。typed=true时，对应参数的Python类型也必须相同；整数、浮点数、布尔分别算不同类型。只用标准库，内部结构自由。",
+    "entry_point": "solve(payload)",
+    "public_examples": [
+      {
+        "input": {
+          "pairs": [
+            [
+              {
+                "args": [
+                  1
+                ]
+              },
+              {
+                "args": [
+                  1.0
+                ]
+              }
+            ],
+            [
+              {
+                "kwargs": {
+                  "a": 1,
+                  "b": 2
+                }
+              },
+              {
+                "kwargs": {
+                  "b": 2,
+                  "a": 1
+                }
+              }
+            ]
+          ]
+        },
+        "output": [
+          true,
+          true
+        ]
+      },
+      {
+        "input": {
+          "typed": true,
+          "pairs": [
+            [
+              {
+                "args": [
+                  1
+                ]
+              },
+              {
+                "args": [
+                  true
+                ]
+              }
+            ],
+            [
+              {},
+              {}
+            ]
+          ]
+        },
+        "output": [
+          false,
+          true
+        ]
+      }
+    ],
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。"
+  },
+  {
+    "blind_id": "T08",
+    "requirement": "实现solve(payload)。sources是至少一个JSON对象的列表，前面的来源优先级更高。按键合并成一个对象：对同一键收集各来源中实际存在的值，缺失不参与；若这些值全部是对象，递归按同样规则合并；否则取优先级最高的整个值，不合并数组，也不把null当缺失。例如高层{x:{a:1}}、低层{x:0}时结果x为{a:1}；任何层的非对象候选都会阻止该键继续合并。保留空对象和null。返回合并对象，不修改输入。只用标准库，内部结构自由。",
+    "entry_point": "solve(payload)",
+    "public_examples": [
+      {
+        "input": {
+          "sources": [
+            {
+              "a": 1,
+              "x": {
+                "p": 2
+              }
+            },
+            {
+              "a": 9,
+              "b": 3,
+              "x": {
+                "q": 4
+              }
+            }
+          ]
+        },
+        "output": {
+          "a": 1,
+          "x": {
+            "p": 2,
+            "q": 4
+          },
+          "b": 3
+        }
+      },
+      {
+        "input": {
+          "sources": [
+            {
+              "x": {
+                "a": 1
+              }
+            },
+            {
+              "x": 0,
+              "z": null
+            }
+          ]
+        },
+        "output": {
+          "x": {
+            "a": 1
+          },
+          "z": null
+        }
+      }
+    ],
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。"
+  },
+  {
+    "blind_id": "T09",
+    "requirement": "实现 solve(payload)，接收JSON对象，返回每条操作之后的记录列表。capacity是非负整数，每项占一个容量。键是字符串，值是任意JSON值。operations按顺序执行：put(key,value)新增或替换；get(key)返回值；delete(key)删除；contains(key)返回是否存在；clear清空；snapshot只观察。put/get会把该项视为最近使用，contains和观察不改变最近使用顺序；满容量新增时淘汰最久未使用项。每条记录为{result,items,size}：修改和snapshot的result为null，读取/查询为返回值；不存在的get/delete返回{error:'KeyError'}，capacity为0时put返回{error:'ValueError'}，这些错误不会中断后续操作。items为当前全部[key,value]，按键的字典序排序；size为当前项数。snapshot和每步自动观察都不能改变淘汰顺序。只能使用Python标准库，内部结构自由。",
+    "entry_point": "solve(payload)",
+    "public_examples": [
+      {
+        "input": {
+          "capacity": 2,
+          "operations": [
+            {
+              "op": "put",
+              "key": "a",
+              "value": 1
+            },
+            {
+              "op": "put",
+              "key": "b",
+              "value": 2
+            },
+            {
+              "op": "get",
+              "key": "a"
+            },
+            {
+              "op": "put",
+              "key": "c",
+              "value": 3
+            }
+          ]
+        },
+        "output": [
+          {
+            "result": null,
+            "items": [
+              [
+                "a",
+                1
+              ]
+            ],
+            "size": 1
+          },
+          {
+            "result": null,
+            "items": [
+              [
+                "a",
+                1
+              ],
+              [
+                "b",
+                2
+              ]
+            ],
+            "size": 2
+          },
+          {
+            "result": 1,
+            "items": [
+              [
+                "a",
+                1
+              ],
+              [
+                "b",
+                2
+              ]
+            ],
+            "size": 2
+          },
+          {
+            "result": null,
+            "items": [
+              [
+                "a",
+                1
+              ],
+              [
+                "c",
+                3
+              ]
+            ],
+            "size": 2
+          }
+        ]
+      },
+      {
+        "input": {
+          "capacity": 1,
+          "operations": []
+        },
+        "output": []
+      }
+    ],
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。"
+  },
+  {
+    "blind_id": "T10",
+    "requirement": "实现solve(payload)。value为列表，每项允许三种形式：字符串（作为键，值取default，default默认null）；仅有一项的JSON对象（转为其键和值）；长度正好2的列表（作为[key,value]）。键为字符串，值可为任意JSON值。返回[[key,value],...]，保留输入顺序和重复键，输入不得被修改。其他条目格式引发ValueError。只用标准库，内部结构自由。",
+    "entry_point": "solve(payload)",
+    "public_examples": [
+      {
+        "input": {
+          "value": [
+            "a",
+            {
+              "b": 2
+            },
+            [
+              "c",
+              3
+            ]
+          ]
+        },
+        "output": [
+          [
+            "a",
+            null
+          ],
+          [
+            "b",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ]
+      },
+      {
+        "input": {
+          "value": [
+            "a",
+            "a"
+          ],
+          "default": "x"
+        },
+        "output": [
+          [
+            "a",
+            "x"
+          ],
+          [
+            "a",
+            "x"
+          ]
+        ]
+      }
+    ],
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。"
+  },
+  {
+    "blind_id": "T11",
+    "requirement": "实现solve(payload)。items为有限JSON列表，逻辑位置初始0，已缓存前缀初始空。operations顺序执行：next返回当前位置项并前进，末尾返回{error:'StopIteration'}；peek返回下一项但位置不变，末尾返回default（若提供）或上述错误；两种成功读取均将该项及之前的前缀计入缓存。seek(index)跳到非负index，越过末尾则停在末尾，同时缓存跳过的全部前缀；relative_seek(offset)相对当前位置移动，负目的地截到0，超过末尾截到末尾；定位的result为null。elements返回当前缓存。缓存只增长不缩小，回退不丢缓存。每步返回{result,cache}的快照，错误不终止后续操作。只用标准库，内部结构自由。",
+    "entry_point": "solve(payload)",
+    "public_examples": [
+      {
+        "input": {
+          "items": [
+            1,
+            2
+          ],
+          "operations": [
+            {
+              "op": "peek"
+            },
+            {
+              "op": "next"
+            },
+            {
+              "op": "seek",
+              "index": 0
+            },
+            {
+              "op": "next"
+            }
+          ]
+        },
+        "output": [
+          {
+            "result": 1,
+            "cache": [
+              1
+            ]
+          },
+          {
+            "result": 1,
+            "cache": [
+              1
+            ]
+          },
+          {
+            "result": null,
+            "cache": [
+              1
+            ]
+          },
+          {
+            "result": 1,
+            "cache": [
+              1
+            ]
+          }
+        ]
+      },
+      {
+        "input": {
+          "items": [],
+          "operations": [
+            {
+              "op": "next"
+            },
+            {
+              "op": "peek",
+              "default": "end"
+            }
+          ]
+        },
+        "output": [
+          {
+            "result": {
+              "error": "StopIteration"
+            },
+            "cache": []
+          },
+          {
+            "result": "end",
+            "cache": []
+          }
+        ]
+      }
+    ],
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。"
+  },
+  {
+    "blind_id": "T12",
+    "requirement": "实现solve(payload)。query为不带问号的查询字符串，按&或;分段，忽略空段；每段只在第一个=处切开，没有=或=后为空时值为null。键和值将+解为空格、%HH按UTF-8解码；保证百分号与UTF-8合法。保留重复键和全局顺序。operations依次add(key,value)末尾追加；set删除该键全部旧项再末尾追加；delete删除该键全部项，缺失无操作。操作key为字符串，value为字符串或null。返回{pairs,query}：pairs为编辑后[key,value]列表，query用&连接；null只写键，空字符串写key=。编码前各字符串做Unicode NFC规范化；ASCII字母数字及~-._!$'()*,;/:?@原样，其他字符用大写%HH编码UTF-8；空格为%20。pairs保留未规范化的解码/编辑原值。只用标准库，内部结构自由。",
+    "entry_point": "solve(payload)",
+    "public_examples": [
+      {
+        "input": {
+          "query": "a=1&a=2;flag&x=",
+          "operations": [
+            {
+              "op": "set",
+              "key": "a",
+              "value": "x y"
+            }
+          ]
+        },
+        "output": {
+          "pairs": [
+            [
+              "flag",
+              null
+            ],
+            [
+              "x",
+              null
+            ],
+            [
+              "a",
+              "x y"
+            ]
+          ],
+          "query": "flag&x&a=x%20y"
+        }
+      },
+      {
+        "input": {
+          "query": "",
+          "operations": [
+            {
+              "op": "add",
+              "key": "q",
+              "value": ""
+            }
+          ]
+        },
+        "output": {
+          "pairs": [
+            [
+              "q",
+              ""
+            ]
+          ],
+          "query": "q="
+        }
+      }
+    ],
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。"
+  },
+  {
+    "blind_id": "T13",
+    "requirement": "实现solve(payload)。value若为字符串：split默认true，按任意空白切分并去空项；split=false时保留整个字符串作为唯一项，空串也保留。value若为字符串列表，原样返回列表，不能再切开列表内的字符串。其他类型或列表内有非字符串项，引发ValueError。返回字符串列表。只用标准库，内部结构自由。",
+    "entry_point": "solve(payload)",
+    "public_examples": [
+      {
+        "input": {
+          "value": "  alpha\tbeta  "
+        },
+        "output": [
+          "alpha",
+          "beta"
+        ]
+      },
+      {
+        "input": {
+          "value": [
+            "a b",
+            "c"
+          ]
+        },
+        "output": [
+          "a b",
+          "c"
+        ]
+      }
+    ],
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。"
+  },
+  {
+    "blind_id": "T14",
+    "requirement": "实现solve(payload)。items为{key,value}列表，key为字符串，value为JSON值；按key分桶，各桶内保持items原序。allowed_keys若给出，为允许键的字符串列表，其余项忽略；未给出则全部允许。operations依次对key执行next（消费返回下一value，没有则{error:'StopIteration'}）、contains（是否还有未消费项，不能消费）、drain（消费并返回全部剩余value列表）。不同键消费互不影响；不存在或不允许键视为空桶。返回每步结果列表，错误不终止。只用标准库，内部结构自由；不要求惰性实现。",
+    "entry_point": "solve(payload)",
+    "public_examples": [
+      {
+        "input": {
+          "items": [
+            {
+              "key": "a",
+              "value": 1
+            },
+            {
+              "key": "b",
+              "value": 2
+            },
+            {
+              "key": "a",
+              "value": 3
+            }
+          ],
+          "operations": [
+            {
+              "op": "contains",
+              "key": "a"
+            },
+            {
+              "op": "next",
+              "key": "a"
+            },
+            {
+              "op": "drain",
+              "key": "b"
+            },
+            {
+              "op": "drain",
+              "key": "a"
+            },
+            {
+              "op": "contains",
+              "key": "a"
+            }
+          ]
+        },
+        "output": [
+          true,
+          1,
+          [
+            2
+          ],
+          [
+            3
+          ],
+          false
+        ]
+      },
+      {
+        "input": {
+          "items": [],
+          "operations": [
+            {
+              "op": "next",
+              "key": "x"
+            },
+            {
+              "op": "drain",
+              "key": "x"
+            }
+          ]
+        },
+        "output": [
+          {
+            "error": "StopIteration"
+          },
+          []
+        ]
+      }
+    ],
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。"
+  },
+  {
+    "blind_id": "T15",
+    "requirement": "实现solve(payload)。items为有限JSON列表，width和step为正整数（step默认1），fill默认null。返回定宽窗口列表，每个起点为0,step,2*step等。空items返回[]；items短于width时只返回一个右侧补fill的窗口。其余情况长度L≥width：step<width时保留起点s≤L-width+step-1的窗口，step≥width时保留s<L的窗口。窗口不足width右侧补fill。width或step≤0引发ValueError。只用标准库，内部结构自由。",
+    "entry_point": "solve(payload)",
+    "public_examples": [
+      {
+        "input": {
+          "items": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "width": 3
+        },
+        "output": [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            2,
+            3,
+            4
+          ],
+          [
+            3,
+            4,
+            5
+          ]
+        ]
+      },
+      {
+        "input": {
+          "items": [
+            1,
+            2
+          ],
+          "width": 4,
+          "fill": "x"
+        },
+        "output": [
+          [
+            1,
+            2,
+            "x",
+            "x"
+          ]
+        ]
+      }
+    ],
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。"
+  },
+  {
+    "blind_id": "T16",
+    "requirement": "实现solve(payload)。tree为嵌套JSON对象或数组。先把所有数值叶子乘factor（默认1），布尔值不算数值；drop_null默认false，为true时删除对象中值为null的条目及数组中的null元素，空容器仍保留。再对变换结果找数值>=threshold的全部叶子，threshold为有限数。返回{tree:变换结果,matches:[{path,value}]}，path从根开始用对象字符串键和数组整数索引表示，数组索引以删除后的结果为准。matches按深度优先顺序，对象沿输入键顺序、数组沿结果索引顺序。factor为有限数，保证结果有限。不能修改输入。只用标准库，内部结构自由。",
+    "entry_point": "solve(payload)",
+    "public_examples": [
+      {
+        "input": {
+          "tree": {
+            "a": [
+              null,
+              2,
+              true
+            ],
+            "b": 3
+          },
+          "drop_null": true,
+          "factor": 2,
+          "threshold": 4
+        },
+        "output": {
+          "tree": {
+            "a": [
+              4,
+              true
+            ],
+            "b": 6
+          },
+          "matches": [
+            {
+              "path": [
+                "a",
+                0
+              ],
+              "value": 4
+            },
+            {
+              "path": [
+                "b"
+              ],
+              "value": 6
+            }
+          ]
+        }
+      },
+      {
+        "input": {
+          "tree": [],
+          "threshold": 0
+        },
+        "output": {
+          "tree": [],
+          "matches": []
+        }
+      }
+    ],
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。"
+  },
+  {
+    "blind_id": "T17",
+    "requirement": "实现 solve(payload)，接收JSON对象，返回每条操作之后的记录列表。capacity是非负整数，每项占一个容量。键是字符串，值是任意JSON值。operations按顺序执行：put(key,value)新增或替换；get(key)返回值；delete(key)删除；contains(key)返回是否存在；clear清空；snapshot只观察。put/get会把该项视为最近使用，contains和观察不改变最近使用顺序；满容量新增时淘汰最久未使用项。每条记录为{result,items,size}：修改和snapshot的result为null，读取/查询为返回值；不存在的get/delete返回{error:'KeyError'}，capacity为0时put返回{error:'ValueError'}，这些错误不会中断后续操作。items为当前全部[key,value]，按键的字典序排序；size为当前项数。snapshot和每步自动观察都不能改变淘汰顺序。只能使用Python标准库，内部结构自由。\n另有ttl（非负数），每条操作都带time（非递减的数值时间）。每次put设该键过期时刻为time+ttl，替换会刷新；get只刷新最近使用顺序，不延长存活时间。time到达过期时刻即不存在，已过期项不占容量；每步记录只包含未过期项。不能使用真实系统时间。",
+    "entry_point": "solve(payload)",
+    "public_examples": [
+      {
+        "input": {
+          "capacity": 2,
+          "ttl": 3,
+          "operations": [
+            {
+              "op": "put",
+              "key": "a",
+              "value": 1,
+              "time": 0
+            },
+            {
+              "op": "get",
+              "key": "a",
+              "time": 2
+            },
+            {
+              "op": "get",
+              "key": "a",
+              "time": 3
+            }
+          ]
+        },
+        "output": [
+          {
+            "result": null,
+            "items": [
+              [
+                "a",
+                1
+              ]
+            ],
+            "size": 1
+          },
+          {
+            "result": 1,
+            "items": [
+              [
+                "a",
+                1
+              ]
+            ],
+            "size": 1
+          },
+          {
+            "result": {
+              "error": "KeyError"
+            },
+            "items": [],
+            "size": 0
+          }
+        ]
+      },
+      {
+        "input": {
+          "capacity": 1,
+          "ttl": 1,
+          "operations": []
+        },
+        "output": []
+      }
+    ],
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。"
+  },
+  {
+    "blind_id": "T18",
+    "requirement": "实现solve(payload)。value为JSON对象，返回仅含name、retries、scores、options的规范对象，忽略其他字段。name必需且为字符串。retries缺失取default_retries（若未给出为3）；scores缺失取[]，否则必须为列表。options缺失取{}，否则必须为对象，返回仅含mode和limit：mode缺失取'safe'，否则须为字符串；limit缺失取10。retries、scores各项、limit若提供，必须为Python整数、浮点或布尔：浮点转int向零截断，整数和布尔原样保留；字符串数字不接受。null视为已提供的非法值而非缺失，任一非法或缺失必需字段引发ValueError，不能返回部分结果。default_retries若给出保证为整数。保证所有数值有限。只用标准库，内部结构自由。",
+    "entry_point": "solve(payload)",
+    "public_examples": [
+      {
+        "input": {
+          "value": {
+            "name": "demo",
+            "retries": 2.9,
+            "scores": [
+              1.9,
+              -2.9,
+              true
+            ],
+            "options": {
+              "extra": 7
+            }
+          }
+        },
+        "output": {
+          "name": "demo",
+          "retries": 2,
+          "scores": [
+            1,
+            -2,
+            true
+          ],
+          "options": {
+            "mode": "safe",
+            "limit": 10
+          }
+        }
+      },
+      {
+        "input": {
+          "value": {
+            "name": "x"
+          },
+          "default_retries": 5
+        },
+        "output": {
+          "name": "x",
+          "retries": 5,
+          "scores": [],
+          "options": {
+            "mode": "safe",
+            "limit": 10
+          }
+        }
+      }
+    ],
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。"
+  },
+  {
+    "blind_id": "T19",
+    "requirement": "实现solve(payload)，依次执行operations，维护初始为空的有序多值记录。键为字符串，值为JSON值。add(key,value)追加一条；set(key,value)删除该键全部旧条目后在末尾追加一条；get(key,default可选)取该键最后一个值，不存在返回default或null；getall(key)取该键所有值，不存在返回空列表；poplast(key)删除并返回该键最后一个值；delete(key)删除该键全部条目。缺失键的poplast/delete返回{error:'KeyError'}，不影响后续操作。每步返回{result,items}：add、set及成功delete的result为null，成功poplast的result为被删除的值，get/getall的result为查询结果；items为全部[key,value]，保留全局插入顺序。只用标准库，内部结构自由。",
+    "entry_point": "solve(payload)",
+    "public_examples": [
+      {
+        "input": {
+          "operations": [
+            {
+              "op": "add",
+              "key": "a",
+              "value": 1
+            },
+            {
+              "op": "add",
+              "key": "b",
+              "value": 2
+            },
+            {
+              "op": "add",
+              "key": "a",
+              "value": 3
+            },
+            {
+              "op": "getall",
+              "key": "a"
+            }
+          ]
+        },
+        "output": [
+          {
+            "result": null,
+            "items": [
+              [
+                "a",
+                1
+              ]
+            ]
+          },
+          {
+            "result": null,
+            "items": [
+              [
+                "a",
+                1
+              ],
+              [
+                "b",
+                2
+              ]
+            ]
+          },
+          {
+            "result": null,
+            "items": [
+              [
+                "a",
+                1
+              ],
+              [
+                "b",
+                2
+              ],
+              [
+                "a",
+                3
+              ]
+            ]
+          },
+          {
+            "result": [
+              1,
+              3
+            ],
+            "items": [
+              [
+                "a",
+                1
+              ],
+              [
+                "b",
+                2
+              ],
+              [
+                "a",
+                3
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "input": {
+          "operations": []
+        },
+        "output": []
+      }
+    ],
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。"
+  },
+  {
+    "blind_id": "T20",
+    "requirement": "实现solve(payload)。instances为唯一字符串id与整数bias的对象列表，每实例独立空缓存和计算次数0，各缓存capacity为同一个非负整数。operations含instance（保证存在），call另有整数x：返回该实例bias+x；同实例同x命中不增加计算次数并刷新最近使用，未命中次数+1，容量满淘汰该实例最久未用x，capacity=0不缓存。clear只清空指定实例，计数不重置，result为null。每步返回{result,computations,sizes}，后两项分别是所有实例id到累计次数/当前缓存项数的对象。不同实例相同x也必须各自计算；不修改输入。只用标准库，内部结构自由。",
+    "entry_point": "solve(payload)",
+    "public_examples": [
+      {
+        "input": {
+          "capacity": 1,
+          "instances": [
+            {
+              "id": "a",
+              "bias": 10
+            },
+            {
+              "id": "b",
+              "bias": 20
+            }
+          ],
+          "operations": [
+            {
+              "op": "call",
+              "instance": "a",
+              "x": 1
+            },
+            {
+              "op": "call",
+              "instance": "b",
+              "x": 1
+            },
+            {
+              "op": "call",
+              "instance": "a",
+              "x": 1
+            },
+            {
+              "op": "clear",
+              "instance": "a"
+            }
+          ]
+        },
+        "output": [
+          {
+            "result": 11,
+            "computations": {
+              "a": 1,
+              "b": 0
+            },
+            "sizes": {
+              "a": 1,
+              "b": 0
+            }
+          },
+          {
+            "result": 21,
+            "computations": {
+              "a": 1,
+              "b": 1
+            },
+            "sizes": {
+              "a": 1,
+              "b": 1
+            }
+          },
+          {
+            "result": 11,
+            "computations": {
+              "a": 1,
+              "b": 1
+            },
+            "sizes": {
+              "a": 1,
+              "b": 1
+            }
+          },
+          {
+            "result": null,
+            "computations": {
+              "a": 1,
+              "b": 1
+            },
+            "sizes": {
+              "a": 0,
+              "b": 1
+            }
+          }
+        ]
+      },
+      {
+        "input": {
+          "capacity": 1,
+          "instances": [],
+          "operations": []
+        },
+        "output": []
+      }
+    ],
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。"
+  }
+]

@@ -1,0 +1,303 @@
+[
+  {
+    "id": "D1_B05_baseline",
+    "code": "def solve(payload):\n    tree=_transform(payload['tree'],payload.get('factor',1),payload.get('drop_null',False))\n    matches=_select(tree,payload['threshold'])\n    return {'tree':tree,'matches':matches}\n",
+    "kind": "保存的正确给定入口",
+    "expected_candidate_accept": true,
+    "source": "experiments/d1_method_gate_v1_20261008/D1_B05_baseline_entry.py",
+    "source_sha256": "c490b14eb6b068dc70ef249991f989545df6f1354abfaab05b9fef71056d766f",
+    "public_behavior": "沿用P27，不重评",
+    "old_gate": {
+      "accepted": true,
+      "error": null
+    },
+    "candidate_gate": {
+      "accepted": true,
+      "error": null
+    },
+    "actual_call_shape": null,
+    "expected_accept_match": true
+  },
+  {
+    "id": "D1_B05_parameter_annotation",
+    "code": "def solve(payload: dict):\n    tree=_transform(payload['tree'],payload.get('factor',1),payload.get('drop_null',False))\n    matches=_select(tree,payload['threshold'])\n    return {'tree':tree,'matches':matches}\n",
+    "kind": "保存的正确给定入口",
+    "expected_candidate_accept": true,
+    "source": "experiments/d1_method_gate_v1_20261008/D1_B05_parameter_annotation_entry.py",
+    "source_sha256": "9a6c682ccdad945f78c389e74f8776f42a12bf2f49bc7a075ac120b67443fa4c",
+    "public_behavior": "沿用P27，不重评",
+    "old_gate": {
+      "accepted": false,
+      "error": "ValueError: completion changed frozen function signature"
+    },
+    "candidate_gate": {
+      "accepted": true,
+      "error": null
+    },
+    "actual_call_shape": null,
+    "expected_accept_match": true
+  },
+  {
+    "id": "D1_B05_return_annotation",
+    "code": "def solve(payload) -> object:\n    tree=_transform(payload['tree'],payload.get('factor',1),payload.get('drop_null',False))\n    matches=_select(tree,payload['threshold'])\n    return {'tree':tree,'matches':matches}\n",
+    "kind": "保存的正确给定入口",
+    "expected_candidate_accept": true,
+    "source": "experiments/d1_method_gate_v1_20261008/D1_B05_return_annotation_entry.py",
+    "source_sha256": "c57fa71805fe63e59ecbc7ef91a721e0f663f7d95c47d4fac00b9ee80375712b",
+    "public_behavior": "沿用P27，不重评",
+    "old_gate": {
+      "accepted": true,
+      "error": null
+    },
+    "candidate_gate": {
+      "accepted": true,
+      "error": null
+    },
+    "actual_call_shape": null,
+    "expected_accept_match": true
+  },
+  {
+    "id": "D1_C03_baseline",
+    "code": "def solve(payload):\n    from collections import OrderedDict\n    cache=OrderedDict();computations=0;output=[]\n    for op in payload['operations']:\n        if op['op']=='clear': cache.clear();result=None\n        else:\n            args,kwargs=op.get('args',[]),op.get('kwargs',{})\n            canonical_key=_call_key(args,kwargs)\n            cache_key=canonical_key\n            if cache_key in cache:\n                result=cache[cache_key];cache.move_to_end(cache_key)\n            else:\n                result=_compute(args,kwargs);computations+=1\n                if payload['capacity']>0:\n                    if len(cache)==payload['capacity']:cache.popitem(last=False)\n                    cache[cache_key]=result\n        output.append({'result':result,'computations':computations,'size':len(cache)})\n    return output\n",
+    "kind": "保存的正确给定入口",
+    "expected_candidate_accept": true,
+    "source": "experiments/d1_method_gate_v1_20261008/D1_C03_baseline_entry.py",
+    "source_sha256": "e0a18fc5136d6ee4129b619c7001f3d99cd01bdb07527085e224a3648ecea7a1",
+    "public_behavior": "沿用P27，不重评",
+    "old_gate": {
+      "accepted": true,
+      "error": null
+    },
+    "candidate_gate": {
+      "accepted": true,
+      "error": null
+    },
+    "actual_call_shape": null,
+    "expected_accept_match": true
+  },
+  {
+    "id": "D1_C03_parameter_annotation",
+    "code": "def solve(payload: dict):\n    from collections import OrderedDict\n    cache=OrderedDict();computations=0;output=[]\n    for op in payload['operations']:\n        if op['op']=='clear': cache.clear();result=None\n        else:\n            args,kwargs=op.get('args',[]),op.get('kwargs',{})\n            canonical_key=_call_key(args,kwargs)\n            cache_key=canonical_key\n            if cache_key in cache:\n                result=cache[cache_key];cache.move_to_end(cache_key)\n            else:\n                result=_compute(args,kwargs);computations+=1\n                if payload['capacity']>0:\n                    if len(cache)==payload['capacity']:cache.popitem(last=False)\n                    cache[cache_key]=result\n        output.append({'result':result,'computations':computations,'size':len(cache)})\n    return output\n",
+    "kind": "保存的正确给定入口",
+    "expected_candidate_accept": true,
+    "source": "experiments/d1_method_gate_v1_20261008/D1_C03_parameter_annotation_entry.py",
+    "source_sha256": "536a45fbf28813ed80d75b0c69666bd4194fb5b33d091064160c3e63c3ba6454",
+    "public_behavior": "沿用P27，不重评",
+    "old_gate": {
+      "accepted": false,
+      "error": "ValueError: completion changed frozen function signature"
+    },
+    "candidate_gate": {
+      "accepted": true,
+      "error": null
+    },
+    "actual_call_shape": null,
+    "expected_accept_match": true
+  },
+  {
+    "id": "D1_C03_return_annotation",
+    "code": "def solve(payload) -> object:\n    from collections import OrderedDict\n    cache=OrderedDict();computations=0;output=[]\n    for op in payload['operations']:\n        if op['op']=='clear': cache.clear();result=None\n        else:\n            args,kwargs=op.get('args',[]),op.get('kwargs',{})\n            canonical_key=_call_key(args,kwargs)\n            cache_key=canonical_key\n            if cache_key in cache:\n                result=cache[cache_key];cache.move_to_end(cache_key)\n            else:\n                result=_compute(args,kwargs);computations+=1\n                if payload['capacity']>0:\n                    if len(cache)==payload['capacity']:cache.popitem(last=False)\n                    cache[cache_key]=result\n        output.append({'result':result,'computations':computations,'size':len(cache)})\n    return output\n",
+    "kind": "保存的正确给定入口",
+    "expected_candidate_accept": true,
+    "source": "experiments/d1_method_gate_v1_20261008/D1_C03_return_annotation_entry.py",
+    "source_sha256": "be49c3ff79231ca371cbcf2f46b780251e808025592986c7d2387140f273c27c",
+    "public_behavior": "沿用P27，不重评",
+    "old_gate": {
+      "accepted": true,
+      "error": null
+    },
+    "candidate_gate": {
+      "accepted": true,
+      "error": null
+    },
+    "actual_call_shape": null,
+    "expected_accept_match": true
+  },
+  {
+    "id": "wrong_name",
+    "code": "def other(payload):\n    return payload\n",
+    "kind": "公开手工调用形状对照",
+    "expected_candidate_accept": false,
+    "old_gate": {
+      "accepted": false,
+      "error": "ValueError: completion changed frozen function names"
+    },
+    "candidate_gate": {
+      "accepted": false,
+      "error": "ValueError: completion changed frozen function names"
+    },
+    "actual_call_shape": {
+      "position": {
+        "returned": null,
+        "exception": "KeyError"
+      },
+      "keyword": {
+        "returned": null,
+        "exception": "KeyError"
+      }
+    },
+    "expected_accept_match": true
+  },
+  {
+    "id": "missing_argument",
+    "code": "def solve():\n    return 0\n",
+    "kind": "公开手工调用形状对照",
+    "expected_candidate_accept": false,
+    "old_gate": {
+      "accepted": false,
+      "error": "ValueError: completion changed frozen function signature"
+    },
+    "candidate_gate": {
+      "accepted": false,
+      "error": "ValueError: completion changed frozen function signature"
+    },
+    "actual_call_shape": {
+      "position": {
+        "returned": null,
+        "exception": "TypeError"
+      },
+      "keyword": {
+        "returned": null,
+        "exception": "TypeError"
+      }
+    },
+    "expected_accept_match": true
+  },
+  {
+    "id": "extra_argument",
+    "code": "def solve(payload, extra):\n    return payload\n",
+    "kind": "公开手工调用形状对照",
+    "expected_candidate_accept": false,
+    "old_gate": {
+      "accepted": false,
+      "error": "ValueError: completion changed frozen function signature"
+    },
+    "candidate_gate": {
+      "accepted": false,
+      "error": "ValueError: completion changed frozen function signature"
+    },
+    "actual_call_shape": {
+      "position": {
+        "returned": null,
+        "exception": "TypeError"
+      },
+      "keyword": {
+        "returned": null,
+        "exception": "TypeError"
+      }
+    },
+    "expected_accept_match": true
+  },
+  {
+    "id": "changed_default",
+    "code": "def solve(payload=None):\n    return payload\n",
+    "kind": "公开手工调用形状对照",
+    "expected_candidate_accept": false,
+    "old_gate": {
+      "accepted": false,
+      "error": "ValueError: completion changed frozen function signature"
+    },
+    "candidate_gate": {
+      "accepted": false,
+      "error": "ValueError: completion changed frozen function signature"
+    },
+    "actual_call_shape": {
+      "position": {
+        "returned": {
+          "x": 1
+        },
+        "exception": null
+      },
+      "keyword": {
+        "returned": {
+          "x": 1
+        },
+        "exception": null
+      }
+    },
+    "expected_accept_match": true
+  },
+  {
+    "id": "keyword_only",
+    "code": "def solve(*, payload):\n    return payload\n",
+    "kind": "公开手工调用形状对照",
+    "expected_candidate_accept": false,
+    "old_gate": {
+      "accepted": false,
+      "error": "ValueError: completion changed frozen function signature"
+    },
+    "candidate_gate": {
+      "accepted": false,
+      "error": "ValueError: completion changed frozen function signature"
+    },
+    "actual_call_shape": {
+      "position": {
+        "returned": null,
+        "exception": "TypeError"
+      },
+      "keyword": {
+        "returned": {
+          "x": 1
+        },
+        "exception": null
+      }
+    },
+    "expected_accept_match": true
+  },
+  {
+    "id": "positional_only",
+    "code": "def solve(payload, /):\n    return payload\n",
+    "kind": "公开手工调用形状对照",
+    "expected_candidate_accept": false,
+    "old_gate": {
+      "accepted": false,
+      "error": "ValueError: completion changed frozen function signature"
+    },
+    "candidate_gate": {
+      "accepted": false,
+      "error": "ValueError: completion changed frozen function signature"
+    },
+    "actual_call_shape": {
+      "position": {
+        "returned": {
+          "x": 1
+        },
+        "exception": null
+      },
+      "keyword": {
+        "returned": null,
+        "exception": "TypeError"
+      }
+    },
+    "expected_accept_match": true
+  },
+  {
+    "id": "varargs",
+    "code": "def solve(*payload):\n    return payload\n",
+    "kind": "公开手工调用形状对照",
+    "expected_candidate_accept": false,
+    "old_gate": {
+      "accepted": false,
+      "error": "ValueError: completion changed frozen function signature"
+    },
+    "candidate_gate": {
+      "accepted": false,
+      "error": "ValueError: completion changed frozen function signature"
+    },
+    "actual_call_shape": {
+      "position": {
+        "returned": [
+          {
+            "x": 1
+          }
+        ],
+        "exception": null
+      },
+      "keyword": {
+        "returned": null,
+        "exception": "TypeError"
+      }
+    },
+    "expected_accept_match": true
+  }
+]

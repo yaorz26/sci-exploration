@@ -1,0 +1,60 @@
+[
+  {
+    "case_id": "public_1",
+    "input": {
+      "tree": {
+        "a": [
+          {
+            "x": 2
+          }
+        ]
+      },
+      "queries": [
+        {
+          "path": [
+            "a",
+            "0",
+            "x"
+          ]
+        },
+        {
+          "path": [
+            "a",
+            2
+          ],
+          "default": 0
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        2,
+        0
+      ]
+    }
+  },
+  {
+    "case_id": "public_2",
+    "input": {
+      "tree": {},
+      "queries": [
+        {
+          "path": []
+        },
+        {
+          "path": [
+            "x"
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {},
+        {
+          "error": "missing"
+        }
+      ]
+    }
+  }
+]

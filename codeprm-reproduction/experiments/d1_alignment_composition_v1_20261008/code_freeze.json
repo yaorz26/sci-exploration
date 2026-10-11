@@ -1,0 +1,29 @@
+{
+  "programs": [
+    {
+      "program": "align_domain_then_sort",
+      "filename": "align_domain_then_sort.py",
+      "sha256": "2437719dc524cb271c71b051750457b8a190bc9c0ac2dfe8e5180b831a248ab9",
+      "helper_ast_sha256": "110b549ecfcd6cd2b7b2d02251aa23bd764d61156722ccf8c38986178ae97301",
+      "helper_source_sha256": "bf2944388d88563e228306cd79027537eaab976486266d4e238dce2e68e21c6f"
+    },
+    {
+      "program": "sort_key_domain_then_filter",
+      "filename": "sort_key_domain_then_filter.py",
+      "sha256": "33d791bf9ee4588765a81b50468cd807d9f9b8de9f49f2d9a519d273edccb2b1",
+      "helper_ast_sha256": "110b549ecfcd6cd2b7b2d02251aa23bd764d61156722ccf8c38986178ae97301",
+      "helper_source_sha256": "bf2944388d88563e228306cd79027537eaab976486266d4e238dce2e68e21c6f"
+    },
+    {
+      "program": "wrong_prefix_instead_of_filter",
+      "filename": "wrong_prefix_instead_of_filter.py",
+      "sha256": "4423ef1f5d7d54c776e4c48272e102bdd4422b4387b9acd00013a4cc14ea7eef",
+      "helper_ast_sha256": "110b549ecfcd6cd2b7b2d02251aa23bd764d61156722ccf8c38986178ae97301",
+      "helper_source_sha256": "bf2944388d88563e228306cd79027537eaab976486266d4e238dce2e68e21c6f"
+    }
+  ],
+  "anchors_sha256": "3f88b9a6de39f7024e1e1bb1fbd368256b5faa7cca0cb0a30d752418e95c9532",
+  "first_anchor_sha256": "fd7fd3f60229335953a8e9c6cdb7c08aa24f6140fadbec564a079303613c137e",
+  "script_sha256": "29a93aa068dda6465f7c85653cb7ad05d56869b830d7c44f438f9aacc333cbc6",
+  "rule": "组件字节/AST相同，只变入口边界；手算先冻结，不读隐藏选题"
+}

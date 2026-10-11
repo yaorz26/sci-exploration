@@ -1,0 +1,22 @@
+{
+  "created_at": "2026-10-09T03:18:20Z",
+  "task_sha256": "8899f382241f28a4cf9561ce07a09d4c408482058356393f9ae295f3e81e3fd4",
+  "saved_result_sha256": "4bcdd1fe25601201880c034ba0716548ad9266fefe819dc0cdf3f7b1235905f1",
+  "public_predictions": [
+    {
+      "example_index": 0,
+      "single_pass": "a红z",
+      "stable_pass": "a红z",
+      "reason": "公开预期无ESC，因此已不含完整码；不是运行该旧例子"
+    },
+    {
+      "example_index": 1,
+      "single_pass": "x\u001b[31",
+      "stable_pass": "x\u001b[31",
+      "reason": "公开预期末尾缺CSI终止字符，原片段反复也未完整；不是运行该旧例子"
+    }
+  ],
+  "next_action": "连接六保存一次/二次输出形成八行，写未来原串单次需求增量，原题/输出不覆盖",
+  "new_solve_calls": 0,
+  "human_reviews": 0
+}

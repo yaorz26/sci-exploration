@@ -1,0 +1,9 @@
+{
+  "status": "execution_failed_before_measurement",
+  "command": "python -I -S -B -X utf8 scripts/d1/measure_valid_text_budget.py",
+  "error": "ModuleNotFoundError: native_tokenizer",
+  "cause": "-I不把脚本目录放入sys.path，本地模块导入在计量前失败",
+  "model_calls": 0,
+  "output_directory_created": false,
+  "next": "使用普通脚本模块路径，保留-B/-X utf8；不称隔离执行，不改变研究问题或词表"
+}

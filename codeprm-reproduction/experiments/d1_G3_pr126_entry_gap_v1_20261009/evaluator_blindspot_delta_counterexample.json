@@ -1,0 +1,68 @@
+{
+  "created_at": "2026-10-11T05:24:59.664317+00:00",
+  "question": "同一评价器的公开入口盲点是否会改变相对收益？",
+  "candidate_positions": {
+    "C": "真实控制：旧8/8、直接入口0/1",
+    "F": "真实完整实现：旧8/8、直接入口1/1"
+  },
+  "rows": [
+    {
+      "M0_candidate_position": "C",
+      "M2_candidate_position": "F",
+      "old_evaluator": {
+        "M0_Y": 1,
+        "M2_Y": 1,
+        "delta": 0
+      },
+      "full_evaluator": {
+        "M0_Y": 0,
+        "M2_Y": 1,
+        "delta": 1
+      },
+      "delta_changed": true,
+      "delta_sign_changed": true
+    },
+    {
+      "M0_candidate_position": "F",
+      "M2_candidate_position": "C",
+      "old_evaluator": {
+        "M0_Y": 1,
+        "M2_Y": 1,
+        "delta": 0
+      },
+      "full_evaluator": {
+        "M0_Y": 1,
+        "M2_Y": 0,
+        "delta": -1
+      },
+      "delta_changed": true,
+      "delta_sign_changed": true
+    }
+  ],
+  "formula": "Y_full = Y_old AND direct_entry_pass; delta = Y(M2)-Y(M0)",
+  "visible_result": "旧评价两种分配均delta=0；补充入口后分别delta=+1和delta=-1，交换臂位置会翻转符号。",
+  "interpretation": "证明评价器盲点可能扭曲相对差值的机制；不代表M0/M2模型效果，不估计概率或显著性。",
+  "input_hashes": {
+    "control_legacy": {
+      "path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_G3_pr126_entry_gap_v1_20261009\\results_legacy_control.json",
+      "sha256": "a6428dd7088b86a90566fb2cf279187909e299d6fb8309ffdb375d120c275b00"
+    },
+    "control_direct": {
+      "path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_G3_pr126_entry_gap_v1_20261009\\results_direct_control.json",
+      "sha256": "afc8f67e846b82b510b895f163d7e02ff31ed6a5342630a029e78a056dec21c1"
+    },
+    "complete_legacy": {
+      "path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_G3_pr126_entry_gap_v1_20261009\\results_legacy_control.json",
+      "sha256": "a6428dd7088b86a90566fb2cf279187909e299d6fb8309ffdb375d120c275b00"
+    },
+    "complete_direct": {
+      "path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_G3_pr126_entry_gap_v1_20261009\\results_direct_complete.json",
+      "sha256": "d0699cb87c9950d9c6fe5d2bb82a175299f52a35fb9e90b781dbc03b2bed6c2b"
+    }
+  },
+  "model_calls": 0,
+  "behavior_calls": 0,
+  "human_reviews": 0,
+  "formal_labels": null,
+  "split": null
+}

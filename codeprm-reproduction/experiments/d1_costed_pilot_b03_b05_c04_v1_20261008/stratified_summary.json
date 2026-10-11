@@ -1,0 +1,102 @@
+{
+  "source": "experiments\\d1_costed_pilot_b03_b05_c04_v1_20261008\\summary.json",
+  "scope": "题目层成本和评分汇总；生成失败单列，不把未生成候选当作行为通过或行为失败；不是正式适用边界结论",
+  "api_calls": 32,
+  "wall_seconds": 73.67101759999969,
+  "arm_aggregate": {
+    "M0": {
+      "tasks": 3,
+      "all_pass_tasks": 0,
+      "generation_failures": 0,
+      "generation_token_spend": 2823,
+      "scored_public_passed": 2,
+      "scored_public_cases": 6,
+      "scored_private_passed": 14,
+      "scored_private_cases": 32
+    },
+    "M2": {
+      "tasks": 3,
+      "all_pass_tasks": 0,
+      "generation_failures": 2,
+      "generation_token_spend": 12753,
+      "scored_public_passed": 1,
+      "scored_public_cases": 2,
+      "scored_private_passed": 10,
+      "scored_private_cases": 12
+    }
+  },
+  "by_task": {
+    "D1_B03": {
+      "M0": {
+        "generated_token_spend": 648,
+        "generation_error": null,
+        "all_pass": false,
+        "public_passed": 1,
+        "public_cases": 2,
+        "public_all_pass": false,
+        "private_passed": 5,
+        "private_cases": 12,
+        "private_all_pass": false
+      },
+      "M2": {
+        "generated_token_spend": 2014,
+        "generation_error": "ValueError: helper completion changed frozen functions",
+        "all_pass": false,
+        "public_passed": 0,
+        "public_cases": 0,
+        "public_all_pass": false,
+        "private_passed": 0,
+        "private_cases": 0,
+        "private_all_pass": false
+      }
+    },
+    "D1_B05": {
+      "M0": {
+        "generated_token_spend": 1028,
+        "generation_error": null,
+        "all_pass": false,
+        "public_passed": 0,
+        "public_cases": 2,
+        "public_all_pass": false,
+        "private_passed": 7,
+        "private_cases": 12,
+        "private_all_pass": false
+      },
+      "M2": {
+        "generated_token_spend": 4853,
+        "generation_error": null,
+        "all_pass": false,
+        "public_passed": 1,
+        "public_cases": 2,
+        "public_all_pass": false,
+        "private_passed": 10,
+        "private_cases": 12,
+        "private_all_pass": false
+      }
+    },
+    "D1_C04": {
+      "M0": {
+        "generated_token_spend": 1147,
+        "generation_error": null,
+        "all_pass": false,
+        "public_passed": 1,
+        "public_cases": 2,
+        "public_all_pass": false,
+        "private_passed": 2,
+        "private_cases": 8,
+        "private_all_pass": false
+      },
+      "M2": {
+        "generated_token_spend": 5886,
+        "generation_error": "ValueError: entry completion changed frozen functions",
+        "all_pass": false,
+        "public_passed": 0,
+        "public_cases": 0,
+        "public_all_pass": false,
+        "private_passed": 0,
+        "private_cases": 0,
+        "private_all_pass": false
+      }
+    }
+  }
+}

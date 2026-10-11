@@ -1,0 +1,58 @@
+[
+  {
+    "task_id": "D1_B03",
+    "arm": "M0",
+    "candidate_index": 0,
+    "generation_error": null,
+    "per_task_arm_budget": 6500,
+    "generated_token_spend": 648,
+    "candidate_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_costed_pilot_b03_b05_c04_v1_20261008\\candidates\\D1_B03\\M0\\candidate.py",
+    "candidate_sha256": "b07351a97c92b831fa79e97f95fbc2efbf6bd6ae9a9bf76f61dbcff35b3d91a1"
+  },
+  {
+    "task_id": "D1_B03",
+    "arm": "M2",
+    "candidate_index": 0,
+    "generation_error": "ValueError: helper completion changed frozen functions",
+    "per_task_arm_budget": 6500,
+    "generated_token_spend": 2014
+  },
+  {
+    "task_id": "D1_B05",
+    "arm": "M0",
+    "candidate_index": 0,
+    "generation_error": null,
+    "per_task_arm_budget": 6500,
+    "generated_token_spend": 1028,
+    "candidate_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_costed_pilot_b03_b05_c04_v1_20261008\\candidates\\D1_B05\\M0\\candidate.py",
+    "candidate_sha256": "79c6e848ddeeecf38617f67586d86686243fae028038da7b09ee84db441e4219"
+  },
+  {
+    "task_id": "D1_B05",
+    "arm": "M2",
+    "candidate_index": 0,
+    "generation_error": null,
+    "per_task_arm_budget": 6500,
+    "generated_token_spend": 4853,
+    "candidate_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_costed_pilot_b03_b05_c04_v1_20261008\\candidates\\D1_B05\\M2\\candidate.py",
+    "candidate_sha256": "a227706fede9ebd176ae9b93921a28d806cf79840a7340cebbc251a706da72be"
+  },
+  {
+    "task_id": "D1_C04",
+    "arm": "M0",
+    "candidate_index": 0,
+    "generation_error": null,
+    "per_task_arm_budget": 6500,
+    "generated_token_spend": 1147,
+    "candidate_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_costed_pilot_b03_b05_c04_v1_20261008\\candidates\\D1_C04\\M0\\candidate.py",
+    "candidate_sha256": "c9339509ef478abae683d84dd7ebf5c73add6ce1cd926734847c52232726c7b3"
+  },
+  {
+    "task_id": "D1_C04",
+    "arm": "M2",
+    "candidate_index": 0,
+    "generation_error": "ValueError: entry completion changed frozen functions",
+    "per_task_arm_budget": 6500,
+    "generated_token_spend": 5886
+  }
+]

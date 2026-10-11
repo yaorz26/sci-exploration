@@ -1,0 +1,9 @@
+实现计划：
+
+1. **remove_punctuation**：首先实现这个方法，使用 `string.punctuation` 来移除句子中的所有标点符号。
+2. **get_pos_tag**：在 `remove_punctuation` 方法的基础上，使用 `nltk.word_tokenize` 对句子进行分词，然后使用 `nltk.pos_tag` 获取每个词的词性标签。
+3. **lemmatize_sentence**：在 `remove_punctuation` 方法的基础上，使用 `nltk.word_tokenize` 对句子进行分词，然后使用 `nltk.pos_tag` 获取每个词的词性标签。接着，根据词性标签使用 `self.lemmatizer.lemmatize` 对每个词进行词形还原。最后，将处理后的词存储在一个列表中并返回。
+
+方法之间共享状态：`remove_punctuation` 方法处理后的句子会被传递给 `get_pos_tag` 和 `lemmatize_sentence` 方法，这些方法之间不需要共享额外的状态。
+
+实现顺序：先实现 `remove_punctuation`，然后实现 `get_pos_tag`，最后实现 `lemmatize_sentence`。

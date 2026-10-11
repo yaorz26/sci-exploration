@@ -1,0 +1,18 @@
+{
+  "phase": "funprm_replication_20260921",
+  "status": "frozen_before_7b_download",
+  "generator_model": "qwen2.5-coder:7b",
+  "generator_seed": 42,
+  "holdout_problems": 30,
+  "holdout_candidates_per_problem": 10,
+  "training_records": "data/processed/codeprm_continuation_train50_seed42_deployment_aligned.jsonl",
+  "training_problems": 50,
+  "training_steps": 1196,
+  "private_selection_policy": "private_only_after_selection",
+  "max_weight_download_gb": 20,
+  "gpu": "RTX 4060 Laptop 8GB",
+  "oom_fallback": {
+    "max_length": 256,
+    "gradient_accumulation": 8
+  }
+}

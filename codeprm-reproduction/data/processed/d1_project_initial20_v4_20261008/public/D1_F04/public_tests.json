@@ -1,0 +1,54 @@
+[
+  {
+    "case_id": "public_1",
+    "input": {
+      "value": {
+        "name": "demo",
+        "retries": 2.9,
+        "scores": [
+          1.9,
+          -2.9,
+          true
+        ],
+        "options": {
+          "extra": 7
+        }
+      }
+    },
+    "expected": {
+      "value": {
+        "name": "demo",
+        "retries": 2,
+        "scores": [
+          1,
+          -2,
+          true
+        ],
+        "options": {
+          "mode": "safe",
+          "limit": 10
+        }
+      }
+    }
+  },
+  {
+    "case_id": "public_2",
+    "input": {
+      "value": {
+        "name": "x"
+      },
+      "default_retries": 5
+    },
+    "expected": {
+      "value": {
+        "name": "x",
+        "retries": 5,
+        "scores": [],
+        "options": {
+          "mode": "safe",
+          "limit": 10
+        }
+      }
+    }
+  }
+]

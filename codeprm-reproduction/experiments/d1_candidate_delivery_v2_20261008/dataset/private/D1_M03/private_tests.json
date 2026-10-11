@@ -1,0 +1,560 @@
+[
+  {
+    "case_id": "hidden_1",
+    "input": {
+      "items": [
+        1,
+        2,
+        3
+      ],
+      "operations": [
+        {
+          "op": "seek",
+          "index": 2
+        },
+        {
+          "op": "next"
+        },
+        {
+          "op": "next"
+        },
+        {
+          "op": "relative_seek",
+          "offset": -2
+        },
+        {
+          "op": "next"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": null,
+          "cache": [
+            1,
+            2
+          ]
+        },
+        {
+          "result": 3,
+          "cache": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "result": {
+            "error": "StopIteration"
+          },
+          "cache": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "result": null,
+          "cache": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "result": 2,
+          "cache": [
+            1,
+            2,
+            3
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_2",
+    "input": {
+      "items": [
+        1,
+        2
+      ],
+      "operations": [
+        {
+          "op": "seek",
+          "index": 9
+        },
+        {
+          "op": "elements"
+        },
+        {
+          "op": "seek",
+          "index": 0
+        },
+        {
+          "op": "next"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": null,
+          "cache": [
+            1,
+            2
+          ]
+        },
+        {
+          "result": [
+            1,
+            2
+          ],
+          "cache": [
+            1,
+            2
+          ]
+        },
+        {
+          "result": null,
+          "cache": [
+            1,
+            2
+          ]
+        },
+        {
+          "result": 1,
+          "cache": [
+            1,
+            2
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_3",
+    "input": {
+      "items": [
+        0,
+        null
+      ],
+      "operations": [
+        {
+          "op": "peek"
+        },
+        {
+          "op": "peek"
+        },
+        {
+          "op": "next"
+        },
+        {
+          "op": "peek"
+        },
+        {
+          "op": "next"
+        },
+        {
+          "op": "peek",
+          "default": null
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": 0,
+          "cache": [
+            0
+          ]
+        },
+        {
+          "result": 0,
+          "cache": [
+            0
+          ]
+        },
+        {
+          "result": 0,
+          "cache": [
+            0
+          ]
+        },
+        {
+          "result": null,
+          "cache": [
+            0,
+            null
+          ]
+        },
+        {
+          "result": null,
+          "cache": [
+            0,
+            null
+          ]
+        },
+        {
+          "result": null,
+          "cache": [
+            0,
+            null
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_4",
+    "input": {
+      "items": [
+        1,
+        2
+      ],
+      "operations": [
+        {
+          "op": "relative_seek",
+          "offset": -5
+        },
+        {
+          "op": "next"
+        },
+        {
+          "op": "relative_seek",
+          "offset": 5
+        },
+        {
+          "op": "next"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": null,
+          "cache": []
+        },
+        {
+          "result": 1,
+          "cache": [
+            1
+          ]
+        },
+        {
+          "result": null,
+          "cache": [
+            1,
+            2
+          ]
+        },
+        {
+          "result": {
+            "error": "StopIteration"
+          },
+          "cache": [
+            1,
+            2
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_5",
+    "input": {
+      "items": [],
+      "operations": [
+        {
+          "op": "seek",
+          "index": 1
+        },
+        {
+          "op": "relative_seek",
+          "offset": -1
+        },
+        {
+          "op": "elements"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": null,
+          "cache": []
+        },
+        {
+          "result": null,
+          "cache": []
+        },
+        {
+          "result": [],
+          "cache": []
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_6",
+    "input": {
+      "items": [
+        1,
+        2
+      ],
+      "operations": [
+        {
+          "op": "next"
+        },
+        {
+          "op": "elements"
+        },
+        {
+          "op": "relative_seek",
+          "offset": -1
+        },
+        {
+          "op": "peek"
+        },
+        {
+          "op": "next"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": 1,
+          "cache": [
+            1
+          ]
+        },
+        {
+          "result": [
+            1
+          ],
+          "cache": [
+            1
+          ]
+        },
+        {
+          "result": null,
+          "cache": [
+            1
+          ]
+        },
+        {
+          "result": 1,
+          "cache": [
+            1
+          ]
+        },
+        {
+          "result": 1,
+          "cache": [
+            1
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_7",
+    "input": {
+      "items": [
+        {
+          "x": 1
+        },
+        [
+          2
+        ]
+      ],
+      "operations": [
+        {
+          "op": "next"
+        },
+        {
+          "op": "next"
+        },
+        {
+          "op": "seek",
+          "index": 0
+        },
+        {
+          "op": "elements"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": {
+            "x": 1
+          },
+          "cache": [
+            {
+              "x": 1
+            }
+          ]
+        },
+        {
+          "result": [
+            2
+          ],
+          "cache": [
+            {
+              "x": 1
+            },
+            [
+              2
+            ]
+          ]
+        },
+        {
+          "result": null,
+          "cache": [
+            {
+              "x": 1
+            },
+            [
+              2
+            ]
+          ]
+        },
+        {
+          "result": [
+            {
+              "x": 1
+            },
+            [
+              2
+            ]
+          ],
+          "cache": [
+            {
+              "x": 1
+            },
+            [
+              2
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_8",
+    "input": {
+      "items": [
+        1,
+        2,
+        3
+      ],
+      "operations": [
+        {
+          "op": "peek"
+        },
+        {
+          "op": "relative_seek",
+          "offset": 1
+        },
+        {
+          "op": "peek"
+        },
+        {
+          "op": "relative_seek",
+          "offset": -2
+        },
+        {
+          "op": "next"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": 1,
+          "cache": [
+            1
+          ]
+        },
+        {
+          "result": null,
+          "cache": [
+            1
+          ]
+        },
+        {
+          "result": 2,
+          "cache": [
+            1,
+            2
+          ]
+        },
+        {
+          "result": null,
+          "cache": [
+            1,
+            2
+          ]
+        },
+        {
+          "result": 1,
+          "cache": [
+            1,
+            2
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_9",
+    "input": {
+      "items": [
+        1
+      ],
+      "operations": []
+    },
+    "expected": {
+      "value": []
+    }
+  },
+  {
+    "case_id": "hidden_10",
+    "input": {
+      "items": [
+        1
+      ],
+      "operations": [
+        {
+          "op": "elements"
+        },
+        {
+          "op": "seek",
+          "index": 0
+        },
+        {
+          "op": "elements"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": [],
+          "cache": []
+        },
+        {
+          "result": null,
+          "cache": []
+        },
+        {
+          "result": [],
+          "cache": []
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,480 @@
+实现 M2 计划中的一个组件，只输出严格 unified diff，不要解释或代码围栏。组件：{"name": "EnvironmentVariableSource", "files": ["confuse/sources.py"], "contract": "A dictionary-like object that represents configuration data sourced from environment variables. It should handle prefix matching, key transformation, and nested keys."}。不要实现另一个组件；只能修改指定包内 .py 文件。
+
+任务需求和父源码：
+## REQUIREMENT
+# 环境变量进入项目配置的有限功能任务
+
+任务来源：beetbox/confuse PR142 的公开功能说明。给定直接父提交 `cd1db04b07db00050900d2f548baf144bb92d261` 的非测试包源码。在真实 `confuse.Configuration` 对象中增加显式选择的环境变量配置来源，使配置文件与环境变量能够共同决定最终的配置读取结果。内部模块划分、辅助函数、字典构造方式均自由。
+
+本候选只保留 PR 的有限子范围，不要求完成 PR142 的所有选项。合法输入域是：指定前缀的环境变量名；剥去前缀后非空且无父子键冲突的普通字符串键；`__` 表示嵌套；值为不含集合语法的有效 YAML 标量；普通映射型配置文件。列表转换、完整 YAML 文档值、重新加载、空键和冲突键均未纳入。
+
+公开功能义务：
+
+1. 支持显式添加环境变量来源，不在构造配置对象时默认加入。匹配前缀的变量才参加配置；剥去前缀后的键转换成小写，`__` 映射到嵌套键。
+2. 标量类型转换应与现有 YAML 文件来源一致，例如 `42` 成为整数。最终通过已有配置视图的 `get` 读取，不另建 JSON 求解入口。
+3. 在文件来源之后显式加入的环境变量来源具有更高优先级；未被环境变量提供的键仍可由较低优先级来源读取。
+4. 没有匹配环境变量时，现有配置值保持不变。
+
+任务构建者固定的外部调用入口是 `Configuration.set_env(prefix, sep='__')`，用于把环境来源放在当前最高优先级。这个入口是候选调用约束；不要求采用 PR 的内部类、工具函数或文件布局。其具体内部组织不是答案。
+
+来源说明：前缀、键名转换、嵌套、标量转换和显式选择来自公开 PR 说明；最高优先级入口是任务构建者为现有 `set`/`set_file` 约定选定的调用约束。评价材料、合并版本和手写控制不属于未来模型可见输入。
+
+状态：`research_pool_only`；`formal_labels=null`；`split=null`；真实人工双审 0；模型实验 0；公开来源污染风险未知。
+
+## PUBLIC CASES
+{
+  "expected_origin": "公开PR义务与手算，未调用合并版本取得答案",
+  "cases": [
+    {
+      "id": "no_matching_environment",
+      "environment": {},
+      "yaml_file": "port: 11\n",
+      "queries": {
+        "port": {
+          "path": [
+            "port"
+          ],
+          "kind": "int"
+        }
+      },
+      "expected": {
+        "port": {
+          "value": 11,
+          "type": "int"
+        }
+      }
+    },
+    {
+      "id": "prefixed_scalar",
+      "environment": {
+        "D1APP_PORT": "42",
+        "D1OTHER_NOISE": "99"
+      },
+      "yaml_file": "{}\n",
+      "queries": {
+        "port": {
+          "path": [
+            "port"
+          ],
+          "kind": "int"
+        },
+        "excluded": {
+          "path": [
+            "noise"
+          ],
+          "kind": "exists"
+        }
+      },
+      "expected": {
+        "port": {
+          "value": 42,
+          "type": "int"
+        },
+        "excluded": false
+      }
+    },
+    {
+      "id": "nested_overlay_and_fallback",
+      "environment": {
+        "D1APP_DB__HOST": "env.local"
+      },
+      "yaml_file": "db:\n  host: file.local\n  timeout: 7\n",
+      "queries": {
+        "host": {
+          "path": [
+            "db",
+            "host"
+          ],
+          "kind": "str"
+        },
+        "timeout": {
+          "path": [
+            "db",
+            "timeout"
+          ],
+          "kind": "int"
+        }
+      },
+      "expected": {
+        "host": {
+          "value": "env.local",
+          "type": "str"
+        },
+        "timeout": {
+          "value": 7,
+          "type": "int"
+        }
+      }
+    }
+  ]
+}
+## PARENT FILE confuse/sources.py
+from __future__ import division, absolute_import, print_function
+
+from .util import BASESTRING
+from . import yaml_util
+import os
+
+
+class ConfigSource(dict):
+    """A dictionary augmented with metadata about the source of the
+    configuration.
+    """
+    def __init__(self, value, filename=None, default=False,
+                 base_for_paths=False):
+        """Create a configuration source from a dictionary.
+
+        :param filename: The file with the data for this configuration source.
+
+        :param default: Indicates whether this source provides the
+            application's default configuration settings.
+
+        :param base_for_paths: Indicates whether the source file's directory
+        (i.e., the directory component of `self.filename`) should be used as
+        the base directory for resolving relative path values provided by this
+        source, instead of using the application's configuration directory. If
+        no `filename` is provided, `base_for_paths` will be treated as False.
+        See `templates.Filename` for details of the relative path resolution
+        behavior.
+        """
+        super(ConfigSource, self).__init__(value)
+        if (filename is not None
+                and not isinstance(filename, BASESTRING)):
+            raise TypeError(u'filename must be a string or None')
+        self.filename = filename
+        self.default = default
+        self.base_for_paths = base_for_paths if filename is not None else False
+
+    def __repr__(self):
+        return 'ConfigSource({0!r}, {1!r}, {2!r}, {3!r})'.format(
+            super(ConfigSource, self),
+            self.filename,
+            self.default,
+            self.base_for_paths,
+        )
+
+    @classmethod
+    def of(cls, value):
+        """Given either a dictionary or a `ConfigSource` object, return
+        a `ConfigSource` object. This lets a function accept either type
+        of object as an argument.
+        """
+        if isinstance(value, ConfigSource):
+            return value
+        elif isinstance(value, dict):
+            return ConfigSource(value)
+        else:
+            raise TypeError(u'source value must be a dict')
+
+
+class YamlSource(ConfigSource):
+    """A configuration data source that reads from a YAML file.
+    """
+
+    def __init__(self, filename=None, default=False, base_for_paths=False,
+                 optional=False, loader=yaml_util.Loader):
+        """Create a YAML data source by reading data from a file.
+
+        May raise a `ConfigReadError`. However, if `optional` is
+        enabled, this exception will not be raised in the case when the
+        file does not exist---instead, the source will be silently
+        empty.
+        """
+        filename = os.path.abspath(filename)
+        super(YamlSource, self).__init__({}, filename, default, base_for_paths)
+        self.loader = loader
+        self.optional = optional
+        self.load()
+
+    def load(self):
+        """Load YAML data from the source's filename.
+        """
+        if self.optional and not os.path.isfile(self.filename):
+            value = {}
+        else:
+            value = yaml_util.load_yaml(self.filename,
+                                        loader=self.loader) or {}
+        self.update(value)
+
+## PARENT FILE confuse/core.py
+# -*- coding: utf-8 -*-
+# This file is part of Confuse.
+# Copyright 2016, Adrian Sampson.
+#
+# Permission is hereby granted, free of charge, to any person obtaining
+# a copy of this software and associated documentation files (the
+# "Software"), to deal in the Software without restriction, including
+# without limitation the rights to use, copy, modify, merge, publish,
+# distribute, sublicense, and/or sell copies of the Software, and to
+# permit persons to whom the Software is furnished to do so, subject to
+# the following conditions:
+#
+# The above copyright notice and this permission notice shall be
+# included in all copies or substantial portions of the Software.
+
+"""Worry-free YAML configuration files.
+"""
+from __future__ import division, absolute_import, print_function
+
+import errno
+import os
+import yaml
+from collections import OrderedDict
+
+from . import util
+from . import templates
+from . import yaml_util
+from .sources import ConfigSource, YamlSource
+from .exceptions import ConfigTypeError, NotFoundError, ConfigError
+
+CONFIG_FILENAME = 'config.yaml'
+DEFAULT_FILENAME = 'config_default.yaml'
+ROOT_NAME = 'root'
+
+REDACTED_TOMBSTONE = 'REDACTED'
+
+
+# Views and sources.
+
+
+class ConfigView(object):
+    """A configuration "view" is a query into a program's configuration
+    data. A view represents a hypothetical location in the configuration
+    tree; to extract the data from the location, a client typically
+    calls the ``view.get()`` method. The client can access children in
+    the tree (subviews) by subscripting the parent view (i.e.,
+    ``view[key]``).
+    """
+
+    name = None
+    """The name of the view, depicting the path taken through the
+    configuration in Python-like syntax (e.g., ``foo['bar'][42]``).
+    """
+
+    def resolve(self):
+        """The core (internal) data retrieval method. Generates (value,
+        source) pairs for each source that contains a value for this
+        view. May raise `ConfigTypeError` if a type error occurs while
+        traversing a source.
+        """
+        raise NotImplementedError
+
+    def first(self):
+        """Return a (value, source) pair for the first object found for
+        this view. This amounts to the first element returned by
+        `resolve`. If no values are available, a `NotFoundError` is
+        raised.
+        """
+        pairs = self.resolve()
+        try:
+            return util.iter_first(pairs)
+        except ValueError:
+            raise NotFoundError(u"{0} not found".format(self.name))
+
+    def exists(self):
+        """Determine whether the view has a setting in any source.
+        """
+        try:
+            self.first()
+        except NotFoundError:
+            return False
+        return True
+
+    def add(self, value):
+        """Set the *default* value for this configuration view. The
+        specified value is added as the lowest-priority configuration
+        data source.
+        """
+        raise NotImplementedError
+
+    def set(self, value):
+        """*Override* the value for this configuration view. The
+        specified value is added as the highest-priority configuration
+        data source.
+        """
+        raise NotImplementedError
+
+    def root(self):
+        """The RootView object from which this view is descended.
+        """
+        raise NotImplementedError
+
+    def __repr__(self):
+        return '<{}: {}>'.format(self.__class__.__name__, self.name)
+
+    def __iter__(self):
+        """Iterate over the keys of a dictionary view or the *subviews*
+        of a list view.
+        """
+        # Try iterating over the keys, if this is a dictionary view.
+        try:
+            for key in self.keys():
+                yield key
+
+        except ConfigTypeError:
+            # Otherwise, try iterating over a list view.
+            try:
+                for subview in self.sequence():
+                    yield subview
+
+class Configuration(RootView):
+    def __init__(self, appname, modname=None, read=True,
+                 loader=yaml_util.Loader):
+        """Create a configuration object by reading the
+        automatically-discovered config files for the application for a
+        given name. If `modname` is specified, it should be the import
+        name of a module whose package will be searched for a default
+        config file. (Otherwise, no defaults are used.) Pass `False` for
+        `read` to disable automatic reading of all discovered
+        configuration files. Use this when creating a configuration
+        object at module load time and then call the `read` method
+        later. Specify the Loader class as `loader`.
+        """
+        super(Configuration, self).__init__([])
+        self.appname = appname
+        self.modname = modname
+        self.loader = loader
+
+        # Resolve default source location. We do this ahead of time to
+        # avoid unexpected problems if the working directory changes.
+        if self.modname:
+            self._package_path = util.find_package_path(self.modname)
+        else:
+            self._package_path = None
+
+        self._env_var = '{0}DIR'.format(self.appname.upper())
+
+        if read:
+            self.read()
+
+    def user_config_path(self):
+        """Points to the location of the user configuration.
+
+        The file may not exist.
+        """
+        return os.path.join(self.config_dir(), CONFIG_FILENAME)
+
+    def _add_user_source(self):
+        """Add the configuration options from the YAML file in the
+        user's configuration directory (given by `config_dir`) if it
+        exists.
+        """
+        filename = self.user_config_path()
+        self.add(YamlSource(filename, loader=self.loader, optional=True))
+
+    def _add_default_source(self):
+        """Add the package's default configuration settings. This looks
+        for a YAML file located inside the package for the module
+        `modname` if it was given.
+        """
+        if self.modname:
+            if self._package_path:
+                filename = os.path.join(self._package_path, DEFAULT_FILENAME)
+                self.add(YamlSource(filename, loader=self.loader,
+                                    optional=True, default=True))
+
+    def read(self, user=True, defaults=True):
+        """Find and read the files for this configuration and set them
+        as the sources for this configuration. To disable either
+        discovered user configuration files or the in-package defaults,
+        set `user` or `defaults` to `False`.
+        """
+        if user:
+            self._add_user_source()
+        if defaults:
+            self._add_default_source()
+
+    def config_dir(self):
+        """Get the path to the user configuration directory. The
+        directory is guaranteed to exist as a postcondition (one may be
+        created if none exist).
+
+        If the application's ``...DIR`` environment variable is set, it
+        is used as the configuration directory. Otherwise,
+        platform-specific standard configuration locations are searched
+        for a ``config.yaml`` file. If no configuration file is found, a
+        fallback path is used.
+        """
+        # If environment variable is set, use it.
+        if self._env_var in os.environ:
+            appdir = os.environ[self._env_var]
+            appdir = os.path.abspath(os.path.expanduser(appdir))
+            if os.path.isfile(appdir):
+                raise ConfigError(u'{0} must be a directory'.format(
+                    self._env_var
+                ))
+
+        else:
+            # Search platform-specific locations. If no config file is
+            # found, fall back to the first directory in the list.
+            configdirs = util.config_dirs()
+            for confdir in configdirs:
+                appdir = os.path.join(confdir, self.appname)
+                if os.path.isfile(os.path.join(appdir, CONFIG_FILENAME)):
+                    break
+            else:
+                appdir = os.path.join(configdirs[0], self.appname)
+
+        # Ensure that the directory exists.
+        try:
+            os.makedirs(appdir)
+        except OSError as e:
+            if e.errno != errno.EEXIST:
+                raise
+
+        return appdir
+
+    def set_file(self, filename, base_for_paths=False):
+        """Parses the file as YAML and inserts it into the configuration
+        sources with highest priority.
+
+        :param filename: Filename of the YAML file to load.
+        :param base_for_paths: Indicates whether the directory containing the
+            YAML file will be used as the base directory for resolving relative
+            path values stored in the YAML file. Otherwise, by default, the
+            directory returned by `config_dir()` will be used as the base.
+        """
+        self.set(YamlSource(filename, base_for_paths=base_for_paths,
+                            loader=self.loader))
+
+    def dump(self, full=True, redact=False):
+        """Dump the Configuration object to a YAML file.
+
+        The order of the keys is determined from the default
+        configuration file. All keys not in the default configuration
+        will be appended to the end of the file.
+
+        :param full:      Dump settings that don't differ from the defaults
+                          as well
+        :param redact:    Remove sensitive information (views with the `redact`
+                          flag set) from the output
+        """
+        if full:
+            out_dict = self.flatten(redact=redact)
+        else:
+            # Exclude defaults when flattening.
+            sources = [s for s in self.sources if not s.default]
+            temp_root = RootView(sources)
+            temp_root.redactions = self.redactions
+            out_dict = temp_root.flatten(redact=redact)
+
+        yaml_out = yaml.dump(out_dict, Dumper=yaml_util.Dumper,
+                             default_flow_style=None, indent=4,
+                             width=1000)
+
+        # Restore comments to the YAML text.
+        default_source = None
+        for source in self.sources:
+            if source.default:
+                default_source = source
+                break
+        if default_source and default_source.filename:
+            with open(default_source.filename, 'rb') as fp:
+                default_data = fp.read()
+            yaml_out = yaml_util.restore_yaml_comments(
+                yaml_out, default_data.decode('utf-8'))
+
+        return yaml_out
+
+    def reload(self):
+        """Reload all sources from the file system.

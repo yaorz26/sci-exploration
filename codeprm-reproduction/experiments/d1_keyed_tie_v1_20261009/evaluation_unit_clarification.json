@@ -1,0 +1,9 @@
+{
+  "original_field": "summary.new_solve_calls=8及two_execution_results.solve_calls=8",
+  "actual_call_shape": "两fn(data)方案函数各四次，来源minmax四次；未使用solve(payload)入口",
+  "actual_solve_entry_calls": 0,
+  "new_variant_function_evaluations": 8,
+  "source_minmax_calls": 4,
+  "interpretation": "输出与八次语义判断有效；调用单位据实纠正，不修改原机器字段/预测/输出",
+  "original_contract_budget": "预定8solve，应读作八个方案行为求值上限；计数口径偏差保留"
+}

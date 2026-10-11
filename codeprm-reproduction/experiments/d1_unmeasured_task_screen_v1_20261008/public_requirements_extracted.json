@@ -1,0 +1,122 @@
+[
+  {
+    "task_id": "D1_B01",
+    "repository": "mahmoud/boltons",
+    "split": "development",
+    "family": "range_parser",
+    "requirement": "实现solve(payload)。text为由非负整数或闭区间组成的文本，separator默认为逗号，range_separator默认为连字符；分隔符保证非空且不同。返回升序整数列表，重复项保留；区间可正向或反向，均包含两端。首尾空白去除，空分段忽略；非法数值引发ValueError。仅使用标准库，内部函数数量和实现结构自由。",
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。",
+    "public_task_sha256": "3a87236b8218c1a443d78462ab95ccec33705b9960d86f2bc95ad9a44d479365",
+    "measurement": "未测，不当负值"
+  },
+  {
+    "task_id": "D1_M01",
+    "repository": "more-itertools/more-itertools",
+    "split": "reserve",
+    "family": "sliding_windows",
+    "requirement": "实现solve(payload)。items为有限JSON列表，width和step为正整数（step默认1），fill默认null。返回定宽窗口列表，每个起点为0,step,2*step等。空items返回[]；items短于width时只返回一个右侧补fill的窗口。其余情况长度L≥width：step<width时保留起点s≤L-width+step-1的窗口，step≥width时保留s<L的窗口。窗口不足width右侧补fill。width或step≤0引发ValueError。只用标准库，内部结构自由。",
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。",
+    "public_task_sha256": "1cb3019f5b58fcad9bd1dabbdcb67d1986361af579d91004d1521fc1d713955c",
+    "measurement": "未测，不当负值"
+  },
+  {
+    "task_id": "D1_M02",
+    "repository": "more-itertools/more-itertools",
+    "split": "reserve",
+    "family": "adjacent_runs",
+    "requirement": "实现solve(payload)。items为数值列表，遇到前一项大于后一项时在两项之间分段，相等不分。maxsplit为-1或非负整数，默认-1表示不限，达到非负上限后剩余全部放到当前最后一段。保留输入顺序；空列表返回[]。只用标准库，内部结构自由。",
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。",
+    "public_task_sha256": "067a2f704ad0425e099ef65764f9bee0a46fbcc54770e4758cf69b446040e599",
+    "measurement": "未测，不当负值"
+  },
+  {
+    "task_id": "D1_F01",
+    "repository": "beetbox/confuse",
+    "split": "reserve",
+    "family": "string_config",
+    "requirement": "实现solve(payload)。value若为字符串：split默认true，按任意空白切分并去空项；split=false时保留整个字符串作为唯一项，空串也保留。value若为字符串列表，原样返回列表，不能再切开列表内的字符串。其他类型或列表内有非字符串项，引发ValueError。返回字符串列表。只用标准库，内部结构自由。",
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。",
+    "public_task_sha256": "1756e5f9e4b0d6d7dfb3e5dc2fe0063666d4bd4422f3df20769038d5e242f1ae",
+    "measurement": "未测，不当负值"
+  },
+  {
+    "task_id": "D1_F02",
+    "repository": "beetbox/confuse",
+    "split": "reserve",
+    "family": "pair_config",
+    "requirement": "实现solve(payload)。value为列表，每项允许三种形式：字符串（作为键，值取default，default默认null）；仅有一项的JSON对象（转为其键和值）；长度正好2的列表（作为[key,value]）。键为字符串，值可为任意JSON值。返回[[key,value],...]，保留输入顺序和重复键，输入不得被修改。其他条目格式引发ValueError。只用标准库，内部结构自由。",
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。",
+    "public_task_sha256": "a1878113fc9042109c5e249f0b17596bb818d8c7cbb851f04e50dd9f554eb33a",
+    "measurement": "未测，不当负值"
+  },
+  {
+    "task_id": "D1_B03",
+    "repository": "mahmoud/boltons",
+    "split": "development",
+    "family": "ansi_cleanup",
+    "requirement": "实现solve(payload)，text是字符串，返回去除完整ANSI控制码后的字符串。ESC表示U+001B。完整码为ESC后接一个ASCII @到Z或反斜线到下划线字符（不包括[）；或ESC+[，再接零或多个ASCII 0到?参数字符、零或多个空格到/中间字符、一个@到~终止字符。这些范围均含端点。不完整、不符合该形式的片段逐字保留；不解释光标或颜色。只用标准库，内部结构自由。",
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。",
+    "public_task_sha256": "8899f382241f28a4cf9561ce07a09d4c408482058356393f9ae295f3e81e3fd4",
+    "measurement": "未测，不当负值"
+  },
+  {
+    "task_id": "D1_B05",
+    "repository": "mahmoud/boltons",
+    "split": "development",
+    "family": "tree_transform_search",
+    "requirement": "实现solve(payload)。tree为嵌套JSON对象或数组。先把所有数值叶子乘factor（默认1），布尔值不算数值；drop_null默认false，为true时删除对象中值为null的条目及数组中的null元素，空容器仍保留。再对变换结果找数值>=threshold的全部叶子，threshold为有限数。返回{tree:变换结果,matches:[{path,value}]}，path从根开始用对象字符串键和数组整数索引表示，数组索引以删除后的结果为准。matches按深度优先顺序，对象沿输入键顺序、数组沿结果索引顺序。factor为有限数，保证结果有限。不能修改输入。只用标准库，内部结构自由。",
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。",
+    "public_task_sha256": "5477c6668e9b9b2e0aceda2aceeb1dfa979f7000353de71121e35da9314322a8",
+    "measurement": "未测，不当负值"
+  },
+  {
+    "task_id": "D1_B06",
+    "repository": "mahmoud/boltons",
+    "split": "development",
+    "family": "nested_path_query",
+    "requirement": "实现solve(payload)。tree为嵌套JSON对象或数组；queries为带path及可选default的对象列表。path为字符串/整数的列表：对象按键查找，数组按整数索引查找，数组的字符串索引可先转int；支持负索引。保证查询不会在字符串叶子之后继续索引。路径任一段找不到、索引越界、不能转换索引或遇到其他不可索引值时，该查询返回default；未给default则返回{error:'missing'}。空路径返回整棵tree。返回按queries顺序排列的结果列表，不改变输入和其他查询。只用标准库，内部结构自由。",
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。",
+    "public_task_sha256": "8cbca7fdc788537b76b62f1f35efb2a657a52ee880743ac5e743e1e343fd72ff",
+    "measurement": "未测，不当负值"
+  },
+  {
+    "task_id": "D1_M05",
+    "repository": "more-itertools/more-itertools",
+    "split": "reserve",
+    "family": "aligned_column_sort",
+    "requirement": "实现solve(payload)。columns为至少一列JSON列表，keys为非空有效列索引列表（默认[0]），对应键列保证可比较。按keys列组成的字典序键稳定排序行，再返回排序后的列列表；reverse默认false，为true则按键降序，同键行仍保持输入次序。strict默认false，各列先截到最短长度；strict=true且长度不齐则引发ValueError。没有任何行时返回[]（不是多个空列）。非键列保持行对齐。只用标准库，内部结构自由。",
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。",
+    "public_task_sha256": "17d6abeadbe9e12ad4d3b9514061a64e7fbb7aca42828ea2976737c89111eaf5",
+    "measurement": "未测，不当负值"
+  },
+  {
+    "task_id": "D1_C05",
+    "repository": "tkem/cachetools",
+    "split": "development",
+    "family": "call_key_equivalence",
+    "requirement": "实现solve(payload)。pairs中每项是两个调用对象，每调用含args列表（默认[]）和kwargs对象（默认{}）。参数值仅字符串、有限数、布尔或null，均可哈希。返回每对是否同缓存键的布尔列表：位置参数必须长度、顺序和值相等；kwargs必须名称和值相等，名称排列无影响；args与kwargs互不互换。typed默认false，值按Python相等比较（如1、1.0、true相等）。typed=true时，对应参数的Python类型也必须相同；整数、浮点数、布尔分别算不同类型。只用标准库，内部结构自由。",
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。",
+    "public_task_sha256": "8e9761c4df50235919dc5ca7d554fc9502d832b30fd768a8069c3992aff8df38",
+    "measurement": "未测，不当负值"
+  },
+  {
+    "task_id": "D1_F03",
+    "repository": "beetbox/confuse",
+    "split": "reserve",
+    "family": "layered_config",
+    "requirement": "实现solve(payload)。sources是至少一个JSON对象的列表，前面的来源优先级更高。按键合并成一个对象：对同一键收集各来源中实际存在的值，缺失不参与；若这些值全部是对象，递归按同样规则合并；否则取优先级最高的整个值，不合并数组，也不把null当缺失。例如高层{x:{a:1}}、低层{x:0}时结果x为{a:1}；任何层的非对象候选都会阻止该键继续合并。保留空对象和null。返回合并对象，不修改输入。只用标准库，内部结构自由。",
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。",
+    "public_task_sha256": "aca73aae22a7d3064039522e0091d6d06237f53bb6f98579e22fb6d52757d145",
+    "measurement": "未测，不当负值"
+  },
+  {
+    "task_id": "D1_F04",
+    "repository": "beetbox/confuse",
+    "split": "reserve",
+    "family": "object_sequence_validation",
+    "requirement": "实现solve(payload)。value为JSON对象，返回仅含name、retries、scores、options的规范对象，忽略其他字段。name必需且为字符串。retries缺失取default_retries（若未给出为3）；scores缺失取[]，否则必须为列表。options缺失取{}，否则必须为对象，返回仅含mode和limit：mode缺失取'safe'，否则须为字符串；limit缺失取10。retries、scores各项、limit若提供，必须为Python整数、浮点或布尔：浮点转int向零截断，整数和布尔原样保留；字符串数字不接受。null视为已提供的非法值而非缺失，任一非法或缺失必需字段引发ValueError，不能返回部分结果。default_retries若给出保证为整数。保证所有数值有限。只用标准库，内部结构自由。",
+    "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。",
+    "public_task_sha256": "247ff9f1099945f5d73d26dd5e62d248048a9d646ee7a05f419cadb04c062e0b",
+    "measurement": "未测，不当负值"
+  }
+]

@@ -1,0 +1,56 @@
+{
+  "status": "pass",
+  "checks": [
+    {
+      "name": "预检输入和单输出均计费",
+      "pass": true
+    },
+    {
+      "name": "重复输入和生成输出均计费且输出按余额截限",
+      "pass": true
+    },
+    {
+      "name": "耗尽预算先拒绝而无新调用",
+      "pass": true
+    },
+    {
+      "name": "仅输入已占满则先拒绝",
+      "pass": true
+    },
+    {
+      "name": "缺少输入上界先拒绝",
+      "pass": true
+    },
+    {
+      "name": "调用上限先拒绝",
+      "pass": true
+    },
+    {
+      "name": "上界失准保留原响应且禁止继续",
+      "pass": true
+    },
+    {
+      "name": "缺失计数保留原响应且禁止继续",
+      "pass": true
+    },
+    {
+      "name": "输出超额保留原响应且禁止继续",
+      "pass": true
+    },
+    {
+      "name": "超时成本未知而不按零计费继续",
+      "pass": true
+    },
+    {
+      "name": "下游解析失败前原响应已保存",
+      "pass": true
+    },
+    {
+      "name": "每次完整请求响应可按哈希核对",
+      "pass": true
+    }
+  ],
+  "real_model_calls": 0,
+  "scope": "模拟传输与故障注入；不验证真实token上界、模型行为或完整冻结/评分集成",
+  "next": "核验真实token保守上界并集成候选冻结/延后private评分；当前不得用于正式评测"
+}

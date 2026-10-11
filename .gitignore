@@ -1,11 +1,95 @@
-# WorkBuddy 会话状态（非研究数据，不入库）
-.workbuddy/
+# ============================================================
+# 本仓库的入库原则（新增排除项请写在这里，不要改下面的规则含义）
+#
+#   入库：文档、协议、脚本、以及承载结论的小体量 JSON 证据
+#         （selection_freeze / pool_oracle / candidate_freeze /
+#           quality_summary / metrics / ledger 等）
+#   排除：模型权重、LoRA adapter、虚拟环境、二进制归档、缓存
+#
+#   注意：仓库内多处记录 SHA-256 校验值，git 不得改动文件字节。
+#   请在提交前执行：git config core.autocrlf false
+# ============================================================
 
-# Python 通用
+# ---------- 模型权重（约 20GB，绝不入库）----------
+codeprm-reproduction/models/
+codeprm-reproduction/.cache/
+**/huggingface/
+
+# ---------- 训练产物：LoRA adapter（权重不入库，metrics.json 值得入库）----------
+codeprm-reproduction/outputs/models/*/adapter_model.safetensors
+codeprm-reproduction/outputs/models/*/*.safetensors
+# 若确定所有 adapter 都不需要留档，可改为下面一行（连同 metrics.json 一并排除）
+# codeprm-reproduction/outputs/models/
+
+# ---------- 二进制归档（含 docs/ 下的 pdftext 等子目录）----------
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.7z
+
+# ---------- 虚拟环境 ----------
+# 注意：绝对不要写 `Scripts/`、`lib/`、`include/` 这类裸目录名。
+# Windows 上 git 的路径匹配大小写不敏感，`/Scripts/` 会把
+# `scripts/check_governance_integrity.py` 和 `codeprm-reproduction/scripts/` 一起吞掉。
+.venv/
+.venv*/
+venv/
+*/venv/
+env/
+# 虚拟环境自身的可执行文件：逐条写全，不用通配
+codeprm-reproduction/.venv_apps/Scripts/
+codeprm-reproduction/.venv_funprm/Scripts/
+codeprm-reproduction/.venvs/bigcodebench_fast0/Scripts/
+codeprm-reproduction/.venvs/wsl_py310/bin/
+/lib64
+/lib/python*/
+/include/python*/
+
+# ---------- 本机包管理与数据缓存（pip/nltk 下载物，约 90MB+）----------
+.cache/
+
+# ---------- 上游第三方仓库（自带 .git，逐仓库许可不同；如要入库需单独立项决定）----------
+codeprm-reproduction/data/raw/d1_project_v1_20261008/repositories/
+
+# ---------- 大体积运行产物（GitHub 单文件硬上限 100MB，必须先挡在门外）----------
+# 逐条列出而不是按目录整排除：结论级的小 JSON 证据要继续入库，
+# 只有真正超大的原始评测转储才留在本地。
+codeprm-reproduction/data/processed/funprm_label_calibration_20260924/confirmation_a30_functionized_qwen25coder_7b_n10_seed20261224_v1_evaluations.jsonl
+codeprm-reproduction/data/processed/funprm_label_calibration_20260924/confirmation_a30_functionized_qwen25coder_7b_n10_seed20261224_v2_evaluations.jsonl
+codeprm-reproduction/data/processed/p5b_hard20_m1_plan_qwen25coder_7b_n2_seed42_v1_pool_oracle.json
+codeprm-reproduction/data/processed/p5b_hard20_m1_plan_qwen25coder_7b_n2_seed42_v1_evaluations.jsonl
+codeprm-reproduction/data/processed/p5b_hard20_m2b_json_qwen25coder_7b_d2_i2_c8_seed42_v5_full_space_oracle.json
+codeprm-reproduction/data/processed/p5b_hard20_m2b_json_qwen25coder_7b_d2_i2_c8_seed42_v1_pool_oracle.json
+codeprm-reproduction/data/processed/p5b_hard20_m2b_json_qwen25coder_7b_d2_i2_c8_seed42_v2_api_revalidated_recombinations.jsonl
+codeprm-reproduction/data/processed/p5b_hard20_m2b_json_qwen25coder_7b_d2_i2_c8_seed42_v1_recombinations.jsonl
+codeprm-reproduction/data/processed/p5b_hard20_m2b_json_qwen25coder_7b_d2_i2_c8_seed42_v3_helper_io_gate_replay.json
+codeprm-reproduction/data/processed/p5b_hard20_m0_direct_qwen25coder_7b_n2_seed42_v1_pool_oracle.json
+codeprm-reproduction/data/processed/codeprm_continuation_train50_seed42_deployment_aligned.jsonl
+codeprm-reproduction/data/processed/codeprm_continuation_train50_seed42.jsonl
+
+# ---------- Python / 工具缓存 ----------
 __pycache__/
 *.py[cod]
+*.egg-info/
 .pytest_cache/
+.ipynb_checkpoints/
 
-# 系统杂项
+# ---------- 本机临时与运行时数据 ----------
+*.log
+*.tmp
+*.part
+ollama_models/
+.tmp/
+tmp/
+
+# ---------- 会话与编辑器状态（非研究数据）----------
+.workbuddy/
+.agents/
+.vscode/
+.idea/
+
+# ---------- 系统杂项 ----------
 Thumbs.db
 .DS_Store
+desktop.ini

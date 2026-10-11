@@ -1,0 +1,25 @@
+[
+  {
+    "task_id": "D1_B03",
+    "arm": "M0",
+    "request_directory": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_allin_native_smoke_b03_v1_20261008\\candidates\\D1_B03\\M0\\requests",
+    "call_id": "001",
+    "stage": "whole",
+    "simulated": false,
+    "prompt_token_upper_bound": 391,
+    "assigned_output_cap": 128,
+    "status": "completed",
+    "cost_status": "known",
+    "request": {
+      "path": "001_request.json",
+      "sha256": "533c0ae0306ad11a8022a784c584286068a941d2adb8edcfe858043f60a8c90c"
+    },
+    "response": {
+      "path": "001_response.json",
+      "sha256": "39e8b12e9af3a2f5ab42ab77bda909d06682f8a66aabd19af74b68335d8d4db4"
+    },
+    "prompt_tokens": 391,
+    "output_tokens": 128,
+    "seconds": 7.463314000000537
+  }
+]

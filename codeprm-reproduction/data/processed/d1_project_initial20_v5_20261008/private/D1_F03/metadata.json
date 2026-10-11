@@ -1,0 +1,64 @@
+{
+  "task_id": "D1_F03",
+  "name": "分层配置的递归优先级合并",
+  "source": {
+    "repository": "beetbox/confuse",
+    "commit": "bf42783301ac4e9c640328ec95486952fd599ce6",
+    "license": "MIT",
+    "file": "confuse/core.py",
+    "symbol": "ConfigView",
+    "line": 68,
+    "source_sha256": "487ceea31cd258e7aaf91ab6509b81be0491cfc42d69086bb0c46275c9fc96b3",
+    "license_sha256": "0b308ae66aaa1412ebbe645bec4002fd262d91e9cdf67b6f198026677ddfafcc",
+    "contamination_risk": "unknown",
+    "additional_symbols": [
+      {
+        "file": "confuse/core.py",
+        "symbol": "RootView",
+        "line": 407,
+        "source_sha256": "487ceea31cd258e7aaf91ab6509b81be0491cfc42d69086bb0c46275c9fc96b3"
+      },
+      {
+        "file": "confuse/sources.py",
+        "symbol": "ConfigSource",
+        "line": 13,
+        "source_sha256": "93a31e455cf71901734cd3030ee212d37f55346e49de93163c0e83ff4d7baa43"
+      }
+    ]
+  },
+  "requirement_origin": "上游公开API文档/说明为主，适配器范围与边界补充；已查看实现，需独立泄漏审查",
+  "adaptation": "统一JSON入口和返回值，保留所选功能；不作为完整仓库任务",
+  "split": "reserve",
+  "structure": {
+    "kind": "pipeline",
+    "shared_state": "none",
+    "dependency_evidence": "各路径候选类型和来源优先级共同决定合并或整体覆盖",
+    "independent_test_evidence": "候选收集与节点选择可分别写出行为契约",
+    "status": "单人预标注，尚未取得独立一致性统计"
+  },
+  "function_family": "layered_config",
+  "public_cases": 2,
+  "private_cases": 12,
+  "status": "候选原型，非冻结确认集",
+  "authoring_seed": 20261008,
+  "structure_v2": {
+    "schema_version": "0.2",
+    "cross_operation_state": "none",
+    "state_scope": "none",
+    "behavior_dependencies": [
+      "ordered_transform",
+      "branch_rules"
+    ],
+    "separate_behavior_testability": "yes",
+    "evidence": "每键候选收集→全对象递归或整体优先覆盖；不要求内部阶段",
+    "status": "单人初标；依据外部契约，未取得独立人工一致性统计",
+    "legacy_author_description": {
+      "kind": "pipeline",
+      "shared_state": "none",
+      "dependency_evidence": "各路径候选类型和来源优先级共同决定合并或整体覆盖",
+      "independent_test_evidence": "候选收集与节点选择可分别写出行为契约",
+      "status": "单人预标注，尚未取得独立一致性统计"
+    }
+  },
+  "related_families": []
+}

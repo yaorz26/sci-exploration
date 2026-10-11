@@ -1,0 +1,402 @@
+[
+  {
+    "task_id": "D1_B01",
+    "source": "mahmoud/boltons",
+    "profile": {
+      "behavior_dependencies": [
+        "ordered_transform"
+      ],
+      "state_scope": "none",
+      "separate_behavior_testability": "yes"
+    },
+    "public_task_sha256": "3a87236b8218c1a443d78462ab95ccec33705b9960d86f2bc95ad9a44d479365",
+    "base_prompt_tokens": 366,
+    "M0_input": 383,
+    "M2_input": 2020,
+    "M0_remainder_upper": 6117,
+    "M2_remainder_upper": 4480,
+    "extra_input_M2_minus_M0": 1637,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 425
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 536
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 549
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 510
+      }
+    ]
+  },
+  {
+    "task_id": "D1_B02",
+    "source": "mahmoud/boltons",
+    "profile": {
+      "behavior_dependencies": [
+        "operation_sequence"
+      ],
+      "state_scope": "global",
+      "separate_behavior_testability": "partial"
+    },
+    "public_task_sha256": "03114c8a5a77cb3e805b2ac2f57d0f41519923d8d8ecd0832989be14e84dc377",
+    "base_prompt_tokens": 677,
+    "M0_input": 694,
+    "M2_input": 3264,
+    "M0_remainder_upper": 5806,
+    "M2_remainder_upper": 3236,
+    "extra_input_M2_minus_M0": 2570,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 736
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 847
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 860
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 821
+      }
+    ]
+  },
+  {
+    "task_id": "D1_C01",
+    "source": "tkem/cachetools",
+    "profile": {
+      "behavior_dependencies": [
+        "operation_sequence"
+      ],
+      "state_scope": "global",
+      "separate_behavior_testability": "partial"
+    },
+    "public_task_sha256": "3ed6b16f853e545b3a54d1fcd20734b56ca6185caf883b023d07e26ac260b39b",
+    "base_prompt_tokens": 706,
+    "M0_input": 723,
+    "M2_input": 3380,
+    "M0_remainder_upper": 5777,
+    "M2_remainder_upper": 3120,
+    "extra_input_M2_minus_M0": 2657,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 765
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 876
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 889
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 850
+      }
+    ]
+  },
+  {
+    "task_id": "D1_C02",
+    "source": "tkem/cachetools",
+    "profile": {
+      "behavior_dependencies": [
+        "operation_sequence"
+      ],
+      "state_scope": "global",
+      "separate_behavior_testability": "partial"
+    },
+    "public_task_sha256": "c9ad3531f074c655a5fd98c8779402a277dd321674faf84894eaf386a3e8f8a2",
+    "base_prompt_tokens": 715,
+    "M0_input": 732,
+    "M2_input": 3416,
+    "M0_remainder_upper": 5768,
+    "M2_remainder_upper": 3084,
+    "extra_input_M2_minus_M0": 2684,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 774
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 885
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 898
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 859
+      }
+    ]
+  },
+  {
+    "task_id": "D1_B03",
+    "source": "mahmoud/boltons",
+    "profile": {
+      "behavior_dependencies": [
+        "direct"
+      ],
+      "state_scope": "none",
+      "separate_behavior_testability": "no"
+    },
+    "public_task_sha256": "8899f382241f28a4cf9561ce07a09d4c408482058356393f9ae295f3e81e3fd4",
+    "base_prompt_tokens": 374,
+    "M0_input": 391,
+    "M2_input": 2052,
+    "M0_remainder_upper": 6109,
+    "M2_remainder_upper": 4448,
+    "extra_input_M2_minus_M0": 1661,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 433
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 544
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 557
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 518
+      }
+    ]
+  },
+  {
+    "task_id": "D1_B04",
+    "source": "mahmoud/boltons",
+    "profile": {
+      "behavior_dependencies": [
+        "operation_sequence",
+        "ordered_transform"
+      ],
+      "state_scope": "global",
+      "separate_behavior_testability": "yes"
+    },
+    "public_task_sha256": "47b39de3c762b029162b30512cd201e60b7b2e71f6d55404320ca9ce61bd63b1",
+    "base_prompt_tokens": 662,
+    "M0_input": 679,
+    "M2_input": 3204,
+    "M0_remainder_upper": 5821,
+    "M2_remainder_upper": 3296,
+    "extra_input_M2_minus_M0": 2525,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 721
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 832
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 845
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 806
+      }
+    ]
+  },
+  {
+    "task_id": "D1_B05",
+    "source": "mahmoud/boltons",
+    "profile": {
+      "behavior_dependencies": [
+        "ordered_transform"
+      ],
+      "state_scope": "none",
+      "separate_behavior_testability": "yes"
+    },
+    "public_task_sha256": "5477c6668e9b9b2e0aceda2aceeb1dfa979f7000353de71121e35da9314322a8",
+    "base_prompt_tokens": 513,
+    "M0_input": 530,
+    "M2_input": 2608,
+    "M0_remainder_upper": 5970,
+    "M2_remainder_upper": 3892,
+    "extra_input_M2_minus_M0": 2078,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 572
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 683
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 696
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 657
+      }
+    ]
+  },
+  {
+    "task_id": "D1_B06",
+    "source": "mahmoud/boltons",
+    "profile": {
+      "behavior_dependencies": [
+        "branch_rules",
+        "direct"
+      ],
+      "state_scope": "none",
+      "separate_behavior_testability": "no"
+    },
+    "public_task_sha256": "8cbca7fdc788537b76b62f1f35efb2a657a52ee880743ac5e743e1e343fd72ff",
+    "base_prompt_tokens": 480,
+    "M0_input": 497,
+    "M2_input": 2476,
+    "M0_remainder_upper": 6003,
+    "M2_remainder_upper": 4024,
+    "extra_input_M2_minus_M0": 1979,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 539
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 650
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 663
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 624
+      }
+    ]
+  },
+  {
+    "task_id": "D1_C03",
+    "source": "tkem/cachetools",
+    "profile": {
+      "behavior_dependencies": [
+        "branch_rules",
+        "operation_sequence"
+      ],
+      "state_scope": "global",
+      "separate_behavior_testability": "yes"
+    },
+    "public_task_sha256": "d5399e4a7d2ff1ee585c2c8ec78831ebfb46723e07e25c7d91da584fc39dabb3",
+    "base_prompt_tokens": 702,
+    "M0_input": 719,
+    "M2_input": 3364,
+    "M0_remainder_upper": 5781,
+    "M2_remainder_upper": 3136,
+    "extra_input_M2_minus_M0": 2645,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 761
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 872
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 885
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 846
+      }
+    ]
+  },
+  {
+    "task_id": "D1_C04",
+    "source": "tkem/cachetools",
+    "profile": {
+      "behavior_dependencies": [
+        "operation_sequence"
+      ],
+      "state_scope": "partitioned",
+      "separate_behavior_testability": "partial"
+    },
+    "public_task_sha256": "250b236499c1c180c76ac44b1254dd9d215e2b20485bc55482cf7dc365001afa",
+    "base_prompt_tokens": 750,
+    "M0_input": 767,
+    "M2_input": 3556,
+    "M0_remainder_upper": 5733,
+    "M2_remainder_upper": 2944,
+    "extra_input_M2_minus_M0": 2789,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 809
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 920
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 933
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 894
+      }
+    ]
+  },
+  {
+    "task_id": "D1_C05",
+    "source": "tkem/cachetools",
+    "profile": {
+      "behavior_dependencies": [
+        "branch_rules",
+        "direct"
+      ],
+      "state_scope": "none",
+      "separate_behavior_testability": "no"
+    },
+    "public_task_sha256": "8e9761c4df50235919dc5ca7d554fc9502d832b30fd768a8069c3992aff8df38",
+    "base_prompt_tokens": 512,
+    "M0_input": 529,
+    "M2_input": 2604,
+    "M0_remainder_upper": 5971,
+    "M2_remainder_upper": 3896,
+    "extra_input_M2_minus_M0": 2075,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 571
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 682
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 695
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 656
+      }
+    ]
+  }
+]

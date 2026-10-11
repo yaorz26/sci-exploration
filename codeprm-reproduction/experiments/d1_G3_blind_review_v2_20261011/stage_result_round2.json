@@ -1,0 +1,31 @@
+{
+  "phase": "G3",
+  "stage_name": "隔离独立审查（第二轮）与需求 v3 修订",
+  "created_at": "2026-10-11T12:15:00Z",
+  "purpose": "核验第一轮指认的 16 条缺陷是否被 v2 修订真正解决",
+  "method": "两份审查输入逐字节相同（SHA256 c8d4b37b…），两位隔离审查者各自只读自己那份；文件内附第一轮缺陷清单供逐条核验",
+  "headline_result": {
+    "round1_raw_agreement": 0.40,
+    "round2_raw_agreement": 0.65,
+    "round1_kappa_estimate": 0.0514,
+    "round2_kappa_estimate": 0.4488,
+    "flagged_resolution": {"reviewer_A": "14/16", "reviewer_B": "15/16"},
+    "rejection": {"T1": "均不拒收", "T2": "A 拒收 / B 不拒收", "T3": "均不拒收", "T4": "均不拒收", "T5": "均不拒收"},
+    "interpretation": "修订显著改善了可判定性（一致率 0.40→0.65，kappa 0.05→0.45），但两位审查者仍就 T2 是否拒收存在分歧；按纪律保留分歧，不做多数表决。"
+  },
+  "new_defects_surfaced_by_revision": [
+    {"task": "T1", "defect": "签名固定为 default=None 与‘未给 default 抛 IndexError’自相矛盾（A、B 独立指出）", "fix": "v3 改为哨兵 default=_MISSING，并补最小调用序列", "status": "已修"},
+    {"task": "T2", "defect": "两种用途的可保留字符被写成同一集合，差异只剩空格，出现‘白名单列 vs 空格处理列’两种相反读法；A 据此拒收", "fix": "v3 改为逐字符规则表（未保留/子分隔符/分隔符/空格/其余 ASCII/非 ASCII 六类），并补已有 %XX、字面 %、# 的处理与 5 行最小判定例", "status": "已修"},
+    {"task": "T3", "defect": "正文没有任何异常条款，而修订说明自称已明确异常（A 指出）", "fix": "v3 新增六行‘域外行为约定表’", "status": "已修"},
+    {"task": "T5", "defect": "cwd 一名两义：术语表写‘进程工作目录’，正文却用 Filename(cwd=…) 且让模板 cwd 压过其它开关（A 指出）", "fix": "v3 拆成‘模板 cwd’与‘进程当前工作目录’两条并注明判定表次序", "status": "已修"}
+  ],
+  "remaining_concerns_minor": [
+    "T4：需求正文未内嵌公开用例，‘公开用例已显式给出 keyfunc/valuefunc’只能在需求外验证（A 指出）",
+    "T2 第二轮未被 B 拒收，但 B 同样指出字符集问题；两位对 T2 的严重度判断不同",
+    "T3：父键类型冲突只排除一半；‘当前最高优先级’相对调用方直接写的值无口径（B 指出）"
+  ],
+  "notes_on_tooling": "A 在第二轮遇到 read 工具对单字段的 2000 字符截断，自行改用 PowerShell 读取同一文件的同一字段补齐并声明；导出脚本本身未截断（T5 全文 2727 字符在文件内完整）",
+  "cost": {"model_calls": 0, "subagent_reviews": 2, "human_reviews": 0},
+  "not_human": "两位审查者为同一模型家族的隔离子代理，不得计入人工双审；formal_labels/split 保持 null",
+  "next": "T1/T2/T3/T5 已出 v3；若要继续提升可判定性，需做第三轮复核并处理 T4 的用例内嵌问题"
+}

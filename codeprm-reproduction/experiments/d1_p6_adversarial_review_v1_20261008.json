@@ -1,0 +1,19 @@
+{
+  "status": "非独立第二遍反向审计",
+  "formal_ready": false,
+  "checks": [
+    {"name":"blind_packet_field_isolation","result":"pass","evidence":"requirements只有盲号、需求、入口、公开例和通用契约；无source/function_family/split/structure/task_id字段"},
+    {"name":"cost_ledger_reproducibility","result":"pass","evidence":"两轮summary、freeze、call_ledger和预检计数逐项一致"},
+    {"name":"strict_equal_total_budget","result":"not_yet","evidence":"既有成本探针把预检从每臂6500生成token预算中单列；正式草案要求预检也计入总预算"},
+    {"name":"source_split_balance","result":"fail","evidence":"development/reserve与四个仓库完全重合"},
+    {"name":"function_family_replication","result":"fail","evidence":"20个function_family各只出现1次"},
+    {"name":"independent_structure_truth","result":"fail","evidence":"两份人工审查表尚未回收，当前人工判定为0"},
+    {"name":"literature_coverage","result":"partial","evidence":"已有FEA-Bench/FeatureBench矩阵；本轮在线入口两次HTTP500，未通读全文"}
+  ],
+  "residual_risks": [
+    "需求语义本身可能让熟悉上游API的审查员猜出来源，机器术语检查不能证明完全盲化",
+    "当前20题可交付为候选数据集，但不能作为结构因素因果边界确认集",
+    "现有成本探针的等预算仅约束实际生成请求，不等于把预检也计入后的严格总成本公平"
+  ],
+  "next_gate": "两位人类独立双审、来源×结构×切分覆盖重做、总预算烟测"
+}

@@ -1,0 +1,259 @@
+{
+  "created_at": "2026-10-11T05:00:08.225182+00:00",
+  "question": "PR126直接入口是接口覆盖条件还是结构变量？",
+  "source_kind": "read_only_source_line_mapping",
+  "records": {
+    "control": [
+      {
+        "file": "workspaces\\control\\confuse\\sources.py",
+        "sha256": "c8cd686455de65ef288f2f9b9a299d4cdcc3d7a13e3163bebc20bef32a64c666",
+        "hits": [
+          {
+            "evidence": "direct_yaml_constructor",
+            "lines": [
+              63
+            ]
+          },
+          {
+            "evidence": "base_state_assignment",
+            "lines": [
+              13,
+              21,
+              25,
+              35,
+              42
+            ]
+          }
+        ]
+      },
+      {
+        "file": "workspaces\\control\\confuse\\core.py",
+        "sha256": "ee4bd4326e3d11628263764a983237be503ebab10d8f798d5380ccc6ce04e590",
+        "hits": [
+          {
+            "evidence": "base_state_assignment",
+            "lines": [
+              652,
+              657,
+              664
+            ]
+          },
+          {
+            "evidence": "set_file_entry",
+            "lines": [
+              652
+            ]
+          },
+          {
+            "evidence": "set_file_yaml_call",
+            "lines": [
+              592,
+              602,
+              662
+            ]
+          }
+        ]
+      },
+      {
+        "file": "workspaces\\control\\confuse\\templates.py",
+        "sha256": "2714114575a7ef0c715eb90dc623e2f03291214f7d19ba7b7f348eda61f71f9f",
+        "hits": [
+          {
+            "evidence": "base_state_assignment",
+            "lines": [
+              468,
+              589
+            ]
+          },
+          {
+            "evidence": "filename_value",
+            "lines": [
+              57,
+              157,
+              180,
+              206,
+              328,
+              563,
+              609,
+              638
+            ]
+          },
+          {
+            "evidence": "filename_source_first",
+            "lines": [
+              64,
+              565,
+              640
+            ]
+          }
+        ]
+      }
+    ],
+    "complete": [
+      {
+        "file": "workspaces\\complete\\confuse\\sources.py",
+        "sha256": "b9d89a32b5cacdd23982538e4429eedaaf779ad167d1321cb7fb6cbee76df92a",
+        "hits": [
+          {
+            "evidence": "direct_yaml_constructor",
+            "lines": [
+              63
+            ]
+          },
+          {
+            "evidence": "base_state_assignment",
+            "lines": [
+              13,
+              21,
+              25,
+              35,
+              42,
+              63,
+              73
+            ]
+          }
+        ]
+      },
+      {
+        "file": "workspaces\\complete\\confuse\\core.py",
+        "sha256": "57c720d3dfd0235a0f434471de28ef000bfec9c8020eafb81d9ffbbab5e44466",
+        "hits": [
+          {
+            "evidence": "base_state_assignment",
+            "lines": [
+              652,
+              657,
+              662
+            ]
+          },
+          {
+            "evidence": "set_file_entry",
+            "lines": [
+              652
+            ]
+          },
+          {
+            "evidence": "set_file_yaml_call",
+            "lines": [
+              592,
+              602,
+              662
+            ]
+          }
+        ]
+      },
+      {
+        "file": "workspaces\\complete\\confuse\\templates.py",
+        "sha256": "2714114575a7ef0c715eb90dc623e2f03291214f7d19ba7b7f348eda61f71f9f",
+        "hits": [
+          {
+            "evidence": "base_state_assignment",
+            "lines": [
+              468,
+              589
+            ]
+          },
+          {
+            "evidence": "filename_value",
+            "lines": [
+              57,
+              157,
+              180,
+              206,
+              328,
+              563,
+              609,
+              638
+            ]
+          },
+          {
+            "evidence": "filename_source_first",
+            "lines": [
+              64,
+              565,
+              640
+            ]
+          }
+        ]
+      }
+    ],
+    "alternative": [
+      {
+        "file": "workspaces\\alternative\\confuse\\sources.py",
+        "sha256": "2db40f643fc6e93569d8ab9e4bf4b067ab87f4e6563e68080c2a50866814d9f9",
+        "hits": [
+          {
+            "evidence": "direct_yaml_constructor",
+            "lines": [
+              45
+            ]
+          }
+        ]
+      },
+      {
+        "file": "workspaces\\alternative\\confuse\\core.py",
+        "sha256": "24ce55bef50eb8438941e9f92e283bd1749f5e47b0079213bb59f09ad0c1052c",
+        "hits": [
+          {
+            "evidence": "set_file_entry",
+            "lines": [
+              652
+            ]
+          },
+          {
+            "evidence": "set_file_yaml_call",
+            "lines": [
+              592,
+              602,
+              656
+            ]
+          }
+        ]
+      },
+      {
+        "file": "workspaces\\alternative\\confuse\\templates.py",
+        "sha256": "d200a9f3e7cf070dc392f23bd6a3b25a30655f08d81f3805dc2b875c332fb910",
+        "hits": [
+          {
+            "evidence": "filename_value",
+            "lines": [
+              57,
+              157,
+              180,
+              206,
+              328,
+              552,
+              593,
+              622
+            ]
+          },
+          {
+            "evidence": "filename_source_first",
+            "lines": [
+              64,
+              554,
+              624
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "cross_workspace_observation": {
+    "external_direct_yaml_obligation": "observed_by_219_result",
+    "set_file_and_direct_entry": "both_public_entries_exist_or_are_tested_in_complete/alternative; control intentionally splits them",
+    "common_parse_observation": "all three route a source object to Filename.value in the inspected files; exact state ownership remains unknown"
+  },
+  "conclusion": "该反例首先证明接口覆盖缺口；现有源码映射不足以把多入口编码成阶段依赖或共享状态轴。结构字段保留unknown，PR126新增锚点标为外部API验收条件。",
+  "excluded_claims": [
+    "因果结构效应",
+    "所有合法实现共享同一内部链路",
+    "全域API完备",
+    "模型或人工效果"
+  ],
+  "model_calls": 0,
+  "behavior_calls": 0,
+  "human_reviews": 0,
+  "formal_labels": null,
+  "split": null
+}

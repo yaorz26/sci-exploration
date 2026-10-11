@@ -1,0 +1,88 @@
+[
+  {
+    "task_id": "D1_B03",
+    "arm": "M0",
+    "predefined_task_denominator": 1,
+    "main_whole_task_Y": 0,
+    "candidate_saved": true,
+    "behavior_scored_candidate_count": 1,
+    "result_status": "behavior_scored_candidate_failed",
+    "generation_error": null,
+    "stage_requests_observed": [
+      "whole"
+    ],
+    "helper_plan_text_exists": false,
+    "actual_generated_plan_state_graph": "本阶段未分析，不能由存在代码就补标签",
+    "splits": {
+      "public": {
+        "assigned_case_count": 2,
+        "strategy_score_passed_count": 0,
+        "scoring_placeholder_for_generation_failure": false,
+        "actual_behavior_case_evaluations": 2,
+        "actual_behavior_passed": 0,
+        "conditional_behavior_fraction": {
+          "numerator": 0,
+          "denominator": 2
+        },
+        "main_whole_task_Y": 0
+      },
+      "private": {
+        "assigned_case_count": 12,
+        "strategy_score_passed_count": 5,
+        "scoring_placeholder_for_generation_failure": false,
+        "actual_behavior_case_evaluations": 12,
+        "actual_behavior_passed": 5,
+        "conditional_behavior_fraction": {
+          "numerator": 5,
+          "denominator": 12
+        },
+        "main_whole_task_Y": 0
+      }
+    },
+    "actual_total_tokens": 640,
+    "budget_limit": 6500,
+    "cost_status": "known",
+    "API_calls_saved": 1
+  },
+  {
+    "task_id": "D1_B03",
+    "arm": "M2",
+    "predefined_task_denominator": 1,
+    "main_whole_task_Y": 0,
+    "candidate_saved": false,
+    "behavior_scored_candidate_count": 0,
+    "result_status": "strategy_failed_before_candidate",
+    "generation_error": "ValueError: completion changed frozen function names",
+    "stage_requests_observed": [
+      "plan",
+      "helper_1",
+      "helper_2"
+    ],
+    "helper_plan_text_exists": true,
+    "actual_generated_plan_state_graph": "unknown_not_none",
+    "splits": {
+      "public": {
+        "assigned_case_count": 2,
+        "strategy_score_passed_count": 0,
+        "scoring_placeholder_for_generation_failure": true,
+        "actual_behavior_case_evaluations": 0,
+        "actual_behavior_passed": null,
+        "conditional_behavior_fraction": null,
+        "main_whole_task_Y": 0
+      },
+      "private": {
+        "assigned_case_count": 12,
+        "strategy_score_passed_count": 0,
+        "scoring_placeholder_for_generation_failure": true,
+        "actual_behavior_case_evaluations": 0,
+        "actual_behavior_passed": null,
+        "conditional_behavior_fraction": null,
+        "main_whole_task_Y": 0
+      }
+    },
+    "actual_total_tokens": 1850,
+    "budget_limit": 6500,
+    "cost_status": "known",
+    "API_calls_saved": 3
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "model": "qwen2.5-coder:7b",
+  "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n只输出OK。以下是待计量的混合文本，无须执行：\nEnglish + 中文 + 🧪\ndef solve(payload):\n    return {\"value\": payload, \"tuple\": [1, 2]}\n特殊词：<|fim_prefix|>abc<|fim_suffix|>xyz<|fim_middle|><|im_end|>\n<|im_start|>assistant\n",
+  "stream": false,
+  "options": {
+    "temperature": 0,
+    "seed": 20261008,
+    "num_ctx": 8192,
+    "num_predict": 1
+  },
+  "raw": true
+}

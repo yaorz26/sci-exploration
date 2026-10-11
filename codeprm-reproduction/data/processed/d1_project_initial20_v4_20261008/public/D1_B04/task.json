@@ -1,0 +1,61 @@
+{
+  "task_id": "D1_B04",
+  "requirement": "实现solve(payload)。query为不带问号的查询字符串，按&或;分段，忽略空段；每段只在第一个=处切开，没有=或=后为空时值为null。键和值将+解为空格、%HH按UTF-8解码；保证百分号与UTF-8合法。保留重复键和全局顺序。operations依次add(key,value)末尾追加；set删除该键全部旧项再末尾追加；delete删除该键全部项，缺失无操作。操作key为字符串，value为字符串或null。返回{pairs,query}：pairs为编辑后[key,value]列表，query用&连接；null只写键，空字符串写key=。编码前各字符串做Unicode NFC规范化；ASCII字母数字及~-._!$'()*,;/:?@原样，其他字符用大写%HH编码UTF-8；空格为%20。pairs保留未规范化的解码/编辑原值。只用标准库，内部结构自由。",
+  "entry_point": "solve(payload)",
+  "language": "Python",
+  "allowed_libraries": "仅Python标准库",
+  "public_examples": [
+    {
+      "input": {
+        "query": "a=1&a=2;flag&x=",
+        "operations": [
+          {
+            "op": "set",
+            "key": "a",
+            "value": "x y"
+          }
+        ]
+      },
+      "output": {
+        "pairs": [
+          [
+            "flag",
+            null
+          ],
+          [
+            "x",
+            null
+          ],
+          [
+            "a",
+            "x y"
+          ]
+        ],
+        "query": "flag&x&a=x%20y"
+      }
+    },
+    {
+      "input": {
+        "query": "",
+        "operations": [
+          {
+            "op": "add",
+            "key": "q",
+            "value": ""
+          }
+        ]
+      },
+      "output": {
+        "pairs": [
+          [
+            "q",
+            ""
+          ]
+        ],
+        "query": "q="
+      }
+    }
+  ],
+  "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。",
+  "internal_decomposition": "自由选择，不给定helper名称或数量"
+}

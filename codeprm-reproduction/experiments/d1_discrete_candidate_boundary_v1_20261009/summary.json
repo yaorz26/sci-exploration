@@ -1,0 +1,269 @@
+{
+  "created_at": "2026-10-09T02:33:40.866679+00:00",
+  "task_id": "E_B09",
+  "results": {
+    "whole": {
+      "cases": 12,
+      "passed": 12,
+      "all_pass": true,
+      "results": [
+        {
+          "case_id": "mixed_integer_first",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "mixed_string_first",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "empty_bool_default",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "empty_null_default",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "empty_string_default",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "single_string",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "reject_bool_item",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "reject_float_item",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "reject_list_item",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "reject_non_list",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "reject_missing_data",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "reject_object_default",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        }
+      ],
+      "execution_seconds": 0.10358249999990221,
+      "captured_output_bytes": 1122
+    },
+    "helpers": {
+      "cases": 12,
+      "passed": 12,
+      "all_pass": true,
+      "results": [
+        {
+          "case_id": "mixed_integer_first",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "mixed_string_first",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "empty_bool_default",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "empty_null_default",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "empty_string_default",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "single_string",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "reject_bool_item",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "reject_float_item",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "reject_list_item",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "reject_non_list",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "reject_missing_data",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "reject_object_default",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        }
+      ],
+      "execution_seconds": 0.1631797000000006,
+      "captured_output_bytes": 1122
+    },
+    "source_adapter": {
+      "cases": 12,
+      "passed": 12,
+      "all_pass": true,
+      "results": [
+        {
+          "case_id": "mixed_integer_first",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "mixed_string_first",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "empty_bool_default",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "empty_null_default",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "empty_string_default",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "single_string",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "reject_bool_item",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "reject_float_item",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "reject_list_item",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "reject_non_list",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "reject_missing_data",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "reject_object_default",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        }
+      ],
+      "execution_seconds": 0.1019268000000011,
+      "captured_output_bytes": 1122
+    }
+  },
+  "new_task_calls": 36,
+  "all_36_pass": true,
+  "valid_inputs": 6,
+  "invalid_inputs": 6,
+  "new_old_six_calls": 0,
+  "scope": "三结构共有边界guard；有效域算法不同，上游适配提供有限来源一致性；未证全域/人工/模型效果",
+  "model_calls": 0,
+  "API_calls": 0,
+  "hidden_reads": 0,
+  "initial20_modified": false,
+  "candidate_files": {
+    "helpers.py": "87dfb7eb6e36ff5364a01706b300e547f4debec25494fd6198bbc7f17d1ee403",
+    "public_diagnostics.json": "2a74e77b4e355729c9424f07dc507a629d7bb380514f12c59c4190ceb60ed6dc",
+    "requirements.md": "1a1653b82eb4c9361b6977cebfed416417c3d5a3bcac5bfa543bbab6a105845c",
+    "source_adapter.py": "d8246ad07b64fb174925e76660249f78b3c919ffec486d796a409673704addc9",
+    "task.json": "e9453050db88c268a36254c8e601f3bf7a3e543868ac9ca506947ac7a63d7f96",
+    "whole.py": "afb6b27b1058b89faeea7c6027858fe8989ddb934482b46bf9a9c7ff40c603e2",
+    "sources\\LICENSE": "c301912653a8d8c99eab6212aa3aea8d164ea249d8ad53c941e0558a0a5ac1e3",
+    "sources\\statsutils.py": "0c4d05a17b14244a880e5047c1823d1e1e522e6c5ee76c6b47f54d8bde791e68"
+  }
+}

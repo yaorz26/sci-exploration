@@ -15,6 +15,7 @@
 | `failure_taxonomy.py` | 失败分类统计 | `研究方向_第二轮_从对话记录提取.md` |
 | `build_observation_material.py` | v1 版素材脚本（已被 v2 取代，保留作历史） | — |
 | `check_split.py` / `select_problems.py` / `inspect_records.py` / `reproduce_baselines.py` | 数据检查、选题与记录检查的辅助脚本 | — |
+| `extract_extra_pdfs.py` | 用 pypdf 把 `articles/extra/` 的 PDF 抽取为纯文本，补齐 `archive/pdftext/`（2026-09-26 新增，用于核对 DecompRL 原文数字与首次阅读 MoT） | `docs/week2/阶段一拆解机制负结果深度归因与论文拆分对照_20260926.md` |
 
 ## 历史备注
 

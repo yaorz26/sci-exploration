@@ -1,0 +1,36 @@
+{
+  "created_at": "2026-10-09T03:06:23.461327+00:00",
+  "script_sha256": "552e8d277e6ad7818c007c19c2119d83324da2056642de48aededdd072e753a5",
+  "old_anchors_sha256": "8e43bf61e66376c421759b2d606530fcb9117e5a0fb6cb776ae126160001f5a4",
+  "saved_no_close_trace_sha256": "e9cd6118c0a1c512d4b34a90845b1eefe7c5bee0e812ab5c73bbaccda9130dca",
+  "EOF_predictions": [
+    {
+      "id": "split_entity",
+      "expected_first_closed": "A &am",
+      "reason": "未完成amp在EOF作为原文字面片段"
+    },
+    {
+      "id": "split_names",
+      "expected_first_closed": "<",
+      "reason": "单独小于号在EOF作文本"
+    },
+    {
+      "id": "split_attribute_quote",
+      "expected_first_closed": "<a href='x",
+      "reason": "未完成带引号标签在EOF保留文本"
+    },
+    {
+      "id": "plain_control",
+      "expected_first_closed": "A",
+      "reason": "完整普通文本与EOF无关"
+    }
+  ],
+  "new_structure": "每个累计前缀新解析器feed、close、get_text；从完整原prefix重算",
+  "oracle_scope": "终值先前冻结、feed快照复用同源，四EOF解析预期先于新程序；人工0",
+  "budget": {
+    "new_solve_calls": 6,
+    "old_solve_reruns": 0,
+    "model_calls": 0,
+    "hidden_reads": 0
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "new_inputs": 6,
+  "new_solve_calls": 18,
+  "whole_passes_out_of_six": {
+    "whole": 6,
+    "helpers": 6,
+    "source_adapter": 6
+  },
+  "normal_count_pass": [
+    12,
+    12
+  ],
+  "normal_mode_pass": [
+    12,
+    12
+  ],
+  "expected_rejections": 6,
+  "rejection_field_projection_nulls": 12,
+  "field_separation_relations": [
+    12,
+    12
+  ],
+  "constructed_output_controls": 24,
+  "whole_control_rejections": 24,
+  "single_wrong_field_controls_isolated": 24,
+  "execution_typed_value_gate_calls": 12,
+  "execution_error_comparison_decisions": 6,
+  "projection_field_comparison_decisions": 24,
+  "saved_relation_field_comparison_decisions": 24,
+  "control_field_comparison_decisions": 48,
+  "control_full_output_gate_calls": 24,
+  "old_eight_or_twelve_case_reruns": 0,
+  "model_calls": 0,
+  "private_reads": 0,
+  "human_reviews": 0,
+  "conclusion": "正常域count/mode有分别变化与可定位证据，共同拒绝域投影null；不是内部/统计独立或正式yes标签",
+  "limits": "六公开诊断/同来源/共享guard/同助手手算，24控制只是输出对象非额外程序运行"
+}

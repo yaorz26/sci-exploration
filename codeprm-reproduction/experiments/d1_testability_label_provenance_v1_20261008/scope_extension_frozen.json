@@ -1,0 +1,39 @@
+{
+  "created_at": "2026-10-08T14:43:53.701552+00:00",
+  "reason": "build_dataset的相关AST只是复制外部STRUCTURE_V2，需静态追踪声明来源；不再假设机械映射",
+  "build_assignments": [
+    {
+      "line": 115,
+      "source": "state, scope, dependencies, testability, evidence = task_specs.STRUCTURE_V2[task_id]"
+    }
+  ],
+  "sources": [
+    {
+      "path": "scripts\\d1\\task_specs.py",
+      "sha256": "fdda77cd4ae26f0b1002c84fe741b6fde88f3993b31f2795e305bddb4648196b",
+      "related_nodes": [
+        {
+          "kind": "import",
+          "line": 399,
+          "source": "from task_specs_expansion import TASKS as EXPANSION_TASKS, MANUAL_PUBLIC_OUTCOMES as EXPANSION_ANCHORS, STRUCTURE_V2"
+        }
+      ]
+    },
+    {
+      "path": "scripts\\d1\\task_specs_expansion.py",
+      "sha256": "20d1063cd1acb1771caa1678c0aae033f0e6e1436380b6e1e656b1c80708586a",
+      "related_nodes": [
+        {
+          "kind": "assignment",
+          "line": 594,
+          "end_line": 615,
+          "value_node_type": "Dict"
+        }
+      ]
+    }
+  ],
+  "scope": "只构建器及两段声明/导入链，未执行模块、未提取TASKS或隐藏案例",
+  "model_calls": 0,
+  "API_calls": 0,
+  "hidden_reads": 0
+}

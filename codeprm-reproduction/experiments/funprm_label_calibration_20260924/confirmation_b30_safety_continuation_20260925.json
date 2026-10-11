@@ -1,0 +1,52 @@
+{
+  "experiment": "funprm_helperfirst_scale_prm_20260924",
+  "amendment": "confirmation_b30_safety_continuation",
+  "frozen_at": "2026-09-25T19:20:31+08:00",
+  "scope": "Authorize the first and only generation run of confirmation B after confirmation A v2 completed and passed candidate-pool integrity checks.",
+  "prerequisite": {
+    "a_v2_integrity_audit": "experiments/funprm_label_calibration_20260924/confirmation_a30_v2_integrity_audit_20260925.json",
+    "a_v2_status": "pass",
+    "a_v2_private_program_evaluations": 0,
+    "a_v2_private_test_executions": 0,
+    "a_v2_scorer_selection_performed": false,
+    "a_v2_pool_oracle_computed": false
+  },
+  "generation": {
+    "data_path": "data/processed/funprm_helperfirst_scale_20260923/frozen_splits/confirmation_b30.json",
+    "data_sha256": "51edb3d61ae438ab71ff5ce2f96339c35732852f5ff843b292d62cffafd8130c",
+    "method": "functionized",
+    "model": "qwen2.5-coder:7b",
+    "seed": 20261224,
+    "temperature": 0.4,
+    "candidates_per_problem": 10,
+    "max_requests": 300,
+    "per_test_timeout_seconds": 10.0,
+    "candidate_timeout_seconds": null,
+    "private_evaluation_deferred": true,
+    "runner": "scripts/run_whole_program_experiment.py",
+    "runner_sha256": "b797566be7faddc4f8622858697b24a7349236964b44a255594813e85b6c5b4c",
+    "evaluator": "src/executor.py",
+    "evaluator_sha256": "bec8fb3bb0bd776ed43e622f0a6609346f23eadb72141a90437aae3a60f10348",
+    "output_prefix": "data/processed/funprm_label_calibration_20260924/confirmation_b30_functionized_qwen25coder_7b_n10_seed20261224_v1"
+  },
+  "safety_and_comparability": {
+    "candidate_stdout_stderr_capture_limit_bytes_per_test": 1048576,
+    "limit_outcome": "output_limit failure",
+    "largest_expected_confirmation_b_output_bytes": 462,
+    "generation_or_selection_parameter_changes": [],
+    "private_before_b_pool_freeze": false,
+    "retuning_from_a_results": false,
+    "a_private_results_seen": false,
+    "stronger_scorer_authorized": false,
+    "rl_authorized": false
+  },
+  "analysis_order_after_b": [
+    "complete and integrity-audit B candidate pool",
+    "freeze both A and B candidate pools",
+    "score and select both pools with the one frozen new adapter",
+    "compute post-selection private results",
+    "compute private pool oracle only after selections are frozen",
+    "apply the preregistered per-split and combined bootstrap gates"
+  ],
+  "stop_policy": "Do not regenerate B, change the scorer, alter candidate budgets, or inspect private outcomes during generation. A repeated evaluator failure requires a new direction review."
+}

@@ -1,0 +1,93 @@
+{
+  "status": "缓存官方版本新问题定位进行中，尚未完成贡献判断",
+  "web_current_access": "通道不支持搜索，失败保留；不能称已核实当前最新版本",
+  "cache_versions": [
+    "2503.06680v1",
+    "2602.10975v1"
+  ],
+  "hits": [
+    {
+      "paper": "2503.06680",
+      "line": 338,
+      "matched_terms": [
+        "maximum generation"
+      ],
+      "source_sha256": "9b18e7ba1b6ec7e63ad548b706eb26677f4c3979a2ad7deed54d86b2011e1c18",
+      "note": "定位命中，需连同方法/表注上下文审查；不是未发现即不存在"
+    },
+    {
+      "paper": "2503.06680",
+      "line": 380,
+      "matched_terms": [
+        "prompt limit"
+      ],
+      "source_sha256": "9b18e7ba1b6ec7e63ad548b706eb26677f4c3979a2ad7deed54d86b2011e1c18",
+      "note": "定位命中，需连同方法/表注上下文审查；不是未发现即不存在"
+    },
+    {
+      "paper": "2503.06680",
+      "line": 1762,
+      "matched_terms": [
+        "max output tokens"
+      ],
+      "source_sha256": "9b18e7ba1b6ec7e63ad548b706eb26677f4c3979a2ad7deed54d86b2011e1c18",
+      "note": "定位命中，需连同方法/表注上下文审查；不是未发现即不存在"
+    },
+    {
+      "paper": "2602.10975",
+      "line": 28,
+      "matched_terms": [
+        "Failure Cases Analysis"
+      ],
+      "source_sha256": "7ce393336466b5ffaa658cfe40db694cb0e041eb4fca2cf5d8006468a771c22f",
+      "note": "定位命中，需连同方法/表注上下文审查；不是未发现即不存在"
+    },
+    {
+      "paper": "2602.10975",
+      "line": 144,
+      "matched_terms": [
+        "Metric Design.",
+        "Token IO"
+      ],
+      "source_sha256": "7ce393336466b5ffaa658cfe40db694cb0e041eb4fca2cf5d8006468a771c22f",
+      "note": "定位命中，需连同方法/表注上下文审查；不是未发现即不存在"
+    },
+    {
+      "paper": "2602.10975",
+      "line": 152,
+      "matched_terms": [
+        "Construct the object dependency graph."
+      ],
+      "source_sha256": "7ce393336466b5ffaa658cfe40db694cb0e041eb4fca2cf5d8006468a771c22f",
+      "note": "定位命中，需连同方法/表注上下文审查；不是未发现即不存在"
+    },
+    {
+      "paper": "2602.10975",
+      "line": 366,
+      "matched_terms": [
+        "Failure Cases Analysis"
+      ],
+      "source_sha256": "7ce393336466b5ffaa658cfe40db694cb0e041eb4fca2cf5d8006468a771c22f",
+      "note": "定位命中，需连同方法/表注上下文审查；不是未发现即不存在"
+    },
+    {
+      "paper": "2602.10975",
+      "line": 804,
+      "matched_terms": [
+        "Token IO"
+      ],
+      "source_sha256": "7ce393336466b5ffaa658cfe40db694cb0e041eb4fca2cf5d8006468a771c22f",
+      "note": "定位命中，需连同方法/表注上下文审查；不是未发现即不存在"
+    },
+    {
+      "paper": "2602.10975",
+      "line": 1034,
+      "matched_terms": [
+        "Token IO"
+      ],
+      "source_sha256": "7ce393336466b5ffaa658cfe40db694cb0e041eb4fca2cf5d8006468a771c22f",
+      "note": "定位命中，需连同方法/表注上下文审查；不是未发现即不存在"
+    }
+  ],
+  "preliminary_scope_warning": "FeatureBench已明确Token IO输入输出统计、动态函数依赖构图；不能把这些单项当D1首创。是否固定同任务—方法总cap/测生成后方案尚待相关段核查。"
+}

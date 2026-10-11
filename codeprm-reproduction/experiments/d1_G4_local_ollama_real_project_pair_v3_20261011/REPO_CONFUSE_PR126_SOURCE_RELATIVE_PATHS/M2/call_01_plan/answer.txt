@@ -1,0 +1,12 @@
+```json
+{
+  "components": [
+    {
+      "name": "confuse/sources.py",
+      "files": ["confuse/sources.py"],
+      "contract": "1. Add optional parameter base_for_paths to ConfigSource and YamlSource, default False. When filename is provided and base_for_paths is True, the source's relative path defaults to the source file directory. If filename is not provided, this flag is invalid, and the path remains parsed relative to the current working directory. 2. Add optional parameter in_source_dir to Filename, default False. When a source file is present, this option explicitly selects the source file directory. When no source file is present, the relative path continues to be parsed relative to the application configuration directory. 3. Modify Configuration.set_file to accept an optional base_for_paths parameter and use this functionality to load file configuration sources. 4. Absolute paths remain unchanged. Relative paths prioritize the cwd template, followed by the existing relative_to behavior. in_source_dir takes effect for sources with a filename. in_app_dir overrides the source-level base_for_paths option, maintaining existing application directory behavior. If there is no source file and no enforced application directory, the current working directory is used."
+    },
+    {
+      "name": "confuse/templates.py",
+      "files": ["confuse/templates.py"],
+      "contract": "1. Modify Filename and Path templates to respect the new base_for_paths and in_source_dir parameters. When base

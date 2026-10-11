@@ -1,0 +1,38 @@
+{
+  "experiment": "funprm_helperfirst_scale_prm_20260924",
+  "phase": "confirmation_ab_selection_freeze",
+  "frozen_at": "2026-09-25T23:01:16+08:00",
+  "status": "frozen",
+  "private_evaluations_before_freeze": 0,
+  "private_fields_used_for_selection": [],
+  "selections": {
+    "confirmation_a30": {
+      "path": "data/processed/funprm_label_calibration_20260924/confirmation_a30_new_adapter_selection_deferred_20260925.json",
+      "sha256": "2763cfc01934f4249c0cb661631111515f1bb5e4872da890505fb2c3d06fc7a2",
+      "problems": 30,
+      "covered_problems": 28,
+      "candidate_count": 243,
+      "unique_scored_codes": 239
+    },
+    "confirmation_b30": {
+      "path": "data/processed/funprm_label_calibration_20260924/confirmation_b30_new_adapter_selection_deferred_20260925.json",
+      "sha256": "74e22c8c46fa40164d6bf47ce871b09fe78aa354716fd93d788416dae332a5c2",
+      "problems": 30,
+      "covered_problems": 29,
+      "candidate_count": 238,
+      "unique_scored_codes": 236
+    }
+  },
+  "next_order": [
+    "privately evaluate frozen A selection",
+    "privately evaluate frozen B selection",
+    "compute A post-selection pool oracle",
+    "compute B post-selection pool oracle",
+    "apply the preregistered combined confirmation gate"
+  ],
+  "retuning_authorized": false,
+  "regeneration_authorized": false,
+  "adapter_replacement_authorized": false,
+  "stronger_scorer_authorized": false,
+  "rl_authorized": false
+}

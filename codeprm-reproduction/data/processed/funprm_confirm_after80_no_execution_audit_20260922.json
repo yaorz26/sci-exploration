@@ -1,0 +1,272 @@
+{
+  "selection": "data\\processed\\funprm_confirm_after80_selection_samedist_20260922.json",
+  "selection_sha256": "e035b65c6622ae11294573339edeebbac10f9721de7af9a8a4f432132f1e61c3",
+  "pool_oracle": "data\\processed\\funprm_confirm_after80_pool_oracle_20260922.json",
+  "pool_oracle_sha256": "7c5802ffbf480fc3b05a3c44381b1dc59061afff0eb3ed487885de97329666aa",
+  "comparison_is_posthoc": true,
+  "private_fields_used_for_neural_selection": [],
+  "problems": 30,
+  "candidate_slots_per_problem": 10,
+  "neural_all_pass_count": 11,
+  "neural_pass_at_1": 0.36666666666666664,
+  "first_candidate_all_pass_count": 8,
+  "first_candidate_pass_at_1": 0.26666666666666666,
+  "neural_minus_first_count": 3,
+  "neural_vs_first_wins": 5,
+  "neural_vs_first_losses": 2,
+  "neural_vs_first_exact_two_sided_sign_pvalue": 0.453125,
+  "uniform_random_single_expected_all_pass_count": 9.0,
+  "uniform_random_single_expected_pass_at_1": 0.3,
+  "neural_minus_uniform_random_expected_count": 2.0,
+  "neural_minus_uniform_random_expected_pass_at_1": 0.06666666666666667,
+  "neural_minus_uniform_random_bootstrap_95ci": [
+    -0.030000000000000006,
+    0.17333333333333334
+  ],
+  "uniform_random_probability_of_at_least_neural_count": 0.15421046960800003,
+  "bootstrap_repetitions": 100000,
+  "bootstrap_seed": 42,
+  "rows": [
+    {
+      "problem_id": "apps-train-2735",
+      "neural_all_pass": true,
+      "first_candidate_all_pass": true,
+      "random_single_success_probability": 1.0,
+      "neural_minus_random_expected": 0.0,
+      "valid_candidate_slots": 10
+    },
+    {
+      "problem_id": "apps-train-2736",
+      "neural_all_pass": false,
+      "first_candidate_all_pass": false,
+      "random_single_success_probability": 0.1,
+      "neural_minus_random_expected": -0.1,
+      "valid_candidate_slots": 9
+    },
+    {
+      "problem_id": "apps-train-2737",
+      "neural_all_pass": false,
+      "first_candidate_all_pass": false,
+      "random_single_success_probability": 0.0,
+      "neural_minus_random_expected": 0.0,
+      "valid_candidate_slots": 1
+    },
+    {
+      "problem_id": "apps-train-2738",
+      "neural_all_pass": false,
+      "first_candidate_all_pass": false,
+      "random_single_success_probability": 0.0,
+      "neural_minus_random_expected": 0.0,
+      "valid_candidate_slots": 5
+    },
+    {
+      "problem_id": "apps-train-2739",
+      "neural_all_pass": false,
+      "first_candidate_all_pass": false,
+      "random_single_success_probability": 0.0,
+      "neural_minus_random_expected": 0.0,
+      "valid_candidate_slots": 2
+    },
+    {
+      "problem_id": "apps-train-2740",
+      "neural_all_pass": false,
+      "first_candidate_all_pass": false,
+      "random_single_success_probability": 0.1,
+      "neural_minus_random_expected": -0.1,
+      "valid_candidate_slots": 9
+    },
+    {
+      "problem_id": "apps-train-2741",
+      "neural_all_pass": true,
+      "first_candidate_all_pass": false,
+      "random_single_success_probability": 0.6,
+      "neural_minus_random_expected": 0.4,
+      "valid_candidate_slots": 6
+    },
+    {
+      "problem_id": "apps-train-2742",
+      "neural_all_pass": true,
+      "first_candidate_all_pass": false,
+      "random_single_success_probability": 0.3,
+      "neural_minus_random_expected": 0.7,
+      "valid_candidate_slots": 3
+    },
+    {
+      "problem_id": "apps-train-2743",
+      "neural_all_pass": false,
+      "first_candidate_all_pass": true,
+      "random_single_success_probability": 0.1,
+      "neural_minus_random_expected": -0.1,
+      "valid_candidate_slots": 4
+    },
+    {
+      "problem_id": "apps-train-2744",
+      "neural_all_pass": false,
+      "first_candidate_all_pass": false,
+      "random_single_success_probability": 0.0,
+      "neural_minus_random_expected": 0.0,
+      "valid_candidate_slots": 0
+    },
+    {
+      "problem_id": "apps-train-2745",
+      "neural_all_pass": true,
+      "first_candidate_all_pass": true,
+      "random_single_success_probability": 0.8,
+      "neural_minus_random_expected": 0.19999999999999996,
+      "valid_candidate_slots": 8
+    },
+    {
+      "problem_id": "apps-train-2746",
+      "neural_all_pass": true,
+      "first_candidate_all_pass": true,
+      "random_single_success_probability": 0.4,
+      "neural_minus_random_expected": 0.6,
+      "valid_candidate_slots": 4
+    },
+    {
+      "problem_id": "apps-train-2747",
+      "neural_all_pass": false,
+      "first_candidate_all_pass": false,
+      "random_single_success_probability": 0.0,
+      "neural_minus_random_expected": 0.0,
+      "valid_candidate_slots": 3
+    },
+    {
+      "problem_id": "apps-train-2748",
+      "neural_all_pass": true,
+      "first_candidate_all_pass": true,
+      "random_single_success_probability": 1.0,
+      "neural_minus_random_expected": 0.0,
+      "valid_candidate_slots": 10
+    },
+    {
+      "problem_id": "apps-train-2749",
+      "neural_all_pass": false,
+      "first_candidate_all_pass": false,
+      "random_single_success_probability": 0.1,
+      "neural_minus_random_expected": -0.1,
+      "valid_candidate_slots": 10
+    },
+    {
+      "problem_id": "apps-train-2750",
+      "neural_all_pass": false,
+      "first_candidate_all_pass": false,
+      "random_single_success_probability": 0.0,
+      "neural_minus_random_expected": 0.0,
+      "valid_candidate_slots": 0
+    },
+    {
+      "problem_id": "apps-train-2751",
+      "neural_all_pass": false,
+      "first_candidate_all_pass": false,
+      "random_single_success_probability": 0.0,
+      "neural_minus_random_expected": 0.0,
+      "valid_candidate_slots": 6
+    },
+    {
+      "problem_id": "apps-train-2752",
+      "neural_all_pass": true,
+      "first_candidate_all_pass": false,
+      "random_single_success_probability": 0.9,
+      "neural_minus_random_expected": 0.09999999999999998,
+      "valid_candidate_slots": 9
+    },
+    {
+      "problem_id": "apps-train-2753",
+      "neural_all_pass": true,
+      "first_candidate_all_pass": false,
+      "random_single_success_probability": 0.5,
+      "neural_minus_random_expected": 0.5,
+      "valid_candidate_slots": 5
+    },
+    {
+      "problem_id": "apps-train-2754",
+      "neural_all_pass": false,
+      "first_candidate_all_pass": true,
+      "random_single_success_probability": 0.4,
+      "neural_minus_random_expected": -0.4,
+      "valid_candidate_slots": 7
+    },
+    {
+      "problem_id": "apps-train-2755",
+      "neural_all_pass": false,
+      "first_candidate_all_pass": false,
+      "random_single_success_probability": 0.0,
+      "neural_minus_random_expected": 0.0,
+      "valid_candidate_slots": 4
+    },
+    {
+      "problem_id": "apps-train-2756",
+      "neural_all_pass": true,
+      "first_candidate_all_pass": true,
+      "random_single_success_probability": 1.0,
+      "neural_minus_random_expected": 0.0,
+      "valid_candidate_slots": 10
+    },
+    {
+      "problem_id": "apps-train-2757",
+      "neural_all_pass": true,
+      "first_candidate_all_pass": false,
+      "random_single_success_probability": 0.1,
+      "neural_minus_random_expected": 0.9,
+      "valid_candidate_slots": 1
+    },
+    {
+      "problem_id": "apps-train-2758",
+      "neural_all_pass": false,
+      "first_candidate_all_pass": false,
+      "random_single_success_probability": 0.0,
+      "neural_minus_random_expected": 0.0,
+      "valid_candidate_slots": 8
+    },
+    {
+      "problem_id": "apps-train-2759",
+      "neural_all_pass": false,
+      "first_candidate_all_pass": false,
+      "random_single_success_probability": 0.0,
+      "neural_minus_random_expected": 0.0,
+      "valid_candidate_slots": 0
+    },
+    {
+      "problem_id": "apps-train-2760",
+      "neural_all_pass": false,
+      "first_candidate_all_pass": false,
+      "random_single_success_probability": 0.5,
+      "neural_minus_random_expected": -0.5,
+      "valid_candidate_slots": 7
+    },
+    {
+      "problem_id": "apps-train-2761",
+      "neural_all_pass": true,
+      "first_candidate_all_pass": true,
+      "random_single_success_probability": 1.0,
+      "neural_minus_random_expected": 0.0,
+      "valid_candidate_slots": 10
+    },
+    {
+      "problem_id": "apps-train-2762",
+      "neural_all_pass": false,
+      "first_candidate_all_pass": false,
+      "random_single_success_probability": 0.1,
+      "neural_minus_random_expected": -0.1,
+      "valid_candidate_slots": 10
+    },
+    {
+      "problem_id": "apps-train-2763",
+      "neural_all_pass": false,
+      "first_candidate_all_pass": false,
+      "random_single_success_probability": 0.0,
+      "neural_minus_random_expected": 0.0,
+      "valid_candidate_slots": 9
+    },
+    {
+      "problem_id": "apps-train-2764",
+      "neural_all_pass": false,
+      "first_candidate_all_pass": false,
+      "random_single_success_probability": 0.0,
+      "neural_minus_random_expected": 0.0,
+      "valid_candidate_slots": 7
+    }
+  ],
+  "interpretation": "Post-hoc paper-aligned audit: neural Best-of-N uses no public/private execution feedback. The uniform-random baseline averages all fixed candidate slots and counts invalid slots as failures."
+}

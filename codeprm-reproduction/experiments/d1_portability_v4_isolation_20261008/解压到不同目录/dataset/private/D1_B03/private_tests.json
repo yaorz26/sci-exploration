@@ -1,0 +1,110 @@
+[
+  {
+    "case_id": "hidden_1",
+    "input": {
+      "text": ""
+    },
+    "expected": {
+      "value": ""
+    }
+  },
+  {
+    "case_id": "hidden_2",
+    "input": {
+      "text": "plain"
+    },
+    "expected": {
+      "value": "plain"
+    }
+  },
+  {
+    "case_id": "hidden_3",
+    "input": {
+      "text": "\u001b"
+    },
+    "expected": {
+      "value": "\u001b"
+    }
+  },
+  {
+    "case_id": "hidden_4",
+    "input": {
+      "text": "a\u001b@b"
+    },
+    "expected": {
+      "value": "ab"
+    }
+  },
+  {
+    "case_id": "hidden_5",
+    "input": {
+      "text": "\u001bZ\u001b\\\u001b_"
+    },
+    "expected": {
+      "value": ""
+    }
+  },
+  {
+    "case_id": "hidden_6",
+    "input": {
+      "text": "\u001b[?25lX"
+    },
+    "expected": {
+      "value": "X"
+    }
+  },
+  {
+    "case_id": "hidden_7",
+    "input": {
+      "text": "\u001b[1;2 mY"
+    },
+    "expected": {
+      "value": "Y"
+    }
+  },
+  {
+    "case_id": "hidden_8",
+    "input": {
+      "text": "\u001b[32\nZ"
+    },
+    "expected": {
+      "value": "\u001b[32\nZ"
+    }
+  },
+  {
+    "case_id": "hidden_9",
+    "input": {
+      "text": "\u001b[a"
+    },
+    "expected": {
+      "value": ""
+    }
+  },
+  {
+    "case_id": "hidden_10",
+    "input": {
+      "text": "\u001b]\u001b[0m"
+    },
+    "expected": {
+      "value": ""
+    }
+  },
+  {
+    "case_id": "hidden_11",
+    "input": {
+      "text": "\u001b[0m\u001b[1m"
+    },
+    "expected": {
+      "value": ""
+    }
+  },
+  {
+    "case_id": "hidden_12",
+    "input": {
+      "text": "\u001b[\u001b[0m"
+    },
+    "expected": {
+      "value": "\u001b["
+    }
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "created_at": "2026-10-09T06:34:38Z",
+  "stage": "D1-P76-group-context-candidate",
+  "status": "public_source_read_and_requirement_drafted",
+  "commit": "81c21a8db1c922260cd673841257fb9b112c1318",
+  "public_excerpt_lines": [
+    3323,
+    3401
+  ],
+  "public_excerpt": "def map_reduce(iterable, keyfunc, valuefunc=None, reducefunc=None):\n    \"\"\"Return a dictionary that maps the items in *iterable* to categories\n    defined by *keyfunc*, transforms them with *valuefunc*, and\n    then summarizes them by category with *reducefunc*.\n\n    *valuefunc* defaults to the identity function if it is unspecified.\n    If *reducefunc* is unspecified, no summarization takes place:\n\n        >>> keyfunc = lambda x: x.upper()\n        >>> result = map_reduce('abbccc', keyfunc)\n        >>> sorted(result.items())\n        [('A', ['a']), ('B', ['b', 'b']), ('C', ['c', 'c', 'c'])]\n\n    Specifying *valuefunc* transforms the categorized items:\n\n        >>> keyfunc = lambda x: x.upper()\n        >>> valuefunc = lambda x: 1\n        >>> result = map_reduce('abbccc', keyfunc, valuefunc)\n        >>> sorted(result.items())\n        [('A', [1]), ('B', [1, 1]), ('C', [1, 1, 1])]\n\n    Specifying *reducefunc* summarizes the categorized items:\n\n        >>> keyfunc = lambda x: x.upper()\n        >>> valuefunc = lambda x: 1\n        >>> reducefunc = sum\n        >>> result = map_reduce('abbccc', keyfunc, valuefunc, reducefunc)\n        >>> sorted(result.items())\n        [('A', 1), ('B', 2), ('C', 3)]\n\n    You may want to filter the input iterable before applying the map/reduce\n    procedure:\n\n        >>> all_items = range(30)\n        >>> items = [x for x in all_items if 10 <= x <= 20]  # Filter\n        >>> keyfunc = lambda x: x % 2  # Evens map to 0; odds to 1\n        >>> categories = map_reduce(items, keyfunc=keyfunc)\n        >>> sorted(categories.items())\n        [(0, [10, 12, 14, 16, 18, 20]), (1, [11, 13, 15, 17, 19])]\n        >>> summaries = map_reduce(items, keyfunc=keyfunc, reducefunc=sum)\n        >>> sorted(summaries.items())\n        [(0, 90), (1, 75)]\n\n    Note that all items in the iterable are gathered into a list before the\n    summarization step, which may require significant storage.\n\n    The returned object is a :obj:`collections.defaultdict` with the\n    ``default_factory`` set to ``None``, such that it behaves like a normal\n    dictionary.\n\n    .. seealso:: :func:`bucket`, :func:`groupby_transform`\n\n    If storage is a concern, :func:`bucket` can be used without consuming the\n    entire iterable right away. If the elements with the same key are already\n    adjacent, :func:`groupby_transform` or :func:`itertools.groupby` can be\n    used without any caching overhead.\n\n    \"\"\"\n\n    ret = defaultdict(list)\n\n    if valuefunc is None:\n        for item in iterable:\n            key = keyfunc(item)\n            ret[key].append(item)\n\n    else:\n        for item in iterable:\n            key = keyfunc(item)\n            value = valuefunc(item)\n            ret[key].append(value)\n\n    if reducefunc is not None:\n        for key, value_list in ret.items():\n            ret[key] = reducefunc(value_list)\n\n    ret.default_factory = None\n    return ret\n",
+  "source_sha256": "1bdc5f323ea18906436a42268b942d5b4d15ac8b3ff17c1211a59fb192fa068e",
+  "license_sha256": "09f1c8c9e941af3e584d59641ea9b87d83c0cb0fd007eb5ef391a7e2643c1a46",
+  "planned_solve_calls": 18,
+  "actual_solve_calls": 0,
+  "private_reads": 0,
+  "formal_labels": null
+}

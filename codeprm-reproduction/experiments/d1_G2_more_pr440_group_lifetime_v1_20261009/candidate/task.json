@@ -1,0 +1,29 @@
+{
+  "task_id": "REPO_MORE_PR440_GROUP_LIFETIME_LIMITED",
+  "status": "research_pool_only",
+  "source": {
+    "repo": "more-itertools",
+    "pr": 440,
+    "parent": "38d070c9252d2138dbd86f8f85b9970741401cb6",
+    "feature": "78405e9b24d0ccdd67785136ecd56774f38ae95e",
+    "merged_at": "2020-07-02T01:22:37Z"
+  },
+  "parent_workspace": "workspaces/parent",
+  "requirement": "requirement.md",
+  "public_cases": "public_cases.json",
+  "evaluator": "evaluate_group_lifetime.py",
+  "model_visible": [
+    "workspaces/parent",
+    "requirement.md",
+    "public_cases.json"
+  ],
+  "evaluation_only": [
+    "workspaces/feature",
+    "workspaces/alternative",
+    "workspaces/late_reduction"
+  ],
+  "formal_labels": null,
+  "split": null,
+  "human_reviews": 0,
+  "contamination": "unknown；既有暴露事件保留，当前未读测试/private/curator"
+}

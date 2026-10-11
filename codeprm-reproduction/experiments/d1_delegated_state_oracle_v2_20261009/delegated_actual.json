@@ -1,0 +1,45 @@
+{
+  "timer_during_observation": 2,
+  "expiry_deadlines": {
+    "a": 4,
+    "b": 6
+  },
+  "returned_pairs": [
+    [
+      "a",
+      1
+    ]
+  ],
+  "before_base": {
+    "items": [],
+    "size": 0
+  },
+  "before_public": {
+    "items": [
+      [
+        "b",
+        2
+      ]
+    ],
+    "length": 1,
+    "size": 2
+  },
+  "after_base": {
+    "items": [],
+    "size": 0
+  },
+  "after_public": {
+    "items": [
+      [
+        "b",
+        2
+      ]
+    ],
+    "length": 1,
+    "size": 2
+  },
+  "return_pass": true,
+  "public_contract_pass": true,
+  "original_base_after_consumption_pass": false,
+  "scope": "原boundary_mixed单输入/API；不证明全库代理等价；手工组织非模型"
+}

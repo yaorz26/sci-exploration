@@ -1,0 +1,56 @@
+{
+  "status": "pass",
+  "candidate_task_count": 1,
+  "hand_anchors": 6,
+  "hand_anchors_passed": 6,
+  "finite_sequences": 3110,
+  "finite_sequences_passed": 3110,
+  "paired_relations": 71,
+  "paired_relations_passed": 71,
+  "foreign_insert_relations": 68,
+  "correct_implementation_evaluations": 6516,
+  "artificial_mutants": [
+    {
+      "mutation": "adjacent_only",
+      "caught_by_anchor_ids": [
+        "first_and_nonadjacent"
+      ],
+      "detected": true
+    },
+    {
+      "mutation": "keep_last",
+      "caught_by_anchor_ids": [
+        "first_and_nonadjacent",
+        "casefold_same_class",
+        "unicode_casefold"
+      ],
+      "detected": true
+    },
+    {
+      "mutation": "sort_result",
+      "caught_by_anchor_ids": [
+        "input_order_not_sort"
+      ],
+      "detected": true
+    },
+    {
+      "mutation": "ignore_casefold",
+      "caught_by_anchor_ids": [
+        "casefold_same_class",
+        "unicode_casefold"
+      ],
+      "detected": true
+    }
+  ],
+  "failures": [],
+  "model_calls": 0,
+  "API_calls": 0,
+  "human_reviewers": 0,
+  "new_downloads": 0,
+  "seconds": 0.059428699998534285,
+  "source_path": "D:\\yaorz\\research\\codeprm-reproduction\\data\\raw\\d1_project_v1_20261008\\repositories\\more_itertools\\more_itertools\\recipes.py",
+  "task_contract_sha256": "fd0b416b72f7834ed7ac142cc20544b1e5612386846e5f9753c115f339734aad",
+  "script_sha256": "66fbf4ec038384191d9a9c9e135e75a4618bbba11485fc93ce23cc3acb2a35a7",
+  "history_domain": "input_item_sequence",
+  "limits": "有限关系不证明全域独立；规范键定义实体，输入流顺序与操作历史不同；非模型/独立家族，不改原20题"
+}

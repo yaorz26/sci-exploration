@@ -1,0 +1,74 @@
+[
+  {
+    "id": "public_0",
+    "kind": "公开文字解析，零执行",
+    "text": "a\u001b[31m红\u001b[0mz",
+    "single_pass": "a红z",
+    "stable_pass": "a红z",
+    "fixed_point_basis": "公开预期无ESC，因此已不含完整码；不是运行该旧例子",
+    "distinguishes": false
+  },
+  {
+    "id": "public_1",
+    "kind": "公开文字解析，零执行",
+    "text": "x\u001b[31",
+    "single_pass": "x\u001b[31",
+    "stable_pass": "x\u001b[31",
+    "fixed_point_basis": "公开预期末尾缺CSI终止字符，原片段反复也未完整；不是运行该旧例子",
+    "distinguishes": false
+  },
+  {
+    "id": "plain_control",
+    "kind": "P54已保存执行输出，零新执行",
+    "text": "plain",
+    "single_pass": "plain",
+    "stable_pass": "plain",
+    "fixed_point_basis": "已保存一次与二次相同",
+    "distinguishes": false
+  },
+  {
+    "id": "ordinary_codes",
+    "kind": "P54已保存执行输出，零新执行",
+    "text": "a\u001b[31mRed\u001bMz",
+    "single_pass": "aRedz",
+    "stable_pass": "aRedz",
+    "fixed_point_basis": "已保存一次与二次相同",
+    "distinguishes": false
+  },
+  {
+    "id": "CSI_creates_short",
+    "kind": "P54已保存执行输出，零新执行",
+    "text": "\u001b\u001b[31mM",
+    "single_pass": "\u001bM",
+    "stable_pass": "",
+    "fixed_point_basis": "已保存二次为空，空串无控制码",
+    "distinguishes": true
+  },
+  {
+    "id": "short_creates_CSI",
+    "kind": "P54已保存执行输出，零新执行",
+    "text": "\u001b\u001bM[31m",
+    "single_pass": "\u001b[31m",
+    "stable_pass": "",
+    "fixed_point_basis": "已保存二次为空，空串无控制码",
+    "distinguishes": true
+  },
+  {
+    "id": "CSI_creates_CSI",
+    "kind": "P54已保存执行输出，零新执行",
+    "text": "\u001b\u001b[31m[0m",
+    "single_pass": "\u001b[0m",
+    "stable_pass": "",
+    "fixed_point_basis": "已保存二次为空，空串无控制码",
+    "distinguishes": true
+  },
+  {
+    "id": "incomplete_control",
+    "kind": "P54已保存执行输出，零新执行",
+    "text": "\u001b[31",
+    "single_pass": "\u001b[31",
+    "stable_pass": "\u001b[31",
+    "fixed_point_basis": "已保存一次与二次相同",
+    "distinguishes": false
+  }
+]

@@ -1,0 +1,51 @@
+{
+  "rows": [
+    {
+      "task_id": "D1_B01",
+      "M2_minus_4_M0": 488
+    },
+    {
+      "task_id": "D1_B02",
+      "M2_minus_4_M0": 488
+    },
+    {
+      "task_id": "D1_C01",
+      "M2_minus_4_M0": 488
+    },
+    {
+      "task_id": "D1_C02",
+      "M2_minus_4_M0": 488
+    },
+    {
+      "task_id": "D1_B03",
+      "M2_minus_4_M0": 488
+    },
+    {
+      "task_id": "D1_B04",
+      "M2_minus_4_M0": 488
+    },
+    {
+      "task_id": "D1_B05",
+      "M2_minus_4_M0": 488
+    },
+    {
+      "task_id": "D1_B06",
+      "M2_minus_4_M0": 488
+    },
+    {
+      "task_id": "D1_C03",
+      "M2_minus_4_M0": 488
+    },
+    {
+      "task_id": "D1_C04",
+      "M2_minus_4_M0": 488
+    },
+    {
+      "task_id": "D1_C05",
+      "M2_minus_4_M0": 488
+    }
+  ],
+  "constant": true,
+  "reason": "P49新结果显示5差值全为4倍；只对11连接保存行补充解析，不重跑tokenizer/任务/旧检查。固定占位4次重复题面形成仿射关系，不是结构因素的独立成本效应。",
+  "formal_usage": "真实模型文本不同，仿射常数不可推广实际M2。"
+}

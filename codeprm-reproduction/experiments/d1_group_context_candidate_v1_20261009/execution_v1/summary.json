@@ -1,0 +1,183 @@
+{
+  "completed_at": "2026-10-09T06:47:00.272818+00:00",
+  "stage": "D1-P76-group-context-candidate",
+  "task_id": "E_M08",
+  "unique_inputs": 6,
+  "task_records": 6,
+  "actual_solve_calls": 18,
+  "passed": 18,
+  "input_unchanged": 18,
+  "by_reference": {
+    "whole": {
+      "passed": 6,
+      "total": 6
+    },
+    "helpers": {
+      "passed": 6,
+      "total": 6
+    },
+    "source_adapter": {
+      "passed": 6,
+      "total": 6
+    }
+  },
+  "source_api_calls": {
+    "map_reduce": 6
+  },
+  "relations": [
+    {
+      "reference": "whole",
+      "relation": "same_group_unchanged_item_changes",
+      "observed": [
+        2,
+        4
+      ],
+      "passed": true
+    },
+    {
+      "reference": "whole",
+      "relation": "other_group_invariant",
+      "before": {
+        "group": "b",
+        "normalized": [
+          0,
+          2
+        ],
+        "total": 2
+      },
+      "after": {
+        "group": "b",
+        "normalized": [
+          0,
+          2
+        ],
+        "total": 2
+      },
+      "passed": true
+    },
+    {
+      "reference": "whole",
+      "relation": "threshold_selection_changes",
+      "before": [],
+      "after": [
+        {
+          "group": "a",
+          "normalized": [
+            0,
+            4
+          ],
+          "total": 4
+        }
+      ],
+      "passed": true
+    },
+    {
+      "reference": "helpers",
+      "relation": "same_group_unchanged_item_changes",
+      "observed": [
+        2,
+        4
+      ],
+      "passed": true
+    },
+    {
+      "reference": "helpers",
+      "relation": "other_group_invariant",
+      "before": {
+        "group": "b",
+        "normalized": [
+          0,
+          2
+        ],
+        "total": 2
+      },
+      "after": {
+        "group": "b",
+        "normalized": [
+          0,
+          2
+        ],
+        "total": 2
+      },
+      "passed": true
+    },
+    {
+      "reference": "helpers",
+      "relation": "threshold_selection_changes",
+      "before": [],
+      "after": [
+        {
+          "group": "a",
+          "normalized": [
+            0,
+            4
+          ],
+          "total": 4
+        }
+      ],
+      "passed": true
+    },
+    {
+      "reference": "source_adapter",
+      "relation": "same_group_unchanged_item_changes",
+      "observed": [
+        2,
+        4
+      ],
+      "passed": true
+    },
+    {
+      "reference": "source_adapter",
+      "relation": "other_group_invariant",
+      "before": {
+        "group": "b",
+        "normalized": [
+          0,
+          2
+        ],
+        "total": 2
+      },
+      "after": {
+        "group": "b",
+        "normalized": [
+          0,
+          2
+        ],
+        "total": 2
+      },
+      "passed": true
+    },
+    {
+      "reference": "source_adapter",
+      "relation": "threshold_selection_changes",
+      "before": [],
+      "after": [
+        {
+          "group": "a",
+          "normalized": [
+            0,
+            4
+          ],
+          "total": 4
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "relation_passed": 9,
+  "initial20_unchanged": true,
+  "model_calls": 0,
+  "private_reads": 0,
+  "human_reviews": 0,
+  "formal_labels": null,
+  "split": null,
+  "published": false,
+  "limitations": [
+    "六锚点非全域",
+    "同助手三参考非独立真值",
+    "本研究构造需求非上游真实功能请求",
+    "内部多函数不是模型拆分效果",
+    "轻量库功能适配非完整项目集成",
+    "不假定相关家族独立"
+  ]
+}

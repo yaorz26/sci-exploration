@@ -1,0 +1,72 @@
+{
+  "experiment": "funprm_helperfirst_scale_prm_20260924",
+  "phase": "confirmation_ab",
+  "frozen_at": "2026-09-24T21:08:46+08:00",
+  "authorization": {
+    "validation_gate": "passed",
+    "validation_gate_path": "data/processed/funprm_label_calibration_20260924/validation20_gate_audit_v2.json",
+    "validation_gate_sha256": "c9dab4c5b94f8b1f5b18b5c8c24d25bea44fe21a570783ae89cafd1f790f6ef0",
+    "validation_metrics": {
+      "new_neural_all_pass": "9/20",
+      "old_neural_all_pass": "9/20",
+      "first_candidate_all_pass": "5/20",
+      "uniform_random_single_expected_all_pass_count": 5.2,
+      "pool_oracle_all_pass": "13/20",
+      "pool_oracle_minus_first_count": 8
+    },
+    "private_fields_used_for_validation_selection": []
+  },
+  "generation": {
+    "method": "functionized",
+    "model": "qwen2.5-coder:7b",
+    "seed": 20261224,
+    "temperature": 0.4,
+    "candidates_per_problem": 10,
+    "max_requests_per_split": 300,
+    "per_test_timeout_seconds": 10.0,
+    "private_evaluation_deferred": true,
+    "runner": "scripts/run_whole_program_experiment.py",
+    "runner_sha256": "b797566be7faddc4f8622858697b24a7349236964b44a255594813e85b6c5b4c",
+    "splits": {
+      "confirmation_a30": {
+        "data_path": "data/processed/funprm_helperfirst_scale_20260923/frozen_splits/confirmation_a30.json",
+        "data_sha256": "81f2b711bac2553716c85ad8d89cadc0a7e530e473bc4dfdfbeb0140948427fd",
+        "problems": 30,
+        "output_prefix": "data/processed/funprm_label_calibration_20260924/confirmation_a30_functionized_qwen25coder_7b_n10_seed20261224_v1"
+      },
+      "confirmation_b30": {
+        "data_path": "data/processed/funprm_helperfirst_scale_20260923/frozen_splits/confirmation_b30.json",
+        "data_sha256": "51edb3d61ae438ab71ff5ce2f96339c35732852f5ff843b292d62cffafd8130c",
+        "problems": 30,
+        "output_prefix": "data/processed/funprm_label_calibration_20260924/confirmation_b30_functionized_qwen25coder_7b_n10_seed20261224_v1"
+      }
+    }
+  },
+  "selection": {
+    "adapter_path": "outputs/models/funprm_qwen25coder_7b_generative_helperfirst_scale_v1",
+    "adapter_model_sha256": "195122fea26f60241892061d538814dcbc4af7e7d5e63b7d148c3cebe57c79b6",
+    "model_path": "models/Qwen2.5-Coder-7B-Instruct",
+    "max_length": 768,
+    "aggregation": "mean generative +/- positive probability over cumulative function prefixes",
+    "tie_break": "lowest candidate index",
+    "execution_feedback_used_for_selection": []
+  },
+  "confirmation_success_conditions": {
+    "each_split_new_relative_to_first_nonnegative": true,
+    "combined_net_gain_over_first_at_least": 4,
+    "combined_bootstrap_95_percent_lower_bound_vs_uniform_random_positive": true,
+    "bootstrap_repetitions": 10000,
+    "bootstrap_seed": 20260924,
+    "candidate_pool_oracle_is_diagnostic_only": true
+  },
+  "analysis_order": [
+    "generate A candidates with private deferred",
+    "generate B candidates with private deferred",
+    "freeze both candidate pools",
+    "score and select with the one frozen new adapter",
+    "compute post-selection private results",
+    "compute private pool oracle after selections are frozen",
+    "combine A/B with the preregistered bootstrap gate"
+  ],
+  "stop_policy": "A and B are one-shot confirmation splits; no retuning, regeneration, adapter replacement, stronger scorer, or RL is authorized by this manifest."
+}

@@ -1,0 +1,37 @@
+{
+  "task_id": "E_B09",
+  "title": "离散数量与众数报告",
+  "status": "另池v2公开候选，八新输入已冻结/执行结果见validation_manifest.json；人工0/标签null/未正式冻结",
+  "entry": "solve(payload)",
+  "requirements": "requirements.md",
+  "diagnostics": "public_diagnostics_v2_new.json",
+  "source": {
+    "repository": "mahmoud/boltons",
+    "commit": "4e5faa3d7e4008d89e0d8bf1ea87b6d9a061a16d",
+    "upstream_module": "boltons/statsutils.py",
+    "module_sha256": "0c4d05a17b14244a880e5047c1823d1e1e522e6c5ee76c6b47f54d8bde791e68",
+    "license": "BSD-3-Clause",
+    "license_file": "sources/LICENSE",
+    "license_sha256": "c301912653a8d8c99eab6212aa3aea8d164ea249d8ad53c941e0558a0a5ac1e3"
+  },
+  "structural_labels": {
+    "dependency": null,
+    "state_scope": null,
+    "independent_testability": null
+  },
+  "related_candidate": "E_B08",
+  "family_note": "同Stats模块/同来源，不是新的独立来源或新增独立样本",
+  "adaptation": "count/default分离；域与异常由候选显式规定；三程序共享校验guard不是三个独立oracle",
+  "human_reviews": 0,
+  "formal_split": null,
+  "source_contamination": "未知",
+  "candidate_version": 2,
+  "prior_diagnostics": "public_diagnostics_v1_prior_not_rerun.json",
+  "evaluator": "evaluate_typed_candidate.py",
+  "comparison": "typed_comparison.accept_output",
+  "verification_scope": {
+    "whole": "八新输入本阶段，实际结果另存",
+    "helpers": "只有原v1十二诊断，未v2重跑",
+    "source_adapter": "只有原v1十二诊断，未v2重跑"
+  }
+}

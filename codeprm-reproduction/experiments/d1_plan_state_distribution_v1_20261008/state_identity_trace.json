@@ -1,0 +1,73 @@
+{
+  "input": {
+    "capacity": 2,
+    "operations": [
+      {
+        "op": "call",
+        "kwargs": {
+          "a": 1
+        }
+      },
+      {
+        "op": "call",
+        "kwargs": {
+          "b": 2
+        }
+      },
+      {
+        "op": "clear"
+      }
+    ]
+  },
+  "trace": [
+    {
+      "component": "_update",
+      "op": "call",
+      "before_count": 0,
+      "after_count": 1
+    },
+    {
+      "component": "_render",
+      "observed_count": 1
+    },
+    {
+      "component": "_update",
+      "op": "call",
+      "before_count": 1,
+      "after_count": 2
+    },
+    {
+      "component": "_render",
+      "observed_count": 2
+    },
+    {
+      "component": "_update",
+      "op": "clear",
+      "before_count": 2,
+      "after_count": 2
+    },
+    {
+      "component": "_render",
+      "observed_count": 2
+    }
+  ],
+  "same_object_across_update_render": true,
+  "observed": [
+    {
+      "result": 1,
+      "computations": 1,
+      "size": 1
+    },
+    {
+      "result": 2,
+      "computations": 2,
+      "size": 2
+    },
+    {
+      "result": null,
+      "computations": 2,
+      "size": 0
+    }
+  ],
+  "kind": "已冻结C方案的一次无修改值观察；不能作为任意程序通用状态分析"
+}

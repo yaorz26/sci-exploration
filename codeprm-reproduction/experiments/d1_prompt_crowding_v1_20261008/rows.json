@@ -1,0 +1,6562 @@
+[
+  {
+    "task_id": "D1_B01",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "pretty",
+    "public_task_sha256": "3a87236b8218c1a443d78462ab95ccec33705b9960d86f2bc95ad9a44d479365",
+    "base_prompt_tokens": 366,
+    "M0_input_tokens": 383,
+    "M0_max_output_remainder_at6500": 6117,
+    "scenario": "D1_B01_pretty_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 425
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 536
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 549
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 510
+      }
+    ],
+    "M2_total_input_tokens": 2020,
+    "M2_max_output_remainder_at6500": 4480,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 5.274151436031332
+  },
+  {
+    "task_id": "D1_B01",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "pretty",
+    "public_task_sha256": "3a87236b8218c1a443d78462ab95ccec33705b9960d86f2bc95ad9a44d479365",
+    "base_prompt_tokens": 366,
+    "M0_input_tokens": 383,
+    "M0_max_output_remainder_at6500": 6117,
+    "scenario": "D1_B01_pretty_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 425
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 536
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2341
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4094
+      }
+    ],
+    "M2_total_input_tokens": 7396,
+    "M2_max_output_remainder_at6500": -896,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 19.31070496083551
+  },
+  {
+    "task_id": "D1_B01",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "pretty",
+    "public_task_sha256": "3a87236b8218c1a443d78462ab95ccec33705b9960d86f2bc95ad9a44d479365",
+    "base_prompt_tokens": 366,
+    "M0_input_tokens": 383,
+    "M0_max_output_remainder_at6500": 6117,
+    "scenario": "D1_B01_pretty_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 425
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 585
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 598
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 608
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 569
+      }
+    ],
+    "M2_total_input_tokens": 2785,
+    "M2_max_output_remainder_at6500": 3715,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 7.27154046997389
+  },
+  {
+    "task_id": "D1_B01",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "pretty",
+    "public_task_sha256": "3a87236b8218c1a443d78462ab95ccec33705b9960d86f2bc95ad9a44d479365",
+    "base_prompt_tokens": 366,
+    "M0_input_tokens": 383,
+    "M0_max_output_remainder_at6500": 6117,
+    "scenario": "D1_B01_pretty_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 425
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 585
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2390
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4192
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 5945
+      }
+    ],
+    "M2_total_input_tokens": 13537,
+    "M2_max_output_remainder_at6500": -7037,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 35.344647519582246
+  },
+  {
+    "task_id": "D1_B01",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "compact",
+    "public_task_sha256": "3a87236b8218c1a443d78462ab95ccec33705b9960d86f2bc95ad9a44d479365",
+    "base_prompt_tokens": 287,
+    "M0_input_tokens": 304,
+    "M0_max_output_remainder_at6500": 6196,
+    "scenario": "D1_B01_compact_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 346
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 457
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 470
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 431
+      }
+    ],
+    "M2_total_input_tokens": 1704,
+    "M2_max_output_remainder_at6500": 4796,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 5.605263157894737
+  },
+  {
+    "task_id": "D1_B01",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "compact",
+    "public_task_sha256": "3a87236b8218c1a443d78462ab95ccec33705b9960d86f2bc95ad9a44d479365",
+    "base_prompt_tokens": 287,
+    "M0_input_tokens": 304,
+    "M0_max_output_remainder_at6500": 6196,
+    "scenario": "D1_B01_compact_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 346
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 457
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2262
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4015
+      }
+    ],
+    "M2_total_input_tokens": 7080,
+    "M2_max_output_remainder_at6500": -580,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 23.289473684210527
+  },
+  {
+    "task_id": "D1_B01",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "compact",
+    "public_task_sha256": "3a87236b8218c1a443d78462ab95ccec33705b9960d86f2bc95ad9a44d479365",
+    "base_prompt_tokens": 287,
+    "M0_input_tokens": 304,
+    "M0_max_output_remainder_at6500": 6196,
+    "scenario": "D1_B01_compact_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 346
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 506
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 519
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 529
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 490
+      }
+    ],
+    "M2_total_input_tokens": 2390,
+    "M2_max_output_remainder_at6500": 4110,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 7.8618421052631575
+  },
+  {
+    "task_id": "D1_B01",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "compact",
+    "public_task_sha256": "3a87236b8218c1a443d78462ab95ccec33705b9960d86f2bc95ad9a44d479365",
+    "base_prompt_tokens": 287,
+    "M0_input_tokens": 304,
+    "M0_max_output_remainder_at6500": 6196,
+    "scenario": "D1_B01_compact_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 346
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 506
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2311
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4113
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 5866
+      }
+    ],
+    "M2_total_input_tokens": 13142,
+    "M2_max_output_remainder_at6500": -6642,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 43.23026315789474
+  },
+  {
+    "task_id": "D1_B02",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "pretty",
+    "public_task_sha256": "03114c8a5a77cb3e805b2ac2f57d0f41519923d8d8ecd0832989be14e84dc377",
+    "base_prompt_tokens": 677,
+    "M0_input_tokens": 694,
+    "M0_max_output_remainder_at6500": 5806,
+    "scenario": "D1_B02_pretty_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 736
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 847
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 860
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 821
+      }
+    ],
+    "M2_total_input_tokens": 3264,
+    "M2_max_output_remainder_at6500": 3236,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 4.703170028818444
+  },
+  {
+    "task_id": "D1_B02",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "pretty",
+    "public_task_sha256": "03114c8a5a77cb3e805b2ac2f57d0f41519923d8d8ecd0832989be14e84dc377",
+    "base_prompt_tokens": 677,
+    "M0_input_tokens": 694,
+    "M0_max_output_remainder_at6500": 5806,
+    "scenario": "D1_B02_pretty_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 736
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 847
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2652
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4405
+      }
+    ],
+    "M2_total_input_tokens": 8640,
+    "M2_max_output_remainder_at6500": -2140,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 12.44956772334294
+  },
+  {
+    "task_id": "D1_B02",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "pretty",
+    "public_task_sha256": "03114c8a5a77cb3e805b2ac2f57d0f41519923d8d8ecd0832989be14e84dc377",
+    "base_prompt_tokens": 677,
+    "M0_input_tokens": 694,
+    "M0_max_output_remainder_at6500": 5806,
+    "scenario": "D1_B02_pretty_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 736
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 896
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 909
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 919
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 880
+      }
+    ],
+    "M2_total_input_tokens": 4340,
+    "M2_max_output_remainder_at6500": 2160,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 6.253602305475504
+  },
+  {
+    "task_id": "D1_B02",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "pretty",
+    "public_task_sha256": "03114c8a5a77cb3e805b2ac2f57d0f41519923d8d8ecd0832989be14e84dc377",
+    "base_prompt_tokens": 677,
+    "M0_input_tokens": 694,
+    "M0_max_output_remainder_at6500": 5806,
+    "scenario": "D1_B02_pretty_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 736
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 896
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2701
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4503
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 6256
+      }
+    ],
+    "M2_total_input_tokens": 15092,
+    "M2_max_output_remainder_at6500": -8592,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 21.746397694524497
+  },
+  {
+    "task_id": "D1_B02",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "compact",
+    "public_task_sha256": "03114c8a5a77cb3e805b2ac2f57d0f41519923d8d8ecd0832989be14e84dc377",
+    "base_prompt_tokens": 466,
+    "M0_input_tokens": 483,
+    "M0_max_output_remainder_at6500": 6017,
+    "scenario": "D1_B02_compact_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 525
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 636
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 649
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 610
+      }
+    ],
+    "M2_total_input_tokens": 2420,
+    "M2_max_output_remainder_at6500": 4080,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 5.010351966873706
+  },
+  {
+    "task_id": "D1_B02",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "compact",
+    "public_task_sha256": "03114c8a5a77cb3e805b2ac2f57d0f41519923d8d8ecd0832989be14e84dc377",
+    "base_prompt_tokens": 466,
+    "M0_input_tokens": 483,
+    "M0_max_output_remainder_at6500": 6017,
+    "scenario": "D1_B02_compact_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 525
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 636
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2441
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4194
+      }
+    ],
+    "M2_total_input_tokens": 7796,
+    "M2_max_output_remainder_at6500": -1296,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 16.1407867494824
+  },
+  {
+    "task_id": "D1_B02",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "compact",
+    "public_task_sha256": "03114c8a5a77cb3e805b2ac2f57d0f41519923d8d8ecd0832989be14e84dc377",
+    "base_prompt_tokens": 466,
+    "M0_input_tokens": 483,
+    "M0_max_output_remainder_at6500": 6017,
+    "scenario": "D1_B02_compact_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 525
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 685
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 698
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 708
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 669
+      }
+    ],
+    "M2_total_input_tokens": 3285,
+    "M2_max_output_remainder_at6500": 3215,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 6.801242236024844
+  },
+  {
+    "task_id": "D1_B02",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "compact",
+    "public_task_sha256": "03114c8a5a77cb3e805b2ac2f57d0f41519923d8d8ecd0832989be14e84dc377",
+    "base_prompt_tokens": 466,
+    "M0_input_tokens": 483,
+    "M0_max_output_remainder_at6500": 6017,
+    "scenario": "D1_B02_compact_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 525
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 685
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2490
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4292
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 6045
+      }
+    ],
+    "M2_total_input_tokens": 14037,
+    "M2_max_output_remainder_at6500": -7537,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 29.062111801242235
+  },
+  {
+    "task_id": "D1_M01",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "none",
+    "author_testability": "partial",
+    "format": "pretty",
+    "public_task_sha256": "1cb3019f5b58fcad9bd1dabbdcb67d1986361af579d91004d1521fc1d713955c",
+    "base_prompt_tokens": 455,
+    "M0_input_tokens": 472,
+    "M0_max_output_remainder_at6500": 6028,
+    "scenario": "D1_M01_pretty_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 514
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 625
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 638
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 599
+      }
+    ],
+    "M2_total_input_tokens": 2376,
+    "M2_max_output_remainder_at6500": 4124,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 5.033898305084746
+  },
+  {
+    "task_id": "D1_M01",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "none",
+    "author_testability": "partial",
+    "format": "pretty",
+    "public_task_sha256": "1cb3019f5b58fcad9bd1dabbdcb67d1986361af579d91004d1521fc1d713955c",
+    "base_prompt_tokens": 455,
+    "M0_input_tokens": 472,
+    "M0_max_output_remainder_at6500": 6028,
+    "scenario": "D1_M01_pretty_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 514
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 625
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2430
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4183
+      }
+    ],
+    "M2_total_input_tokens": 7752,
+    "M2_max_output_remainder_at6500": -1252,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 16.423728813559322
+  },
+  {
+    "task_id": "D1_M01",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "none",
+    "author_testability": "partial",
+    "format": "pretty",
+    "public_task_sha256": "1cb3019f5b58fcad9bd1dabbdcb67d1986361af579d91004d1521fc1d713955c",
+    "base_prompt_tokens": 455,
+    "M0_input_tokens": 472,
+    "M0_max_output_remainder_at6500": 6028,
+    "scenario": "D1_M01_pretty_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 514
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 674
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 687
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 697
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 658
+      }
+    ],
+    "M2_total_input_tokens": 3230,
+    "M2_max_output_remainder_at6500": 3270,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 6.843220338983051
+  },
+  {
+    "task_id": "D1_M01",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "none",
+    "author_testability": "partial",
+    "format": "pretty",
+    "public_task_sha256": "1cb3019f5b58fcad9bd1dabbdcb67d1986361af579d91004d1521fc1d713955c",
+    "base_prompt_tokens": 455,
+    "M0_input_tokens": 472,
+    "M0_max_output_remainder_at6500": 6028,
+    "scenario": "D1_M01_pretty_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 514
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 674
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2479
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4281
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 6034
+      }
+    ],
+    "M2_total_input_tokens": 13982,
+    "M2_max_output_remainder_at6500": -7482,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 29.622881355932204
+  },
+  {
+    "task_id": "D1_M01",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "none",
+    "author_testability": "partial",
+    "format": "compact",
+    "public_task_sha256": "1cb3019f5b58fcad9bd1dabbdcb67d1986361af579d91004d1521fc1d713955c",
+    "base_prompt_tokens": 332,
+    "M0_input_tokens": 349,
+    "M0_max_output_remainder_at6500": 6151,
+    "scenario": "D1_M01_compact_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 391
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 502
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 515
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 476
+      }
+    ],
+    "M2_total_input_tokens": 1884,
+    "M2_max_output_remainder_at6500": 4616,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 5.3982808022922635
+  },
+  {
+    "task_id": "D1_M01",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "none",
+    "author_testability": "partial",
+    "format": "compact",
+    "public_task_sha256": "1cb3019f5b58fcad9bd1dabbdcb67d1986361af579d91004d1521fc1d713955c",
+    "base_prompt_tokens": 332,
+    "M0_input_tokens": 349,
+    "M0_max_output_remainder_at6500": 6151,
+    "scenario": "D1_M01_compact_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 391
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 502
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2307
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4060
+      }
+    ],
+    "M2_total_input_tokens": 7260,
+    "M2_max_output_remainder_at6500": -760,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 20.802292263610315
+  },
+  {
+    "task_id": "D1_M01",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "none",
+    "author_testability": "partial",
+    "format": "compact",
+    "public_task_sha256": "1cb3019f5b58fcad9bd1dabbdcb67d1986361af579d91004d1521fc1d713955c",
+    "base_prompt_tokens": 332,
+    "M0_input_tokens": 349,
+    "M0_max_output_remainder_at6500": 6151,
+    "scenario": "D1_M01_compact_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 391
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 551
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 564
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 574
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 535
+      }
+    ],
+    "M2_total_input_tokens": 2615,
+    "M2_max_output_remainder_at6500": 3885,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 7.492836676217765
+  },
+  {
+    "task_id": "D1_M01",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "none",
+    "author_testability": "partial",
+    "format": "compact",
+    "public_task_sha256": "1cb3019f5b58fcad9bd1dabbdcb67d1986361af579d91004d1521fc1d713955c",
+    "base_prompt_tokens": 332,
+    "M0_input_tokens": 349,
+    "M0_max_output_remainder_at6500": 6151,
+    "scenario": "D1_M01_compact_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 391
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 551
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2356
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4158
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 5911
+      }
+    ],
+    "M2_total_input_tokens": 13367,
+    "M2_max_output_remainder_at6500": -6867,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 38.30085959885387
+  },
+  {
+    "task_id": "D1_M02",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "pretty",
+    "public_task_sha256": "067a2f704ad0425e099ef65764f9bee0a46fbcc54770e4758cf69b446040e599",
+    "base_prompt_tokens": 344,
+    "M0_input_tokens": 361,
+    "M0_max_output_remainder_at6500": 6139,
+    "scenario": "D1_M02_pretty_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 403
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 514
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 527
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 488
+      }
+    ],
+    "M2_total_input_tokens": 1932,
+    "M2_max_output_remainder_at6500": 4568,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 5.351800554016621
+  },
+  {
+    "task_id": "D1_M02",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "pretty",
+    "public_task_sha256": "067a2f704ad0425e099ef65764f9bee0a46fbcc54770e4758cf69b446040e599",
+    "base_prompt_tokens": 344,
+    "M0_input_tokens": 361,
+    "M0_max_output_remainder_at6500": 6139,
+    "scenario": "D1_M02_pretty_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 403
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 514
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2319
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4072
+      }
+    ],
+    "M2_total_input_tokens": 7308,
+    "M2_max_output_remainder_at6500": -808,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 20.24376731301939
+  },
+  {
+    "task_id": "D1_M02",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "pretty",
+    "public_task_sha256": "067a2f704ad0425e099ef65764f9bee0a46fbcc54770e4758cf69b446040e599",
+    "base_prompt_tokens": 344,
+    "M0_input_tokens": 361,
+    "M0_max_output_remainder_at6500": 6139,
+    "scenario": "D1_M02_pretty_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 403
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 563
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 576
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 586
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 547
+      }
+    ],
+    "M2_total_input_tokens": 2675,
+    "M2_max_output_remainder_at6500": 3825,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 7.409972299168975
+  },
+  {
+    "task_id": "D1_M02",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "pretty",
+    "public_task_sha256": "067a2f704ad0425e099ef65764f9bee0a46fbcc54770e4758cf69b446040e599",
+    "base_prompt_tokens": 344,
+    "M0_input_tokens": 361,
+    "M0_max_output_remainder_at6500": 6139,
+    "scenario": "D1_M02_pretty_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 403
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 563
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2368
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4170
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 5923
+      }
+    ],
+    "M2_total_input_tokens": 13427,
+    "M2_max_output_remainder_at6500": -6927,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 37.19390581717452
+  },
+  {
+    "task_id": "D1_M02",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "compact",
+    "public_task_sha256": "067a2f704ad0425e099ef65764f9bee0a46fbcc54770e4758cf69b446040e599",
+    "base_prompt_tokens": 256,
+    "M0_input_tokens": 273,
+    "M0_max_output_remainder_at6500": 6227,
+    "scenario": "D1_M02_compact_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 315
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 426
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 439
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 400
+      }
+    ],
+    "M2_total_input_tokens": 1580,
+    "M2_max_output_remainder_at6500": 4920,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 5.787545787545787
+  },
+  {
+    "task_id": "D1_M02",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "compact",
+    "public_task_sha256": "067a2f704ad0425e099ef65764f9bee0a46fbcc54770e4758cf69b446040e599",
+    "base_prompt_tokens": 256,
+    "M0_input_tokens": 273,
+    "M0_max_output_remainder_at6500": 6227,
+    "scenario": "D1_M02_compact_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 315
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 426
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2231
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 3984
+      }
+    ],
+    "M2_total_input_tokens": 6956,
+    "M2_max_output_remainder_at6500": -456,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 25.479853479853478
+  },
+  {
+    "task_id": "D1_M02",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "compact",
+    "public_task_sha256": "067a2f704ad0425e099ef65764f9bee0a46fbcc54770e4758cf69b446040e599",
+    "base_prompt_tokens": 256,
+    "M0_input_tokens": 273,
+    "M0_max_output_remainder_at6500": 6227,
+    "scenario": "D1_M02_compact_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 315
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 475
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 488
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 498
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 459
+      }
+    ],
+    "M2_total_input_tokens": 2235,
+    "M2_max_output_remainder_at6500": 4265,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 8.186813186813186
+  },
+  {
+    "task_id": "D1_M02",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "compact",
+    "public_task_sha256": "067a2f704ad0425e099ef65764f9bee0a46fbcc54770e4758cf69b446040e599",
+    "base_prompt_tokens": 256,
+    "M0_input_tokens": 273,
+    "M0_max_output_remainder_at6500": 6227,
+    "scenario": "D1_M02_compact_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 315
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 475
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2280
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4082
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 5835
+      }
+    ],
+    "M2_total_input_tokens": 12987,
+    "M2_max_output_remainder_at6500": -6487,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 47.57142857142857
+  },
+  {
+    "task_id": "D1_C01",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "pretty",
+    "public_task_sha256": "3ed6b16f853e545b3a54d1fcd20734b56ca6185caf883b023d07e26ac260b39b",
+    "base_prompt_tokens": 706,
+    "M0_input_tokens": 723,
+    "M0_max_output_remainder_at6500": 5777,
+    "scenario": "D1_C01_pretty_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 765
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 876
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 889
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 850
+      }
+    ],
+    "M2_total_input_tokens": 3380,
+    "M2_max_output_remainder_at6500": 3120,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 4.674965421853389
+  },
+  {
+    "task_id": "D1_C01",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "pretty",
+    "public_task_sha256": "3ed6b16f853e545b3a54d1fcd20734b56ca6185caf883b023d07e26ac260b39b",
+    "base_prompt_tokens": 706,
+    "M0_input_tokens": 723,
+    "M0_max_output_remainder_at6500": 5777,
+    "scenario": "D1_C01_pretty_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 765
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 876
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2681
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4434
+      }
+    ],
+    "M2_total_input_tokens": 8756,
+    "M2_max_output_remainder_at6500": -2256,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 12.110650069156293
+  },
+  {
+    "task_id": "D1_C01",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "pretty",
+    "public_task_sha256": "3ed6b16f853e545b3a54d1fcd20734b56ca6185caf883b023d07e26ac260b39b",
+    "base_prompt_tokens": 706,
+    "M0_input_tokens": 723,
+    "M0_max_output_remainder_at6500": 5777,
+    "scenario": "D1_C01_pretty_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 765
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 925
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 938
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 948
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 909
+      }
+    ],
+    "M2_total_input_tokens": 4485,
+    "M2_max_output_remainder_at6500": 2015,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 6.203319502074689
+  },
+  {
+    "task_id": "D1_C01",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "pretty",
+    "public_task_sha256": "3ed6b16f853e545b3a54d1fcd20734b56ca6185caf883b023d07e26ac260b39b",
+    "base_prompt_tokens": 706,
+    "M0_input_tokens": 723,
+    "M0_max_output_remainder_at6500": 5777,
+    "scenario": "D1_C01_pretty_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 765
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 925
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2730
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4532
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 6285
+      }
+    ],
+    "M2_total_input_tokens": 15237,
+    "M2_max_output_remainder_at6500": -8737,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 21.074688796680498
+  },
+  {
+    "task_id": "D1_C01",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "compact",
+    "public_task_sha256": "3ed6b16f853e545b3a54d1fcd20734b56ca6185caf883b023d07e26ac260b39b",
+    "base_prompt_tokens": 497,
+    "M0_input_tokens": 514,
+    "M0_max_output_remainder_at6500": 5986,
+    "scenario": "D1_C01_compact_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 556
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 667
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 680
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 641
+      }
+    ],
+    "M2_total_input_tokens": 2544,
+    "M2_max_output_remainder_at6500": 3956,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 4.9494163424124515
+  },
+  {
+    "task_id": "D1_C01",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "compact",
+    "public_task_sha256": "3ed6b16f853e545b3a54d1fcd20734b56ca6185caf883b023d07e26ac260b39b",
+    "base_prompt_tokens": 497,
+    "M0_input_tokens": 514,
+    "M0_max_output_remainder_at6500": 5986,
+    "scenario": "D1_C01_compact_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 556
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 667
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2472
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4225
+      }
+    ],
+    "M2_total_input_tokens": 7920,
+    "M2_max_output_remainder_at6500": -1420,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 15.408560311284047
+  },
+  {
+    "task_id": "D1_C01",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "compact",
+    "public_task_sha256": "3ed6b16f853e545b3a54d1fcd20734b56ca6185caf883b023d07e26ac260b39b",
+    "base_prompt_tokens": 497,
+    "M0_input_tokens": 514,
+    "M0_max_output_remainder_at6500": 5986,
+    "scenario": "D1_C01_compact_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 556
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 716
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 729
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 739
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 700
+      }
+    ],
+    "M2_total_input_tokens": 3440,
+    "M2_max_output_remainder_at6500": 3060,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 6.692607003891051
+  },
+  {
+    "task_id": "D1_C01",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "compact",
+    "public_task_sha256": "3ed6b16f853e545b3a54d1fcd20734b56ca6185caf883b023d07e26ac260b39b",
+    "base_prompt_tokens": 497,
+    "M0_input_tokens": 514,
+    "M0_max_output_remainder_at6500": 5986,
+    "scenario": "D1_C01_compact_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 556
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 716
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2521
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4323
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 6076
+      }
+    ],
+    "M2_total_input_tokens": 14192,
+    "M2_max_output_remainder_at6500": -7692,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 27.610894941634243
+  },
+  {
+    "task_id": "D1_C02",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "pretty",
+    "public_task_sha256": "c9ad3531f074c655a5fd98c8779402a277dd321674faf84894eaf386a3e8f8a2",
+    "base_prompt_tokens": 715,
+    "M0_input_tokens": 732,
+    "M0_max_output_remainder_at6500": 5768,
+    "scenario": "D1_C02_pretty_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 774
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 885
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 898
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 859
+      }
+    ],
+    "M2_total_input_tokens": 3416,
+    "M2_max_output_remainder_at6500": 3084,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 4.666666666666667
+  },
+  {
+    "task_id": "D1_C02",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "pretty",
+    "public_task_sha256": "c9ad3531f074c655a5fd98c8779402a277dd321674faf84894eaf386a3e8f8a2",
+    "base_prompt_tokens": 715,
+    "M0_input_tokens": 732,
+    "M0_max_output_remainder_at6500": 5768,
+    "scenario": "D1_C02_pretty_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 774
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 885
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2690
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4443
+      }
+    ],
+    "M2_total_input_tokens": 8792,
+    "M2_max_output_remainder_at6500": -2292,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 12.010928961748634
+  },
+  {
+    "task_id": "D1_C02",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "pretty",
+    "public_task_sha256": "c9ad3531f074c655a5fd98c8779402a277dd321674faf84894eaf386a3e8f8a2",
+    "base_prompt_tokens": 715,
+    "M0_input_tokens": 732,
+    "M0_max_output_remainder_at6500": 5768,
+    "scenario": "D1_C02_pretty_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 774
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 934
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 947
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 957
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 918
+      }
+    ],
+    "M2_total_input_tokens": 4530,
+    "M2_max_output_remainder_at6500": 1970,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 6.188524590163935
+  },
+  {
+    "task_id": "D1_C02",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "pretty",
+    "public_task_sha256": "c9ad3531f074c655a5fd98c8779402a277dd321674faf84894eaf386a3e8f8a2",
+    "base_prompt_tokens": 715,
+    "M0_input_tokens": 732,
+    "M0_max_output_remainder_at6500": 5768,
+    "scenario": "D1_C02_pretty_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 774
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 934
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2739
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4541
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 6294
+      }
+    ],
+    "M2_total_input_tokens": 15282,
+    "M2_max_output_remainder_at6500": -8782,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 20.87704918032787
+  },
+  {
+    "task_id": "D1_C02",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "compact",
+    "public_task_sha256": "c9ad3531f074c655a5fd98c8779402a277dd321674faf84894eaf386a3e8f8a2",
+    "base_prompt_tokens": 551,
+    "M0_input_tokens": 568,
+    "M0_max_output_remainder_at6500": 5932,
+    "scenario": "D1_C02_compact_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 610
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 721
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 734
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 695
+      }
+    ],
+    "M2_total_input_tokens": 2760,
+    "M2_max_output_remainder_at6500": 3740,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 4.859154929577465
+  },
+  {
+    "task_id": "D1_C02",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "compact",
+    "public_task_sha256": "c9ad3531f074c655a5fd98c8779402a277dd321674faf84894eaf386a3e8f8a2",
+    "base_prompt_tokens": 551,
+    "M0_input_tokens": 568,
+    "M0_max_output_remainder_at6500": 5932,
+    "scenario": "D1_C02_compact_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 610
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 721
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2526
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4279
+      }
+    ],
+    "M2_total_input_tokens": 8136,
+    "M2_max_output_remainder_at6500": -1636,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 14.32394366197183
+  },
+  {
+    "task_id": "D1_C02",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "compact",
+    "public_task_sha256": "c9ad3531f074c655a5fd98c8779402a277dd321674faf84894eaf386a3e8f8a2",
+    "base_prompt_tokens": 551,
+    "M0_input_tokens": 568,
+    "M0_max_output_remainder_at6500": 5932,
+    "scenario": "D1_C02_compact_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 610
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 770
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 783
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 793
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 754
+      }
+    ],
+    "M2_total_input_tokens": 3710,
+    "M2_max_output_remainder_at6500": 2790,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 6.53169014084507
+  },
+  {
+    "task_id": "D1_C02",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "compact",
+    "public_task_sha256": "c9ad3531f074c655a5fd98c8779402a277dd321674faf84894eaf386a3e8f8a2",
+    "base_prompt_tokens": 551,
+    "M0_input_tokens": 568,
+    "M0_max_output_remainder_at6500": 5932,
+    "scenario": "D1_C02_compact_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 610
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 770
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2575
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4377
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 6130
+      }
+    ],
+    "M2_total_input_tokens": 14462,
+    "M2_max_output_remainder_at6500": -7962,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 25.461267605633804
+  },
+  {
+    "task_id": "D1_F01",
+    "split": "reserve",
+    "repository": "beetbox/confuse",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "pretty",
+    "public_task_sha256": "1756e5f9e4b0d6d7dfb3e5dc2fe0063666d4bd4422f3df20769038d5e242f1ae",
+    "base_prompt_tokens": 329,
+    "M0_input_tokens": 346,
+    "M0_max_output_remainder_at6500": 6154,
+    "scenario": "D1_F01_pretty_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 388
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 499
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 512
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 473
+      }
+    ],
+    "M2_total_input_tokens": 1872,
+    "M2_max_output_remainder_at6500": 4628,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 5.410404624277457
+  },
+  {
+    "task_id": "D1_F01",
+    "split": "reserve",
+    "repository": "beetbox/confuse",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "pretty",
+    "public_task_sha256": "1756e5f9e4b0d6d7dfb3e5dc2fe0063666d4bd4422f3df20769038d5e242f1ae",
+    "base_prompt_tokens": 329,
+    "M0_input_tokens": 346,
+    "M0_max_output_remainder_at6500": 6154,
+    "scenario": "D1_F01_pretty_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 388
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 499
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2304
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4057
+      }
+    ],
+    "M2_total_input_tokens": 7248,
+    "M2_max_output_remainder_at6500": -748,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 20.947976878612717
+  },
+  {
+    "task_id": "D1_F01",
+    "split": "reserve",
+    "repository": "beetbox/confuse",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "pretty",
+    "public_task_sha256": "1756e5f9e4b0d6d7dfb3e5dc2fe0063666d4bd4422f3df20769038d5e242f1ae",
+    "base_prompt_tokens": 329,
+    "M0_input_tokens": 346,
+    "M0_max_output_remainder_at6500": 6154,
+    "scenario": "D1_F01_pretty_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 388
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 548
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 561
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 571
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 532
+      }
+    ],
+    "M2_total_input_tokens": 2600,
+    "M2_max_output_remainder_at6500": 3900,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 7.514450867052023
+  },
+  {
+    "task_id": "D1_F01",
+    "split": "reserve",
+    "repository": "beetbox/confuse",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "pretty",
+    "public_task_sha256": "1756e5f9e4b0d6d7dfb3e5dc2fe0063666d4bd4422f3df20769038d5e242f1ae",
+    "base_prompt_tokens": 329,
+    "M0_input_tokens": 346,
+    "M0_max_output_remainder_at6500": 6154,
+    "scenario": "D1_F01_pretty_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 388
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 548
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2353
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4155
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 5908
+      }
+    ],
+    "M2_total_input_tokens": 13352,
+    "M2_max_output_remainder_at6500": -6852,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 38.589595375722546
+  },
+  {
+    "task_id": "D1_F01",
+    "split": "reserve",
+    "repository": "beetbox/confuse",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "compact",
+    "public_task_sha256": "1756e5f9e4b0d6d7dfb3e5dc2fe0063666d4bd4422f3df20769038d5e242f1ae",
+    "base_prompt_tokens": 260,
+    "M0_input_tokens": 277,
+    "M0_max_output_remainder_at6500": 6223,
+    "scenario": "D1_F01_compact_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 319
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 430
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 443
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 404
+      }
+    ],
+    "M2_total_input_tokens": 1596,
+    "M2_max_output_remainder_at6500": 4904,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 5.76173285198556
+  },
+  {
+    "task_id": "D1_F01",
+    "split": "reserve",
+    "repository": "beetbox/confuse",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "compact",
+    "public_task_sha256": "1756e5f9e4b0d6d7dfb3e5dc2fe0063666d4bd4422f3df20769038d5e242f1ae",
+    "base_prompt_tokens": 260,
+    "M0_input_tokens": 277,
+    "M0_max_output_remainder_at6500": 6223,
+    "scenario": "D1_F01_compact_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 319
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 430
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2235
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 3988
+      }
+    ],
+    "M2_total_input_tokens": 6972,
+    "M2_max_output_remainder_at6500": -472,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 25.169675090252706
+  },
+  {
+    "task_id": "D1_F01",
+    "split": "reserve",
+    "repository": "beetbox/confuse",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "compact",
+    "public_task_sha256": "1756e5f9e4b0d6d7dfb3e5dc2fe0063666d4bd4422f3df20769038d5e242f1ae",
+    "base_prompt_tokens": 260,
+    "M0_input_tokens": 277,
+    "M0_max_output_remainder_at6500": 6223,
+    "scenario": "D1_F01_compact_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 319
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 479
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 492
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 502
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 463
+      }
+    ],
+    "M2_total_input_tokens": 2255,
+    "M2_max_output_remainder_at6500": 4245,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 8.140794223826715
+  },
+  {
+    "task_id": "D1_F01",
+    "split": "reserve",
+    "repository": "beetbox/confuse",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "compact",
+    "public_task_sha256": "1756e5f9e4b0d6d7dfb3e5dc2fe0063666d4bd4422f3df20769038d5e242f1ae",
+    "base_prompt_tokens": 260,
+    "M0_input_tokens": 277,
+    "M0_max_output_remainder_at6500": 6223,
+    "scenario": "D1_F01_compact_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 319
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 479
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2284
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4086
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 5839
+      }
+    ],
+    "M2_total_input_tokens": 13007,
+    "M2_max_output_remainder_at6500": -6507,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 46.95667870036101
+  },
+  {
+    "task_id": "D1_F02",
+    "split": "reserve",
+    "repository": "beetbox/confuse",
+    "author_state": "none",
+    "author_testability": "partial",
+    "format": "pretty",
+    "public_task_sha256": "a1878113fc9042109c5e249f0b17596bb818d8c7cbb851f04e50dd9f554eb33a",
+    "base_prompt_tokens": 417,
+    "M0_input_tokens": 434,
+    "M0_max_output_remainder_at6500": 6066,
+    "scenario": "D1_F02_pretty_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 476
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 587
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 600
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 561
+      }
+    ],
+    "M2_total_input_tokens": 2224,
+    "M2_max_output_remainder_at6500": 4276,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 5.124423963133641
+  },
+  {
+    "task_id": "D1_F02",
+    "split": "reserve",
+    "repository": "beetbox/confuse",
+    "author_state": "none",
+    "author_testability": "partial",
+    "format": "pretty",
+    "public_task_sha256": "a1878113fc9042109c5e249f0b17596bb818d8c7cbb851f04e50dd9f554eb33a",
+    "base_prompt_tokens": 417,
+    "M0_input_tokens": 434,
+    "M0_max_output_remainder_at6500": 6066,
+    "scenario": "D1_F02_pretty_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 476
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 587
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2392
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4145
+      }
+    ],
+    "M2_total_input_tokens": 7600,
+    "M2_max_output_remainder_at6500": -1100,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 17.51152073732719
+  },
+  {
+    "task_id": "D1_F02",
+    "split": "reserve",
+    "repository": "beetbox/confuse",
+    "author_state": "none",
+    "author_testability": "partial",
+    "format": "pretty",
+    "public_task_sha256": "a1878113fc9042109c5e249f0b17596bb818d8c7cbb851f04e50dd9f554eb33a",
+    "base_prompt_tokens": 417,
+    "M0_input_tokens": 434,
+    "M0_max_output_remainder_at6500": 6066,
+    "scenario": "D1_F02_pretty_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 476
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 636
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 649
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 659
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 620
+      }
+    ],
+    "M2_total_input_tokens": 3040,
+    "M2_max_output_remainder_at6500": 3460,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 7.0046082949308754
+  },
+  {
+    "task_id": "D1_F02",
+    "split": "reserve",
+    "repository": "beetbox/confuse",
+    "author_state": "none",
+    "author_testability": "partial",
+    "format": "pretty",
+    "public_task_sha256": "a1878113fc9042109c5e249f0b17596bb818d8c7cbb851f04e50dd9f554eb33a",
+    "base_prompt_tokens": 417,
+    "M0_input_tokens": 434,
+    "M0_max_output_remainder_at6500": 6066,
+    "scenario": "D1_F02_pretty_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 476
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 636
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2441
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4243
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 5996
+      }
+    ],
+    "M2_total_input_tokens": 13792,
+    "M2_max_output_remainder_at6500": -7292,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 31.77880184331797
+  },
+  {
+    "task_id": "D1_F02",
+    "split": "reserve",
+    "repository": "beetbox/confuse",
+    "author_state": "none",
+    "author_testability": "partial",
+    "format": "compact",
+    "public_task_sha256": "a1878113fc9042109c5e249f0b17596bb818d8c7cbb851f04e50dd9f554eb33a",
+    "base_prompt_tokens": 301,
+    "M0_input_tokens": 318,
+    "M0_max_output_remainder_at6500": 6182,
+    "scenario": "D1_F02_compact_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 360
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 471
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 484
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 445
+      }
+    ],
+    "M2_total_input_tokens": 1760,
+    "M2_max_output_remainder_at6500": 4740,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 5.534591194968553
+  },
+  {
+    "task_id": "D1_F02",
+    "split": "reserve",
+    "repository": "beetbox/confuse",
+    "author_state": "none",
+    "author_testability": "partial",
+    "format": "compact",
+    "public_task_sha256": "a1878113fc9042109c5e249f0b17596bb818d8c7cbb851f04e50dd9f554eb33a",
+    "base_prompt_tokens": 301,
+    "M0_input_tokens": 318,
+    "M0_max_output_remainder_at6500": 6182,
+    "scenario": "D1_F02_compact_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 360
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 471
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2276
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4029
+      }
+    ],
+    "M2_total_input_tokens": 7136,
+    "M2_max_output_remainder_at6500": -636,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 22.440251572327043
+  },
+  {
+    "task_id": "D1_F02",
+    "split": "reserve",
+    "repository": "beetbox/confuse",
+    "author_state": "none",
+    "author_testability": "partial",
+    "format": "compact",
+    "public_task_sha256": "a1878113fc9042109c5e249f0b17596bb818d8c7cbb851f04e50dd9f554eb33a",
+    "base_prompt_tokens": 301,
+    "M0_input_tokens": 318,
+    "M0_max_output_remainder_at6500": 6182,
+    "scenario": "D1_F02_compact_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 360
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 520
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 533
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 543
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 504
+      }
+    ],
+    "M2_total_input_tokens": 2460,
+    "M2_max_output_remainder_at6500": 4040,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 7.735849056603773
+  },
+  {
+    "task_id": "D1_F02",
+    "split": "reserve",
+    "repository": "beetbox/confuse",
+    "author_state": "none",
+    "author_testability": "partial",
+    "format": "compact",
+    "public_task_sha256": "a1878113fc9042109c5e249f0b17596bb818d8c7cbb851f04e50dd9f554eb33a",
+    "base_prompt_tokens": 301,
+    "M0_input_tokens": 318,
+    "M0_max_output_remainder_at6500": 6182,
+    "scenario": "D1_F02_compact_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 360
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 520
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2325
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4127
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 5880
+      }
+    ],
+    "M2_total_input_tokens": 13212,
+    "M2_max_output_remainder_at6500": -6712,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 41.54716981132076
+  },
+  {
+    "task_id": "D1_B03",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "pretty",
+    "public_task_sha256": "8899f382241f28a4cf9561ce07a09d4c408482058356393f9ae295f3e81e3fd4",
+    "base_prompt_tokens": 374,
+    "M0_input_tokens": 391,
+    "M0_max_output_remainder_at6500": 6109,
+    "scenario": "D1_B03_pretty_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 433
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 544
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 557
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 518
+      }
+    ],
+    "M2_total_input_tokens": 2052,
+    "M2_max_output_remainder_at6500": 4448,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 5.248081841432225
+  },
+  {
+    "task_id": "D1_B03",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "pretty",
+    "public_task_sha256": "8899f382241f28a4cf9561ce07a09d4c408482058356393f9ae295f3e81e3fd4",
+    "base_prompt_tokens": 374,
+    "M0_input_tokens": 391,
+    "M0_max_output_remainder_at6500": 6109,
+    "scenario": "D1_B03_pretty_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 433
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 544
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2349
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4102
+      }
+    ],
+    "M2_total_input_tokens": 7428,
+    "M2_max_output_remainder_at6500": -928,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 18.997442455242968
+  },
+  {
+    "task_id": "D1_B03",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "pretty",
+    "public_task_sha256": "8899f382241f28a4cf9561ce07a09d4c408482058356393f9ae295f3e81e3fd4",
+    "base_prompt_tokens": 374,
+    "M0_input_tokens": 391,
+    "M0_max_output_remainder_at6500": 6109,
+    "scenario": "D1_B03_pretty_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 433
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 593
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 606
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 616
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 577
+      }
+    ],
+    "M2_total_input_tokens": 2825,
+    "M2_max_output_remainder_at6500": 3675,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 7.225063938618926
+  },
+  {
+    "task_id": "D1_B03",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "pretty",
+    "public_task_sha256": "8899f382241f28a4cf9561ce07a09d4c408482058356393f9ae295f3e81e3fd4",
+    "base_prompt_tokens": 374,
+    "M0_input_tokens": 391,
+    "M0_max_output_remainder_at6500": 6109,
+    "scenario": "D1_B03_pretty_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 433
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 593
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2398
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4200
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 5953
+      }
+    ],
+    "M2_total_input_tokens": 13577,
+    "M2_max_output_remainder_at6500": -7077,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 34.72378516624041
+  },
+  {
+    "task_id": "D1_B03",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "compact",
+    "public_task_sha256": "8899f382241f28a4cf9561ce07a09d4c408482058356393f9ae295f3e81e3fd4",
+    "base_prompt_tokens": 320,
+    "M0_input_tokens": 337,
+    "M0_max_output_remainder_at6500": 6163,
+    "scenario": "D1_B03_compact_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 379
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 490
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 503
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 464
+      }
+    ],
+    "M2_total_input_tokens": 1836,
+    "M2_max_output_remainder_at6500": 4664,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 5.448071216617211
+  },
+  {
+    "task_id": "D1_B03",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "compact",
+    "public_task_sha256": "8899f382241f28a4cf9561ce07a09d4c408482058356393f9ae295f3e81e3fd4",
+    "base_prompt_tokens": 320,
+    "M0_input_tokens": 337,
+    "M0_max_output_remainder_at6500": 6163,
+    "scenario": "D1_B03_compact_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 379
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 490
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2295
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4048
+      }
+    ],
+    "M2_total_input_tokens": 7212,
+    "M2_max_output_remainder_at6500": -712,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 21.40059347181009
+  },
+  {
+    "task_id": "D1_B03",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "compact",
+    "public_task_sha256": "8899f382241f28a4cf9561ce07a09d4c408482058356393f9ae295f3e81e3fd4",
+    "base_prompt_tokens": 320,
+    "M0_input_tokens": 337,
+    "M0_max_output_remainder_at6500": 6163,
+    "scenario": "D1_B03_compact_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 379
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 539
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 552
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 562
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 523
+      }
+    ],
+    "M2_total_input_tokens": 2555,
+    "M2_max_output_remainder_at6500": 3945,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 7.5816023738872405
+  },
+  {
+    "task_id": "D1_B03",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "compact",
+    "public_task_sha256": "8899f382241f28a4cf9561ce07a09d4c408482058356393f9ae295f3e81e3fd4",
+    "base_prompt_tokens": 320,
+    "M0_input_tokens": 337,
+    "M0_max_output_remainder_at6500": 6163,
+    "scenario": "D1_B03_compact_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 379
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 539
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2344
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4146
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 5899
+      }
+    ],
+    "M2_total_input_tokens": 13307,
+    "M2_max_output_remainder_at6500": -6807,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 39.486646884273
+  },
+  {
+    "task_id": "D1_B04",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "operation_sequence",
+    "author_testability": "yes",
+    "format": "pretty",
+    "public_task_sha256": "47b39de3c762b029162b30512cd201e60b7b2e71f6d55404320ca9ce61bd63b1",
+    "base_prompt_tokens": 662,
+    "M0_input_tokens": 679,
+    "M0_max_output_remainder_at6500": 5821,
+    "scenario": "D1_B04_pretty_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 721
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 832
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 845
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 806
+      }
+    ],
+    "M2_total_input_tokens": 3204,
+    "M2_max_output_remainder_at6500": 3296,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 4.718703976435935
+  },
+  {
+    "task_id": "D1_B04",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "operation_sequence",
+    "author_testability": "yes",
+    "format": "pretty",
+    "public_task_sha256": "47b39de3c762b029162b30512cd201e60b7b2e71f6d55404320ca9ce61bd63b1",
+    "base_prompt_tokens": 662,
+    "M0_input_tokens": 679,
+    "M0_max_output_remainder_at6500": 5821,
+    "scenario": "D1_B04_pretty_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 721
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 832
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2637
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4390
+      }
+    ],
+    "M2_total_input_tokens": 8580,
+    "M2_max_output_remainder_at6500": -2080,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 12.636229749631811
+  },
+  {
+    "task_id": "D1_B04",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "operation_sequence",
+    "author_testability": "yes",
+    "format": "pretty",
+    "public_task_sha256": "47b39de3c762b029162b30512cd201e60b7b2e71f6d55404320ca9ce61bd63b1",
+    "base_prompt_tokens": 662,
+    "M0_input_tokens": 679,
+    "M0_max_output_remainder_at6500": 5821,
+    "scenario": "D1_B04_pretty_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 721
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 881
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 894
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 904
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 865
+      }
+    ],
+    "M2_total_input_tokens": 4265,
+    "M2_max_output_remainder_at6500": 2235,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 6.281296023564065
+  },
+  {
+    "task_id": "D1_B04",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "operation_sequence",
+    "author_testability": "yes",
+    "format": "pretty",
+    "public_task_sha256": "47b39de3c762b029162b30512cd201e60b7b2e71f6d55404320ca9ce61bd63b1",
+    "base_prompt_tokens": 662,
+    "M0_input_tokens": 679,
+    "M0_max_output_remainder_at6500": 5821,
+    "scenario": "D1_B04_pretty_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 721
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 881
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2686
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4488
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 6241
+      }
+    ],
+    "M2_total_input_tokens": 15017,
+    "M2_max_output_remainder_at6500": -8517,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 22.116347569955817
+  },
+  {
+    "task_id": "D1_B04",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "operation_sequence",
+    "author_testability": "yes",
+    "format": "compact",
+    "public_task_sha256": "47b39de3c762b029162b30512cd201e60b7b2e71f6d55404320ca9ce61bd63b1",
+    "base_prompt_tokens": 536,
+    "M0_input_tokens": 553,
+    "M0_max_output_remainder_at6500": 5947,
+    "scenario": "D1_B04_compact_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 595
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 706
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 719
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 680
+      }
+    ],
+    "M2_total_input_tokens": 2700,
+    "M2_max_output_remainder_at6500": 3800,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 4.882459312839059
+  },
+  {
+    "task_id": "D1_B04",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "operation_sequence",
+    "author_testability": "yes",
+    "format": "compact",
+    "public_task_sha256": "47b39de3c762b029162b30512cd201e60b7b2e71f6d55404320ca9ce61bd63b1",
+    "base_prompt_tokens": 536,
+    "M0_input_tokens": 553,
+    "M0_max_output_remainder_at6500": 5947,
+    "scenario": "D1_B04_compact_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 595
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 706
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2511
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4264
+      }
+    ],
+    "M2_total_input_tokens": 8076,
+    "M2_max_output_remainder_at6500": -1576,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 14.603978300180831
+  },
+  {
+    "task_id": "D1_B04",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "operation_sequence",
+    "author_testability": "yes",
+    "format": "compact",
+    "public_task_sha256": "47b39de3c762b029162b30512cd201e60b7b2e71f6d55404320ca9ce61bd63b1",
+    "base_prompt_tokens": 536,
+    "M0_input_tokens": 553,
+    "M0_max_output_remainder_at6500": 5947,
+    "scenario": "D1_B04_compact_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 595
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 755
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 768
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 778
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 739
+      }
+    ],
+    "M2_total_input_tokens": 3635,
+    "M2_max_output_remainder_at6500": 2865,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 6.573236889692586
+  },
+  {
+    "task_id": "D1_B04",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "operation_sequence",
+    "author_testability": "yes",
+    "format": "compact",
+    "public_task_sha256": "47b39de3c762b029162b30512cd201e60b7b2e71f6d55404320ca9ce61bd63b1",
+    "base_prompt_tokens": 536,
+    "M0_input_tokens": 553,
+    "M0_max_output_remainder_at6500": 5947,
+    "scenario": "D1_B04_compact_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 595
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 755
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2560
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4362
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 6115
+      }
+    ],
+    "M2_total_input_tokens": 14387,
+    "M2_max_output_remainder_at6500": -7887,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 26.01627486437613
+  },
+  {
+    "task_id": "D1_B05",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "pretty",
+    "public_task_sha256": "5477c6668e9b9b2e0aceda2aceeb1dfa979f7000353de71121e35da9314322a8",
+    "base_prompt_tokens": 513,
+    "M0_input_tokens": 530,
+    "M0_max_output_remainder_at6500": 5970,
+    "scenario": "D1_B05_pretty_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 572
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 683
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 696
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 657
+      }
+    ],
+    "M2_total_input_tokens": 2608,
+    "M2_max_output_remainder_at6500": 3892,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 4.920754716981132
+  },
+  {
+    "task_id": "D1_B05",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "pretty",
+    "public_task_sha256": "5477c6668e9b9b2e0aceda2aceeb1dfa979f7000353de71121e35da9314322a8",
+    "base_prompt_tokens": 513,
+    "M0_input_tokens": 530,
+    "M0_max_output_remainder_at6500": 5970,
+    "scenario": "D1_B05_pretty_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 572
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 683
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2488
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4241
+      }
+    ],
+    "M2_total_input_tokens": 7984,
+    "M2_max_output_remainder_at6500": -1484,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 15.064150943396227
+  },
+  {
+    "task_id": "D1_B05",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "pretty",
+    "public_task_sha256": "5477c6668e9b9b2e0aceda2aceeb1dfa979f7000353de71121e35da9314322a8",
+    "base_prompt_tokens": 513,
+    "M0_input_tokens": 530,
+    "M0_max_output_remainder_at6500": 5970,
+    "scenario": "D1_B05_pretty_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 572
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 732
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 745
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 755
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 716
+      }
+    ],
+    "M2_total_input_tokens": 3520,
+    "M2_max_output_remainder_at6500": 2980,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 6.6415094339622645
+  },
+  {
+    "task_id": "D1_B05",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "pretty",
+    "public_task_sha256": "5477c6668e9b9b2e0aceda2aceeb1dfa979f7000353de71121e35da9314322a8",
+    "base_prompt_tokens": 513,
+    "M0_input_tokens": 530,
+    "M0_max_output_remainder_at6500": 5970,
+    "scenario": "D1_B05_pretty_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 572
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 732
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2537
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4339
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 6092
+      }
+    ],
+    "M2_total_input_tokens": 14272,
+    "M2_max_output_remainder_at6500": -7772,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 26.928301886792454
+  },
+  {
+    "task_id": "D1_B05",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "compact",
+    "public_task_sha256": "5477c6668e9b9b2e0aceda2aceeb1dfa979f7000353de71121e35da9314322a8",
+    "base_prompt_tokens": 377,
+    "M0_input_tokens": 394,
+    "M0_max_output_remainder_at6500": 6106,
+    "scenario": "D1_B05_compact_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 436
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 547
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 560
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 521
+      }
+    ],
+    "M2_total_input_tokens": 2064,
+    "M2_max_output_remainder_at6500": 4436,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 5.238578680203045
+  },
+  {
+    "task_id": "D1_B05",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "compact",
+    "public_task_sha256": "5477c6668e9b9b2e0aceda2aceeb1dfa979f7000353de71121e35da9314322a8",
+    "base_prompt_tokens": 377,
+    "M0_input_tokens": 394,
+    "M0_max_output_remainder_at6500": 6106,
+    "scenario": "D1_B05_compact_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 436
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 547
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2352
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4105
+      }
+    ],
+    "M2_total_input_tokens": 7440,
+    "M2_max_output_remainder_at6500": -940,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 18.883248730964468
+  },
+  {
+    "task_id": "D1_B05",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "compact",
+    "public_task_sha256": "5477c6668e9b9b2e0aceda2aceeb1dfa979f7000353de71121e35da9314322a8",
+    "base_prompt_tokens": 377,
+    "M0_input_tokens": 394,
+    "M0_max_output_remainder_at6500": 6106,
+    "scenario": "D1_B05_compact_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 436
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 596
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 609
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 619
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 580
+      }
+    ],
+    "M2_total_input_tokens": 2840,
+    "M2_max_output_remainder_at6500": 3660,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 7.208121827411167
+  },
+  {
+    "task_id": "D1_B05",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "compact",
+    "public_task_sha256": "5477c6668e9b9b2e0aceda2aceeb1dfa979f7000353de71121e35da9314322a8",
+    "base_prompt_tokens": 377,
+    "M0_input_tokens": 394,
+    "M0_max_output_remainder_at6500": 6106,
+    "scenario": "D1_B05_compact_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 436
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 596
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2401
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4203
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 5956
+      }
+    ],
+    "M2_total_input_tokens": 13592,
+    "M2_max_output_remainder_at6500": -7092,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 34.49746192893401
+  },
+  {
+    "task_id": "D1_B06",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "pretty",
+    "public_task_sha256": "8cbca7fdc788537b76b62f1f35efb2a657a52ee880743ac5e743e1e343fd72ff",
+    "base_prompt_tokens": 480,
+    "M0_input_tokens": 497,
+    "M0_max_output_remainder_at6500": 6003,
+    "scenario": "D1_B06_pretty_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 539
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 650
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 663
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 624
+      }
+    ],
+    "M2_total_input_tokens": 2476,
+    "M2_max_output_remainder_at6500": 4024,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 4.981891348088531
+  },
+  {
+    "task_id": "D1_B06",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "pretty",
+    "public_task_sha256": "8cbca7fdc788537b76b62f1f35efb2a657a52ee880743ac5e743e1e343fd72ff",
+    "base_prompt_tokens": 480,
+    "M0_input_tokens": 497,
+    "M0_max_output_remainder_at6500": 6003,
+    "scenario": "D1_B06_pretty_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 539
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 650
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2455
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4208
+      }
+    ],
+    "M2_total_input_tokens": 7852,
+    "M2_max_output_remainder_at6500": -1352,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 15.798792756539235
+  },
+  {
+    "task_id": "D1_B06",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "pretty",
+    "public_task_sha256": "8cbca7fdc788537b76b62f1f35efb2a657a52ee880743ac5e743e1e343fd72ff",
+    "base_prompt_tokens": 480,
+    "M0_input_tokens": 497,
+    "M0_max_output_remainder_at6500": 6003,
+    "scenario": "D1_B06_pretty_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 539
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 699
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 712
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 722
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 683
+      }
+    ],
+    "M2_total_input_tokens": 3355,
+    "M2_max_output_remainder_at6500": 3145,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 6.750503018108652
+  },
+  {
+    "task_id": "D1_B06",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "pretty",
+    "public_task_sha256": "8cbca7fdc788537b76b62f1f35efb2a657a52ee880743ac5e743e1e343fd72ff",
+    "base_prompt_tokens": 480,
+    "M0_input_tokens": 497,
+    "M0_max_output_remainder_at6500": 6003,
+    "scenario": "D1_B06_pretty_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 539
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 699
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2504
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4306
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 6059
+      }
+    ],
+    "M2_total_input_tokens": 14107,
+    "M2_max_output_remainder_at6500": -7607,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 28.38430583501006
+  },
+  {
+    "task_id": "D1_B06",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "compact",
+    "public_task_sha256": "8cbca7fdc788537b76b62f1f35efb2a657a52ee880743ac5e743e1e343fd72ff",
+    "base_prompt_tokens": 351,
+    "M0_input_tokens": 368,
+    "M0_max_output_remainder_at6500": 6132,
+    "scenario": "D1_B06_compact_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 410
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 521
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 534
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 495
+      }
+    ],
+    "M2_total_input_tokens": 1960,
+    "M2_max_output_remainder_at6500": 4540,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 5.326086956521739
+  },
+  {
+    "task_id": "D1_B06",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "compact",
+    "public_task_sha256": "8cbca7fdc788537b76b62f1f35efb2a657a52ee880743ac5e743e1e343fd72ff",
+    "base_prompt_tokens": 351,
+    "M0_input_tokens": 368,
+    "M0_max_output_remainder_at6500": 6132,
+    "scenario": "D1_B06_compact_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 410
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 521
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2326
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4079
+      }
+    ],
+    "M2_total_input_tokens": 7336,
+    "M2_max_output_remainder_at6500": -836,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 19.934782608695652
+  },
+  {
+    "task_id": "D1_B06",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "compact",
+    "public_task_sha256": "8cbca7fdc788537b76b62f1f35efb2a657a52ee880743ac5e743e1e343fd72ff",
+    "base_prompt_tokens": 351,
+    "M0_input_tokens": 368,
+    "M0_max_output_remainder_at6500": 6132,
+    "scenario": "D1_B06_compact_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 410
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 570
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 583
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 593
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 554
+      }
+    ],
+    "M2_total_input_tokens": 2710,
+    "M2_max_output_remainder_at6500": 3790,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 7.364130434782608
+  },
+  {
+    "task_id": "D1_B06",
+    "split": "development",
+    "repository": "mahmoud/boltons",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "compact",
+    "public_task_sha256": "8cbca7fdc788537b76b62f1f35efb2a657a52ee880743ac5e743e1e343fd72ff",
+    "base_prompt_tokens": 351,
+    "M0_input_tokens": 368,
+    "M0_max_output_remainder_at6500": 6132,
+    "scenario": "D1_B06_compact_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 410
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 570
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2375
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4177
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 5930
+      }
+    ],
+    "M2_total_input_tokens": 13462,
+    "M2_max_output_remainder_at6500": -6962,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 36.58152173913044
+  },
+  {
+    "task_id": "D1_M03",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "pretty",
+    "public_task_sha256": "b2173aa2b2de267a66f604bba39399e04a42e2f4d7ec819412aea02c5ad3b1a6",
+    "base_prompt_tokens": 683,
+    "M0_input_tokens": 700,
+    "M0_max_output_remainder_at6500": 5800,
+    "scenario": "D1_M03_pretty_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 742
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 853
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 866
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 827
+      }
+    ],
+    "M2_total_input_tokens": 3288,
+    "M2_max_output_remainder_at6500": 3212,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 4.6971428571428575
+  },
+  {
+    "task_id": "D1_M03",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "pretty",
+    "public_task_sha256": "b2173aa2b2de267a66f604bba39399e04a42e2f4d7ec819412aea02c5ad3b1a6",
+    "base_prompt_tokens": 683,
+    "M0_input_tokens": 700,
+    "M0_max_output_remainder_at6500": 5800,
+    "scenario": "D1_M03_pretty_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 742
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 853
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2658
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4411
+      }
+    ],
+    "M2_total_input_tokens": 8664,
+    "M2_max_output_remainder_at6500": -2164,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 12.377142857142857
+  },
+  {
+    "task_id": "D1_M03",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "pretty",
+    "public_task_sha256": "b2173aa2b2de267a66f604bba39399e04a42e2f4d7ec819412aea02c5ad3b1a6",
+    "base_prompt_tokens": 683,
+    "M0_input_tokens": 700,
+    "M0_max_output_remainder_at6500": 5800,
+    "scenario": "D1_M03_pretty_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 742
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 902
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 915
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 925
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 886
+      }
+    ],
+    "M2_total_input_tokens": 4370,
+    "M2_max_output_remainder_at6500": 2130,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 6.242857142857143
+  },
+  {
+    "task_id": "D1_M03",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "pretty",
+    "public_task_sha256": "b2173aa2b2de267a66f604bba39399e04a42e2f4d7ec819412aea02c5ad3b1a6",
+    "base_prompt_tokens": 683,
+    "M0_input_tokens": 700,
+    "M0_max_output_remainder_at6500": 5800,
+    "scenario": "D1_M03_pretty_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 742
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 902
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2707
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4509
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 6262
+      }
+    ],
+    "M2_total_input_tokens": 15122,
+    "M2_max_output_remainder_at6500": -8622,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 21.602857142857143
+  },
+  {
+    "task_id": "D1_M03",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "compact",
+    "public_task_sha256": "b2173aa2b2de267a66f604bba39399e04a42e2f4d7ec819412aea02c5ad3b1a6",
+    "base_prompt_tokens": 495,
+    "M0_input_tokens": 512,
+    "M0_max_output_remainder_at6500": 5988,
+    "scenario": "D1_M03_compact_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 554
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 665
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 678
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 639
+      }
+    ],
+    "M2_total_input_tokens": 2536,
+    "M2_max_output_remainder_at6500": 3964,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 4.953125
+  },
+  {
+    "task_id": "D1_M03",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "compact",
+    "public_task_sha256": "b2173aa2b2de267a66f604bba39399e04a42e2f4d7ec819412aea02c5ad3b1a6",
+    "base_prompt_tokens": 495,
+    "M0_input_tokens": 512,
+    "M0_max_output_remainder_at6500": 5988,
+    "scenario": "D1_M03_compact_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 554
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 665
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2470
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4223
+      }
+    ],
+    "M2_total_input_tokens": 7912,
+    "M2_max_output_remainder_at6500": -1412,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 15.453125
+  },
+  {
+    "task_id": "D1_M03",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "compact",
+    "public_task_sha256": "b2173aa2b2de267a66f604bba39399e04a42e2f4d7ec819412aea02c5ad3b1a6",
+    "base_prompt_tokens": 495,
+    "M0_input_tokens": 512,
+    "M0_max_output_remainder_at6500": 5988,
+    "scenario": "D1_M03_compact_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 554
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 714
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 727
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 737
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 698
+      }
+    ],
+    "M2_total_input_tokens": 3430,
+    "M2_max_output_remainder_at6500": 3070,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 6.69921875
+  },
+  {
+    "task_id": "D1_M03",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "compact",
+    "public_task_sha256": "b2173aa2b2de267a66f604bba39399e04a42e2f4d7ec819412aea02c5ad3b1a6",
+    "base_prompt_tokens": 495,
+    "M0_input_tokens": 512,
+    "M0_max_output_remainder_at6500": 5988,
+    "scenario": "D1_M03_compact_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 554
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 714
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2519
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4321
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 6074
+      }
+    ],
+    "M2_total_input_tokens": 14182,
+    "M2_max_output_remainder_at6500": -7682,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 27.69921875
+  },
+  {
+    "task_id": "D1_M04",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "operation_sequence",
+    "author_testability": "yes",
+    "format": "pretty",
+    "public_task_sha256": "ac61f108075a8946c9d22622cfc0005b16debc0d6345210add3ca721366943a8",
+    "base_prompt_tokens": 589,
+    "M0_input_tokens": 606,
+    "M0_max_output_remainder_at6500": 5894,
+    "scenario": "D1_M04_pretty_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 648
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 759
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 772
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 733
+      }
+    ],
+    "M2_total_input_tokens": 2912,
+    "M2_max_output_remainder_at6500": 3588,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 4.805280528052806
+  },
+  {
+    "task_id": "D1_M04",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "operation_sequence",
+    "author_testability": "yes",
+    "format": "pretty",
+    "public_task_sha256": "ac61f108075a8946c9d22622cfc0005b16debc0d6345210add3ca721366943a8",
+    "base_prompt_tokens": 589,
+    "M0_input_tokens": 606,
+    "M0_max_output_remainder_at6500": 5894,
+    "scenario": "D1_M04_pretty_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 648
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 759
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2564
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4317
+      }
+    ],
+    "M2_total_input_tokens": 8288,
+    "M2_max_output_remainder_at6500": -1788,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 13.676567656765677
+  },
+  {
+    "task_id": "D1_M04",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "operation_sequence",
+    "author_testability": "yes",
+    "format": "pretty",
+    "public_task_sha256": "ac61f108075a8946c9d22622cfc0005b16debc0d6345210add3ca721366943a8",
+    "base_prompt_tokens": 589,
+    "M0_input_tokens": 606,
+    "M0_max_output_remainder_at6500": 5894,
+    "scenario": "D1_M04_pretty_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 648
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 808
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 821
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 831
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 792
+      }
+    ],
+    "M2_total_input_tokens": 3900,
+    "M2_max_output_remainder_at6500": 2600,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 6.435643564356436
+  },
+  {
+    "task_id": "D1_M04",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "operation_sequence",
+    "author_testability": "yes",
+    "format": "pretty",
+    "public_task_sha256": "ac61f108075a8946c9d22622cfc0005b16debc0d6345210add3ca721366943a8",
+    "base_prompt_tokens": 589,
+    "M0_input_tokens": 606,
+    "M0_max_output_remainder_at6500": 5894,
+    "scenario": "D1_M04_pretty_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 648
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 808
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2613
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4415
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 6168
+      }
+    ],
+    "M2_total_input_tokens": 14652,
+    "M2_max_output_remainder_at6500": -8152,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 24.178217821782177
+  },
+  {
+    "task_id": "D1_M04",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "operation_sequence",
+    "author_testability": "yes",
+    "format": "compact",
+    "public_task_sha256": "ac61f108075a8946c9d22622cfc0005b16debc0d6345210add3ca721366943a8",
+    "base_prompt_tokens": 403,
+    "M0_input_tokens": 420,
+    "M0_max_output_remainder_at6500": 6080,
+    "scenario": "D1_M04_compact_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 462
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 573
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 586
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 547
+      }
+    ],
+    "M2_total_input_tokens": 2168,
+    "M2_max_output_remainder_at6500": 4332,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 5.161904761904762
+  },
+  {
+    "task_id": "D1_M04",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "operation_sequence",
+    "author_testability": "yes",
+    "format": "compact",
+    "public_task_sha256": "ac61f108075a8946c9d22622cfc0005b16debc0d6345210add3ca721366943a8",
+    "base_prompt_tokens": 403,
+    "M0_input_tokens": 420,
+    "M0_max_output_remainder_at6500": 6080,
+    "scenario": "D1_M04_compact_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 462
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 573
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2378
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4131
+      }
+    ],
+    "M2_total_input_tokens": 7544,
+    "M2_max_output_remainder_at6500": -1044,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 17.961904761904762
+  },
+  {
+    "task_id": "D1_M04",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "operation_sequence",
+    "author_testability": "yes",
+    "format": "compact",
+    "public_task_sha256": "ac61f108075a8946c9d22622cfc0005b16debc0d6345210add3ca721366943a8",
+    "base_prompt_tokens": 403,
+    "M0_input_tokens": 420,
+    "M0_max_output_remainder_at6500": 6080,
+    "scenario": "D1_M04_compact_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 462
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 622
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 635
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 645
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 606
+      }
+    ],
+    "M2_total_input_tokens": 2970,
+    "M2_max_output_remainder_at6500": 3530,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 7.071428571428571
+  },
+  {
+    "task_id": "D1_M04",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "operation_sequence",
+    "author_testability": "yes",
+    "format": "compact",
+    "public_task_sha256": "ac61f108075a8946c9d22622cfc0005b16debc0d6345210add3ca721366943a8",
+    "base_prompt_tokens": 403,
+    "M0_input_tokens": 420,
+    "M0_max_output_remainder_at6500": 6080,
+    "scenario": "D1_M04_compact_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 462
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 622
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2427
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4229
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 5982
+      }
+    ],
+    "M2_total_input_tokens": 13722,
+    "M2_max_output_remainder_at6500": -7222,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 32.67142857142857
+  },
+  {
+    "task_id": "D1_M05",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "pretty",
+    "public_task_sha256": "17d6abeadbe9e12ad4d3b9514061a64e7fbb7aca42828ea2976737c89111eaf5",
+    "base_prompt_tokens": 422,
+    "M0_input_tokens": 439,
+    "M0_max_output_remainder_at6500": 6061,
+    "scenario": "D1_M05_pretty_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 481
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 592
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 605
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 566
+      }
+    ],
+    "M2_total_input_tokens": 2244,
+    "M2_max_output_remainder_at6500": 4256,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 5.111617312072893
+  },
+  {
+    "task_id": "D1_M05",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "pretty",
+    "public_task_sha256": "17d6abeadbe9e12ad4d3b9514061a64e7fbb7aca42828ea2976737c89111eaf5",
+    "base_prompt_tokens": 422,
+    "M0_input_tokens": 439,
+    "M0_max_output_remainder_at6500": 6061,
+    "scenario": "D1_M05_pretty_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 481
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 592
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2397
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4150
+      }
+    ],
+    "M2_total_input_tokens": 7620,
+    "M2_max_output_remainder_at6500": -1120,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 17.35763097949886
+  },
+  {
+    "task_id": "D1_M05",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "pretty",
+    "public_task_sha256": "17d6abeadbe9e12ad4d3b9514061a64e7fbb7aca42828ea2976737c89111eaf5",
+    "base_prompt_tokens": 422,
+    "M0_input_tokens": 439,
+    "M0_max_output_remainder_at6500": 6061,
+    "scenario": "D1_M05_pretty_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 481
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 641
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 654
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 664
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 625
+      }
+    ],
+    "M2_total_input_tokens": 3065,
+    "M2_max_output_remainder_at6500": 3435,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 6.981776765375854
+  },
+  {
+    "task_id": "D1_M05",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "pretty",
+    "public_task_sha256": "17d6abeadbe9e12ad4d3b9514061a64e7fbb7aca42828ea2976737c89111eaf5",
+    "base_prompt_tokens": 422,
+    "M0_input_tokens": 439,
+    "M0_max_output_remainder_at6500": 6061,
+    "scenario": "D1_M05_pretty_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 481
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 641
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2446
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4248
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 6001
+      }
+    ],
+    "M2_total_input_tokens": 13817,
+    "M2_max_output_remainder_at6500": -7317,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 31.47380410022779
+  },
+  {
+    "task_id": "D1_M05",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "compact",
+    "public_task_sha256": "17d6abeadbe9e12ad4d3b9514061a64e7fbb7aca42828ea2976737c89111eaf5",
+    "base_prompt_tokens": 322,
+    "M0_input_tokens": 339,
+    "M0_max_output_remainder_at6500": 6161,
+    "scenario": "D1_M05_compact_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 381
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 492
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 505
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 466
+      }
+    ],
+    "M2_total_input_tokens": 1844,
+    "M2_max_output_remainder_at6500": 4656,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 5.43952802359882
+  },
+  {
+    "task_id": "D1_M05",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "compact",
+    "public_task_sha256": "17d6abeadbe9e12ad4d3b9514061a64e7fbb7aca42828ea2976737c89111eaf5",
+    "base_prompt_tokens": 322,
+    "M0_input_tokens": 339,
+    "M0_max_output_remainder_at6500": 6161,
+    "scenario": "D1_M05_compact_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 381
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 492
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2297
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4050
+      }
+    ],
+    "M2_total_input_tokens": 7220,
+    "M2_max_output_remainder_at6500": -720,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 21.29793510324484
+  },
+  {
+    "task_id": "D1_M05",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "compact",
+    "public_task_sha256": "17d6abeadbe9e12ad4d3b9514061a64e7fbb7aca42828ea2976737c89111eaf5",
+    "base_prompt_tokens": 322,
+    "M0_input_tokens": 339,
+    "M0_max_output_remainder_at6500": 6161,
+    "scenario": "D1_M05_compact_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 381
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 541
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 554
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 564
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 525
+      }
+    ],
+    "M2_total_input_tokens": 2565,
+    "M2_max_output_remainder_at6500": 3935,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 7.566371681415929
+  },
+  {
+    "task_id": "D1_M05",
+    "split": "reserve",
+    "repository": "more-itertools/more-itertools",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "compact",
+    "public_task_sha256": "17d6abeadbe9e12ad4d3b9514061a64e7fbb7aca42828ea2976737c89111eaf5",
+    "base_prompt_tokens": 322,
+    "M0_input_tokens": 339,
+    "M0_max_output_remainder_at6500": 6161,
+    "scenario": "D1_M05_compact_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 381
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 541
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2346
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4148
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 5901
+      }
+    ],
+    "M2_total_input_tokens": 13317,
+    "M2_max_output_remainder_at6500": -6817,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 39.283185840707965
+  },
+  {
+    "task_id": "D1_C03",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "operation_sequence",
+    "author_testability": "yes",
+    "format": "pretty",
+    "public_task_sha256": "d5399e4a7d2ff1ee585c2c8ec78831ebfb46723e07e25c7d91da584fc39dabb3",
+    "base_prompt_tokens": 702,
+    "M0_input_tokens": 719,
+    "M0_max_output_remainder_at6500": 5781,
+    "scenario": "D1_C03_pretty_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 761
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 872
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 885
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 846
+      }
+    ],
+    "M2_total_input_tokens": 3364,
+    "M2_max_output_remainder_at6500": 3136,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 4.678720445062587
+  },
+  {
+    "task_id": "D1_C03",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "operation_sequence",
+    "author_testability": "yes",
+    "format": "pretty",
+    "public_task_sha256": "d5399e4a7d2ff1ee585c2c8ec78831ebfb46723e07e25c7d91da584fc39dabb3",
+    "base_prompt_tokens": 702,
+    "M0_input_tokens": 719,
+    "M0_max_output_remainder_at6500": 5781,
+    "scenario": "D1_C03_pretty_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 761
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 872
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2677
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4430
+      }
+    ],
+    "M2_total_input_tokens": 8740,
+    "M2_max_output_remainder_at6500": -2240,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 12.155771905424201
+  },
+  {
+    "task_id": "D1_C03",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "operation_sequence",
+    "author_testability": "yes",
+    "format": "pretty",
+    "public_task_sha256": "d5399e4a7d2ff1ee585c2c8ec78831ebfb46723e07e25c7d91da584fc39dabb3",
+    "base_prompt_tokens": 702,
+    "M0_input_tokens": 719,
+    "M0_max_output_remainder_at6500": 5781,
+    "scenario": "D1_C03_pretty_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 761
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 921
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 934
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 944
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 905
+      }
+    ],
+    "M2_total_input_tokens": 4465,
+    "M2_max_output_remainder_at6500": 2035,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 6.210013908205841
+  },
+  {
+    "task_id": "D1_C03",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "operation_sequence",
+    "author_testability": "yes",
+    "format": "pretty",
+    "public_task_sha256": "d5399e4a7d2ff1ee585c2c8ec78831ebfb46723e07e25c7d91da584fc39dabb3",
+    "base_prompt_tokens": 702,
+    "M0_input_tokens": 719,
+    "M0_max_output_remainder_at6500": 5781,
+    "scenario": "D1_C03_pretty_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 761
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 921
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2726
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4528
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 6281
+      }
+    ],
+    "M2_total_input_tokens": 15217,
+    "M2_max_output_remainder_at6500": -8717,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 21.164116828929068
+  },
+  {
+    "task_id": "D1_C03",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "operation_sequence",
+    "author_testability": "yes",
+    "format": "compact",
+    "public_task_sha256": "d5399e4a7d2ff1ee585c2c8ec78831ebfb46723e07e25c7d91da584fc39dabb3",
+    "base_prompt_tokens": 478,
+    "M0_input_tokens": 495,
+    "M0_max_output_remainder_at6500": 6005,
+    "scenario": "D1_C03_compact_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 537
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 648
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 661
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 622
+      }
+    ],
+    "M2_total_input_tokens": 2468,
+    "M2_max_output_remainder_at6500": 4032,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 4.985858585858586
+  },
+  {
+    "task_id": "D1_C03",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "operation_sequence",
+    "author_testability": "yes",
+    "format": "compact",
+    "public_task_sha256": "d5399e4a7d2ff1ee585c2c8ec78831ebfb46723e07e25c7d91da584fc39dabb3",
+    "base_prompt_tokens": 478,
+    "M0_input_tokens": 495,
+    "M0_max_output_remainder_at6500": 6005,
+    "scenario": "D1_C03_compact_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 537
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 648
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2453
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4206
+      }
+    ],
+    "M2_total_input_tokens": 7844,
+    "M2_max_output_remainder_at6500": -1344,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 15.846464646464646
+  },
+  {
+    "task_id": "D1_C03",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "operation_sequence",
+    "author_testability": "yes",
+    "format": "compact",
+    "public_task_sha256": "d5399e4a7d2ff1ee585c2c8ec78831ebfb46723e07e25c7d91da584fc39dabb3",
+    "base_prompt_tokens": 478,
+    "M0_input_tokens": 495,
+    "M0_max_output_remainder_at6500": 6005,
+    "scenario": "D1_C03_compact_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 537
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 697
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 710
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 720
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 681
+      }
+    ],
+    "M2_total_input_tokens": 3345,
+    "M2_max_output_remainder_at6500": 3155,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 6.757575757575758
+  },
+  {
+    "task_id": "D1_C03",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "operation_sequence",
+    "author_testability": "yes",
+    "format": "compact",
+    "public_task_sha256": "d5399e4a7d2ff1ee585c2c8ec78831ebfb46723e07e25c7d91da584fc39dabb3",
+    "base_prompt_tokens": 478,
+    "M0_input_tokens": 495,
+    "M0_max_output_remainder_at6500": 6005,
+    "scenario": "D1_C03_compact_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 537
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 697
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2502
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4304
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 6057
+      }
+    ],
+    "M2_total_input_tokens": 14097,
+    "M2_max_output_remainder_at6500": -7597,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 28.47878787878788
+  },
+  {
+    "task_id": "D1_C04",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "pretty",
+    "public_task_sha256": "250b236499c1c180c76ac44b1254dd9d215e2b20485bc55482cf7dc365001afa",
+    "base_prompt_tokens": 750,
+    "M0_input_tokens": 767,
+    "M0_max_output_remainder_at6500": 5733,
+    "scenario": "D1_C04_pretty_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 809
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 920
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 933
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 894
+      }
+    ],
+    "M2_total_input_tokens": 3556,
+    "M2_max_output_remainder_at6500": 2944,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 4.636245110821382
+  },
+  {
+    "task_id": "D1_C04",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "pretty",
+    "public_task_sha256": "250b236499c1c180c76ac44b1254dd9d215e2b20485bc55482cf7dc365001afa",
+    "base_prompt_tokens": 750,
+    "M0_input_tokens": 767,
+    "M0_max_output_remainder_at6500": 5733,
+    "scenario": "D1_C04_pretty_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 809
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 920
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2725
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4478
+      }
+    ],
+    "M2_total_input_tokens": 8932,
+    "M2_max_output_remainder_at6500": -2432,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 11.645371577574968
+  },
+  {
+    "task_id": "D1_C04",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "pretty",
+    "public_task_sha256": "250b236499c1c180c76ac44b1254dd9d215e2b20485bc55482cf7dc365001afa",
+    "base_prompt_tokens": 750,
+    "M0_input_tokens": 767,
+    "M0_max_output_remainder_at6500": 5733,
+    "scenario": "D1_C04_pretty_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 809
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 969
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 982
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 992
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 953
+      }
+    ],
+    "M2_total_input_tokens": 4705,
+    "M2_max_output_remainder_at6500": 1795,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 6.134289439374185
+  },
+  {
+    "task_id": "D1_C04",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "pretty",
+    "public_task_sha256": "250b236499c1c180c76ac44b1254dd9d215e2b20485bc55482cf7dc365001afa",
+    "base_prompt_tokens": 750,
+    "M0_input_tokens": 767,
+    "M0_max_output_remainder_at6500": 5733,
+    "scenario": "D1_C04_pretty_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 809
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 969
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2774
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4576
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 6329
+      }
+    ],
+    "M2_total_input_tokens": 15457,
+    "M2_max_output_remainder_at6500": -8957,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 20.152542372881356
+  },
+  {
+    "task_id": "D1_C04",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "compact",
+    "public_task_sha256": "250b236499c1c180c76ac44b1254dd9d215e2b20485bc55482cf7dc365001afa",
+    "base_prompt_tokens": 506,
+    "M0_input_tokens": 523,
+    "M0_max_output_remainder_at6500": 5977,
+    "scenario": "D1_C04_compact_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 565
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 676
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 689
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 650
+      }
+    ],
+    "M2_total_input_tokens": 2580,
+    "M2_max_output_remainder_at6500": 3920,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 4.933078393881453
+  },
+  {
+    "task_id": "D1_C04",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "compact",
+    "public_task_sha256": "250b236499c1c180c76ac44b1254dd9d215e2b20485bc55482cf7dc365001afa",
+    "base_prompt_tokens": 506,
+    "M0_input_tokens": 523,
+    "M0_max_output_remainder_at6500": 5977,
+    "scenario": "D1_C04_compact_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 565
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 676
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2481
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4234
+      }
+    ],
+    "M2_total_input_tokens": 7956,
+    "M2_max_output_remainder_at6500": -1456,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 15.212237093690248
+  },
+  {
+    "task_id": "D1_C04",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "compact",
+    "public_task_sha256": "250b236499c1c180c76ac44b1254dd9d215e2b20485bc55482cf7dc365001afa",
+    "base_prompt_tokens": 506,
+    "M0_input_tokens": 523,
+    "M0_max_output_remainder_at6500": 5977,
+    "scenario": "D1_C04_compact_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 565
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 725
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 738
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 748
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 709
+      }
+    ],
+    "M2_total_input_tokens": 3485,
+    "M2_max_output_remainder_at6500": 3015,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 6.663479923518165
+  },
+  {
+    "task_id": "D1_C04",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "operation_sequence",
+    "author_testability": "partial",
+    "format": "compact",
+    "public_task_sha256": "250b236499c1c180c76ac44b1254dd9d215e2b20485bc55482cf7dc365001afa",
+    "base_prompt_tokens": 506,
+    "M0_input_tokens": 523,
+    "M0_max_output_remainder_at6500": 5977,
+    "scenario": "D1_C04_compact_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 565
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 725
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2530
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4332
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 6085
+      }
+    ],
+    "M2_total_input_tokens": 14237,
+    "M2_max_output_remainder_at6500": -7737,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 27.221797323135757
+  },
+  {
+    "task_id": "D1_C05",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "pretty",
+    "public_task_sha256": "8e9761c4df50235919dc5ca7d554fc9502d832b30fd768a8069c3992aff8df38",
+    "base_prompt_tokens": 512,
+    "M0_input_tokens": 529,
+    "M0_max_output_remainder_at6500": 5971,
+    "scenario": "D1_C05_pretty_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 571
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 682
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 695
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 656
+      }
+    ],
+    "M2_total_input_tokens": 2604,
+    "M2_max_output_remainder_at6500": 3896,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 4.922495274102079
+  },
+  {
+    "task_id": "D1_C05",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "pretty",
+    "public_task_sha256": "8e9761c4df50235919dc5ca7d554fc9502d832b30fd768a8069c3992aff8df38",
+    "base_prompt_tokens": 512,
+    "M0_input_tokens": 529,
+    "M0_max_output_remainder_at6500": 5971,
+    "scenario": "D1_C05_pretty_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 571
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 682
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2487
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4240
+      }
+    ],
+    "M2_total_input_tokens": 7980,
+    "M2_max_output_remainder_at6500": -1480,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 15.085066162570888
+  },
+  {
+    "task_id": "D1_C05",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "pretty",
+    "public_task_sha256": "8e9761c4df50235919dc5ca7d554fc9502d832b30fd768a8069c3992aff8df38",
+    "base_prompt_tokens": 512,
+    "M0_input_tokens": 529,
+    "M0_max_output_remainder_at6500": 5971,
+    "scenario": "D1_C05_pretty_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 571
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 731
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 744
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 754
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 715
+      }
+    ],
+    "M2_total_input_tokens": 3515,
+    "M2_max_output_remainder_at6500": 2985,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 6.644612476370511
+  },
+  {
+    "task_id": "D1_C05",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "pretty",
+    "public_task_sha256": "8e9761c4df50235919dc5ca7d554fc9502d832b30fd768a8069c3992aff8df38",
+    "base_prompt_tokens": 512,
+    "M0_input_tokens": 529,
+    "M0_max_output_remainder_at6500": 5971,
+    "scenario": "D1_C05_pretty_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 571
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 731
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2536
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4338
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 6091
+      }
+    ],
+    "M2_total_input_tokens": 14267,
+    "M2_max_output_remainder_at6500": -7767,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 26.96975425330813
+  },
+  {
+    "task_id": "D1_C05",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "compact",
+    "public_task_sha256": "8e9761c4df50235919dc5ca7d554fc9502d832b30fd768a8069c3992aff8df38",
+    "base_prompt_tokens": 366,
+    "M0_input_tokens": 383,
+    "M0_max_output_remainder_at6500": 6117,
+    "scenario": "D1_C05_compact_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 425
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 536
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 549
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 510
+      }
+    ],
+    "M2_total_input_tokens": 2020,
+    "M2_max_output_remainder_at6500": 4480,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 5.274151436031332
+  },
+  {
+    "task_id": "D1_C05",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "compact",
+    "public_task_sha256": "8e9761c4df50235919dc5ca7d554fc9502d832b30fd768a8069c3992aff8df38",
+    "base_prompt_tokens": 366,
+    "M0_input_tokens": 383,
+    "M0_max_output_remainder_at6500": 6117,
+    "scenario": "D1_C05_compact_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 425
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 536
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2341
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4094
+      }
+    ],
+    "M2_total_input_tokens": 7396,
+    "M2_max_output_remainder_at6500": -896,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 19.31070496083551
+  },
+  {
+    "task_id": "D1_C05",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "compact",
+    "public_task_sha256": "8e9761c4df50235919dc5ca7d554fc9502d832b30fd768a8069c3992aff8df38",
+    "base_prompt_tokens": 366,
+    "M0_input_tokens": 383,
+    "M0_max_output_remainder_at6500": 6117,
+    "scenario": "D1_C05_compact_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 425
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 585
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 598
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 608
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 569
+      }
+    ],
+    "M2_total_input_tokens": 2785,
+    "M2_max_output_remainder_at6500": 3715,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 7.27154046997389
+  },
+  {
+    "task_id": "D1_C05",
+    "split": "development",
+    "repository": "tkem/cachetools",
+    "author_state": "none",
+    "author_testability": "no",
+    "format": "compact",
+    "public_task_sha256": "8e9761c4df50235919dc5ca7d554fc9502d832b30fd768a8069c3992aff8df38",
+    "base_prompt_tokens": 366,
+    "M0_input_tokens": 383,
+    "M0_max_output_remainder_at6500": 6117,
+    "scenario": "D1_C05_compact_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 425
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 585
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2390
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4192
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 5945
+      }
+    ],
+    "M2_total_input_tokens": 13537,
+    "M2_max_output_remainder_at6500": -7037,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 35.344647519582246
+  },
+  {
+    "task_id": "D1_F03",
+    "split": "reserve",
+    "repository": "beetbox/confuse",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "pretty",
+    "public_task_sha256": "aca73aae22a7d3064039522e0091d6d06237f53bb6f98579e22fb6d52757d145",
+    "base_prompt_tokens": 497,
+    "M0_input_tokens": 514,
+    "M0_max_output_remainder_at6500": 5986,
+    "scenario": "D1_F03_pretty_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 556
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 667
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 680
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 641
+      }
+    ],
+    "M2_total_input_tokens": 2544,
+    "M2_max_output_remainder_at6500": 3956,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 4.9494163424124515
+  },
+  {
+    "task_id": "D1_F03",
+    "split": "reserve",
+    "repository": "beetbox/confuse",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "pretty",
+    "public_task_sha256": "aca73aae22a7d3064039522e0091d6d06237f53bb6f98579e22fb6d52757d145",
+    "base_prompt_tokens": 497,
+    "M0_input_tokens": 514,
+    "M0_max_output_remainder_at6500": 5986,
+    "scenario": "D1_F03_pretty_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 556
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 667
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2472
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4225
+      }
+    ],
+    "M2_total_input_tokens": 7920,
+    "M2_max_output_remainder_at6500": -1420,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 15.408560311284047
+  },
+  {
+    "task_id": "D1_F03",
+    "split": "reserve",
+    "repository": "beetbox/confuse",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "pretty",
+    "public_task_sha256": "aca73aae22a7d3064039522e0091d6d06237f53bb6f98579e22fb6d52757d145",
+    "base_prompt_tokens": 497,
+    "M0_input_tokens": 514,
+    "M0_max_output_remainder_at6500": 5986,
+    "scenario": "D1_F03_pretty_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 556
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 716
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 729
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 739
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 700
+      }
+    ],
+    "M2_total_input_tokens": 3440,
+    "M2_max_output_remainder_at6500": 3060,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 6.692607003891051
+  },
+  {
+    "task_id": "D1_F03",
+    "split": "reserve",
+    "repository": "beetbox/confuse",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "pretty",
+    "public_task_sha256": "aca73aae22a7d3064039522e0091d6d06237f53bb6f98579e22fb6d52757d145",
+    "base_prompt_tokens": 497,
+    "M0_input_tokens": 514,
+    "M0_max_output_remainder_at6500": 5986,
+    "scenario": "D1_F03_pretty_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 556
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 716
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2521
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4323
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 6076
+      }
+    ],
+    "M2_total_input_tokens": 14192,
+    "M2_max_output_remainder_at6500": -7692,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 27.610894941634243
+  },
+  {
+    "task_id": "D1_F03",
+    "split": "reserve",
+    "repository": "beetbox/confuse",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "compact",
+    "public_task_sha256": "aca73aae22a7d3064039522e0091d6d06237f53bb6f98579e22fb6d52757d145",
+    "base_prompt_tokens": 361,
+    "M0_input_tokens": 378,
+    "M0_max_output_remainder_at6500": 6122,
+    "scenario": "D1_F03_compact_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 420
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 531
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 544
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 505
+      }
+    ],
+    "M2_total_input_tokens": 2000,
+    "M2_max_output_remainder_at6500": 4500,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 5.291005291005291
+  },
+  {
+    "task_id": "D1_F03",
+    "split": "reserve",
+    "repository": "beetbox/confuse",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "compact",
+    "public_task_sha256": "aca73aae22a7d3064039522e0091d6d06237f53bb6f98579e22fb6d52757d145",
+    "base_prompt_tokens": 361,
+    "M0_input_tokens": 378,
+    "M0_max_output_remainder_at6500": 6122,
+    "scenario": "D1_F03_compact_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 420
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 531
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2336
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4089
+      }
+    ],
+    "M2_total_input_tokens": 7376,
+    "M2_max_output_remainder_at6500": -876,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 19.513227513227513
+  },
+  {
+    "task_id": "D1_F03",
+    "split": "reserve",
+    "repository": "beetbox/confuse",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "compact",
+    "public_task_sha256": "aca73aae22a7d3064039522e0091d6d06237f53bb6f98579e22fb6d52757d145",
+    "base_prompt_tokens": 361,
+    "M0_input_tokens": 378,
+    "M0_max_output_remainder_at6500": 6122,
+    "scenario": "D1_F03_compact_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 420
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 580
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 593
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 603
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 564
+      }
+    ],
+    "M2_total_input_tokens": 2760,
+    "M2_max_output_remainder_at6500": 3740,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 7.301587301587301
+  },
+  {
+    "task_id": "D1_F03",
+    "split": "reserve",
+    "repository": "beetbox/confuse",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "compact",
+    "public_task_sha256": "aca73aae22a7d3064039522e0091d6d06237f53bb6f98579e22fb6d52757d145",
+    "base_prompt_tokens": 361,
+    "M0_input_tokens": 378,
+    "M0_max_output_remainder_at6500": 6122,
+    "scenario": "D1_F03_compact_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 420
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 580
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2385
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4187
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 5940
+      }
+    ],
+    "M2_total_input_tokens": 13512,
+    "M2_max_output_remainder_at6500": -7012,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 35.74603174603175
+  },
+  {
+    "task_id": "D1_F04",
+    "split": "reserve",
+    "repository": "beetbox/confuse",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "pretty",
+    "public_task_sha256": "247ff9f1099945f5d73d26dd5e62d248048a9d646ee7a05f419cadb04c062e0b",
+    "base_prompt_tokens": 568,
+    "M0_input_tokens": 585,
+    "M0_max_output_remainder_at6500": 5915,
+    "scenario": "D1_F04_pretty_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 627
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 738
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 751
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 712
+      }
+    ],
+    "M2_total_input_tokens": 2828,
+    "M2_max_output_remainder_at6500": 3672,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 4.834188034188034
+  },
+  {
+    "task_id": "D1_F04",
+    "split": "reserve",
+    "repository": "beetbox/confuse",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "pretty",
+    "public_task_sha256": "247ff9f1099945f5d73d26dd5e62d248048a9d646ee7a05f419cadb04c062e0b",
+    "base_prompt_tokens": 568,
+    "M0_input_tokens": 585,
+    "M0_max_output_remainder_at6500": 5915,
+    "scenario": "D1_F04_pretty_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 627
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 738
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2543
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4296
+      }
+    ],
+    "M2_total_input_tokens": 8204,
+    "M2_max_output_remainder_at6500": -1704,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 14.023931623931624
+  },
+  {
+    "task_id": "D1_F04",
+    "split": "reserve",
+    "repository": "beetbox/confuse",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "pretty",
+    "public_task_sha256": "247ff9f1099945f5d73d26dd5e62d248048a9d646ee7a05f419cadb04c062e0b",
+    "base_prompt_tokens": 568,
+    "M0_input_tokens": 585,
+    "M0_max_output_remainder_at6500": 5915,
+    "scenario": "D1_F04_pretty_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 627
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 787
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 800
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 810
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 771
+      }
+    ],
+    "M2_total_input_tokens": 3795,
+    "M2_max_output_remainder_at6500": 2705,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 6.487179487179487
+  },
+  {
+    "task_id": "D1_F04",
+    "split": "reserve",
+    "repository": "beetbox/confuse",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "pretty",
+    "public_task_sha256": "247ff9f1099945f5d73d26dd5e62d248048a9d646ee7a05f419cadb04c062e0b",
+    "base_prompt_tokens": 568,
+    "M0_input_tokens": 585,
+    "M0_max_output_remainder_at6500": 5915,
+    "scenario": "D1_F04_pretty_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 627
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 787
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2592
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4394
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 6147
+      }
+    ],
+    "M2_total_input_tokens": 14547,
+    "M2_max_output_remainder_at6500": -8047,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 24.866666666666667
+  },
+  {
+    "task_id": "D1_F04",
+    "split": "reserve",
+    "repository": "beetbox/confuse",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "compact",
+    "public_task_sha256": "247ff9f1099945f5d73d26dd5e62d248048a9d646ee7a05f419cadb04c062e0b",
+    "base_prompt_tokens": 430,
+    "M0_input_tokens": 447,
+    "M0_max_output_remainder_at6500": 6053,
+    "scenario": "D1_F04_compact_h2_comments0",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 489
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 600
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 613
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 574
+      }
+    ],
+    "M2_total_input_tokens": 2276,
+    "M2_max_output_remainder_at6500": 4224,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 5.091722595078299
+  },
+  {
+    "task_id": "D1_F04",
+    "split": "reserve",
+    "repository": "beetbox/confuse",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "compact",
+    "public_task_sha256": "247ff9f1099945f5d73d26dd5e62d248048a9d646ee7a05f419cadb04c062e0b",
+    "base_prompt_tokens": 430,
+    "M0_input_tokens": 447,
+    "M0_max_output_remainder_at6500": 6053,
+    "scenario": "D1_F04_compact_h2_comments128",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 4,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 489
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 600
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2405
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 4158
+      }
+    ],
+    "M2_total_input_tokens": 7652,
+    "M2_max_output_remainder_at6500": -1152,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 17.11856823266219
+  },
+  {
+    "task_id": "D1_F04",
+    "split": "reserve",
+    "repository": "beetbox/confuse",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "compact",
+    "public_task_sha256": "247ff9f1099945f5d73d26dd5e62d248048a9d646ee7a05f419cadb04c062e0b",
+    "base_prompt_tokens": 430,
+    "M0_input_tokens": 447,
+    "M0_max_output_remainder_at6500": 6053,
+    "scenario": "D1_F04_compact_h3_comments0",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 0,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 489
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 649
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 662
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 672
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 633
+      }
+    ],
+    "M2_total_input_tokens": 3105,
+    "M2_max_output_remainder_at6500": 3395,
+    "input_only_exceeds6500": false,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 6.946308724832215
+  },
+  {
+    "task_id": "D1_F04",
+    "split": "reserve",
+    "repository": "beetbox/confuse",
+    "author_state": "none",
+    "author_testability": "yes",
+    "format": "compact",
+    "public_task_sha256": "247ff9f1099945f5d73d26dd5e62d248048a9d646ee7a05f419cadb04c062e0b",
+    "base_prompt_tokens": 430,
+    "M0_input_tokens": 447,
+    "M0_max_output_remainder_at6500": 6053,
+    "scenario": "D1_F04_compact_h3_comments128",
+    "helper_count": 3,
+    "synthetic_comment_lines_per_helper": 128,
+    "calls": 5,
+    "stage_input_tokens": [
+      {
+        "stage": "plan",
+        "input_tokens": 489
+      },
+      {
+        "stage": "helper_1",
+        "input_tokens": 649
+      },
+      {
+        "stage": "helper_2",
+        "input_tokens": 2454
+      },
+      {
+        "stage": "helper_3",
+        "input_tokens": 4256
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 6009
+      }
+    ],
+    "M2_total_input_tokens": 13857,
+    "M2_max_output_remainder_at6500": -7357,
+    "input_only_exceeds6500": true,
+    "single_input_exceeds8192": false,
+    "input_ratio_M2_over_M0": 31.0
+  }
+]

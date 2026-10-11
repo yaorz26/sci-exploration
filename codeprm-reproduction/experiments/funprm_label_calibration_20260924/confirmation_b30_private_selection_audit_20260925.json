@@ -1,0 +1,26 @@
+{
+  "audit_time": "2026-09-25T23:24:00+08:00",
+  "status": "pass",
+  "frozen_selection": "data/processed/funprm_label_calibration_20260924/confirmation_b30_new_adapter_selection_deferred_20260925.json",
+  "frozen_selection_sha256": "74e22c8c46fa40164d6bf47ce871b09fe78aa354716fd93d788416dae332a5c2",
+  "private_result": "data/processed/funprm_label_calibration_20260924/confirmation_b30_new_adapter_selection_private_20260925.json",
+  "private_result_sha256": "b535c5b49acbec27046cd08bc332d6bb3d9e4972b61598e7af38dc7f51b1df6e",
+  "checks": {
+    "source_hash_matches": true,
+    "selection_rows_exact": true,
+    "expected_private_ids": 29,
+    "actual_private_ids": 29,
+    "private_id_sets_equal": true,
+    "private_evaluations_match": true,
+    "private_fields_used_for_selection": 0,
+    "reported_metrics_reproduced": true
+  },
+  "metrics": {
+    "total_problems": 30,
+    "covered_problems": 29,
+    "selected_private_all_pass": 7,
+    "selected_private_pass_at_1_all_problems": 0.23333333333333334,
+    "selected_private_pass_rate_mean_on_covered": 0.45245700236152386
+  },
+  "interpretation": "B单批私有评测已按冻结选择完成并通过完整性审计；A/B选择合计为12/60，但最终门槛仍须与首候选、随机期望和pool oracle按冻结脚本统一计算。"
+}

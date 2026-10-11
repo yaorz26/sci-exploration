@@ -1,0 +1,29 @@
+ ```diff
+--- a/confuse/core.py
++++ b/confuse/core.py
+@@ -10,6 +10,7 @@
+ from . import util
+ from . import templates
+ from . import yaml_util
++from . import sources
+ from .exceptions import ConfigTypeError, NotFoundError, ConfigError
+
+ CONFIG_FILENAME = 'config.yaml'
+@@ -110,6 +111,15 @@ class Configuration(RootView):
+         self.appname = appname
+         self.modname = modname
+         self.loader = loader
++        self.env_prefix = prefix
++        self.env_sep = sep
++
++        if self.env_prefix:
++            self.add_env(self.env_prefix, self.env_sep)
++
++    def add_env(self, prefix, sep):
++        env_vars = {k: v for k, v in os.environ.items() if k.startswith(prefix)}
++        env_config = {k[len(prefix):].lower().replace(sep, '__'): v for k, v in env_vars.items()}
++        self.set(env_config)
+ 
+         # Resolve default source location. We do this ahead of time to
+         # avoid unexpected problems if the working directory changes.
+```

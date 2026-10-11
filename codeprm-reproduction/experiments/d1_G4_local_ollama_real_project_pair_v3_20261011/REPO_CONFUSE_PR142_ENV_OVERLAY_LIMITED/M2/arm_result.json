@@ -1,0 +1,67 @@
+{
+  "arm": "M2",
+  "calls": [
+    {
+      "label": "plan",
+      "prompt_eval_count": 4452,
+      "eval_count": 136,
+      "total": 4588,
+      "spent_before": 0,
+      "preflight_prompt_tokens": 4452,
+      "preflight_remaining_for_output": 2048,
+      "num_predict": 300,
+      "request_sent": true,
+      "spent_after": 4588,
+      "status": "ok"
+    },
+    {
+      "label": "helper_1",
+      "status": "budget_refusal",
+      "spent_before": 4588,
+      "preflight_prompt_tokens": 3940,
+      "preflight_remaining_for_output": -2028,
+      "request_sent": false
+    }
+  ],
+  "spent": 4588,
+  "status": "budget_refusal",
+  "candidate": null,
+  "plan": {
+    "components": [
+      {
+        "name": "EnvironmentVariableSource",
+        "files": [
+          "confuse/sources.py"
+        ],
+        "contract": "A dictionary that reads configuration values from environment variables with a specified prefix. Keys are converted to lowercase and '__' is replaced with nested keys. Values are converted to the appropriate scalar type."
+      },
+      {
+        "name": "ConfigurationEnvironmentMixin",
+        "files": [
+          "confuse/core.py"
+        ],
+        "contract": "A mixin class for Configuration that adds methods to set environment variable sources with a specified prefix. The environment variable source has higher priority than file sources."
+      }
+    ]
+  },
+  "helpers": [
+    {
+      "component": {
+        "name": "EnvironmentVariableSource",
+        "files": [
+          "confuse/sources.py"
+        ],
+        "contract": "A dictionary that reads configuration values from environment variables with a specified prefix. Keys are converted to lowercase and '__' is replaced with nested keys. Values are converted to the appropriate scalar type."
+      },
+      "answer": "",
+      "token_row": {
+        "label": "helper_1",
+        "status": "budget_refusal",
+        "spent_before": 4588,
+        "preflight_prompt_tokens": 3940,
+        "preflight_remaining_for_output": -2028,
+        "request_sent": false
+      }
+    }
+  ]
+}

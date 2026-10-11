@@ -1,0 +1,84 @@
+{
+  "status": "invalid_measurement",
+  "scope": "合成完整路径检查，非模型结果",
+  "simulated": true,
+  "api_calls": 1,
+  "arm_summary": {
+    "M0": {
+      "tasks": 1,
+      "all_pass_count": 0,
+      "generation_failures": 1,
+      "measurement_failures": 1,
+      "actual_total_tokens": 0,
+      "api_calls": 1
+    },
+    "M2": {
+      "tasks": 1,
+      "all_pass_count": 0,
+      "generation_failures": 1,
+      "measurement_failures": 1,
+      "actual_total_tokens": 0,
+      "api_calls": 0
+    }
+  },
+  "candidates": [
+    {
+      "task_id": "S01",
+      "arm": "M0",
+      "candidate_index": 0,
+      "generation_error": "TimeoutError: 合成超时",
+      "failure_category": "measurement_failure",
+      "candidate_path": null,
+      "candidate_sha256": null,
+      "total_token_spend": 0,
+      "cost_status": "unknown",
+      "api_calls": 1,
+      "request_ledger_sha256": "147c22d7e123ee40d476d507a74175c97669ef8a30bc04899040db60b526aa5d",
+      "request_ledger_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_allin_pipeline_simulation_v2_20261008\\unknown_cost\\candidates\\S01\\M0\\requests\\ledger.json",
+      "budget_limit": 6500,
+      "public": {
+        "all_pass": false,
+        "generation_failure": true,
+        "cases": 1,
+        "passed": 0
+      },
+      "private": {
+        "all_pass": false,
+        "generation_failure": true,
+        "cases": 1,
+        "passed": 0
+      },
+      "all_pass": false
+    },
+    {
+      "task_id": "S01",
+      "arm": "M2",
+      "candidate_index": 0,
+      "generation_error": "BudgetRefusal: 整轮计量失效，禁止继续发请求：TimeoutError: 合成超时",
+      "failure_category": "measurement_failure",
+      "candidate_path": null,
+      "candidate_sha256": null,
+      "total_token_spend": 0,
+      "cost_status": "known",
+      "api_calls": 0,
+      "request_ledger_sha256": "6b92f6bd95083c41f606a2b852c0a0d9d25afd6149418c372626014f8af0226a",
+      "request_ledger_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_allin_pipeline_simulation_v2_20261008\\unknown_cost\\candidates\\S01\\M2\\requests\\ledger.json",
+      "budget_limit": 6500,
+      "public": {
+        "all_pass": false,
+        "generation_failure": true,
+        "cases": 1,
+        "passed": 0
+      },
+      "private": {
+        "all_pass": false,
+        "generation_failure": true,
+        "cases": 1,
+        "passed": 0
+      },
+      "all_pass": false
+    }
+  ],
+  "freeze_sha256": "32029435a34fe7e051fcdde366b67f262eac435d4bbce52f476fc35451b645ea",
+  "wall_seconds": 0.008116599998174934
+}

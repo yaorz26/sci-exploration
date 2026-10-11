@@ -1,0 +1,59 @@
+{
+  "phase": "G4",
+  "stage_name": "接口改版实验：完整文件内容（G4-v3）",
+  "created_at": "2026-10-11T12:00:00Z",
+  "macro_plan": "RESEARCH_PLAN.md v4 §5 G4（协议与资源门）",
+  "motivation": "G4 第一步归因已把失败收敛到补丁坐标（E3）与包路径（E2），故改接口以整类消除该失败源",
+  "protocol": {
+    "model": "qwen2.5-coder:7b",
+    "seed": 20261011,
+    "temperature": 0.2,
+    "num_ctx": 8192,
+    "arm_budget_total_tokens": 6500,
+    "output_cap": 2400,
+    "preflight": "用本地 tokenizers 复现 ChatML 计数，请求前检查输入+最小输出是否在剩余预算内",
+    "only_change": "补丁接口由统一 diff 改为要求输出被改动文件的完整内容"
+  },
+  "result_a_all_six_arms_budget_refused": {
+    "requests_sent": 0,
+    "detail": "三题两臂全部在请求前被预检拒绝：PR126 剩余 −5692、PR142 剩余 −551、PR440 剩余 −22241 token",
+    "cause": "完整文件接口必须把待改文件的全文放进提示；PR440 的 more_itertools/more.py 单文件就远超 6500 预算",
+    "conclusion": "在该预算下，‘输出完整文件’对三个候选都不可执行——这是接口与预算的硬冲突，不是提示写法问题"
+  },
+  "result_b_single_file_bounded_attempt": {
+    "scope": "把 PR126 缩到单个目标文件 confuse/sources.py（约 2250 token），使提示能装进预算",
+    "prompt_tokens": 1835,
+    "requests_sent": 1,
+    "model_calls": 1,
+    "server_tokens": {"prompt_eval_count": 1835, "eval_count": 2, "done_reason": "stop"},
+    "tokenizer_matches_server": true,
+    "answer": "模型只输出 2 个 token（内容为一行围栏 ```），未产出任何文件内容",
+    "parse_result": "未解析到任何 ### FILE 块"
+  },
+  "diagnostic_probes": {
+    "probe1_simple_echo_instruction": {"prompt_chars": 2411, "eval_count": 5, "done_reason": "stop", "answer_chars": 10, "answer_head": "```python"},
+    "probe2_same_instruction_shape_as_run": {"prompt_chars": 2495, "eval_count": 600, "done_reason": "length", "answer_chars": 2224, "answer_head": "### FILE: <relative path>```python<complete new content>（原样复述输出格式模板）"},
+    "interpretation": [
+      "probe1：要求‘原样回显文件’时，模型输出 5 个 token 即停止，只给出围栏开头——不是长度截断。",
+      "probe2：把‘输出格式模板’放在提示末尾时，模型把模板本身当作要生成的内容复述，并在 600 token 处被长度截断。",
+      "综合：当前提示形态（超长上下文 + 大块源码 + 末尾格式模板）使该本地模型无法完成‘重写整文件’这类指令；失败发生在生成侧，与评价器无关。"
+    ]
+  },
+  "conclusion": {
+    "interface_change_verdict": "no-go：完整文件接口在当前模型与 6500 预算下不可执行",
+    "not_attributable_to": [
+      "评价器（未运行）",
+      "补丁解析（本接口不解析 diff）",
+      "预算预检（预检只拒绝了装不下的请求，行为正确）"
+    ],
+    "remaining_barrier": "G4 资源门的两个条件都未满足：① 协议仍有未解决的可执行性问题；② 新资源未获授权",
+    "kept": "旧 v1/v2 统一 diff 批次与本次 v3 的失败全部保留，不回写旧成绩"
+  },
+  "cost": {"model_calls": 1, "probes": 3, "local_only": true, "paid_calls": 0},
+  "limits": [
+    "单题单文件单臂，不能外推为所有任务都不可行",
+    "probe 数量为 3，只用于解释失败形态，不作为模型能力结论",
+    "未尝试其它提示形态（如分块输出、函数级替换），不得声称该接口在所有提示下都不可行"
+  ],
+  "next": "若要继续 G4，需要（a）提升每臂总 token，或（b）改成分块/函数级输出并定义拼装规则，或（c）换更强模型；三者都属资源或协议的方向决定"
+}

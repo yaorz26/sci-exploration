@@ -1,0 +1,28 @@
+{
+  "cases": 1,
+  "passed": 0,
+  "all_pass": false,
+  "results": [
+    {
+      "case_id": "new_type_composition",
+      "pass": false,
+      "input_unchanged": true,
+      "error": {
+        "expected": {
+          "value": {
+            "count": 1,
+            "mode": "x"
+          }
+        },
+        "actual": {
+          "value": {
+            "count": true,
+            "mode": "x"
+          }
+        }
+      }
+    }
+  ],
+  "execution_seconds": 0.08179169999993974,
+  "captured_output_bytes": 248
+}

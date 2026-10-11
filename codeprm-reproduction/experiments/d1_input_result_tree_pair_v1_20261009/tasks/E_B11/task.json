@@ -1,0 +1,22 @@
+{
+  "task_id": "E_B11",
+  "source": "boltons",
+  "source_commit": "4e5faa3d7e4008d89e0d8bf1ea87b6d9a061a16d",
+  "source_apis": [
+    "remap",
+    "research"
+  ],
+  "license": "BSD-3-Clause",
+  "family_id": "nested_integer_transform_search",
+  "search_version": "input",
+  "entrypoint": "solve(data)",
+  "candidate_status": "research_pool_only",
+  "split": null,
+  "formal_labels": null,
+  "human_reviews": 0,
+  "published": false,
+  "validity_scope": "公开整数树合法域；六锚点不是全域证明",
+  "requirement_file": "requirement.md",
+  "model_prompt_exposure": "未向模型发送",
+  "private_reads": 0
+}

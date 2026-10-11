@@ -1,0 +1,9 @@
+{
+  "number": 440,
+  "title": "Add groupfunc to groupby_transform",
+  "body": "This PR adds the *groupfunc* argument to `groupby_transform`.\r\n\r\nThe docs for `groupby` have this caveat:\r\n> The returned group is itself an iterator that shares the underlying iterable with groupby(). Because the source is shared, when the groupby() object is advanced, the previous group is no longer visible. So, if that data is needed later, it should be stored as a list.\r\n\r\nThis has come up here before, e.g. [issue 307](https://github.com/more-itertools/more-itertools/issues/307#issuecomment-526356782).\r\n\r\nThe `groupby` argument makes it easy to do that `list`-ifying, plus whatever else you might want to do.\r\n\r\n",
+  "html_url": "https://github.com/more-itertools/more-itertools/pull/440",
+  "merged": true,
+  "merge_commit_sha": "78405e9b24d0ccdd67785136ecd56774f38ae95e",
+  "merged_at": "2020-07-02T01:22:37Z"
+}

@@ -1,0 +1,2989 @@
+{
+  "task_id": "D1_M02",
+  "oracle_disagreements": 0,
+  "implementations": {
+    "starter": {
+      "cases": 19,
+      "passed": 0,
+      "all_pass": false,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  2,
+                  4
+                ],
+                [
+                  0
+                ]
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "public_2",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": []
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_1",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  3,
+                  2,
+                  1
+                ]
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_2",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  3
+                ],
+                [
+                  2,
+                  1
+                ]
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_3",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  2,
+                  2,
+                  2
+                ]
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_4",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  -1
+                ],
+                [
+                  -3,
+                  -2
+                ]
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_5",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  7
+                ]
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_6",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  3
+                ],
+                [
+                  -3,
+                  -1,
+                  3
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  -1,
+                  2
+                ],
+                [
+                  -2,
+                  -2,
+                  0
+                ],
+                [
+                  -1
+                ]
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_7",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  -1,
+                  2,
+                  3
+                ],
+                [
+                  -2,
+                  2,
+                  3
+                ],
+                [
+                  -1
+                ],
+                [
+                  -3,
+                  -3,
+                  1,
+                  3
+                ],
+                [
+                  -1
+                ],
+                [
+                  -3,
+                  -1,
+                  3
+                ]
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_8",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  -2,
+                  -2,
+                  -1,
+                  1
+                ],
+                [
+                  0
+                ],
+                [
+                  -2,
+                  -2,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  -1,
+                  1
+                ],
+                [
+                  -2,
+                  -1
+                ]
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_9",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  -1,
+                  -1,
+                  3,
+                  -1,
+                  2,
+                  -2,
+                  -3,
+                  3,
+                  -1,
+                  2,
+                  1,
+                  -2,
+                  1,
+                  -1,
+                  -3
+                ]
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_10",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  -3,
+                  -3,
+                  0,
+                  3,
+                  -3,
+                  -3,
+                  2,
+                  -2,
+                  3,
+                  -3,
+                  -2,
+                  0,
+                  2,
+                  -3,
+                  3
+                ]
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_11",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  0,
+                  -3,
+                  -2,
+                  0,
+                  -3,
+                  3,
+                  -1,
+                  2,
+                  2,
+                  -2,
+                  -2,
+                  -2,
+                  1,
+                  -2,
+                  0
+                ]
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_12",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  -2,
+                  0,
+                  2,
+                  3
+                ],
+                [
+                  1,
+                  3,
+                  2,
+                  -2,
+                  -2,
+                  -3,
+                  1,
+                  0,
+                  1,
+                  2,
+                  -2
+                ]
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_13",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  -3,
+                  0,
+                  0,
+                  -1,
+                  3,
+                  1,
+                  0,
+                  2,
+                  -1,
+                  -2,
+                  0,
+                  1,
+                  -2
+                ]
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_14",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  -2
+                ],
+                [
+                  -3,
+                  -1,
+                  -1,
+                  0,
+                  0,
+                  -1,
+                  2,
+                  -3,
+                  2,
+                  3,
+                  2,
+                  -3,
+                  -3,
+                  0
+                ]
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_15",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  3
+                ],
+                [
+                  0
+                ],
+                [
+                  -3,
+                  -1,
+                  2,
+                  -1,
+                  1,
+                  -3,
+                  1,
+                  2,
+                  1,
+                  -2,
+                  1,
+                  -2,
+                  -2
+                ]
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_16",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  1,
+                  3,
+                  3
+                ],
+                [
+                  2
+                ],
+                [
+                  1,
+                  -1,
+                  1,
+                  -1,
+                  2,
+                  -1,
+                  0,
+                  -2,
+                  1,
+                  0,
+                  1
+                ]
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_17",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  -3,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  -1
+                ],
+                [
+                  -2,
+                  0,
+                  -2,
+                  -2,
+                  -1,
+                  -2,
+                  1,
+                  -1,
+                  -3,
+                  3
+                ]
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        }
+      ],
+      "execution_seconds": 0.06157230000007985,
+      "captured_output_bytes": 3604
+    },
+    "alternate": {
+      "cases": 19,
+      "passed": 19,
+      "all_pass": true,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "public_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_3",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_4",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_5",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_6",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_7",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_8",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_9",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_10",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_11",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_12",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_13",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_14",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_15",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_16",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_17",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        }
+      ],
+      "execution_seconds": 0.061771600000611215,
+      "captured_output_bytes": 1569
+    },
+    "reference": {
+      "cases": 19,
+      "passed": 19,
+      "all_pass": true,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "public_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_3",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_4",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_5",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_6",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_7",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_8",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_9",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_10",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_11",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_12",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_13",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_14",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_15",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_16",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_17",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        }
+      ],
+      "execution_seconds": 0.08191089999945689,
+      "captured_output_bytes": 1569
+    },
+    "wrong_empty": {
+      "cases": 19,
+      "passed": 1,
+      "all_pass": false,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  2,
+                  4
+                ],
+                [
+                  0
+                ]
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "public_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_1",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  3,
+                  2,
+                  1
+                ]
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_2",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  3
+                ],
+                [
+                  2,
+                  1
+                ]
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_3",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  2,
+                  2,
+                  2
+                ]
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_4",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  -1
+                ],
+                [
+                  -3,
+                  -2
+                ]
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_5",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  7
+                ]
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_6",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  3
+                ],
+                [
+                  -3,
+                  -1,
+                  3
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  -1,
+                  2
+                ],
+                [
+                  -2,
+                  -2,
+                  0
+                ],
+                [
+                  -1
+                ]
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_7",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  -1,
+                  2,
+                  3
+                ],
+                [
+                  -2,
+                  2,
+                  3
+                ],
+                [
+                  -1
+                ],
+                [
+                  -3,
+                  -3,
+                  1,
+                  3
+                ],
+                [
+                  -1
+                ],
+                [
+                  -3,
+                  -1,
+                  3
+                ]
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_8",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  -2,
+                  -2,
+                  -1,
+                  1
+                ],
+                [
+                  0
+                ],
+                [
+                  -2,
+                  -2,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  -1,
+                  1
+                ],
+                [
+                  -2,
+                  -1
+                ]
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_9",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  -1,
+                  -1,
+                  3,
+                  -1,
+                  2,
+                  -2,
+                  -3,
+                  3,
+                  -1,
+                  2,
+                  1,
+                  -2,
+                  1,
+                  -1,
+                  -3
+                ]
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_10",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  -3,
+                  -3,
+                  0,
+                  3,
+                  -3,
+                  -3,
+                  2,
+                  -2,
+                  3,
+                  -3,
+                  -2,
+                  0,
+                  2,
+                  -3,
+                  3
+                ]
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_11",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  0,
+                  -3,
+                  -2,
+                  0,
+                  -3,
+                  3,
+                  -1,
+                  2,
+                  2,
+                  -2,
+                  -2,
+                  -2,
+                  1,
+                  -2,
+                  0
+                ]
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_12",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  -2,
+                  0,
+                  2,
+                  3
+                ],
+                [
+                  1,
+                  3,
+                  2,
+                  -2,
+                  -2,
+                  -3,
+                  1,
+                  0,
+                  1,
+                  2,
+                  -2
+                ]
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_13",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  -3,
+                  0,
+                  0,
+                  -1,
+                  3,
+                  1,
+                  0,
+                  2,
+                  -1,
+                  -2,
+                  0,
+                  1,
+                  -2
+                ]
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_14",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  -2
+                ],
+                [
+                  -3,
+                  -1,
+                  -1,
+                  0,
+                  0,
+                  -1,
+                  2,
+                  -3,
+                  2,
+                  3,
+                  2,
+                  -3,
+                  -3,
+                  0
+                ]
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_15",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  3
+                ],
+                [
+                  0
+                ],
+                [
+                  -3,
+                  -1,
+                  2,
+                  -1,
+                  1,
+                  -3,
+                  1,
+                  2,
+                  1,
+                  -2,
+                  1,
+                  -2,
+                  -2
+                ]
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_16",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  1,
+                  3,
+                  3
+                ],
+                [
+                  2
+                ],
+                [
+                  1,
+                  -1,
+                  1,
+                  -1,
+                  2,
+                  -1,
+                  0,
+                  -2,
+                  1,
+                  0,
+                  1
+                ]
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_17",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  -3,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  -1
+                ],
+                [
+                  -2,
+                  0,
+                  -2,
+                  -2,
+                  -1,
+                  -2,
+                  1,
+                  -1,
+                  -3,
+                  3
+                ]
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        }
+      ],
+      "execution_seconds": 0.06155800000033196,
+      "captured_output_bytes": 3194
+    },
+    "wrong_drop_last": {
+      "cases": 19,
+      "passed": 1,
+      "all_pass": false,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  2,
+                  4
+                ],
+                [
+                  0
+                ]
+              ]
+            },
+            "actual": {
+              "value": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  2,
+                  4
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "case_id": "public_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_1",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  3,
+                  2,
+                  1
+                ]
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_2",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  3
+                ],
+                [
+                  2,
+                  1
+                ]
+              ]
+            },
+            "actual": {
+              "value": [
+                [
+                  3
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "case_id": "hidden_3",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  2,
+                  2,
+                  2
+                ]
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_4",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  -1
+                ],
+                [
+                  -3,
+                  -2
+                ]
+              ]
+            },
+            "actual": {
+              "value": [
+                [
+                  -1
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "case_id": "hidden_5",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  7
+                ]
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_6",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  3
+                ],
+                [
+                  -3,
+                  -1,
+                  3
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  -1,
+                  2
+                ],
+                [
+                  -2,
+                  -2,
+                  0
+                ],
+                [
+                  -1
+                ]
+              ]
+            },
+            "actual": {
+              "value": [
+                [
+                  3
+                ],
+                [
+                  -3,
+                  -1,
+                  3
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  -1,
+                  2
+                ],
+                [
+                  -2,
+                  -2,
+                  0
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "case_id": "hidden_7",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  -1,
+                  2,
+                  3
+                ],
+                [
+                  -2,
+                  2,
+                  3
+                ],
+                [
+                  -1
+                ],
+                [
+                  -3,
+                  -3,
+                  1,
+                  3
+                ],
+                [
+                  -1
+                ],
+                [
+                  -3,
+                  -1,
+                  3
+                ]
+              ]
+            },
+            "actual": {
+              "value": [
+                [
+                  -1,
+                  2,
+                  3
+                ],
+                [
+                  -2,
+                  2,
+                  3
+                ],
+                [
+                  -1
+                ],
+                [
+                  -3,
+                  -3,
+                  1,
+                  3
+                ],
+                [
+                  -1
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "case_id": "hidden_8",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  -2,
+                  -2,
+                  -1,
+                  1
+                ],
+                [
+                  0
+                ],
+                [
+                  -2,
+                  -2,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  -1,
+                  1
+                ],
+                [
+                  -2,
+                  -1
+                ]
+              ]
+            },
+            "actual": {
+              "value": [
+                [
+                  -2,
+                  -2,
+                  -1,
+                  1
+                ],
+                [
+                  0
+                ],
+                [
+                  -2,
+                  -2,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  -1,
+                  1
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "case_id": "hidden_9",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  -1,
+                  -1,
+                  3,
+                  -1,
+                  2,
+                  -2,
+                  -3,
+                  3,
+                  -1,
+                  2,
+                  1,
+                  -2,
+                  1,
+                  -1,
+                  -3
+                ]
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_10",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  -3,
+                  -3,
+                  0,
+                  3,
+                  -3,
+                  -3,
+                  2,
+                  -2,
+                  3,
+                  -3,
+                  -2,
+                  0,
+                  2,
+                  -3,
+                  3
+                ]
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_11",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  0,
+                  -3,
+                  -2,
+                  0,
+                  -3,
+                  3,
+                  -1,
+                  2,
+                  2,
+                  -2,
+                  -2,
+                  -2,
+                  1,
+                  -2,
+                  0
+                ]
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_12",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  -2,
+                  0,
+                  2,
+                  3
+                ],
+                [
+                  1,
+                  3,
+                  2,
+                  -2,
+                  -2,
+                  -3,
+                  1,
+                  0,
+                  1,
+                  2,
+                  -2
+                ]
+              ]
+            },
+            "actual": {
+              "value": [
+                [
+                  -2,
+                  0,
+                  2,
+                  3
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "case_id": "hidden_13",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  -3,
+                  0,
+                  0,
+                  -1,
+                  3,
+                  1,
+                  0,
+                  2,
+                  -1,
+                  -2,
+                  0,
+                  1,
+                  -2
+                ]
+              ]
+            },
+            "actual": {
+              "value": [
+                [
+                  0,
+                  1
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "case_id": "hidden_14",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  -2
+                ],
+                [
+                  -3,
+                  -1,
+                  -1,
+                  0,
+                  0,
+                  -1,
+                  2,
+                  -3,
+                  2,
+                  3,
+                  2,
+                  -3,
+                  -3,
+                  0
+                ]
+              ]
+            },
+            "actual": {
+              "value": [
+                [
+                  -2
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "case_id": "hidden_15",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  3
+                ],
+                [
+                  0
+                ],
+                [
+                  -3,
+                  -1,
+                  2,
+                  -1,
+                  1,
+                  -3,
+                  1,
+                  2,
+                  1,
+                  -2,
+                  1,
+                  -2,
+                  -2
+                ]
+              ]
+            },
+            "actual": {
+              "value": [
+                [
+                  3
+                ],
+                [
+                  0
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "case_id": "hidden_16",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  1,
+                  3,
+                  3
+                ],
+                [
+                  2
+                ],
+                [
+                  1,
+                  -1,
+                  1,
+                  -1,
+                  2,
+                  -1,
+                  0,
+                  -2,
+                  1,
+                  0,
+                  1
+                ]
+              ]
+            },
+            "actual": {
+              "value": [
+                [
+                  1,
+                  3,
+                  3
+                ],
+                [
+                  2
+                ]
+              ]
+            }
+          }
+        },
+        {
+          "case_id": "hidden_17",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  -3,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  -1
+                ],
+                [
+                  -2,
+                  0,
+                  -2,
+                  -2,
+                  -1,
+                  -2,
+                  1,
+                  -1,
+                  -3,
+                  3
+                ]
+              ]
+            },
+            "actual": {
+              "value": [
+                [
+                  -3,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  -1
+                ]
+              ]
+            }
+          }
+        }
+      ],
+      "execution_seconds": 0.06200249999983498,
+      "captured_output_bytes": 3442
+    },
+    "wrong_public_lookup": {
+      "cases": 19,
+      "passed": 2,
+      "all_pass": false,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "public_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_1",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  3,
+                  2,
+                  1
+                ]
+              ]
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_2",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  3
+                ],
+                [
+                  2,
+                  1
+                ]
+              ]
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_3",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  2,
+                  2,
+                  2
+                ]
+              ]
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_4",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  -1
+                ],
+                [
+                  -3,
+                  -2
+                ]
+              ]
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_5",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  7
+                ]
+              ]
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_6",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  3
+                ],
+                [
+                  -3,
+                  -1,
+                  3
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  -1,
+                  2
+                ],
+                [
+                  -2,
+                  -2,
+                  0
+                ],
+                [
+                  -1
+                ]
+              ]
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_7",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  -1,
+                  2,
+                  3
+                ],
+                [
+                  -2,
+                  2,
+                  3
+                ],
+                [
+                  -1
+                ],
+                [
+                  -3,
+                  -3,
+                  1,
+                  3
+                ],
+                [
+                  -1
+                ],
+                [
+                  -3,
+                  -1,
+                  3
+                ]
+              ]
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_8",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  -2,
+                  -2,
+                  -1,
+                  1
+                ],
+                [
+                  0
+                ],
+                [
+                  -2,
+                  -2,
+                  1
+                ],
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  -1,
+                  1
+                ],
+                [
+                  -2,
+                  -1
+                ]
+              ]
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_9",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  -1,
+                  -1,
+                  3,
+                  -1,
+                  2,
+                  -2,
+                  -3,
+                  3,
+                  -1,
+                  2,
+                  1,
+                  -2,
+                  1,
+                  -1,
+                  -3
+                ]
+              ]
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_10",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  -3,
+                  -3,
+                  0,
+                  3,
+                  -3,
+                  -3,
+                  2,
+                  -2,
+                  3,
+                  -3,
+                  -2,
+                  0,
+                  2,
+                  -3,
+                  3
+                ]
+              ]
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_11",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  0,
+                  -3,
+                  -2,
+                  0,
+                  -3,
+                  3,
+                  -1,
+                  2,
+                  2,
+                  -2,
+                  -2,
+                  -2,
+                  1,
+                  -2,
+                  0
+                ]
+              ]
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_12",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  -2,
+                  0,
+                  2,
+                  3
+                ],
+                [
+                  1,
+                  3,
+                  2,
+                  -2,
+                  -2,
+                  -3,
+                  1,
+                  0,
+                  1,
+                  2,
+                  -2
+                ]
+              ]
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_13",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  -3,
+                  0,
+                  0,
+                  -1,
+                  3,
+                  1,
+                  0,
+                  2,
+                  -1,
+                  -2,
+                  0,
+                  1,
+                  -2
+                ]
+              ]
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_14",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  -2
+                ],
+                [
+                  -3,
+                  -1,
+                  -1,
+                  0,
+                  0,
+                  -1,
+                  2,
+                  -3,
+                  2,
+                  3,
+                  2,
+                  -3,
+                  -3,
+                  0
+                ]
+              ]
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_15",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  3
+                ],
+                [
+                  0
+                ],
+                [
+                  -3,
+                  -1,
+                  2,
+                  -1,
+                  1,
+                  -3,
+                  1,
+                  2,
+                  1,
+                  -2,
+                  1,
+                  -2,
+                  -2
+                ]
+              ]
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_16",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  1,
+                  3,
+                  3
+                ],
+                [
+                  2
+                ],
+                [
+                  1,
+                  -1,
+                  1,
+                  -1,
+                  2,
+                  -1,
+                  0,
+                  -2,
+                  1,
+                  0,
+                  1
+                ]
+              ]
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_17",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                [
+                  -3,
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  -1
+                ],
+                [
+                  -2,
+                  0,
+                  -2,
+                  -2,
+                  -1,
+                  -2,
+                  1,
+                  -1,
+                  -3,
+                  3
+                ]
+              ]
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        }
+      ],
+      "execution_seconds": 0.06195540000044275,
+      "captured_output_bytes": 3157
+    }
+  },
+  "reference_repeats": [
+    {
+      "cases": 19,
+      "passed": 19,
+      "all_pass": true,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "public_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_3",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_4",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_5",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_6",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_7",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_8",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_9",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_10",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_11",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_12",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_13",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_14",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_15",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_16",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_17",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        }
+      ],
+      "execution_seconds": 0.08243949999996403,
+      "captured_output_bytes": 1569
+    },
+    {
+      "cases": 19,
+      "passed": 19,
+      "all_pass": true,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "public_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_3",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_4",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_5",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_6",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_7",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_8",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_9",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_10",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_11",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_12",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_13",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_14",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_15",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_16",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_17",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        }
+      ],
+      "execution_seconds": 0.06149649999952089,
+      "captured_output_bytes": 1569
+    },
+    {
+      "cases": 19,
+      "passed": 19,
+      "all_pass": true,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "public_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_3",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_4",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_5",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_6",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_7",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_8",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_9",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_10",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_11",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_12",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_13",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_14",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_15",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_16",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_17",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        }
+      ],
+      "execution_seconds": 0.08164200000010169,
+      "captured_output_bytes": 1569
+    }
+  ],
+  "reference_stable_3": true,
+  "starter_fails": true,
+  "alternate_passes": true,
+  "wrong_implementations_rejected": true,
+  "quality_pass": true
+}

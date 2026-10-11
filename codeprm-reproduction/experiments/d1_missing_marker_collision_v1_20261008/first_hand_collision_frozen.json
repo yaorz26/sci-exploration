@@ -1,0 +1,45 @@
+{
+  "inputs": [
+    {
+      "tree": {
+        "x": {
+          "error": "missing"
+        }
+      },
+      "queries": [
+        {
+          "path": [
+            "x"
+          ]
+        }
+      ]
+    },
+    {
+      "tree": {},
+      "queries": [
+        {
+          "path": [
+            "x"
+          ]
+        }
+      ]
+    }
+  ],
+  "expected_outputs": [
+    [
+      {
+        "error": "missing"
+      }
+    ],
+    [
+      {
+        "error": "missing"
+      }
+    ]
+  ],
+  "hand_branch_status": [
+    "found_valid_JSON_value",
+    "missing_path_without_default"
+  ],
+  "execution_status": "手算冻结，尚未执行；仅公开规则诊断"
+}

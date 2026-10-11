@@ -1,0 +1,9 @@
+{
+  "number": 292,
+  "title": "Extending `TTLCache`, `expire()` does not call `popitem()`",
+  "body": "Before reporting a bug, please make sure you have the latest `cachetools` version installed:\r\n```\r\npip install --upgrade cachetools\r\n```\r\n\r\n**Describe the bug**\r\nFor [extending a class](https://cachetools.readthedocs.io/en/latest/#extending-cache-classes), the docs say `all cache implementations call popitem() to evict items from the cache` and indicate that overriding the `popitem()` can catch expiration from any class.\r\n\r\nThis does not work with `TTLCache`.\r\n\r\n**Expected result**\r\nOverriding `popitem()` should be called when an item is expired.\r\n\r\n**Actual result**\r\nThe `popitem()` method is not called.\r\n\r\n**Reproduction steps**\r\n\r\n```python\r\nimport time\r\n\r\nfrom cachetools import TTLCache\r\n\r\n\r\nclass MyCache(TTLCache):\r\n    def popitem(self):\r\n        key, value = super().popitem()\r\n        print('Key \"%s\" evicted with value \"%s\"' % (key, value))\r\n        return key, value\r\n\r\n\r\nc = MyCache(maxsize=20, ttl=2)\r\nc[\"a\"] = 1\r\ntime.sleep(1)\r\nc[\"b\"] = 2\r\ntime.sleep(4)\r\nc[\"c\"] = 3\r\n```\r\n",
+  "html_url": "https://github.com/tkem/cachetools/issues/292",
+  "state": "closed",
+  "created_at": "2023-11-14T04:15:34Z",
+  "closed_at": "2024-08-18T20:18:51Z"
+}

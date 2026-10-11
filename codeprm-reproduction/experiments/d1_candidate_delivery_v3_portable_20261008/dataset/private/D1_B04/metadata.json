@@ -1,0 +1,72 @@
+{
+  "task_id": "D1_B04",
+  "name": "查询参数解析编辑与编码",
+  "source": {
+    "repository": "mahmoud/boltons",
+    "commit": "4e5faa3d7e4008d89e0d8bf1ea87b6d9a061a16d",
+    "license": "BSD-3-Clause",
+    "file": "boltons/urlutils.py",
+    "symbol": "QueryParamDict",
+    "line": 1564,
+    "source_sha256": "0de5f96e627483f3de1dce10fc4e5f8d913a36c800166842cd55970d4ddd0812",
+    "license_sha256": "c301912653a8d8c99eab6212aa3aea8d164ea249d8ad53c941e0558a0a5ac1e3",
+    "contamination_risk": "unknown",
+    "additional_symbols": [
+      {
+        "file": "boltons/urlutils.py",
+        "symbol": "parse_qsl",
+        "line": 952,
+        "source_sha256": "0de5f96e627483f3de1dce10fc4e5f8d913a36c800166842cd55970d4ddd0812"
+      },
+      {
+        "file": "boltons/urlutils.py",
+        "symbol": "quote_query_part",
+        "line": 242,
+        "source_sha256": "0de5f96e627483f3de1dce10fc4e5f8d913a36c800166842cd55970d4ddd0812"
+      },
+      {
+        "file": "boltons/dictutils.py",
+        "symbol": "OrderedMultiDict",
+        "line": 86,
+        "source_sha256": "6319c07cb68f18c2bfc01aa4393d0423463cf5d6357f229173d2d1e485e7b656"
+      }
+    ]
+  },
+  "requirement_origin": "上游公开API文档/说明为主，适配器范围与边界补充；已查看实现，需独立泄漏审查",
+  "adaptation": "统一JSON入口和返回值，保留所选功能；不作为完整仓库任务",
+  "split": "development",
+  "structure": {
+    "kind": "pipeline",
+    "shared_state": "ordered_pairs",
+    "dependency_evidence": "解析结果经过顺序编辑后再编码",
+    "independent_test_evidence": "解码、编辑和编码可分别用键值对定义输入输出；同键编辑会影响后续操作",
+    "status": "单人预标注，尚未取得独立一致性统计"
+  },
+  "function_family": "query_editing",
+  "public_cases": 2,
+  "private_cases": 15,
+  "status": "候选原型，非冻结确认集",
+  "authoring_seed": 20261008,
+  "structure_v2": {
+    "schema_version": "0.2",
+    "cross_operation_state": "operation_sequence",
+    "state_scope": "global",
+    "behavior_dependencies": [
+      "ordered_transform",
+      "operation_sequence"
+    ],
+    "separate_behavior_testability": "yes",
+    "evidence": "文本↔有序键值对有契约；同键编辑影响后续、全局顺序影响编码",
+    "status": "单人初标；依据外部契约，未取得独立人工一致性统计",
+    "legacy_author_description": {
+      "kind": "pipeline",
+      "shared_state": "ordered_pairs",
+      "dependency_evidence": "解析结果经过顺序编辑后再编码",
+      "independent_test_evidence": "解码、编辑和编码可分别用键值对定义输入输出；同键编辑会影响后续操作",
+      "status": "单人预标注，尚未取得独立一致性统计"
+    }
+  },
+  "related_families": [
+    "ordered_multimap"
+  ]
+}

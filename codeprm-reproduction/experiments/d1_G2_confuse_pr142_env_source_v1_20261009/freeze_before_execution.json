@@ -1,0 +1,43 @@
+{
+  "frozen_at": "2026-10-09T11:29:32.014709+00:00",
+  "plan": "196_G2_confuse_pr142_env_source_plan.md",
+  "requirement_sha256": "4eb2b78047dcf5e326fcb266fc6483ab963a65a2d6a6ce3acc7cc91f79e4dabf",
+  "public_cases_sha256": "2d4e39d914be1d18b3649edb57df502f7235936b5d85f07c5410ff90d30cd294",
+  "evaluator_sha256": "72a0e6d45e1a8e1d6296662107fb76f91115d35a75ae83b1589e3d7b07739da2",
+  "source_manifest_sha256": "e2e1e2ae5dd67df3e7a3603341436da5c6cac1ec7d4eac90ecec6a946c886b76",
+  "distinct_scenarios": 3,
+  "workspaces": 4,
+  "maximum_worker_runs": 12,
+  "predictions": {
+    "parent": [
+      false,
+      false,
+      false
+    ],
+    "feature": [
+      true,
+      true,
+      true
+    ],
+    "alternative": [
+      true,
+      true,
+      true
+    ],
+    "priority_omission": [
+      true,
+      true,
+      false
+    ]
+  },
+  "direction_check": "检验环境来源进入真实配置读取、优先级和下层回退；属于G2-K1，不扩参数矩阵。",
+  "construction_constraint": "set_env公开入口为构建者固定，内部EnvSource/helper/module组织不固定。",
+  "scope_limit": "PR142有限子范围；列表、全YAML、reload和冲突键均未纳入。",
+  "formal_labels": null,
+  "split": null,
+  "human_reviews": 0,
+  "model_calls": 0,
+  "upstream_tests_read": false,
+  "D1_private_read_for_this_candidate": false,
+  "prior_accidental_exposure": "../d1_G2_more_itertools_cursor_v1_20261009/accidental_exposure.json"
+}

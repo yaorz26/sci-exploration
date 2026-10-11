@@ -1,0 +1,356 @@
+{
+  "units": [
+    {
+      "run": "d1_costed_pilot_b04_c03_v1_20261008",
+      "task_id": "D1_B04",
+      "generation_error": null,
+      "complete_saved_candidate": true,
+      "raw_candidate_path_field_present": true,
+      "helper_names": [
+        "_parse_query",
+        "_encode_query",
+        "_apply_operations"
+      ],
+      "budget_regime": "6500生成阶段上限，另有预检，非等总预算",
+      "original_public_task_hash_matches": true,
+      "static_solve_direct_helper_calls": [
+        "_parse_query",
+        "_apply_operations",
+        "_encode_query"
+      ],
+      "candidate_sha256": "917f2650418a00a9141c7fc644d95d1d3d074be3d21a2e2e44618be1659ea27c"
+    },
+    {
+      "run": "d1_costed_pilot_b04_c03_v1_20261008",
+      "task_id": "D1_C03",
+      "generation_error": null,
+      "complete_saved_candidate": true,
+      "raw_candidate_path_field_present": true,
+      "helper_names": [
+        "_hash_key",
+        "_update_cache",
+        "_execute_operation"
+      ],
+      "budget_regime": "6500生成阶段上限，另有预检，非等总预算",
+      "original_public_task_hash_matches": true,
+      "static_solve_direct_helper_calls": [
+        "_execute_operation"
+      ],
+      "candidate_sha256": "a1687f31d8511232bdf0f05ff42ef0abc16f30d622812e76a27265283f2587e5"
+    },
+    {
+      "run": "d1_costed_pilot_b03_b05_c04_v1_20261008",
+      "task_id": "D1_B03",
+      "generation_error": "ValueError: helper completion changed frozen functions",
+      "complete_saved_candidate": false,
+      "raw_candidate_path_field_present": false,
+      "helper_names": [
+        "_is_ansi_code",
+        "_remove_ansi_codes"
+      ],
+      "budget_regime": "6500生成阶段上限，另有预检，非等总预算"
+    },
+    {
+      "run": "d1_costed_pilot_b03_b05_c04_v1_20261008",
+      "task_id": "D1_B05",
+      "generation_error": null,
+      "complete_saved_candidate": true,
+      "raw_candidate_path_field_present": true,
+      "helper_names": [
+        "_apply_factor",
+        "_drop_null",
+        "_find_matches"
+      ],
+      "budget_regime": "6500生成阶段上限，另有预检，非等总预算",
+      "original_public_task_hash_matches": true,
+      "static_solve_direct_helper_calls": [
+        "_drop_null",
+        "_find_matches",
+        "_apply_factor"
+      ],
+      "candidate_sha256": "a227706fede9ebd176ae9b93921a28d806cf79840a7340cebbc251a706da72be"
+    },
+    {
+      "run": "d1_costed_pilot_b03_b05_c04_v1_20261008",
+      "task_id": "D1_C04",
+      "generation_error": "ValueError: entry completion changed frozen functions",
+      "complete_saved_candidate": false,
+      "raw_candidate_path_field_present": false,
+      "helper_names": [
+        "_initialize_cache",
+        "_update_cache",
+        "_handle_operation"
+      ],
+      "budget_regime": "6500生成阶段上限，另有预检，非等总预算"
+    },
+    {
+      "run": "d1_allin_native_pair_b03_v1_20261008",
+      "task_id": "D1_B03",
+      "generation_error": "ValueError: completion changed frozen function names",
+      "complete_saved_candidate": false,
+      "raw_candidate_path_field_present": true,
+      "helper_names": [
+        "_is_ansi_code",
+        "_is_ansi_sequence"
+      ],
+      "budget_regime": "6500总输入输出上限真实smoke"
+    }
+  ],
+  "public_inputs": [
+    {
+      "run": "d1_costed_pilot_b04_c03_v1_20261008",
+      "task_id": "D1_B04",
+      "example_id": 1,
+      "candidate": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_costed_pilot_b04_c03_v1_20261008\\candidates\\D1_B04\\M2\\candidate.py",
+      "helper_names": [
+        "_parse_query",
+        "_encode_query",
+        "_apply_operations"
+      ],
+      "input": {
+        "query": "a=1&a=2;flag&x=",
+        "operations": [
+          {
+            "op": "set",
+            "key": "a",
+            "value": "x y"
+          }
+        ]
+      },
+      "original_public_task_sha256": "47b39de3c762b029162b30512cd201e60b7b2e71f6d55404320ca9ce61bd63b1",
+      "public_example_expected": {
+        "value": {
+          "pairs": [
+            [
+              "flag",
+              null
+            ],
+            [
+              "x",
+              null
+            ],
+            [
+              "a",
+              "x y"
+            ]
+          ],
+          "query": "flag&x&a=x%20y"
+        }
+      }
+    },
+    {
+      "run": "d1_costed_pilot_b04_c03_v1_20261008",
+      "task_id": "D1_B04",
+      "example_id": 2,
+      "candidate": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_costed_pilot_b04_c03_v1_20261008\\candidates\\D1_B04\\M2\\candidate.py",
+      "helper_names": [
+        "_parse_query",
+        "_encode_query",
+        "_apply_operations"
+      ],
+      "input": {
+        "query": "",
+        "operations": [
+          {
+            "op": "add",
+            "key": "q",
+            "value": ""
+          }
+        ]
+      },
+      "original_public_task_sha256": "47b39de3c762b029162b30512cd201e60b7b2e71f6d55404320ca9ce61bd63b1",
+      "public_example_expected": {
+        "value": {
+          "pairs": [
+            [
+              "q",
+              ""
+            ]
+          ],
+          "query": "q="
+        }
+      }
+    },
+    {
+      "run": "d1_costed_pilot_b04_c03_v1_20261008",
+      "task_id": "D1_C03",
+      "example_id": 1,
+      "candidate": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_costed_pilot_b04_c03_v1_20261008\\candidates\\D1_C03\\M2\\candidate.py",
+      "helper_names": [
+        "_hash_key",
+        "_update_cache",
+        "_execute_operation"
+      ],
+      "input": {
+        "capacity": 1,
+        "operations": [
+          {
+            "op": "call",
+            "args": [
+              2
+            ],
+            "kwargs": {
+              "b": 3
+            }
+          },
+          {
+            "op": "call",
+            "args": [
+              2
+            ],
+            "kwargs": {
+              "b": 3
+            }
+          },
+          {
+            "op": "clear"
+          },
+          {
+            "op": "call",
+            "args": [
+              2
+            ],
+            "kwargs": {
+              "b": 3
+            }
+          }
+        ]
+      },
+      "original_public_task_sha256": "d5399e4a7d2ff1ee585c2c8ec78831ebfb46723e07e25c7d91da584fc39dabb3",
+      "public_example_expected": {
+        "value": [
+          {
+            "result": 5,
+            "computations": 1,
+            "size": 1
+          },
+          {
+            "result": 5,
+            "computations": 1,
+            "size": 1
+          },
+          {
+            "result": null,
+            "computations": 1,
+            "size": 0
+          },
+          {
+            "result": 5,
+            "computations": 2,
+            "size": 1
+          }
+        ]
+      }
+    },
+    {
+      "run": "d1_costed_pilot_b04_c03_v1_20261008",
+      "task_id": "D1_C03",
+      "example_id": 2,
+      "candidate": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_costed_pilot_b04_c03_v1_20261008\\candidates\\D1_C03\\M2\\candidate.py",
+      "helper_names": [
+        "_hash_key",
+        "_update_cache",
+        "_execute_operation"
+      ],
+      "input": {
+        "capacity": 0,
+        "operations": [
+          {
+            "op": "call"
+          },
+          {
+            "op": "call"
+          }
+        ]
+      },
+      "original_public_task_sha256": "d5399e4a7d2ff1ee585c2c8ec78831ebfb46723e07e25c7d91da584fc39dabb3",
+      "public_example_expected": {
+        "value": [
+          {
+            "result": 0,
+            "computations": 1,
+            "size": 0
+          },
+          {
+            "result": 0,
+            "computations": 2,
+            "size": 0
+          }
+        ]
+      }
+    },
+    {
+      "run": "d1_costed_pilot_b03_b05_c04_v1_20261008",
+      "task_id": "D1_B05",
+      "example_id": 1,
+      "candidate": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_costed_pilot_b03_b05_c04_v1_20261008\\candidates\\D1_B05\\M2\\candidate.py",
+      "helper_names": [
+        "_apply_factor",
+        "_drop_null",
+        "_find_matches"
+      ],
+      "input": {
+        "tree": {
+          "a": [
+            null,
+            2,
+            true
+          ],
+          "b": 3
+        },
+        "drop_null": true,
+        "factor": 2,
+        "threshold": 4
+      },
+      "original_public_task_sha256": "5477c6668e9b9b2e0aceda2aceeb1dfa979f7000353de71121e35da9314322a8",
+      "public_example_expected": {
+        "value": {
+          "tree": {
+            "a": [
+              4,
+              true
+            ],
+            "b": 6
+          },
+          "matches": [
+            {
+              "path": [
+                "a",
+                0
+              ],
+              "value": 4
+            },
+            {
+              "path": [
+                "b"
+              ],
+              "value": 6
+            }
+          ]
+        }
+      }
+    },
+    {
+      "run": "d1_costed_pilot_b03_b05_c04_v1_20261008",
+      "task_id": "D1_B05",
+      "example_id": 2,
+      "candidate": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_costed_pilot_b03_b05_c04_v1_20261008\\candidates\\D1_B05\\M2\\candidate.py",
+      "helper_names": [
+        "_apply_factor",
+        "_drop_null",
+        "_find_matches"
+      ],
+      "input": {
+        "tree": [],
+        "threshold": 0
+      },
+      "original_public_task_sha256": "5477c6668e9b9b2e0aceda2aceeb1dfa979f7000353de71121e35da9314322a8",
+      "public_example_expected": {
+        "value": {
+          "tree": [],
+          "matches": []
+        }
+      }
+    }
+  ]
+}

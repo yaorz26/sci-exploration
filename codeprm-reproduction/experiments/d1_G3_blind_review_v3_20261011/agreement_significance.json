@@ -1,0 +1,24 @@
+{
+  "created_at": null,
+  "permutation_test": {
+    "2": {
+      "n": 20,
+      "obs": 0.65,
+      "expected": 0.365,
+      "kappa": 0.4488188976377953,
+      "perm_p_one_sided": 0.0006,
+      "perm_mean": 0.36433000000000004,
+      "obs_vs_perm_mean": 0.28567
+    },
+    "3": {
+      "n": 20,
+      "obs": 0.3,
+      "expected": 0.27,
+      "kappa": 0.04109589041095887,
+      "perm_p_one_sided": 0.47035,
+      "perm_mean": 0.2699025,
+      "obs_vs_perm_mean": 0.0300975
+    }
+  },
+  "note": "20000 次置换，seed=20261011；n=20，5 点序数"
+}

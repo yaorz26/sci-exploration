@@ -1,0 +1,31 @@
+{
+  "registered_at": "2026-10-08T02:29:07.593779+00:00",
+  "purpose": "4开发题的工程流程探针，非严格等总成本或结构边界检验",
+  "dataset": "D:\\yaorz\\research\\codeprm-reproduction\\data\\processed\\d1_project_prototype8_v4_20261008",
+  "output": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_project_development_pilot_v1_20261008",
+  "task_ids": [
+    "D1_B01",
+    "D1_B02",
+    "D1_C01",
+    "D1_C02"
+  ],
+  "model": "qwen2.5-coder:7b",
+  "temperature": 0.2,
+  "seed": 20261008,
+  "num_ctx": 8192,
+  "output_cap_per_arm": 4096,
+  "plan_cap": 512,
+  "helper_cap": 640,
+  "call_cap": 24,
+  "wall_cap_seconds": 1800,
+  "request_timeout_seconds": 240,
+  "candidates_per_task_arm": 1,
+  "selection": "首候选，不重试；全部生成后固定候选再评分",
+  "budget_limitation": "每臂输出token上限相同；实际输入/输出token、调用数、耗时记录，非等总成本",
+  "review_status": "GLM有限独立自动审查完成，确定歧义v4已修复；人工真值/全量最终审查尚未完成；不能冻结完整数据集",
+  "local_review_calls_already_spent": 3,
+  "new_local_calls_cap_this_turn": 100,
+  "script_sha256": "4339e11cced5c72164bd3223c1737367c52c6c4af47202639ef3b13feccd1257",
+  "hypothesis_forecast": "可能接口/格式失败先于算法失败；即使4题全过也不能由此确认适用边界",
+  "reserve_use": "只验参考实现，未生成/评分被测模型储备候选"
+}

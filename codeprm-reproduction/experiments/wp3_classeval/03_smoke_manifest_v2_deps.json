@@ -1,0 +1,799 @@
+{
+  "work_package": "WP3",
+  "dataset": "FudanSELab/ClassEval",
+  "seed": 20260929,
+  "n_per_layer": {
+    "target": 4,
+    "negative": 3,
+    "boundary": 3
+  },
+  "repeats": 3,
+  "timeout_sec": 180,
+  "llm_calls": 0,
+  "context_budget_tokens": 8192,
+  "layer_pool_sizes": {
+    "unused": 27,
+    "target": 34,
+    "negative": 12,
+    "boundary": 27
+  },
+  "layer_stats": {
+    "target": {
+      "n": 34,
+      "n_methods_median": 5.0,
+      "context_est_tokens_median": 3298
+    },
+    "negative": {
+      "n": 12,
+      "n_methods_median": 2.0,
+      "context_est_tokens_median": 1193
+    },
+    "boundary": {
+      "n": 27,
+      "n_methods_median": 3,
+      "context_est_tokens_median": 1948
+    }
+  },
+  "tasks": [
+    {
+      "task_id": "ClassEval_5",
+      "layer": "negative",
+      "class_name": "AutomaticGuitarSimulator",
+      "n_methods": 2,
+      "n_methods_with_deps": 2,
+      "context_est_tokens": 1697,
+      "split": {
+        "mode": "by_method",
+        "public_classes": [
+          "AutomaticGuitarSimulatorTestInterpret"
+        ],
+        "private_classes": [
+          "AutomaticGuitarSimulatorTestDisplay",
+          "AutomaticGuitarSimulatorTest"
+        ],
+        "index": {
+          "AutomaticGuitarSimulatorTestInterpret": 0,
+          "AutomaticGuitarSimulatorTestDisplay": 1,
+          "AutomaticGuitarSimulatorTest": 2
+        }
+      },
+      "runs_full": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.69,
+          "ok": true,
+          "tail": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.71,
+          "ok": true,
+          "tail": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.7,
+          "ok": true,
+          "tail": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.000s\n\nOK\n"
+        }
+      ],
+      "runs_public_only": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.73,
+          "ok": true,
+          "tail": ".........\n----------------------------------------------------------------------\nRan 9 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.74,
+          "ok": true,
+          "tail": ".........\n----------------------------------------------------------------------\nRan 9 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.79,
+          "ok": true,
+          "tail": ".........\n----------------------------------------------------------------------\nRan 9 tests in 0.000s\n\nOK\n"
+        }
+      ],
+      "stable_full": true,
+      "stable_public": true
+    },
+    {
+      "task_id": "ClassEval_44",
+      "layer": "boundary",
+      "class_name": "HtmlUtil",
+      "n_methods": 3,
+      "n_methods_with_deps": 3,
+      "context_est_tokens": 3404,
+      "split": {
+        "mode": "by_method",
+        "public_classes": [
+          "HtmlUtilTestFormatLineFeed",
+          "HtmlUtilTestFormatLineHtmlText"
+        ],
+        "private_classes": [
+          "HtmlUtilTestExtractCodeFromHtmlText",
+          "HtmlUtilTest"
+        ],
+        "index": {
+          "HtmlUtilTestFormatLineFeed": 0,
+          "HtmlUtilTestFormatLineHtmlText": 1,
+          "HtmlUtilTestExtractCodeFromHtmlText": 2,
+          "HtmlUtilTest": 3
+        }
+      },
+      "runs_full": [
+        {
+          "run": 1,
+          "exit_code": 1,
+          "seconds": 8.72,
+          "ok": false,
+          "tail": "uction\\.venvs\\bigcodebench_fast0\\Lib\\site-packages\\bs4\\__init__.py\", line 366, in __init__\n    raise FeatureNotFound(\n    ...<3 lines>...\n    )\nbs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?\n\n----------------------------------------------------------------------\nRan 23 tests in 0.009s\n\nFAILED (errors=16)\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 1,
+          "seconds": 1.92,
+          "ok": false,
+          "tail": "uction\\.venvs\\bigcodebench_fast0\\Lib\\site-packages\\bs4\\__init__.py\", line 366, in __init__\n    raise FeatureNotFound(\n    ...<3 lines>...\n    )\nbs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?\n\n----------------------------------------------------------------------\nRan 23 tests in 0.009s\n\nFAILED (errors=16)\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 1,
+          "seconds": 1.99,
+          "ok": false,
+          "tail": "uction\\.venvs\\bigcodebench_fast0\\Lib\\site-packages\\bs4\\__init__.py\", line 366, in __init__\n    raise FeatureNotFound(\n    ...<3 lines>...\n    )\nbs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?\n\n----------------------------------------------------------------------\nRan 23 tests in 0.012s\n\nFAILED (errors=16)\n"
+        }
+      ],
+      "runs_public_only": [
+        {
+          "run": 1,
+          "exit_code": 1,
+          "seconds": 2.0,
+          "ok": false,
+          "tail": "uction\\.venvs\\bigcodebench_fast0\\Lib\\site-packages\\bs4\\__init__.py\", line 366, in __init__\n    raise FeatureNotFound(\n    ...<3 lines>...\n    )\nbs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?\n\n----------------------------------------------------------------------\nRan 17 tests in 0.006s\n\nFAILED (errors=11)\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 1,
+          "seconds": 1.93,
+          "ok": false,
+          "tail": "uction\\.venvs\\bigcodebench_fast0\\Lib\\site-packages\\bs4\\__init__.py\", line 366, in __init__\n    raise FeatureNotFound(\n    ...<3 lines>...\n    )\nbs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?\n\n----------------------------------------------------------------------\nRan 17 tests in 0.007s\n\nFAILED (errors=11)\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 1,
+          "seconds": 1.97,
+          "ok": false,
+          "tail": "uction\\.venvs\\bigcodebench_fast0\\Lib\\site-packages\\bs4\\__init__.py\", line 366, in __init__\n    raise FeatureNotFound(\n    ...<3 lines>...\n    )\nbs4.exceptions.FeatureNotFound: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?\n\n----------------------------------------------------------------------\nRan 17 tests in 0.008s\n\nFAILED (errors=11)\n"
+        }
+      ],
+      "stable_full": true,
+      "stable_public": true
+    },
+    {
+      "task_id": "ClassEval_51",
+      "layer": "negative",
+      "class_name": "KappaCalculator",
+      "n_methods": 2,
+      "n_methods_with_deps": 2,
+      "context_est_tokens": 2270,
+      "split": {
+        "mode": "by_method",
+        "public_classes": [
+          "KappaCalculatorTestKappa"
+        ],
+        "private_classes": [
+          "KappaCalculatorTestFleissKappa",
+          "KappaCalculatorTest"
+        ],
+        "index": {
+          "KappaCalculatorTestKappa": 0,
+          "KappaCalculatorTestFleissKappa": 1,
+          "KappaCalculatorTest": 2
+        }
+      },
+      "runs_full": [
+        {
+          "run": 1,
+          "exit_code": 1,
+          "seconds": 0.8,
+          "ok": false,
+          "tail": "^^^^^^\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\.venvs\\bigcodebench_fast0\\Lib\\site-packages\\numpy\\__init__.py\", line 776, in __getattr__\n    raise AttributeError(\n    ...<3 lines>...\n    )\nAttributeError: `np.mat` was removed in the NumPy 2.0 release. Use `np.asmatrix` instead.\n\n----------------------------------------------------------------------\nRan 11 tests in 0.006s\n\nFAILED (errors=11)\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 1,
+          "seconds": 0.76,
+          "ok": false,
+          "tail": "^^^^^^\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\.venvs\\bigcodebench_fast0\\Lib\\site-packages\\numpy\\__init__.py\", line 776, in __getattr__\n    raise AttributeError(\n    ...<3 lines>...\n    )\nAttributeError: `np.mat` was removed in the NumPy 2.0 release. Use `np.asmatrix` instead.\n\n----------------------------------------------------------------------\nRan 11 tests in 0.006s\n\nFAILED (errors=11)\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 1,
+          "seconds": 0.74,
+          "ok": false,
+          "tail": "^^^^^^\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\.venvs\\bigcodebench_fast0\\Lib\\site-packages\\numpy\\__init__.py\", line 776, in __getattr__\n    raise AttributeError(\n    ...<3 lines>...\n    )\nAttributeError: `np.mat` was removed in the NumPy 2.0 release. Use `np.asmatrix` instead.\n\n----------------------------------------------------------------------\nRan 11 tests in 0.006s\n\nFAILED (errors=11)\n"
+        }
+      ],
+      "runs_public_only": [
+        {
+          "run": 1,
+          "exit_code": 1,
+          "seconds": 0.83,
+          "ok": false,
+          "tail": "  ^^^^^^\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\.venvs\\bigcodebench_fast0\\Lib\\site-packages\\numpy\\__init__.py\", line 776, in __getattr__\n    raise AttributeError(\n    ...<3 lines>...\n    )\nAttributeError: `np.mat` was removed in the NumPy 2.0 release. Use `np.asmatrix` instead.\n\n----------------------------------------------------------------------\nRan 5 tests in 0.003s\n\nFAILED (errors=5)\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 1,
+          "seconds": 0.81,
+          "ok": false,
+          "tail": "  ^^^^^^\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\.venvs\\bigcodebench_fast0\\Lib\\site-packages\\numpy\\__init__.py\", line 776, in __getattr__\n    raise AttributeError(\n    ...<3 lines>...\n    )\nAttributeError: `np.mat` was removed in the NumPy 2.0 release. Use `np.asmatrix` instead.\n\n----------------------------------------------------------------------\nRan 5 tests in 0.003s\n\nFAILED (errors=5)\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 1,
+          "seconds": 0.72,
+          "ok": false,
+          "tail": "  ^^^^^^\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\.venvs\\bigcodebench_fast0\\Lib\\site-packages\\numpy\\__init__.py\", line 776, in __getattr__\n    raise AttributeError(\n    ...<3 lines>...\n    )\nAttributeError: `np.mat` was removed in the NumPy 2.0 release. Use `np.asmatrix` instead.\n\n----------------------------------------------------------------------\nRan 5 tests in 0.003s\n\nFAILED (errors=5)\n"
+        }
+      ],
+      "stable_full": true,
+      "stable_public": true
+    },
+    {
+      "task_id": "ClassEval_52",
+      "layer": "boundary",
+      "class_name": "Lemmatization",
+      "n_methods": 3,
+      "n_methods_with_deps": 3,
+      "context_est_tokens": 2169,
+      "split": {
+        "mode": "by_method",
+        "public_classes": [
+          "LemmatizationTestLemmatizeSentence",
+          "LemmatizationTestGetPosTag"
+        ],
+        "private_classes": [
+          "LemmatizationTestRemovePunctuation",
+          "LemmatizationTestMain"
+        ],
+        "index": {
+          "LemmatizationTestLemmatizeSentence": 0,
+          "LemmatizationTestGetPosTag": 1,
+          "LemmatizationTestRemovePunctuation": 2,
+          "LemmatizationTestMain": 3
+        }
+      },
+      "runs_full": [
+        {
+          "run": 1,
+          "exit_code": 1,
+          "seconds": 4.2,
+          "ok": false,
+          "tail": "  - 'D:\\\\yaorz\\\\research\\\\codeprm-reproduction\\\\.venvs\\\\bigcodebench_fast0\\\\lib\\\\nltk_data'\n    - 'C:\\\\Users\\\\yaorz2\\\\AppData\\\\Roaming\\\\nltk_data'\n    - 'C:\\\\nltk_data'\n    - 'D:\\\\nltk_data'\n    - 'E:\\\\nltk_data'\n**********************************************************************\n\n\n----------------------------------------------------------------------\nRan 16 tests in 0.030s\n\nFAILED (errors=11)\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 1,
+          "seconds": 1.97,
+          "ok": false,
+          "tail": "  - 'D:\\\\yaorz\\\\research\\\\codeprm-reproduction\\\\.venvs\\\\bigcodebench_fast0\\\\lib\\\\nltk_data'\n    - 'C:\\\\Users\\\\yaorz2\\\\AppData\\\\Roaming\\\\nltk_data'\n    - 'C:\\\\nltk_data'\n    - 'D:\\\\nltk_data'\n    - 'E:\\\\nltk_data'\n**********************************************************************\n\n\n----------------------------------------------------------------------\nRan 16 tests in 0.016s\n\nFAILED (errors=11)\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 1,
+          "seconds": 2.03,
+          "ok": false,
+          "tail": "  - 'D:\\\\yaorz\\\\research\\\\codeprm-reproduction\\\\.venvs\\\\bigcodebench_fast0\\\\lib\\\\nltk_data'\n    - 'C:\\\\Users\\\\yaorz2\\\\AppData\\\\Roaming\\\\nltk_data'\n    - 'C:\\\\nltk_data'\n    - 'D:\\\\nltk_data'\n    - 'E:\\\\nltk_data'\n**********************************************************************\n\n\n----------------------------------------------------------------------\nRan 16 tests in 0.015s\n\nFAILED (errors=11)\n"
+        }
+      ],
+      "runs_public_only": [
+        {
+          "run": 1,
+          "exit_code": 1,
+          "seconds": 1.99,
+          "ok": false,
+          "tail": "  - 'D:\\\\yaorz\\\\research\\\\codeprm-reproduction\\\\.venvs\\\\bigcodebench_fast0\\\\lib\\\\nltk_data'\n    - 'C:\\\\Users\\\\yaorz2\\\\AppData\\\\Roaming\\\\nltk_data'\n    - 'C:\\\\nltk_data'\n    - 'D:\\\\nltk_data'\n    - 'E:\\\\nltk_data'\n**********************************************************************\n\n\n----------------------------------------------------------------------\nRan 10 tests in 0.014s\n\nFAILED (errors=10)\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 1,
+          "seconds": 1.95,
+          "ok": false,
+          "tail": "  - 'D:\\\\yaorz\\\\research\\\\codeprm-reproduction\\\\.venvs\\\\bigcodebench_fast0\\\\lib\\\\nltk_data'\n    - 'C:\\\\Users\\\\yaorz2\\\\AppData\\\\Roaming\\\\nltk_data'\n    - 'C:\\\\nltk_data'\n    - 'D:\\\\nltk_data'\n    - 'E:\\\\nltk_data'\n**********************************************************************\n\n\n----------------------------------------------------------------------\nRan 10 tests in 0.012s\n\nFAILED (errors=10)\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 1,
+          "seconds": 2.07,
+          "ok": false,
+          "tail": "  - 'D:\\\\yaorz\\\\research\\\\codeprm-reproduction\\\\.venvs\\\\bigcodebench_fast0\\\\lib\\\\nltk_data'\n    - 'C:\\\\Users\\\\yaorz2\\\\AppData\\\\Roaming\\\\nltk_data'\n    - 'C:\\\\nltk_data'\n    - 'D:\\\\nltk_data'\n    - 'E:\\\\nltk_data'\n**********************************************************************\n\n\n----------------------------------------------------------------------\nRan 10 tests in 0.015s\n\nFAILED (errors=10)\n"
+        }
+      ],
+      "stable_full": true,
+      "stable_public": true
+    },
+    {
+      "task_id": "ClassEval_57",
+      "layer": "negative",
+      "class_name": "MetricsCalculator2",
+      "n_methods": 2,
+      "n_methods_with_deps": 2,
+      "context_est_tokens": 1882,
+      "split": {
+        "mode": "by_method",
+        "public_classes": [
+          "MetricsCalculator2TestMrr"
+        ],
+        "private_classes": [
+          "MetricsCalculator2TestMap",
+          "MetricsCalculator2Test"
+        ],
+        "index": {
+          "MetricsCalculator2TestMrr": 0,
+          "MetricsCalculator2TestMap": 1,
+          "MetricsCalculator2Test": 2
+        }
+      },
+      "runs_full": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.76,
+          "ok": true,
+          "tail": "....................\n----------------------------------------------------------------------\nRan 20 tests in 0.001s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.74,
+          "ok": true,
+          "tail": "....................\n----------------------------------------------------------------------\nRan 20 tests in 0.001s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.76,
+          "ok": true,
+          "tail": "....................\n----------------------------------------------------------------------\nRan 20 tests in 0.001s\n\nOK\n"
+        }
+      ],
+      "runs_public_only": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.81,
+          "ok": true,
+          "tail": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.71,
+          "ok": true,
+          "tail": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.76,
+          "ok": true,
+          "tail": "........\n----------------------------------------------------------------------\nRan 8 tests in 0.000s\n\nOK\n"
+        }
+      ],
+      "stable_full": true,
+      "stable_public": true
+    },
+    {
+      "task_id": "ClassEval_61",
+      "layer": "target",
+      "class_name": "MusicPlayer",
+      "n_methods": 8,
+      "n_methods_with_deps": 8,
+      "context_est_tokens": 4102,
+      "split": {
+        "mode": "by_method",
+        "public_classes": [
+          "MusicPlayerTestAddSong",
+          "MusicPlayerTestRemoveSong",
+          "MusicPlayerTestPlay",
+          "MusicPlayerTestStop"
+        ],
+        "private_classes": [
+          "MusicPlayerTestSwitchSong",
+          "MusicPlayerTestPreviousSong",
+          "MusicPlayerTestSetVolume",
+          "MusicPlayerTestShuffle",
+          "MusicPlayerTestMain"
+        ],
+        "index": {
+          "MusicPlayerTestAddSong": 0,
+          "MusicPlayerTestRemoveSong": 1,
+          "MusicPlayerTestPlay": 2,
+          "MusicPlayerTestStop": 3,
+          "MusicPlayerTestSwitchSong": 4,
+          "MusicPlayerTestPreviousSong": 5,
+          "MusicPlayerTestSetVolume": 6,
+          "MusicPlayerTestShuffle": 7,
+          "MusicPlayerTestMain": 8
+        }
+      },
+      "runs_full": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.63,
+          "ok": true,
+          "tail": "..........................................\n----------------------------------------------------------------------\nRan 42 tests in 0.001s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.64,
+          "ok": true,
+          "tail": "..........................................\n----------------------------------------------------------------------\nRan 42 tests in 0.001s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.77,
+          "ok": true,
+          "tail": "..........................................\n----------------------------------------------------------------------\nRan 42 tests in 0.001s\n\nOK\n"
+        }
+      ],
+      "runs_public_only": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.68,
+          "ok": true,
+          "tail": ".....................\n----------------------------------------------------------------------\nRan 21 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.68,
+          "ok": true,
+          "tail": ".....................\n----------------------------------------------------------------------\nRan 21 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.61,
+          "ok": true,
+          "tail": ".....................\n----------------------------------------------------------------------\nRan 21 tests in 0.000s\n\nOK\n"
+        }
+      ],
+      "stable_full": true,
+      "stable_public": true
+    },
+    {
+      "task_id": "ClassEval_67",
+      "layer": "boundary",
+      "class_name": "Order",
+      "n_methods": 3,
+      "n_methods_with_deps": 3,
+      "context_est_tokens": 3835,
+      "split": {
+        "mode": "by_method",
+        "public_classes": [
+          "OrderTestAddDish",
+          "OrderTestCalculateTotal"
+        ],
+        "private_classes": [
+          "OrderTestCheckout",
+          "OrderTest"
+        ],
+        "index": {
+          "OrderTestAddDish": 0,
+          "OrderTestCalculateTotal": 1,
+          "OrderTestCheckout": 2,
+          "OrderTest": 3
+        }
+      },
+      "runs_full": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.63,
+          "ok": true,
+          "tail": ".................\n----------------------------------------------------------------------\nRan 17 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.65,
+          "ok": true,
+          "tail": ".................\n----------------------------------------------------------------------\nRan 17 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.63,
+          "ok": true,
+          "tail": ".................\n----------------------------------------------------------------------\nRan 17 tests in 0.000s\n\nOK\n"
+        }
+      ],
+      "runs_public_only": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.66,
+          "ok": true,
+          "tail": "...........\n----------------------------------------------------------------------\nRan 11 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.68,
+          "ok": true,
+          "tail": "...........\n----------------------------------------------------------------------\nRan 11 tests in 0.001s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.62,
+          "ok": true,
+          "tail": "...........\n----------------------------------------------------------------------\nRan 11 tests in 0.000s\n\nOK\n"
+        }
+      ],
+      "stable_full": true,
+      "stable_public": true
+    },
+    {
+      "task_id": "ClassEval_76",
+      "layer": "target",
+      "class_name": "SignInSystem",
+      "n_methods": 5,
+      "n_methods_with_deps": 5,
+      "context_est_tokens": 2657,
+      "split": {
+        "mode": "by_method",
+        "public_classes": [
+          "SignInSystemTestAddUser",
+          "SignInSystemTestSignIn",
+          "SignInSystemTestCheckSignIn"
+        ],
+        "private_classes": [
+          "SignInSystemTestAllSignedIn",
+          "SignInSystemTestAllNotSignedIn",
+          "SignInSystemTestMain"
+        ],
+        "index": {
+          "SignInSystemTestAddUser": 0,
+          "SignInSystemTestSignIn": 1,
+          "SignInSystemTestCheckSignIn": 2,
+          "SignInSystemTestAllSignedIn": 3,
+          "SignInSystemTestAllNotSignedIn": 4,
+          "SignInSystemTestMain": 5
+        }
+      },
+      "runs_full": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.59,
+          "ok": true,
+          "tail": "..........................\n----------------------------------------------------------------------\nRan 26 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.73,
+          "ok": true,
+          "tail": "..........................\n----------------------------------------------------------------------\nRan 26 tests in 0.001s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.64,
+          "ok": true,
+          "tail": "..........................\n----------------------------------------------------------------------\nRan 26 tests in 0.001s\n\nOK\n"
+        }
+      ],
+      "runs_public_only": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.71,
+          "ok": true,
+          "tail": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.71,
+          "ok": true,
+          "tail": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.76,
+          "ok": true,
+          "tail": "...............\n----------------------------------------------------------------------\nRan 15 tests in 0.000s\n\nOK\n"
+        }
+      ],
+      "stable_full": true,
+      "stable_public": true
+    },
+    {
+      "task_id": "ClassEval_87",
+      "layer": "target",
+      "class_name": "TimeUtils",
+      "n_methods": 7,
+      "n_methods_with_deps": 7,
+      "context_est_tokens": 3234,
+      "split": {
+        "mode": "by_method",
+        "public_classes": [
+          "TimeUtilsTestGetCurrentTime",
+          "TimeUtilsTestGetCurrentDate",
+          "TimeUtilsTestAddSeconds",
+          "TimeUtilsTestStringToDatetime"
+        ],
+        "private_classes": [
+          "TimeUtilsTestDatetimeToString",
+          "TimeUtilsTestGetMinutes",
+          "TimeUtilsTestGetFormatTime",
+          "TimeUtilsTest"
+        ],
+        "index": {
+          "TimeUtilsTestGetCurrentTime": 0,
+          "TimeUtilsTestGetCurrentDate": 1,
+          "TimeUtilsTestAddSeconds": 2,
+          "TimeUtilsTestStringToDatetime": 3,
+          "TimeUtilsTestDatetimeToString": 4,
+          "TimeUtilsTestGetMinutes": 5,
+          "TimeUtilsTestGetFormatTime": 6,
+          "TimeUtilsTest": 7
+        }
+      },
+      "runs_full": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.65,
+          "ok": true,
+          "tail": "....................................\n----------------------------------------------------------------------\nRan 36 tests in 0.013s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.69,
+          "ok": true,
+          "tail": "....................................\n----------------------------------------------------------------------\nRan 36 tests in 0.012s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.66,
+          "ok": true,
+          "tail": "....................................\n----------------------------------------------------------------------\nRan 36 tests in 0.011s\n\nOK\n"
+        }
+      ],
+      "runs_public_only": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.65,
+          "ok": true,
+          "tail": "....................\n----------------------------------------------------------------------\nRan 20 tests in 0.011s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.7,
+          "ok": true,
+          "tail": "....................\n----------------------------------------------------------------------\nRan 20 tests in 0.011s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.68,
+          "ok": true,
+          "tail": "....................\n----------------------------------------------------------------------\nRan 20 tests in 0.017s\n\nOK\n"
+        }
+      ],
+      "stable_full": true,
+      "stable_public": true
+    },
+    {
+      "task_id": "ClassEval_95",
+      "layer": "target",
+      "class_name": "Warehouse",
+      "n_methods": 6,
+      "n_methods_with_deps": 6,
+      "context_est_tokens": 3714,
+      "split": {
+        "mode": "by_method",
+        "public_classes": [
+          "WarehouseTestAddProduct",
+          "WarehouseTestUpdateProductQuantity",
+          "WarehouseTestGetProductQuantity"
+        ],
+        "private_classes": [
+          "WarehouseTestCreateOrder",
+          "WarehouseTestChangeOrderStatus",
+          "WarehouseTestTrackOrder",
+          "WarehouseTestMain"
+        ],
+        "index": {
+          "WarehouseTestAddProduct": 0,
+          "WarehouseTestUpdateProductQuantity": 1,
+          "WarehouseTestGetProductQuantity": 2,
+          "WarehouseTestCreateOrder": 3,
+          "WarehouseTestChangeOrderStatus": 4,
+          "WarehouseTestTrackOrder": 5,
+          "WarehouseTestMain": 6
+        }
+      },
+      "runs_full": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.61,
+          "ok": true,
+          "tail": "................................\n----------------------------------------------------------------------\nRan 32 tests in 0.001s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.62,
+          "ok": true,
+          "tail": "................................\n----------------------------------------------------------------------\nRan 32 tests in 0.001s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.63,
+          "ok": true,
+          "tail": "................................\n----------------------------------------------------------------------\nRan 32 tests in 0.001s\n\nOK\n"
+        }
+      ],
+      "runs_public_only": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.61,
+          "ok": true,
+          "tail": "................\n----------------------------------------------------------------------\nRan 16 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.61,
+          "ok": true,
+          "tail": "................\n----------------------------------------------------------------------\nRan 16 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.68,
+          "ok": true,
+          "tail": "................\n----------------------------------------------------------------------\nRan 16 tests in 0.000s\n\nOK\n"
+        }
+      ],
+      "stable_full": true,
+      "stable_public": true
+    }
+  ],
+  "summary": {
+    "tasks": 10,
+    "full_all_3_pass": 7,
+    "public_only_all_3_pass": 7,
+    "all_stable": true,
+    "max_context_est_tokens": 4102,
+    "median_seconds_full": 0.705
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "read_at": "2026-10-09T09:26:29Z",
+  "purpose": "P91有限可行性调查，正式计划三审前不实施或调用模型",
+  "files": [
+    {
+      "file": "scripts\\d1\\budgeted_generation.py",
+      "definitions": [
+        {
+          "class": "BudgetRefusal",
+          "methods": []
+        },
+        {
+          "class": "ProtocolFailure",
+          "methods": []
+        },
+        {
+          "class": "BudgetedClient",
+          "methods": [
+            "__init__",
+            "_save",
+            "_snapshot",
+            "_refuse",
+            "request"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "scripts\\d1\\run_allin_pipeline.py",
+      "definitions": [
+        {
+          "function": "write",
+          "args": [
+            "path",
+            "value"
+          ]
+        },
+        {
+          "function": "read",
+          "args": [
+            "path"
+          ]
+        },
+        {
+          "function": "digest",
+          "args": [
+            "path"
+          ]
+        },
+        {
+          "function": "same_signature",
+          "args": [
+            "code",
+            "signature",
+            "expected"
+          ]
+        },
+        {
+          "function": "run",
+          "args": [
+            "protocol",
+            "transport",
+            "tokenizer"
+          ]
+        },
+        {
+          "function": "main",
+          "args": []
+        }
+      ]
+    }
+  ],
+  "known_mismatch": "原run要求manifest开发题和solve(payload)；当前候选是真实项目工作区/unified diff",
+  "model_calls": 0
+}

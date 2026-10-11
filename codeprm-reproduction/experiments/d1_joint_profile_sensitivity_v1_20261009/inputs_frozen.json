@@ -1,0 +1,233 @@
+{
+  "sources": [
+    {
+      "path": "data\\processed\\d1_project_initial20_v5_20261008\\manifest.json",
+      "sha256": "c3593d11ae85cc23545aa91418c2ab3c97a4b005fd5e49963bdc28ae7e6eda9f"
+    },
+    {
+      "path": "experiments\\d1_family_link_audit_v1_20261008.json",
+      "sha256": "34aa268f7077a3fce48affae3293d923f8ed4b4b86906ee6cecec6179f9164e2"
+    },
+    {
+      "path": "experiments\\d1_joint_profile_support_v1_20261009\\summary.json",
+      "sha256": "5acbb4294408f58f43079bbfbcb9b83f86130c65e1f22b231a6d1455a5c47ab1"
+    }
+  ],
+  "prior_expected": {
+    "all20_profiles": 10,
+    "development_profiles": 7
+  },
+  "rows": [
+    {
+      "task_id": "D1_B01",
+      "source": "mahmoud/boltons",
+      "split": "development",
+      "behavior_dependencies": [
+        "ordered_transform"
+      ],
+      "state_scope": "none",
+      "separate_behavior_testability": "yes"
+    },
+    {
+      "task_id": "D1_B02",
+      "source": "mahmoud/boltons",
+      "split": "development",
+      "behavior_dependencies": [
+        "operation_sequence"
+      ],
+      "state_scope": "global",
+      "separate_behavior_testability": "partial"
+    },
+    {
+      "task_id": "D1_M01",
+      "source": "more-itertools/more-itertools",
+      "split": "reserve",
+      "behavior_dependencies": [
+        "branch_rules"
+      ],
+      "state_scope": "none",
+      "separate_behavior_testability": "partial"
+    },
+    {
+      "task_id": "D1_M02",
+      "source": "more-itertools/more-itertools",
+      "split": "reserve",
+      "behavior_dependencies": [
+        "branch_rules",
+        "direct"
+      ],
+      "state_scope": "none",
+      "separate_behavior_testability": "no"
+    },
+    {
+      "task_id": "D1_C01",
+      "source": "tkem/cachetools",
+      "split": "development",
+      "behavior_dependencies": [
+        "operation_sequence"
+      ],
+      "state_scope": "global",
+      "separate_behavior_testability": "partial"
+    },
+    {
+      "task_id": "D1_C02",
+      "source": "tkem/cachetools",
+      "split": "development",
+      "behavior_dependencies": [
+        "operation_sequence"
+      ],
+      "state_scope": "global",
+      "separate_behavior_testability": "partial"
+    },
+    {
+      "task_id": "D1_F01",
+      "source": "beetbox/confuse",
+      "split": "reserve",
+      "behavior_dependencies": [
+        "branch_rules",
+        "direct"
+      ],
+      "state_scope": "none",
+      "separate_behavior_testability": "no"
+    },
+    {
+      "task_id": "D1_F02",
+      "source": "beetbox/confuse",
+      "split": "reserve",
+      "behavior_dependencies": [
+        "branch_rules"
+      ],
+      "state_scope": "none",
+      "separate_behavior_testability": "partial"
+    },
+    {
+      "task_id": "D1_B03",
+      "source": "mahmoud/boltons",
+      "split": "development",
+      "behavior_dependencies": [
+        "direct"
+      ],
+      "state_scope": "none",
+      "separate_behavior_testability": "no"
+    },
+    {
+      "task_id": "D1_B04",
+      "source": "mahmoud/boltons",
+      "split": "development",
+      "behavior_dependencies": [
+        "operation_sequence",
+        "ordered_transform"
+      ],
+      "state_scope": "global",
+      "separate_behavior_testability": "yes"
+    },
+    {
+      "task_id": "D1_B05",
+      "source": "mahmoud/boltons",
+      "split": "development",
+      "behavior_dependencies": [
+        "ordered_transform"
+      ],
+      "state_scope": "none",
+      "separate_behavior_testability": "yes"
+    },
+    {
+      "task_id": "D1_B06",
+      "source": "mahmoud/boltons",
+      "split": "development",
+      "behavior_dependencies": [
+        "branch_rules",
+        "direct"
+      ],
+      "state_scope": "none",
+      "separate_behavior_testability": "no"
+    },
+    {
+      "task_id": "D1_M03",
+      "source": "more-itertools/more-itertools",
+      "split": "reserve",
+      "behavior_dependencies": [
+        "operation_sequence"
+      ],
+      "state_scope": "global",
+      "separate_behavior_testability": "partial"
+    },
+    {
+      "task_id": "D1_M04",
+      "source": "more-itertools/more-itertools",
+      "split": "reserve",
+      "behavior_dependencies": [
+        "operation_sequence",
+        "ordered_transform"
+      ],
+      "state_scope": "partitioned",
+      "separate_behavior_testability": "yes"
+    },
+    {
+      "task_id": "D1_M05",
+      "source": "more-itertools/more-itertools",
+      "split": "reserve",
+      "behavior_dependencies": [
+        "branch_rules",
+        "ordered_transform"
+      ],
+      "state_scope": "none",
+      "separate_behavior_testability": "yes"
+    },
+    {
+      "task_id": "D1_C03",
+      "source": "tkem/cachetools",
+      "split": "development",
+      "behavior_dependencies": [
+        "branch_rules",
+        "operation_sequence"
+      ],
+      "state_scope": "global",
+      "separate_behavior_testability": "yes"
+    },
+    {
+      "task_id": "D1_C04",
+      "source": "tkem/cachetools",
+      "split": "development",
+      "behavior_dependencies": [
+        "operation_sequence"
+      ],
+      "state_scope": "partitioned",
+      "separate_behavior_testability": "partial"
+    },
+    {
+      "task_id": "D1_C05",
+      "source": "tkem/cachetools",
+      "split": "development",
+      "behavior_dependencies": [
+        "branch_rules",
+        "direct"
+      ],
+      "state_scope": "none",
+      "separate_behavior_testability": "no"
+    },
+    {
+      "task_id": "D1_F03",
+      "source": "beetbox/confuse",
+      "split": "reserve",
+      "behavior_dependencies": [
+        "branch_rules",
+        "ordered_transform"
+      ],
+      "state_scope": "none",
+      "separate_behavior_testability": "yes"
+    },
+    {
+      "task_id": "D1_F04",
+      "source": "beetbox/confuse",
+      "split": "reserve",
+      "behavior_dependencies": [
+        "branch_rules",
+        "ordered_transform"
+      ],
+      "state_scope": "none",
+      "separate_behavior_testability": "yes"
+    }
+  ],
+  "rule": "重复画像仅用于描述；删去来源/显式组件/宽敏感性组件后重算，不读测试/private"
+}

@@ -1,0 +1,60 @@
+```json
+{
+  "findings": [
+    {
+      "task_id": "D1_F01",
+      "severity": "建议",
+      "evidence": "public_examples中的public_2",
+      "reason": "示例中value为字符串列表，但预期返回值为字符串列表，未明确说明是否保留原列表结构。"
+    },
+    {
+      "task_id": "D1_F02",
+      "severity": "建议",
+      "evidence": "public_examples中的public_2",
+      "reason": "示例中value为字符串列表，但预期返回值为字符串列表，未明确说明是否保留原列表结构。"
+    },
+    {
+      "task_id": "D1_M01",
+      "severity": "建议",
+      "evidence": "public_examples中的public_2",
+      "reason": "示例中items为空列表，但预期返回值为[]，未明确说明是否返回空列表。"
+    },
+    {
+      "task_id": "D1_M02",
+      "severity": "建议",
+      "evidence": "public_examples中的public_2",
+      "reason": "示例中items为空列表，但预期返回值为[]，未明确说明是否返回空列表。"
+    }
+  ],
+  "labels": [
+    {
+      "task_id": "D1_F01",
+      "dependency": "无",
+      "shared_state": "无",
+      "independent_test": "是",
+      "reason": "任务独立，不依赖其他任务，不共享状态。"
+    },
+    {
+      "task_id": "D1_F02",
+      "dependency": "无",
+      "shared_state": "无",
+      "independent_test": "是",
+      "reason": "任务独立，不依赖其他任务，不共享状态。"
+    },
+    {
+      "task_id": "D1_M01",
+      "dependency": "无",
+      "shared_state": "无",
+      "independent_test": "是",
+      "reason": "任务独立，不依赖其他任务，不共享状态。"
+    },
+    {
+      "task_id": "D1_M02",
+      "dependency": "无",
+      "shared_state": "无",
+      "independent_test": "是",
+      "reason": "任务独立，不依赖其他任务，不共享状态。"
+    }
+  ]
+}
+```

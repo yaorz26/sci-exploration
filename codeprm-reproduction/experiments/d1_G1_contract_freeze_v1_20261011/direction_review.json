@@ -1,0 +1,36 @@
+{
+  "phase": "G1",
+  "created_at": "2026-10-11T09:26:00Z",
+  "direction_check": {
+    "which_unknown_resolved": "明示公开入口是否被验收覆盖",
+    "which_explanation_distinguished": "H1 覆盖完整 / H2 旧评价漏掉入口 / H3 可观察性不足",
+    "which_judgement_changed": "从“三任务都有未直接诊断条款、疑为验收不全”变为“逐条冻结：11 条已覆盖、1 条已补锚点、2 条按同类型冻结、1 条不可观察、1 条不进分母”",
+    "still_within_budget_and_permission": true
+  },
+  "next_stage_decision": "G1 退出条件满足，按 v4 进入 G2（针对 K2 非缓存操作历史 / K3 项目内不同用途 / cache 强时点缺口的候选扩展）",
+  "alternatives_rejected": [
+    {
+      "alternative": "为 PR142 默认加入条款补一个行为锚点",
+      "reason": "不会改变纳入判断（仍为 research_pool_only）；属同一种入口覆盖缺口，新增信息已由 PR126 反例承载；v4 规定只有会改变纳入判断的新明示入口才补测"
+    },
+    {
+      "alternative": "为 PR440 补默认回调组合网格",
+      "reason": "公开需求未规定该默认行为，属可观察性缺口；补网格会把实现选择硬编码成任务答案"
+    },
+    {
+      "alternative": "重跑 cache 时点或访问其旧源码/评价",
+      "reason": "已知待解且材料不一致；公开读取可能补清理，无法由公开行为判定；不重跑"
+    },
+    {
+      "alternative": "继续增加入口覆盖报告或矩阵版本",
+      "reason": "报告数量不是结果；G1 只需一次冻结"
+    }
+  ],
+  "self_review": {
+    "evidence_bound": true,
+    "visible_result_achieved": true,
+    "judgement_changed": true,
+    "macro_plan_respected": true,
+    "five_items_delivered": true
+  }
+}

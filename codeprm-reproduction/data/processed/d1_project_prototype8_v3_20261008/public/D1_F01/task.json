@@ -1,0 +1,38 @@
+{
+  "task_id": "D1_F01",
+  "requirement": "实现solve(payload)。value若为字符串：split默认true，按任意空白切分并去空项；split=false时保留整个字符串作为唯一项，空串也保留。value若为字符串列表，原样返回列表，不能再切开列表内的字符串。其他类型或列表内有非字符串项，引发ValueError。返回字符串列表。只用标准库，内部结构自由。",
+  "entry_point": "solve(payload)",
+  "language": "Python",
+  "allowed_libraries": "仅Python标准库",
+  "public_examples": [
+    {
+      "case_id": "public_1",
+      "input": {
+        "value": "  alpha\tbeta  "
+      },
+      "expected": {
+        "value": [
+          "alpha",
+          "beta"
+        ]
+      }
+    },
+    {
+      "case_id": "public_2",
+      "input": {
+        "value": [
+          "a b",
+          "c"
+        ]
+      },
+      "expected": {
+        "value": [
+          "a b",
+          "c"
+        ]
+      }
+    }
+  ],
+  "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。",
+  "internal_decomposition": "自由选择，不给定helper名称或数量"
+}

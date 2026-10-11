@@ -1,0 +1,355 @@
+{
+  "status": "pass",
+  "task_id": "D1_C03",
+  "plans": 3,
+  "helpers_each": 2,
+  "external_original_cases_each": 11,
+  "plans_all_pass": 3,
+  "original_case_evaluations": 33,
+  "finite_input_sequences": 2343,
+  "finite_sequences_passed": 2343,
+  "finite_implementation_evaluations": 7029,
+  "candidate_state_profiles": [
+    {
+      "plan": "state_in_entry",
+      "state_owner": "solve",
+      "state_holders": [
+        "solve"
+      ],
+      "helpers_receiving_persistent_state": [],
+      "persistent_mutable_state_shared_between_helpers": false,
+      "symbol_edges": [
+        [
+          "_call_key",
+          "solve"
+        ],
+        [
+          "_compute",
+          "solve"
+        ]
+      ],
+      "note": "helpers读取输入args/kwargs不等于访问跨操作缓存；cache/计数仅入口持有"
+    },
+    {
+      "plan": "state_encapsulated_helper",
+      "state_owner": "_run_ops",
+      "state_holders": [
+        "_run_ops"
+      ],
+      "helpers_receiving_persistent_state": [],
+      "persistent_mutable_state_shared_between_helpers": false,
+      "symbol_edges": [
+        [
+          "_call_key",
+          "_run_ops"
+        ],
+        [
+          "_run_ops",
+          "solve"
+        ]
+      ],
+      "note": "_run_ops自身保存缓存，调用纯_call_key；入口不读取缓存/计数"
+    },
+    {
+      "plan": "state_shared_between_helpers",
+      "state_owner": "solve初始化/_update更新",
+      "state_holders": [
+        "solve",
+        "_update",
+        "_render"
+      ],
+      "helpers_receiving_persistent_state": [
+        "_update",
+        "_render"
+      ],
+      "persistent_mutable_state_shared_between_helpers": true,
+      "symbol_edges": [
+        [
+          "_update",
+          "solve"
+        ],
+        [
+          "_render",
+          "solve"
+        ]
+      ],
+      "note": "内部state经参数传两个helper，更新后再观察；不是输入payload"
+    }
+  ],
+  "shared_state_identity_trace": true,
+  "scores": [
+    {
+      "plan": "state_in_entry",
+      "public": {
+        "cases": 2,
+        "passed": 2,
+        "all_pass": true,
+        "results": [
+          {
+            "case_id": "public_1",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "public_2",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.061961300001712516,
+        "captured_output_bytes": 216
+      },
+      "private": {
+        "cases": 9,
+        "passed": 9,
+        "all_pass": true,
+        "results": [
+          {
+            "case_id": "hidden_1",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_2",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_3",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_4",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_5",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_6",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_7",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_8",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_9",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.06108709999898565,
+        "captured_output_bytes": 769
+      },
+      "all_pass": true
+    },
+    {
+      "plan": "state_encapsulated_helper",
+      "public": {
+        "cases": 2,
+        "passed": 2,
+        "all_pass": true,
+        "results": [
+          {
+            "case_id": "public_1",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "public_2",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.06148129999928642,
+        "captured_output_bytes": 216
+      },
+      "private": {
+        "cases": 9,
+        "passed": 9,
+        "all_pass": true,
+        "results": [
+          {
+            "case_id": "hidden_1",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_2",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_3",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_4",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_5",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_6",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_7",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_8",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_9",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.06139160000020638,
+        "captured_output_bytes": 769
+      },
+      "all_pass": true
+    },
+    {
+      "plan": "state_shared_between_helpers",
+      "public": {
+        "cases": 2,
+        "passed": 2,
+        "all_pass": true,
+        "results": [
+          {
+            "case_id": "public_1",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "public_2",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.061262400002306094,
+        "captured_output_bytes": 216
+      },
+      "private": {
+        "cases": 9,
+        "passed": 9,
+        "all_pass": true,
+        "results": [
+          {
+            "case_id": "hidden_1",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_2",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_3",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_4",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_5",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_6",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_7",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_8",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_9",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.06174100000134786,
+        "captured_output_bytes": 769
+      },
+      "all_pass": true
+    }
+  ],
+  "failed_grids": [],
+  "model_calls": 0,
+  "API_calls": 0,
+  "human_reviewers": 0,
+  "seconds": 0.4819424000015715,
+  "source_sha256": "03e922b593df66361356943933c7f68cc8260b31dc319325d86b3bacdad3e4b2",
+  "script_sha256": "3c63b5b6c79da0d7e1a49868aa8fd8ef8d9c473c617d171a92f349ca4b0483f0",
+  "finding": "同一操作序列任务与2 helper数允许不同状态封装/共享边界；任务状态标签不能替代实际计划状态图",
+  "limits": "三个助手合法例子、有限动作格及非独立描述；非哪个方案更好/模型概率或自动分析可靠性；不改原20题/307/切分"
+}

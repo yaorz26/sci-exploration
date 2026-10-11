@@ -1,0 +1,442 @@
+[
+  {
+    "id": "valid_other_field_name_isolation",
+    "left": {
+      "implementation": "reference",
+      "input_id": "valid_base",
+      "outcome": {
+        "value": {
+          "name": "a",
+          "retries": 3,
+          "scores": [
+            1
+          ],
+          "options": {
+            "mode": "safe",
+            "limit": 10
+          }
+        }
+      },
+      "input_unchanged": true,
+      "correct": true,
+      "classification": "expected_value"
+    },
+    "right": {
+      "implementation": "reference",
+      "input_id": "valid_scores_changed",
+      "outcome": {
+        "value": {
+          "name": "a",
+          "retries": 3,
+          "scores": [
+            2
+          ],
+          "options": {
+            "mode": "safe",
+            "limit": 10
+          }
+        }
+      },
+      "input_unchanged": true,
+      "correct": true,
+      "classification": "expected_value"
+    },
+    "expected_semantic_relation": "different",
+    "name_projection_applicable": true,
+    "expected_name_relation": "equal",
+    "implementation": "reference",
+    "actual_semantic_relation": "different",
+    "actual_name_projection_applicable": true,
+    "actual_name_relation": "equal",
+    "naive_all_errors_ineligible": false,
+    "pass": true
+  },
+  {
+    "id": "valid_other_field_name_isolation",
+    "left": {
+      "implementation": "alternate",
+      "input_id": "valid_base",
+      "outcome": {
+        "value": {
+          "name": "a",
+          "retries": 3,
+          "scores": [
+            1
+          ],
+          "options": {
+            "mode": "safe",
+            "limit": 10
+          }
+        }
+      },
+      "input_unchanged": true,
+      "correct": true,
+      "classification": "expected_value"
+    },
+    "right": {
+      "implementation": "alternate",
+      "input_id": "valid_scores_changed",
+      "outcome": {
+        "value": {
+          "name": "a",
+          "retries": 3,
+          "scores": [
+            2
+          ],
+          "options": {
+            "mode": "safe",
+            "limit": 10
+          }
+        }
+      },
+      "input_unchanged": true,
+      "correct": true,
+      "classification": "expected_value"
+    },
+    "expected_semantic_relation": "different",
+    "name_projection_applicable": true,
+    "expected_name_relation": "equal",
+    "implementation": "alternate",
+    "actual_semantic_relation": "different",
+    "actual_name_projection_applicable": true,
+    "actual_name_relation": "equal",
+    "naive_all_errors_ineligible": false,
+    "pass": true
+  },
+  {
+    "id": "invalid_scores_blocks_whole_output",
+    "left": {
+      "implementation": "reference",
+      "input_id": "valid_base",
+      "outcome": {
+        "value": {
+          "name": "a",
+          "retries": 3,
+          "scores": [
+            1
+          ],
+          "options": {
+            "mode": "safe",
+            "limit": 10
+          }
+        }
+      },
+      "input_unchanged": true,
+      "correct": true,
+      "classification": "expected_value"
+    },
+    "right": {
+      "implementation": "reference",
+      "input_id": "rejected_scores_string",
+      "outcome": {
+        "error": "ValueError"
+      },
+      "input_unchanged": true,
+      "correct": true,
+      "classification": "expected_rejection"
+    },
+    "expected_semantic_relation": "different",
+    "name_projection_applicable": false,
+    "expected_name_relation": null,
+    "implementation": "reference",
+    "actual_semantic_relation": "different",
+    "actual_name_projection_applicable": false,
+    "actual_name_relation": null,
+    "naive_all_errors_ineligible": true,
+    "pass": true
+  },
+  {
+    "id": "invalid_scores_blocks_whole_output",
+    "left": {
+      "implementation": "alternate",
+      "input_id": "valid_base",
+      "outcome": {
+        "value": {
+          "name": "a",
+          "retries": 3,
+          "scores": [
+            1
+          ],
+          "options": {
+            "mode": "safe",
+            "limit": 10
+          }
+        }
+      },
+      "input_unchanged": true,
+      "correct": true,
+      "classification": "expected_value"
+    },
+    "right": {
+      "implementation": "alternate",
+      "input_id": "rejected_scores_string",
+      "outcome": {
+        "error": "ValueError"
+      },
+      "input_unchanged": true,
+      "correct": true,
+      "classification": "expected_rejection"
+    },
+    "expected_semantic_relation": "different",
+    "name_projection_applicable": false,
+    "expected_name_relation": null,
+    "implementation": "alternate",
+    "actual_semantic_relation": "different",
+    "actual_name_projection_applicable": false,
+    "actual_name_relation": null,
+    "naive_all_errors_ineligible": true,
+    "pass": true
+  },
+  {
+    "id": "invalid_options_blocks_whole_output",
+    "left": {
+      "implementation": "reference",
+      "input_id": "valid_base",
+      "outcome": {
+        "value": {
+          "name": "a",
+          "retries": 3,
+          "scores": [
+            1
+          ],
+          "options": {
+            "mode": "safe",
+            "limit": 10
+          }
+        }
+      },
+      "input_unchanged": true,
+      "correct": true,
+      "classification": "expected_value"
+    },
+    "right": {
+      "implementation": "reference",
+      "input_id": "rejected_options_mode",
+      "outcome": {
+        "error": "ValueError"
+      },
+      "input_unchanged": true,
+      "correct": true,
+      "classification": "expected_rejection"
+    },
+    "expected_semantic_relation": "different",
+    "name_projection_applicable": false,
+    "expected_name_relation": null,
+    "implementation": "reference",
+    "actual_semantic_relation": "different",
+    "actual_name_projection_applicable": false,
+    "actual_name_relation": null,
+    "naive_all_errors_ineligible": true,
+    "pass": true
+  },
+  {
+    "id": "invalid_options_blocks_whole_output",
+    "left": {
+      "implementation": "alternate",
+      "input_id": "valid_base",
+      "outcome": {
+        "value": {
+          "name": "a",
+          "retries": 3,
+          "scores": [
+            1
+          ],
+          "options": {
+            "mode": "safe",
+            "limit": 10
+          }
+        }
+      },
+      "input_unchanged": true,
+      "correct": true,
+      "classification": "expected_value"
+    },
+    "right": {
+      "implementation": "alternate",
+      "input_id": "rejected_options_mode",
+      "outcome": {
+        "error": "ValueError"
+      },
+      "input_unchanged": true,
+      "correct": true,
+      "classification": "expected_rejection"
+    },
+    "expected_semantic_relation": "different",
+    "name_projection_applicable": false,
+    "expected_name_relation": null,
+    "implementation": "alternate",
+    "actual_semantic_relation": "different",
+    "actual_name_projection_applicable": false,
+    "actual_name_relation": null,
+    "naive_all_errors_ineligible": true,
+    "pass": true
+  },
+  {
+    "id": "ignored_field_control",
+    "left": {
+      "implementation": "reference",
+      "input_id": "valid_base",
+      "outcome": {
+        "value": {
+          "name": "a",
+          "retries": 3,
+          "scores": [
+            1
+          ],
+          "options": {
+            "mode": "safe",
+            "limit": 10
+          }
+        }
+      },
+      "input_unchanged": true,
+      "correct": true,
+      "classification": "expected_value"
+    },
+    "right": {
+      "implementation": "reference",
+      "input_id": "ignored_extra",
+      "outcome": {
+        "value": {
+          "name": "a",
+          "retries": 3,
+          "scores": [
+            1
+          ],
+          "options": {
+            "mode": "safe",
+            "limit": 10
+          }
+        }
+      },
+      "input_unchanged": true,
+      "correct": true,
+      "classification": "expected_value"
+    },
+    "expected_semantic_relation": "equal",
+    "name_projection_applicable": true,
+    "expected_name_relation": "equal",
+    "implementation": "reference",
+    "actual_semantic_relation": "equal",
+    "actual_name_projection_applicable": true,
+    "actual_name_relation": "equal",
+    "naive_all_errors_ineligible": false,
+    "pass": true
+  },
+  {
+    "id": "ignored_field_control",
+    "left": {
+      "implementation": "alternate",
+      "input_id": "valid_base",
+      "outcome": {
+        "value": {
+          "name": "a",
+          "retries": 3,
+          "scores": [
+            1
+          ],
+          "options": {
+            "mode": "safe",
+            "limit": 10
+          }
+        }
+      },
+      "input_unchanged": true,
+      "correct": true,
+      "classification": "expected_value"
+    },
+    "right": {
+      "implementation": "alternate",
+      "input_id": "ignored_extra",
+      "outcome": {
+        "value": {
+          "name": "a",
+          "retries": 3,
+          "scores": [
+            1
+          ],
+          "options": {
+            "mode": "safe",
+            "limit": 10
+          }
+        }
+      },
+      "input_unchanged": true,
+      "correct": true,
+      "classification": "expected_value"
+    },
+    "expected_semantic_relation": "equal",
+    "name_projection_applicable": true,
+    "expected_name_relation": "equal",
+    "implementation": "alternate",
+    "actual_semantic_relation": "equal",
+    "actual_name_projection_applicable": true,
+    "actual_name_relation": "equal",
+    "naive_all_errors_ineligible": false,
+    "pass": true
+  },
+  {
+    "id": "two_valid_rejections_not_name_evidence",
+    "left": {
+      "implementation": "reference",
+      "input_id": "rejected_scores_string",
+      "outcome": {
+        "error": "ValueError"
+      },
+      "input_unchanged": true,
+      "correct": true,
+      "classification": "expected_rejection"
+    },
+    "right": {
+      "implementation": "reference",
+      "input_id": "rejected_options_mode",
+      "outcome": {
+        "error": "ValueError"
+      },
+      "input_unchanged": true,
+      "correct": true,
+      "classification": "expected_rejection"
+    },
+    "expected_semantic_relation": "equal",
+    "name_projection_applicable": false,
+    "expected_name_relation": null,
+    "implementation": "reference",
+    "actual_semantic_relation": "equal",
+    "actual_name_projection_applicable": false,
+    "actual_name_relation": null,
+    "naive_all_errors_ineligible": true,
+    "pass": true
+  },
+  {
+    "id": "two_valid_rejections_not_name_evidence",
+    "left": {
+      "implementation": "alternate",
+      "input_id": "rejected_scores_string",
+      "outcome": {
+        "error": "ValueError"
+      },
+      "input_unchanged": true,
+      "correct": true,
+      "classification": "expected_rejection"
+    },
+    "right": {
+      "implementation": "alternate",
+      "input_id": "rejected_options_mode",
+      "outcome": {
+        "error": "ValueError"
+      },
+      "input_unchanged": true,
+      "correct": true,
+      "classification": "expected_rejection"
+    },
+    "expected_semantic_relation": "equal",
+    "name_projection_applicable": false,
+    "expected_name_relation": null,
+    "implementation": "alternate",
+    "actual_semantic_relation": "equal",
+    "actual_name_projection_applicable": false,
+    "actual_name_relation": null,
+    "naive_all_errors_ineligible": true,
+    "pass": true
+  }
+]

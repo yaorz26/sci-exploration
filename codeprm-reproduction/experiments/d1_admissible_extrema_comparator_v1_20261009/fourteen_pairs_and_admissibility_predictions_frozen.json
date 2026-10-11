@@ -1,0 +1,234 @@
+{
+  "created_at": "2026-10-09T04:27:14Z",
+  "pairs": [
+    {
+      "id": "source:tie_positive_first",
+      "kind": "P64保存合法返回",
+      "data": [
+        0,
+        5,
+        -5
+      ],
+      "output": {
+        "minimum": 0,
+        "maximum": -5
+      },
+      "key_only_expected": true,
+      "strict_expected": true
+    },
+    {
+      "id": "source:tie_negative_first",
+      "kind": "P64保存合法返回",
+      "data": [
+        0,
+        -5,
+        5
+      ],
+      "output": {
+        "minimum": 0,
+        "maximum": 5
+      },
+      "key_only_expected": true,
+      "strict_expected": true
+    },
+    {
+      "id": "source:unique_zero_min",
+      "kind": "P64保存合法返回",
+      "data": [
+        0,
+        2,
+        -5
+      ],
+      "output": {
+        "minimum": 0,
+        "maximum": -5
+      },
+      "key_only_expected": true,
+      "strict_expected": true
+    },
+    {
+      "id": "source:unique_nonzero_min",
+      "kind": "P64保存合法返回",
+      "data": [
+        2,
+        -6,
+        4
+      ],
+      "output": {
+        "minimum": 2,
+        "maximum": -6
+      },
+      "key_only_expected": true,
+      "strict_expected": true
+    },
+    {
+      "id": "builtin:tie_positive_first",
+      "kind": "P64保存合法返回",
+      "data": [
+        0,
+        5,
+        -5
+      ],
+      "output": {
+        "minimum": 0,
+        "maximum": 5
+      },
+      "key_only_expected": true,
+      "strict_expected": true
+    },
+    {
+      "id": "builtin:tie_negative_first",
+      "kind": "P64保存合法返回",
+      "data": [
+        0,
+        -5,
+        5
+      ],
+      "output": {
+        "minimum": 0,
+        "maximum": -5
+      },
+      "key_only_expected": true,
+      "strict_expected": true
+    },
+    {
+      "id": "builtin:unique_zero_min",
+      "kind": "P64保存合法返回",
+      "data": [
+        0,
+        2,
+        -5
+      ],
+      "output": {
+        "minimum": 0,
+        "maximum": -5
+      },
+      "key_only_expected": true,
+      "strict_expected": true
+    },
+    {
+      "id": "builtin:unique_nonzero_min",
+      "kind": "P64保存合法返回",
+      "data": [
+        2,
+        -6,
+        4
+      ],
+      "output": {
+        "minimum": 2,
+        "maximum": -6
+      },
+      "key_only_expected": true,
+      "strict_expected": true
+    },
+    {
+      "id": "nonmember_same_key",
+      "kind": "新构造输出对象非程序",
+      "data": [
+        0,
+        2,
+        -5
+      ],
+      "output": {
+        "minimum": 0,
+        "maximum": 5
+      },
+      "key_only_expected": true,
+      "strict_expected": false
+    },
+    {
+      "id": "bool_minimum",
+      "kind": "新构造输出对象非程序",
+      "data": [
+        0,
+        2,
+        -5
+      ],
+      "output": {
+        "minimum": false,
+        "maximum": -5
+      },
+      "key_only_expected": true,
+      "strict_expected": false
+    },
+    {
+      "id": "wrong_maximum",
+      "kind": "新构造输出对象非程序",
+      "data": [
+        0,
+        2,
+        -5
+      ],
+      "output": {
+        "minimum": 0,
+        "maximum": 2
+      },
+      "key_only_expected": false,
+      "strict_expected": false
+    },
+    {
+      "id": "wrong_minimum",
+      "kind": "新构造输出对象非程序",
+      "data": [
+        0,
+        2,
+        -5
+      ],
+      "output": {
+        "minimum": 2,
+        "maximum": -5
+      },
+      "key_only_expected": false,
+      "strict_expected": false
+    },
+    {
+      "id": "missing_maximum",
+      "kind": "新构造输出对象非程序",
+      "data": [
+        0,
+        2,
+        -5
+      ],
+      "output": {
+        "minimum": 0
+      },
+      "key_only_expected": false,
+      "strict_expected": false
+    },
+    {
+      "id": "extra_field",
+      "kind": "新构造输出对象非程序",
+      "data": [
+        0,
+        2,
+        -5
+      ],
+      "output": {
+        "minimum": 0,
+        "maximum": -5,
+        "extra": 1
+      },
+      "key_only_expected": true,
+      "strict_expected": false
+    }
+  ],
+  "saved_result_sha256": "ef7c5f44d803eb30f2894488abd5b009398edd65156af5ec7c7e67eda5650695",
+  "saved_result_path": "experiments\\d1_keyed_tie_v1_20261009\\two_execution_results.json",
+  "predictions": {
+    "key_only_accepted": 11,
+    "strict_accepted": 8,
+    "nonmember_same_key_and_bool_and_extra_key_only_pass": true
+  },
+  "rules": {
+    "key_only": "dict至少有两字段，两个abs输出分别是abs输入的min/max；不验证成员/精确类型/额外字段",
+    "strict": "dict正好两字段，精确int/每代表来自输入/abs分别达min/max"
+  },
+  "domain": "非空精确整数列表/四保存min-key唯一，未来variant候选不是当前E_M07",
+  "comparison_calls_so_far": 0,
+  "task_solve_calls": 0,
+  "source_calls": 0,
+  "model_calls": 0,
+  "private_reads": 0,
+  "human_reviews": 0,
+  "next_action": "实现两限定域比较器一次14对28调用，保留输入/输出原样；完成停止该支路，回扩展具体比较支撑"
+}

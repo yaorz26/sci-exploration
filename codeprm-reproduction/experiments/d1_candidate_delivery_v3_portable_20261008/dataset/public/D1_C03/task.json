@@ -1,0 +1,95 @@
+{
+  "task_id": "D1_C03",
+  "requirement": "实现solve(payload)。capacity为非负整数，初始空缓存和计算次数0。operations为call或clear。call带args整数列表（默认[]）、kwargs字符串键到整数的对象（默认{}）；真实计算为args及kwargs全部值之和。调用键由有序args和按名匹配的kwargs决定，kwargs排列不影响键；位置传参与关键字传参仍不同。同键命中不增加计算次数并刷新最近使用顺序；未命中计算次数+1，capacity>0时存入，满时淘汰最久未用调用；capacity=0仍返回计算结果而不存。clear清空但不重置计算次数，result为null。每步返回{result,computations,size}，size为缓存调用数。只用标准库，内部结构自由。",
+  "entry_point": "solve(payload)",
+  "language": "Python",
+  "allowed_libraries": "仅Python标准库",
+  "public_examples": [
+    {
+      "input": {
+        "capacity": 1,
+        "operations": [
+          {
+            "op": "call",
+            "args": [
+              2
+            ],
+            "kwargs": {
+              "b": 3
+            }
+          },
+          {
+            "op": "call",
+            "args": [
+              2
+            ],
+            "kwargs": {
+              "b": 3
+            }
+          },
+          {
+            "op": "clear"
+          },
+          {
+            "op": "call",
+            "args": [
+              2
+            ],
+            "kwargs": {
+              "b": 3
+            }
+          }
+        ]
+      },
+      "output": [
+        {
+          "result": 5,
+          "computations": 1,
+          "size": 1
+        },
+        {
+          "result": 5,
+          "computations": 1,
+          "size": 1
+        },
+        {
+          "result": null,
+          "computations": 1,
+          "size": 0
+        },
+        {
+          "result": 5,
+          "computations": 2,
+          "size": 1
+        }
+      ]
+    },
+    {
+      "input": {
+        "capacity": 0,
+        "operations": [
+          {
+            "op": "call"
+          },
+          {
+            "op": "call"
+          }
+        ]
+      },
+      "output": [
+        {
+          "result": 0,
+          "computations": 1,
+          "size": 0
+        },
+        {
+          "result": 0,
+          "computations": 2,
+          "size": 0
+        }
+      ]
+    }
+  ],
+  "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。",
+  "internal_decomposition": "自由选择，不给定helper名称或数量"
+}

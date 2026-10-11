@@ -1,0 +1,45 @@
+{
+  "results": [
+    {
+      "label": "parent",
+      "passed": 1,
+      "total": 8,
+      "failures": [
+        "source_flag",
+        "template_flag",
+        "app_over_source_flag",
+        "cwd_over_source_flag",
+        "flag_without_filename",
+        "absolute_preserved",
+        "file_loader_flag"
+      ]
+    },
+    {
+      "label": "complete",
+      "passed": 8,
+      "total": 8,
+      "failures": []
+    },
+    {
+      "label": "source_only",
+      "passed": 5,
+      "total": 8,
+      "failures": [
+        "source_flag",
+        "template_flag",
+        "file_loader_flag"
+      ]
+    },
+    {
+      "label": "core_omission",
+      "passed": 7,
+      "total": 8,
+      "failures": [
+        "file_loader_flag"
+      ]
+    }
+  ],
+  "model_calls": 0,
+  "human_reviews": 0,
+  "scope": "真实项目包源码任务；非完整Git仓库、非隐藏确认、非模型效果"
+}

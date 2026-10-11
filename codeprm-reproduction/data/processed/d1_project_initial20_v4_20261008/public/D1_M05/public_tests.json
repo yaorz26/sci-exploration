@@ -1,0 +1,48 @@
+[
+  {
+    "case_id": "public_1",
+    "input": {
+      "columns": [
+        [
+          2,
+          1,
+          2
+        ],
+        [
+          "a",
+          "b",
+          "c"
+        ]
+      ]
+    },
+    "expected": {
+      "value": [
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          "b",
+          "a",
+          "c"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "public_2",
+    "input": {
+      "columns": [
+        [
+          1
+        ],
+        []
+      ],
+      "strict": true
+    },
+    "expected": {
+      "error": "ValueError"
+    }
+  }
+]

@@ -1,0 +1,36 @@
+{
+  "time": "2026-10-09T11:59:34.118735+00:00",
+  "cli_list_returncode": 0,
+  "cli_list": {
+    "tasks": [
+      {
+        "task_id": "REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS",
+        "public": "public/REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS",
+        "evaluator": "evaluation/REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS/evaluate.py",
+        "source": "confuse",
+        "scope": "有限公开项目行为候选",
+        "formal_labels": null,
+        "split": null,
+        "human_reviews": 0
+      },
+      {
+        "task_id": "REPO_CONFUSE_PR142_ENV_OVERLAY_LIMITED",
+        "public": "public/REPO_CONFUSE_PR142_ENV_OVERLAY_LIMITED",
+        "evaluator": "evaluation/REPO_CONFUSE_PR142_ENV_OVERLAY_LIMITED/evaluate_env_source.py",
+        "source": "confuse",
+        "scope": "有限公开项目行为候选",
+        "formal_labels": null,
+        "split": null,
+        "human_reviews": 0
+      }
+    ],
+    "pending": [
+      "REPO_CACHETOOLS_EXPIRED_REPORT"
+    ],
+    "scope": "research_pool_only，非正式冻结/发布"
+  },
+  "stderr": "",
+  "copied_files_hash_mismatches": [],
+  "new_behavior_evaluations": 0,
+  "scope": "新交付接线/文件一致；不重跑旧评分，不证明方法效果/跨平台"
+}

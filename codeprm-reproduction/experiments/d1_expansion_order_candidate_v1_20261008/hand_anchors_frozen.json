@@ -1,0 +1,132 @@
+[
+  {
+    "id": "empty",
+    "mode": "exact",
+    "records": [],
+    "expected": []
+  },
+  {
+    "id": "first_and_nonadjacent",
+    "mode": "exact",
+    "records": [
+      {
+        "key": "a",
+        "value": 1
+      },
+      {
+        "key": "b",
+        "value": 4
+      },
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected": [
+      {
+        "key": "a",
+        "value": 1
+      },
+      {
+        "key": "b",
+        "value": 4
+      }
+    ]
+  },
+  {
+    "id": "exact_distinct_spelling",
+    "mode": "exact",
+    "records": [
+      {
+        "key": "A",
+        "value": 3
+      },
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected": [
+      {
+        "key": "A",
+        "value": 3
+      },
+      {
+        "key": "a",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "casefold_same_class",
+    "mode": "casefold",
+    "records": [
+      {
+        "key": "A",
+        "value": 3
+      },
+      {
+        "key": "a",
+        "value": 1
+      },
+      {
+        "key": "b",
+        "value": 4
+      }
+    ],
+    "expected": [
+      {
+        "key": "A",
+        "value": 3
+      },
+      {
+        "key": "b",
+        "value": 4
+      }
+    ]
+  },
+  {
+    "id": "unicode_casefold",
+    "mode": "casefold",
+    "records": [
+      {
+        "key": "ß",
+        "value": 5
+      },
+      {
+        "key": "SS",
+        "value": 6
+      }
+    ],
+    "expected": [
+      {
+        "key": "ß",
+        "value": 5
+      }
+    ]
+  },
+  {
+    "id": "input_order_not_sort",
+    "mode": "exact",
+    "records": [
+      {
+        "key": "b",
+        "value": 4
+      },
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected": [
+      {
+        "key": "b",
+        "value": 4
+      },
+      {
+        "key": "a",
+        "value": 1
+      }
+    ]
+  }
+]

@@ -1,0 +1,636 @@
+[
+  {
+    "case_id": "public_1",
+    "input": {
+      "capacity": 1,
+      "instances": [
+        {
+          "id": "a",
+          "bias": 10
+        },
+        {
+          "id": "b",
+          "bias": 20
+        }
+      ],
+      "operations": [
+        {
+          "op": "call",
+          "instance": "a",
+          "x": 1
+        },
+        {
+          "op": "call",
+          "instance": "b",
+          "x": 1
+        },
+        {
+          "op": "call",
+          "instance": "a",
+          "x": 1
+        },
+        {
+          "op": "clear",
+          "instance": "a"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": 11,
+          "computations": {
+            "a": 1,
+            "b": 0
+          },
+          "sizes": {
+            "a": 1,
+            "b": 0
+          }
+        },
+        {
+          "result": 21,
+          "computations": {
+            "a": 1,
+            "b": 1
+          },
+          "sizes": {
+            "a": 1,
+            "b": 1
+          }
+        },
+        {
+          "result": 11,
+          "computations": {
+            "a": 1,
+            "b": 1
+          },
+          "sizes": {
+            "a": 1,
+            "b": 1
+          }
+        },
+        {
+          "result": null,
+          "computations": {
+            "a": 1,
+            "b": 1
+          },
+          "sizes": {
+            "a": 0,
+            "b": 1
+          }
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "public_2",
+    "input": {
+      "capacity": 1,
+      "instances": [],
+      "operations": []
+    },
+    "expected": {
+      "value": []
+    }
+  },
+  {
+    "case_id": "hidden_1",
+    "input": {
+      "capacity": 0,
+      "instances": [
+        {
+          "id": "a",
+          "bias": 0
+        },
+        {
+          "id": "b",
+          "bias": -1
+        }
+      ],
+      "operations": [
+        {
+          "op": "call",
+          "instance": "a",
+          "x": 1
+        },
+        {
+          "op": "call",
+          "instance": "a",
+          "x": 1
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": 1,
+          "computations": {
+            "a": 1,
+            "b": 0
+          },
+          "sizes": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "result": 1,
+          "computations": {
+            "a": 2,
+            "b": 0
+          },
+          "sizes": {
+            "a": 0,
+            "b": 0
+          }
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_2",
+    "input": {
+      "capacity": 1,
+      "instances": [
+        {
+          "id": "a",
+          "bias": 0
+        },
+        {
+          "id": "b",
+          "bias": -1
+        }
+      ],
+      "operations": [
+        {
+          "op": "call",
+          "instance": "a",
+          "x": 1
+        },
+        {
+          "op": "call",
+          "instance": "b",
+          "x": 1
+        },
+        {
+          "op": "clear",
+          "instance": "a"
+        },
+        {
+          "op": "call",
+          "instance": "b",
+          "x": 1
+        },
+        {
+          "op": "call",
+          "instance": "a",
+          "x": 1
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": 1,
+          "computations": {
+            "a": 1,
+            "b": 0
+          },
+          "sizes": {
+            "a": 1,
+            "b": 0
+          }
+        },
+        {
+          "result": 0,
+          "computations": {
+            "a": 1,
+            "b": 1
+          },
+          "sizes": {
+            "a": 1,
+            "b": 1
+          }
+        },
+        {
+          "result": null,
+          "computations": {
+            "a": 1,
+            "b": 1
+          },
+          "sizes": {
+            "a": 0,
+            "b": 1
+          }
+        },
+        {
+          "result": 0,
+          "computations": {
+            "a": 1,
+            "b": 1
+          },
+          "sizes": {
+            "a": 0,
+            "b": 1
+          }
+        },
+        {
+          "result": 1,
+          "computations": {
+            "a": 2,
+            "b": 1
+          },
+          "sizes": {
+            "a": 1,
+            "b": 1
+          }
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_3",
+    "input": {
+      "capacity": 2,
+      "instances": [
+        {
+          "id": "a",
+          "bias": 0
+        },
+        {
+          "id": "b",
+          "bias": -1
+        }
+      ],
+      "operations": [
+        {
+          "op": "call",
+          "instance": "a",
+          "x": 1
+        },
+        {
+          "op": "call",
+          "instance": "a",
+          "x": 2
+        },
+        {
+          "op": "call",
+          "instance": "a",
+          "x": 1
+        },
+        {
+          "op": "call",
+          "instance": "a",
+          "x": 3
+        },
+        {
+          "op": "call",
+          "instance": "a",
+          "x": 2
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": 1,
+          "computations": {
+            "a": 1,
+            "b": 0
+          },
+          "sizes": {
+            "a": 1,
+            "b": 0
+          }
+        },
+        {
+          "result": 2,
+          "computations": {
+            "a": 2,
+            "b": 0
+          },
+          "sizes": {
+            "a": 2,
+            "b": 0
+          }
+        },
+        {
+          "result": 1,
+          "computations": {
+            "a": 2,
+            "b": 0
+          },
+          "sizes": {
+            "a": 2,
+            "b": 0
+          }
+        },
+        {
+          "result": 3,
+          "computations": {
+            "a": 3,
+            "b": 0
+          },
+          "sizes": {
+            "a": 2,
+            "b": 0
+          }
+        },
+        {
+          "result": 2,
+          "computations": {
+            "a": 4,
+            "b": 0
+          },
+          "sizes": {
+            "a": 2,
+            "b": 0
+          }
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_4",
+    "input": {
+      "capacity": 1,
+      "instances": [
+        {
+          "id": "a",
+          "bias": 0
+        },
+        {
+          "id": "b",
+          "bias": -1
+        }
+      ],
+      "operations": [
+        {
+          "op": "call",
+          "instance": "a",
+          "x": 0
+        },
+        {
+          "op": "call",
+          "instance": "a",
+          "x": -2
+        },
+        {
+          "op": "call",
+          "instance": "a",
+          "x": 0
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": 0,
+          "computations": {
+            "a": 1,
+            "b": 0
+          },
+          "sizes": {
+            "a": 1,
+            "b": 0
+          }
+        },
+        {
+          "result": -2,
+          "computations": {
+            "a": 2,
+            "b": 0
+          },
+          "sizes": {
+            "a": 1,
+            "b": 0
+          }
+        },
+        {
+          "result": 0,
+          "computations": {
+            "a": 3,
+            "b": 0
+          },
+          "sizes": {
+            "a": 1,
+            "b": 0
+          }
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_5",
+    "input": {
+      "capacity": 1,
+      "instances": [
+        {
+          "id": "a",
+          "bias": 0
+        },
+        {
+          "id": "b",
+          "bias": -1
+        }
+      ],
+      "operations": [
+        {
+          "op": "clear",
+          "instance": "a"
+        },
+        {
+          "op": "clear",
+          "instance": "b"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": null,
+          "computations": {
+            "a": 0,
+            "b": 0
+          },
+          "sizes": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "result": null,
+          "computations": {
+            "a": 0,
+            "b": 0
+          },
+          "sizes": {
+            "a": 0,
+            "b": 0
+          }
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_6",
+    "input": {
+      "capacity": 2,
+      "instances": [
+        {
+          "id": "a",
+          "bias": 0
+        },
+        {
+          "id": "b",
+          "bias": -1
+        }
+      ],
+      "operations": []
+    },
+    "expected": {
+      "value": []
+    }
+  },
+  {
+    "case_id": "hidden_7",
+    "input": {
+      "capacity": 1,
+      "instances": [
+        {
+          "id": "a",
+          "bias": 0
+        },
+        {
+          "id": "b",
+          "bias": -1
+        }
+      ],
+      "operations": [
+        {
+          "op": "call",
+          "instance": "a",
+          "x": 1
+        },
+        {
+          "op": "call",
+          "instance": "b",
+          "x": 2
+        },
+        {
+          "op": "call",
+          "instance": "a",
+          "x": 1
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": 1,
+          "computations": {
+            "a": 1,
+            "b": 0
+          },
+          "sizes": {
+            "a": 1,
+            "b": 0
+          }
+        },
+        {
+          "result": 1,
+          "computations": {
+            "a": 1,
+            "b": 1
+          },
+          "sizes": {
+            "a": 1,
+            "b": 1
+          }
+        },
+        {
+          "result": 1,
+          "computations": {
+            "a": 1,
+            "b": 1
+          },
+          "sizes": {
+            "a": 1,
+            "b": 1
+          }
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_8",
+    "input": {
+      "capacity": 0,
+      "instances": [
+        {
+          "id": "a",
+          "bias": 0
+        },
+        {
+          "id": "b",
+          "bias": -1
+        }
+      ],
+      "operations": [
+        {
+          "op": "call",
+          "instance": "b",
+          "x": 0
+        },
+        {
+          "op": "clear",
+          "instance": "b"
+        },
+        {
+          "op": "call",
+          "instance": "b",
+          "x": 0
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": -1,
+          "computations": {
+            "a": 0,
+            "b": 1
+          },
+          "sizes": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "result": null,
+          "computations": {
+            "a": 0,
+            "b": 1
+          },
+          "sizes": {
+            "a": 0,
+            "b": 0
+          }
+        },
+        {
+          "result": -1,
+          "computations": {
+            "a": 0,
+            "b": 2
+          },
+          "sizes": {
+            "a": 0,
+            "b": 0
+          }
+        }
+      ]
+    }
+  }
+]

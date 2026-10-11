@@ -1,0 +1,67 @@
+[
+  {
+    "plan": "state_in_entry",
+    "state_owner": "solve",
+    "state_holders": [
+      "solve"
+    ],
+    "helpers_receiving_persistent_state": [],
+    "persistent_mutable_state_shared_between_helpers": false,
+    "symbol_edges": [
+      [
+        "_call_key",
+        "solve"
+      ],
+      [
+        "_compute",
+        "solve"
+      ]
+    ],
+    "note": "helpers读取输入args/kwargs不等于访问跨操作缓存；cache/计数仅入口持有"
+  },
+  {
+    "plan": "state_encapsulated_helper",
+    "state_owner": "_run_ops",
+    "state_holders": [
+      "_run_ops"
+    ],
+    "helpers_receiving_persistent_state": [],
+    "persistent_mutable_state_shared_between_helpers": false,
+    "symbol_edges": [
+      [
+        "_call_key",
+        "_run_ops"
+      ],
+      [
+        "_run_ops",
+        "solve"
+      ]
+    ],
+    "note": "_run_ops自身保存缓存，调用纯_call_key；入口不读取缓存/计数"
+  },
+  {
+    "plan": "state_shared_between_helpers",
+    "state_owner": "solve初始化/_update更新",
+    "state_holders": [
+      "solve",
+      "_update",
+      "_render"
+    ],
+    "helpers_receiving_persistent_state": [
+      "_update",
+      "_render"
+    ],
+    "persistent_mutable_state_shared_between_helpers": true,
+    "symbol_edges": [
+      [
+        "_update",
+        "solve"
+      ],
+      [
+        "_render",
+        "solve"
+      ]
+    ],
+    "note": "内部state经参数传两个helper，更新后再观察；不是输入payload"
+  }
+]

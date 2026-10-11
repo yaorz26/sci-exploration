@@ -1,0 +1,13 @@
+{
+  "prior_qwen_api_calls": 30,
+  "current_phase_exploratory_calls": 5,
+  "current_costed_pilot_api_calls": 24,
+  "current_phase_new_api_calls": 29,
+  "cumulative_qwen_api_calls": 59,
+  "pilot_measurement_calls": 10,
+  "pilot_generation_calls": 14,
+  "pilot_wall_seconds": 45.9176279000003,
+  "pilot_budget_rule": "每题每臂6500实际生成prompt_eval_count+eval_count；预检调用/时间单列，不计入生成token预算",
+  "deviation": "num_predict=0行为不停止，前三次接口探测产生非零输出；不采用零输出计量；两次短校准各只请求1输出token；相关响应未作为实验候选。",
+  "scope": "累计API调用数，不等于历史报告中的generation_calls；预检单独计数"
+}

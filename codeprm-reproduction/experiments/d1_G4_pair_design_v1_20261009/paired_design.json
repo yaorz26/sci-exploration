@@ -1,0 +1,139 @@
+{
+  "time": "2026-10-09T11:51:49.168995+00:00",
+  "status": "未冻结设计，当前生成不开放",
+  "candidate_scope": [
+    {
+      "task_id": "REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS",
+      "current_status": "有限行为候选",
+      "eligible_after_human_protocol_freeze": true
+    },
+    {
+      "task_id": "REPO_CONFUSE_PR142_ENV_OVERLAY_LIMITED",
+      "current_status": "有限PR子范围候选",
+      "eligible_after_human_protocol_freeze": true
+    },
+    {
+      "task_id": "REPO_CACHETOOLS_EXPIRED_REPORT",
+      "current_status": "强时点条款/交付不一致待解决",
+      "eligible_after_human_protocol_freeze": false
+    }
+  ],
+  "unit": "题目×seed下的两个策略配对；任务聚合，seed不当独立任务",
+  "common": {
+    "requirement_and_parent_context": "同题同冻结需求/父源码片段及行坐标/公开案例",
+    "patch_interface": "scripts/d1/repository_patch_entry.py::prepare_patch",
+    "final_candidate": "指定包内现有/新增.py的原子统一补丁，完整应用后评分",
+    "api": "仅固定公开API，M0/M2内部helper/文件组织自由",
+    "evaluator": "同一冻结完整候选行为验收，不看组件局部分数挑答案",
+    "reference_visibility": "feature/正确补丁/控制/管理/隐藏评价不进提示"
+  },
+  "M0": {
+    "generation_requests": 1,
+    "process": "一次输出完整多文件补丁；允许内部helper"
+  },
+  "M2": {
+    "generation_requests": "4—5",
+    "process": [
+      "计划1次，自定2—3组件/接口，不预给正确分解",
+      "逐组件2—3次，保存原始回答/契约",
+      "组装1次输出完整项目补丁，承担整合义务"
+    ],
+    "unresolved_runtime_adapter": "原helper门槛在项目补丁协议中尚未正式冻结；不能以补丁入口证明M2合规"
+  },
+  "budget": {
+    "task_method_cap_example_not_frozen": 6500,
+    "context_example_not_recalibrated": 8192,
+    "count": "计划/组件/组装/预检/重试/重复上下文的全部输入+输出",
+    "request_precheck": "核验token身份；输入+最小输出在剩余总预算及ctx内才发",
+    "max_output": "逐请求上限须能在共享总账剩余值中容纳",
+    "interpretation": "同上限不是实际token/费用相同，实际用量逐请求保存"
+  },
+  "outcomes": {
+    "primary_Y": "完整候选全部冻结行为通过为1；生成/组装/预算耗尽/补丁失败为0",
+    "paired_delta": "Y(M2)-Y(M0)，策略关联而非结构因果",
+    "conditional_behavior": "无完整候选时null；不能用占位分数解释算法正确率",
+    "analysis_limit": "当前两可用候选同来源同家族，结构效应不可独立估计，不拟合三轴回归"
+  },
+  "entry_requirements": [
+    "真实双盲人类审查与正式任务/标签/协议冻结",
+    "候选需求条款与交付一致",
+    "token计量身份与DLL重校准、实际上下文冻结",
+    "项目M2适配/开发烟测及完整总预算授权",
+    "隔离评价/来源家族/暴露及所有方法失败分母"
+  ],
+  "current_no_run_reasons": [
+    "旧调用保守约98/100，剩约2不足一题5—6请求",
+    "DLL身份与原校准不同，不可计量",
+    "真实人类双审0/正式结构标签null",
+    "cache强时点/交付尚未解决，PR142真实生成上下文尚未核验"
+  ],
+  "table": [
+    {
+      "tasks": 1,
+      "seeds_example_not_frozen": 1,
+      "generation_requests_minimum": 5,
+      "generation_requests_if_three_components": 6,
+      "both_arms_token_cap_if_B6500": 13000,
+      "includes_calibration_and_smoke": false
+    },
+    {
+      "tasks": 1,
+      "seeds_example_not_frozen": 3,
+      "generation_requests_minimum": 15,
+      "generation_requests_if_three_components": 18,
+      "both_arms_token_cap_if_B6500": 39000,
+      "includes_calibration_and_smoke": false
+    },
+    {
+      "tasks": 2,
+      "seeds_example_not_frozen": 1,
+      "generation_requests_minimum": 10,
+      "generation_requests_if_three_components": 12,
+      "both_arms_token_cap_if_B6500": 26000,
+      "includes_calibration_and_smoke": false
+    },
+    {
+      "tasks": 2,
+      "seeds_example_not_frozen": 3,
+      "generation_requests_minimum": 30,
+      "generation_requests_if_three_components": 36,
+      "both_arms_token_cap_if_B6500": 78000,
+      "includes_calibration_and_smoke": false
+    },
+    {
+      "tasks": 3,
+      "seeds_example_not_frozen": 1,
+      "generation_requests_minimum": 15,
+      "generation_requests_if_three_components": 18,
+      "both_arms_token_cap_if_B6500": 39000,
+      "includes_calibration_and_smoke": false
+    },
+    {
+      "tasks": 3,
+      "seeds_example_not_frozen": 3,
+      "generation_requests_minimum": 45,
+      "generation_requests_if_three_components": 54,
+      "both_arms_token_cap_if_B6500": 117000,
+      "includes_calibration_and_smoke": false
+    },
+    {
+      "tasks": 6,
+      "seeds_example_not_frozen": 1,
+      "generation_requests_minimum": 30,
+      "generation_requests_if_three_components": 36,
+      "both_arms_token_cap_if_B6500": 78000,
+      "includes_calibration_and_smoke": false
+    },
+    {
+      "tasks": 6,
+      "seeds_example_not_frozen": 3,
+      "generation_requests_minimum": 90,
+      "generation_requests_if_three_components": 108,
+      "both_arms_token_cap_if_B6500": 234000,
+      "includes_calibration_and_smoke": false
+    }
+  ],
+  "new_model_calls": 0,
+  "new_behavior_calls": 0,
+  "next": "G5一次研究候选成果交付；主问题A关联未测"
+}

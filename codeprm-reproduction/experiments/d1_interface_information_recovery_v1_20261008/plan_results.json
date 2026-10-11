@@ -1,0 +1,559 @@
+[
+  {
+    "id": "identity_lost",
+    "input": {
+      "columns": [
+        [
+          2,
+          1
+        ],
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "expected": {
+      "value": [
+        [
+          1,
+          2
+        ],
+        [
+          "b",
+          "a"
+        ]
+      ]
+    },
+    "key_expected": {
+      "value": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    "indices_expected": {
+      "value": [
+        1,
+        0
+      ]
+    },
+    "outputs": {
+      "wrong_identity_join": {
+        "outcome": {
+          "value": [
+            [
+              1,
+              2
+            ],
+            [
+              "a",
+              "b"
+            ]
+          ]
+        },
+        "input_unchanged": true,
+        "sorted_callers": [
+          "_sorted_keys"
+        ]
+      },
+      "indices_preserve_identity": {
+        "outcome": {
+          "value": [
+            [
+              1,
+              2
+            ],
+            [
+              "b",
+              "a"
+            ]
+          ]
+        },
+        "input_unchanged": true,
+        "sorted_callers": [
+          "_sorted_indices"
+        ]
+      },
+      "original_input_recovery": {
+        "outcome": {
+          "value": [
+            [
+              1,
+              2
+            ],
+            [
+              "b",
+              "a"
+            ]
+          ]
+        },
+        "input_unchanged": true,
+        "sorted_callers": [
+          "_sorted_keys",
+          "solve"
+        ]
+      }
+    },
+    "passes": {
+      "wrong_identity_join": false,
+      "indices_preserve_identity": true,
+      "original_input_recovery": true
+    }
+  },
+  {
+    "id": "identity_already_aligned",
+    "input": {
+      "columns": [
+        [
+          1,
+          2
+        ],
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "expected": {
+      "value": [
+        [
+          1,
+          2
+        ],
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "key_expected": {
+      "value": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    "indices_expected": {
+      "value": [
+        0,
+        1
+      ]
+    },
+    "outputs": {
+      "wrong_identity_join": {
+        "outcome": {
+          "value": [
+            [
+              1,
+              2
+            ],
+            [
+              "a",
+              "b"
+            ]
+          ]
+        },
+        "input_unchanged": true,
+        "sorted_callers": [
+          "_sorted_keys"
+        ]
+      },
+      "indices_preserve_identity": {
+        "outcome": {
+          "value": [
+            [
+              1,
+              2
+            ],
+            [
+              "a",
+              "b"
+            ]
+          ]
+        },
+        "input_unchanged": true,
+        "sorted_callers": [
+          "_sorted_indices"
+        ]
+      },
+      "original_input_recovery": {
+        "outcome": {
+          "value": [
+            [
+              1,
+              2
+            ],
+            [
+              "a",
+              "b"
+            ]
+          ]
+        },
+        "input_unchanged": true,
+        "sorted_callers": [
+          "_sorted_keys",
+          "solve"
+        ]
+      }
+    },
+    "passes": {
+      "wrong_identity_join": true,
+      "indices_preserve_identity": true,
+      "original_input_recovery": true
+    }
+  },
+  {
+    "id": "stable_ties",
+    "input": {
+      "columns": [
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          "a",
+          "b",
+          "c"
+        ]
+      ]
+    },
+    "expected": {
+      "value": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          "c",
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "key_expected": {
+      "value": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ]
+    },
+    "indices_expected": {
+      "value": [
+        2,
+        0,
+        1
+      ]
+    },
+    "outputs": {
+      "wrong_identity_join": {
+        "outcome": {
+          "value": [
+            [
+              0,
+              1,
+              1
+            ],
+            [
+              "a",
+              "b",
+              "c"
+            ]
+          ]
+        },
+        "input_unchanged": true,
+        "sorted_callers": [
+          "_sorted_keys"
+        ]
+      },
+      "indices_preserve_identity": {
+        "outcome": {
+          "value": [
+            [
+              0,
+              1,
+              1
+            ],
+            [
+              "c",
+              "a",
+              "b"
+            ]
+          ]
+        },
+        "input_unchanged": true,
+        "sorted_callers": [
+          "_sorted_indices"
+        ]
+      },
+      "original_input_recovery": {
+        "outcome": {
+          "value": [
+            [
+              0,
+              1,
+              1
+            ],
+            [
+              "c",
+              "a",
+              "b"
+            ]
+          ]
+        },
+        "input_unchanged": true,
+        "sorted_callers": [
+          "_sorted_keys",
+          "solve"
+        ]
+      }
+    },
+    "passes": {
+      "wrong_identity_join": false,
+      "indices_preserve_identity": true,
+      "original_input_recovery": true
+    }
+  },
+  {
+    "id": "reverse_ties_still_stable",
+    "input": {
+      "columns": [
+        [
+          1,
+          2,
+          1
+        ],
+        [
+          "a",
+          "b",
+          "c"
+        ]
+      ],
+      "reverse": true
+    },
+    "expected": {
+      "value": [
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          "b",
+          "a",
+          "c"
+        ]
+      ]
+    },
+    "key_expected": {
+      "value": [
+        [
+          2
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ]
+    },
+    "indices_expected": {
+      "value": [
+        1,
+        0,
+        2
+      ]
+    },
+    "outputs": {
+      "wrong_identity_join": {
+        "outcome": {
+          "value": [
+            [
+              2,
+              1,
+              1
+            ],
+            [
+              "a",
+              "b",
+              "c"
+            ]
+          ]
+        },
+        "input_unchanged": true,
+        "sorted_callers": [
+          "_sorted_keys"
+        ]
+      },
+      "indices_preserve_identity": {
+        "outcome": {
+          "value": [
+            [
+              2,
+              1,
+              1
+            ],
+            [
+              "b",
+              "a",
+              "c"
+            ]
+          ]
+        },
+        "input_unchanged": true,
+        "sorted_callers": [
+          "_sorted_indices"
+        ]
+      },
+      "original_input_recovery": {
+        "outcome": {
+          "value": [
+            [
+              2,
+              1,
+              1
+            ],
+            [
+              "b",
+              "a",
+              "c"
+            ]
+          ]
+        },
+        "input_unchanged": true,
+        "sorted_callers": [
+          "_sorted_keys",
+          "solve"
+        ]
+      }
+    },
+    "passes": {
+      "wrong_identity_join": false,
+      "indices_preserve_identity": true,
+      "original_input_recovery": true
+    }
+  },
+  {
+    "id": "empty_common_domain",
+    "input": {
+      "columns": [
+        [
+          2,
+          1
+        ],
+        []
+      ]
+    },
+    "expected": {
+      "value": []
+    },
+    "key_expected": {
+      "value": []
+    },
+    "indices_expected": {
+      "value": []
+    },
+    "outputs": {
+      "wrong_identity_join": {
+        "outcome": {
+          "value": []
+        },
+        "input_unchanged": true,
+        "sorted_callers": [
+          "_sorted_keys"
+        ]
+      },
+      "indices_preserve_identity": {
+        "outcome": {
+          "value": []
+        },
+        "input_unchanged": true,
+        "sorted_callers": [
+          "_sorted_indices"
+        ]
+      },
+      "original_input_recovery": {
+        "outcome": {
+          "value": []
+        },
+        "input_unchanged": true,
+        "sorted_callers": [
+          "_sorted_keys",
+          "solve"
+        ]
+      }
+    },
+    "passes": {
+      "wrong_identity_join": true,
+      "indices_preserve_identity": true,
+      "original_input_recovery": true
+    }
+  },
+  {
+    "id": "expected_strict_rejection",
+    "input": {
+      "columns": [
+        [
+          2,
+          1
+        ],
+        [
+          "a"
+        ]
+      ],
+      "strict": true
+    },
+    "expected": {
+      "error": "ValueError"
+    },
+    "key_expected": {
+      "error": "ValueError"
+    },
+    "indices_expected": {
+      "error": "ValueError"
+    },
+    "outputs": {
+      "wrong_identity_join": {
+        "outcome": {
+          "error": "ValueError"
+        },
+        "input_unchanged": true,
+        "sorted_callers": []
+      },
+      "indices_preserve_identity": {
+        "outcome": {
+          "error": "ValueError"
+        },
+        "input_unchanged": true,
+        "sorted_callers": []
+      },
+      "original_input_recovery": {
+        "outcome": {
+          "error": "ValueError"
+        },
+        "input_unchanged": true,
+        "sorted_callers": []
+      }
+    },
+    "passes": {
+      "wrong_identity_join": true,
+      "indices_preserve_identity": true,
+      "original_input_recovery": true
+    }
+  }
+]

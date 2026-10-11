@@ -1,0 +1,383 @@
+{
+  "status": "前置审计，不是人工真值，也不是适用边界结论",
+  "dataset": "data\\processed\\d1_project_initial20_v5_20261008",
+  "task_count": 20,
+  "split_counts": {
+    "development": 11,
+    "reserve": 9
+  },
+  "blind_packet": {
+    "checks": {
+      "requirements_count_20": true,
+      "requirements_ids_unique": true,
+      "requirements_have_only_blind_fields": true,
+      "requirements_no_source_or_structure_fields": true,
+      "form_count_20": true,
+      "form_ids_match_requirements": true,
+      "key_count_20": true,
+      "key_targets_known_tasks": true,
+      "requirements_no_known_source_terms": true,
+      "form_is_blank": true,
+      "only_expected_files": true
+    },
+    "pass": true,
+    "blind_ids": [
+      "T01",
+      "T02",
+      "T03",
+      "T04",
+      "T05",
+      "T06",
+      "T07",
+      "T08",
+      "T09",
+      "T10",
+      "T11",
+      "T12",
+      "T13",
+      "T14",
+      "T15",
+      "T16",
+      "T17",
+      "T18",
+      "T19",
+      "T20"
+    ],
+    "leaked_terms": [],
+    "files": [
+      "README.md",
+      "curator_key_private.json",
+      "requirements_blind.json",
+      "review_form.json"
+    ],
+    "key_targets": [
+      "D1_B01",
+      "D1_B02",
+      "D1_B03",
+      "D1_B04",
+      "D1_B05",
+      "D1_B06",
+      "D1_C01",
+      "D1_C02",
+      "D1_C03",
+      "D1_C04",
+      "D1_C05",
+      "D1_F01",
+      "D1_F02",
+      "D1_F03",
+      "D1_F04",
+      "D1_M01",
+      "D1_M02",
+      "D1_M03",
+      "D1_M04",
+      "D1_M05"
+    ]
+  },
+  "source_family_split": [
+    {
+      "function_family": "adjacent_runs",
+      "split": "reserve",
+      "count": 1
+    },
+    {
+      "function_family": "aligned_column_sort",
+      "split": "reserve",
+      "count": 1
+    },
+    {
+      "function_family": "ansi_cleanup",
+      "split": "development",
+      "count": 1
+    },
+    {
+      "function_family": "cache_lru",
+      "split": "development",
+      "count": 1
+    },
+    {
+      "function_family": "cache_ttl",
+      "split": "development",
+      "count": 1
+    },
+    {
+      "function_family": "call_key_equivalence",
+      "split": "development",
+      "count": 1
+    },
+    {
+      "function_family": "instance_method_cache",
+      "split": "development",
+      "count": 1
+    },
+    {
+      "function_family": "keyed_bucket_reads",
+      "split": "reserve",
+      "count": 1
+    },
+    {
+      "function_family": "layered_config",
+      "split": "reserve",
+      "count": 1
+    },
+    {
+      "function_family": "memoized_calls",
+      "split": "development",
+      "count": 1
+    },
+    {
+      "function_family": "nested_path_query",
+      "split": "development",
+      "count": 1
+    },
+    {
+      "function_family": "object_sequence_validation",
+      "split": "reserve",
+      "count": 1
+    },
+    {
+      "function_family": "ordered_multimap",
+      "split": "development",
+      "count": 1
+    },
+    {
+      "function_family": "pair_config",
+      "split": "reserve",
+      "count": 1
+    },
+    {
+      "function_family": "query_editing",
+      "split": "development",
+      "count": 1
+    },
+    {
+      "function_family": "range_parser",
+      "split": "development",
+      "count": 1
+    },
+    {
+      "function_family": "seekable_iteration",
+      "split": "reserve",
+      "count": 1
+    },
+    {
+      "function_family": "sliding_windows",
+      "split": "reserve",
+      "count": 1
+    },
+    {
+      "function_family": "string_config",
+      "split": "reserve",
+      "count": 1
+    },
+    {
+      "function_family": "tree_transform_search",
+      "split": "development",
+      "count": 1
+    }
+  ],
+  "structure_split": [
+    {
+      "cross_operation_state": "none",
+      "state_scope": "none",
+      "separate_behavior_testability": "no",
+      "split": "development",
+      "count": 3
+    },
+    {
+      "cross_operation_state": "none",
+      "state_scope": "none",
+      "separate_behavior_testability": "no",
+      "split": "reserve",
+      "count": 2
+    },
+    {
+      "cross_operation_state": "none",
+      "state_scope": "none",
+      "separate_behavior_testability": "partial",
+      "split": "reserve",
+      "count": 2
+    },
+    {
+      "cross_operation_state": "none",
+      "state_scope": "none",
+      "separate_behavior_testability": "yes",
+      "split": "development",
+      "count": 2
+    },
+    {
+      "cross_operation_state": "none",
+      "state_scope": "none",
+      "separate_behavior_testability": "yes",
+      "split": "reserve",
+      "count": 3
+    },
+    {
+      "cross_operation_state": "operation_sequence",
+      "state_scope": "global",
+      "separate_behavior_testability": "partial",
+      "split": "development",
+      "count": 3
+    },
+    {
+      "cross_operation_state": "operation_sequence",
+      "state_scope": "global",
+      "separate_behavior_testability": "partial",
+      "split": "reserve",
+      "count": 1
+    },
+    {
+      "cross_operation_state": "operation_sequence",
+      "state_scope": "global",
+      "separate_behavior_testability": "yes",
+      "split": "development",
+      "count": 2
+    },
+    {
+      "cross_operation_state": "operation_sequence",
+      "state_scope": "partitioned",
+      "separate_behavior_testability": "partial",
+      "split": "development",
+      "count": 1
+    },
+    {
+      "cross_operation_state": "operation_sequence",
+      "state_scope": "partitioned",
+      "separate_behavior_testability": "yes",
+      "split": "reserve",
+      "count": 1
+    }
+  ],
+  "repository_split": [
+    {
+      "repository": "beetbox/confuse",
+      "split": "reserve",
+      "count": 4
+    },
+    {
+      "repository": "mahmoud/boltons",
+      "split": "development",
+      "count": 6
+    },
+    {
+      "repository": "more-itertools/more-itertools",
+      "split": "reserve",
+      "count": 5
+    },
+    {
+      "repository": "tkem/cachetools",
+      "split": "development",
+      "count": 5
+    }
+  ],
+  "repeated_families": {},
+  "cost_ledgers": {
+    "experiments\\d1_costed_pilot_b04_c03_v1_20261008": {
+      "checks": {
+        "summary_call_count_matches_ledger": true,
+        "candidate_count_matches_freeze": true,
+        "candidate_spend_matches_call_ledger": true,
+        "generation_preflight_prompt_counts_match": true,
+        "all_candidate_keys_unique": true,
+        "arm_token_totals_match_summary": true
+      },
+      "pass": true,
+      "api_calls": 24,
+      "measurement_calls": 12,
+      "generation_calls": 12,
+      "candidates": [
+        {
+          "task_id": "D1_B04",
+          "arm": "M0",
+          "generated_token_spend": 1051,
+          "generation_error": null,
+          "all_pass": false
+        },
+        {
+          "task_id": "D1_B04",
+          "arm": "M2",
+          "generated_token_spend": 5745,
+          "generation_error": null,
+          "all_pass": false
+        },
+        {
+          "task_id": "D1_C03",
+          "arm": "M0",
+          "generated_token_spend": 1029,
+          "generation_error": null,
+          "all_pass": false
+        },
+        {
+          "task_id": "D1_C03",
+          "arm": "M2",
+          "generated_token_spend": 5681,
+          "generation_error": null,
+          "all_pass": false
+        }
+      ]
+    },
+    "experiments\\d1_costed_pilot_b03_b05_c04_v1_20261008": {
+      "checks": {
+        "summary_call_count_matches_ledger": true,
+        "candidate_count_matches_freeze": true,
+        "candidate_spend_matches_call_ledger": true,
+        "generation_preflight_prompt_counts_match": true,
+        "all_candidate_keys_unique": true,
+        "arm_token_totals_match_summary": true
+      },
+      "pass": true,
+      "api_calls": 32,
+      "measurement_calls": 16,
+      "generation_calls": 16,
+      "candidates": [
+        {
+          "task_id": "D1_B03",
+          "arm": "M0",
+          "generated_token_spend": 648,
+          "generation_error": null,
+          "all_pass": false
+        },
+        {
+          "task_id": "D1_B03",
+          "arm": "M2",
+          "generated_token_spend": 2014,
+          "generation_error": "ValueError: helper completion changed frozen functions",
+          "all_pass": false
+        },
+        {
+          "task_id": "D1_B05",
+          "arm": "M0",
+          "generated_token_spend": 1028,
+          "generation_error": null,
+          "all_pass": false
+        },
+        {
+          "task_id": "D1_B05",
+          "arm": "M2",
+          "generated_token_spend": 4853,
+          "generation_error": null,
+          "all_pass": false
+        },
+        {
+          "task_id": "D1_C04",
+          "arm": "M0",
+          "generated_token_spend": 1147,
+          "generation_error": null,
+          "all_pass": false
+        },
+        {
+          "task_id": "D1_C04",
+          "arm": "M2",
+          "generated_token_spend": 5886,
+          "generation_error": "ValueError: entry completion changed frozen functions",
+          "all_pass": false
+        }
+      ]
+    }
+  },
+  "known_limits": [
+    "结构字段仍是单人初标，不能由本审计替代独立人工复核",
+    "来源、功能家族和结构因素存在混杂，交叉表只描述覆盖，不证明因果",
+    "盲审包隔离检查通过也不代表审查员已经完成标注"
+  ],
+  "pass": true
+}

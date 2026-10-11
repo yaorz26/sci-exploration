@@ -1,0 +1,679 @@
+{
+  "confirmation_problems": [
+    "apps-train-2710",
+    "apps-train-2711",
+    "apps-train-2712",
+    "apps-train-2713",
+    "apps-train-2714",
+    "apps-train-2717",
+    "apps-train-2718",
+    "apps-train-2719",
+    "apps-train-2723",
+    "apps-train-2724",
+    "apps-train-2725",
+    "apps-train-2726",
+    "apps-train-2727",
+    "apps-train-2728",
+    "apps-train-2730",
+    "apps-train-2731",
+    "apps-train-2732",
+    "apps-train-2733",
+    "apps-train-2734"
+  ],
+  "structure_subgroup": [
+    "apps-train-2711",
+    "apps-train-2712",
+    "apps-train-2714",
+    "apps-train-2718",
+    "apps-train-2723",
+    "apps-train-2724",
+    "apps-train-2726",
+    "apps-train-2727",
+    "apps-train-2728",
+    "apps-train-2730",
+    "apps-train-2731",
+    "apps-train-2732",
+    "apps-train-2734"
+  ],
+  "methods": {
+    "M0_direct": {
+      "summary": {
+        "method": "direct",
+        "model": "qwen2.5-coder:7b",
+        "seed": 42,
+        "candidate_budget_per_problem": 14,
+        "per_test_timeout_seconds": 10.0,
+        "candidate_timeout_seconds": 10.0,
+        "evaluator_policy": "normalized token comparison; numeric tokens math.isclose(rel_tol=1e-6, abs_tol=1e-6); function outputs literal comparison",
+        "problems": 19,
+        "generation_requests": 266,
+        "valid_generations": 263,
+        "unique_valid_generations": 141,
+        "duplicate_generations": 122,
+        "public_program_evaluations": 141,
+        "public_test_executions": 1293,
+        "private_program_evaluations": 19,
+        "private_test_executions": 172,
+        "problems_with_candidate": 19,
+        "selected_public_pass": 14,
+        "selected_private_pass": 10,
+        "model_prompt_tokens": 99246,
+        "model_output_tokens": 26689,
+        "model_reported_seconds": 861.496,
+        "errors": {
+          "missing_entrypoint": 2,
+          "invalid syntax (<unknown>, line 1)": 1
+        },
+        "completed_problem_ids": [
+          "apps-train-2710",
+          "apps-train-2711",
+          "apps-train-2712",
+          "apps-train-2713",
+          "apps-train-2714",
+          "apps-train-2717",
+          "apps-train-2718",
+          "apps-train-2719",
+          "apps-train-2723",
+          "apps-train-2724",
+          "apps-train-2725",
+          "apps-train-2726",
+          "apps-train-2727",
+          "apps-train-2728",
+          "apps-train-2730",
+          "apps-train-2731",
+          "apps-train-2732",
+          "apps-train-2733",
+          "apps-train-2734"
+        ],
+        "elapsed_seconds": 951.199,
+        "outputs": {
+          "generations": "data\\processed\\p5d_confirm19_m0_direct_qwen25coder_7b_n14_seed42_v1_generations.jsonl",
+          "evaluations": "data\\processed\\p5d_confirm19_m0_direct_qwen25coder_7b_n14_seed42_v1_evaluations.jsonl"
+        }
+      },
+      "selected_private_passes": {
+        "apps-train-2710": true,
+        "apps-train-2711": true,
+        "apps-train-2712": false,
+        "apps-train-2713": false,
+        "apps-train-2714": false,
+        "apps-train-2717": false,
+        "apps-train-2718": true,
+        "apps-train-2719": false,
+        "apps-train-2723": true,
+        "apps-train-2724": false,
+        "apps-train-2725": true,
+        "apps-train-2726": true,
+        "apps-train-2727": false,
+        "apps-train-2728": false,
+        "apps-train-2730": true,
+        "apps-train-2731": true,
+        "apps-train-2732": false,
+        "apps-train-2733": true,
+        "apps-train-2734": true
+      },
+      "pool_private_passes": {
+        "apps-train-2710": true,
+        "apps-train-2711": true,
+        "apps-train-2712": false,
+        "apps-train-2713": false,
+        "apps-train-2714": false,
+        "apps-train-2717": true,
+        "apps-train-2718": true,
+        "apps-train-2719": false,
+        "apps-train-2723": true,
+        "apps-train-2724": false,
+        "apps-train-2725": true,
+        "apps-train-2726": true,
+        "apps-train-2727": false,
+        "apps-train-2728": true,
+        "apps-train-2730": true,
+        "apps-train-2731": true,
+        "apps-train-2732": false,
+        "apps-train-2733": true,
+        "apps-train-2734": true
+      },
+      "output_tokens_from_records": 26689,
+      "by_problem": {
+        "apps-train-2710": {
+          "selected_private_pass": true,
+          "pool_private_pass": true,
+          "structure_subgroup": false
+        },
+        "apps-train-2711": {
+          "selected_private_pass": true,
+          "pool_private_pass": true,
+          "structure_subgroup": true
+        },
+        "apps-train-2712": {
+          "selected_private_pass": false,
+          "pool_private_pass": false,
+          "structure_subgroup": true
+        },
+        "apps-train-2713": {
+          "selected_private_pass": false,
+          "pool_private_pass": false,
+          "structure_subgroup": false
+        },
+        "apps-train-2714": {
+          "selected_private_pass": false,
+          "pool_private_pass": false,
+          "structure_subgroup": true
+        },
+        "apps-train-2717": {
+          "selected_private_pass": false,
+          "pool_private_pass": true,
+          "structure_subgroup": false
+        },
+        "apps-train-2718": {
+          "selected_private_pass": true,
+          "pool_private_pass": true,
+          "structure_subgroup": true
+        },
+        "apps-train-2719": {
+          "selected_private_pass": false,
+          "pool_private_pass": false,
+          "structure_subgroup": false
+        },
+        "apps-train-2723": {
+          "selected_private_pass": true,
+          "pool_private_pass": true,
+          "structure_subgroup": true
+        },
+        "apps-train-2724": {
+          "selected_private_pass": false,
+          "pool_private_pass": false,
+          "structure_subgroup": true
+        },
+        "apps-train-2725": {
+          "selected_private_pass": true,
+          "pool_private_pass": true,
+          "structure_subgroup": false
+        },
+        "apps-train-2726": {
+          "selected_private_pass": true,
+          "pool_private_pass": true,
+          "structure_subgroup": true
+        },
+        "apps-train-2727": {
+          "selected_private_pass": false,
+          "pool_private_pass": false,
+          "structure_subgroup": true
+        },
+        "apps-train-2728": {
+          "selected_private_pass": false,
+          "pool_private_pass": true,
+          "structure_subgroup": true
+        },
+        "apps-train-2730": {
+          "selected_private_pass": true,
+          "pool_private_pass": true,
+          "structure_subgroup": true
+        },
+        "apps-train-2731": {
+          "selected_private_pass": true,
+          "pool_private_pass": true,
+          "structure_subgroup": true
+        },
+        "apps-train-2732": {
+          "selected_private_pass": false,
+          "pool_private_pass": false,
+          "structure_subgroup": true
+        },
+        "apps-train-2733": {
+          "selected_private_pass": true,
+          "pool_private_pass": true,
+          "structure_subgroup": false
+        },
+        "apps-train-2734": {
+          "selected_private_pass": true,
+          "pool_private_pass": true,
+          "structure_subgroup": true
+        }
+      }
+    },
+    "F1_functionized": {
+      "summary": {
+        "method": "functionized",
+        "model": "qwen2.5-coder:7b",
+        "seed": 42,
+        "candidate_budget_per_problem": 10,
+        "per_test_timeout_seconds": 10.0,
+        "candidate_timeout_seconds": 10.0,
+        "evaluator_policy": "normalized token comparison; numeric tokens math.isclose(rel_tol=1e-6, abs_tol=1e-6); function outputs literal comparison",
+        "problems": 19,
+        "generation_requests": 190,
+        "valid_generations": 140,
+        "unique_valid_generations": 120,
+        "duplicate_generations": 20,
+        "public_program_evaluations": 120,
+        "public_test_executions": 1202,
+        "private_program_evaluations": 19,
+        "private_test_executions": 172,
+        "problems_with_candidate": 19,
+        "selected_public_pass": 15,
+        "selected_private_pass": 11,
+        "model_prompt_tokens": 82670,
+        "model_output_tokens": 31251,
+        "model_reported_seconds": 1028.458,
+        "errors": {
+          "entrypoint_not_last": 13,
+          "function_count_out_of_range": 21,
+          "nested_function_definitions": 24,
+          "invalid syntax (<unknown>, line 1)": 5,
+          "missing_entrypoint": 3,
+          "signature_mismatch": 3
+        },
+        "completed_problem_ids": [
+          "apps-train-2710",
+          "apps-train-2711",
+          "apps-train-2712",
+          "apps-train-2713",
+          "apps-train-2714",
+          "apps-train-2717",
+          "apps-train-2718",
+          "apps-train-2719",
+          "apps-train-2723",
+          "apps-train-2724",
+          "apps-train-2725",
+          "apps-train-2726",
+          "apps-train-2727",
+          "apps-train-2728",
+          "apps-train-2730",
+          "apps-train-2731",
+          "apps-train-2732",
+          "apps-train-2733",
+          "apps-train-2734"
+        ],
+        "elapsed_seconds": 1126.146,
+        "outputs": {
+          "generations": "data\\processed\\p5d_confirm19_f1_functionized_qwen25coder_7b_n10_seed42_v1_generations.jsonl",
+          "evaluations": "data\\processed\\p5d_confirm19_f1_functionized_qwen25coder_7b_n10_seed42_v1_evaluations.jsonl"
+        }
+      },
+      "selected_private_passes": {
+        "apps-train-2710": true,
+        "apps-train-2711": true,
+        "apps-train-2712": false,
+        "apps-train-2713": false,
+        "apps-train-2714": true,
+        "apps-train-2717": true,
+        "apps-train-2718": true,
+        "apps-train-2719": false,
+        "apps-train-2723": false,
+        "apps-train-2724": false,
+        "apps-train-2725": true,
+        "apps-train-2726": false,
+        "apps-train-2727": false,
+        "apps-train-2728": true,
+        "apps-train-2730": true,
+        "apps-train-2731": true,
+        "apps-train-2732": false,
+        "apps-train-2733": true,
+        "apps-train-2734": true
+      },
+      "pool_private_passes": {
+        "apps-train-2710": true,
+        "apps-train-2711": true,
+        "apps-train-2712": false,
+        "apps-train-2713": false,
+        "apps-train-2714": true,
+        "apps-train-2717": true,
+        "apps-train-2718": true,
+        "apps-train-2719": false,
+        "apps-train-2723": true,
+        "apps-train-2724": false,
+        "apps-train-2725": true,
+        "apps-train-2726": false,
+        "apps-train-2727": false,
+        "apps-train-2728": true,
+        "apps-train-2730": true,
+        "apps-train-2731": true,
+        "apps-train-2732": false,
+        "apps-train-2733": true,
+        "apps-train-2734": true
+      },
+      "output_tokens_from_records": 31251,
+      "by_problem": {
+        "apps-train-2710": {
+          "selected_private_pass": true,
+          "pool_private_pass": true,
+          "structure_subgroup": false
+        },
+        "apps-train-2711": {
+          "selected_private_pass": true,
+          "pool_private_pass": true,
+          "structure_subgroup": true
+        },
+        "apps-train-2712": {
+          "selected_private_pass": false,
+          "pool_private_pass": false,
+          "structure_subgroup": true
+        },
+        "apps-train-2713": {
+          "selected_private_pass": false,
+          "pool_private_pass": false,
+          "structure_subgroup": false
+        },
+        "apps-train-2714": {
+          "selected_private_pass": true,
+          "pool_private_pass": true,
+          "structure_subgroup": true
+        },
+        "apps-train-2717": {
+          "selected_private_pass": true,
+          "pool_private_pass": true,
+          "structure_subgroup": false
+        },
+        "apps-train-2718": {
+          "selected_private_pass": true,
+          "pool_private_pass": true,
+          "structure_subgroup": true
+        },
+        "apps-train-2719": {
+          "selected_private_pass": false,
+          "pool_private_pass": false,
+          "structure_subgroup": false
+        },
+        "apps-train-2723": {
+          "selected_private_pass": false,
+          "pool_private_pass": true,
+          "structure_subgroup": true
+        },
+        "apps-train-2724": {
+          "selected_private_pass": false,
+          "pool_private_pass": false,
+          "structure_subgroup": true
+        },
+        "apps-train-2725": {
+          "selected_private_pass": true,
+          "pool_private_pass": true,
+          "structure_subgroup": false
+        },
+        "apps-train-2726": {
+          "selected_private_pass": false,
+          "pool_private_pass": false,
+          "structure_subgroup": true
+        },
+        "apps-train-2727": {
+          "selected_private_pass": false,
+          "pool_private_pass": false,
+          "structure_subgroup": true
+        },
+        "apps-train-2728": {
+          "selected_private_pass": true,
+          "pool_private_pass": true,
+          "structure_subgroup": true
+        },
+        "apps-train-2730": {
+          "selected_private_pass": true,
+          "pool_private_pass": true,
+          "structure_subgroup": true
+        },
+        "apps-train-2731": {
+          "selected_private_pass": true,
+          "pool_private_pass": true,
+          "structure_subgroup": true
+        },
+        "apps-train-2732": {
+          "selected_private_pass": false,
+          "pool_private_pass": false,
+          "structure_subgroup": true
+        },
+        "apps-train-2733": {
+          "selected_private_pass": true,
+          "pool_private_pass": true,
+          "structure_subgroup": false
+        },
+        "apps-train-2734": {
+          "selected_private_pass": true,
+          "pool_private_pass": true,
+          "structure_subgroup": true
+        }
+      }
+    },
+    "M2a_modular": {
+      "summary": {
+        "protocol": "json",
+        "prompt_variant": "repair_v1",
+        "allow_forward_dependencies": false,
+        "allow_nested_functions": true,
+        "allow_no_decomposition": false,
+        "decomposition_model": "qwen2.5-coder:7b",
+        "implementation_model": "qwen2.5-coder:7b",
+        "per_test_timeout_seconds": 10.0,
+        "candidate_timeout_seconds": 10.0,
+        "evaluator_policy": "normalized token comparison; numeric tokens math.isclose(rel_tol=1e-6, abs_tol=1e-6); function outputs literal comparison",
+        "problems": 19,
+        "decomposition_requests": 38,
+        "valid_decompositions": 38,
+        "whole_program_fallback_requests": 0,
+        "valid_whole_program_fallbacks": 0,
+        "implementation_requests": 240,
+        "valid_implementations": 240,
+        "combinations": 284,
+        "composable_combinations": 284,
+        "unique_composable_combinations": 105,
+        "duplicate_combinations": 179,
+        "public_program_evaluations": 105,
+        "public_test_executions": 911,
+        "private_program_evaluations": 19,
+        "private_test_executions": 172,
+        "problems_with_candidate": 19,
+        "selected_public_pass": 10,
+        "selected_private_pass": 8,
+        "model_prompt_tokens": 158694,
+        "model_output_tokens": 20104,
+        "model_reported_seconds": 871.959,
+        "errors": {},
+        "completed_problem_ids": [
+          "apps-train-2710",
+          "apps-train-2711",
+          "apps-train-2712",
+          "apps-train-2713",
+          "apps-train-2714",
+          "apps-train-2717",
+          "apps-train-2718",
+          "apps-train-2719",
+          "apps-train-2723",
+          "apps-train-2724",
+          "apps-train-2725",
+          "apps-train-2726",
+          "apps-train-2727",
+          "apps-train-2728",
+          "apps-train-2730",
+          "apps-train-2731",
+          "apps-train-2732",
+          "apps-train-2733",
+          "apps-train-2734"
+        ],
+        "elapsed_seconds": 941.483,
+        "outputs": {
+          "decompositions": "data\\processed\\p5d_confirm19_m2a_json_repairv1_a1_qwen25coder_7b_d2_i2_c8_seed42_v1_decompositions.jsonl",
+          "implementations": "data\\processed\\p5d_confirm19_m2a_json_repairv1_a1_qwen25coder_7b_d2_i2_c8_seed42_v1_implementations.jsonl",
+          "recombinations": "data\\processed\\p5d_confirm19_m2a_json_repairv1_a1_qwen25coder_7b_d2_i2_c8_seed42_v1_recombinations.jsonl",
+          "fallbacks": "data\\processed\\p5d_confirm19_m2a_json_repairv1_a1_qwen25coder_7b_d2_i2_c8_seed42_v1_fallbacks.jsonl"
+        }
+      },
+      "selected_private_passes": {
+        "apps-train-2710": true,
+        "apps-train-2711": false,
+        "apps-train-2712": false,
+        "apps-train-2713": false,
+        "apps-train-2714": true,
+        "apps-train-2717": true,
+        "apps-train-2718": true,
+        "apps-train-2719": false,
+        "apps-train-2723": false,
+        "apps-train-2724": false,
+        "apps-train-2725": true,
+        "apps-train-2726": false,
+        "apps-train-2727": false,
+        "apps-train-2728": true,
+        "apps-train-2730": true,
+        "apps-train-2731": false,
+        "apps-train-2732": false,
+        "apps-train-2733": true,
+        "apps-train-2734": false
+      },
+      "pool_private_passes": {
+        "apps-train-2710": true,
+        "apps-train-2711": false,
+        "apps-train-2712": false,
+        "apps-train-2713": false,
+        "apps-train-2714": true,
+        "apps-train-2717": true,
+        "apps-train-2718": true,
+        "apps-train-2719": false,
+        "apps-train-2723": false,
+        "apps-train-2724": false,
+        "apps-train-2725": true,
+        "apps-train-2726": false,
+        "apps-train-2727": false,
+        "apps-train-2728": true,
+        "apps-train-2730": true,
+        "apps-train-2731": false,
+        "apps-train-2732": false,
+        "apps-train-2733": true,
+        "apps-train-2734": false
+      },
+      "output_tokens_from_records": 20104,
+      "by_problem": {
+        "apps-train-2710": {
+          "selected_private_pass": true,
+          "pool_private_pass": true,
+          "structure_subgroup": false
+        },
+        "apps-train-2711": {
+          "selected_private_pass": false,
+          "pool_private_pass": false,
+          "structure_subgroup": true
+        },
+        "apps-train-2712": {
+          "selected_private_pass": false,
+          "pool_private_pass": false,
+          "structure_subgroup": true
+        },
+        "apps-train-2713": {
+          "selected_private_pass": false,
+          "pool_private_pass": false,
+          "structure_subgroup": false
+        },
+        "apps-train-2714": {
+          "selected_private_pass": true,
+          "pool_private_pass": true,
+          "structure_subgroup": true
+        },
+        "apps-train-2717": {
+          "selected_private_pass": true,
+          "pool_private_pass": true,
+          "structure_subgroup": false
+        },
+        "apps-train-2718": {
+          "selected_private_pass": true,
+          "pool_private_pass": true,
+          "structure_subgroup": true
+        },
+        "apps-train-2719": {
+          "selected_private_pass": false,
+          "pool_private_pass": false,
+          "structure_subgroup": false
+        },
+        "apps-train-2723": {
+          "selected_private_pass": false,
+          "pool_private_pass": false,
+          "structure_subgroup": true
+        },
+        "apps-train-2724": {
+          "selected_private_pass": false,
+          "pool_private_pass": false,
+          "structure_subgroup": true
+        },
+        "apps-train-2725": {
+          "selected_private_pass": true,
+          "pool_private_pass": true,
+          "structure_subgroup": false
+        },
+        "apps-train-2726": {
+          "selected_private_pass": false,
+          "pool_private_pass": false,
+          "structure_subgroup": true
+        },
+        "apps-train-2727": {
+          "selected_private_pass": false,
+          "pool_private_pass": false,
+          "structure_subgroup": true
+        },
+        "apps-train-2728": {
+          "selected_private_pass": true,
+          "pool_private_pass": true,
+          "structure_subgroup": true
+        },
+        "apps-train-2730": {
+          "selected_private_pass": true,
+          "pool_private_pass": true,
+          "structure_subgroup": true
+        },
+        "apps-train-2731": {
+          "selected_private_pass": false,
+          "pool_private_pass": false,
+          "structure_subgroup": true
+        },
+        "apps-train-2732": {
+          "selected_private_pass": false,
+          "pool_private_pass": false,
+          "structure_subgroup": true
+        },
+        "apps-train-2733": {
+          "selected_private_pass": true,
+          "pool_private_pass": true,
+          "structure_subgroup": false
+        },
+        "apps-train-2734": {
+          "selected_private_pass": false,
+          "pool_private_pass": false,
+          "structure_subgroup": true
+        }
+      }
+    }
+  },
+  "overall_counts": {
+    "M0_direct": {
+      "problems": 19,
+      "selected_private_pass": 10,
+      "pool_private_pass": 12
+    },
+    "F1_functionized": {
+      "problems": 19,
+      "selected_private_pass": 11,
+      "pool_private_pass": 12
+    },
+    "M2a_modular": {
+      "problems": 19,
+      "selected_private_pass": 8,
+      "pool_private_pass": 8
+    }
+  },
+  "structure_subgroup_counts": {
+    "M0_direct": {
+      "problems": 13,
+      "selected_private_pass": 7,
+      "pool_private_pass": 8
+    },
+    "F1_functionized": {
+      "problems": 13,
+      "selected_private_pass": 7,
+      "pool_private_pass": 8
+    },
+    "M2a_modular": {
+      "problems": 13,
+      "selected_private_pass": 4,
+      "pool_private_pass": 4
+    }
+  },
+  "pairwise": {
+    "F1_minus_M0_selected": 1,
+    "F1_minus_M0_pool": 0,
+    "M2a_minus_M0_selected": -2
+  }
+}

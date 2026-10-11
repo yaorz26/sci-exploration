@@ -1,0 +1,1 @@
+def solve(payload): return None

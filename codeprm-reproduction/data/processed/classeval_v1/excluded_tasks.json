@@ -1,0 +1,42 @@
+{
+  "excluded": [
+    {
+      "task_id": "ClassEval_14",
+      "reason": "非确定性：首次运行失败、随后两次通过（状态/顺序相关）"
+    },
+    {
+      "task_id": "ClassEval_17",
+      "reason": "时间相关：断言依赖“当前日期”的日历事件"
+    },
+    {
+      "task_id": "ClassEval_31",
+      "reason": "浮点精度：断言与高精度浮点常量严格相等，跨 NumPy 版本不稳定"
+    },
+    {
+      "task_id": "ClassEval_48",
+      "reason": "宿主机相关：断言硬编码主机名"
+    },
+    {
+      "task_id": "ClassEval_50",
+      "reason": "操作系统语义：Unix 文件权限测试在 Windows 上行为不同（PermissionError）"
+    },
+    {
+      "task_id": "ClassEval_51",
+      "reason": "NumPy 2.x 语义变化：依赖 float(数组) 的宽松转换（NumPy 1.x 可通过，WSL py3.10 已复验）"
+    },
+    {
+      "task_id": "ClassEval_58",
+      "reason": "非确定性：断言依赖随机数（扫雷随机布雷）"
+    },
+    {
+      "task_id": "ClassEval_60",
+      "reason": "非确定性：断言依赖跨调用累积状态（票务数量）"
+    },
+    {
+      "task_id": "ClassEval_99",
+      "reason": "操作系统语义：目录非空错误在 Windows 上语义不同（WinError 145）"
+    }
+  ],
+  "n_excluded": 9,
+  "n_usable": 91
+}

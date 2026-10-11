@@ -1,0 +1,36 @@
+{
+  "status": "pass",
+  "archive": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_candidate_delivery_v4_portable_20261008\\d1_project_initial20_v5_portable_candidate.zip",
+  "archive_sha256": "671655dac37508b7a97d57da43593d9ff95a307551312aa00440c19f69c940d1",
+  "python": "3.13.7 (tags/v3.13.7:bcee1c3, Aug 14 2025, 14:15:11) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "D:\\yaorz\\tools\\python_new\\python.exe",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "cwd": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v4_isolation_20261008\\空白工作目录",
+  "extracted": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v4_isolation_20261008\\解压到不同目录",
+  "interpreter_flags": [
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8"
+  ],
+  "allowed_standard_library_paths": [
+    "D:\\yaorz\\tools\\python_new\\Lib",
+    "D:\\yaorz\\tools\\python_new\\DLLs"
+  ],
+  "audit_harness": {
+    "path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v4_isolation_20261008\\isolated_worker.py",
+    "sha256": "98dee2a7f63667fb3d04703040c81034d0cbc3cb72323fb688154b312b4605a2",
+    "allowed_module": "__main__"
+  },
+  "task_count": 20,
+  "runs": 40,
+  "passed_runs": 40,
+  "reference_passed_tasks": 20,
+  "alternate_passed_tasks": 20,
+  "case_executions": 614,
+  "passed_case_executions": 614,
+  "failures": [],
+  "model_calls": 0,
+  "scope": "仅依赖隔离和已存案例复跑；非操作系统沙箱、非跨平台确认、非独立人类复核"
+}

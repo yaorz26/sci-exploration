@@ -1,0 +1,237 @@
+{
+  "status": "completed",
+  "scope": "一题两臂原生计量工程烟测；严格相同总预算上限，非正式效果/适用边界确认",
+  "simulated": false,
+  "api_calls": 4,
+  "arm_summary": {
+    "M0": {
+      "tasks": 1,
+      "all_pass_count": 0,
+      "generation_failures": 0,
+      "measurement_failures": 0,
+      "actual_total_tokens": 640,
+      "api_calls": 1
+    },
+    "M2": {
+      "tasks": 1,
+      "all_pass_count": 0,
+      "generation_failures": 1,
+      "measurement_failures": 0,
+      "actual_total_tokens": 1850,
+      "api_calls": 3
+    }
+  },
+  "candidates": [
+    {
+      "task_id": "D1_B03",
+      "arm": "M0",
+      "candidate_index": 0,
+      "generation_error": null,
+      "failure_category": null,
+      "candidate_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_allin_native_pair_b03_v1_20261008\\candidates\\D1_B03\\M0\\candidate.py",
+      "candidate_sha256": "5f86e21820d414bdadac880f81a5e2526a32d07b79d5d9064711009f23a2b62e",
+      "total_token_spend": 640,
+      "cost_status": "known",
+      "api_calls": 1,
+      "request_ledger_sha256": "f19f9112d0685f7a4eee94cce92016b934fa0a70a8e08064ae57022e77854e5b",
+      "request_ledger_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_allin_native_pair_b03_v1_20261008\\candidates\\D1_B03\\M0\\requests\\ledger.json",
+      "budget_limit": 6500,
+      "public": {
+        "cases": 2,
+        "passed": 0,
+        "all_pass": false,
+        "results": [
+          {
+            "case_id": "public_1",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": "a红z"
+              },
+              "actual": {
+                "error": "IndexError"
+              }
+            }
+          },
+          {
+            "case_id": "public_2",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": "x\u001b[31"
+              },
+              "actual": {
+                "error": "IndexError"
+              }
+            }
+          }
+        ],
+        "execution_seconds": 0.08138610000241897,
+        "captured_output_bytes": 350
+      },
+      "private": {
+        "cases": 12,
+        "passed": 5,
+        "all_pass": false,
+        "results": [
+          {
+            "case_id": "hidden_1",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_2",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_3",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_4",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_5",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": ""
+              },
+              "actual": {
+                "value": "\u001bZ"
+              }
+            }
+          },
+          {
+            "case_id": "hidden_6",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": "X"
+              },
+              "actual": {
+                "value": "\u001b[?25lX"
+              }
+            }
+          },
+          {
+            "case_id": "hidden_7",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": "Y"
+              },
+              "actual": {
+                "error": "IndexError"
+              }
+            }
+          },
+          {
+            "case_id": "hidden_8",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_9",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": ""
+              },
+              "actual": {
+                "error": "IndexError"
+              }
+            }
+          },
+          {
+            "case_id": "hidden_10",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": ""
+              },
+              "actual": {
+                "error": "IndexError"
+              }
+            }
+          },
+          {
+            "case_id": "hidden_11",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": ""
+              },
+              "actual": {
+                "error": "IndexError"
+              }
+            }
+          },
+          {
+            "case_id": "hidden_12",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": "\u001b["
+              },
+              "actual": {
+                "error": "IndexError"
+              }
+            }
+          }
+        ],
+        "execution_seconds": 0.06099019999965094,
+        "captured_output_bytes": 1432
+      },
+      "all_pass": false
+    },
+    {
+      "task_id": "D1_B03",
+      "arm": "M2",
+      "candidate_index": 0,
+      "generation_error": "ValueError: completion changed frozen function names",
+      "failure_category": "generation_or_assembly_failure",
+      "candidate_path": null,
+      "candidate_sha256": null,
+      "total_token_spend": 1850,
+      "cost_status": "known",
+      "api_calls": 3,
+      "request_ledger_sha256": "81f350ff3056f54c3726cdd3810198809fa146405b221188eefe1fa50003a580",
+      "request_ledger_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_allin_native_pair_b03_v1_20261008\\candidates\\D1_B03\\M2\\requests\\ledger.json",
+      "budget_limit": 6500,
+      "public": {
+        "all_pass": false,
+        "generation_failure": true,
+        "cases": 2,
+        "passed": 0
+      },
+      "private": {
+        "all_pass": false,
+        "generation_failure": true,
+        "cases": 12,
+        "passed": 0
+      },
+      "all_pass": false
+    }
+  ],
+  "freeze_sha256": "161fb65c7f533db4e79e95f090d60f72d9f9b54a0adea908a443e0dce72493e8",
+  "wall_seconds": 10.943116099999315
+}

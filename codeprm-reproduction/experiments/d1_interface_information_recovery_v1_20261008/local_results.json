@@ -1,0 +1,484 @@
+[
+  {
+    "id": "identity_lost",
+    "program": "wrong_identity_join",
+    "helper": "_sorted_keys",
+    "expected": {
+      "value": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    "actual": {
+      "outcome": {
+        "value": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      },
+      "input_unchanged": true,
+      "sorted_callers": [
+        "_sorted_keys"
+      ]
+    },
+    "pass": true
+  },
+  {
+    "id": "identity_lost",
+    "program": "indices_preserve_identity",
+    "helper": "_sorted_indices",
+    "expected": {
+      "value": [
+        1,
+        0
+      ]
+    },
+    "actual": {
+      "outcome": {
+        "value": [
+          1,
+          0
+        ]
+      },
+      "input_unchanged": true,
+      "sorted_callers": [
+        "_sorted_indices"
+      ]
+    },
+    "pass": true
+  },
+  {
+    "id": "identity_lost",
+    "program": "original_input_recovery",
+    "helper": "_sorted_keys",
+    "expected": {
+      "value": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    "actual": {
+      "outcome": {
+        "value": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      },
+      "input_unchanged": true,
+      "sorted_callers": [
+        "_sorted_keys"
+      ]
+    },
+    "pass": true
+  },
+  {
+    "id": "identity_already_aligned",
+    "program": "wrong_identity_join",
+    "helper": "_sorted_keys",
+    "expected": {
+      "value": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    "actual": {
+      "outcome": {
+        "value": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      },
+      "input_unchanged": true,
+      "sorted_callers": [
+        "_sorted_keys"
+      ]
+    },
+    "pass": true
+  },
+  {
+    "id": "identity_already_aligned",
+    "program": "indices_preserve_identity",
+    "helper": "_sorted_indices",
+    "expected": {
+      "value": [
+        0,
+        1
+      ]
+    },
+    "actual": {
+      "outcome": {
+        "value": [
+          0,
+          1
+        ]
+      },
+      "input_unchanged": true,
+      "sorted_callers": [
+        "_sorted_indices"
+      ]
+    },
+    "pass": true
+  },
+  {
+    "id": "identity_already_aligned",
+    "program": "original_input_recovery",
+    "helper": "_sorted_keys",
+    "expected": {
+      "value": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    "actual": {
+      "outcome": {
+        "value": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ]
+      },
+      "input_unchanged": true,
+      "sorted_callers": [
+        "_sorted_keys"
+      ]
+    },
+    "pass": true
+  },
+  {
+    "id": "stable_ties",
+    "program": "wrong_identity_join",
+    "helper": "_sorted_keys",
+    "expected": {
+      "value": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ]
+    },
+    "actual": {
+      "outcome": {
+        "value": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            1
+          ]
+        ]
+      },
+      "input_unchanged": true,
+      "sorted_callers": [
+        "_sorted_keys"
+      ]
+    },
+    "pass": true
+  },
+  {
+    "id": "stable_ties",
+    "program": "indices_preserve_identity",
+    "helper": "_sorted_indices",
+    "expected": {
+      "value": [
+        2,
+        0,
+        1
+      ]
+    },
+    "actual": {
+      "outcome": {
+        "value": [
+          2,
+          0,
+          1
+        ]
+      },
+      "input_unchanged": true,
+      "sorted_callers": [
+        "_sorted_indices"
+      ]
+    },
+    "pass": true
+  },
+  {
+    "id": "stable_ties",
+    "program": "original_input_recovery",
+    "helper": "_sorted_keys",
+    "expected": {
+      "value": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ]
+    },
+    "actual": {
+      "outcome": {
+        "value": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            1
+          ]
+        ]
+      },
+      "input_unchanged": true,
+      "sorted_callers": [
+        "_sorted_keys"
+      ]
+    },
+    "pass": true
+  },
+  {
+    "id": "reverse_ties_still_stable",
+    "program": "wrong_identity_join",
+    "helper": "_sorted_keys",
+    "expected": {
+      "value": [
+        [
+          2
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ]
+    },
+    "actual": {
+      "outcome": {
+        "value": [
+          [
+            2
+          ],
+          [
+            1
+          ],
+          [
+            1
+          ]
+        ]
+      },
+      "input_unchanged": true,
+      "sorted_callers": [
+        "_sorted_keys"
+      ]
+    },
+    "pass": true
+  },
+  {
+    "id": "reverse_ties_still_stable",
+    "program": "indices_preserve_identity",
+    "helper": "_sorted_indices",
+    "expected": {
+      "value": [
+        1,
+        0,
+        2
+      ]
+    },
+    "actual": {
+      "outcome": {
+        "value": [
+          1,
+          0,
+          2
+        ]
+      },
+      "input_unchanged": true,
+      "sorted_callers": [
+        "_sorted_indices"
+      ]
+    },
+    "pass": true
+  },
+  {
+    "id": "reverse_ties_still_stable",
+    "program": "original_input_recovery",
+    "helper": "_sorted_keys",
+    "expected": {
+      "value": [
+        [
+          2
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ]
+    },
+    "actual": {
+      "outcome": {
+        "value": [
+          [
+            2
+          ],
+          [
+            1
+          ],
+          [
+            1
+          ]
+        ]
+      },
+      "input_unchanged": true,
+      "sorted_callers": [
+        "_sorted_keys"
+      ]
+    },
+    "pass": true
+  },
+  {
+    "id": "empty_common_domain",
+    "program": "wrong_identity_join",
+    "helper": "_sorted_keys",
+    "expected": {
+      "value": []
+    },
+    "actual": {
+      "outcome": {
+        "value": []
+      },
+      "input_unchanged": true,
+      "sorted_callers": [
+        "_sorted_keys"
+      ]
+    },
+    "pass": true
+  },
+  {
+    "id": "empty_common_domain",
+    "program": "indices_preserve_identity",
+    "helper": "_sorted_indices",
+    "expected": {
+      "value": []
+    },
+    "actual": {
+      "outcome": {
+        "value": []
+      },
+      "input_unchanged": true,
+      "sorted_callers": [
+        "_sorted_indices"
+      ]
+    },
+    "pass": true
+  },
+  {
+    "id": "empty_common_domain",
+    "program": "original_input_recovery",
+    "helper": "_sorted_keys",
+    "expected": {
+      "value": []
+    },
+    "actual": {
+      "outcome": {
+        "value": []
+      },
+      "input_unchanged": true,
+      "sorted_callers": [
+        "_sorted_keys"
+      ]
+    },
+    "pass": true
+  },
+  {
+    "id": "expected_strict_rejection",
+    "program": "wrong_identity_join",
+    "helper": "_sorted_keys",
+    "expected": {
+      "error": "ValueError"
+    },
+    "actual": {
+      "outcome": {
+        "error": "ValueError"
+      },
+      "input_unchanged": true,
+      "sorted_callers": []
+    },
+    "pass": true
+  },
+  {
+    "id": "expected_strict_rejection",
+    "program": "indices_preserve_identity",
+    "helper": "_sorted_indices",
+    "expected": {
+      "error": "ValueError"
+    },
+    "actual": {
+      "outcome": {
+        "error": "ValueError"
+      },
+      "input_unchanged": true,
+      "sorted_callers": []
+    },
+    "pass": true
+  },
+  {
+    "id": "expected_strict_rejection",
+    "program": "original_input_recovery",
+    "helper": "_sorted_keys",
+    "expected": {
+      "error": "ValueError"
+    },
+    "actual": {
+      "outcome": {
+        "error": "ValueError"
+      },
+      "input_unchanged": true,
+      "sorted_callers": []
+    },
+    "pass": true
+  }
+]

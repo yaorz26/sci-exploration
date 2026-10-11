@@ -1,0 +1,1346 @@
+[
+  {
+    "problem_id": "apps-train-2795",
+    "dataset": "APPS",
+    "source_problem_id": 2795,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "The cockroach is one of the fastest insects. Write a function which takes its speed in km per hour and returns it in cm per second, rounded down to the integer (= floored).\n\nFor example:\n\n```python\ncockroach_speed(1.08) == 30\n```\n\nNote! The input is a Real number (actual type is language dependent) and is >= 0. The result should be an Integer.",
+    "starter_code": "\ndef cockroach_speed(s):\n\t",
+    "public_tests": [
+      {
+        "input": "[1.08]",
+        "output": "[30]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[1.09]",
+        "output": "[30]"
+      },
+      {
+        "input": "[0]",
+        "output": "[0]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2796",
+    "dataset": "APPS",
+    "source_problem_id": 2796,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Create a function which answers the question \"Are you playing banjo?\".  \nIf your name starts with the letter \"R\" or lower case \"r\", you are playing banjo!\n\nThe function takes a name as its only argument, and returns one of the following strings:\n```\nname + \" plays banjo\" \nname + \" does not play banjo\"\n```\nNames given are always valid strings.",
+    "starter_code": "\ndef areYouPlayingBanjo(name):\n\t",
+    "public_tests": [
+      {
+        "input": "['Adam']",
+        "output": "['Adam does not play banjo']"
+      },
+      {
+        "input": "['Paul']",
+        "output": "['Paul does not play banjo']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['Ringo']",
+        "output": "['Ringo plays banjo']"
+      },
+      {
+        "input": "['bravo']",
+        "output": "['bravo does not play banjo']"
+      },
+      {
+        "input": "['rolf']",
+        "output": "['rolf plays banjo']"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2797",
+    "dataset": "APPS",
+    "source_problem_id": 2797,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Mobile Display Keystrokes\n\nDo you remember the old mobile display keyboards? Do you also remember how inconvenient it was to write on it?\nWell, here you have to calculate how much keystrokes you have to do for a specific word.\n\nThis is the layout:\n\n\n\nReturn the amount of keystrokes of input str (! only letters, digits and special characters in lowercase included in layout without whitespaces !)\n\ne.g:\n\n\nmobileKeyboard(\"123\") => 3 (1+1+1)\nmobileKeyboard(\"abc\") => 9 (2+3+4)\nmobileKeyboard(\"codewars\") => 26 (4+4+2+3+2+2+4+5)",
+    "starter_code": "\ndef mobile_keyboard(s):\n\t",
+    "public_tests": [
+      {
+        "input": "['']",
+        "output": "[0]"
+      },
+      {
+        "input": "['123']",
+        "output": "[3]"
+      },
+      {
+        "input": "['codewars']",
+        "output": "[26]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['zruf']",
+        "output": "[16]"
+      },
+      {
+        "input": "['thisisasms']",
+        "output": "[37]"
+      },
+      {
+        "input": "['longwordwhichdontreallymakessense']",
+        "output": "[107]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2798",
+    "dataset": "APPS",
+    "source_problem_id": 2798,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "# altERnaTIng cAsE <=> ALTerNAtiNG CaSe\n\nDefine `String.prototype.toAlternatingCase` (or a similar function/method *such as* `to_alternating_case`/`toAlternatingCase`/`ToAlternatingCase` in your selected language; **see the initial solution for details**) such that each lowercase letter becomes uppercase and each uppercase letter becomes lowercase. For example:\n``` haskell\ntoAlternatingCase \"hello world\" `shouldBe` \"HELLO WORLD\"\ntoAlternatingCase \"HELLO WORLD\" `shouldBe` \"hello world\"\ntoAlternatingCase \"hello WORLD\" `shouldBe` \"HELLO world\"\ntoAlternatingCase \"HeLLo WoRLD\" `shouldBe` \"hEllO wOrld\"\ntoAlternatingCase \"12345\"       `shouldBe` \"12345\"\ntoAlternatingCase \"1a2b3c4d5e\"  `shouldBe` \"1A2B3C4D5E\"\n```\n```C++\nstring source = \"HeLLo WoRLD\";\nstring upperCase = to_alternating_case(source);\ncout << upperCase << endl; // outputs: hEllO wOrld\n```\nAs usual, your function/method should be pure, i.e. it should **not** mutate the original string.",
+    "starter_code": "\ndef to_alternating_case(string):\n\t",
+    "public_tests": [
+      {
+        "input": "['hello world']",
+        "output": "['HELLO WORLD']"
+      },
+      {
+        "input": "['HELLO WORLD']",
+        "output": "['hello world']"
+      },
+      {
+        "input": "['hello WORLD']",
+        "output": "['HELLO world']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['HeLLo WoRLD']",
+        "output": "['hEllO wOrld']"
+      },
+      {
+        "input": "['12345']",
+        "output": "['12345']"
+      },
+      {
+        "input": "['1a2b3c4d5e']",
+        "output": "['1A2B3C4D5E']"
+      },
+      {
+        "input": "['String.prototype.toAlternatingCase']",
+        "output": "['sTRING.PROTOTYPE.TOaLTERNATINGcASE']"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2799",
+    "dataset": "APPS",
+    "source_problem_id": 2799,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "You're in ancient Greece and giving Philoctetes a hand in preparing a training exercise for Hercules! You've filled a pit with two different ferocious mythical creatures for Hercules to battle!\n\nThe formidable **\"Orthus\"** is a 2 headed dog with 1 tail.  The mighty **\"Hydra\"** has 5 heads and 1 tail. \n\nBefore Hercules goes in, he asks you \"How many of each beast am  I up against!?\".\n\nYou know the total number of heads and the total number of tails, that's the dangerous parts, right? But you didn't consider how many of each beast. \n\n## Task\n\nGiven the number of heads and the number of tails, work out the number of each mythical beast! \n\nThe data is given as two parameters. Your answer should be returned as an array:\n```python \n VALID ->      [24 , 15]           INVALID ->  \"No solutions\"\n```\n\nIf there aren't any cases for the given amount of heads and tails - return \"No solutions\" or null (C#).",
+    "starter_code": "\ndef beasts(heads, tails):\n\t",
+    "public_tests": [
+      {
+        "input": "[123, 39]",
+        "output": "[[24, 15]]"
+      },
+      {
+        "input": "[371, 88]",
+        "output": "[[23, 65]]"
+      },
+      {
+        "input": "[24, 12]",
+        "output": "[[12, 0]]"
+      },
+      {
+        "input": "[113, 37]",
+        "output": "[[24, 13]]"
+      },
+      {
+        "input": "[635, 181]",
+        "output": "[[90, 91]]"
+      },
+      {
+        "input": "[25, 555]",
+        "output": "['No solutions']"
+      },
+      {
+        "input": "[12, 25]",
+        "output": "['No solutions']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[54, 956]",
+        "output": "['No solutions']"
+      },
+      {
+        "input": "[5455, 54956]",
+        "output": "['No solutions']"
+      },
+      {
+        "input": "[0, 0]",
+        "output": "[[0, 0]]"
+      },
+      {
+        "input": "[-1, -1]",
+        "output": "['No solutions']"
+      },
+      {
+        "input": "[-45, 5]",
+        "output": "['No solutions']"
+      },
+      {
+        "input": "[99, 0]",
+        "output": "['No solutions']"
+      },
+      {
+        "input": "[0, 99]",
+        "output": "['No solutions']"
+      },
+      {
+        "input": "[5, -55]",
+        "output": "['No solutions']"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2801",
+    "dataset": "APPS",
+    "source_problem_id": 2801,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "< PREVIOUS KATA\nNEXT KATA >\n\n## Task:\n\nYou have to write a function `pattern` which returns the following Pattern(See Examples) upto desired number of rows. \n\n* Note:```Returning``` the pattern is not the same as ```Printing``` the pattern.\n\n### Parameters:\n    \n    pattern(        n        ,        x        ,        y        );\n                    ^                 ^                 ^   \n                    |                 |                 |\n             Term upto which   Number of times   Number of times\n              Basic Pattern     Basic Pattern     Basic Pattern\n                should be         should be         should be\n                 created          repeated           repeated\n                                horizontally        vertically\n    \n* Note: `Basic Pattern` means what we created in Complete The Pattern #12\n\n## Rules/Note:\n\n* The pattern should be created using only unit digits.\n* If `n < 1` then it should return \"\" i.e. empty string.\n* If `x <= 1` then the basic pattern should not be repeated horizontally.\n* If `y <= 1` then the basic pattern should not be repeated vertically.\n* `The length of each line is same`, and is equal to the length of longest line in the pattern.\n* Range of Parameters (for the sake of CW Compiler) :\n  + `n ∈ (-∞,25]`\n  + `x ∈ (-∞,10]`\n  + `y ∈ (-∞,10]`\n* If only two arguments are passed then the function `pattern` should run as if `y <= 1`.\n* If only one argument is passed then the function `pattern` should run as if `x <= 1` & `y <= 1`.\n* The function `pattern` should work when extra arguments are passed, by ignoring the extra arguments.\n   \n   \n## Examples:\n\n* Having Three Arguments-\n\n + pattern(4,3,2):\n\n        1     1     1     1\n         2   2 2   2 2   2 \n          3 3   3 3   3 3  \n           4     4     4   \n          3 3   3 3   3 3  \n         2   2 2   2 2   2 \n        1     1     1     1\n         2   2 2   2 2   2 \n          3 3   3 3   3 3  \n           4     4     4   \n          3 3   3 3   3 3  \n         2   2 2   2 2   2 \n        1     1     1     1\n       \n* Having Two Arguments-\n\n  + pattern(10,2):\n\n        1                 1                 1\n         2               2 2               2 \n          3             3   3             3  \n           4           4     4           4   \n            5         5       5         5    \n             6       6         6       6     \n              7     7           7     7      \n               8   8             8   8       \n                9 9               9 9        \n                 0                 0         \n                9 9               9 9        \n               8   8             8   8       \n              7     7           7     7      \n             6       6         6       6     \n            5         5       5         5    \n           4           4     4           4   \n          3             3   3             3  \n         2               2 2               2 \n        1                 1                 1\n\n* Having Only One Argument-\n\n  + pattern(25):\n\n        1                                               1\n         2                                             2 \n          3                                           3  \n           4                                         4   \n            5                                       5    \n             6                                     6     \n              7                                   7      \n               8                                 8       \n                9                               9        \n                 0                             0         \n                  1                           1          \n                   2                         2           \n                    3                       3            \n                     4                     4             \n                      5                   5              \n                       6                 6               \n                        7               7                \n                         8             8                 \n                          9           9                  \n                           0         0                   \n                            1       1                    \n                             2     2                     \n                              3   3                      \n                               4 4                       \n                                5                        \n                               4 4                       \n                              3   3                      \n                             2     2                     \n                            1       1                    \n                           0         0                   \n                          9           9                  \n                         8             8                 \n                        7               7                \n                       6                 6               \n                      5                   5              \n                     4                     4             \n                    3                       3            \n                   2                         2           \n                  1                           1          \n                 0                             0         \n                9                               9        \n               8                                 8       \n              7                                   7      \n             6                                     6     \n            5                                       5    \n           4                                         4   \n          3                                           3  \n         2                                             2 \n        1                                               1\n        \n>>>LIST OF ALL MY KATAS<<<",
+    "starter_code": "\ndef pattern(n, x=1, y=1, *args):\n\t",
+    "public_tests": [
+      {
+        "input": "[4, 2, 3]",
+        "output": "['1     1     1\\n 2   2 2   2 \\n  3 3   3 3  \\n   4     4   \\n  3 3   3 3  \\n 2   2 2   2 \\n1     1     1\\n 2   2 2   2 \\n  3 3   3 3  \\n   4     4   \\n  3 3   3 3  \\n 2   2 2   2 \\n1     1     1\\n 2   2 2   2 \\n  3 3   3 3  \\n   4     4   \\n  3 3   3 3  \\n 2   2 2   2 \\n1     1     1']"
+      },
+      {
+        "input": "[3, -29, 4]",
+        "output": "['1   1\\n 2 2 \\n  3  \\n 2 2 \\n1   1\\n 2 2 \\n  3  \\n 2 2 \\n1   1\\n 2 2 \\n  3  \\n 2 2 \\n1   1\\n 2 2 \\n  3  \\n 2 2 \\n1   1']"
+      },
+      {
+        "input": "[5, -28, 0]",
+        "output": "['1       1\\n 2     2 \\n  3   3  \\n   4 4   \\n    5    \\n   4 4   \\n  3   3  \\n 2     2 \\n1       1']"
+      },
+      {
+        "input": "[7, 2]",
+        "output": "['1           1           1\\n 2         2 2         2 \\n  3       3   3       3  \\n   4     4     4     4   \\n    5   5       5   5    \\n     6 6         6 6     \\n      7           7      \\n     6 6         6 6     \\n    5   5       5   5    \\n   4     4     4     4   \\n  3       3   3       3  \\n 2         2 2         2 \\n1           1           1']"
+      },
+      {
+        "input": "[10, -2999]",
+        "output": "['1                 1\\n 2               2 \\n  3             3  \\n   4           4   \\n    5         5    \\n     6       6     \\n      7     7      \\n       8   8       \\n        9 9        \\n         0         \\n        9 9        \\n       8   8       \\n      7     7      \\n     6       6     \\n    5         5    \\n   4           4   \\n  3             3  \\n 2               2 \\n1                 1']"
+      },
+      {
+        "input": "[5]",
+        "output": "['1       1\\n 2     2 \\n  3   3  \\n   4 4   \\n    5    \\n   4 4   \\n  3   3  \\n 2     2 \\n1       1']"
+      },
+      {
+        "input": "[4, 2, 3, 5, 7, -8]",
+        "output": "['1     1     1\\n 2   2 2   2 \\n  3 3   3 3  \\n   4     4   \\n  3 3   3 3  \\n 2   2 2   2 \\n1     1     1\\n 2   2 2   2 \\n  3 3   3 3  \\n   4     4   \\n  3 3   3 3  \\n 2   2 2   2 \\n1     1     1\\n 2   2 2   2 \\n  3 3   3 3  \\n   4     4   \\n  3 3   3 3  \\n 2   2 2   2 \\n1     1     1']"
+      },
+      {
+        "input": "[-3, -5, 0]",
+        "output": "['']"
+      },
+      {
+        "input": "[-11, 1, 3]",
+        "output": "['']"
+      },
+      {
+        "input": "[-25, 5, -9]",
+        "output": "['']"
+      },
+      {
+        "input": "[-25, -11, 9]",
+        "output": "['']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[-3, -5]",
+        "output": "['']"
+      },
+      {
+        "input": "[-11, 3]",
+        "output": "['']"
+      },
+      {
+        "input": "[-9999999]",
+        "output": "['']"
+      },
+      {
+        "input": "[-25, 5, -9, 55, -8, -7, 8]",
+        "output": "['']"
+      },
+      {
+        "input": "[0, 1, 2]",
+        "output": "['']"
+      },
+      {
+        "input": "[0, -1, 0]",
+        "output": "['']"
+      },
+      {
+        "input": "[0, -1, 2]",
+        "output": "['']"
+      },
+      {
+        "input": "[0, 1, -2]",
+        "output": "['']"
+      },
+      {
+        "input": "[0, 1]",
+        "output": "['']"
+      },
+      {
+        "input": "[0, -1]",
+        "output": "['']"
+      },
+      {
+        "input": "[0]",
+        "output": "['']"
+      },
+      {
+        "input": "[0, -5, 8, -7, 10]",
+        "output": "['']"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2802",
+    "dataset": "APPS",
+    "source_problem_id": 2802,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "*Based on this Numberphile video: https://www.youtube.com/watch?v=Wim9WJeDTHQ*\n\n---\n\nMultiply all the digits of a nonnegative integer `n` by each other, repeating with the product until a single digit is obtained. The number of steps required is known as the **multiplicative persistence**.\n\nCreate a function that calculates the individual results of each step, not including the original number, but including the single digit, and outputs the result as a list/array. If the input is a single digit, return an empty list/array.\n\n## Examples\n```\nper(1)  = []\n\nper(10) = [0]\n// 1*0 = 0\n\nper(69) = [54, 20, 0]\n// 6*9 = 54 --> 5*4 = 20 --> 2*0 = 0\n\nper(277777788888899) = [4996238671872, 438939648, 4478976, 338688, 27648, 2688, 768, 336, 54, 20, 0]\n// 2*7*7*7*7*7*7*8*8*8*8*8*8*9*9 = 4996238671872 --> 4*9*9*6*2*3*8*6*7*1*8*7*2 = 4478976 --> ...\n```",
+    "starter_code": "\ndef per(n):\n\t",
+    "public_tests": [
+      {
+        "input": "[1234567890]",
+        "output": "[[0]]"
+      },
+      {
+        "input": "[123456789]",
+        "output": "[[362880, 0]]"
+      },
+      {
+        "input": "[12345678]",
+        "output": "[[40320, 0]]"
+      },
+      {
+        "input": "[1234567]",
+        "output": "[[5040, 0]]"
+      },
+      {
+        "input": "[123456]",
+        "output": "[[720, 0]]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[12345]",
+        "output": "[[120, 0]]"
+      },
+      {
+        "input": "[2379]",
+        "output": "[[378, 168, 48, 32, 6]]"
+      },
+      {
+        "input": "[777]",
+        "output": "[[343, 36, 18, 8]]"
+      },
+      {
+        "input": "[25]",
+        "output": "[[10, 0]]"
+      },
+      {
+        "input": "[277777788888899]",
+        "output": "[[4996238671872, 438939648, 4478976, 338688, 27648, 2688, 768, 336, 54, 20, 0]]"
+      },
+      {
+        "input": "[3778888999]",
+        "output": "[[438939648, 4478976, 338688, 27648, 2688, 768, 336, 54, 20, 0]]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2803",
+    "dataset": "APPS",
+    "source_problem_id": 2803,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "# Task\n You are given a string consisting of `\"D\", \"P\" and \"C\"`. A positive integer N is called DPC of this string if it satisfies the following properties: \n \n ```\n For each i = 1, 2, ... , size of the string:\n\n If i-th character is \"D\", then N can be divided by i\n If i-th character is \"P\", then N and i should be relatively prime\n If i-th character is \"C\", then N should neither be divided by i \n                           nor be relatively prime with i```\n\nYour task is to find the smallest DPC of a given string, or return `-1` if there is no such. The result is guaranteed to be `<= 10^9`.\n\n# Example\n For `s = \"DDPDD\"`, the result should be `20`.\n \n `\"DDPDD\"` means `N` should `divided by 1,2,4,5`, and `N,3` should be relatively prime. The smallest N should be `20`.\n\n# Input/Output\n\n\n - `[input]` string `s`\n\n  The given string\n\n\n - `[output]` an integer\n\n  The smallest DPC of `s` or `-1` if it doesn't exist.",
+    "starter_code": "\ndef DPC_sequence(s):\n\t",
+    "public_tests": [
+      {
+        "input": "['DDPDD']",
+        "output": "[20]"
+      },
+      {
+        "input": "['DDDDPDDCCCDDPDCCPCDCDDPCPCCDDCD']",
+        "output": "[15782844]"
+      },
+      {
+        "input": "['DPCPDPPPDCPDPDPC']",
+        "output": "[-1]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['DDDDDDCD']",
+        "output": "[-1]"
+      },
+      {
+        "input": "['CDDDPDDD']",
+        "output": "[-1]"
+      },
+      {
+        "input": "['DDDDDDPCCDPDPP']",
+        "output": "[-1]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2804",
+    "dataset": "APPS",
+    "source_problem_id": 2804,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "# Task\n\nChristmas is coming, and your task is to build a custom Christmas tree with the specified characters and the specified height.\n\n# Inputs:\n- `chars`: the specified characters. \n- `n`: the specified height. A positive integer greater than 2.\n\n# Output:\n- A multiline string. Each line is separated by `\\n`. A tree contains two parts: leaves and trunks. \n\nThe leaves should be `n` rows. The first row fill in 1 char, the second row fill in 3 chars, and so on. A single space will be added between two adjust chars, and some of the necessary spaces will be added to the left side, to keep the shape of the tree. No space need to be added to the right side.\n\nThe trunk should be at least 1 unit height, it depends on the value of the `n`. The minimum value of n is 3, and the height of the tree trunk is 1 unit height. If `n` increased by 3, and the tree trunk increased by 1 unit. For example, when n is 3,4 or 5, trunk should be 1 row; when n is 6,7 or 8, trunk should be 2 row; and so on.\n\nStill not understand the task? Look at the following example ;-)\n\n# Examples\n\nFor `chars = \"*@o\" and n = 3`,the output should be:\n```\n  *\n @ o\n* @ o\n  |\n```\n\nFor `chars = \"*@o\" and n = 6`,the output should be:\n```\n     *\n    @ o\n   * @ o\n  * @ o *\n @ o * @ o\n* @ o * @ o\n     |\n     |\n```\n\nFor `chars = \"1234\" and n = 6`,the output should be:\n```\n     1\n    2 3\n   4 1 2\n  3 4 1 2\n 3 4 1 2 3\n4 1 2 3 4 1\n     |\n     |\n```\n\nFor `chars = \"123456789\" and n = 3`,the output should be:\n```\n  1\n 2 3\n4 5 6\n  |\n```",
+    "starter_code": "\ndef custom_christmas_tree(chars, n):\n\t",
+    "public_tests": [
+      {
+        "input": "['*@o', 3]",
+        "output": "['  *\\n @ o\\n* @ o\\n  |']"
+      },
+      {
+        "input": "['*@o', 6]",
+        "output": "['     *\\n    @ o\\n   * @ o\\n  * @ o *\\n @ o * @ o\\n* @ o * @ o\\n     |\\n     |']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['1234', 6]",
+        "output": "['     1\\n    2 3\\n   4 1 2\\n  3 4 1 2\\n 3 4 1 2 3\\n4 1 2 3 4 1\\n     |\\n     |']"
+      },
+      {
+        "input": "['123456789', 3]",
+        "output": "['  1\\n 2 3\\n4 5 6\\n  |']"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2805",
+    "dataset": "APPS",
+    "source_problem_id": 2805,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "The Fibonacci numbers are the numbers in the following integer sequence (Fn):\n>0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, ...\n\nsuch as \n>F(n) = F(n-1) + F(n-2) with F(0) = 0 and F(1) = 1.\n\nGiven a number, say prod (for product), we search two Fibonacci numbers F(n) and F(n+1) verifying \n>F(n) * F(n+1) = prod.\n\nYour function productFib takes an integer (prod) and returns\nan array: \n```\n[F(n), F(n+1), true] or {F(n), F(n+1), 1} or (F(n), F(n+1), True)\n```\ndepending on the language if F(n) * F(n+1) = prod.\n\nIf you don't find two consecutive F(m) verifying `F(m) * F(m+1) = prod`you will return\n```\n[F(m), F(m+1), false] or {F(n), F(n+1), 0} or (F(n), F(n+1), False)\n```\nF(m) being the smallest one such as `F(m) * F(m+1) > prod`.\n\n\n### Some Examples of Return:\n(depend on the language)\n\n```\nproductFib(714) # should return (21, 34, true), \n                # since F(8) = 21, F(9) = 34 and 714 = 21 * 34\n\nproductFib(800) # should return (34, 55, false), \n                # since F(8) = 21, F(9) = 34, F(10) = 55 and 21 * 34 < 800 < 34 * 55\n-----\nproductFib(714) # should return [21, 34, true], \nproductFib(800) # should return [34, 55, false], \n-----\nproductFib(714) # should return {21, 34, 1}, \nproductFib(800) # should return {34, 55, 0},        \n-----\nproductFib(714) # should return {21, 34, true}, \nproductFib(800) # should return {34, 55, false}, \n```\n\n### Note:\n\n- You can see examples for your language in \"Sample Tests\".",
+    "starter_code": "\ndef productFib(prod):\n\t",
+    "public_tests": [
+      {
+        "input": "[4895]",
+        "output": "[[55, 89, True]]"
+      },
+      {
+        "input": "[5895]",
+        "output": "[[89, 144, False]]"
+      },
+      {
+        "input": "[74049690]",
+        "output": "[[6765, 10946, True]]"
+      },
+      {
+        "input": "[84049690]",
+        "output": "[[10946, 17711, False]]"
+      },
+      {
+        "input": "[193864606]",
+        "output": "[[10946, 17711, True]]"
+      },
+      {
+        "input": "[447577]",
+        "output": "[[610, 987, False]]"
+      },
+      {
+        "input": "[602070]",
+        "output": "[[610, 987, True]]"
+      },
+      {
+        "input": "[602070602070]",
+        "output": "[[832040, 1346269, False]]"
+      },
+      {
+        "input": "[1120149658760]",
+        "output": "[[832040, 1346269, True]]"
+      },
+      {
+        "input": "[256319508074468182850]",
+        "output": "[[12586269025, 20365011074, True]]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[203023208030065646654504166904697594722575]",
+        "output": "[[354224848179261915075, 573147844013817084101, True]]"
+      },
+      {
+        "input": "[203023208030065646654504166904697594722576]",
+        "output": "[[573147844013817084101, 927372692193078999176, False]]"
+      },
+      {
+        "input": "[0]",
+        "output": "[[0, 1, True]]"
+      },
+      {
+        "input": "[1]",
+        "output": "[[1, 1, True]]"
+      },
+      {
+        "input": "[2]",
+        "output": "[[1, 2, True]]"
+      },
+      {
+        "input": "[3]",
+        "output": "[[2, 3, False]]"
+      },
+      {
+        "input": "[4]",
+        "output": "[[2, 3, False]]"
+      },
+      {
+        "input": "[5]",
+        "output": "[[2, 3, False]]"
+      },
+      {
+        "input": "[6]",
+        "output": "[[2, 3, True]]"
+      },
+      {
+        "input": "[7]",
+        "output": "[[3, 5, False]]"
+      },
+      {
+        "input": "[105]",
+        "output": "[[13, 21, False]]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2040",
+    "dataset": "APPS",
+    "source_problem_id": 2040,
+    "source_split": "train",
+    "difficulty": "competition",
+    "question": "Igor the analyst has adopted n little bunnies. As we all know, bunnies love carrots. Thus, Igor has bought a carrot to be shared between his bunnies. Igor wants to treat all the bunnies equally, and thus he wants to cut the carrot into n pieces of equal area. \n\nFormally, the carrot can be viewed as an isosceles triangle with base length equal to 1 and height equal to h. Igor wants to make n - 1 cuts parallel to the base to cut the carrot into n pieces. He wants to make sure that all n pieces have the same area. Can you help Igor determine where to cut the carrot so that each piece have equal area?\n\n [Image] Illustration to the first example. \n\n\n-----Input-----\n\nThe first and only line of input contains two space-separated integers, n and h (2 ≤ n ≤ 1000, 1 ≤ h ≤ 10^5).\n\n\n-----Output-----\n\nThe output should contain n - 1 real numbers x_1, x_2, ..., x_{n} - 1. The number x_{i} denotes that the i-th cut must be made x_{i} units away from the apex of the carrot. In addition, 0 < x_1 < x_2 < ... < x_{n} - 1 < h must hold. \n\nYour output will be considered correct if absolute or relative error of every number in your output doesn't exceed 10^{ - 6}.\n\nFormally, let your answer be a, and the jury's answer be b. Your answer is considered correct if $\\frac{|a - b|}{\\operatorname{max}(1, b)} \\leq 10^{-6}$.\n\n\n-----Examples-----\nInput\n3 2\n\nOutput\n1.154700538379 1.632993161855\n\nInput\n2 100000\n\nOutput\n70710.678118654752\n\n\n\n-----Note-----\n\nDefinition of isosceles triangle: https://en.wikipedia.org/wiki/Isosceles_triangle.",
+    "starter_code": "",
+    "public_tests": [
+      {
+        "input": "3 2\n",
+        "output": "1.154700538379 1.632993161855\n"
+      },
+      {
+        "input": "2 100000\n",
+        "output": "70710.678118654752\n"
+      },
+      {
+        "input": "2 1\n",
+        "output": "0.707106781187\n"
+      },
+      {
+        "input": "20 17\n",
+        "output": "3.801315561750 5.375872022286 6.584071688553 7.602631123499 8.500000000000 9.311283477588 10.057335631269 10.751744044572 11.403946685249 12.020815280171 12.607537428063 13.168143377105 13.705838172108 14.223220451079 14.722431864335 15.205262246999 15.673225577398 16.127616066859 16.569550386175\n"
+      },
+      {
+        "input": "2 5713\n",
+        "output": "4039.701040918746\n"
+      },
+      {
+        "input": "4 31901\n",
+        "output": "15950.500000000000 22557.413426632053 27627.076406127377\n"
+      },
+      {
+        "input": "4 23850\n",
+        "output": "11925.000000000000 16864.496731299158 20654.705880258862\n"
+      },
+      {
+        "input": "4 72694\n",
+        "output": "36347.000000000000 51402.420351574886 62954.850702705983\n"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "4 21538\n",
+        "output": "10769.000000000000 15229.665853195861 18652.455146709240\n"
+      },
+      {
+        "input": "4 70383\n",
+        "output": "35191.500000000000 49768.296580252774 60953.465994560145\n"
+      },
+      {
+        "input": "5 1\n",
+        "output": "0.447213595500 0.632455532034 0.774596669241 0.894427191000\n"
+      },
+      {
+        "input": "5 1\n",
+        "output": "0.447213595500 0.632455532034 0.774596669241 0.894427191000\n"
+      },
+      {
+        "input": "5 1\n",
+        "output": "0.447213595500 0.632455532034 0.774596669241 0.894427191000\n"
+      },
+      {
+        "input": "5 1\n",
+        "output": "0.447213595500 0.632455532034 0.774596669241 0.894427191000\n"
+      },
+      {
+        "input": "5 1\n",
+        "output": "0.447213595500 0.632455532034 0.774596669241 0.894427191000\n"
+      },
+      {
+        "input": "20 1\n",
+        "output": "0.223606797750 0.316227766017 0.387298334621 0.447213595500 0.500000000000 0.547722557505 0.591607978310 0.632455532034 0.670820393250 0.707106781187 0.741619848710 0.774596669241 0.806225774830 0.836660026534 0.866025403784 0.894427191000 0.921954445729 0.948683298051 0.974679434481\n"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2041",
+    "dataset": "APPS",
+    "source_problem_id": 2041,
+    "source_split": "train",
+    "difficulty": "competition",
+    "question": "The life goes up and down, just like nice sequences. Sequence t_1, t_2, ..., t_{n} is called nice if the following two conditions are satisfied:   t_{i} < t_{i} + 1 for each odd i < n;  t_{i} > t_{i} + 1 for each even i < n. \n\nFor example, sequences (2, 8), (1, 5, 1) and (2, 5, 1, 100, 99, 120) are nice, while (1, 1), (1, 2, 3) and (2, 5, 3, 2) are not.\n\nBear Limak has a sequence of positive integers t_1, t_2, ..., t_{n}. This sequence is not nice now and Limak wants to fix it by a single swap. He is going to choose two indices i < j and swap elements t_{i} and t_{j} in order to get a nice sequence. Count the number of ways to do so. Two ways are considered different if indices of elements chosen for a swap are different.\n\n\n-----Input-----\n\nThe first line of the input contains one integer n (2 ≤ n ≤ 150 000) — the length of the sequence.\n\nThe second line contains n integers t_1, t_2, ..., t_{n} (1 ≤ t_{i} ≤ 150 000) — the initial sequence. It's guaranteed that the given sequence is not nice.\n\n\n-----Output-----\n\nPrint the number of ways to swap two elements exactly once in order to get a nice sequence.\n\n\n-----Examples-----\nInput\n5\n2 8 4 7 7\n\nOutput\n2\n\nInput\n4\n200 150 100 50\n\nOutput\n1\n\nInput\n10\n3 2 1 4 1 4 1 4 1 4\n\nOutput\n8\n\nInput\n9\n1 2 3 4 5 6 7 8 9\n\nOutput\n0\n\n\n\n-----Note-----\n\nIn the first sample, there are two ways to get a nice sequence with one swap:   Swap t_2 = 8 with t_4 = 7.  Swap t_1 = 2 with t_5 = 7. \n\nIn the second sample, there is only one way — Limak should swap t_1 = 200 with t_4 = 50.",
+    "starter_code": "",
+    "public_tests": [
+      {
+        "input": "5\n2 8 4 7 7\n",
+        "output": "2\n"
+      },
+      {
+        "input": "4\n200 150 100 50\n",
+        "output": "1\n"
+      },
+      {
+        "input": "10\n3 2 1 4 1 4 1 4 1 4\n",
+        "output": "8\n"
+      },
+      {
+        "input": "9\n1 2 3 4 5 6 7 8 9\n",
+        "output": "0\n"
+      },
+      {
+        "input": "5\n1 1 1 4 3\n",
+        "output": "1\n"
+      },
+      {
+        "input": "10\n7 7 8 10 5 10 1 5 2 6\n",
+        "output": "2\n"
+      },
+      {
+        "input": "50\n11836 28308 72527 92281 139289 93797 134555 148444 40866 111317 21564 87813 65466 20541 99238 2287 74647 128071 18163 61672 39766 55589 138385 147443 138100 142683 60703 15444 52566 72976 147412 116006 115986 110545 79993 100440 9876 71470 75209 62443 64906 88987 72232 2246 63160 45041 729 148611 103397 78474\n",
+        "output": "0\n"
+      },
+      {
+        "input": "10\n522 309 276 454 566 978 175 388 289 276\n",
+        "output": "0\n"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "20\n8 9 1 10 7 9 5 8 5 7 5 6 1 3 2 7 3 2 6 9\n",
+        "output": "3\n"
+      },
+      {
+        "input": "25\n25 20 58 95 47 68 38 39 24 83 36 68 28 67 25 40 62 99 11 88 74 75 38 90 42\n",
+        "output": "1\n"
+      },
+      {
+        "input": "30\n18647 31594 58075 122543 49766 65303 48728 102863 22542 140297 5300 90685 50141 86948 27074 40214 17945 147095 97758 140835 121469 139920 63817 138623 85609 110002 70046 128002 122139 116109\n",
+        "output": "1\n"
+      },
+      {
+        "input": "39\n18329 39326 21115 36341 3916 40060 23262 41923 17476 42107 17052 23198 10756 32540 14873 28454 23912 35765 9459 45834 85 46756 31859 40087 35420 47585 9781 46544 31859 49453 7394 17459 2816 34051 12519 4077 692 44098 23345\n",
+        "output": "15\n"
+      },
+      {
+        "input": "2\n5 1\n",
+        "output": "1\n"
+      },
+      {
+        "input": "2\n10 10\n",
+        "output": "0\n"
+      },
+      {
+        "input": "6\n1 1 1 2 2 2\n",
+        "output": "1\n"
+      },
+      {
+        "input": "12\n10 15 10 15 10 8 10 15 10 20 30 20\n",
+        "output": "1\n"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2042",
+    "dataset": "APPS",
+    "source_problem_id": 2042,
+    "source_split": "train",
+    "difficulty": "competition",
+    "question": "Vasya's telephone contains n photos. Photo number 1 is currently opened on the phone. It is allowed to move left and right to the adjacent photo by swiping finger over the screen. If you swipe left from the first photo, you reach photo n. Similarly, by swiping right from the last photo you reach photo 1. It takes a seconds to swipe from photo to adjacent.\n\nFor each photo it is known which orientation is intended for it — horizontal or vertical. Phone is in the vertical orientation and can't be rotated. It takes b second to change orientation of the photo.\n\nVasya has T seconds to watch photos. He want to watch as many photos as possible. If Vasya opens the photo for the first time, he spends 1 second to notice all details in it. If photo is in the wrong orientation, he spends b seconds on rotating it before watching it. If Vasya has already opened the photo, he just skips it (so he doesn't spend any time for watching it or for changing its orientation). It is not allowed to skip unseen photos.\n\nHelp Vasya find the maximum number of photos he is able to watch during T seconds.\n\n\n-----Input-----\n\nThe first line of the input contains 4 integers n, a, b, T (1 ≤ n ≤ 5·10^5, 1 ≤ a, b ≤ 1000, 1 ≤ T ≤ 10^9) — the number of photos, time to move from a photo to adjacent, time to change orientation of a photo and time Vasya can spend for watching photo.\n\nSecond line of the input contains a string of length n containing symbols 'w' and 'h'. \n\nIf the i-th position of a string contains 'w', then the photo i should be seen in the horizontal orientation.\n\nIf the i-th position of a string contains 'h', then the photo i should be seen in vertical orientation.\n\n\n-----Output-----\n\nOutput the only integer, the maximum number of photos Vasya is able to watch during those T seconds.\n\n\n-----Examples-----\nInput\n4 2 3 10\nwwhw\n\nOutput\n2\n\nInput\n5 2 4 13\nhhwhh\n\nOutput\n4\n\nInput\n5 2 4 1000\nhhwhh\n\nOutput\n5\n\nInput\n3 1 100 10\nwhw\n\nOutput\n0\n\n\n\n-----Note-----\n\nIn the first sample test you can rotate the first photo (3 seconds), watch the first photo (1 seconds), move left (2 second), rotate fourth photo (3 seconds), watch fourth photo (1 second). The whole process takes exactly 10 seconds.\n\nNote that in the last sample test the time is not enough even to watch the first photo, also you can't skip it.",
+    "starter_code": "",
+    "public_tests": [
+      {
+        "input": "4 2 3 10\nwwhw\n",
+        "output": "2\n"
+      },
+      {
+        "input": "5 2 4 13\nhhwhh\n",
+        "output": "4\n"
+      },
+      {
+        "input": "5 2 4 1000\nhhwhh\n",
+        "output": "5\n"
+      },
+      {
+        "input": "3 1 100 10\nwhw\n",
+        "output": "0\n"
+      },
+      {
+        "input": "10 2 3 32\nhhwwhwhwwh\n",
+        "output": "7\n"
+      },
+      {
+        "input": "1 2 3 3\nw\n",
+        "output": "0\n"
+      },
+      {
+        "input": "100 20 100 10202\nwwwwhhwhhwhhwhhhhhwwwhhhwwwhwwhwhhwwhhwwwhwwhwwwhwhwhwwhhhwhwhhwhwwhhwhwhwwwhwwwwhwhwwwwhwhhhwhwhwww\n",
+        "output": "100\n"
+      },
+      {
+        "input": "20 10 10 1\nhwhwhwhwhwhwhwhwhhhw\n",
+        "output": "1\n"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "12 10 10 1\nwhwhwhwhwhwh\n",
+        "output": "0\n"
+      },
+      {
+        "input": "2 5 5 1000000000\nwh\n",
+        "output": "2\n"
+      },
+      {
+        "input": "16 1 1000 2100\nhhhwwwhhhwhhhwww\n",
+        "output": "5\n"
+      },
+      {
+        "input": "5 2 4 13\nhhhwh\n",
+        "output": "4\n"
+      },
+      {
+        "input": "7 1 1000 13\nhhhhwhh\n",
+        "output": "6\n"
+      },
+      {
+        "input": "10 1 1000 10\nhhhhhhwwhh\n",
+        "output": "5\n"
+      },
+      {
+        "input": "7 1 100 8\nhhhwwwh\n",
+        "output": "4\n"
+      },
+      {
+        "input": "5 2 4 12\nhhhwh\n",
+        "output": "4\n"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2043",
+    "dataset": "APPS",
+    "source_problem_id": 2043,
+    "source_split": "train",
+    "difficulty": "competition",
+    "question": "Doubly linked list is one of the fundamental data structures. A doubly linked list is a sequence of elements, each containing information about the previous and the next elements of the list. In this problem all lists have linear structure. I.e. each element except the first has exactly one previous element, each element except the last has exactly one next element. The list is not closed in a cycle.\n\nIn this problem you are given n memory cells forming one or more doubly linked lists. Each cell contains information about element from some list. Memory cells are numbered from 1 to n.\n\nFor each cell i you are given two values:   l_{i} — cell containing previous element for the element in the cell i;  r_{i} — cell containing next element for the element in the cell i. \n\nIf cell i contains information about the element which has no previous element then l_{i} = 0. Similarly, if cell i contains information about the element which has no next element then r_{i} = 0. [Image] Three lists are shown on the picture. \n\nFor example, for the picture above the values of l and r are the following: l_1 = 4, r_1 = 7; l_2 = 5, r_2 = 0; l_3 = 0, r_3 = 0; l_4 = 6, r_4 = 1; l_5 = 0, r_5 = 2; l_6 = 0, r_6 = 4; l_7 = 1, r_7 = 0.\n\nYour task is to unite all given lists in a single list, joining them to each other in any order. In particular, if the input data already contains a single list, then there is no need to perform any actions. Print the resulting list in the form of values l_{i}, r_{i}.\n\nAny other action, other than joining the beginning of one list to the end of another, can not be performed.\n\n\n-----Input-----\n\nThe first line contains a single integer n (1 ≤ n ≤ 100) — the number of memory cells where the doubly linked lists are located.\n\nEach of the following n lines contains two integers l_{i}, r_{i} (0 ≤ l_{i}, r_{i} ≤ n) — the cells of the previous and the next element of list for cell i. Value l_{i} = 0 if element in cell i has no previous element in its list. Value r_{i} = 0 if element in cell i has no next element in its list.\n\nIt is guaranteed that the input contains the correct description of a single or more doubly linked lists. All lists have linear structure: each element of list except the first has exactly one previous element; each element of list except the last has exactly one next element. Each memory cell contains information about one element from some list, each element of each list written in one of n given cells.\n\n\n-----Output-----\n\nPrint n lines, the i-th line must contain two integers l_{i} and r_{i} — the cells of the previous and the next element of list for cell i after all lists from the input are united in a single list. If there are many solutions print any of them.\n\n\n-----Example-----\nInput\n7\n4 7\n5 0\n0 0\n6 1\n0 2\n0 4\n1 0\n\nOutput\n4 7\n5 6\n0 5\n6 1\n3 2\n2 4\n1 0",
+    "starter_code": "",
+    "public_tests": [
+      {
+        "input": "7\n4 7\n5 0\n0 0\n6 1\n0 2\n0 4\n1 0\n",
+        "output": "4 7\n5 6\n0 5\n6 1\n3 2\n2 4\n1 0\n"
+      },
+      {
+        "input": "2\n2 0\n0 1\n",
+        "output": "2 0\n0 1\n"
+      },
+      {
+        "input": "1\n0 0\n",
+        "output": "0 0\n"
+      },
+      {
+        "input": "4\n0 2\n1 0\n0 4\n3 0\n",
+        "output": "0 2\n1 3\n2 4\n3 0\n"
+      },
+      {
+        "input": "5\n0 0\n0 0\n0 0\n0 0\n0 0\n",
+        "output": "0 2\n1 3\n2 4\n3 5\n4 0\n"
+      },
+      {
+        "input": "2\n0 0\n0 0\n",
+        "output": "0 2\n1 0\n"
+      },
+      {
+        "input": "2\n0 2\n1 0\n",
+        "output": "0 2\n1 0\n"
+      },
+      {
+        "input": "5\n5 3\n4 0\n1 4\n3 2\n0 1\n",
+        "output": "5 3\n4 0\n1 4\n3 2\n0 1\n"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "5\n2 0\n0 1\n0 4\n3 5\n4 0\n",
+        "output": "2 3\n0 1\n1 4\n3 5\n4 0\n"
+      },
+      {
+        "input": "5\n3 4\n0 0\n0 1\n1 0\n0 0\n",
+        "output": "3 4\n0 3\n2 1\n1 5\n4 0\n"
+      },
+      {
+        "input": "5\n3 0\n0 0\n0 1\n0 0\n0 0\n",
+        "output": "3 4\n0 3\n2 1\n1 5\n4 0\n"
+      },
+      {
+        "input": "10\n7 5\n5 0\n4 7\n10 3\n1 2\n0 9\n3 1\n9 10\n6 8\n8 4\n",
+        "output": "7 5\n5 0\n4 7\n10 3\n1 2\n0 9\n3 1\n9 10\n6 8\n8 4\n"
+      },
+      {
+        "input": "10\n6 2\n1 0\n9 4\n3 6\n10 8\n4 1\n0 10\n5 0\n0 3\n7 5\n",
+        "output": "6 2\n1 0\n9 4\n3 6\n10 8\n4 1\n0 10\n5 9\n8 3\n7 5\n"
+      },
+      {
+        "input": "10\n0 9\n4 0\n5 0\n7 2\n0 3\n8 10\n0 4\n0 6\n1 0\n6 0\n",
+        "output": "0 9\n4 8\n5 7\n7 2\n9 3\n8 10\n3 4\n2 6\n1 5\n6 0\n"
+      },
+      {
+        "input": "10\n7 0\n0 0\n0 0\n0 0\n0 0\n0 0\n0 1\n0 0\n0 0\n0 0\n",
+        "output": "7 8\n0 3\n2 4\n3 5\n4 6\n5 7\n6 1\n1 9\n8 10\n9 0\n"
+      },
+      {
+        "input": "10\n0 0\n0 0\n0 0\n0 0\n0 0\n0 0\n0 0\n0 0\n0 0\n0 0\n",
+        "output": "0 2\n1 3\n2 4\n3 5\n4 6\n5 7\n6 8\n7 9\n8 10\n9 0\n"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2044",
+    "dataset": "APPS",
+    "source_problem_id": 2044,
+    "source_split": "train",
+    "difficulty": "competition",
+    "question": "Arkady needs your help again! This time he decided to build his own high-speed Internet exchange point. It should consist of n nodes connected with minimum possible number of wires into one network (a wire directly connects two nodes). Exactly k of the nodes should be exit-nodes, that means that each of them should be connected to exactly one other node of the network, while all other nodes should be connected to at least two nodes in order to increase the system stability.\n\nArkady wants to make the system as fast as possible, so he wants to minimize the maximum distance between two exit-nodes. The distance between two nodes is the number of wires a package needs to go through between those two nodes.\n\nHelp Arkady to find such a way to build the network that the distance between the two most distant exit-nodes is as small as possible.\n\n\n-----Input-----\n\nThe first line contains two integers n and k (3 ≤ n ≤ 2·10^5, 2 ≤ k ≤ n - 1) — the total number of nodes and the number of exit-nodes.\n\nNote that it is always possible to build at least one network with n nodes and k exit-nodes within the given constraints.\n\n\n-----Output-----\n\nIn the first line print the minimum possible distance between the two most distant exit-nodes. In each of the next n - 1 lines print two integers: the ids of the nodes connected by a wire. The description of each wire should be printed exactly once. You can print wires and wires' ends in arbitrary order. The nodes should be numbered from 1 to n. Exit-nodes can have any ids.\n\nIf there are multiple answers, print any of them.\n\n\n-----Examples-----\nInput\n3 2\n\nOutput\n2\n1 2\n2 3\n\nInput\n5 3\n\nOutput\n3\n1 2\n2 3\n3 4\n3 5\n\n\n\n-----Note-----\n\nIn the first example the only network is shown on the left picture.\n\nIn the second example one of optimal networks is shown on the right picture.\n\nExit-nodes are highlighted. [Image]",
+    "starter_code": "",
+    "public_tests": [
+      {
+        "input": "3 2\n",
+        "output": "2\n1 2\n2 3\n"
+      },
+      {
+        "input": "5 3\n",
+        "output": "3\n1 2\n2 3\n3 4\n3 5\n"
+      },
+      {
+        "input": "4 2\n",
+        "output": "3\n1 2\n2 3\n3 4\n"
+      },
+      {
+        "input": "4 3\n",
+        "output": "2\n1 2\n2 3\n2 4\n"
+      },
+      {
+        "input": "5 2\n",
+        "output": "4\n1 2\n2 3\n3 4\n4 5\n"
+      },
+      {
+        "input": "5 4\n",
+        "output": "2\n1 2\n2 3\n2 4\n2 5\n"
+      },
+      {
+        "input": "6 2\n",
+        "output": "5\n1 2\n2 3\n3 4\n4 5\n5 6\n"
+      },
+      {
+        "input": "6 3\n",
+        "output": "4\n1 2\n2 3\n3 4\n4 5\n3 6\n"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "6 4\n",
+        "output": "3\n1 2\n2 3\n3 4\n3 5\n3 6\n"
+      },
+      {
+        "input": "6 5\n",
+        "output": "2\n1 2\n2 3\n2 4\n2 5\n2 6\n"
+      },
+      {
+        "input": "7 2\n",
+        "output": "6\n1 2\n2 3\n3 4\n4 5\n5 6\n6 7\n"
+      },
+      {
+        "input": "7 3\n",
+        "output": "4\n1 2\n2 3\n3 4\n4 5\n3 6\n6 7\n"
+      },
+      {
+        "input": "7 4\n",
+        "output": "4\n1 2\n2 3\n3 4\n4 5\n3 6\n3 7\n"
+      },
+      {
+        "input": "7 5\n",
+        "output": "3\n1 2\n2 3\n3 4\n3 5\n3 6\n3 7\n"
+      },
+      {
+        "input": "7 6\n",
+        "output": "2\n1 2\n2 3\n2 4\n2 5\n2 6\n2 7\n"
+      },
+      {
+        "input": "10 6\n",
+        "output": "4\n1 2\n2 3\n3 4\n4 5\n3 6\n6 7\n3 8\n3 9\n3 10\n"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2045",
+    "dataset": "APPS",
+    "source_problem_id": 2045,
+    "source_split": "train",
+    "difficulty": "competition",
+    "question": "Hooray! Berl II, the king of Berland is making a knight tournament. The king has already sent the message to all knights in the kingdom and they in turn agreed to participate in this grand event.\n\nAs for you, you're just a simple peasant. There's no surprise that you slept in this morning and were late for the tournament (it was a weekend, after all). Now you are really curious about the results of the tournament. This time the tournament in Berland went as follows:  There are n knights participating in the tournament. Each knight was assigned his unique number — an integer from 1 to n.  The tournament consisted of m fights, in the i-th fight the knights that were still in the game with numbers at least l_{i} and at most r_{i} have fought for the right to continue taking part in the tournament.  After the i-th fight among all participants of the fight only one knight won — the knight number x_{i}, he continued participating in the tournament. Other knights left the tournament.  The winner of the last (the m-th) fight (the knight number x_{m}) became the winner of the tournament. \n\nYou fished out all the information about the fights from your friends. Now for each knight you want to know the name of the knight he was conquered by. We think that the knight number b was conquered by the knight number a, if there was a fight with both of these knights present and the winner was the knight number a.\n\nWrite the code that calculates for each knight, the name of the knight that beat him.\n\n\n-----Input-----\n\nThe first line contains two integers n, m (2 ≤ n ≤ 3·10^5; 1 ≤ m ≤ 3·10^5) — the number of knights and the number of fights. Each of the following m lines contains three integers l_{i}, r_{i}, x_{i} (1 ≤ l_{i} < r_{i} ≤ n; l_{i} ≤ x_{i} ≤ r_{i}) — the description of the i-th fight.\n\nIt is guaranteed that the input is correct and matches the problem statement. It is guaranteed that at least two knights took part in each battle.\n\n\n-----Output-----\n\nPrint n integers. If the i-th knight lost, then the i-th number should equal the number of the knight that beat the knight number i. If the i-th knight is the winner, then the i-th number must equal 0.\n\n\n-----Examples-----\nInput\n4 3\n1 2 1\n1 3 3\n1 4 4\n\nOutput\n3 1 4 0 \nInput\n8 4\n3 5 4\n3 7 6\n2 8 8\n1 8 1\n\nOutput\n0 8 4 6 4 8 6 1 \n\n\n-----Note-----\n\nConsider the first test case. Knights 1 and 2 fought the first fight and knight 1 won. Knights 1 and 3 fought the second fight and knight 3 won. The last fight was between knights 3 and 4, knight 4 won.",
+    "starter_code": "",
+    "public_tests": [
+      {
+        "input": "4 3\n1 2 1\n1 3 3\n1 4 4\n",
+        "output": "3 1 4 0 "
+      },
+      {
+        "input": "8 4\n3 5 4\n3 7 6\n2 8 8\n1 8 1\n",
+        "output": "0 8 4 6 4 8 6 1 "
+      },
+      {
+        "input": "2 1\n1 2 1\n",
+        "output": "0 1 "
+      },
+      {
+        "input": "2 1\n1 2 2\n",
+        "output": "2 0 "
+      },
+      {
+        "input": "3 1\n1 3 1\n",
+        "output": "0 1 1 "
+      },
+      {
+        "input": "3 1\n1 3 2\n",
+        "output": "2 0 2 "
+      },
+      {
+        "input": "3 1\n1 3 3\n",
+        "output": "3 3 0 "
+      },
+      {
+        "input": "3 2\n1 2 1\n1 3 3\n",
+        "output": "3 1 0 "
+      },
+      {
+        "input": "3 2\n1 2 2\n1 3 2\n",
+        "output": "2 0 2 "
+      },
+      {
+        "input": "3 2\n2 3 3\n1 3 3\n",
+        "output": "3 3 0 "
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "11 6\n1 2 2\n7 8 7\n3 4 4\n6 9 6\n5 10 10\n2 11 11\n",
+        "output": "2 11 4 11 10 10 6 7 6 11 0 "
+      },
+      {
+        "input": "10 6\n9 10 10\n6 7 7\n2 4 2\n2 5 5\n1 7 5\n4 10 8\n",
+        "output": "5 5 2 2 8 7 5 0 10 8 "
+      },
+      {
+        "input": "11 8\n3 5 5\n8 9 9\n4 6 6\n8 10 10\n5 7 7\n2 7 2\n10 11 11\n1 11 1\n",
+        "output": "0 1 5 5 6 7 2 9 10 11 1 "
+      },
+      {
+        "input": "10 7\n7 8 7\n7 9 9\n5 9 5\n5 10 10\n1 2 2\n3 4 4\n2 10 4\n",
+        "output": "2 4 4 0 10 5 9 7 5 4 "
+      },
+      {
+        "input": "11 5\n8 10 9\n6 10 7\n6 11 11\n3 5 5\n1 11 1\n",
+        "output": "0 1 5 5 1 7 11 9 7 9 1 "
+      },
+      {
+        "input": "10 6\n6 7 6\n5 7 5\n3 7 4\n2 8 2\n2 10 10\n1 10 10\n",
+        "output": "10 10 4 2 4 5 6 2 10 0 "
+      },
+      {
+        "input": "11 7\n7 8 8\n5 6 5\n1 3 3\n7 9 9\n5 10 10\n10 11 11\n1 11 4\n",
+        "output": "3 3 4 0 10 5 8 9 10 11 4 "
+      },
+      {
+        "input": "10 7\n8 9 9\n3 4 3\n2 3 2\n1 5 2\n6 7 6\n6 10 10\n1 10 10\n",
+        "output": "2 10 2 3 2 10 6 9 10 0 "
+      },
+      {
+        "input": "11 6\n1 2 1\n8 9 9\n3 5 5\n3 6 6\n9 10 10\n1 11 10\n",
+        "output": "10 1 5 5 6 10 10 9 10 0 10 "
+      },
+      {
+        "input": "10 5\n1 2 1\n8 10 8\n3 6 4\n4 7 7\n1 8 7\n",
+        "output": "7 1 4 7 4 4 0 7 8 8 "
+      },
+      {
+        "input": "4 3\n1 2 2\n1 3 3\n1 4 4\n",
+        "output": "2 3 4 0 "
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2046",
+    "dataset": "APPS",
+    "source_problem_id": 2046,
+    "source_split": "train",
+    "difficulty": "competition",
+    "question": "Farmer John has just given the cows a program to play with! The program contains two integer variables, x and y, and performs the following operations on a sequence a_1, a_2, ..., a_{n} of positive integers:  Initially, x = 1 and y = 0. If, after any step, x ≤ 0 or x > n, the program immediately terminates.  The program increases both x and y by a value equal to a_{x} simultaneously.  The program now increases y by a_{x} while decreasing x by a_{x}.  The program executes steps 2 and 3 (first step 2, then step 3) repeatedly until it terminates (it may never terminate). So, the sequence of executed steps may start with: step 2, step 3, step 2, step 3, step 2 and so on. \n\nThe cows are not very good at arithmetic though, and they want to see how the program works. Please help them!\n\nYou are given the sequence a_2, a_3, ..., a_{n}. Suppose for each i (1 ≤ i ≤ n - 1) we run the program on the sequence i, a_2, a_3, ..., a_{n}. For each such run output the final value of y if the program terminates or -1 if it does not terminate.\n\n\n-----Input-----\n\nThe first line contains a single integer, n (2 ≤ n ≤ 2·10^5). The next line contains n - 1 space separated integers, a_2, a_3, ..., a_{n} (1 ≤ a_{i} ≤ 10^9).\n\n\n-----Output-----\n\nOutput n - 1 lines. On the i-th line, print the requested value when the program is run on the sequence i, a_2, a_3, ...a_{n}.\n\nPlease do not use the %lld specifier to read or write 64-bit integers in С++. It is preferred to use the cin, cout streams or the %I64d specifier.\n\n\n-----Examples-----\nInput\n4\n2 4 1\n\nOutput\n3\n6\n8\n\nInput\n3\n1 2\n\nOutput\n-1\n-1\n\n\n\n-----Note-----\n\nIn the first sample   For i = 1,  x becomes $1 \\rightarrow 2 \\rightarrow 0$ and y becomes 1 + 2 = 3.  For i = 2,  x becomes $1 \\rightarrow 3 \\rightarrow - 1$ and y becomes 2 + 4 = 6.  For i = 3,  x becomes $1 \\rightarrow 4 \\rightarrow 3 \\rightarrow 7$ and y becomes 3 + 1 + 4 = 8.",
+    "starter_code": "",
+    "public_tests": [
+      {
+        "input": "4\n2 4 1\n",
+        "output": "3\n6\n8\n"
+      },
+      {
+        "input": "3\n1 2\n",
+        "output": "-1\n-1\n"
+      },
+      {
+        "input": "5\n2 2 1 3\n",
+        "output": "3\n-1\n-1\n-1\n"
+      },
+      {
+        "input": "2\n1\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "8\n7 6 2 6 2 6 6\n",
+        "output": "8\n8\n12\n10\n-1\n-1\n20\n"
+      },
+      {
+        "input": "8\n4 5 3 2 3 3 3\n",
+        "output": "5\n7\n-1\n-1\n-1\n-1\n-1\n"
+      },
+      {
+        "input": "3\n1 1\n",
+        "output": "-1\n-1\n"
+      },
+      {
+        "input": "5\n3 2 4 2\n",
+        "output": "4\n-1\n7\n-1\n"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "10\n6 7 5 3 1 5 2 4 6\n",
+        "output": "7\n9\n8\n-1\n-1\n-1\n-1\n-1\n-1\n"
+      },
+      {
+        "input": "8\n6 311942309 3 1 3 2 2\n",
+        "output": "7\n311942311\n-1\n311942323\n311942317\n311942321\n12\n"
+      },
+      {
+        "input": "8\n2 3 1 2 2 3 3\n",
+        "output": "3\n5\n-1\n-1\n-1\n-1\n-1\n"
+      },
+      {
+        "input": "6\n2 1 2 2 3\n",
+        "output": "3\n-1\n-1\n-1\n-1\n"
+      },
+      {
+        "input": "23\n20 1 3 3 13 11 9 7 5 3 1 7 2 4 6 8 10 12 14 16 12 5\n",
+        "output": "21\n-1\n-1\n-1\n18\n17\n16\n-1\n26\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n48\n-1\n37\n"
+      },
+      {
+        "input": "71\n28 11 39 275858941 64 69 66 18 468038892 49 47 45 43 41 39 37 35 33 31 29 27 25 23 21 19 17 15 13 11 9 7 5 3 1 25 2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 42 44 46 48 50 701366631 51 25 11 11 49 33 67 43 57\n",
+        "output": "29\n13\n42\n275858945\n69\n75\n73\n26\n468038901\n59\n58\n57\n56\n55\n54\n53\n52\n51\n50\n49\n48\n47\n-1\n-1\n113\n468038935\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n701366692\n-1\n-1\n111\n114\n-1\n-1\n-1\n-1\n-1\n"
+      },
+      {
+        "input": "23\n11 6 21 9 13 11 9 7 5 3 1 8 2 4 6 8 10 12 14 935874687 21 1\n",
+        "output": "12\n8\n24\n13\n18\n17\n16\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n-1\n935874707\n-1\n44\n"
+      },
+      {
+        "input": "71\n2 50 62 41 50 16 65 6 49 47 45 43 41 39 37 35 33 31 29 27 25 23 21 19 17 15 13 11 9 7 5 3 1 26 2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 42 44 46 48 50 14 6 67 54 54 620768469 637608010 27 54 18 49\n",
+        "output": "3\n52\n65\n45\n55\n22\n72\n801\n58\n57\n56\n55\n54\n53\n52\n51\n50\n49\n48\n47\n46\n45\n831\n1067\n87\n1147\n891\n671\n487\n339\n227\n151\n111\n105\n109\n117\n129\n145\n165\n189\n217\n249\n285\n325\n369\n417\n469\n525\n585\n649\n717\n789\n865\n945\n1029\n1117\n1209\n1305\n1405\n543\n109\n129\n1413\n1317\n620768534\n637608076\n843\n973\n121\n515\n"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2047",
+    "dataset": "APPS",
+    "source_problem_id": 2047,
+    "source_split": "train",
+    "difficulty": "competition",
+    "question": "Allen dreams of one day owning a enormous fleet of electric cars, the car of the future! He knows that this will give him a big status boost. As Allen is planning out all of the different types of cars he will own and how he will arrange them, he realizes that he has a problem. \n\nAllen's future parking lot can be represented as a rectangle with $4$ rows and $n$ ($n \\le 50$) columns of rectangular spaces, each of which can contain at most one car at any time. He imagines having $k$ ($k \\le 2n$) cars in the grid, and all the cars are initially in the second and third rows. Each of the cars also has a different designated parking space in the first or fourth row. Allen has to put the cars into corresponding parking places.\n\n [Image] Illustration to the first example. \n\nHowever, since Allen would never entrust his cars to anyone else, only one car can be moved at a time. He can drive a car from a space in any of the four cardinal directions to a neighboring empty space. Furthermore, Allen can only move one of his cars into a space on the first or fourth rows if it is the car's designated parking space. \n\nAllen knows he will be a very busy man, and will only have time to move cars at most $20000$ times before he realizes that moving cars is not worth his time. Help Allen determine if he should bother parking his cars or leave it to someone less important.\n\n\n-----Input-----\n\nThe first line of the input contains two space-separated integers $n$ and $k$ ($1 \\le n \\le 50$, $1 \\le k \\le 2n$), representing the number of columns and the number of cars, respectively.\n\nThe next four lines will contain $n$ integers each between $0$ and $k$ inclusive, representing the initial state of the parking lot. The rows are numbered $1$ to $4$ from top to bottom and the columns are numbered $1$ to $n$ from left to right.\n\nIn the first and last line, an integer $1 \\le x \\le k$ represents a parking spot assigned to car $x$ (you can only move this car to this place), while the integer $0$ represents a empty space (you can't move any car to this place).\n\nIn the second and third line, an integer $1 \\le x \\le k$ represents initial position of car $x$, while the integer $0$ represents an empty space (you can move any car to this place).\n\nEach $x$ between $1$ and $k$ appears exactly once in the second and third line, and exactly once in the first and fourth line.\n\n\n-----Output-----\n\nIf there is a sequence of moves that brings all of the cars to their parking spaces, with at most $20000$ car moves, then print $m$, the number of moves, on the first line. On the following $m$ lines, print the moves (one move per line) in the format $i$ $r$ $c$, which corresponds to Allen moving car $i$ to the neighboring space at row $r$ and column $c$.\n\nIf it is not possible for Allen to move all the cars to the correct spaces with at most $20000$ car moves, print a single line with the integer $-1$.\n\n\n-----Examples-----\nInput\n4 5\n1 2 0 4\n1 2 0 4\n5 0 0 3\n0 5 0 3\n\nOutput\n6\n1 1 1\n2 1 2\n4 1 4\n3 4 4\n5 3 2\n5 4 2\n\nInput\n1 2\n1\n2\n1\n2\n\nOutput\n-1\n\nInput\n1 2\n1\n1\n2\n2\n\nOutput\n2\n1 1 1\n2 4 1\n\n\n\n-----Note-----\n\nIn the first sample test case, all cars are in front of their spots except car $5$, which is in front of the parking spot adjacent. The example shows the shortest possible sequence of moves, but any sequence of length at most $20000$ will be accepted.\n\nIn the second sample test case, there is only one column, and the cars are in the wrong order, so no cars can move and the task is impossible.",
+    "starter_code": "",
+    "public_tests": [
+      {
+        "input": "4 5\n1 2 0 4\n1 2 0 4\n5 0 0 3\n0 5 0 3\n",
+        "output": "6\n1 1 1\n2 1 2\n4 1 4\n3 4 4\n5 3 2\n5 4 2\n"
+      },
+      {
+        "input": "1 2\n1\n2\n1\n2\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "1 2\n1\n1\n2\n2\n",
+        "output": "2\n1 1 1\n2 4 1\n"
+      },
+      {
+        "input": "2 2\n1 0\n0 2\n0 1\n0 2\n",
+        "output": "7\n2 2 1\n1 2 2\n2 3 1\n1 2 1\n2 3 2\n1 1 1\n2 4 2\n"
+      },
+      {
+        "input": "7 14\n2 11 1 14 9 8 5\n12 6 7 1 10 2 3\n14 13 9 8 5 4 11\n13 6 4 3 12 7 10\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "2 1\n0 0\n0 0\n0 1\n0 1\n",
+        "output": "1\n1 4 2\n"
+      },
+      {
+        "input": "2 3\n0 2\n0 1\n3 2\n3 1\n",
+        "output": "7\n1 2 1\n2 2 2\n3 4 1\n1 3 1\n2 1 2\n1 3 2\n1 4 2\n"
+      },
+      {
+        "input": "1 1\n0\n1\n0\n1\n",
+        "output": "2\n1 3 1\n1 4 1\n"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "2 4\n3 4\n2 1\n3 4\n2 1\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "3 5\n2 1 5\n5 3 2\n4 0 1\n0 4 3\n",
+        "output": "18\n4 3 2\n5 3 1\n3 2 1\n2 2 2\n1 2 3\n4 4 2\n5 3 2\n3 3 1\n2 2 1\n1 2 2\n5 3 3\n3 3 2\n2 1 1\n1 1 2\n5 2 3\n3 3 3\n5 1 3\n3 4 3\n"
+      },
+      {
+        "input": "10 1\n0 0 1 0 0 0 0 0 0 0\n0 0 1 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0\n",
+        "output": "1\n1 1 3\n"
+      },
+      {
+        "input": "50 1\n0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n",
+        "output": "34\n1 3 27\n1 3 28\n1 3 29\n1 3 30\n1 3 31\n1 3 32\n1 3 33\n1 3 34\n1 3 35\n1 3 36\n1 3 37\n1 3 38\n1 3 39\n1 3 40\n1 3 41\n1 3 42\n1 3 43\n1 3 44\n1 3 45\n1 3 46\n1 3 47\n1 3 48\n1 3 49\n1 3 50\n1 2 50\n1 2 49\n1 2 48\n1 2 47\n1 2 46\n1 2 45\n1 2 44\n1 2 43\n1 2 42\n1 1 42\n"
+      },
+      {
+        "input": "22 2\n0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0\n0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 2 0 0 0 0\n",
+        "output": "65\n2 2 13\n1 3 21\n2 2 12\n1 3 22\n2 2 11\n1 2 22\n2 2 10\n1 2 21\n2 2 9\n1 2 20\n2 2 8\n1 2 19\n2 2 7\n1 2 18\n2 2 6\n1 2 17\n2 2 5\n1 2 16\n2 2 4\n1 2 15\n2 2 3\n1 2 14\n2 2 2\n1 2 13\n2 2 1\n1 2 12\n2 3 1\n1 2 11\n2 3 2\n1 2 10\n2 3 3\n1 2 9\n2 3 4\n1 2 8\n2 3 5\n1 2 7\n2 3 6\n1 2 6\n2 3 7\n1 2 5\n2 3 8\n1 2 4\n2 3 9\n1 2 3\n2 3 10\n1 2 2\n2 3 11\n1 2 1\n2 3 12\n1 3 1\n2 3 13\n1 3 2\n2 3 14\n1 3 3\n2 3 15\n1 3 4\n2 3 16\n1 3 5\n2 3 17\n1 3 6\n2 3 18\n1 3 7\n2 4 18\n1 3 8\n1 4 8\n"
+      },
+      {
+        "input": "12 3\n0 0 0 0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0 0 0 0\n2 0 0 0 0 3 0 0 0 1 0 0\n0 0 0 0 0 0 0 1 3 0 2 0\n",
+        "output": "38\n1 3 11\n3 3 7\n2 3 2\n1 3 12\n3 3 8\n2 3 3\n1 2 12\n3 3 9\n2 3 4\n1 2 11\n3 4 9\n2 3 5\n1 2 10\n2 3 6\n1 2 9\n2 3 7\n1 2 8\n2 3 8\n1 2 7\n2 3 9\n1 2 6\n2 3 10\n1 2 5\n2 3 11\n1 2 4\n2 4 11\n1 2 3\n1 2 2\n1 2 1\n1 3 1\n1 3 2\n1 3 3\n1 3 4\n1 3 5\n1 3 6\n1 3 7\n1 3 8\n1 4 8\n"
+      },
+      {
+        "input": "10 20\n18 9 4 5 12 14 16 1 15 20\n11 13 16 6 18 5 20 17 4 3\n12 9 15 14 8 10 2 19 1 7\n6 11 13 2 7 19 10 3 8 17\n",
+        "output": "-1\n"
+      },
+      {
+        "input": "15 30\n20 24 17 13 26 8 5 6 27 14 18 22 25 2 15\n4 12 6 25 3 5 28 11 15 21 9 26 7 17 13\n19 20 24 16 2 23 8 29 22 30 1 27 10 14 18\n9 29 3 7 12 28 10 16 23 19 21 1 30 11 4\n",
+        "output": "-1\n"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2048",
+    "dataset": "APPS",
+    "source_problem_id": 2048,
+    "source_split": "train",
+    "difficulty": "competition",
+    "question": "We all know the impressive story of Robin Hood. Robin Hood uses his archery skills and his wits to steal the money from rich, and return it to the poor.\n\nThere are n citizens in Kekoland, each person has c_{i} coins. Each day, Robin Hood will take exactly 1 coin from the richest person in the city and he will give it to the poorest person (poorest person right after taking richest's 1 coin). In case the choice is not unique, he will select one among them at random. Sadly, Robin Hood is old and want to retire in k days. He decided to spend these last days with helping poor people. \n\nAfter taking his money are taken by Robin Hood richest person may become poorest person as well, and it might even happen that Robin Hood will give his money back. For example if all people have same number of coins, then next day they will have same number of coins too. \n\nYour task is to find the difference between richest and poorest persons wealth after k days. Note that the choosing at random among richest and poorest doesn't affect the answer.\n\n\n-----Input-----\n\nThe first line of the input contains two integers n and k (1 ≤ n ≤ 500 000, 0 ≤ k ≤ 10^9) — the number of citizens in Kekoland and the number of days left till Robin Hood's retirement.\n\nThe second line contains n integers, the i-th of them is c_{i} (1 ≤ c_{i} ≤ 10^9) — initial wealth of the i-th person.\n\n\n-----Output-----\n\nPrint a single line containing the difference between richest and poorest peoples wealth.\n\n\n-----Examples-----\nInput\n4 1\n1 1 4 2\n\nOutput\n2\n\nInput\n3 1\n2 2 2\n\nOutput\n0\n\n\n\n-----Note-----\n\nLets look at how wealth changes through day in the first sample.  [1, 1, 4, 2]  [2, 1, 3, 2] or [1, 2, 3, 2] \n\nSo the answer is 3 - 1 = 2\n\nIn second sample wealth will remain the same for each person.",
+    "starter_code": "",
+    "public_tests": [
+      {
+        "input": "4 1\n1 1 4 2\n",
+        "output": "2\n"
+      },
+      {
+        "input": "3 1\n2 2 2\n",
+        "output": "0\n"
+      },
+      {
+        "input": "10 20\n6 4 7 10 4 5 5 3 7 10\n",
+        "output": "1\n"
+      },
+      {
+        "input": "30 7\n3 3 2 2 2 2 3 4 4 5 2 1 1 5 5 3 4 3 2 1 3 4 3 2 2 5 2 5 1 2\n",
+        "output": "2\n"
+      },
+      {
+        "input": "2 0\n182 2\n",
+        "output": "180\n"
+      },
+      {
+        "input": "123 54564\n38 44 41 42 59 3 95 15 45 32 44 69 35 83 94 57 65 85 64 47 24 20 34 86 26 91 98 12 36 96 80 4 70 40 95 38 70 22 58 50 34 84 80 45 14 60 61 43 11 56 19 59 50 63 21 15 97 98 27 13 9 71 32 18 90 10 2 99 75 87 74 83 79 37 89 3 49 27 92 95 49 1 26 50 72 75 81 37 60 98 28 28 10 93 99 63 14 26 69 51 47 59 42 7 20 17 75 44 44 20 44 85 27 32 65 95 47 46 12 22 64 77 21\n",
+        "output": "1\n"
+      },
+      {
+        "input": "111 10\n2 8 6 1 3 5 8 3 8 2 9 9 6 9 8 8 5 2 3 8 8 3 8 3 7 9 4 3 9 7 1 8 3 1 5 5 5 8 2 4 2 7 9 1 4 4 3 1 6 7 7 4 1 3 5 3 9 4 4 4 8 8 7 3 5 6 3 3 8 2 8 4 5 8 1 8 4 1 7 1 4 9 8 9 7 6 5 6 3 7 4 8 9 3 8 9 9 3 5 9 1 3 6 8 9 1 1 3 8 7 6\n",
+        "output": "8\n"
+      },
+      {
+        "input": "10 1000000\n307196 650096 355966 710719 99165 959865 500346 677478 614586 6538\n",
+        "output": "80333\n"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "5 1000000\n145119584 42061308 953418415 717474449 57984109\n",
+        "output": "909357107\n"
+      },
+      {
+        "input": "100 20\n2 5 3 3 2 7 6 2 2 2 6 7 2 1 8 10 2 4 10 6 10 2 1 1 4 7 1 2 9 7 5 3 7 4 6 3 10 10 3 7 6 8 2 2 10 3 1 2 1 3 1 6 3 1 4 10 3 10 9 5 10 4 3 10 3 3 5 3 10 2 1 5 10 7 8 7 7 2 4 2 1 3 3 8 8 5 7 3 1 1 8 10 5 7 4 4 7 7 1 9\n",
+        "output": "7\n"
+      },
+      {
+        "input": "10 1000\n1000000000 999999994 999999992 1000000000 999999994 999999999 999999990 999999997 999999995 1000000000\n",
+        "output": "1\n"
+      },
+      {
+        "input": "2 100000\n1 3\n",
+        "output": "0\n"
+      },
+      {
+        "input": "4 0\n1 4 4 4\n",
+        "output": "3\n"
+      },
+      {
+        "input": "4 42\n1 1 1 1000000000\n",
+        "output": "999999943\n"
+      },
+      {
+        "input": "3 4\n1 2 7\n",
+        "output": "1\n"
+      },
+      {
+        "input": "4 100\n1 1 10 10\n",
+        "output": "1\n"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2049",
+    "dataset": "APPS",
+    "source_problem_id": 2049,
+    "source_split": "train",
+    "difficulty": "competition",
+    "question": "Bob recently read about bitwise operations used in computers: AND, OR and XOR. He have studied their properties and invented a new game.\n\nInitially, Bob chooses integer m, bit depth of the game, which means that all numbers in the game will consist of m bits. Then he asks Peter to choose some m-bit number. After that, Bob computes the values of n variables. Each variable is assigned either a constant m-bit number or result of bitwise operation. Operands of the operation may be either variables defined before, or the number, chosen by Peter. After that, Peter's score equals to the sum of all variable values.\n\nBob wants to know, what number Peter needs to choose to get the minimum possible score, and what number he needs to choose to get the maximum possible score. In both cases, if there are several ways to get the same score, find the minimum number, which he can choose.\n\n\n-----Input-----\n\nThe first line contains two integers n and m, the number of variables and bit depth, respectively (1 ≤ n ≤ 5000; 1 ≤ m ≤ 1000). \n\nThe following n lines contain descriptions of the variables. Each line describes exactly one variable. Description has the following format: name of a new variable, space, sign \":=\", space, followed by one of:  Binary number of exactly m bits.  The first operand, space, bitwise operation (\"AND\", \"OR\" or \"XOR\"), space, the second operand. Each operand is either the name of variable defined before or symbol '?', indicating the number chosen by Peter.  \n\nVariable names are strings consisting of lowercase Latin letters with length at most 10. All variable names are different.\n\n\n-----Output-----\n\nIn the first line output the minimum number that should be chosen by Peter, to make the sum of all variable values minimum possible, in the second line output the minimum number that should be chosen by Peter, to make the sum of all variable values maximum possible. Both numbers should be printed as m-bit binary numbers.\n\n\n-----Examples-----\nInput\n3 3\na := 101\nb := 011\nc := ? XOR b\n\nOutput\n011\n100\n\nInput\n5 1\na := 1\nbb := 0\ncx := ? OR a\nd := ? XOR ?\ne := d AND bb\n\nOutput\n0\n0\n\n\n\n-----Note-----\n\nIn the first sample if Peter chooses a number 011_2, then a = 101_2, b = 011_2, c = 000_2, the sum of their values is 8. If he chooses the number 100_2, then a = 101_2, b = 011_2, c = 111_2, the sum of their values is 15.\n\nFor the second test, the minimum and maximum sum of variables a, bb, cx, d and e is 2, and this sum doesn't depend on the number chosen by Peter, so the minimum Peter can choose is 0.",
+    "starter_code": "",
+    "public_tests": [
+      {
+        "input": "3 3\na := 101\nb := 011\nc := ? XOR b\n",
+        "output": "011\n100\n"
+      },
+      {
+        "input": "5 1\na := 1\nbb := 0\ncx := ? OR a\nd := ? XOR ?\ne := d AND bb\n",
+        "output": "0\n0\n"
+      },
+      {
+        "input": "2 10\nb := 0100101101\na := ? XOR b\n",
+        "output": "0100101101\n1011010010\n"
+      },
+      {
+        "input": "1 10\na := 0110110011\n",
+        "output": "0000000000\n0000000000\n"
+      },
+      {
+        "input": "1 6\na := ? OR ?\n",
+        "output": "000000\n111111\n"
+      },
+      {
+        "input": "13 6\na := 111010\nb := 100100\nc := 001110\nd := b AND b\ne := c AND ?\nf := e OR c\ng := 011110\nh := d XOR ?\ni := 010111\nj := 000011\nk := d OR ?\nl := 011101\nm := b OR j\n",
+        "output": "100000\n011011\n"
+      },
+      {
+        "input": "16 3\na := 011\nb := 110\nc := a XOR b\nd := 110\ne := a XOR b\nf := b XOR a\ng := b XOR e\nh := 111\ni := a XOR h\nj := f XOR ?\nk := 100\nl := 000\nm := 100\nn := 110\no := 110\np := 110\n",
+        "output": "101\n010\n"
+      },
+      {
+        "input": "29 2\naa := 10\nba := 11\nca := 01\nda := aa AND ?\nea := ba OR ?\nfa := da XOR ?\nga := 11\nha := fa XOR ea\nia := 01\nja := ca OR ha\nka := ha XOR ia\nla := ha OR ?\nma := ba AND ba\nna := ma OR ?\noa := 11\npa := oa OR ba\nqa := 00\nra := qa AND ia\nsa := fa OR ?\nta := ha OR ga\nua := 00\nva := 00\nwa := 11\nxa := 10\nya := ja XOR ?\nza := 00\nab := 00\nbb := pa OR qa\ncb := bb AND ?\n",
+        "output": "00\n11\n"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "10 3\na := 011\nb := ? OR a\nc := 000\nd := ? AND c\ne := 101\nf := ? AND e\ng := 001\nh := ? XOR g\ni := 001\nj := ? XOR i\n",
+        "output": "001\n110\n"
+      },
+      {
+        "input": "12 3\na := 101\nb := a XOR ?\nc := b XOR b\nd := b XOR a\ne := c XOR ?\nf := e XOR ?\ng := c XOR f\nh := 100\ni := c XOR h\nj := c XOR i\nk := b XOR ?\nl := 111\n",
+        "output": "000\n111\n"
+      },
+      {
+        "input": "12 14\na := 01100010000111\nb := ? XOR a\nc := 01101111001010\nd := ? XOR c\ne := 10000011101111\nf := ? XOR e\ng := 10100011001010\nh := ? XOR g\ni := 10010110111111\nj := ? XOR i\nk := 10000111110001\nl := ? XOR k\n",
+        "output": "10000011001011\n01011000010000\n"
+      },
+      {
+        "input": "14 8\na := 01010000\nb := 10101111\nc := 01100100\nd := 10011011\ne := 01001100\nf := 10110011\ng := ? XOR a\nh := b XOR ?\ni := ? XOR c\nj := d XOR ?\nk := ? XOR e\nl := f XOR ?\nm := 00101111\nn := ? XOR m\n",
+        "output": "00101111\n11010000\n"
+      },
+      {
+        "input": "14 14\na := 10000100110000\nb := 01111011001111\nc := 11110001111101\nd := 00001110000010\ne := 00111100000010\nf := 11000011111101\ng := ? XOR a\nh := b XOR ?\ni := ? XOR c\nj := d XOR ?\nk := ? XOR e\nl := f XOR ?\nm := 11110011011001\nn := ? XOR m\n",
+        "output": "11110011011001\n00001100100110\n"
+      },
+      {
+        "input": "17 15\na := 010000111111110\nb := 101100110000100\nc := 100101100100111\nd := 010110101110110\ne := 111111000010110\nf := 011001110111110\ng := 110011010100101\nh := 000001010010001\ni := 110000111001011\nj := 000010000010111\nk := 110110111110110\nl := 010000110000100\nm := 000111101101000\nn := 011111011000111\no := 010110110010100\np := 111001110011001\nq := 000100110001000\n",
+        "output": "000000000000000\n000000000000000\n"
+      },
+      {
+        "input": "22 9\na := 100101111\nb := 010001100\nc := b AND b\nd := 111000010\ne := c AND a\nf := a OR e\ng := e AND ?\nh := 000010001\ni := b OR ?\nj := d AND ?\nk := g AND h\nl := 010100000\nm := a AND a\nn := j AND ?\no := m OR n\np := o AND ?\nq := f OR ?\nr := 000011011\ns := 001110011\nt := 100111100\nu := l AND p\nv := g OR h\n",
+        "output": "000000000\n111111111\n"
+      },
+      {
+        "input": "2 109\na := 1010101010100000000000011111111111111111111111111111111111111111111000000000000000000000000000111111111111111\nb := ? XOR a\n",
+        "output": "1010101010100000000000011111111111111111111111111111111111111111111000000000000000000000000000111111111111111\n0101010101011111111111100000000000000000000000000000000000000000000111111111111111111111111111000000000000000\n"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  }
+]

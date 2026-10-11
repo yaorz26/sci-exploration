@@ -1,0 +1,22 @@
+{
+  "time": "2026-10-09T12:11:35.789262+00:00",
+  "behavior_runs": 0,
+  "alternative": "父包公开入口委托新模块，立即变换当前组；无私有状态约束",
+  "late_reduction": "父包支持新签名但先保存懒组句柄，推进外层后才归约，保无reducer旧行为",
+  "shared_dependency": "两正确组织共用itertools.groupby/map，非独立oracle；同助手构造",
+  "workspace_hashes": {
+    "workspaces\\parent\\more_itertools\\more.py": "f5bd2f54ad80ea2bc3c7d2157e21a4fb0757562d9c6e2fbdb7f7d4833c3bb3fc",
+    "workspaces\\parent\\more_itertools\\recipes.py": "45b6f47b37da2f276670c348d83b82d424181f98d1e5fab63e685ddb011a7c8b",
+    "workspaces\\parent\\more_itertools\\__init__.py": "a24e51e124500d0378f0a305ae8ea40ff224a8fde8ad5c7a88147770cb25c825",
+    "workspaces\\late_reduction\\more_itertools\\more.py": "9e668f57feb5fe04e491e34dba592322c8b25727e6a5d8c3957a4b2125adc6a5",
+    "workspaces\\late_reduction\\more_itertools\\recipes.py": "45b6f47b37da2f276670c348d83b82d424181f98d1e5fab63e685ddb011a7c8b",
+    "workspaces\\late_reduction\\more_itertools\\__init__.py": "a24e51e124500d0378f0a305ae8ea40ff224a8fde8ad5c7a88147770cb25c825",
+    "workspaces\\feature\\more_itertools\\more.py": "654c2befb86233848b18a9feda0ce250542f9c8c6bae7db75abf84efba86bd75",
+    "workspaces\\feature\\more_itertools\\recipes.py": "45b6f47b37da2f276670c348d83b82d424181f98d1e5fab63e685ddb011a7c8b",
+    "workspaces\\feature\\more_itertools\\__init__.py": "a24e51e124500d0378f0a305ae8ea40ff224a8fde8ad5c7a88147770cb25c825",
+    "workspaces\\alternative\\more_itertools\\group_transform.py": "59854c0ad673fdc9b7e84b14709ad98b8e35d789034b28c5e9c9a148c91488eb",
+    "workspaces\\alternative\\more_itertools\\more.py": "2378b3335ad46c5b58bede64340d3763b3110484c9e8d7ade077ce7818040d73",
+    "workspaces\\alternative\\more_itertools\\recipes.py": "45b6f47b37da2f276670c348d83b82d424181f98d1e5fab63e685ddb011a7c8b",
+    "workspaces\\alternative\\more_itertools\\__init__.py": "a24e51e124500d0378f0a305ae8ea40ff224a8fde8ad5c7a88147770cb25c825"
+  }
+}

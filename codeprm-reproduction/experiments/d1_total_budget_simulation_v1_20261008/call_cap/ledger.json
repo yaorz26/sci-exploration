@@ -1,0 +1,36 @@
+{
+  "simulated": true,
+  "token_limit": 100,
+  "call_limit": 1,
+  "known_token_spend": 11,
+  "blocked": false,
+  "calls": [
+    {
+      "call_id": "001",
+      "stage": "first",
+      "simulated": true,
+      "prompt_token_upper_bound": 10,
+      "assigned_output_cap": 1,
+      "status": "completed",
+      "cost_status": "known",
+      "request": {
+        "path": "001_request.json",
+        "sha256": "1cdb579d7cd26a5b9eefcf3d9982a75755f62d0424ecaca3985a658c40bf35b8"
+      },
+      "response": {
+        "path": "001_response.json",
+        "sha256": "0ab79ef862748a77d2418dfd71c0261fe18e01c391932edfcb256086af39560a"
+      },
+      "prompt_tokens": 10,
+      "output_tokens": 1,
+      "seconds": 0.00040219999937107787
+    }
+  ],
+  "refusals": [
+    {
+      "stage": "合成阶段",
+      "reason": "调用预算不足",
+      "before_request": true
+    }
+  ]
+}

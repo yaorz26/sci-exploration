@@ -1,0 +1,30 @@
+{
+  "simulated": false,
+  "token_limit": 6500,
+  "call_limit": 1,
+  "known_token_spend": 3570,
+  "blocked": false,
+  "calls": [
+    {
+      "call_id": "001",
+      "stage": "whole",
+      "simulated": false,
+      "prompt_token_upper_bound": 3247,
+      "assigned_output_cap": 2400,
+      "status": "completed",
+      "cost_status": "known",
+      "request": {
+        "path": "001_request.json",
+        "sha256": "6b9a1aebb58f29dc9f194f028bc4be6293dccbd81e6b97de6d407d9fb1f94b3f"
+      },
+      "response": {
+        "path": "001_response.json",
+        "sha256": "10eddded1ccb2be7d84ddec553ecb9d6dfbb38e29654d36e9cf69335dc7dc598"
+      },
+      "prompt_tokens": 3247,
+      "output_tokens": 323,
+      "seconds": 8.83491640000102
+    }
+  ],
+  "refusals": []
+}

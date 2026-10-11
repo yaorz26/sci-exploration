@@ -1,0 +1,14 @@
+[
+  {
+    "case_id": "synthetic_private",
+    "input": {
+      "value": 9,
+      "note": "SECRET_PRIVATE_SENTINEL"
+    },
+    "expected": {
+      "value": {
+        "value": 10
+      }
+    }
+  }
+]

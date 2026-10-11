@@ -1,0 +1,93 @@
+{
+  "results": [
+    {
+      "label": "parent",
+      "app_dir": "D:\\Temp\\d1_confuse_app_a22555ba",
+      "source_file": "D:\\Temp\\d1_confuse_app_a22555ba\\project\\conf\\local.yaml",
+      "cases": [
+        {
+          "name": "default_source",
+          "status": "ok",
+          "resolved": "D:\\Temp\\d1_confuse_app_a22555ba\\assets\\a.txt",
+          "expected_source": "D:\\Temp\\d1_confuse_app_a22555ba\\project\\conf\\assets\\a.txt",
+          "expected_app": "D:\\Temp\\d1_confuse_app_a22555ba\\assets\\a.txt"
+        },
+        {
+          "name": "source_flag",
+          "status": "error",
+          "type": "TypeError",
+          "message": "ConfigSource.__init__() got an unexpected keyword argument 'base_for_paths'"
+        },
+        {
+          "name": "template_source",
+          "status": "error",
+          "type": "TypeError",
+          "message": "Filename.__init__() got an unexpected keyword argument 'in_source_dir'"
+        },
+        {
+          "name": "source_flag_app_override",
+          "status": "error",
+          "type": "TypeError",
+          "message": "ConfigSource.__init__() got an unexpected keyword argument 'base_for_paths'"
+        },
+        {
+          "name": "absolute_path",
+          "status": "ok",
+          "resolved": "D:\\Temp\\d1_confuse_app_a22555ba\\abs\\x"
+        },
+        {
+          "name": "set_file_flag",
+          "status": "error",
+          "type": "TypeError",
+          "message": "Configuration.set_file() got an unexpected keyword argument 'base_for_paths'"
+        }
+      ]
+    },
+    {
+      "label": "merge",
+      "app_dir": "D:\\Temp\\d1_confuse_app_3ovvpbi7",
+      "source_file": "D:\\Temp\\d1_confuse_app_3ovvpbi7\\project\\conf\\local.yaml",
+      "cases": [
+        {
+          "name": "default_source",
+          "status": "ok",
+          "resolved": "D:\\Temp\\d1_confuse_app_3ovvpbi7\\assets\\a.txt",
+          "expected_source": "D:\\Temp\\d1_confuse_app_3ovvpbi7\\project\\conf\\assets\\a.txt",
+          "expected_app": "D:\\Temp\\d1_confuse_app_3ovvpbi7\\assets\\a.txt"
+        },
+        {
+          "name": "source_flag",
+          "status": "ok",
+          "resolved": "D:\\Temp\\d1_confuse_app_3ovvpbi7\\project\\conf\\assets\\a.txt",
+          "expected_source": "D:\\Temp\\d1_confuse_app_3ovvpbi7\\project\\conf\\assets\\a.txt",
+          "expected_app": "D:\\Temp\\d1_confuse_app_3ovvpbi7\\assets\\a.txt"
+        },
+        {
+          "name": "template_source",
+          "status": "ok",
+          "resolved": "D:\\Temp\\d1_confuse_app_3ovvpbi7\\project\\conf\\assets\\a.txt",
+          "expected_source": "D:\\Temp\\d1_confuse_app_3ovvpbi7\\project\\conf\\assets\\a.txt",
+          "expected_app": "D:\\Temp\\d1_confuse_app_3ovvpbi7\\assets\\a.txt"
+        },
+        {
+          "name": "source_flag_app_override",
+          "status": "ok",
+          "resolved": "D:\\Temp\\d1_confuse_app_3ovvpbi7\\assets\\a.txt",
+          "expected_source": "D:\\Temp\\d1_confuse_app_3ovvpbi7\\project\\conf\\assets\\a.txt",
+          "expected_app": "D:\\Temp\\d1_confuse_app_3ovvpbi7\\assets\\a.txt"
+        },
+        {
+          "name": "absolute_path",
+          "status": "ok",
+          "resolved": "D:\\Temp\\d1_confuse_app_3ovvpbi7\\abs\\x"
+        },
+        {
+          "name": "set_file_flag",
+          "status": "ok",
+          "resolved": "D:\\Temp\\d1_confuse_app_3ovvpbi7\\project\\conf\\assets\\a.txt"
+        }
+      ]
+    }
+  ],
+  "test_scope": "public source API only; no upstream tests; no hidden D1 data"
+}

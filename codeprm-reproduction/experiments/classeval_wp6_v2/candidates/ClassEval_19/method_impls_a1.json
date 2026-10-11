@@ -1,0 +1,4 @@
+{
+  "generate_primes": "def generate_primes(self):\n    \"\"\"\n    Generate prime numbers up to the specified limit using the Chandrasekhar sieve algorithm.\n    :return: list, a list of prime numbers\n    >>> cs = ChandrasekharSieve(20)\n    >>> cs.generate_primes()\n    [2, 3, 5, 7, 11, 13, 17, 19]\n    \"\"\"\n    primes = []\n    sieve = [True] * (self.n + 1)\n    for p in range(2, self.n + 1):\n        if sieve[p]:\n            primes.append(p)\n            for i in range(p * p, self.n + 1, p):\n                sieve[i] = False\n    return primes",
+  "get_primes": "def get_primes(self):\n    \"\"\"\n    Get the list of generated prime numbers.\n    :return: list, a list of prime numbers\n    >>> cs = ChandrasekharSieve(20)\n    >>> cs.get_primes()\n    [2, 3, 5, 7, 11, 13, 17, 19]\n    \"\"\"\n    return self.primes"
+}

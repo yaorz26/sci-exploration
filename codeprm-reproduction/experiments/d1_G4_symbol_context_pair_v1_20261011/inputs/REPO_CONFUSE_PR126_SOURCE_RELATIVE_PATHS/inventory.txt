@@ -1,0 +1,5 @@
+confuse/sources.py: class ConfigSource; def __init__(self, value, filename=None, default=False):; def __repr__(self):; @classmethod
+confuse/sources.py: class YamlSource; def __init__(self, filename=None, default=False, optional=False, loader=yaml_util.Loader):; def load(self):
+confuse/templates.py: class Filename; def __init__(self, default=REQUIRED, cwd=None, relative_to=None, in_app_dir=False):; def __repr__(self):; def resolve_relative_to(self, view, template):; def value(self, view, template=None):
+confuse/core.py: def set_file(self, filename):
+confuse/core.py: def set(self, value):

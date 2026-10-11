@@ -1,0 +1,55 @@
+{
+  "number": 440,
+  "title": "Add groupfunc to groupby_transform",
+  "body": "This PR adds the *groupfunc* argument to `groupby_transform`.\r\n\r\nThe docs for `groupby` have this caveat:\r\n> The returned group is itself an iterator that shares the underlying iterable with groupby(). Because the source is shared, when the groupby() object is advanced, the previous group is no longer visible. So, if that data is needed later, it should be stored as a list.\r\n\r\nThis has come up here before, e.g. [issue 307](https://github.com/more-itertools/more-itertools/issues/307#issuecomment-526356782).\r\n\r\nThe `groupby` argument makes it easy to do that `list`-ifying, plus whatever else you might want to do.\r\n\r\n",
+  "html_url": "https://github.com/more-itertools/more-itertools/pull/440",
+  "state": "closed",
+  "merged": true,
+  "merged_at": "2020-07-02T01:22:37Z",
+  "created_at": "2020-06-20T19:10:20Z",
+  "updated_at": "2020-07-02T01:22:41Z",
+  "merge_commit_sha": "78405e9b24d0ccdd67785136ecd56774f38ae95e",
+  "base": {
+    "ref": "master",
+    "sha": "38d070c9252d2138dbd86f8f85b9970741401cb6",
+    "repo": {
+      "full_name": "more-itertools/more-itertools",
+      "html_url": "https://github.com/more-itertools/more-itertools",
+      "default_branch": "master"
+    }
+  },
+  "head": {
+    "ref": "grouby-transform-groupfunc",
+    "sha": "b5d2edc1c96572620dc0c319cffee4c8836c8964",
+    "repo": {
+      "full_name": "more-itertools/more-itertools",
+      "html_url": "https://github.com/more-itertools/more-itertools",
+      "default_branch": "master"
+    }
+  },
+  "user": {
+    "login": "bbayles",
+    "id": 1922815,
+    "node_id": "MDQ6VXNlcjE5MjI4MTU=",
+    "avatar_url": "https://avatars.githubusercontent.com/u/1922815?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/bbayles",
+    "html_url": "https://github.com/bbayles",
+    "followers_url": "https://api.github.com/users/bbayles/followers",
+    "following_url": "https://api.github.com/users/bbayles/following{/other_user}",
+    "gists_url": "https://api.github.com/users/bbayles/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/bbayles/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/bbayles/subscriptions",
+    "organizations_url": "https://api.github.com/users/bbayles/orgs",
+    "repos_url": "https://api.github.com/users/bbayles/repos",
+    "events_url": "https://api.github.com/users/bbayles/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/bbayles/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "changed_files": 3,
+  "additions": 42,
+  "deletions": 35,
+  "commits": 5
+}

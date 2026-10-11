@@ -1,0 +1,163 @@
+[
+  {
+    "id": "B01_expand_input_order",
+    "contract_origin": "另设的强局部序列测试",
+    "necessity_scope": "存在整体合法而局部失败，非任务必要义务",
+    "planned_witness": "逆序展开整体通过且强局部失败",
+    "saved_witness": {
+      "whole_valid_but_strong_local_rejected": [
+        "descending_overlap",
+        "multichar_separators",
+        "zero_and_single_point"
+      ],
+      "count": 3
+    },
+    "evidence_extraction_consistent": true
+  },
+  {
+    "id": "B01_expand_multiset",
+    "contract_origin": "最终升序及重复保留，经固定sorted接口推导",
+    "necessity_scope": "给定本阶段expand整数列表与sorted连接，条件必要充分",
+    "planned_witness": "两合法展开弱契约全过，去重被拒",
+    "saved_witness": {
+      "weak_local_passes_out_of_six": {
+        "input_order": 6,
+        "reversed_order": 6,
+        "deduplicate_wrong": 1
+      },
+      "conditional_entry": "sorted(expand(payload))"
+    },
+    "evidence_extraction_consistent": true
+  },
+  {
+    "id": "B03_original_spans",
+    "contract_origin": "指定原串类别匹配接口及未来单次规则",
+    "necessity_scope": "只条件于这个helper角色/单次语义，非任务唯一表示",
+    "planned_witness": "两合法连接及实际局部span符合",
+    "saved_witness": {
+      "whole_scores": {
+        "short_first": [
+          6,
+          6
+        ],
+        "CSI_first": [
+          6,
+          6
+        ]
+      },
+      "local_matches": [
+        24,
+        24
+      ],
+      "specification_limit": "原B03未显式单次，P56未来候选另存"
+    },
+    "evidence_extraction_consistent": true
+  },
+  {
+    "id": "E_B09_integer_count",
+    "contract_origin": "候选v1公开输出整数声明",
+    "necessity_scope": "候选的最终输出义务，无须指定内部拆法",
+    "planned_witness": "float count原数值比较过而类型门槛拒",
+    "saved_witness": {
+      "row": {
+        "id": "float_count",
+        "input": {
+          "data": [
+            1,
+            1
+          ]
+        },
+        "expected": {
+          "count": 2,
+          "mode": 1
+        },
+        "observed": {
+          "count": 2.0,
+          "mode": 1
+        },
+        "typed_expected": false,
+        "reason": "数量整数声明漂移",
+        "raw_pass": true,
+        "count_only_pass": false,
+        "strict_pass": false,
+        "prediction_matched": true
+      },
+      "public_clause_present": true
+    },
+    "evidence_extraction_consistent": true
+  },
+  {
+    "id": "E_B09_default_type",
+    "contract_origin": "候选v2明确数值类型保持增量",
+    "necessity_scope": "未来v2输出义务，未将v1含义追溯等同v2",
+    "planned_witness": "合法float default严格比较过而同数值int拒",
+    "saved_witness": {
+      "valid": {
+        "id": "valid_float_default",
+        "input": {
+          "data": [],
+          "default": 3.0
+        },
+        "expected": {
+          "count": 0,
+          "mode": 3.0
+        },
+        "observed": {
+          "count": 0,
+          "mode": 3.0
+        },
+        "typed_expected": true,
+        "reason": "合法空浮点default原类型保持",
+        "raw_pass": true,
+        "count_only_pass": true,
+        "strict_pass": true,
+        "prediction_matched": true
+      },
+      "wrong_type": {
+        "id": "int_for_float_default",
+        "input": {
+          "data": [],
+          "default": 3.0
+        },
+        "expected": {
+          "count": 0,
+          "mode": 3.0
+        },
+        "observed": {
+          "count": 0,
+          "mode": 3
+        },
+        "typed_expected": false,
+        "reason": "浮点default被换整数",
+        "raw_pass": true,
+        "count_only_pass": true,
+        "strict_pass": false,
+        "prediction_matched": true
+      },
+      "future_numeric_type_rule": "保持，bool继续独立"
+    },
+    "evidence_extraction_consistent": true
+  },
+  {
+    "id": "E_B10_prefix_EOF",
+    "contract_origin": "两种来源API时机观测与尚未冻结的候选规范",
+    "necessity_scope": "相对已声明feed快照不同，但一般任务必要性未定",
+    "planned_witness": "终值相同/快照不同，且一EOF预期失败",
+    "saved_witness": {
+      "terminal_score": [
+        6,
+        6
+      ],
+      "trace_score": [
+        3,
+        6
+      ],
+      "EOF_prediction_matches": [
+        3,
+        4
+      ],
+      "formal_candidate_frozen": false
+    },
+    "evidence_extraction_consistent": true
+  }
+]

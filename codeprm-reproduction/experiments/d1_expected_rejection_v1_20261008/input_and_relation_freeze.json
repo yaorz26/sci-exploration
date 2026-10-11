@@ -1,0 +1,165 @@
+{
+  "inputs": [
+    {
+      "id": "valid_base",
+      "input": {
+        "value": {
+          "name": "a",
+          "scores": [
+            1
+          ]
+        }
+      },
+      "expected": {
+        "value": {
+          "name": "a",
+          "retries": 3,
+          "scores": [
+            1
+          ],
+          "options": {
+            "mode": "safe",
+            "limit": 10
+          }
+        }
+      }
+    },
+    {
+      "id": "valid_scores_changed",
+      "input": {
+        "value": {
+          "name": "a",
+          "scores": [
+            2.9
+          ]
+        }
+      },
+      "expected": {
+        "value": {
+          "name": "a",
+          "retries": 3,
+          "scores": [
+            2
+          ],
+          "options": {
+            "mode": "safe",
+            "limit": 10
+          }
+        }
+      }
+    },
+    {
+      "id": "rejected_scores_string",
+      "input": {
+        "value": {
+          "name": "a",
+          "scores": [
+            "1"
+          ]
+        }
+      },
+      "expected": {
+        "error": "ValueError"
+      }
+    },
+    {
+      "id": "rejected_options_mode",
+      "input": {
+        "value": {
+          "name": "a",
+          "scores": [
+            1
+          ],
+          "options": {
+            "mode": 1
+          }
+        }
+      },
+      "expected": {
+        "error": "ValueError"
+      }
+    },
+    {
+      "id": "ignored_extra",
+      "input": {
+        "value": {
+          "name": "a",
+          "scores": [
+            1
+          ],
+          "extra": {
+            "scores": [
+              "1"
+            ],
+            "options": {
+              "mode": 1
+            }
+          }
+        }
+      },
+      "expected": {
+        "value": {
+          "name": "a",
+          "retries": 3,
+          "scores": [
+            1
+          ],
+          "options": {
+            "mode": "safe",
+            "limit": 10
+          }
+        }
+      }
+    }
+  ],
+  "relations": [
+    {
+      "id": "valid_other_field_name_isolation",
+      "left": "valid_base",
+      "right": "valid_scores_changed",
+      "expected_semantic_relation": "different",
+      "name_projection_applicable": true,
+      "expected_name_relation": "equal"
+    },
+    {
+      "id": "invalid_scores_blocks_whole_output",
+      "left": "valid_base",
+      "right": "rejected_scores_string",
+      "expected_semantic_relation": "different",
+      "name_projection_applicable": false,
+      "expected_name_relation": null
+    },
+    {
+      "id": "invalid_options_blocks_whole_output",
+      "left": "valid_base",
+      "right": "rejected_options_mode",
+      "expected_semantic_relation": "different",
+      "name_projection_applicable": false,
+      "expected_name_relation": null
+    },
+    {
+      "id": "ignored_field_control",
+      "left": "valid_base",
+      "right": "ignored_extra",
+      "expected_semantic_relation": "equal",
+      "name_projection_applicable": true,
+      "expected_name_relation": "equal"
+    },
+    {
+      "id": "two_valid_rejections_not_name_evidence",
+      "left": "rejected_scores_string",
+      "right": "rejected_options_mode",
+      "expected_semantic_relation": "equal",
+      "name_projection_applicable": false,
+      "expected_name_relation": null
+    }
+  ],
+  "source_hashes": {
+    "data/processed/d1_project_initial20_v5_20261008/public/D1_F04/task.json": "247ff9f1099945f5d73d26dd5e62d248048a9d646ee7a05f419cadb04c062e0b",
+    "data/processed/d1_project_initial20_v5_20261008/private/D1_F04/reference.py": "5b68c216703758fdeab4fd2e996a1bee6ed85b20f9fcf81f32bfc1fc60311461",
+    "data/processed/d1_project_initial20_v5_20261008/private/D1_F04/alternate.py": "6beea3732e40ef82ab7d1c2931972e40550ff1acd4b529d5d46d46f3b6a34006",
+    "data/processed/d1_project_initial20_v5_20261008/private/_curator/task_specs_expansion.py": "b274fb979221df94aa66617a004c86a9c964ea462d545af57048c7f05cb56bdb"
+  },
+  "script_sha256": "ce25e4d284a3ba6c938485b34d40f61e02d458fabf9fb765ba7712d581cfef55",
+  "rule": "仅已手算明确的拒绝按expected_rejection，不把任意异常合法化；拒绝无name值，局部关系不可观测"
+}

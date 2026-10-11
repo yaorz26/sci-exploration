@@ -1,0 +1,12 @@
+# 配置文件来源的相对路径
+
+在给定项目包源码中实现源文件目录相对路径功能，保持现有外部API和默认行为。Python3，依赖PyYAML。通过修改现有项目代码交付功能，不要求特定内部拆法。
+
+1. ConfigSource 和 YamlSource 增加可选参数 base_for_paths，默认False；有filename且该参数为True时，来源的相对路径默认以源文件目录为基准。无filename时该标志无效，路径保留按当前工作目录解析的默认行为。
+2. Filename 增加可选参数 in_source_dir，默认False；有源文件时，该选项明确选择源文件目录。默认情况下来自文件的相对路径继续按应用配置目录解析。
+3. Configuration.set_file 接受可选 base_for_paths 参数，并将该功能用于载入文件的配置源。
+4. 绝对路径保持不变。相对路径优先使用模板 cwd，其次保持现有 relative_to 行为；in_source_dir对有filename的源生效；in_app_dir覆盖源级base_for_paths选项，仍保持现有应用目录行为。没有源文件且没有强制应用目录时，继续使用当前工作目录。
+
+公开例：应用目录为<app>，配置文件为<project>/settings/config.yaml，值为assets/a.txt。默认返回<app>/assets/a.txt；源级base_for_paths=True或模板in_source_dir=True返回<project>/settings/assets/a.txt；源级base_for_paths=True且模板in_app_dir=True返回<app>/assets/a.txt。以上占位符表示测试运行时创建的真实绝对目录；输出使用本机路径形式。
+
+该任务为研究池候选，公开诊断用于说明功能义务。没有正式结构标签、人工双审或模型效果结论。

@@ -1,0 +1,273 @@
+[
+  {
+    "case_id": "public_1",
+    "input": {
+      "value": {
+        "name": "demo",
+        "retries": 2.9,
+        "scores": [
+          1.9,
+          -2.9,
+          true
+        ],
+        "options": {
+          "extra": 7
+        }
+      }
+    },
+    "expected": {
+      "value": {
+        "name": "demo",
+        "retries": 2,
+        "scores": [
+          1,
+          -2,
+          true
+        ],
+        "options": {
+          "mode": "safe",
+          "limit": 10
+        }
+      }
+    }
+  },
+  {
+    "case_id": "public_2",
+    "input": {
+      "value": {
+        "name": "x"
+      },
+      "default_retries": 5
+    },
+    "expected": {
+      "value": {
+        "name": "x",
+        "retries": 5,
+        "scores": [],
+        "options": {
+          "mode": "safe",
+          "limit": 10
+        }
+      }
+    }
+  },
+  {
+    "case_id": "hidden_1",
+    "input": {
+      "value": {}
+    },
+    "expected": {
+      "error": "ValueError"
+    }
+  },
+  {
+    "case_id": "hidden_2",
+    "input": {
+      "value": {
+        "name": null
+      }
+    },
+    "expected": {
+      "error": "ValueError"
+    }
+  },
+  {
+    "case_id": "hidden_3",
+    "input": {
+      "value": {
+        "name": "",
+        "scores": []
+      }
+    },
+    "expected": {
+      "value": {
+        "name": "",
+        "retries": 3,
+        "scores": [],
+        "options": {
+          "mode": "safe",
+          "limit": 10
+        }
+      }
+    }
+  },
+  {
+    "case_id": "hidden_4",
+    "input": {
+      "value": {
+        "name": "x",
+        "retries": "2"
+      }
+    },
+    "expected": {
+      "error": "ValueError"
+    }
+  },
+  {
+    "case_id": "hidden_5",
+    "input": {
+      "value": {
+        "name": "x",
+        "scores": [
+          1,
+          "2"
+        ]
+      }
+    },
+    "expected": {
+      "error": "ValueError"
+    }
+  },
+  {
+    "case_id": "hidden_6",
+    "input": {
+      "value": {
+        "name": "x",
+        "scores": null
+      }
+    },
+    "expected": {
+      "error": "ValueError"
+    }
+  },
+  {
+    "case_id": "hidden_7",
+    "input": {
+      "value": {
+        "name": "x",
+        "options": null
+      }
+    },
+    "expected": {
+      "error": "ValueError"
+    }
+  },
+  {
+    "case_id": "hidden_8",
+    "input": {
+      "value": {
+        "name": "x",
+        "options": {
+          "mode": 1
+        }
+      }
+    },
+    "expected": {
+      "error": "ValueError"
+    }
+  },
+  {
+    "case_id": "hidden_9",
+    "input": {
+      "value": {
+        "name": "x",
+        "options": {
+          "limit": null
+        }
+      }
+    },
+    "expected": {
+      "error": "ValueError"
+    }
+  },
+  {
+    "case_id": "hidden_10",
+    "input": {
+      "value": {
+        "name": "x",
+        "retries": false,
+        "scores": [
+          false,
+          0.0
+        ],
+        "options": {
+          "mode": "",
+          "limit": -1.9
+        }
+      }
+    },
+    "expected": {
+      "value": {
+        "name": "x",
+        "retries": false,
+        "scores": [
+          false,
+          0
+        ],
+        "options": {
+          "mode": "",
+          "limit": -1
+        }
+      }
+    }
+  },
+  {
+    "case_id": "hidden_11",
+    "input": {
+      "value": {
+        "name": "x",
+        "extra": 1,
+        "options": {
+          "mode": "fast",
+          "limit": 2,
+          "extra": 4
+        }
+      }
+    },
+    "expected": {
+      "value": {
+        "name": "x",
+        "retries": 3,
+        "scores": [],
+        "options": {
+          "mode": "fast",
+          "limit": 2
+        }
+      }
+    }
+  },
+  {
+    "case_id": "hidden_12",
+    "input": {
+      "value": {
+        "name": "x",
+        "retries": null
+      }
+    },
+    "expected": {
+      "error": "ValueError"
+    }
+  },
+  {
+    "case_id": "hidden_13",
+    "input": {
+      "value": {
+        "name": "x",
+        "scores": {}
+      }
+    },
+    "expected": {
+      "error": "ValueError"
+    }
+  },
+  {
+    "case_id": "hidden_14",
+    "input": {
+      "value": {
+        "name": "x"
+      },
+      "default_retries": 0
+    },
+    "expected": {
+      "value": {
+        "name": "x",
+        "retries": 0,
+        "scores": [],
+        "options": {
+          "mode": "safe",
+          "limit": 10
+        }
+      }
+    }
+  }
+]

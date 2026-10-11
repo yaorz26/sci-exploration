@@ -1,0 +1,191 @@
+[
+  {
+    "case_id": "baseline_visible",
+    "payload": {
+      "items": [
+        {
+          "group": "a",
+          "value": 3
+        },
+        {
+          "group": "b",
+          "value": 7
+        },
+        {
+          "group": "a",
+          "value": 5
+        },
+        {
+          "group": "b",
+          "value": 9
+        }
+      ],
+      "threshold": 0
+    },
+    "expected": {
+      "groups": [
+        {
+          "group": "a",
+          "normalized": [
+            0,
+            2
+          ],
+          "total": 2
+        },
+        {
+          "group": "b",
+          "normalized": [
+            0,
+            2
+          ],
+          "total": 2
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "same_group_changed",
+    "payload": {
+      "items": [
+        {
+          "group": "a",
+          "value": 1
+        },
+        {
+          "group": "b",
+          "value": 7
+        },
+        {
+          "group": "a",
+          "value": 5
+        },
+        {
+          "group": "b",
+          "value": 9
+        }
+      ],
+      "threshold": 0
+    },
+    "expected": {
+      "groups": [
+        {
+          "group": "a",
+          "normalized": [
+            0,
+            4
+          ],
+          "total": 4
+        },
+        {
+          "group": "b",
+          "normalized": [
+            0,
+            2
+          ],
+          "total": 2
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "baseline_filtered",
+    "payload": {
+      "items": [
+        {
+          "group": "a",
+          "value": 3
+        },
+        {
+          "group": "b",
+          "value": 7
+        },
+        {
+          "group": "a",
+          "value": 5
+        },
+        {
+          "group": "b",
+          "value": 9
+        }
+      ],
+      "threshold": 3
+    },
+    "expected": {
+      "groups": []
+    }
+  },
+  {
+    "case_id": "same_group_filtered",
+    "payload": {
+      "items": [
+        {
+          "group": "a",
+          "value": 1
+        },
+        {
+          "group": "b",
+          "value": 7
+        },
+        {
+          "group": "a",
+          "value": 5
+        },
+        {
+          "group": "b",
+          "value": 9
+        }
+      ],
+      "threshold": 3
+    },
+    "expected": {
+      "groups": [
+        {
+          "group": "a",
+          "normalized": [
+            0,
+            4
+          ],
+          "total": 4
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "empty",
+    "payload": {
+      "items": [],
+      "threshold": 3
+    },
+    "expected": {
+      "groups": []
+    }
+  },
+  {
+    "case_id": "negative_duplicate",
+    "payload": {
+      "items": [
+        {
+          "group": "z",
+          "value": -2
+        },
+        {
+          "group": "z",
+          "value": -2
+        }
+      ],
+      "threshold": 0
+    },
+    "expected": {
+      "groups": [
+        {
+          "group": "z",
+          "normalized": [
+            0,
+            0
+          ],
+          "total": 0
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,285 @@
+{
+  "completed_at": "2026-10-09T06:29:53.139712+00:00",
+  "stage": "D1-P75-value-path-version-tasks",
+  "unique_inputs_added": 0,
+  "public_inputs_reused": 6,
+  "task_diagnostic_records_added": 12,
+  "actual_solve_calls": 24,
+  "passed": 24,
+  "input_unchanged": 24,
+  "by_reference": {
+    "raw_value_new_path/whole": {
+      "passed": 6,
+      "total": 6
+    },
+    "raw_value_new_path/helpers": {
+      "passed": 6,
+      "total": 6
+    },
+    "new_value_raw_path/whole": {
+      "passed": 6,
+      "total": 6
+    },
+    "new_value_raw_path/helpers": {
+      "passed": 6,
+      "total": 6
+    }
+  },
+  "relations": [
+    {
+      "variant": "raw_value_new_path",
+      "reference": "whole",
+      "intervention": "factor",
+      "before": [
+        {
+          "path": [
+            "b"
+          ],
+          "value": 3
+        }
+      ],
+      "after": [
+        {
+          "path": [
+            "b"
+          ],
+          "value": 3
+        }
+      ],
+      "equal": true,
+      "expected_equal": true,
+      "passed": true
+    },
+    {
+      "variant": "raw_value_new_path",
+      "reference": "whole",
+      "intervention": "drop_null",
+      "before": [
+        {
+          "path": [
+            "a",
+            1
+          ],
+          "value": 4
+        }
+      ],
+      "after": [
+        {
+          "path": [
+            "a",
+            0
+          ],
+          "value": 4
+        }
+      ],
+      "equal": false,
+      "expected_equal": false,
+      "passed": true
+    },
+    {
+      "variant": "raw_value_new_path",
+      "reference": "helpers",
+      "intervention": "factor",
+      "before": [
+        {
+          "path": [
+            "b"
+          ],
+          "value": 3
+        }
+      ],
+      "after": [
+        {
+          "path": [
+            "b"
+          ],
+          "value": 3
+        }
+      ],
+      "equal": true,
+      "expected_equal": true,
+      "passed": true
+    },
+    {
+      "variant": "raw_value_new_path",
+      "reference": "helpers",
+      "intervention": "drop_null",
+      "before": [
+        {
+          "path": [
+            "a",
+            1
+          ],
+          "value": 4
+        }
+      ],
+      "after": [
+        {
+          "path": [
+            "a",
+            0
+          ],
+          "value": 4
+        }
+      ],
+      "equal": false,
+      "expected_equal": false,
+      "passed": true
+    },
+    {
+      "variant": "new_value_raw_path",
+      "reference": "whole",
+      "intervention": "factor",
+      "before": [
+        {
+          "path": [
+            "b"
+          ],
+          "value": 3
+        }
+      ],
+      "after": [
+        {
+          "path": [
+            "a",
+            1
+          ],
+          "value": 4
+        },
+        {
+          "path": [
+            "b"
+          ],
+          "value": 6
+        }
+      ],
+      "equal": false,
+      "expected_equal": false,
+      "passed": true
+    },
+    {
+      "variant": "new_value_raw_path",
+      "reference": "whole",
+      "intervention": "drop_null",
+      "before": [
+        {
+          "path": [
+            "a",
+            1
+          ],
+          "value": 4
+        }
+      ],
+      "after": [
+        {
+          "path": [
+            "a",
+            1
+          ],
+          "value": 4
+        }
+      ],
+      "equal": true,
+      "expected_equal": true,
+      "passed": true
+    },
+    {
+      "variant": "new_value_raw_path",
+      "reference": "helpers",
+      "intervention": "factor",
+      "before": [
+        {
+          "path": [
+            "b"
+          ],
+          "value": 3
+        }
+      ],
+      "after": [
+        {
+          "path": [
+            "a",
+            1
+          ],
+          "value": 4
+        },
+        {
+          "path": [
+            "b"
+          ],
+          "value": 6
+        }
+      ],
+      "equal": false,
+      "expected_equal": false,
+      "passed": true
+    },
+    {
+      "variant": "new_value_raw_path",
+      "reference": "helpers",
+      "intervention": "drop_null",
+      "before": [
+        {
+          "path": [
+            "a",
+            1
+          ],
+          "value": 4
+        }
+      ],
+      "after": [
+        {
+          "path": [
+            "a",
+            1
+          ],
+          "value": 4
+        }
+      ],
+      "equal": true,
+      "expected_equal": true,
+      "passed": true
+    }
+  ],
+  "relation_passed": 8,
+  "evidence_matrix": [
+    {
+      "variant": "input",
+      "factor_changes": false,
+      "drop_null_changes": false,
+      "evidence_kind": "保存的新任务输出关系，非模型效应或正式标签"
+    },
+    {
+      "variant": "raw_value_new_path",
+      "factor_changes": false,
+      "drop_null_changes": true,
+      "evidence_kind": "保存的新任务输出关系，非模型效应或正式标签"
+    },
+    {
+      "variant": "new_value_raw_path",
+      "factor_changes": true,
+      "drop_null_changes": false,
+      "evidence_kind": "保存的新任务输出关系，非模型效应或正式标签"
+    },
+    {
+      "variant": "result",
+      "factor_changes": true,
+      "drop_null_changes": true,
+      "evidence_kind": "保存的新任务输出关系，非模型效应或正式标签"
+    }
+  ],
+  "p74_reference_calls": 0,
+  "model_calls": 0,
+  "external_api_calls": 0,
+  "private_reads": 0,
+  "human_reviews": 0,
+  "formal_labels": null,
+  "published": false,
+  "limitations": [
+    "新增两任务并非两个独立家族",
+    "同一助手参考非独立真值",
+    "六锚点非全域",
+    "混合版本真实项目需求与自然性未验证",
+    "不证明模型拆分收益"
+  ]
+}

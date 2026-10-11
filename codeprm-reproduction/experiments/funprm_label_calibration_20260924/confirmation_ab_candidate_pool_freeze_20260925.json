@@ -1,0 +1,48 @@
+{
+  "experiment": "funprm_helperfirst_scale_prm_20260924",
+  "phase": "confirmation_ab_candidate_pool_freeze",
+  "frozen_at": "2026-09-25T22:21:34+08:00",
+  "status": "frozen",
+  "private_program_evaluations_before_freeze": 0,
+  "private_test_executions_before_freeze": 0,
+  "scorer_selections_before_freeze": 0,
+  "pools": {
+    "confirmation_a30": {
+      "run": "confirmation_a30_functionized_qwen25coder_7b_n10_seed20261224_v2",
+      "problems": 30,
+      "candidate_slots": 300,
+      "valid_generations": 243,
+      "unique_valid_programs_within_problem": 239,
+      "evaluation_sha256": "d627bf7370d9371552d1ae7ad32c77f74810443f565e5e7cc68fe04632c50bac",
+      "integrity_audit": "experiments/funprm_label_calibration_20260924/confirmation_a30_v2_integrity_audit_20260925.json",
+      "integrity_status": "pass"
+    },
+    "confirmation_b30": {
+      "run": "confirmation_b30_functionized_qwen25coder_7b_n10_seed20261224_v1",
+      "problems": 30,
+      "candidate_slots": 300,
+      "valid_generations": 238,
+      "unique_valid_programs_within_problem": 236,
+      "evaluation_sha256": "da164fabfeaf114b14ad6862d7eecc08aa0a551a66101bfe1d012e4a63929c71",
+      "integrity_audit": "experiments/funprm_label_calibration_20260924/confirmation_b30_v1_integrity_audit_20260925.json",
+      "integrity_status": "pass"
+    }
+  },
+  "selection_policy": {
+    "adapter_path": "outputs/models/funprm_qwen25coder_7b_generative_helperfirst_scale_v1",
+    "adapter_model_sha256": "195122fea26f60241892061d538814dcbc4af7e7d5e63b7d148c3cebe57c79b6",
+    "model_path": "models/Qwen2.5-Coder-7B-Instruct",
+    "max_length": 768,
+    "aggregation": "mean generative +/- positive probability over cumulative function prefixes",
+    "tie_break": "lowest candidate index",
+    "execution_feedback_used_for_selection": []
+  },
+  "required_order": [
+    "score and freeze A selection without private evaluation",
+    "score and freeze B selection without private evaluation",
+    "verify both frozen selections and their hashes",
+    "run private evaluation for the two frozen selections",
+    "run post-selection private pool oracle for A and B",
+    "apply preregistered split and combined gates"
+  ]
+}

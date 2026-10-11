@@ -1,0 +1,23 @@
+{
+  "status": "targeted_read",
+  "sources": [
+    {
+      "url": "https://github.com/ggml-org/llama.cpp/blob/631109b34/include/llama.h",
+      "file": "llama_matched.h",
+      "read_scope": "model_params、vocab_only、model_load/free、model_get_vocab、tokenize函数签名",
+      "claim": "与本机llama-server --version的commit匹配；C结构80bytes并使用vocab_only=true读词表，不加载权重。"
+    },
+    {
+      "url": "https://github.com/ollama/ollama/blob/main/docs/api.md",
+      "file": "generate.md",
+      "read_scope": "generate的raw、prompt_eval_count、prompt_eval_cached_count、eval_count字段",
+      "claim": "raw=true不再套服务端模板；输入计数含完整提示，输出计数单列。token用量是逻辑口径，不等于实际GPU计算量或墙钟成本。"
+    }
+  ],
+  "limits": "API文档main为访问时快照，以本机0.40.0实测补核；未读完整源码，也不保证其他构建/模型/接口一致。",
+  "identity_checks": [
+    "原生build 631109b34",
+    "本机model digest、DLL sha256核对",
+    "GGUF仅核对位置和size，上游blob digest本次未全文件复算"
+  ]
+}

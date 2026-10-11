@@ -1,0 +1,32 @@
+{
+  "created_at": "2026-10-09T07:08:14.755302+00:00",
+  "stage": "D1-P78-repository-path-context-task",
+  "task_id": "E_C11",
+  "expected_solve_calls": 18,
+  "unique_inputs": 6,
+  "task_records": 6,
+  "public_feature_request": 126,
+  "file_sha256": {
+    "public_diagnostic_anchors.json": "3cd92faf70b39849c802d657f96620c383d47df5c1c11d2becf0267f4f0cf1e9",
+    "candidate/public_examples.json": "979b3ce051fdab94e9c7621d92dc10de7265883c0e3de4e075e7b52a5210368f",
+    "candidate/requirement.md": "5af17f4949e96faddf46912f2ebecb5366113493d2f323dba7fd105c62c78910",
+    "candidate/task.json": "90e6d4554c22f5ca1b1017cfbb8517a90fbbaf025ccd6b1840bc6b409f88409c",
+    "references/helpers.py": "e8c08a9fd5060e10a2755b560c58af912e99ad68bf56a6e631eb8e962f2b9ccf",
+    "references/public_logic_adapter.py": "5f0776b56fce6442544d58365d9ef8e0692045c4b01e063036b13e569792ff12",
+    "references/whole.py": "7b55ccc77f7174a3161616795953b48dd40a44e6afa0be1671e4b577a5c87ebb",
+    "source/LICENSE": "0b308ae66aaa1412ebbe645bec4002fd262d91e9cdf67b6f198026677ddfafcc",
+    "source/confuse/core.py": "487ceea31cd258e7aaf91ab6509b81be0491cfc42d69086bb0c46275c9fc96b3",
+    "source/confuse/exceptions.py": "1617aeb2484f6629cb6c89696c9852558a1a96453b57541afa13e7e752ac3966",
+    "source/confuse/sources.py": "93a31e455cf71901734cd3030ee212d37f55346e49de93163c0e83ff4d7baa43",
+    "source/confuse/templates.py": "3d402899899c4b919bd1692c434a0dc8e1800ffbfbe59b0bb2a8da3cc9b18030",
+    "source/confuse/util.py": "e8868c1dbb37604e543ef279ce3d1e99efd5f101ae55492851ce87f84af155fd",
+    "source/confuse/yaml_util.py": "63795f85bf43a36798106f33df64ae36d363783149df0ff583d9352e5d9a727b",
+    "source/confuse/__init__.py": "f3d4e27ad691c5d9c19600b046ab8bc7c42f7c488ca4fd04c7d3cb8089e21913"
+  },
+  "contract_sha256": "f3a089bae2793d4a28f0441d5bc323926ca5b18344cbd2dcdc239a4a3476cb72",
+  "script_sha256": "d059f838cc69604216df8e1af0e9dcde7c316d666bd821565a6d306523708675",
+  "model_calls": 0,
+  "private_reads": 0,
+  "human_reviews": 0,
+  "formal_labels": null
+}

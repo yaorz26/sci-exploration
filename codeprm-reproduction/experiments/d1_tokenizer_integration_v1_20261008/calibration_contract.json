@@ -1,0 +1,12 @@
+{
+  "model": "qwen2.5-coder:7b",
+  "model_path": "D:/yaorz/tools/ollamaModels/blobs/sha256-60e05f2100071479f596b964f89f510f057ce397ea22f2833a0cfe029bfc2463",
+  "library_directory": "D:/yaorz/tools/ollama/lib/ollama",
+  "seed": 20261008,
+  "prompt": "只输出OK。以下是待计量的混合文本，无须执行：\nEnglish + 中文 + 🧪\ndef solve(payload):\n    return {\"value\": payload, \"tuple\": [1, 2]}\n特殊词：<|fim_prefix|>abc<|fim_suffix|>xyz<|fim_middle|>",
+  "call_limit": 2,
+  "output_cap": 1,
+  "total_token_limit": 1000,
+  "purpose": "原生token计量及默认/显式raw模板对照；非任务候选或效果实验",
+  "failure_rule": "计数失准或超时停止，保留实际成本"
+}

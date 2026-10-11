@@ -1,0 +1,47 @@
+{
+  "method": "top_down_cof",
+  "model": "qwen2.5-coder:7b",
+  "seed": 52,
+  "candidate_budget_per_problem": 2,
+  "per_test_timeout_seconds": 10.0,
+  "candidate_timeout_seconds": null,
+  "private_evaluation_deferred": true,
+  "evaluator_policy": "normalized token comparison; numeric tokens math.isclose(rel_tol=1e-6, abs_tol=1e-6); function outputs literal comparison",
+  "problems": 10,
+  "generation_requests": 20,
+  "valid_generations": 3,
+  "unique_valid_generations": 3,
+  "duplicate_generations": 0,
+  "public_program_evaluations": 3,
+  "public_test_executions": 6,
+  "private_program_evaluations": 0,
+  "private_test_executions": 0,
+  "problems_with_candidate": 2,
+  "selected_public_pass": 1,
+  "selected_private_pass": 0,
+  "model_prompt_tokens": 9984,
+  "model_output_tokens": 5286,
+  "model_reported_seconds": 131.996,
+  "errors": {
+    "function_count_out_of_range": 16,
+    "nested_function_definitions": 3,
+    "invalid syntax (<unknown>, line 1)": 1
+  },
+  "completed_problem_ids": [
+    "apps-train-2651",
+    "apps-train-2652",
+    "apps-train-2653",
+    "apps-train-2654",
+    "apps-train-2655",
+    "apps-train-2656",
+    "apps-train-2657",
+    "apps-train-2658",
+    "apps-train-2660",
+    "apps-train-2661"
+  ],
+  "elapsed_seconds": 132.604,
+  "outputs": {
+    "generations": "data\\processed\\funprm_topdown_smoke10_qwen25coder_7b_n2_seed52_v1_generations.jsonl",
+    "evaluations": "data\\processed\\funprm_topdown_smoke10_qwen25coder_7b_n2_seed52_v1_evaluations.jsonl"
+  }
+}

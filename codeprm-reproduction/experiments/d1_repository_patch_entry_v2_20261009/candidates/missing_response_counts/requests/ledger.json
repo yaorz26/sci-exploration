@@ -1,0 +1,29 @@
+{
+  "simulated": true,
+  "token_limit": 6500,
+  "call_limit": 1,
+  "known_token_spend": 0,
+  "blocked": true,
+  "calls": [
+    {
+      "call_id": "001",
+      "stage": "project_patch",
+      "simulated": true,
+      "prompt_token_upper_bound": 1982,
+      "assigned_output_cap": 4096,
+      "status": "failed",
+      "cost_status": "unknown",
+      "request": {
+        "path": "001_request.json",
+        "sha256": "0942ad3b5bdfef004407d80021bf27ae25cdda14a90feab318fcaf679fd7a58e"
+      },
+      "response": {
+        "path": "001_response.json",
+        "sha256": "2ee6088702d6c3383852fab3ac5c9fed47d70472226bfa1a0fb9f2dfe70a461f"
+      },
+      "error": "ProtocolFailure: 计数缺失或无效，不能用0补填",
+      "seconds": 0.0008242000003519934
+    }
+  ],
+  "refusals": []
+}

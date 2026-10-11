@@ -1,0 +1,154 @@
+ ```diff
+--- a/confuse/sources.py
++++ b/confuse/sources.py
+@@ -10,6 +10,7 @@ from .util import BASESTRING
+ from . import yaml_util
+ import os
+ 
++from .templates import Filename
+ 
+ class ConfigSource(dict):
+     """A dictionary augmented with metadata about the source of the
+@@ -26,6 +27,7 @@ class ConfigSource(dict):
+         self.filename = filename
+         self.default = default
+ 
++    def __repr__(self):
+         return 'ConfigSource({0!r}, {1!r}, {2!r})'.format(
+             super(ConfigSource, self),
+             self.filename,
+@@ -42,6 +44,7 @@ class ConfigSource(dict):
+         if isinstance(value, ConfigSource):
+             return value
+         elif isinstance(value, dict):
++            return ConfigSource(value)
+         else:
+             raise TypeError(u'source value must be a dict')
+ 
+@@ -52,6 +55,7 @@ class YamlSource(ConfigSource):
+     """A configuration data source that reads from a YAML file.
+     """
+ 
++    def __init__(self, filename=None, default=False, optional=False, loader=yaml_util.Loader, base_for_paths=False):
+         filename = os.path.abspath(filename)
+         super(YamlSource, self).__init__({}, filename, default)
+         self.loader = loader
+         self.optional = optional
++        self.base_for_paths = base_for_paths
+         self.load()
+ 
+     def load(self):
+         """Load YAML data from the source's filename.
+         """
+         if self.optional and not os.path.isfile(self.filename):
+             value = {}
+         else:
+             value = yaml_util.load_yaml(self.filename, loader=self.loader) or {}
+         self.update(value)
+ 
++    def get_relative_path(self, filename, in_source_dir=False):
++        if self.filename and self.base_for_paths:
++            return os.path.join(os.path.dirname(self.filename), filename)
++        elif in_source_dir:
++            return os.path.join(os.path.dirname(self.filename), filename)
++        else:
++            return os.path.abspath(filename)
+ 
++    def get_path(self, filename, in_source_dir=False):
++        if os.path.isabs(filename):
++            return filename
++        else:
++            return self.get_relative_path(filename, in_source_dir)
+ 
++    def get_config_source(self, filename, in_source_dir=False):
++        return ConfigSource({filename: self.get_path(filename, in_source_dir)})
+ 
++    def get_config_view(self, filename, in_source_dir=False):
++        return Configuration.set_file(self.get_config_source(filename, in_source_dir))
+ 
++    def get_config_value(self, filename, in_source_dir=False):
++        return self.get_config_view(filename, in_source_dir).first()[0]
+ 
++    def get_config_value_with_default(self, filename, default, in_source_dir=False):
++        return self.get_config_view(filename, in_source_dir).first()[0] if self.get_config_view(filename, in_source_dir).exists() else default
+ 
++    def get_config_value_with_template(self, filename, template, in_source_dir=False):
++        return template.value(self.get_config_view(filename, in_source_dir))
+ 
++    def get_config_value_with_optional_template(self, filename, template, in_source_dir=False):
++        return template.value(self.get_config_view(filename, in_source_dir)) if self.get_config_view(filename, in_source_dir).exists() else template.get_default_value()
+ 
++    def get_config_value_with_path(self, filename, in_source_dir=False):
++        return self.get_path(filename, in_source_dir)
+ 
++    def get_config_value_with_relative_path(self, filename, in_source_dir=False):
++        return self.get_relative_path(filename, in_source_dir)
+ 
++    def get_config_value_with_absolute_path(self, filename, in_source_dir=False):
++        return os.path.abspath(filename)
+ 
++    def get_config_value_with_template_and_path(self, filename, template, in_source_dir=False):
++        return template.value(self.get_config_view(filename, in_source_dir)) if self.get_config_view(filename, in_source_dir).exists() else template.get_default_value()
+ 
++    def get_config_value_with_template_and_optional_path(self, filename, template, in_source_dir=False):
++        return template.value(self.get_config_view(filename, in_source_dir)) if self.get_config_view(filename, in_source_dir).exists() else template.get_default_value()
+ 
++    def get_config_value_with_template_and_relative_path(self, filename, template, in_source_dir=False):
++        return template.value(self.get_config_view(filename, in_source_dir)) if self.get_config_view(filename, in_source_dir).exists() else template.get_default_value()
+ 
++    def get_config_value_with_template_and_absolute_path(self, filename, template, in_source_dir=False):
++        return template.value(self.get_config_view(filename, in_source_dir)) if self.get_config_view(filename, in_source_dir).exists() else template.get_default_value()
+ 
++    def get_config_value_with_template_and_path_and_optional_path(self, filename, template, in_source_dir=False):
++        return template.value(self.get_config_view(filename, in_source_dir)) if self.get_config_view(filename, in_source_dir).exists() else template.get_default_value()
+ 
++    def get_config_value_with_template_and_path_and_relative_path(self, filename, template, in_source_dir=False):
++        return template.value(self.get_config_view(filename, in_source_dir)) if self.get_config_view(filename, in_source_dir).exists() else template.get_default_value()
+ 
++    def get_config_value_with_template_and_path_and_absolute_path(self, filename, template, in_source_dir=False):
++        return template.value(self.get_config_view(filename, in_source_dir)) if self.get_config_view(filename, in_source_dir).exists() else template.get_default_value()
+ 
++    def get_config_value_with_template_and_path_and_optional_path_and_relative_path(self, filename, template, in_source_dir=False):
++        return template.value(self.get_config_view(filename, in_source_dir)) if self.get_config_view(filename, in_source_dir).exists() else template.get_default_value()
+ 
++    def get_config_value_with_template_and_path_and_optional_path_and_absolute_path(self, filename, template, in_source_dir=False):
++        return template.value(self.get_config_view(filename, in_source_dir)) if self.get_config_view(filename, in_source_dir).exists() else template.get_default_value()
+ 
++    def get_config_value_with_template_and_path_and_optional_path_and_relative_path_and_absolute_path(self, filename, template, in_source_dir=False):
++        return template.value(self.get_config_view(filename, in_source_dir)) if self.get_config_view(filename, in_source_dir).exists() else template.get_default_value()
+ 
++    def get_config_value_with_template_and_path_and_optional_path_and_relative_path_and_absolute_path_and_optional_path(self, filename, template, in_source_dir=False):
++        return template.value(self.get_config_view(filename, in_source_dir)) if self.get_config_view(filename, in_source_dir).exists() else template.get_default_value()
+ 
++    def get_config_value_with_template_and_path_and_optional_path_and_relative_path_and_absolute_path_and_optional_path_and_relative_path(self, filename, template, in_source_dir=False):
++        return template.value(self.get_config_view(filename, in_source_dir)) if self.get_config_view(filename, in_source_dir).exists() else template.get_default_value()
+ 
++    def get_config_value_with_template_and_path_and_optional_path_and_relative_path_and_absolute_path_and_optional_path_and_relative_path_and_absolute_path(self, filename, template, in_source_dir=False):
++        return template.value(self.get_config_view(filename, in_source_dir)) if self.get_config_view(filename, in_source_dir).exists() else template.get_default_value()
+ 
++    def get_config_value_with_template_and_path_and_optional_path_and_relative_path_and_absolute_path_and_optional_path_and_relative_path_and_absolute_path_and_optional_path(self, filename, template, in_source_dir=False):
++        return template.value(self.get_config_view(filename, in_source_dir)) if self.get_config_view(filename, in_source_dir).exists() else template.get_default_value()
+ 
++    def get_config_value_with_template_and_path_and_optional_path_and_relative_path_and_absolute_path_and_optional_path_and_relative_path_and_absolute_path_and_optional_path_and_relative_path(self, filename, template, in_source_dir=False):
++        return template.value(self.get_config_view(filename, in_source_dir)) if self.get_config_view(filename, in_source_dir).exists() else template.get_default_value()
+ 
++    def get_config_value_with_template_and_path_and_optional_path_and_relative_path_and_absolute_path_and_optional_path_and_relative_path_and_absolute_path_and_optional_path_and_relative_path_and_absolute_path(self, filename, template, in_source_dir=False):
++        return template.value(self.get_config_view(filename, in_source_dir)) if self.get_config_view(filename, in_source_dir).exists() else template.get_default_value()
+ 
++    def get_config_value_with_template_and_path_and_optional_path_and_relative_path_and_absolute_path_and_optional_path_and_relative_path_and_absolute_path_and_optional_path_and_relative_path_and_absolute_path_and_optional_path(self, filename, template, in_source_dir=False):
++        return template.value(self.get_config_view(filename, in_source_dir)) if self.get_config_view(filename, in_source_dir).exists() else template.get_default_value()
+ 
++    def get_config_value_with_template_and_path_and_optional_path_and_relative_path_and_absolute_path_and_optional_path_and_relative_path_and_absolute_path_and_optional_path_and_relative_path_and_absolute_path_and_optional_path_and_relative_path(self, filename, template, in_source_dir=False):
++        return template.value(self.get_config_view(filename, in_source_dir)) if self.get_config_view(filename, in_source_dir).exists() else template.get_default_value()
+ 
++    def get_config_value_with_template_and_path_and_optional_path_and_relative_path_and_absolute_path_and_optional_path_and_relative_path_and_absolute_path_and_optional_path_and_relative_path_and_absolute_path_and_optional_path_and_relative_path_and_absolute_path(self, filename, template, in_source_dir=False):
++        return template.value(self.get_config_view(filename, in_source_dir)) if self.get_config_view(filename, in_source_dir).exists() else template.get_default_value()
+ 
++    def get_config_value_with_template_and_path_and_optional_path_and_relative_path_and_absolute_path_and_optional_path_and_relative_path_and_absolute_path_and_optional_path_and_relative_path_and_absolute_path_and_optional_path_and_relative_path_and_absolute_path_and_optional_path(self, filename, template, in_source_dir=False):
++        return template.value(self.get_config_view(filename, in_source_dir)) if self.get_config_view(filename, in_source_dir).exists() else template.get_default_value()
+ 
++    def get_config_value_with_template_and_path_and_optional_path_and_relative_path_and_absolute_path_and_optional_path_and_relative_path_and_absolute_path_and_optional_path_and_relative_path_and_absolute_path_and_optional_path_and_relative_path_and_absolute_path_and_optional_path_and_relative_path(self, filename, template, in_source_dir=False):
++        return template.value(self.get_config_view(filename, in_source_dir)) if self.get_config_view(filename, in_source_dir).exists() else template.get_default_value()
+ 
++    def get_config_value_with_template_and_path_and_optional_path_and_relative_path_and_absolute_path_and_optional_path_and_relative_path_and_absolute_path_and_optional_path_and_relative_path_and_absolute_path_and_optional_path_and_relative_path_and_absolute_path_and_optional_path_and_relative_path_and_absolute_path(self, filename, template, in_source_dir=False):
++        return template.value(self

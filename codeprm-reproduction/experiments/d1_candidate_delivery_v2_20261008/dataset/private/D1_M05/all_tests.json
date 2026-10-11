@@ -1,0 +1,358 @@
+[
+  {
+    "case_id": "public_1",
+    "input": {
+      "columns": [
+        [
+          2,
+          1,
+          2
+        ],
+        [
+          "a",
+          "b",
+          "c"
+        ]
+      ]
+    },
+    "expected": {
+      "value": [
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          "b",
+          "a",
+          "c"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "public_2",
+    "input": {
+      "columns": [
+        [
+          1
+        ],
+        []
+      ],
+      "strict": true
+    },
+    "expected": {
+      "error": "ValueError"
+    }
+  },
+  {
+    "case_id": "hidden_1",
+    "input": {
+      "columns": [
+        []
+      ]
+    },
+    "expected": {
+      "value": []
+    }
+  },
+  {
+    "case_id": "hidden_2",
+    "input": {
+      "columns": [
+        [
+          3,
+          1,
+          2
+        ]
+      ]
+    },
+    "expected": {
+      "value": [
+        [
+          1,
+          2,
+          3
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_3",
+    "input": {
+      "columns": [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          "a",
+          "b",
+          "c"
+        ]
+      ],
+      "reverse": true
+    },
+    "expected": {
+      "value": [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          "a",
+          "b",
+          "c"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_4",
+    "input": {
+      "columns": [
+        [
+          2,
+          1,
+          2
+        ],
+        [
+          "b",
+          "z",
+          "a"
+        ],
+        [
+          9,
+          8,
+          7
+        ]
+      ],
+      "keys": [
+        0,
+        1
+      ]
+    },
+    "expected": {
+      "value": [
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          "z",
+          "a",
+          "b"
+        ],
+        [
+          8,
+          7,
+          9
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_5",
+    "input": {
+      "columns": [
+        [
+          2,
+          1
+        ],
+        [
+          "b"
+        ]
+      ]
+    },
+    "expected": {
+      "value": [
+        [
+          2
+        ],
+        [
+          "b"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_6",
+    "input": {
+      "columns": [
+        [],
+        [
+          1
+        ]
+      ]
+    },
+    "expected": {
+      "value": []
+    }
+  },
+  {
+    "case_id": "hidden_7",
+    "input": {
+      "columns": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          0,
+          1,
+          2
+        ]
+      ],
+      "reverse": true
+    },
+    "expected": {
+      "value": [
+        [
+          3,
+          2,
+          1
+        ],
+        [
+          0,
+          1,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_8",
+    "input": {
+      "columns": [
+        [
+          9,
+          8
+        ],
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "keys": [
+        1
+      ],
+      "reverse": true
+    },
+    "expected": {
+      "value": [
+        [
+          8,
+          9
+        ],
+        [
+          "b",
+          "a"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_9",
+    "input": {
+      "columns": [
+        [
+          1,
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "strict": true
+    },
+    "expected": {
+      "error": "ValueError"
+    }
+  },
+  {
+    "case_id": "hidden_10",
+    "input": {
+      "columns": [
+        [
+          2,
+          1
+        ],
+        [
+          {
+            "a": 2
+          },
+          [
+            1
+          ]
+        ]
+      ],
+      "strict": true
+    },
+    "expected": {
+      "value": [
+        [
+          1,
+          2
+        ],
+        [
+          [
+            1
+          ],
+          {
+            "a": 2
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_11",
+    "input": {
+      "columns": [
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          "a",
+          "a",
+          "z"
+        ],
+        [
+          4,
+          5,
+          6
+        ]
+      ],
+      "keys": [
+        0,
+        1
+      ],
+      "reverse": true
+    },
+    "expected": {
+      "value": [
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          "a",
+          "a",
+          "z"
+        ],
+        [
+          4,
+          5,
+          6
+        ]
+      ]
+    }
+  }
+]

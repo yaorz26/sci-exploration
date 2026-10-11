@@ -1,0 +1,26 @@
+{
+  "audit_time": "2026-09-26T16:19:52+08:00",
+  "status": "pass",
+  "oracle_output": "data/processed/funprm_label_calibration_20260924/confirmation_a30_pool_oracle_20260926.json",
+  "oracle_output_sha256": "b3b22501cbcfa3b3062ce18f56e4b6f934aecc0017fe12aa5ee1be5323ee139f",
+  "checks": {
+    "problem_rows": 30,
+    "problem_id_sets_equal": true,
+    "expected_candidate_slots": 243,
+    "actual_candidate_slots": 243,
+    "candidate_count_mismatches": 0,
+    "invalid_private_pass_rates": 0,
+    "invalid_all_pass_rows": 0,
+    "best_candidate_rows_reproduced": true,
+    "reported_metrics_reproduced": true,
+    "selection_private_fields_used": 0
+  },
+  "metrics": {
+    "pool_oracle_all_pass": 6,
+    "pool_oracle_all_pass_rate": 0.2,
+    "pool_oracle_mean_pass_rate": 0.46255185266804405,
+    "frozen_neural_selection_all_pass": 5,
+    "headroom_over_frozen_neural_selection": 1
+  },
+  "interpretation": "A候选池中最多只有6/30题存在全通过候选，冻结评分器选择达到5/30，距离候选池上限1题。该结果仅为选择冻结后的private诊断，不能单独决定最终A/B门槛。"
+}

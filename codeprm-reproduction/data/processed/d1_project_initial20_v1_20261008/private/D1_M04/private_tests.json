@@ -1,0 +1,260 @@
+[
+  {
+    "case_id": "hidden_1",
+    "input": {
+      "items": [],
+      "operations": []
+    },
+    "expected": {
+      "value": []
+    }
+  },
+  {
+    "case_id": "hidden_2",
+    "input": {
+      "items": [
+        {
+          "key": "a",
+          "value": null
+        }
+      ],
+      "operations": [
+        {
+          "op": "contains",
+          "key": "a"
+        },
+        {
+          "op": "next",
+          "key": "a"
+        },
+        {
+          "op": "next",
+          "key": "a"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        true,
+        null,
+        {
+          "error": "StopIteration"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_3",
+    "input": {
+      "items": [
+        {
+          "key": "b",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "b",
+          "value": 3
+        }
+      ],
+      "operations": [
+        {
+          "op": "next",
+          "key": "a"
+        },
+        {
+          "op": "drain",
+          "key": "b"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        2,
+        [
+          1,
+          3
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_4",
+    "input": {
+      "items": [
+        {
+          "key": "a",
+          "value": 1
+        }
+      ],
+      "operations": [
+        {
+          "op": "contains",
+          "key": "a"
+        },
+        {
+          "op": "drain",
+          "key": "a"
+        },
+        {
+          "op": "drain",
+          "key": "a"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        true,
+        [
+          1
+        ],
+        []
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_5",
+    "input": {
+      "items": [
+        {
+          "key": "a",
+          "value": 1
+        }
+      ],
+      "operations": [
+        {
+          "op": "next",
+          "key": "a"
+        },
+        {
+          "op": "contains",
+          "key": "a"
+        }
+      ],
+      "allowed_keys": []
+    },
+    "expected": {
+      "value": [
+        {
+          "error": "StopIteration"
+        },
+        false
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_6",
+    "input": {
+      "items": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "b",
+          "value": 2
+        }
+      ],
+      "operations": [
+        {
+          "op": "drain",
+          "key": "b"
+        },
+        {
+          "op": "drain",
+          "key": "a"
+        }
+      ],
+      "allowed_keys": [
+        "a"
+      ]
+    },
+    "expected": {
+      "value": [
+        [],
+        [
+          1
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_7",
+    "input": {
+      "items": [
+        {
+          "key": "",
+          "value": [
+            1
+          ]
+        },
+        {
+          "key": "",
+          "value": {
+            "x": 2
+          }
+        }
+      ],
+      "operations": [
+        {
+          "op": "contains",
+          "key": ""
+        },
+        {
+          "op": "contains",
+          "key": ""
+        },
+        {
+          "op": "drain",
+          "key": ""
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        true,
+        true,
+        [
+          [
+            1
+          ],
+          {
+            "x": 2
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_8",
+    "input": {
+      "items": [
+        {
+          "key": "a",
+          "value": 1
+        }
+      ],
+      "operations": [
+        {
+          "op": "next",
+          "key": "missing"
+        },
+        {
+          "op": "next",
+          "key": "a"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "error": "StopIteration"
+        },
+        1
+      ]
+    }
+  }
+]

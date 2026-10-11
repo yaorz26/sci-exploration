@@ -1,0 +1,8 @@
+1. **__init__**: 初始化时获取当前时间并存储在 `self.datetime` 中。
+2. **get_current_time**: 使用 `self.datetime` 返回当前时间的字符串表示。
+3. **get_current_date**: 使用 `self.datetime` 返回当前日期的字符串表示。
+4. **add_seconds**: 使用 `self.datetime` 加上指定的秒数，并返回新的时间字符串。
+5. **string_to_datetime**: 将输入的字符串转换为 `datetime` 对象。
+6. **datetime_to_string**: 将输入的 `datetime` 对象转换为字符串。
+7. **get_minutes**: 将两个时间字符串转换为 `datetime` 对象，计算它们之间的时间差，并返回分钟数。
+8. **get_format_time**: 根据输入的年、月、日、时、分、秒创建并返回格式化的时间字符串。

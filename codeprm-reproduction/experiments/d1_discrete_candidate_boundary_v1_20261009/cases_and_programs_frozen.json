@@ -1,0 +1,179 @@
+{
+  "created_at": "2026-10-09T02:33:40.465131+00:00",
+  "cases": [
+    {
+      "case_id": "mixed_integer_first",
+      "input": {
+        "data": [
+          1,
+          "1",
+          1,
+          "1"
+        ]
+      },
+      "expected": {
+        "value": {
+          "count": 4,
+          "mode": 1
+        }
+      },
+      "reason": "整数1和字符串1各两次，整数先出现"
+    },
+    {
+      "case_id": "mixed_string_first",
+      "input": {
+        "data": [
+          "1",
+          1,
+          "1",
+          1
+        ]
+      },
+      "expected": {
+        "value": {
+          "count": 4,
+          "mode": "1"
+        }
+      },
+      "reason": "各两次，字符串先出现"
+    },
+    {
+      "case_id": "empty_bool_default",
+      "input": {
+        "data": [],
+        "default": false
+      },
+      "expected": {
+        "value": {
+          "count": 0,
+          "mode": false
+        }
+      },
+      "reason": "空数量0，众数返回False原类型"
+    },
+    {
+      "case_id": "empty_null_default",
+      "input": {
+        "data": [],
+        "default": null
+      },
+      "expected": {
+        "value": {
+          "count": 0,
+          "mode": null
+        }
+      },
+      "reason": "空数量0，众数返回null"
+    },
+    {
+      "case_id": "empty_string_default",
+      "input": {
+        "data": [],
+        "default": "空"
+      },
+      "expected": {
+        "value": {
+          "count": 0,
+          "mode": "空"
+        }
+      },
+      "reason": "空数量0，众数返回显式字符串"
+    },
+    {
+      "case_id": "single_string",
+      "input": {
+        "data": [
+          "solo"
+        ]
+      },
+      "expected": {
+        "value": {
+          "count": 1,
+          "mode": "solo"
+        }
+      },
+      "reason": "唯一值频数1，无需default"
+    },
+    {
+      "case_id": "reject_bool_item",
+      "input": {
+        "data": [
+          true
+        ]
+      },
+      "expected": {
+        "error": "TypeError"
+      },
+      "reason": "bool虽为int子类，契约要求精确int或str"
+    },
+    {
+      "case_id": "reject_float_item",
+      "input": {
+        "data": [
+          1.0
+        ]
+      },
+      "expected": {
+        "error": "TypeError"
+      },
+      "reason": "浮点元素不在输入域"
+    },
+    {
+      "case_id": "reject_list_item",
+      "input": {
+        "data": [
+          []
+        ]
+      },
+      "expected": {
+        "error": "TypeError"
+      },
+      "reason": "列表元素不在输入域"
+    },
+    {
+      "case_id": "reject_non_list",
+      "input": {
+        "data": "x"
+      },
+      "expected": {
+        "error": "TypeError"
+      },
+      "reason": "data必须是列表"
+    },
+    {
+      "case_id": "reject_missing_data",
+      "input": {},
+      "expected": {
+        "error": "ValueError"
+      },
+      "reason": "缺data按本次显式适配契约拒绝"
+    },
+    {
+      "case_id": "reject_object_default",
+      "input": {
+        "data": [],
+        "default": {}
+      },
+      "expected": {
+        "error": "TypeError"
+      },
+      "reason": "default只允许有限JSON标量"
+    }
+  ],
+  "expected_provenance": "本次执行前逐值解析/显式异常；非人类真值，非参考输出导出",
+  "program_hashes": {
+    "whole": "afb6b27b1058b89faeea7c6027858fe8989ddb934482b46bf9a9c7ff40c603e2",
+    "helpers": "87dfb7eb6e36ff5364a01706b300e547f4debec25494fd6198bbc7f17d1ee403",
+    "source_adapter": "d8246ad07b64fb174925e76660249f78b3c919ffec486d796a409673704addc9"
+  },
+  "comparator_sha256": "8ecaaae3e58c3e4eef67c3bf22fc329c8465c7655c1174a0b1edccefe1df31f8",
+  "source_sha256": "0c4d05a17b14244a880e5047c1823d1e1e522e6c5ee76c6b47f54d8bde791e68",
+  "public_diagnostics_only": true,
+  "budget": {
+    "task_calls": 36,
+    "model_calls": 0,
+    "API_calls": 0,
+    "hidden_reads": 0,
+    "old_case_reruns": 0
+  }
+}

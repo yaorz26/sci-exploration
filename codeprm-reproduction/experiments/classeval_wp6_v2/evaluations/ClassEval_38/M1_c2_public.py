@@ -1,0 +1,270 @@
+import openpyxl
+
+
+class ExcelProcessor:
+    """
+    This is a class for processing excel files, including reading and writing excel data, as well as processing specific operations and saving as a new excel file.
+    """
+
+    def __init__(self):
+        pass
+
+    def read_excel(self, file_name):
+        """
+        Reading data from Excel files
+        :param file_name:str, Excel file name to read
+        :return:list of data, Data in Excel
+        """
+        workbook = openpyxl.load_workbook(file_name)
+        sheet = workbook.active
+        data = []
+        for row in sheet.iter_rows(values_only=True):
+            data.append(row)
+        return data
+
+    def write_excel(self, data, file_name):
+        """
+        Write data to the specified Excel file
+        :param data: list, Data to be written
+        :param file_name: str, Excel file name to write to
+        :return: 0 or 1, 1 represents successful writing, 0 represents failed writing
+        """
+        try:
+            workbook = openpyxl.Workbook()
+            sheet = workbook.active
+            for row in data:
+                sheet.append(row)
+            workbook.save(file_name)
+            return 1
+        except Exception as e:
+            print(f"Error writing to Excel: {e}")
+            return 0
+
+    def process_excel_data(self, N, save_file_name):
+        """
+        Change the specified column in the Excel file to uppercase
+        :param N: int, The serial number of the column that want to change
+        :param save_file_name: str, source file name
+        :return:(int, str), The former is the return value of write_excel, while the latter is the saved file name of the processed data
+        """
+        data = self.read_excel(save_file_name)
+        for row in data[1:]:
+            row[N-1] = row[N-1].upper()
+        result = self.write_excel(data, save_file_name)
+        return result, save_file_name
+
+import unittest
+import os
+
+
+class ExcelProcessorTestReadExcel(unittest.TestCase):
+    def test_read_excel_1(self):
+        self.test_file_name = 'test_data.xlsx'
+        data = [['Name', 'Age', 'Country'],
+                ['John', 25, 'USA'],
+                ['Alice', 30, 'Canada'],
+                ['Bob', 35, 'Australia']]
+        workbook = openpyxl.Workbook()
+        sheet = workbook.active
+        for row in data:
+            sheet.append(row)
+        workbook.save(self.test_file_name)
+        workbook.close()
+
+        processor = ExcelProcessor()
+        data = processor.read_excel(self.test_file_name)
+        expected_data = [
+            ('Name', 'Age', 'Country'),
+            ('John', 25, 'USA'),
+            ('Alice', 30, 'Canada'),
+            ('Bob', 35, 'Australia')
+        ]
+        self.assertEqual(data, expected_data)
+
+    def test_read_excel_2(self):
+        self.test_file_name = 'test_data.xlsx'
+        data = [['Name', 'Age'],
+                ['John', 25],
+                ['Alice', 30],
+                ['Bob', 35]]
+        workbook = openpyxl.Workbook()
+        sheet = workbook.active
+        for row in data:
+            sheet.append(row)
+        workbook.save(self.test_file_name)
+        workbook.close()
+
+        processor = ExcelProcessor()
+        data = processor.read_excel(self.test_file_name)
+        expected_data = [
+            ('Name', 'Age'),
+            ('John', 25),
+            ('Alice', 30),
+            ('Bob', 35)
+        ]
+        self.assertEqual(data, expected_data)
+
+    def test_read_excel_3(self):
+        self.test_file_name = 'test_data.xlsx'
+        data = [['Name'],
+                ['John'],
+                ['Alice'],
+                ['Bob']]
+        workbook = openpyxl.Workbook()
+        sheet = workbook.active
+        for row in data:
+            sheet.append(row)
+        workbook.save(self.test_file_name)
+        workbook.close()
+
+        processor = ExcelProcessor()
+        data = processor.read_excel(self.test_file_name)
+        expected_data = [
+            ('Name',),
+            ('John',),
+            ('Alice',),
+            ('Bob',)
+        ]
+        self.assertEqual(data, expected_data)
+
+    def test_read_excel_4(self):
+        self.test_file_name = 'test_data.xlsx'
+        data = [['Name', 'Country'],
+                ['John', 'USA'],
+                ['Alice', 'Canada'],
+                ['Bob', 'Australia']]
+        workbook = openpyxl.Workbook()
+        sheet = workbook.active
+        for row in data:
+            sheet.append(row)
+        workbook.save(self.test_file_name)
+        workbook.close()
+
+        processor = ExcelProcessor()
+        data = processor.read_excel(self.test_file_name)
+        expected_data = [
+            ('Name', 'Country'),
+            ('John', 'USA'),
+            ('Alice', 'Canada'),
+            ('Bob', 'Australia')
+        ]
+        self.assertEqual(data, expected_data)
+
+    def test_read_excel_5(self):
+        self.test_file_name = 'test_data.xlsx'
+        data = [['Name', 'Country'],
+                ['John', 'USA']]
+        workbook = openpyxl.Workbook()
+        sheet = workbook.active
+        for row in data:
+            sheet.append(row)
+        workbook.save(self.test_file_name)
+        workbook.close()
+
+        processor = ExcelProcessor()
+        data = processor.read_excel(self.test_file_name)
+        expected_data = [
+            ('Name', 'Country'),
+            ('John', 'USA')
+        ]
+        self.assertEqual(data, expected_data)
+
+    def test_read_excel_6(self):
+        self.test_file_name = ''
+        processor = ExcelProcessor()
+        res = processor.read_excel(self.test_file_name)
+        self.assertEqual(res, None)
+
+
+class ExcelProcessorTestWriteExcel(unittest.TestCase):
+    def test_write_excel_1(self):
+        processor = ExcelProcessor()
+        new_data = [
+            ('Name', 'Age', 'Country'),
+            ('John', 25, 'USA'),
+            ('Alice', 30, 'Canada'),
+            ('Bob', 35, 'Australia'),
+            ('Julia', 28, 'Germany')
+        ]
+        save_file_name = 'test_output.xlsx'
+        success = processor.write_excel(new_data, save_file_name)
+        self.assertTrue(success)
+        self.assertTrue(os.path.exists(save_file_name))
+        saved_data = processor.read_excel(save_file_name)
+        self.assertEqual(saved_data, new_data)
+        os.remove(save_file_name)
+
+    def test_write_excel_2(self):
+        processor = ExcelProcessor()
+        new_data = [
+            ('Name', 'Age'),
+            ('John', 25),
+            ('Alice', 30),
+            ('Bob', 35),
+            ('Julia', 28)
+        ]
+        save_file_name = 'test_output.xlsx'
+        success = processor.write_excel(new_data, save_file_name)
+        self.assertTrue(success)
+        self.assertTrue(os.path.exists(save_file_name))
+        saved_data = processor.read_excel(save_file_name)
+        self.assertEqual(saved_data, new_data)
+        os.remove(save_file_name)
+
+    def test_write_excel_3(self):
+        processor = ExcelProcessor()
+        new_data = [
+            ('Name', 'Age', 'Country'),
+            ('John', 25, 'USA'),
+            ('Alice', 30, 'Canada'),
+            ('Bob', 35, 'Australia')
+        ]
+        save_file_name = 'test_output.xlsx'
+        success = processor.write_excel(new_data, save_file_name)
+        self.assertTrue(success)
+        self.assertTrue(os.path.exists(save_file_name))
+        saved_data = processor.read_excel(save_file_name)
+        self.assertEqual(saved_data, new_data)
+        os.remove(save_file_name)
+
+    def test_write_excel_4(self):
+        processor = ExcelProcessor()
+        new_data = [
+            ('Name', 'Age', 'Country'),
+            ('John', 25, 'USA'),
+            ('Alice', 30, 'Canada')
+        ]
+        save_file_name = 'test_output.xlsx'
+        success = processor.write_excel(new_data, save_file_name)
+        self.assertTrue(success)
+        self.assertTrue(os.path.exists(save_file_name))
+        saved_data = processor.read_excel(save_file_name)
+        self.assertEqual(saved_data, new_data)
+        os.remove(save_file_name)
+
+    def test_write_excel_5(self):
+        processor = ExcelProcessor()
+        new_data = [
+            ('Name', 'Age', 'Country'),
+            ('John', 25, 'USA')
+        ]
+        save_file_name = 'test_output.xlsx'
+        success = processor.write_excel(new_data, save_file_name)
+        self.assertTrue(success)
+        self.assertTrue(os.path.exists(save_file_name))
+        saved_data = processor.read_excel(save_file_name)
+        self.assertEqual(saved_data, new_data)
+        os.remove(save_file_name)
+
+    def test_write_excel_6(self):
+        processor = ExcelProcessor()
+        new_data = [
+            ('Name', 'Age', 'Country'),
+            ('John', 25, 'USA')
+        ]
+        save_file_name = ''
+        success = processor.write_excel(new_data, save_file_name)
+        self.assertEqual(success, 0)
+
+if __name__ == '__main__':
+    unittest.main()

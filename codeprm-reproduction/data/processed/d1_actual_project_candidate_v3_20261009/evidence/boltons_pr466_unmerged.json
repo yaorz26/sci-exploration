@@ -1,0 +1,9 @@
+{
+  "number": 466,
+  "title": "Keep text streams usable after reverse iteration",
+  "body": "Reverse iteration detaches the buffer from a caller-owned text stream. This makes later reads and even exiting its `with` block raise `ValueError`. Read from the existing buffer without detaching it.\r\n\r\nAdds a regression that reverses, seeks, reads, and closes the same text stream.\r\n",
+  "html_url": "https://github.com/mahmoud/boltons/pull/466",
+  "merged": false,
+  "merge_commit_sha": "2e8d789cdc8f3b826dcaa0b16fac90901a0899d5",
+  "merged_at": null
+}

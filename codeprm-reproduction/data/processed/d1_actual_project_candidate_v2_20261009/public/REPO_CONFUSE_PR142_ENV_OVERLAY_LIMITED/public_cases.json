@@ -1,0 +1,86 @@
+{
+  "expected_origin": "公开PR义务与手算，未调用合并版本取得答案",
+  "cases": [
+    {
+      "id": "no_matching_environment",
+      "environment": {},
+      "yaml_file": "port: 11\n",
+      "queries": {
+        "port": {
+          "path": [
+            "port"
+          ],
+          "kind": "int"
+        }
+      },
+      "expected": {
+        "port": {
+          "value": 11,
+          "type": "int"
+        }
+      }
+    },
+    {
+      "id": "prefixed_scalar",
+      "environment": {
+        "D1APP_PORT": "42",
+        "D1OTHER_NOISE": "99"
+      },
+      "yaml_file": "{}\n",
+      "queries": {
+        "port": {
+          "path": [
+            "port"
+          ],
+          "kind": "int"
+        },
+        "excluded": {
+          "path": [
+            "noise"
+          ],
+          "kind": "exists"
+        }
+      },
+      "expected": {
+        "port": {
+          "value": 42,
+          "type": "int"
+        },
+        "excluded": false
+      }
+    },
+    {
+      "id": "nested_overlay_and_fallback",
+      "environment": {
+        "D1APP_DB__HOST": "env.local"
+      },
+      "yaml_file": "db:\n  host: file.local\n  timeout: 7\n",
+      "queries": {
+        "host": {
+          "path": [
+            "db",
+            "host"
+          ],
+          "kind": "str"
+        },
+        "timeout": {
+          "path": [
+            "db",
+            "timeout"
+          ],
+          "kind": "int"
+        }
+      },
+      "expected": {
+        "host": {
+          "value": "env.local",
+          "type": "str"
+        },
+        "timeout": {
+          "value": 7,
+          "type": "int"
+        }
+      }
+    }
+  ]
+}

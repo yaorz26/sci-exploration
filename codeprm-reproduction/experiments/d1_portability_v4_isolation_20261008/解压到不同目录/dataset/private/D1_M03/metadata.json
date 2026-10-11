@@ -1,0 +1,50 @@
+{
+  "task_id": "D1_M03",
+  "name": "可回退读取及前缀缓存",
+  "source": {
+    "repository": "more-itertools/more-itertools",
+    "commit": "81c21a8db1c922260cd673841257fb9b112c1318",
+    "license": "MIT",
+    "file": "more_itertools/more.py",
+    "symbol": "seekable",
+    "line": 2988,
+    "source_sha256": "1bdc5f323ea18906436a42268b942d5b4d15ac8b3ff17c1211a59fb192fa068e",
+    "license_sha256": "09f1c8c9e941af3e584d59641ea9b87d83c0cb0fd007eb5ef391a7e2643c1a46",
+    "contamination_risk": "unknown",
+    "additional_symbols": []
+  },
+  "requirement_origin": "上游公开API文档/说明为主，适配器范围与边界补充；已查看实现，需独立泄漏审查",
+  "adaptation": "统一JSON入口和返回值，保留所选功能；不作为完整仓库任务",
+  "split": "reserve",
+  "structure": {
+    "kind": "stateful",
+    "shared_state": "cursor_and_prefix",
+    "dependency_evidence": "读取、窥视、定位共同影响后续读取与已缓存前缀",
+    "independent_test_evidence": "各操作可测，但缓存和游标一致性需操作序列",
+    "status": "单人预标注，尚未取得独立一致性统计"
+  },
+  "function_family": "seekable_iteration",
+  "public_cases": 2,
+  "private_cases": 10,
+  "status": "候选原型，非冻结确认集",
+  "authoring_seed": 20261008,
+  "structure_v2": {
+    "schema_version": "0.2",
+    "cross_operation_state": "operation_sequence",
+    "state_scope": "global",
+    "behavior_dependencies": [
+      "operation_sequence"
+    ],
+    "separate_behavior_testability": "partial",
+    "evidence": "peek、next、seek共同决定后续值和只增缓存",
+    "status": "单人初标；依据外部契约，未取得独立人工一致性统计",
+    "legacy_author_description": {
+      "kind": "stateful",
+      "shared_state": "cursor_and_prefix",
+      "dependency_evidence": "读取、窥视、定位共同影响后续读取与已缓存前缀",
+      "independent_test_evidence": "各操作可测，但缓存和游标一致性需操作序列",
+      "status": "单人预标注，尚未取得独立一致性统计"
+    }
+  },
+  "related_families": []
+}

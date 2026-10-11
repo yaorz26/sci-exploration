@@ -1,0 +1,442 @@
+[
+  {
+    "task_id": "D1_B05",
+    "format": "pretty",
+    "arm": "M0",
+    "representation": "staged_correct",
+    "input_tokens": 530,
+    "visible_output_text_tokens": 238,
+    "visible_text_total": 768,
+    "remaining_at6500": 5732,
+    "smoke_whole512_text_fits": true
+  },
+  {
+    "task_id": "D1_B05",
+    "format": "pretty",
+    "arm": "M0",
+    "representation": "fused_correct",
+    "input_tokens": 530,
+    "visible_output_text_tokens": 219,
+    "visible_text_total": 749,
+    "remaining_at6500": 5751,
+    "smoke_whole512_text_fits": true
+  },
+  {
+    "task_id": "D1_B05",
+    "format": "pretty",
+    "arm": "M2",
+    "representation": "staged_correct",
+    "context": "all_previous",
+    "calls": 4,
+    "input_tokens": 2985,
+    "visible_output_text_tokens": 365,
+    "visible_text_total": 3350,
+    "remaining_at6500": 3150,
+    "each_text_fits_P9_smoke_cap": true,
+    "each_input_plus_text_within8192": true,
+    "stage_counts": [
+      {
+        "stage": "plan",
+        "input_tokens": 572,
+        "visible_output_text_tokens": 127,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "_transform",
+        "input_tokens": 732,
+        "visible_output_text_tokens": 97,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "_select",
+        "input_tokens": 824,
+        "visible_output_text_tokens": 93,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 857,
+        "visible_output_text_tokens": 48,
+        "P9_smoke_output_cap": 512,
+        "visible_text_fits_smoke_cap": true
+      }
+    ]
+  },
+  {
+    "task_id": "D1_B05",
+    "format": "pretty",
+    "arm": "M2",
+    "representation": "staged_correct",
+    "context": "only_referenced_symbols",
+    "calls": 4,
+    "input_tokens": 2888,
+    "visible_output_text_tokens": 365,
+    "visible_text_total": 3253,
+    "remaining_at6500": 3247,
+    "each_text_fits_P9_smoke_cap": true,
+    "each_input_plus_text_within8192": true,
+    "stage_counts": [
+      {
+        "stage": "plan",
+        "input_tokens": 572,
+        "visible_output_text_tokens": 127,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "_transform",
+        "input_tokens": 732,
+        "visible_output_text_tokens": 97,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "_select",
+        "input_tokens": 727,
+        "visible_output_text_tokens": 93,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 857,
+        "visible_output_text_tokens": 48,
+        "P9_smoke_output_cap": 512,
+        "visible_text_fits_smoke_cap": true
+      }
+    ]
+  },
+  {
+    "task_id": "D1_B05",
+    "format": "compact",
+    "arm": "M0",
+    "representation": "staged_correct",
+    "input_tokens": 394,
+    "visible_output_text_tokens": 238,
+    "visible_text_total": 632,
+    "remaining_at6500": 5868,
+    "smoke_whole512_text_fits": true
+  },
+  {
+    "task_id": "D1_B05",
+    "format": "compact",
+    "arm": "M0",
+    "representation": "fused_correct",
+    "input_tokens": 394,
+    "visible_output_text_tokens": 219,
+    "visible_text_total": 613,
+    "remaining_at6500": 5887,
+    "smoke_whole512_text_fits": true
+  },
+  {
+    "task_id": "D1_B05",
+    "format": "compact",
+    "arm": "M2",
+    "representation": "staged_correct",
+    "context": "all_previous",
+    "calls": 4,
+    "input_tokens": 2441,
+    "visible_output_text_tokens": 365,
+    "visible_text_total": 2806,
+    "remaining_at6500": 3694,
+    "each_text_fits_P9_smoke_cap": true,
+    "each_input_plus_text_within8192": true,
+    "stage_counts": [
+      {
+        "stage": "plan",
+        "input_tokens": 436,
+        "visible_output_text_tokens": 127,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "_transform",
+        "input_tokens": 596,
+        "visible_output_text_tokens": 97,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "_select",
+        "input_tokens": 688,
+        "visible_output_text_tokens": 93,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 721,
+        "visible_output_text_tokens": 48,
+        "P9_smoke_output_cap": 512,
+        "visible_text_fits_smoke_cap": true
+      }
+    ]
+  },
+  {
+    "task_id": "D1_B05",
+    "format": "compact",
+    "arm": "M2",
+    "representation": "staged_correct",
+    "context": "only_referenced_symbols",
+    "calls": 4,
+    "input_tokens": 2344,
+    "visible_output_text_tokens": 365,
+    "visible_text_total": 2709,
+    "remaining_at6500": 3791,
+    "each_text_fits_P9_smoke_cap": true,
+    "each_input_plus_text_within8192": true,
+    "stage_counts": [
+      {
+        "stage": "plan",
+        "input_tokens": 436,
+        "visible_output_text_tokens": 127,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "_transform",
+        "input_tokens": 596,
+        "visible_output_text_tokens": 97,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "_select",
+        "input_tokens": 591,
+        "visible_output_text_tokens": 93,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 721,
+        "visible_output_text_tokens": 48,
+        "P9_smoke_output_cap": 512,
+        "visible_text_fits_smoke_cap": true
+      }
+    ]
+  },
+  {
+    "task_id": "D1_C03",
+    "format": "pretty",
+    "arm": "M0",
+    "representation": "staged_correct",
+    "input_tokens": 719,
+    "visible_output_text_tokens": 209,
+    "visible_text_total": 928,
+    "remaining_at6500": 5572,
+    "smoke_whole512_text_fits": true
+  },
+  {
+    "task_id": "D1_C03",
+    "format": "pretty",
+    "arm": "M0",
+    "representation": "records_correct",
+    "input_tokens": 719,
+    "visible_output_text_tokens": 175,
+    "visible_text_total": 894,
+    "remaining_at6500": 5606,
+    "smoke_whole512_text_fits": true
+  },
+  {
+    "task_id": "D1_C03",
+    "format": "pretty",
+    "arm": "M2",
+    "representation": "staged_correct",
+    "context": "all_previous",
+    "calls": 4,
+    "input_tokens": 3439,
+    "visible_output_text_tokens": 319,
+    "visible_text_total": 3758,
+    "remaining_at6500": 2742,
+    "each_text_fits_P9_smoke_cap": true,
+    "each_input_plus_text_within8192": true,
+    "stage_counts": [
+      {
+        "stage": "plan",
+        "input_tokens": 761,
+        "visible_output_text_tokens": 110,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "_call_key",
+        "input_tokens": 899,
+        "visible_output_text_tokens": 18,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "_compute",
+        "input_tokens": 905,
+        "visible_output_text_tokens": 16,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 874,
+        "visible_output_text_tokens": 175,
+        "P9_smoke_output_cap": 512,
+        "visible_text_fits_smoke_cap": true
+      }
+    ]
+  },
+  {
+    "task_id": "D1_C03",
+    "format": "pretty",
+    "arm": "M2",
+    "representation": "staged_correct",
+    "context": "only_referenced_symbols",
+    "calls": 4,
+    "input_tokens": 3421,
+    "visible_output_text_tokens": 319,
+    "visible_text_total": 3740,
+    "remaining_at6500": 2760,
+    "each_text_fits_P9_smoke_cap": true,
+    "each_input_plus_text_within8192": true,
+    "stage_counts": [
+      {
+        "stage": "plan",
+        "input_tokens": 761,
+        "visible_output_text_tokens": 110,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "_call_key",
+        "input_tokens": 899,
+        "visible_output_text_tokens": 18,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "_compute",
+        "input_tokens": 887,
+        "visible_output_text_tokens": 16,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 874,
+        "visible_output_text_tokens": 175,
+        "P9_smoke_output_cap": 512,
+        "visible_text_fits_smoke_cap": true
+      }
+    ]
+  },
+  {
+    "task_id": "D1_C03",
+    "format": "compact",
+    "arm": "M0",
+    "representation": "staged_correct",
+    "input_tokens": 495,
+    "visible_output_text_tokens": 209,
+    "visible_text_total": 704,
+    "remaining_at6500": 5796,
+    "smoke_whole512_text_fits": true
+  },
+  {
+    "task_id": "D1_C03",
+    "format": "compact",
+    "arm": "M0",
+    "representation": "records_correct",
+    "input_tokens": 495,
+    "visible_output_text_tokens": 175,
+    "visible_text_total": 670,
+    "remaining_at6500": 5830,
+    "smoke_whole512_text_fits": true
+  },
+  {
+    "task_id": "D1_C03",
+    "format": "compact",
+    "arm": "M2",
+    "representation": "staged_correct",
+    "context": "all_previous",
+    "calls": 4,
+    "input_tokens": 2543,
+    "visible_output_text_tokens": 319,
+    "visible_text_total": 2862,
+    "remaining_at6500": 3638,
+    "each_text_fits_P9_smoke_cap": true,
+    "each_input_plus_text_within8192": true,
+    "stage_counts": [
+      {
+        "stage": "plan",
+        "input_tokens": 537,
+        "visible_output_text_tokens": 110,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "_call_key",
+        "input_tokens": 675,
+        "visible_output_text_tokens": 18,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "_compute",
+        "input_tokens": 681,
+        "visible_output_text_tokens": 16,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 650,
+        "visible_output_text_tokens": 175,
+        "P9_smoke_output_cap": 512,
+        "visible_text_fits_smoke_cap": true
+      }
+    ]
+  },
+  {
+    "task_id": "D1_C03",
+    "format": "compact",
+    "arm": "M2",
+    "representation": "staged_correct",
+    "context": "only_referenced_symbols",
+    "calls": 4,
+    "input_tokens": 2525,
+    "visible_output_text_tokens": 319,
+    "visible_text_total": 2844,
+    "remaining_at6500": 3656,
+    "each_text_fits_P9_smoke_cap": true,
+    "each_input_plus_text_within8192": true,
+    "stage_counts": [
+      {
+        "stage": "plan",
+        "input_tokens": 537,
+        "visible_output_text_tokens": 110,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "_call_key",
+        "input_tokens": 675,
+        "visible_output_text_tokens": 18,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "_compute",
+        "input_tokens": 663,
+        "visible_output_text_tokens": 16,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "entry",
+        "input_tokens": 650,
+        "visible_output_text_tokens": 175,
+        "P9_smoke_output_cap": 512,
+        "visible_text_fits_smoke_cap": true
+      }
+    ]
+  }
+]

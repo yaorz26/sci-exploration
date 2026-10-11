@@ -1,0 +1,56 @@
+[
+  {
+    "case_id": "public_1",
+    "input": {
+      "sources": [
+        {
+          "a": 1,
+          "x": {
+            "p": 2
+          }
+        },
+        {
+          "a": 9,
+          "b": 3,
+          "x": {
+            "q": 4
+          }
+        }
+      ]
+    },
+    "expected": {
+      "value": {
+        "a": 1,
+        "x": {
+          "p": 2,
+          "q": 4
+        },
+        "b": 3
+      }
+    }
+  },
+  {
+    "case_id": "public_2",
+    "input": {
+      "sources": [
+        {
+          "x": {
+            "a": 1
+          }
+        },
+        {
+          "x": 0,
+          "z": null
+        }
+      ]
+    },
+    "expected": {
+      "value": {
+        "x": {
+          "a": 1
+        },
+        "z": null
+      }
+    }
+  }
+]

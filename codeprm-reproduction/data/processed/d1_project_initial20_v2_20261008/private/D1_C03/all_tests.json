@@ -1,0 +1,475 @@
+[
+  {
+    "case_id": "public_1",
+    "input": {
+      "capacity": 1,
+      "operations": [
+        {
+          "op": "call",
+          "args": [
+            2
+          ],
+          "kwargs": {
+            "b": 3
+          }
+        },
+        {
+          "op": "call",
+          "args": [
+            2
+          ],
+          "kwargs": {
+            "b": 3
+          }
+        },
+        {
+          "op": "clear"
+        },
+        {
+          "op": "call",
+          "args": [
+            2
+          ],
+          "kwargs": {
+            "b": 3
+          }
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": 5,
+          "computations": 1,
+          "size": 1
+        },
+        {
+          "result": 5,
+          "computations": 1,
+          "size": 1
+        },
+        {
+          "result": null,
+          "computations": 1,
+          "size": 0
+        },
+        {
+          "result": 5,
+          "computations": 2,
+          "size": 1
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "public_2",
+    "input": {
+      "capacity": 0,
+      "operations": [
+        {
+          "op": "call"
+        },
+        {
+          "op": "call"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": 0,
+          "computations": 1,
+          "size": 0
+        },
+        {
+          "result": 0,
+          "computations": 2,
+          "size": 0
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_1",
+    "input": {
+      "capacity": 2,
+      "operations": []
+    },
+    "expected": {
+      "value": []
+    }
+  },
+  {
+    "case_id": "hidden_2",
+    "input": {
+      "capacity": 2,
+      "operations": [
+        {
+          "op": "call",
+          "kwargs": {
+            "a": 1,
+            "b": 2
+          }
+        },
+        {
+          "op": "call",
+          "kwargs": {
+            "b": 2,
+            "a": 1
+          }
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": 3,
+          "computations": 1,
+          "size": 1
+        },
+        {
+          "result": 3,
+          "computations": 1,
+          "size": 1
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_3",
+    "input": {
+      "capacity": 2,
+      "operations": [
+        {
+          "op": "call",
+          "args": [
+            1
+          ]
+        },
+        {
+          "op": "call",
+          "kwargs": {
+            "x": 1
+          }
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": 1,
+          "computations": 1,
+          "size": 1
+        },
+        {
+          "result": 1,
+          "computations": 2,
+          "size": 2
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_4",
+    "input": {
+      "capacity": 2,
+      "operations": [
+        {
+          "op": "call",
+          "args": [
+            1
+          ]
+        },
+        {
+          "op": "call",
+          "args": [
+            2
+          ]
+        },
+        {
+          "op": "call",
+          "args": [
+            1
+          ]
+        },
+        {
+          "op": "call",
+          "args": [
+            3
+          ]
+        },
+        {
+          "op": "call",
+          "args": [
+            2
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": 1,
+          "computations": 1,
+          "size": 1
+        },
+        {
+          "result": 2,
+          "computations": 2,
+          "size": 2
+        },
+        {
+          "result": 1,
+          "computations": 2,
+          "size": 2
+        },
+        {
+          "result": 3,
+          "computations": 3,
+          "size": 2
+        },
+        {
+          "result": 2,
+          "computations": 4,
+          "size": 2
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_5",
+    "input": {
+      "capacity": 1,
+      "operations": [
+        {
+          "op": "call",
+          "args": [
+            1,
+            2
+          ]
+        },
+        {
+          "op": "call",
+          "args": [
+            2,
+            1
+          ]
+        },
+        {
+          "op": "call",
+          "args": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": 3,
+          "computations": 1,
+          "size": 1
+        },
+        {
+          "result": 3,
+          "computations": 2,
+          "size": 1
+        },
+        {
+          "result": 3,
+          "computations": 3,
+          "size": 1
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_6",
+    "input": {
+      "capacity": 0,
+      "operations": [
+        {
+          "op": "call",
+          "args": [
+            0
+          ]
+        },
+        {
+          "op": "call",
+          "args": [
+            0
+          ]
+        },
+        {
+          "op": "clear"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": 0,
+          "computations": 1,
+          "size": 0
+        },
+        {
+          "result": 0,
+          "computations": 2,
+          "size": 0
+        },
+        {
+          "result": null,
+          "computations": 2,
+          "size": 0
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_7",
+    "input": {
+      "capacity": 2,
+      "operations": [
+        {
+          "op": "clear"
+        },
+        {
+          "op": "call",
+          "args": [
+            -2,
+            5
+          ]
+        },
+        {
+          "op": "clear"
+        },
+        {
+          "op": "clear"
+        },
+        {
+          "op": "call",
+          "args": [
+            -2,
+            5
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": null,
+          "computations": 0,
+          "size": 0
+        },
+        {
+          "result": 3,
+          "computations": 1,
+          "size": 1
+        },
+        {
+          "result": null,
+          "computations": 1,
+          "size": 0
+        },
+        {
+          "result": null,
+          "computations": 1,
+          "size": 0
+        },
+        {
+          "result": 3,
+          "computations": 2,
+          "size": 1
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_8",
+    "input": {
+      "capacity": 2,
+      "operations": [
+        {
+          "op": "call"
+        },
+        {
+          "op": "call",
+          "args": [],
+          "kwargs": {}
+        },
+        {
+          "op": "call",
+          "kwargs": {
+            "a": 0
+          }
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": 0,
+          "computations": 1,
+          "size": 1
+        },
+        {
+          "result": 0,
+          "computations": 1,
+          "size": 1
+        },
+        {
+          "result": 0,
+          "computations": 2,
+          "size": 2
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_9",
+    "input": {
+      "capacity": 1,
+      "operations": [
+        {
+          "op": "call",
+          "kwargs": {
+            "x": 1
+          }
+        },
+        {
+          "op": "call",
+          "kwargs": {
+            "y": 1
+          }
+        },
+        {
+          "op": "call",
+          "kwargs": {
+            "x": 1
+          }
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": 1,
+          "computations": 1,
+          "size": 1
+        },
+        {
+          "result": 1,
+          "computations": 2,
+          "size": 1
+        },
+        {
+          "result": 1,
+          "computations": 3,
+          "size": 1
+        }
+      ]
+    }
+  }
+]

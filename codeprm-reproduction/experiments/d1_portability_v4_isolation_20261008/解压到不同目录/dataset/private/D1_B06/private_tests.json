@@ -1,0 +1,259 @@
+[
+  {
+    "case_id": "hidden_1",
+    "input": {
+      "tree": [],
+      "queries": []
+    },
+    "expected": {
+      "value": []
+    }
+  },
+  {
+    "case_id": "hidden_2",
+    "input": {
+      "tree": [
+        1,
+        2
+      ],
+      "queries": [
+        {
+          "path": [
+            -1
+          ]
+        },
+        {
+          "path": [
+            "-2"
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        2,
+        1
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_3",
+    "input": {
+      "tree": {
+        "x": null
+      },
+      "queries": [
+        {
+          "path": [
+            "x"
+          ]
+        },
+        {
+          "path": [
+            "x",
+            "y"
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        null,
+        {
+          "error": "missing"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_4",
+    "input": {
+      "tree": {
+        "0": 5
+      },
+      "queries": [
+        {
+          "path": [
+            "0"
+          ]
+        },
+        {
+          "path": [
+            0
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        5,
+        {
+          "error": "missing"
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_5",
+    "input": {
+      "tree": [
+        1
+      ],
+      "queries": [
+        {
+          "path": [
+            "bad"
+          ]
+        },
+        {
+          "path": [
+            5
+          ],
+          "default": null
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "error": "missing"
+        },
+        null
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_6",
+    "input": {
+      "tree": {
+        "a": []
+      },
+      "queries": [
+        {
+          "path": [
+            "a",
+            0
+          ],
+          "default": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        [
+          1,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_7",
+    "input": {
+      "tree": {
+        "x": 4
+      },
+      "queries": [
+        {
+          "path": [
+            "x",
+            0
+          ],
+          "default": "missing"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        "missing"
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_8",
+    "input": {
+      "tree": [
+        {
+          "a": {
+            "b": 3
+          }
+        }
+      ],
+      "queries": [
+        {
+          "path": [
+            0,
+            "a",
+            "b"
+          ]
+        },
+        {
+          "path": [
+            0,
+            "a"
+          ]
+        },
+        {
+          "path": []
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        3,
+        {
+          "b": 3
+        },
+        [
+          {
+            "a": {
+              "b": 3
+            }
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_9",
+    "input": {
+      "tree": {
+        "a": [
+          1
+        ]
+      },
+      "queries": [
+        {
+          "path": [
+            "a",
+            0
+          ]
+        },
+        {
+          "path": [
+            "a",
+            0
+          ]
+        },
+        {
+          "path": [
+            "a",
+            -2
+          ]
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        1,
+        1,
+        {
+          "error": "missing"
+        }
+      ]
+    }
+  }
+]

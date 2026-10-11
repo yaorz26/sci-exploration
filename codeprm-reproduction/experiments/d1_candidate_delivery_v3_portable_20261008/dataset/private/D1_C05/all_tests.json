@@ -1,0 +1,359 @@
+[
+  {
+    "case_id": "public_1",
+    "input": {
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ],
+        [
+          {
+            "kwargs": {
+              "a": 1,
+              "b": 2
+            }
+          },
+          {
+            "kwargs": {
+              "b": 2,
+              "a": 1
+            }
+          }
+        ]
+      ]
+    },
+    "expected": {
+      "value": [
+        true,
+        true
+      ]
+    }
+  },
+  {
+    "case_id": "public_2",
+    "input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              true
+            ]
+          }
+        ],
+        [
+          {},
+          {}
+        ]
+      ]
+    },
+    "expected": {
+      "value": [
+        false,
+        true
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_1",
+    "input": {
+      "pairs": [],
+      "typed": false
+    },
+    "expected": {
+      "value": []
+    }
+  },
+  {
+    "case_id": "hidden_2",
+    "input": {
+      "pairs": [
+        [
+          {
+            "args": [
+              1,
+              2
+            ]
+          },
+          {
+            "args": [
+              2,
+              1
+            ]
+          }
+        ]
+      ],
+      "typed": false
+    },
+    "expected": {
+      "value": [
+        false
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_3",
+    "input": {
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "kwargs": {
+              "x": 1
+            }
+          }
+        ]
+      ],
+      "typed": false
+    },
+    "expected": {
+      "value": [
+        false
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_4",
+    "input": {
+      "pairs": [
+        [
+          {
+            "kwargs": {
+              "x": 1
+            }
+          },
+          {
+            "kwargs": {
+              "y": 1
+            }
+          }
+        ]
+      ],
+      "typed": false
+    },
+    "expected": {
+      "value": [
+        false
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_5",
+    "input": {
+      "pairs": [
+        [
+          {
+            "args": [
+              null,
+              "1"
+            ]
+          },
+          {
+            "args": [
+              null,
+              1
+            ]
+          }
+        ]
+      ],
+      "typed": false
+    },
+    "expected": {
+      "value": [
+        false
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_6",
+    "input": {
+      "pairs": [
+        [
+          {
+            "kwargs": {
+              "x": 1
+            }
+          },
+          {
+            "kwargs": {
+              "x": 1.0
+            }
+          }
+        ]
+      ],
+      "typed": true
+    },
+    "expected": {
+      "value": [
+        false
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_7",
+    "input": {
+      "pairs": [
+        [
+          {
+            "args": [
+              false
+            ]
+          },
+          {
+            "args": [
+              0.0
+            ]
+          }
+        ]
+      ],
+      "typed": false
+    },
+    "expected": {
+      "value": [
+        true
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_8",
+    "input": {
+      "pairs": [
+        [
+          {
+            "args": [
+              false
+            ]
+          },
+          {
+            "args": [
+              0.0
+            ]
+          }
+        ]
+      ],
+      "typed": true
+    },
+    "expected": {
+      "value": [
+        false
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_9",
+    "input": {
+      "pairs": [
+        [
+          {
+            "args": [
+              0
+            ]
+          },
+          {
+            "args": []
+          }
+        ]
+      ],
+      "typed": false
+    },
+    "expected": {
+      "value": [
+        false
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_10",
+    "input": {
+      "pairs": [
+        [
+          {
+            "kwargs": {
+              "x": true
+            }
+          },
+          {
+            "kwargs": {
+              "x": 1
+            }
+          }
+        ]
+      ],
+      "typed": false
+    },
+    "expected": {
+      "value": [
+        true
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_11",
+    "input": {
+      "pairs": [
+        [
+          {},
+          {
+            "args": [],
+            "kwargs": {}
+          }
+        ]
+      ],
+      "typed": true
+    },
+    "expected": {
+      "value": [
+        true
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_12",
+    "input": {
+      "pairs": [
+        [
+          {
+            "args": [
+              "你好"
+            ],
+            "kwargs": {
+              "a": null
+            }
+          },
+          {
+            "args": [
+              "你好"
+            ],
+            "kwargs": {
+              "a": null
+            }
+          }
+        ]
+      ],
+      "typed": true
+    },
+    "expected": {
+      "value": [
+        true
+      ]
+    }
+  }
+]

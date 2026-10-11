@@ -1,0 +1,18 @@
+{
+  "dataset": "FudanSELab/ClassEval",
+  "license": "MIT",
+  "raw_file_sha256": "ac2f490a8fa0ca63d8b6d166821ca430a382dc04611209e2067a2714cc89df2a",
+  "usable_tasks": 91,
+  "excluded_tasks": 9,
+  "layer_counts_usable": {
+    "boundary": 25,
+    "negative": 11,
+    "reserve_only": 23,
+    "target": 32
+  },
+  "outputs": {
+    "tasks_public.jsonl": "6a9e37c30b0b1add6213db6faabb40daf145c5d262a2ed4762fa14eb09c370c4",
+    "private_tests.jsonl": "3c398f227e8f7004cd0e78001b3ff4921b89d195bfcafb85de738904e7ab8236",
+    "excluded_tasks.json": "ef47a3473547c8c16913606d0f4d10672c1fd28824bea0ca1b039dacd3f6c15d"
+  }
+}

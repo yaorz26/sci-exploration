@@ -1,0 +1,86 @@
+{
+  "task_id": "D1_M03",
+  "requirement": "实现solve(payload)。items为有限JSON列表，逻辑位置初始0，已缓存前缀初始空。operations顺序执行：next返回当前位置项并前进，末尾返回{error:'StopIteration'}；peek返回下一项但位置不变，末尾返回default（若提供）或上述错误；两种成功读取均将该项及之前的前缀计入缓存。seek(index)跳到非负index，越过末尾则停在末尾，同时缓存跳过的全部前缀；relative_seek(offset)相对当前位置移动，负目的地截到0，超过末尾截到末尾；定位的result为null。elements返回当前缓存。缓存只增长不缩小，回退不丢缓存。每步返回{result,cache}的快照，错误不终止后续操作。只用标准库，内部结构自由。",
+  "entry_point": "solve(payload)",
+  "language": "Python",
+  "allowed_libraries": "仅Python标准库",
+  "public_examples": [
+    {
+      "input": {
+        "items": [
+          1,
+          2
+        ],
+        "operations": [
+          {
+            "op": "peek"
+          },
+          {
+            "op": "next"
+          },
+          {
+            "op": "seek",
+            "index": 0
+          },
+          {
+            "op": "next"
+          }
+        ]
+      },
+      "output": [
+        {
+          "result": 1,
+          "cache": [
+            1
+          ]
+        },
+        {
+          "result": 1,
+          "cache": [
+            1
+          ]
+        },
+        {
+          "result": null,
+          "cache": [
+            1
+          ]
+        },
+        {
+          "result": 1,
+          "cache": [
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "input": {
+        "items": [],
+        "operations": [
+          {
+            "op": "next"
+          },
+          {
+            "op": "peek",
+            "default": "end"
+          }
+        ]
+      },
+      "output": [
+        {
+          "result": {
+            "error": "StopIteration"
+          },
+          "cache": []
+        },
+        {
+          "result": "end",
+          "cache": []
+        }
+      ]
+    }
+  ],
+  "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。",
+  "internal_decomposition": "自由选择，不给定helper名称或数量"
+}

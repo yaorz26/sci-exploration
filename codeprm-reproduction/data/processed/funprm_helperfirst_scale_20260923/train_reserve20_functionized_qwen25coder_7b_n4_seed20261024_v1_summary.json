@@ -1,0 +1,44 @@
+{
+  "method": "functionized",
+  "model": "qwen2.5-coder:7b",
+  "seed": 20261024,
+  "candidate_budget_per_problem": 4,
+  "per_test_timeout_seconds": 10.0,
+  "candidate_timeout_seconds": 30.0,
+  "private_evaluation_deferred": true,
+  "evaluator_policy": "normalized token comparison; numeric tokens math.isclose(rel_tol=1e-6, abs_tol=1e-6); function outputs literal comparison",
+  "problems": 20,
+  "generation_requests": 24,
+  "valid_generations": 15,
+  "unique_valid_generations": 15,
+  "duplicate_generations": 0,
+  "public_program_evaluations": 15,
+  "public_test_executions": 48,
+  "private_program_evaluations": 0,
+  "private_test_executions": 0,
+  "problems_with_candidate": 6,
+  "selected_public_pass": 4,
+  "selected_private_pass": 0,
+  "model_prompt_tokens": 9188,
+  "model_output_tokens": 2650,
+  "model_reported_seconds": 63.477,
+  "errors": {
+    "nested_function_definitions": 8,
+    "function_count_out_of_range": 4,
+    "signature_mismatch": 1
+  },
+  "completed_problem_ids": [
+    "apps-train-2950",
+    "apps-train-2951",
+    "apps-train-2952",
+    "apps-train-2953",
+    "apps-train-2954",
+    "apps-train-2955"
+  ],
+  "elapsed_seconds": 66.081,
+  "outputs": {
+    "generations": "data\\processed\\funprm_helperfirst_scale_20260923\\train_reserve20_functionized_qwen25coder_7b_n4_seed20261024_v1_generations.jsonl",
+    "evaluations": "data\\processed\\funprm_helperfirst_scale_20260923\\train_reserve20_functionized_qwen25coder_7b_n4_seed20261024_v1_evaluations.jsonl"
+  },
+  "stopped_after_candidate_problem_target": 6
+}

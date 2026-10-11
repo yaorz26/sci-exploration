@@ -1,0 +1,73 @@
+{
+  "audit_time": "2026-09-26T18:54:44+08:00",
+  "status": "pass",
+  "final_gate_output": "data/processed/funprm_label_calibration_20260924/confirmation_ab_final_gate_20260926.json",
+  "final_gate_output_sha256": "54ba1b4bbc0f09c087d402d23441e026eb5ecccb7ecf52fe934cd3b192de3ec6",
+  "frozen_gate_script_sha256": "19f465415fe1f36b3e9354588b7d199cc427999472e9386afd3db4b94b9786a6",
+  "checks": {
+    "gate_script_matches_freeze": true,
+    "input_hashes_match_recorded_outputs": true,
+    "problem_rows": 60,
+    "split_a_rows": 30,
+    "split_b_rows": 30,
+    "selection_oracle_problem_ids_equal": true,
+    "selected_private_vs_oracle_mismatches": 0,
+    "reported_deterministic_metrics_reproduced": true,
+    "private_fields_used_for_selection": 0,
+    "pool_oracle_used_only_after_selection_freeze": true
+  },
+  "primary_metrics": {
+    "split_a": {
+      "neural": 5,
+      "first_candidate": 3,
+      "uniform_random_expected": 2.1999999999999997,
+      "pool_oracle": 6,
+      "neural_minus_first": 2
+    },
+    "split_b": {
+      "neural": 7,
+      "first_candidate": 4,
+      "uniform_random_expected": 5.0,
+      "pool_oracle": 8,
+      "neural_minus_first": 3
+    },
+    "combined": {
+      "neural": 12,
+      "first_candidate": 7,
+      "uniform_random_expected": 7.2,
+      "pool_oracle": 14,
+      "neural_minus_first": 5,
+      "neural_vs_first_wins": 6,
+      "neural_vs_first_losses": 1,
+      "exact_two_sided_sign_pvalue": 0.125,
+      "frozen_bootstrap_95ci_vs_uniform_random": [
+        0.026666666666666665,
+        0.14333333333333334
+      ]
+    }
+  },
+  "gate": {
+    "a_neural_minus_first_nonnegative": true,
+    "b_neural_minus_first_nonnegative": true,
+    "combined_neural_minus_first_at_least_4": true,
+    "combined_bootstrap_lower_bound_vs_uniform_random_positive": true,
+    "overall_pass": true
+  },
+  "posthoc_sensitivity": {
+    "method": "独立重建逐题结果；100000次bootstrap，seed=20260926；该部分不替代冻结主分析",
+    "valid_candidate_slots": 481,
+    "unique_codes_within_problem": 475,
+    "duplicate_slots": 6,
+    "random_valid_only_expected_all_pass": 7.377777777777777,
+    "random_valid_only_bootstrap_95ci": [
+      0.02333333333333333,
+      0.1401851851851852
+    ],
+    "random_unique_valid_expected_all_pass": 7.355555555555555,
+    "random_unique_valid_bootstrap_95ci": [
+      0.02351851851851852,
+      0.14055555555555557
+    ]
+  },
+  "interpretation": "冻结的两切分确认门槛通过，且把随机基线改成只在有效候选或题内去重候选中随机后，事后敏感性复算的95%区间下界仍大于0。该结论只支持本地helper-first FunPRM候选选择存在稳定正向信号；不证明top-down有效，不证明官方APPS成绩，也不授权直接进入RL。"
+}

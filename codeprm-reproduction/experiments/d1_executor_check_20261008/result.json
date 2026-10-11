@@ -1,0 +1,47 @@
+{
+  "normal": {
+    "cases": 1,
+    "passed": 1,
+    "all_pass": true,
+    "results": [
+      {
+        "case_id": "normal",
+        "pass": true,
+        "input_unchanged": true,
+        "error": null
+      }
+    ],
+    "execution_seconds": 0.062147399999958,
+    "captured_output_bytes": 135
+  },
+  "timeout": {
+    "cases": 1,
+    "passed": 0,
+    "all_pass": false,
+    "results": [],
+    "execution_error": "timeout",
+    "stderr_tail": "",
+    "execution_seconds": 1.17536519999976,
+    "captured_output_bytes": 0
+  },
+  "output_limit": {
+    "cases": 1,
+    "passed": 0,
+    "all_pass": false,
+    "results": [],
+    "execution_error": "output_limit",
+    "stderr_tail": "",
+    "execution_seconds": 0.20049920000019483,
+    "captured_output_bytes": 8192
+  },
+  "import_error": {
+    "cases": 1,
+    "passed": 0,
+    "all_pass": false,
+    "results": [],
+    "execution_error": "process_error",
+    "stderr_tail": "Traceback (most recent call last):\r\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\scripts\\d1\\evaluate_candidate.py\", line 34, in <module>\r\n    main()\r\n    ~~~~^^\r\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\scripts\\d1\\evaluate_candidate.py\", line 15, in main\r\n    specification.loader.exec_module(module)\r\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^\r\n  File \"<frozen importlib._bootstrap_external>\", line 1026, in exec_module\r\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\r\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_executor_check_20261008\\import_error.py\", line 1, in <module>\r\n    raise RuntimeError(\"import failure\")\r\nRuntimeError: import failure\r\n",
+    "execution_seconds": 0.061411300000145275,
+    "captured_output_bytes": 709
+  }
+}

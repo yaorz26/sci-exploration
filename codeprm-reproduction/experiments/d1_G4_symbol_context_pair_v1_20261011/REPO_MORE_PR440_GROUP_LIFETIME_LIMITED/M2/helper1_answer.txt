@@ -1,0 +1,36 @@
+ ```diff
+--- a/more_itertools/more.py
++++ b/more_itertools/more.py
+@@ -1764,6 +1764,20 @@ def groupby_transform(iterable, keyfunc=None, valuefunc=None):
+     Note that the order of items in the iterable is significant.
+     Only adjacent items are grouped together, so if you don't want any
+     duplicate groups, you should sort the iterable by the key function.
++
++    :param reducefunc: A function that takes an iterable and returns a single value.
++    :type reducefunc: callable
++    :return: An iterator of (key, result) pairs where result is the output of reducefunc.
++    :rtype: iterator
++
++    Example:
++    >>> iterable = 'AaaABbBCcA'
++    >>> keyfunc = lambda x: x.upper()
++    >>> valuefunc = lambda x: x.lower()
++    >>> reducefunc = lambda x: ''.join(x)
++    >>> grouper = groupby_transform(iterable, keyfunc, valuefunc, reducefunc)
++    >>> list(grouper)
++    [('A', 'aaaa'), ('B', 'bbb'), ('C', 'cc'), ('A', 'a')]
+     """
+     res = groupby(iterable, keyfunc)
+     if valuefunc:
+@@ -1771,6 +1785,12 @@ def groupby_transform(iterable, keyfunc=None, valuefunc=None):
+         return ((k, reduce(reducefunc, map(valuefunc, g))) for k, g in res)
+     else:
+         return ((k, reduce(reducefunc, g)) for k, g in res)
++    else:
++        return ((k, reduce(reducefunc, map(valuefunc, g))) for k, g in res)
++
++    if reducefunc:
++        return ((k, reduce(reducefunc, map(valuefunc, g))) for k, g in res)
++    else:
++        return ((k, reduce(reducefunc, g)) for k, g in res)
+```

@@ -1,0 +1,33 @@
+[
+  {
+    "time":"2026-10-11T07:30:00Z",
+    "event_id":"d1-g4-symbol-context-result-20261011",
+    "kind":"phase_review",
+    "phase":"G4-symbol-context-execution",
+    "stage":"D1-G4",
+    "status":"complete",
+    "summary":"完整AST父API上下文修复后，三题M0/M2共11次请求、已知23380 token；M0三题均补丁入口失败，M2三题均组装前预算拒绝，无完整候选。",
+    "evidence_kind":"artifact",
+    "evidence":["../docs/week3/data-route/20261011/232_g4_symbol_context_result.md","experiments/d1_G4_symbol_context_pair_v1_20261011/summary.json","experiments/d1_G4_symbol_context_pair_v1_20261011/model_identity.json","experiments/d1_G4_symbol_context_pair_v1_20261011/prepared.json"],
+    "approval_required":false,
+    "supersedes":[],
+    "budget":"qwen2.5-coder:7b；三题一seed；每臂6500；发送11次；已知23380 token；本地无云端付费/训练/RL",
+    "uncertainty":"无行为分子；主A未测；正式labels/split null、人工0"
+  },
+  {
+    "time":"2026-10-11T07:30:01Z",
+    "event_id":"d1-g4-symbol-context-direction-20261011",
+    "kind":"direction_review",
+    "phase":"G4-symbol-context-execution",
+    "stage":"D1-G4",
+    "status":"complete",
+    "summary":"完整父API上下文批次足以排除前批上下文遗漏解释；否决同模型同入口第三次重试、人工hunk修补和放宽包路径。",
+    "decision":"转G5交付“当前冻结组合无可评价候选”的边界；改变总预算、模型身份或补丁接口须另立计划三审，宏观路线不改。",
+    "evidence_kind":"artifact",
+    "evidence":["../docs/week3/data-route/20261011/232_g4_symbol_context_result.md","experiments/d1_G4_symbol_context_pair_v1_20261011/REVIEWS.md"],
+    "approval_required":false,
+    "supersedes":[],
+    "budget":"同上；M2预算拒绝均事前记录，失败入三题分母",
+    "uncertainty":"模型能力、提示格式、预算大小和补丁协议的相对贡献未分离"
+  }
+]

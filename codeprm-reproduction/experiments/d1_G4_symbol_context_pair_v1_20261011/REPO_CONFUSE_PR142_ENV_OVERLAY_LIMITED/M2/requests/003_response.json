@@ -1,0 +1,14 @@
+{
+  "model": "qwen2.5-coder:7b",
+  "created_at": "2026-10-11T07:26:32.8759743Z",
+  "response": "```diff\n--- a/confuse/core.py\n+++ b/confuse/core.py\n@@ -657,6 +657,25 @@ class Configuration(object):\n         :param filename: Filename of the YAML file to load.\n         :param base_for_paths: Indicates whether the directory containing the\n             YAML file will be used as the base directory for resolving relative\n-            path values stored in the YAML file. Otherwise, by default, the\n-            directory returned by `config_dir()` will be used as the base.\n+            path values stored in the YAML file. Otherwise, by default, the\n+            directory returned by `config_dir()` will be used as the base.\n+        \"\"\"\n+        self.set(YamlSource(filename, base_for_paths=base_for_paths,\n+                            loader=self.loader))\n+\n+    def set_env(self, prefix, sep='__'):\n+        \"\"\"Adds environment variables as a source with higher priority.\n+\n+        :param prefix: Prefix of environment variables to include.\n+        :param sep: Separator for nested keys in environment variables.\n+        \"\"\"\n+        env_vars = {}\n+        for key, value in os.environ.items():\n+            if key.startswith(prefix):\n+                nested_key = key[len(prefix):].lower().replace(sep, '.')\n+                env_vars[nested_key] = value\n+        self.set(OrderedDict(env_vars))\n```",
+  "done": true,
+  "done_reason": "stop",
+  "total_duration": 6993300600,
+  "load_duration": 4174800,
+  "prompt_eval_count": 1903,
+  "prompt_eval_cached_count": 1032,
+  "prompt_eval_duration": 385503000,
+  "eval_count": 292,
+  "eval_duration": 6560451000
+}

@@ -1,0 +1,58 @@
+{
+  "created_at": "2026-10-09T03:48:01Z",
+  "claims": [
+    {
+      "id": "B01_expand_input_order",
+      "contract_origin": "另设的强局部序列测试",
+      "necessity_scope": "存在整体合法而局部失败，非任务必要义务",
+      "planned_witness": "逆序展开整体通过且强局部失败"
+    },
+    {
+      "id": "B01_expand_multiset",
+      "contract_origin": "最终升序及重复保留，经固定sorted接口推导",
+      "necessity_scope": "给定本阶段expand整数列表与sorted连接，条件必要充分",
+      "planned_witness": "两合法展开弱契约全过，去重被拒"
+    },
+    {
+      "id": "B03_original_spans",
+      "contract_origin": "指定原串类别匹配接口及未来单次规则",
+      "necessity_scope": "只条件于这个helper角色/单次语义，非任务唯一表示",
+      "planned_witness": "两合法连接及实际局部span符合"
+    },
+    {
+      "id": "E_B09_integer_count",
+      "contract_origin": "候选v1公开输出整数声明",
+      "necessity_scope": "候选的最终输出义务，无须指定内部拆法",
+      "planned_witness": "float count原数值比较过而类型门槛拒"
+    },
+    {
+      "id": "E_B09_default_type",
+      "contract_origin": "候选v2明确数值类型保持增量",
+      "necessity_scope": "未来v2输出义务，未将v1含义追溯等同v2",
+      "planned_witness": "合法float default严格比较过而同数值int拒"
+    },
+    {
+      "id": "E_B10_prefix_EOF",
+      "contract_origin": "两种来源API时机观测与尚未冻结的候选规范",
+      "necessity_scope": "相对已声明feed快照不同，但一般任务必要性未定",
+      "planned_witness": "终值相同/快照不同，且一EOF预期失败"
+    }
+  ],
+  "evidence_paths": {
+    "range": "experiments/d1_range_local_observability_v1_20261009/execution_result.json",
+    "spans": "experiments/d1_ansi_original_spans_v1_20261009/summary.json",
+    "types": "experiments/d1_typed_candidate_gate_v1_20261009/summary.json",
+    "typed_task": "experiments/d1_typed_candidate_gate_v1_20261009/candidate_v2_delta/task_delta.json",
+    "candidate_requirements": "experiments/d1_discrete_candidate_boundary_v1_20261009/candidate/requirements.md",
+    "snapshots": "experiments/d1_stream_finalization_v1_20261009/summary.json"
+  },
+  "evidence_hashes": {
+    "range": "ccc09e4036e355d7c2300f752d736f2fc2788111844a4e6044c55c64c7931083",
+    "spans": "d35183ceb1a12988f886b3973e1a14177dbe04c4b5e744b63eafa816146cca55",
+    "types": "7dacd7f365e501f54012e7422241007af57c7d93a37423edc16954d884ca89f7",
+    "typed_task": "300d228d11fe6ea5d87f5a03a029601a0b90ed4c0b34b897e90a41f9654ec2b5",
+    "candidate_requirements": "1a1653b82eb4c9361b6977cebfed416417c3d5a3bcac5bfa543bbab6a105845c",
+    "snapshots": "86c500cb5cb37251bc129e17c3f665662bc514fe79a74e2901b1a0c017be63cc"
+  },
+  "design": "事后定向证据审查，人工0，不是盲标或总体比例；先登记主张再提取原始见证"
+}

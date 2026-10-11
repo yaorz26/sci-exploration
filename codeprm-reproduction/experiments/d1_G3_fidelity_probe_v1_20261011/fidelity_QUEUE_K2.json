@@ -1,0 +1,264 @@
+{
+  "created_at": "2026-10-11T10:13:54.289646+00:00",
+  "candidate": "QUEUE_K2",
+  "purpose": "按决策 2 做上游保真度实测：任务规则 vs 上游真实行为",
+  "discipline": "只读；不读上游测试；不修改冻结候选；子进程隔离",
+  "model_calls": 0,
+  "upstream_source": {
+    "path": "codeprm-reproduction\\data\\raw\\d1_project_v1_20261008\\repositories\\boltons\\boltons\\queueutils.py",
+    "sha256": "a60f04f5f27803429c7a79f3f51f9b286cba3bd997f122161f252c66ca0499bb"
+  },
+  "raw_upstream_output": {
+    "PriorityQueue": {
+      "higher_priority_first": "high",
+      "default_priority_is_zero": "z",
+      "fifo_same_priority": "a",
+      "readd_moves_to_back": {
+        "peek": "b",
+        "len": 2
+      },
+      "remove_returns": "None",
+      "remove_missing": "<KeyError: 'missing'>",
+      "empty_pop_no_default": "<IndexError: pop on empty queue>",
+      "empty_pop_with_default": "'D'",
+      "empty_pop_with_None": "None",
+      "empty_peek_no_default": "<IndexError: peek on empty queue>",
+      "empty_peek_with_default": "'D'",
+      "empty_peek_with_None": "None"
+    },
+    "HeapPriorityQueue": {
+      "higher_priority_first": "high",
+      "default_priority_is_zero": "z",
+      "fifo_same_priority": "a",
+      "readd_moves_to_back": {
+        "peek": "b",
+        "len": 2
+      },
+      "remove_returns": "None",
+      "remove_missing": "<KeyError: 'missing'>",
+      "empty_pop_no_default": "<IndexError: pop on empty queue>",
+      "empty_pop_with_default": "'D'",
+      "empty_pop_with_None": "None",
+      "empty_peek_no_default": "<IndexError: peek on empty queue>",
+      "empty_peek_with_default": "'D'",
+      "empty_peek_with_None": "None"
+    }
+  },
+  "rows": [
+    {
+      "impl": "PriorityQueue",
+      "rule": "higher_priority_first",
+      "upstream": "high",
+      "contract_raw": "high（数值越大越先出队）",
+      "contract_normalized": "high",
+      "matches": true
+    },
+    {
+      "impl": "PriorityQueue",
+      "rule": "default_priority_is_zero",
+      "upstream": "z",
+      "contract_raw": "z（无 priority 视为 0）",
+      "contract_normalized": "z",
+      "matches": true
+    },
+    {
+      "impl": "PriorityQueue",
+      "rule": "fifo_same_priority",
+      "upstream": "a",
+      "contract_raw": "a（同优先级先入先出）",
+      "contract_normalized": "a",
+      "matches": true
+    },
+    {
+      "impl": "PriorityQueue",
+      "rule": "readd_moves_to_back",
+      "upstream": {
+        "peek": "b",
+        "len": 2
+      },
+      "contract_raw": {
+        "peek": "b",
+        "len": 2
+      },
+      "contract_normalized": {
+        "peek": "b",
+        "len": 2
+      },
+      "matches": true
+    },
+    {
+      "impl": "PriorityQueue",
+      "rule": "remove_returns",
+      "upstream": "None",
+      "contract_raw": "None",
+      "contract_normalized": "None",
+      "matches": true
+    },
+    {
+      "impl": "PriorityQueue",
+      "rule": "remove_missing",
+      "upstream": "<KeyError: 'missing'>",
+      "contract_raw": "<KeyError",
+      "contract_normalized": "<KeyError",
+      "matches": true
+    },
+    {
+      "impl": "PriorityQueue",
+      "rule": "empty_pop_no_default",
+      "upstream": "<IndexError: pop on empty queue>",
+      "contract_raw": "<IndexError",
+      "contract_normalized": "<IndexError",
+      "matches": true
+    },
+    {
+      "impl": "PriorityQueue",
+      "rule": "empty_peek_no_default",
+      "upstream": "<IndexError: peek on empty queue>",
+      "contract_raw": "<IndexError",
+      "contract_normalized": "<IndexError",
+      "matches": true
+    },
+    {
+      "impl": "PriorityQueue",
+      "rule": "empty_pop_with_default",
+      "upstream": "'D'",
+      "contract_raw": "'D'",
+      "contract_normalized": "'D'",
+      "matches": true
+    },
+    {
+      "impl": "PriorityQueue",
+      "rule": "empty_peek_with_default",
+      "upstream": "'D'",
+      "contract_raw": "'D'",
+      "contract_normalized": "'D'",
+      "matches": true
+    },
+    {
+      "impl": "PriorityQueue",
+      "rule": "empty_pop_with_None",
+      "upstream": "None",
+      "contract_raw": "None",
+      "contract_normalized": "None",
+      "matches": true
+    },
+    {
+      "impl": "PriorityQueue",
+      "rule": "empty_peek_with_None",
+      "upstream": "None",
+      "contract_raw": "None",
+      "contract_normalized": "None",
+      "matches": true
+    },
+    {
+      "impl": "HeapPriorityQueue",
+      "rule": "higher_priority_first",
+      "upstream": "high",
+      "contract_raw": "high（数值越大越先出队）",
+      "contract_normalized": "high",
+      "matches": true
+    },
+    {
+      "impl": "HeapPriorityQueue",
+      "rule": "default_priority_is_zero",
+      "upstream": "z",
+      "contract_raw": "z（无 priority 视为 0）",
+      "contract_normalized": "z",
+      "matches": true
+    },
+    {
+      "impl": "HeapPriorityQueue",
+      "rule": "fifo_same_priority",
+      "upstream": "a",
+      "contract_raw": "a（同优先级先入先出）",
+      "contract_normalized": "a",
+      "matches": true
+    },
+    {
+      "impl": "HeapPriorityQueue",
+      "rule": "readd_moves_to_back",
+      "upstream": {
+        "peek": "b",
+        "len": 2
+      },
+      "contract_raw": {
+        "peek": "b",
+        "len": 2
+      },
+      "contract_normalized": {
+        "peek": "b",
+        "len": 2
+      },
+      "matches": true
+    },
+    {
+      "impl": "HeapPriorityQueue",
+      "rule": "remove_returns",
+      "upstream": "None",
+      "contract_raw": "None",
+      "contract_normalized": "None",
+      "matches": true
+    },
+    {
+      "impl": "HeapPriorityQueue",
+      "rule": "remove_missing",
+      "upstream": "<KeyError: 'missing'>",
+      "contract_raw": "<KeyError",
+      "contract_normalized": "<KeyError",
+      "matches": true
+    },
+    {
+      "impl": "HeapPriorityQueue",
+      "rule": "empty_pop_no_default",
+      "upstream": "<IndexError: pop on empty queue>",
+      "contract_raw": "<IndexError",
+      "contract_normalized": "<IndexError",
+      "matches": true
+    },
+    {
+      "impl": "HeapPriorityQueue",
+      "rule": "empty_peek_no_default",
+      "upstream": "<IndexError: peek on empty queue>",
+      "contract_raw": "<IndexError",
+      "contract_normalized": "<IndexError",
+      "matches": true
+    },
+    {
+      "impl": "HeapPriorityQueue",
+      "rule": "empty_pop_with_default",
+      "upstream": "'D'",
+      "contract_raw": "'D'",
+      "contract_normalized": "'D'",
+      "matches": true
+    },
+    {
+      "impl": "HeapPriorityQueue",
+      "rule": "empty_peek_with_default",
+      "upstream": "'D'",
+      "contract_raw": "'D'",
+      "contract_normalized": "'D'",
+      "matches": true
+    },
+    {
+      "impl": "HeapPriorityQueue",
+      "rule": "empty_pop_with_None",
+      "upstream": "None",
+      "contract_raw": "None",
+      "contract_normalized": "None",
+      "matches": true
+    },
+    {
+      "impl": "HeapPriorityQueue",
+      "rule": "empty_peek_with_None",
+      "upstream": "None",
+      "contract_raw": "None",
+      "contract_normalized": "None",
+      "matches": true
+    }
+  ],
+  "agreement": {
+    "matches": 24,
+    "total": 24,
+    "rate": 1.0
+  }
+}

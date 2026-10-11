@@ -1,0 +1,42 @@
+{
+  "simulated": false,
+  "model": "qwen2.5-coder:7b",
+  "protocol_sha256": "da3a476d8a9bef7d92689d0b29d165ed12738a4ec96848670be8ec8d4c943d4e",
+  "manifest_sha256": "c3593d11ae85cc23545aa91418c2ab3c97a4b005fd5e49963bdc28ae7e6eda9f",
+  "public_input_hashes": {
+    "D:\\yaorz\\research\\codeprm-reproduction\\data\\processed\\d1_project_initial20_v5_20261008\\public\\D1_B03\\task.json": "8899f382241f28a4cf9561ce07a09d4c408482058356393f9ae295f3e81e3fd4"
+  },
+  "candidates": [
+    {
+      "task_id": "D1_B03",
+      "arm": "M0",
+      "candidate_index": 0,
+      "generation_error": null,
+      "failure_category": null,
+      "candidate_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_allin_native_pair_b03_v1_20261008\\candidates\\D1_B03\\M0\\candidate.py",
+      "candidate_sha256": "5f86e21820d414bdadac880f81a5e2526a32d07b79d5d9064711009f23a2b62e",
+      "total_token_spend": 640,
+      "cost_status": "known",
+      "api_calls": 1,
+      "request_ledger_sha256": "f19f9112d0685f7a4eee94cce92016b934fa0a70a8e08064ae57022e77854e5b",
+      "request_ledger_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_allin_native_pair_b03_v1_20261008\\candidates\\D1_B03\\M0\\requests\\ledger.json",
+      "budget_limit": 6500
+    },
+    {
+      "task_id": "D1_B03",
+      "arm": "M2",
+      "candidate_index": 0,
+      "generation_error": "ValueError: completion changed frozen function names",
+      "failure_category": "generation_or_assembly_failure",
+      "candidate_path": null,
+      "candidate_sha256": null,
+      "total_token_spend": 1850,
+      "cost_status": "known",
+      "api_calls": 3,
+      "request_ledger_sha256": "81f350ff3056f54c3726cdd3810198809fa146405b221188eefe1fa50003a580",
+      "request_ledger_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_allin_native_pair_b03_v1_20261008\\candidates\\D1_B03\\M2\\requests\\ledger.json",
+      "budget_limit": 6500
+    }
+  ],
+  "rule": "全部预定题/方法首候选及失败先冻结，再读取private；无重试、无public筛选"
+}

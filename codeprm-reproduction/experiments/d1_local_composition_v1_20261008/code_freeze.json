@@ -1,0 +1,62 @@
+{
+  "programs": [
+    {
+      "task_id": "D1_B05",
+      "program": "staged_correct",
+      "path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_local_composition_v1_20261008\\D1_B05_staged_correct.py",
+      "sha256": "0151a2078a632ac7bc0e0cfc3bd3ef5c8639ebe4cb13301f24ee8bb2bee15db5",
+      "artificial_mutant": false
+    },
+    {
+      "task_id": "D1_B05",
+      "program": "fused_correct",
+      "path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_local_composition_v1_20261008\\D1_B05_fused_correct.py",
+      "sha256": "a789df1975a922db888d20aa6d0aa667cdfdb5eeb7043333c1371f79547d298a",
+      "artificial_mutant": false
+    },
+    {
+      "task_id": "D1_B05",
+      "program": "glue_original_tree",
+      "path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_local_composition_v1_20261008\\D1_B05_glue_original_tree.py",
+      "sha256": "ca3d8c1b85661bf9648cd73eb5b5ed68d06d8d26d8b007a4ae9034767fbf5d08",
+      "artificial_mutant": true
+    },
+    {
+      "task_id": "D1_B05",
+      "program": "glue_scaled_threshold",
+      "path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_local_composition_v1_20261008\\D1_B05_glue_scaled_threshold.py",
+      "sha256": "b857871cbfb4827b05d15fb82320eff74595c9646e89e41fba7003e3ac40c816",
+      "artificial_mutant": true
+    },
+    {
+      "task_id": "D1_C03",
+      "program": "staged_correct",
+      "path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_local_composition_v1_20261008\\D1_C03_staged_correct.py",
+      "sha256": "33f28551557c0aa9a50d4a46c0046dd768b40df92564c4d6fdb4e8eb28be685c",
+      "artificial_mutant": false
+    },
+    {
+      "task_id": "D1_C03",
+      "program": "records_correct",
+      "path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_local_composition_v1_20261008\\D1_C03_records_correct.py",
+      "sha256": "420de6627d11fdcefda8b85158ad0e401f13f988420205cbfaa17ceb023e85c0",
+      "artificial_mutant": false
+    },
+    {
+      "task_id": "D1_C03",
+      "program": "glue_partial_key",
+      "path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_local_composition_v1_20261008\\D1_C03_glue_partial_key.py",
+      "sha256": "22118d94172a9fcd03f9cc855552d72dddbb71963c7fa2e5ca419b32144dc4bd",
+      "artificial_mutant": true
+    },
+    {
+      "task_id": "D1_C03",
+      "program": "glue_clear_count",
+      "path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_local_composition_v1_20261008\\D1_C03_glue_clear_count.py",
+      "sha256": "6721be11211895054853ae048e8637c4f8df61ec4693f066641e831e0bfaf641",
+      "artificial_mutant": true
+    }
+  ],
+  "local_units_sha256": "098cf63e1a9d1f004bf38fef52bbd22e43e12c8f54cab7831423579724cd751e",
+  "rule": "人工结构/缺陷实验，局部锚点后冻结代码，之后才访问原公开/隐藏评分"
+}

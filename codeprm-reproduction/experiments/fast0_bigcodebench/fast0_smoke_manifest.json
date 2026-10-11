@@ -1,0 +1,205 @@
+{
+  "work_package": "FAST-0",
+  "dataset": "bigcode/ bigcodebench v0.1.4 (raw parquet)",
+  "raw_parquet_sha256": "d9a4965821c9507ebdfb551c288656b2d5fe553234f5183044333ca8a4018267",
+  "venv": "D:\\yaorz\\research\\codeprm-reproduction\\.venvs\\bigcodebench_fast0\\Scripts\\python.exe",
+  "sample_pool": "libs ⊆ stdlib（324 题）",
+  "seed": 20260928,
+  "n_tasks": 5,
+  "repeats": 3,
+  "timeout_sec": 180,
+  "llm_calls": 0,
+  "tasks": [
+    {
+      "task_id": "BigCodeBench/24",
+      "libs": [
+        "base64",
+        "hashlib",
+        "os"
+      ],
+      "entry_point": "task_func",
+      "prompt_chars": 863,
+      "solution_chars": 234,
+      "test_chars": 2808,
+      "script_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\fast0_bigcodebench\\work\\BigCodeBench_24\\ref_solution_with_tests.py",
+      "runs": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 1.05,
+          "ok": true,
+          "output_tail": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.270s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.99,
+          "ok": true,
+          "output_tail": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.288s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.95,
+          "ok": true,
+          "output_tail": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.276s\n\nOK\n"
+        }
+      ],
+      "stable_3_runs": true
+    },
+    {
+      "task_id": "BigCodeBench/256",
+      "libs": [
+        "datetime",
+        "random",
+        "hashlib",
+        "json"
+      ],
+      "entry_point": "task_func",
+      "prompt_chars": 1206,
+      "solution_chars": 873,
+      "test_chars": 2743,
+      "script_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\fast0_bigcodebench\\work\\BigCodeBench_256\\ref_solution_with_tests.py",
+      "runs": [
+        {
+          "run": 1,
+          "exit_code": 1,
+          "seconds": 0.6,
+          "ok": false,
+          "output_tail": "Traceback (most recent call last):\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\experiments\\fast0_bigcodebench\\work\\BigCodeBench_256\\ref_solution_with_tests.py\", line 60, in <module>\n    import pytz\nModuleNotFoundError: No module named 'pytz'\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 1,
+          "seconds": 0.61,
+          "ok": false,
+          "output_tail": "Traceback (most recent call last):\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\experiments\\fast0_bigcodebench\\work\\BigCodeBench_256\\ref_solution_with_tests.py\", line 60, in <module>\n    import pytz\nModuleNotFoundError: No module named 'pytz'\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 1,
+          "seconds": 0.61,
+          "ok": false,
+          "output_tail": "Traceback (most recent call last):\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\experiments\\fast0_bigcodebench\\work\\BigCodeBench_256\\ref_solution_with_tests.py\", line 60, in <module>\n    import pytz\nModuleNotFoundError: No module named 'pytz'\n"
+        }
+      ],
+      "stable_3_runs": true
+    },
+    {
+      "task_id": "BigCodeBench/464",
+      "libs": [
+        "decimal",
+        "datetime",
+        "json"
+      ],
+      "entry_point": "task_func",
+      "prompt_chars": 1109,
+      "solution_chars": 336,
+      "test_chars": 2193,
+      "script_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\fast0_bigcodebench\\work\\BigCodeBench_464\\ref_solution_with_tests.py",
+      "runs": [
+        {
+          "run": 1,
+          "exit_code": 1,
+          "seconds": 0.66,
+          "ok": false,
+          "output_tail": "Traceback (most recent call last):\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\experiments\\fast0_bigcodebench\\work\\BigCodeBench_464\\ref_solution_with_tests.py\", line 45, in <module>\n    import pytz  # Assuming pytz is used for timezone information in datetime objects\n    ^^^^^^^^^^^\nModuleNotFoundError: No module named 'pytz'\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 1,
+          "seconds": 0.67,
+          "ok": false,
+          "output_tail": "Traceback (most recent call last):\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\experiments\\fast0_bigcodebench\\work\\BigCodeBench_464\\ref_solution_with_tests.py\", line 45, in <module>\n    import pytz  # Assuming pytz is used for timezone information in datetime objects\n    ^^^^^^^^^^^\nModuleNotFoundError: No module named 'pytz'\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 1,
+          "seconds": 0.65,
+          "ok": false,
+          "output_tail": "Traceback (most recent call last):\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\experiments\\fast0_bigcodebench\\work\\BigCodeBench_464\\ref_solution_with_tests.py\", line 45, in <module>\n    import pytz  # Assuming pytz is used for timezone information in datetime objects\n    ^^^^^^^^^^^\nModuleNotFoundError: No module named 'pytz'\n"
+        }
+      ],
+      "stable_3_runs": true
+    },
+    {
+      "task_id": "BigCodeBench/670",
+      "libs": [
+        "math",
+        "itertools"
+      ],
+      "entry_point": "task_func",
+      "prompt_chars": 613,
+      "solution_chars": 304,
+      "test_chars": 579,
+      "script_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\fast0_bigcodebench\\work\\BigCodeBench_670\\ref_solution_with_tests.py",
+      "runs": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.64,
+          "ok": true,
+          "output_tail": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.64,
+          "ok": true,
+          "output_tail": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.65,
+          "ok": true,
+          "output_tail": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.000s\n\nOK\n"
+        }
+      ],
+      "stable_3_runs": true
+    },
+    {
+      "task_id": "BigCodeBench/999",
+      "libs": [
+        "urllib",
+        "csv",
+        "collections",
+        "os"
+      ],
+      "entry_point": "task_func",
+      "prompt_chars": 1717,
+      "solution_chars": 490,
+      "test_chars": 2837,
+      "script_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\fast0_bigcodebench\\work\\BigCodeBench_999\\ref_solution_with_tests.py",
+      "runs": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 1.12,
+          "ok": true,
+          "output_tail": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.006s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.89,
+          "ok": true,
+          "output_tail": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.006s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.89,
+          "ok": true,
+          "output_tail": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.006s\n\nOK\n"
+        }
+      ],
+      "stable_3_runs": true
+    }
+  ],
+  "summary": {
+    "tasks_all_3_runs_pass": 3,
+    "tasks": 5,
+    "all_stable": true
+  }
+}

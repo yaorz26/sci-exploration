@@ -1,0 +1,59 @@
+{
+  "run": "d1_costed_pilot_b03_b05_c04_v1_20261008",
+  "task_id": "D1_B05",
+  "example_id": 2,
+  "candidate": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_costed_pilot_b03_b05_c04_v1_20261008\\candidates\\D1_B05\\M2\\candidate.py",
+  "helper_names": [
+    "_apply_factor",
+    "_drop_null",
+    "_find_matches"
+  ],
+  "input": {
+    "tree": [],
+    "threshold": 0
+  },
+  "original_public_task_sha256": "5477c6668e9b9b2e0aceda2aceeb1dfa979f7000353de71121e35da9314322a8",
+  "public_example_expected": {
+    "value": {
+      "tree": [],
+      "matches": []
+    }
+  },
+  "diagnostic": {
+    "worker_failure": null,
+    "record": {
+      "outcome": {
+        "value": {
+          "tree": [],
+          "matches": []
+        }
+      },
+      "helper_calls": {
+        "_apply_factor": 1,
+        "_drop_null": 1,
+        "_find_matches": 1
+      },
+      "helper_call_events_first1000": [
+        {
+          "helper": "_apply_factor",
+          "caller": "solve"
+        },
+        {
+          "helper": "_drop_null",
+          "caller": "solve"
+        },
+        {
+          "helper": "_find_matches",
+          "caller": "solve"
+        }
+      ],
+      "trace_truncated": false,
+      "input_unchanged": true
+    },
+    "stderr_tail": "",
+    "seconds": 0.0821081999999933,
+    "captured_output_bytes": 354
+  },
+  "observation_category": "helper_entered_then_result_or_exception",
+  "interpretation_limit": "call非返回值贡献；异常前未进入非成功旁路；仅原公开路径，旧模型成绩不重写"
+}

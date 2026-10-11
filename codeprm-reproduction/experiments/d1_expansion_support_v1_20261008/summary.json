@@ -1,0 +1,156 @@
+{
+  "status": "pass",
+  "original_measured": 8,
+  "candidate_pool_rows": 2,
+  "original_unmeasured": 12,
+  "original_tasks_unchanged": 20,
+  "scenario_ranks": [
+    {
+      "scenario": "original8",
+      "rows": 8,
+      "rank": 5,
+      "columns": 7
+    },
+    {
+      "scenario": "plus_cache",
+      "rows": 9,
+      "rank": 6,
+      "columns": 7
+    },
+    {
+      "scenario": "plus_order",
+      "rows": 9,
+      "rank": 6,
+      "columns": 7
+    },
+    {
+      "scenario": "plus_both",
+      "rows": 10,
+      "rank": 7,
+      "columns": 7
+    }
+  ],
+  "source_full_rank": true,
+  "capacity_equals_related_cache_group": true,
+  "strict_operation_history_scope_rank": 6,
+  "family_designs": {
+    "linked_group": {
+      "rank": 6,
+      "columns": 9
+    },
+    "conservative_group": {
+      "rank": 5,
+      "columns": 7
+    }
+  },
+  "supports": [
+    {
+      "facet": "capacity_interference_witness",
+      "task_ids": [
+        "D1_C01",
+        "D1_C02",
+        "D1_C03",
+        "D1_C04",
+        "E_B07"
+      ],
+      "repositories": [
+        "mahmoud/boltons",
+        "tkem/cachetools"
+      ],
+      "linked_groups": [
+        "linked_component_6"
+      ],
+      "conservative_groups": [
+        "linked_component_6"
+      ],
+      "history_domains": [
+        "operation_history"
+      ]
+    },
+    {
+      "facet": "global_order_witness",
+      "task_ids": [
+        "D1_B02",
+        "D1_B04",
+        "E_M06"
+      ],
+      "repositories": [
+        "mahmoud/boltons",
+        "more-itertools/more-itertools"
+      ],
+      "linked_groups": [
+        "candidate_unique_everseen_unassigned",
+        "linked_component_2"
+      ],
+      "conservative_groups": [
+        "related_keyed_order_aggregation"
+      ],
+      "history_domains": [
+        "input_item_sequence",
+        "operation_history"
+      ]
+    },
+    {
+      "facet": "limited_cross_entity_noninterference",
+      "task_ids": [
+        "D1_B02",
+        "D1_B04",
+        "D1_M04",
+        "D1_C04",
+        "E_M06"
+      ],
+      "repositories": [
+        "mahmoud/boltons",
+        "more-itertools/more-itertools",
+        "tkem/cachetools"
+      ],
+      "linked_groups": [
+        "candidate_unique_everseen_unassigned",
+        "linked_component_14",
+        "linked_component_2",
+        "linked_component_6"
+      ],
+      "conservative_groups": [
+        "linked_component_6",
+        "related_keyed_order_aggregation"
+      ],
+      "history_domains": [
+        "input_item_sequence",
+        "operation_history"
+      ]
+    },
+    {
+      "facet": "second_entity_not_applicable",
+      "task_ids": [
+        "D1_M03"
+      ],
+      "repositories": [
+        "more-itertools/more-itertools"
+      ],
+      "linked_groups": [
+        "linked_component_13"
+      ],
+      "conservative_groups": [
+        "linked_component_13"
+      ],
+      "history_domains": [
+        "operation_history"
+      ]
+    }
+  ],
+  "model_calls": 0,
+  "API_calls": 0,
+  "task_calls": 0,
+  "human_reviewers": 0,
+  "finding": "两个候选解除证据出现矩阵中的来源完全别名；删除单个候选恢复相应缺口，容量仍完全贴合相关缓存群",
+  "limits": "满秩非统计功效/因果；0非语义否定；输入流与操作域不同，不改原标签/切分或新独立样本数",
+  "input_hashes": {
+    "experiments/d1_structure_evidence_sidecar_v1_20261008/task_evidence.json": "da7911091efacb67ff8bcfd1a2e2e8d2565fa48003490fc58132fdaaab6d38e2",
+    "experiments/d1_structure_evidence_sidecar_v1_20261008/design_matrix.json": "9e498368dbf914983246b1e344781771bbeac1c4bbc4aa937441cd4812b8616e",
+    "experiments/d1_expansion_cache_candidate_v1_20261008/task_contract.json": "d6d1b43184d3192b32b895740e7e759be0bb708b51cec6a91ebcd58a2d6ad6c2",
+    "experiments/d1_expansion_cache_candidate_v1_20261008/finite_sequences.jsonl": "277bc72e086a76a6e123fb8b4c12481844ebd4c66ba0a674af62f97ecc826fcf",
+    "experiments/d1_expansion_order_candidate_v1_20261008/task_contract.json": "fd0b416b72f7834ed7ac142cc20544b1e5612386846e5f9753c115f339734aad",
+    "experiments/d1_expansion_order_candidate_v1_20261008/paired_relations.json": "7c1b738770ecaa291cbfd1b3577a2260bc7fb67a109bd7eed5ca5a0da3186c0d"
+  },
+  "script_sha256": "6fff00ebc46860eff33a8504a27dcdf219088defaeeca73c06877ce569882fba"
+}

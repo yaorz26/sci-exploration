@@ -1,0 +1,27 @@
+{
+  "programs": [
+    {
+      "program": "wrong_identity_join",
+      "filename": "wrong_identity_join.py",
+      "sha256": "600fe1845d8267d0ac763fa0949396fc1ba440cc2ea8a71d7a75094adcf6a4b6",
+      "helper_ast_sha256": "c3d47824b8e5ed451d605a3087516a35b23a8b9b737c3d93588ad63cd507ff51"
+    },
+    {
+      "program": "indices_preserve_identity",
+      "filename": "indices_preserve_identity.py",
+      "sha256": "2bf09cb29772159ff3d871c4e8d008d4fe66377543df79a21d5a7267643af8ff",
+      "helper_ast_sha256": "b8de347473c3e669a4d3c7dab3e70bf636ad9c2ae1b10fc5b896633b9a3b19cf"
+    },
+    {
+      "program": "original_input_recovery",
+      "filename": "original_input_recovery.py",
+      "sha256": "6641614ddf5a3d02e9d789e76070b835c6ee7830b504d31c0e96e49a29e98b3a",
+      "helper_ast_sha256": "c3d47824b8e5ed451d605a3087516a35b23a8b9b737c3d93588ad63cd507ff51"
+    }
+  ],
+  "task_sha256": "17d6abeadbe9e12ad4d3b9514061a64e7fbb7aca42828ea2976737c89111eaf5",
+  "anchors_sha256": "3af68a976ed09164331dcd6a6f24c12fbea84680166f0147dab7f7c13773708e",
+  "first_anchor_sha256": "7c4214889036219d16fabfb3f9187970df3c73138c9473ffe15ab05d685617f3",
+  "script_sha256": "1279294ba0a753ab2c90881d8e5ccf549b97cfe7271a902421715e46000b45ee",
+  "rule": "六手算公开域、三手工计划；正确helper不等完整计划，限定接口不足不等全payload不可恢复"
+}

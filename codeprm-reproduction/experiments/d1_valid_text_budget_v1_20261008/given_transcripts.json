@@ -1,0 +1,610 @@
+[
+  {
+    "task_id": "D1_B05",
+    "format": "pretty",
+    "arm": "M0",
+    "representation": "staged_correct",
+    "calls": [
+      {
+        "stage": "whole",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\n  \"task_id\": \"D1_B05\",\n  \"requirement\": \"实现solve(payload)。tree为嵌套JSON对象或数组。先把所有数值叶子乘factor（默认1），布尔值不算数值；drop_null默认false，为true时删除对象中值为null的条目及数组中的null元素，空容器仍保留。再对变换结果找数值>=threshold的全部叶子，threshold为有限数。返回{tree:变换结果,matches:[{path,value}]}，path从根开始用对象字符串键和数组整数索引表示，数组索引以删除后的结果为准。matches按深度优先顺序，对象沿输入键顺序、数组沿结果索引顺序。factor为有限数，保证结果有限。不能修改输入。只用标准库，内部结构自由。\",\n  \"entry_point\": \"solve(payload)\",\n  \"language\": \"Python\",\n  \"allowed_libraries\": \"仅Python标准库\",\n  \"public_examples\": [\n    {\n      \"input\": {\n        \"tree\": {\n          \"a\": [\n            null,\n            2,\n            true\n          ],\n          \"b\": 3\n        },\n        \"drop_null\": true,\n        \"factor\": 2,\n        \"threshold\": 4\n      },\n      \"output\": {\n        \"tree\": {\n          \"a\": [\n            4,\n            true\n          ],\n          \"b\": 6\n        },\n        \"matches\": [\n          {\n            \"path\": [\n              \"a\",\n              0\n            ],\n            \"value\": 4\n          },\n          {\n            \"path\": [\n              \"b\"\n            ],\n            \"value\": 6\n          }\n        ]\n      }\n    },\n    {\n      \"input\": {\n        \"tree\": [],\n        \"threshold\": 0\n      },\n      \"output\": {\n        \"tree\": [],\n        \"matches\": []\n      }\n    }\n  ],\n  \"general_contract\": \"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\n  \"internal_decomposition\": \"自由选择，不给定helper名称或数量\"\n}\n直接完整实现solve(payload)，可自行使用辅助函数。只输出Python代码。<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "def _transform(node, factor, drop_null):\n    if isinstance(node, dict):\n        return {k: _transform(v, factor, drop_null) for k,v in node.items() if not (drop_null and v is None)}\n    if isinstance(node, list):\n        return [_transform(v, factor, drop_null) for v in node if not (drop_null and v is None)]\n    return node*factor if type(node) in (int,float) else node\n\ndef _select(tree, threshold):\n    result=[]\n    def visit(node, path):\n        if type(node) in (int,float) and node>=threshold: result.append({'path':path,'value':node})\n        elif isinstance(node,dict):\n            for key,value in node.items(): visit(value,path+[key])\n        elif isinstance(node,list):\n            for i,value in enumerate(node): visit(value,path+[i])\n    visit(tree,[])\n    return result\ndef solve(payload):\n    tree=_transform(payload['tree'],payload.get('factor',1),payload.get('drop_null',False))\n    matches=_select(tree,payload['threshold'])\n    return {'tree':tree,'matches':matches}\n"
+      }
+    ]
+  },
+  {
+    "task_id": "D1_B05",
+    "format": "pretty",
+    "arm": "M0",
+    "representation": "fused_correct",
+    "calls": [
+      {
+        "stage": "whole",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\n  \"task_id\": \"D1_B05\",\n  \"requirement\": \"实现solve(payload)。tree为嵌套JSON对象或数组。先把所有数值叶子乘factor（默认1），布尔值不算数值；drop_null默认false，为true时删除对象中值为null的条目及数组中的null元素，空容器仍保留。再对变换结果找数值>=threshold的全部叶子，threshold为有限数。返回{tree:变换结果,matches:[{path,value}]}，path从根开始用对象字符串键和数组整数索引表示，数组索引以删除后的结果为准。matches按深度优先顺序，对象沿输入键顺序、数组沿结果索引顺序。factor为有限数，保证结果有限。不能修改输入。只用标准库，内部结构自由。\",\n  \"entry_point\": \"solve(payload)\",\n  \"language\": \"Python\",\n  \"allowed_libraries\": \"仅Python标准库\",\n  \"public_examples\": [\n    {\n      \"input\": {\n        \"tree\": {\n          \"a\": [\n            null,\n            2,\n            true\n          ],\n          \"b\": 3\n        },\n        \"drop_null\": true,\n        \"factor\": 2,\n        \"threshold\": 4\n      },\n      \"output\": {\n        \"tree\": {\n          \"a\": [\n            4,\n            true\n          ],\n          \"b\": 6\n        },\n        \"matches\": [\n          {\n            \"path\": [\n              \"a\",\n              0\n            ],\n            \"value\": 4\n          },\n          {\n            \"path\": [\n              \"b\"\n            ],\n            \"value\": 6\n          }\n        ]\n      }\n    },\n    {\n      \"input\": {\n        \"tree\": [],\n        \"threshold\": 0\n      },\n      \"output\": {\n        \"tree\": [],\n        \"matches\": []\n      }\n    }\n  ],\n  \"general_contract\": \"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\n  \"internal_decomposition\": \"自由选择，不给定helper名称或数量\"\n}\n直接完整实现solve(payload)，可自行使用辅助函数。只输出Python代码。<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "def solve(payload):\n    def walk(node,path):\n        if isinstance(node,dict):\n            new={}; matches=[]\n            for k,v in node.items():\n                if v is None and payload.get('drop_null',False): continue\n                child,found=walk(v,path+[k]);new[k]=child;matches.extend(found)\n            return new,matches\n        if isinstance(node,list):\n            kept=[v for v in node if not (v is None and payload.get('drop_null',False))]\n            new=[];matches=[]\n            for i,v in enumerate(kept):\n                child,found=walk(v,path+[i]);new.append(child);matches.extend(found)\n            return new,matches\n        value=node*payload.get('factor',1) if type(node) in (int,float) else node\n        return value,([{'path':path,'value':value}] if type(value) in (int,float) and value>=payload['threshold'] else [])\n    tree,matches=walk(payload['tree'],[])\n    return {'tree':tree,'matches':matches}\n"
+      }
+    ]
+  },
+  {
+    "task_id": "D1_B05",
+    "format": "pretty",
+    "arm": "M2",
+    "context": "all_previous",
+    "plan": {
+      "helpers": [
+        {
+          "name": "_transform",
+          "signature": "def _transform(node, factor, drop_null):",
+          "contract": "输入node、factor、drop_null；递归变换数值但不变布尔；按规则删除null并保持顺序，返回新树、不修改输入。",
+          "depends_on": []
+        },
+        {
+          "name": "_select",
+          "signature": "def _select(tree, threshold):",
+          "contract": "输入已经变换的tree和threshold；返回数值达阈值的path/value，路径使用该树索引与顺序、不修改输入。",
+          "depends_on": []
+        }
+      ]
+    },
+    "calls": [
+      {
+        "stage": "plan",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\n  \"task_id\": \"D1_B05\",\n  \"requirement\": \"实现solve(payload)。tree为嵌套JSON对象或数组。先把所有数值叶子乘factor（默认1），布尔值不算数值；drop_null默认false，为true时删除对象中值为null的条目及数组中的null元素，空容器仍保留。再对变换结果找数值>=threshold的全部叶子，threshold为有限数。返回{tree:变换结果,matches:[{path,value}]}，path从根开始用对象字符串键和数组整数索引表示，数组索引以删除后的结果为准。matches按深度优先顺序，对象沿输入键顺序、数组沿结果索引顺序。factor为有限数，保证结果有限。不能修改输入。只用标准库，内部结构自由。\",\n  \"entry_point\": \"solve(payload)\",\n  \"language\": \"Python\",\n  \"allowed_libraries\": \"仅Python标准库\",\n  \"public_examples\": [\n    {\n      \"input\": {\n        \"tree\": {\n          \"a\": [\n            null,\n            2,\n            true\n          ],\n          \"b\": 3\n        },\n        \"drop_null\": true,\n        \"factor\": 2,\n        \"threshold\": 4\n      },\n      \"output\": {\n        \"tree\": {\n          \"a\": [\n            4,\n            true\n          ],\n          \"b\": 6\n        },\n        \"matches\": [\n          {\n            \"path\": [\n              \"a\",\n              0\n            ],\n            \"value\": 4\n          },\n          {\n            \"path\": [\n              \"b\"\n            ],\n            \"value\": 6\n          }\n        ]\n      }\n    },\n    {\n      \"input\": {\n        \"tree\": [],\n        \"threshold\": 0\n      },\n      \"output\": {\n        \"tree\": [],\n        \"matches\": []\n      }\n    }\n  ],\n  \"general_contract\": \"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\n  \"internal_decomposition\": \"自由选择，不给定helper名称或数量\"\n}\n自主分解为2至3个辅助函数，按依赖先后排列。只输出JSON：{\"helpers\":[{\"name\":\"_name\",\"signature\":\"def _name(args):\",\"contract\":\"输入输出及状态修改规则\",\"depends_on\":[]}]}。solve入口另外生成，不在helpers中。<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "{\"helpers\": [{\"name\": \"_transform\", \"signature\": \"def _transform(node, factor, drop_null):\", \"contract\": \"输入node、factor、drop_null；递归变换数值但不变布尔；按规则删除null并保持顺序，返回新树、不修改输入。\", \"depends_on\": []}, {\"name\": \"_select\", \"signature\": \"def _select(tree, threshold):\", \"contract\": \"输入已经变换的tree和threshold；返回数值达阈值的path/value，路径使用该树索引与顺序、不修改输入。\", \"depends_on\": []}]}",
+        "input_tokens": 572,
+        "visible_output_text_tokens": 127,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "_transform",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\n  \"task_id\": \"D1_B05\",\n  \"requirement\": \"实现solve(payload)。tree为嵌套JSON对象或数组。先把所有数值叶子乘factor（默认1），布尔值不算数值；drop_null默认false，为true时删除对象中值为null的条目及数组中的null元素，空容器仍保留。再对变换结果找数值>=threshold的全部叶子，threshold为有限数。返回{tree:变换结果,matches:[{path,value}]}，path从根开始用对象字符串键和数组整数索引表示，数组索引以删除后的结果为准。matches按深度优先顺序，对象沿输入键顺序、数组沿结果索引顺序。factor为有限数，保证结果有限。不能修改输入。只用标准库，内部结构自由。\",\n  \"entry_point\": \"solve(payload)\",\n  \"language\": \"Python\",\n  \"allowed_libraries\": \"仅Python标准库\",\n  \"public_examples\": [\n    {\n      \"input\": {\n        \"tree\": {\n          \"a\": [\n            null,\n            2,\n            true\n          ],\n          \"b\": 3\n        },\n        \"drop_null\": true,\n        \"factor\": 2,\n        \"threshold\": 4\n      },\n      \"output\": {\n        \"tree\": {\n          \"a\": [\n            4,\n            true\n          ],\n          \"b\": 6\n        },\n        \"matches\": [\n          {\n            \"path\": [\n              \"a\",\n              0\n            ],\n            \"value\": 4\n          },\n          {\n            \"path\": [\n              \"b\"\n            ],\n            \"value\": 6\n          }\n        ]\n      }\n    },\n    {\n      \"input\": {\n        \"tree\": [],\n        \"threshold\": 0\n      },\n      \"output\": {\n        \"tree\": [],\n        \"matches\": []\n      }\n    }\n  ],\n  \"general_contract\": \"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\n  \"internal_decomposition\": \"自由选择，不给定helper名称或数量\"\n}\n固定计划：\n{\"helpers\": [{\"name\": \"_transform\", \"signature\": \"def _transform(node, factor, drop_null):\", \"contract\": \"输入node、factor、drop_null；递归变换数值但不变布尔；按规则删除null并保持顺序，返回新树、不修改输入。\", \"depends_on\": []}, {\"name\": \"_select\", \"signature\": \"def _select(tree, threshold):\", \"contract\": \"输入已经变换的tree和threshold；返回数值达阈值的path/value，路径使用该树索引与顺序、不修改输入。\", \"depends_on\": []}]}\n已实现函数：\n\n仅实现以下函数，签名保持一致，可以添加标准库import，禁止定义其他顶层函数：\n{\"name\": \"_transform\", \"signature\": \"def _transform(node, factor, drop_null):\", \"contract\": \"输入node、factor、drop_null；递归变换数值但不变布尔；按规则删除null并保持顺序，返回新树、不修改输入。\", \"depends_on\": []}<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "def _transform(node, factor, drop_null):\n    if isinstance(node, dict):\n        return {k: _transform(v, factor, drop_null) for k,v in node.items() if not (drop_null and v is None)}\n    if isinstance(node, list):\n        return [_transform(v, factor, drop_null) for v in node if not (drop_null and v is None)]\n    return node*factor if type(node) in (int,float) else node\n",
+        "previous_code_names": [],
+        "input_tokens": 732,
+        "visible_output_text_tokens": 97,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "_select",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\n  \"task_id\": \"D1_B05\",\n  \"requirement\": \"实现solve(payload)。tree为嵌套JSON对象或数组。先把所有数值叶子乘factor（默认1），布尔值不算数值；drop_null默认false，为true时删除对象中值为null的条目及数组中的null元素，空容器仍保留。再对变换结果找数值>=threshold的全部叶子，threshold为有限数。返回{tree:变换结果,matches:[{path,value}]}，path从根开始用对象字符串键和数组整数索引表示，数组索引以删除后的结果为准。matches按深度优先顺序，对象沿输入键顺序、数组沿结果索引顺序。factor为有限数，保证结果有限。不能修改输入。只用标准库，内部结构自由。\",\n  \"entry_point\": \"solve(payload)\",\n  \"language\": \"Python\",\n  \"allowed_libraries\": \"仅Python标准库\",\n  \"public_examples\": [\n    {\n      \"input\": {\n        \"tree\": {\n          \"a\": [\n            null,\n            2,\n            true\n          ],\n          \"b\": 3\n        },\n        \"drop_null\": true,\n        \"factor\": 2,\n        \"threshold\": 4\n      },\n      \"output\": {\n        \"tree\": {\n          \"a\": [\n            4,\n            true\n          ],\n          \"b\": 6\n        },\n        \"matches\": [\n          {\n            \"path\": [\n              \"a\",\n              0\n            ],\n            \"value\": 4\n          },\n          {\n            \"path\": [\n              \"b\"\n            ],\n            \"value\": 6\n          }\n        ]\n      }\n    },\n    {\n      \"input\": {\n        \"tree\": [],\n        \"threshold\": 0\n      },\n      \"output\": {\n        \"tree\": [],\n        \"matches\": []\n      }\n    }\n  ],\n  \"general_contract\": \"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\n  \"internal_decomposition\": \"自由选择，不给定helper名称或数量\"\n}\n固定计划：\n{\"helpers\": [{\"name\": \"_transform\", \"signature\": \"def _transform(node, factor, drop_null):\", \"contract\": \"输入node、factor、drop_null；递归变换数值但不变布尔；按规则删除null并保持顺序，返回新树、不修改输入。\", \"depends_on\": []}, {\"name\": \"_select\", \"signature\": \"def _select(tree, threshold):\", \"contract\": \"输入已经变换的tree和threshold；返回数值达阈值的path/value，路径使用该树索引与顺序、不修改输入。\", \"depends_on\": []}]}\n已实现函数：\ndef _transform(node, factor, drop_null):\n    if isinstance(node, dict):\n        return {k: _transform(v, factor, drop_null) for k,v in node.items() if not (drop_null and v is None)}\n    if isinstance(node, list):\n        return [_transform(v, factor, drop_null) for v in node if not (drop_null and v is None)]\n    return node*factor if type(node) in (int,float) else node\n\n仅实现以下函数，签名保持一致，可以添加标准库import，禁止定义其他顶层函数：\n{\"name\": \"_select\", \"signature\": \"def _select(tree, threshold):\", \"contract\": \"输入已经变换的tree和threshold；返回数值达阈值的path/value，路径使用该树索引与顺序、不修改输入。\", \"depends_on\": []}<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "def _select(tree, threshold):\n    result=[]\n    def visit(node, path):\n        if type(node) in (int,float) and node>=threshold: result.append({'path':path,'value':node})\n        elif isinstance(node,dict):\n            for key,value in node.items(): visit(value,path+[key])\n        elif isinstance(node,list):\n            for i,value in enumerate(node): visit(value,path+[i])\n    visit(tree,[])\n    return result\n",
+        "previous_code_names": [
+          "_transform"
+        ],
+        "input_tokens": 824,
+        "visible_output_text_tokens": 93,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "entry",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\n  \"task_id\": \"D1_B05\",\n  \"requirement\": \"实现solve(payload)。tree为嵌套JSON对象或数组。先把所有数值叶子乘factor（默认1），布尔值不算数值；drop_null默认false，为true时删除对象中值为null的条目及数组中的null元素，空容器仍保留。再对变换结果找数值>=threshold的全部叶子，threshold为有限数。返回{tree:变换结果,matches:[{path,value}]}，path从根开始用对象字符串键和数组整数索引表示，数组索引以删除后的结果为准。matches按深度优先顺序，对象沿输入键顺序、数组沿结果索引顺序。factor为有限数，保证结果有限。不能修改输入。只用标准库，内部结构自由。\",\n  \"entry_point\": \"solve(payload)\",\n  \"language\": \"Python\",\n  \"allowed_libraries\": \"仅Python标准库\",\n  \"public_examples\": [\n    {\n      \"input\": {\n        \"tree\": {\n          \"a\": [\n            null,\n            2,\n            true\n          ],\n          \"b\": 3\n        },\n        \"drop_null\": true,\n        \"factor\": 2,\n        \"threshold\": 4\n      },\n      \"output\": {\n        \"tree\": {\n          \"a\": [\n            4,\n            true\n          ],\n          \"b\": 6\n        },\n        \"matches\": [\n          {\n            \"path\": [\n              \"a\",\n              0\n            ],\n            \"value\": 4\n          },\n          {\n            \"path\": [\n              \"b\"\n            ],\n            \"value\": 6\n          }\n        ]\n      }\n    },\n    {\n      \"input\": {\n        \"tree\": [],\n        \"threshold\": 0\n      },\n      \"output\": {\n        \"tree\": [],\n        \"matches\": []\n      }\n    }\n  ],\n  \"general_contract\": \"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\n  \"internal_decomposition\": \"自由选择，不给定helper名称或数量\"\n}\n固定计划：\n{\"helpers\": [{\"name\": \"_transform\", \"signature\": \"def _transform(node, factor, drop_null):\", \"contract\": \"输入node、factor、drop_null；递归变换数值但不变布尔；按规则删除null并保持顺序，返回新树、不修改输入。\", \"depends_on\": []}, {\"name\": \"_select\", \"signature\": \"def _select(tree, threshold):\", \"contract\": \"输入已经变换的tree和threshold；返回数值达阈值的path/value，路径使用该树索引与顺序、不修改输入。\", \"depends_on\": []}]}\n固定函数：\ndef _transform(node, factor, drop_null):\n    if isinstance(node, dict):\n        return {k: _transform(v, factor, drop_null) for k,v in node.items() if not (drop_null and v is None)}\n    if isinstance(node, list):\n        return [_transform(v, factor, drop_null) for v in node if not (drop_null and v is None)]\n    return node*factor if type(node) in (int,float) else node\n\n\ndef _select(tree, threshold):\n    result=[]\n    def visit(node, path):\n        if type(node) in (int,float) and node>=threshold: result.append({'path':path,'value':node})\n        elif isinstance(node,dict):\n            for key,value in node.items(): visit(value,path+[key])\n        elif isinstance(node,list):\n            for i,value in enumerate(node): visit(value,path+[i])\n    visit(tree,[])\n    return result\n\n仅实现solve(payload)，调用固定辅助函数，不能定义其他顶层函数。只输出代码。<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "def solve(payload):\n    tree=_transform(payload['tree'],payload.get('factor',1),payload.get('drop_null',False))\n    matches=_select(tree,payload['threshold'])\n    return {'tree':tree,'matches':matches}\n",
+        "input_tokens": 857,
+        "visible_output_text_tokens": 48,
+        "P9_smoke_output_cap": 512,
+        "visible_text_fits_smoke_cap": true
+      }
+    ]
+  },
+  {
+    "task_id": "D1_B05",
+    "format": "pretty",
+    "arm": "M2",
+    "context": "only_referenced_symbols",
+    "plan": {
+      "helpers": [
+        {
+          "name": "_transform",
+          "signature": "def _transform(node, factor, drop_null):",
+          "contract": "输入node、factor、drop_null；递归变换数值但不变布尔；按规则删除null并保持顺序，返回新树、不修改输入。",
+          "depends_on": []
+        },
+        {
+          "name": "_select",
+          "signature": "def _select(tree, threshold):",
+          "contract": "输入已经变换的tree和threshold；返回数值达阈值的path/value，路径使用该树索引与顺序、不修改输入。",
+          "depends_on": []
+        }
+      ]
+    },
+    "calls": [
+      {
+        "stage": "plan",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\n  \"task_id\": \"D1_B05\",\n  \"requirement\": \"实现solve(payload)。tree为嵌套JSON对象或数组。先把所有数值叶子乘factor（默认1），布尔值不算数值；drop_null默认false，为true时删除对象中值为null的条目及数组中的null元素，空容器仍保留。再对变换结果找数值>=threshold的全部叶子，threshold为有限数。返回{tree:变换结果,matches:[{path,value}]}，path从根开始用对象字符串键和数组整数索引表示，数组索引以删除后的结果为准。matches按深度优先顺序，对象沿输入键顺序、数组沿结果索引顺序。factor为有限数，保证结果有限。不能修改输入。只用标准库，内部结构自由。\",\n  \"entry_point\": \"solve(payload)\",\n  \"language\": \"Python\",\n  \"allowed_libraries\": \"仅Python标准库\",\n  \"public_examples\": [\n    {\n      \"input\": {\n        \"tree\": {\n          \"a\": [\n            null,\n            2,\n            true\n          ],\n          \"b\": 3\n        },\n        \"drop_null\": true,\n        \"factor\": 2,\n        \"threshold\": 4\n      },\n      \"output\": {\n        \"tree\": {\n          \"a\": [\n            4,\n            true\n          ],\n          \"b\": 6\n        },\n        \"matches\": [\n          {\n            \"path\": [\n              \"a\",\n              0\n            ],\n            \"value\": 4\n          },\n          {\n            \"path\": [\n              \"b\"\n            ],\n            \"value\": 6\n          }\n        ]\n      }\n    },\n    {\n      \"input\": {\n        \"tree\": [],\n        \"threshold\": 0\n      },\n      \"output\": {\n        \"tree\": [],\n        \"matches\": []\n      }\n    }\n  ],\n  \"general_contract\": \"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\n  \"internal_decomposition\": \"自由选择，不给定helper名称或数量\"\n}\n自主分解为2至3个辅助函数，按依赖先后排列。只输出JSON：{\"helpers\":[{\"name\":\"_name\",\"signature\":\"def _name(args):\",\"contract\":\"输入输出及状态修改规则\",\"depends_on\":[]}]}。solve入口另外生成，不在helpers中。<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "{\"helpers\": [{\"name\": \"_transform\", \"signature\": \"def _transform(node, factor, drop_null):\", \"contract\": \"输入node、factor、drop_null；递归变换数值但不变布尔；按规则删除null并保持顺序，返回新树、不修改输入。\", \"depends_on\": []}, {\"name\": \"_select\", \"signature\": \"def _select(tree, threshold):\", \"contract\": \"输入已经变换的tree和threshold；返回数值达阈值的path/value，路径使用该树索引与顺序、不修改输入。\", \"depends_on\": []}]}",
+        "input_tokens": 572,
+        "visible_output_text_tokens": 127,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "_transform",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\n  \"task_id\": \"D1_B05\",\n  \"requirement\": \"实现solve(payload)。tree为嵌套JSON对象或数组。先把所有数值叶子乘factor（默认1），布尔值不算数值；drop_null默认false，为true时删除对象中值为null的条目及数组中的null元素，空容器仍保留。再对变换结果找数值>=threshold的全部叶子，threshold为有限数。返回{tree:变换结果,matches:[{path,value}]}，path从根开始用对象字符串键和数组整数索引表示，数组索引以删除后的结果为准。matches按深度优先顺序，对象沿输入键顺序、数组沿结果索引顺序。factor为有限数，保证结果有限。不能修改输入。只用标准库，内部结构自由。\",\n  \"entry_point\": \"solve(payload)\",\n  \"language\": \"Python\",\n  \"allowed_libraries\": \"仅Python标准库\",\n  \"public_examples\": [\n    {\n      \"input\": {\n        \"tree\": {\n          \"a\": [\n            null,\n            2,\n            true\n          ],\n          \"b\": 3\n        },\n        \"drop_null\": true,\n        \"factor\": 2,\n        \"threshold\": 4\n      },\n      \"output\": {\n        \"tree\": {\n          \"a\": [\n            4,\n            true\n          ],\n          \"b\": 6\n        },\n        \"matches\": [\n          {\n            \"path\": [\n              \"a\",\n              0\n            ],\n            \"value\": 4\n          },\n          {\n            \"path\": [\n              \"b\"\n            ],\n            \"value\": 6\n          }\n        ]\n      }\n    },\n    {\n      \"input\": {\n        \"tree\": [],\n        \"threshold\": 0\n      },\n      \"output\": {\n        \"tree\": [],\n        \"matches\": []\n      }\n    }\n  ],\n  \"general_contract\": \"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\n  \"internal_decomposition\": \"自由选择，不给定helper名称或数量\"\n}\n固定计划：\n{\"helpers\": [{\"name\": \"_transform\", \"signature\": \"def _transform(node, factor, drop_null):\", \"contract\": \"输入node、factor、drop_null；递归变换数值但不变布尔；按规则删除null并保持顺序，返回新树、不修改输入。\", \"depends_on\": []}, {\"name\": \"_select\", \"signature\": \"def _select(tree, threshold):\", \"contract\": \"输入已经变换的tree和threshold；返回数值达阈值的path/value，路径使用该树索引与顺序、不修改输入。\", \"depends_on\": []}]}\n已实现函数：\n\n仅实现以下函数，签名保持一致，可以添加标准库import，禁止定义其他顶层函数：\n{\"name\": \"_transform\", \"signature\": \"def _transform(node, factor, drop_null):\", \"contract\": \"输入node、factor、drop_null；递归变换数值但不变布尔；按规则删除null并保持顺序，返回新树、不修改输入。\", \"depends_on\": []}<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "def _transform(node, factor, drop_null):\n    if isinstance(node, dict):\n        return {k: _transform(v, factor, drop_null) for k,v in node.items() if not (drop_null and v is None)}\n    if isinstance(node, list):\n        return [_transform(v, factor, drop_null) for v in node if not (drop_null and v is None)]\n    return node*factor if type(node) in (int,float) else node\n",
+        "previous_code_names": [],
+        "input_tokens": 732,
+        "visible_output_text_tokens": 97,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "_select",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\n  \"task_id\": \"D1_B05\",\n  \"requirement\": \"实现solve(payload)。tree为嵌套JSON对象或数组。先把所有数值叶子乘factor（默认1），布尔值不算数值；drop_null默认false，为true时删除对象中值为null的条目及数组中的null元素，空容器仍保留。再对变换结果找数值>=threshold的全部叶子，threshold为有限数。返回{tree:变换结果,matches:[{path,value}]}，path从根开始用对象字符串键和数组整数索引表示，数组索引以删除后的结果为准。matches按深度优先顺序，对象沿输入键顺序、数组沿结果索引顺序。factor为有限数，保证结果有限。不能修改输入。只用标准库，内部结构自由。\",\n  \"entry_point\": \"solve(payload)\",\n  \"language\": \"Python\",\n  \"allowed_libraries\": \"仅Python标准库\",\n  \"public_examples\": [\n    {\n      \"input\": {\n        \"tree\": {\n          \"a\": [\n            null,\n            2,\n            true\n          ],\n          \"b\": 3\n        },\n        \"drop_null\": true,\n        \"factor\": 2,\n        \"threshold\": 4\n      },\n      \"output\": {\n        \"tree\": {\n          \"a\": [\n            4,\n            true\n          ],\n          \"b\": 6\n        },\n        \"matches\": [\n          {\n            \"path\": [\n              \"a\",\n              0\n            ],\n            \"value\": 4\n          },\n          {\n            \"path\": [\n              \"b\"\n            ],\n            \"value\": 6\n          }\n        ]\n      }\n    },\n    {\n      \"input\": {\n        \"tree\": [],\n        \"threshold\": 0\n      },\n      \"output\": {\n        \"tree\": [],\n        \"matches\": []\n      }\n    }\n  ],\n  \"general_contract\": \"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\n  \"internal_decomposition\": \"自由选择，不给定helper名称或数量\"\n}\n固定计划：\n{\"helpers\": [{\"name\": \"_transform\", \"signature\": \"def _transform(node, factor, drop_null):\", \"contract\": \"输入node、factor、drop_null；递归变换数值但不变布尔；按规则删除null并保持顺序，返回新树、不修改输入。\", \"depends_on\": []}, {\"name\": \"_select\", \"signature\": \"def _select(tree, threshold):\", \"contract\": \"输入已经变换的tree和threshold；返回数值达阈值的path/value，路径使用该树索引与顺序、不修改输入。\", \"depends_on\": []}]}\n已实现函数：\n\n仅实现以下函数，签名保持一致，可以添加标准库import，禁止定义其他顶层函数：\n{\"name\": \"_select\", \"signature\": \"def _select(tree, threshold):\", \"contract\": \"输入已经变换的tree和threshold；返回数值达阈值的path/value，路径使用该树索引与顺序、不修改输入。\", \"depends_on\": []}<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "def _select(tree, threshold):\n    result=[]\n    def visit(node, path):\n        if type(node) in (int,float) and node>=threshold: result.append({'path':path,'value':node})\n        elif isinstance(node,dict):\n            for key,value in node.items(): visit(value,path+[key])\n        elif isinstance(node,list):\n            for i,value in enumerate(node): visit(value,path+[i])\n    visit(tree,[])\n    return result\n",
+        "previous_code_names": [],
+        "input_tokens": 727,
+        "visible_output_text_tokens": 93,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "entry",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\n  \"task_id\": \"D1_B05\",\n  \"requirement\": \"实现solve(payload)。tree为嵌套JSON对象或数组。先把所有数值叶子乘factor（默认1），布尔值不算数值；drop_null默认false，为true时删除对象中值为null的条目及数组中的null元素，空容器仍保留。再对变换结果找数值>=threshold的全部叶子，threshold为有限数。返回{tree:变换结果,matches:[{path,value}]}，path从根开始用对象字符串键和数组整数索引表示，数组索引以删除后的结果为准。matches按深度优先顺序，对象沿输入键顺序、数组沿结果索引顺序。factor为有限数，保证结果有限。不能修改输入。只用标准库，内部结构自由。\",\n  \"entry_point\": \"solve(payload)\",\n  \"language\": \"Python\",\n  \"allowed_libraries\": \"仅Python标准库\",\n  \"public_examples\": [\n    {\n      \"input\": {\n        \"tree\": {\n          \"a\": [\n            null,\n            2,\n            true\n          ],\n          \"b\": 3\n        },\n        \"drop_null\": true,\n        \"factor\": 2,\n        \"threshold\": 4\n      },\n      \"output\": {\n        \"tree\": {\n          \"a\": [\n            4,\n            true\n          ],\n          \"b\": 6\n        },\n        \"matches\": [\n          {\n            \"path\": [\n              \"a\",\n              0\n            ],\n            \"value\": 4\n          },\n          {\n            \"path\": [\n              \"b\"\n            ],\n            \"value\": 6\n          }\n        ]\n      }\n    },\n    {\n      \"input\": {\n        \"tree\": [],\n        \"threshold\": 0\n      },\n      \"output\": {\n        \"tree\": [],\n        \"matches\": []\n      }\n    }\n  ],\n  \"general_contract\": \"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\n  \"internal_decomposition\": \"自由选择，不给定helper名称或数量\"\n}\n固定计划：\n{\"helpers\": [{\"name\": \"_transform\", \"signature\": \"def _transform(node, factor, drop_null):\", \"contract\": \"输入node、factor、drop_null；递归变换数值但不变布尔；按规则删除null并保持顺序，返回新树、不修改输入。\", \"depends_on\": []}, {\"name\": \"_select\", \"signature\": \"def _select(tree, threshold):\", \"contract\": \"输入已经变换的tree和threshold；返回数值达阈值的path/value，路径使用该树索引与顺序、不修改输入。\", \"depends_on\": []}]}\n固定函数：\ndef _transform(node, factor, drop_null):\n    if isinstance(node, dict):\n        return {k: _transform(v, factor, drop_null) for k,v in node.items() if not (drop_null and v is None)}\n    if isinstance(node, list):\n        return [_transform(v, factor, drop_null) for v in node if not (drop_null and v is None)]\n    return node*factor if type(node) in (int,float) else node\n\n\ndef _select(tree, threshold):\n    result=[]\n    def visit(node, path):\n        if type(node) in (int,float) and node>=threshold: result.append({'path':path,'value':node})\n        elif isinstance(node,dict):\n            for key,value in node.items(): visit(value,path+[key])\n        elif isinstance(node,list):\n            for i,value in enumerate(node): visit(value,path+[i])\n    visit(tree,[])\n    return result\n\n仅实现solve(payload)，调用固定辅助函数，不能定义其他顶层函数。只输出代码。<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "def solve(payload):\n    tree=_transform(payload['tree'],payload.get('factor',1),payload.get('drop_null',False))\n    matches=_select(tree,payload['threshold'])\n    return {'tree':tree,'matches':matches}\n",
+        "input_tokens": 857,
+        "visible_output_text_tokens": 48,
+        "P9_smoke_output_cap": 512,
+        "visible_text_fits_smoke_cap": true
+      }
+    ]
+  },
+  {
+    "task_id": "D1_B05",
+    "format": "compact",
+    "arm": "M0",
+    "representation": "staged_correct",
+    "calls": [
+      {
+        "stage": "whole",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\"task_id\":\"D1_B05\",\"requirement\":\"实现solve(payload)。tree为嵌套JSON对象或数组。先把所有数值叶子乘factor（默认1），布尔值不算数值；drop_null默认false，为true时删除对象中值为null的条目及数组中的null元素，空容器仍保留。再对变换结果找数值>=threshold的全部叶子，threshold为有限数。返回{tree:变换结果,matches:[{path,value}]}，path从根开始用对象字符串键和数组整数索引表示，数组索引以删除后的结果为准。matches按深度优先顺序，对象沿输入键顺序、数组沿结果索引顺序。factor为有限数，保证结果有限。不能修改输入。只用标准库，内部结构自由。\",\"entry_point\":\"solve(payload)\",\"language\":\"Python\",\"allowed_libraries\":\"仅Python标准库\",\"public_examples\":[{\"input\":{\"tree\":{\"a\":[null,2,true],\"b\":3},\"drop_null\":true,\"factor\":2,\"threshold\":4},\"output\":{\"tree\":{\"a\":[4,true],\"b\":6},\"matches\":[{\"path\":[\"a\",0],\"value\":4},{\"path\":[\"b\"],\"value\":6}]}},{\"input\":{\"tree\":[],\"threshold\":0},\"output\":{\"tree\":[],\"matches\":[]}}],\"general_contract\":\"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\"internal_decomposition\":\"自由选择，不给定helper名称或数量\"}\n直接完整实现solve(payload)，可自行使用辅助函数。只输出Python代码。<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "def _transform(node, factor, drop_null):\n    if isinstance(node, dict):\n        return {k: _transform(v, factor, drop_null) for k,v in node.items() if not (drop_null and v is None)}\n    if isinstance(node, list):\n        return [_transform(v, factor, drop_null) for v in node if not (drop_null and v is None)]\n    return node*factor if type(node) in (int,float) else node\n\ndef _select(tree, threshold):\n    result=[]\n    def visit(node, path):\n        if type(node) in (int,float) and node>=threshold: result.append({'path':path,'value':node})\n        elif isinstance(node,dict):\n            for key,value in node.items(): visit(value,path+[key])\n        elif isinstance(node,list):\n            for i,value in enumerate(node): visit(value,path+[i])\n    visit(tree,[])\n    return result\ndef solve(payload):\n    tree=_transform(payload['tree'],payload.get('factor',1),payload.get('drop_null',False))\n    matches=_select(tree,payload['threshold'])\n    return {'tree':tree,'matches':matches}\n"
+      }
+    ]
+  },
+  {
+    "task_id": "D1_B05",
+    "format": "compact",
+    "arm": "M0",
+    "representation": "fused_correct",
+    "calls": [
+      {
+        "stage": "whole",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\"task_id\":\"D1_B05\",\"requirement\":\"实现solve(payload)。tree为嵌套JSON对象或数组。先把所有数值叶子乘factor（默认1），布尔值不算数值；drop_null默认false，为true时删除对象中值为null的条目及数组中的null元素，空容器仍保留。再对变换结果找数值>=threshold的全部叶子，threshold为有限数。返回{tree:变换结果,matches:[{path,value}]}，path从根开始用对象字符串键和数组整数索引表示，数组索引以删除后的结果为准。matches按深度优先顺序，对象沿输入键顺序、数组沿结果索引顺序。factor为有限数，保证结果有限。不能修改输入。只用标准库，内部结构自由。\",\"entry_point\":\"solve(payload)\",\"language\":\"Python\",\"allowed_libraries\":\"仅Python标准库\",\"public_examples\":[{\"input\":{\"tree\":{\"a\":[null,2,true],\"b\":3},\"drop_null\":true,\"factor\":2,\"threshold\":4},\"output\":{\"tree\":{\"a\":[4,true],\"b\":6},\"matches\":[{\"path\":[\"a\",0],\"value\":4},{\"path\":[\"b\"],\"value\":6}]}},{\"input\":{\"tree\":[],\"threshold\":0},\"output\":{\"tree\":[],\"matches\":[]}}],\"general_contract\":\"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\"internal_decomposition\":\"自由选择，不给定helper名称或数量\"}\n直接完整实现solve(payload)，可自行使用辅助函数。只输出Python代码。<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "def solve(payload):\n    def walk(node,path):\n        if isinstance(node,dict):\n            new={}; matches=[]\n            for k,v in node.items():\n                if v is None and payload.get('drop_null',False): continue\n                child,found=walk(v,path+[k]);new[k]=child;matches.extend(found)\n            return new,matches\n        if isinstance(node,list):\n            kept=[v for v in node if not (v is None and payload.get('drop_null',False))]\n            new=[];matches=[]\n            for i,v in enumerate(kept):\n                child,found=walk(v,path+[i]);new.append(child);matches.extend(found)\n            return new,matches\n        value=node*payload.get('factor',1) if type(node) in (int,float) else node\n        return value,([{'path':path,'value':value}] if type(value) in (int,float) and value>=payload['threshold'] else [])\n    tree,matches=walk(payload['tree'],[])\n    return {'tree':tree,'matches':matches}\n"
+      }
+    ]
+  },
+  {
+    "task_id": "D1_B05",
+    "format": "compact",
+    "arm": "M2",
+    "context": "all_previous",
+    "plan": {
+      "helpers": [
+        {
+          "name": "_transform",
+          "signature": "def _transform(node, factor, drop_null):",
+          "contract": "输入node、factor、drop_null；递归变换数值但不变布尔；按规则删除null并保持顺序，返回新树、不修改输入。",
+          "depends_on": []
+        },
+        {
+          "name": "_select",
+          "signature": "def _select(tree, threshold):",
+          "contract": "输入已经变换的tree和threshold；返回数值达阈值的path/value，路径使用该树索引与顺序、不修改输入。",
+          "depends_on": []
+        }
+      ]
+    },
+    "calls": [
+      {
+        "stage": "plan",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\"task_id\":\"D1_B05\",\"requirement\":\"实现solve(payload)。tree为嵌套JSON对象或数组。先把所有数值叶子乘factor（默认1），布尔值不算数值；drop_null默认false，为true时删除对象中值为null的条目及数组中的null元素，空容器仍保留。再对变换结果找数值>=threshold的全部叶子，threshold为有限数。返回{tree:变换结果,matches:[{path,value}]}，path从根开始用对象字符串键和数组整数索引表示，数组索引以删除后的结果为准。matches按深度优先顺序，对象沿输入键顺序、数组沿结果索引顺序。factor为有限数，保证结果有限。不能修改输入。只用标准库，内部结构自由。\",\"entry_point\":\"solve(payload)\",\"language\":\"Python\",\"allowed_libraries\":\"仅Python标准库\",\"public_examples\":[{\"input\":{\"tree\":{\"a\":[null,2,true],\"b\":3},\"drop_null\":true,\"factor\":2,\"threshold\":4},\"output\":{\"tree\":{\"a\":[4,true],\"b\":6},\"matches\":[{\"path\":[\"a\",0],\"value\":4},{\"path\":[\"b\"],\"value\":6}]}},{\"input\":{\"tree\":[],\"threshold\":0},\"output\":{\"tree\":[],\"matches\":[]}}],\"general_contract\":\"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\"internal_decomposition\":\"自由选择，不给定helper名称或数量\"}\n自主分解为2至3个辅助函数，按依赖先后排列。只输出JSON：{\"helpers\":[{\"name\":\"_name\",\"signature\":\"def _name(args):\",\"contract\":\"输入输出及状态修改规则\",\"depends_on\":[]}]}。solve入口另外生成，不在helpers中。<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "{\"helpers\": [{\"name\": \"_transform\", \"signature\": \"def _transform(node, factor, drop_null):\", \"contract\": \"输入node、factor、drop_null；递归变换数值但不变布尔；按规则删除null并保持顺序，返回新树、不修改输入。\", \"depends_on\": []}, {\"name\": \"_select\", \"signature\": \"def _select(tree, threshold):\", \"contract\": \"输入已经变换的tree和threshold；返回数值达阈值的path/value，路径使用该树索引与顺序、不修改输入。\", \"depends_on\": []}]}",
+        "input_tokens": 436,
+        "visible_output_text_tokens": 127,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "_transform",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\"task_id\":\"D1_B05\",\"requirement\":\"实现solve(payload)。tree为嵌套JSON对象或数组。先把所有数值叶子乘factor（默认1），布尔值不算数值；drop_null默认false，为true时删除对象中值为null的条目及数组中的null元素，空容器仍保留。再对变换结果找数值>=threshold的全部叶子，threshold为有限数。返回{tree:变换结果,matches:[{path,value}]}，path从根开始用对象字符串键和数组整数索引表示，数组索引以删除后的结果为准。matches按深度优先顺序，对象沿输入键顺序、数组沿结果索引顺序。factor为有限数，保证结果有限。不能修改输入。只用标准库，内部结构自由。\",\"entry_point\":\"solve(payload)\",\"language\":\"Python\",\"allowed_libraries\":\"仅Python标准库\",\"public_examples\":[{\"input\":{\"tree\":{\"a\":[null,2,true],\"b\":3},\"drop_null\":true,\"factor\":2,\"threshold\":4},\"output\":{\"tree\":{\"a\":[4,true],\"b\":6},\"matches\":[{\"path\":[\"a\",0],\"value\":4},{\"path\":[\"b\"],\"value\":6}]}},{\"input\":{\"tree\":[],\"threshold\":0},\"output\":{\"tree\":[],\"matches\":[]}}],\"general_contract\":\"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\"internal_decomposition\":\"自由选择，不给定helper名称或数量\"}\n固定计划：\n{\"helpers\": [{\"name\": \"_transform\", \"signature\": \"def _transform(node, factor, drop_null):\", \"contract\": \"输入node、factor、drop_null；递归变换数值但不变布尔；按规则删除null并保持顺序，返回新树、不修改输入。\", \"depends_on\": []}, {\"name\": \"_select\", \"signature\": \"def _select(tree, threshold):\", \"contract\": \"输入已经变换的tree和threshold；返回数值达阈值的path/value，路径使用该树索引与顺序、不修改输入。\", \"depends_on\": []}]}\n已实现函数：\n\n仅实现以下函数，签名保持一致，可以添加标准库import，禁止定义其他顶层函数：\n{\"name\": \"_transform\", \"signature\": \"def _transform(node, factor, drop_null):\", \"contract\": \"输入node、factor、drop_null；递归变换数值但不变布尔；按规则删除null并保持顺序，返回新树、不修改输入。\", \"depends_on\": []}<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "def _transform(node, factor, drop_null):\n    if isinstance(node, dict):\n        return {k: _transform(v, factor, drop_null) for k,v in node.items() if not (drop_null and v is None)}\n    if isinstance(node, list):\n        return [_transform(v, factor, drop_null) for v in node if not (drop_null and v is None)]\n    return node*factor if type(node) in (int,float) else node\n",
+        "previous_code_names": [],
+        "input_tokens": 596,
+        "visible_output_text_tokens": 97,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "_select",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\"task_id\":\"D1_B05\",\"requirement\":\"实现solve(payload)。tree为嵌套JSON对象或数组。先把所有数值叶子乘factor（默认1），布尔值不算数值；drop_null默认false，为true时删除对象中值为null的条目及数组中的null元素，空容器仍保留。再对变换结果找数值>=threshold的全部叶子，threshold为有限数。返回{tree:变换结果,matches:[{path,value}]}，path从根开始用对象字符串键和数组整数索引表示，数组索引以删除后的结果为准。matches按深度优先顺序，对象沿输入键顺序、数组沿结果索引顺序。factor为有限数，保证结果有限。不能修改输入。只用标准库，内部结构自由。\",\"entry_point\":\"solve(payload)\",\"language\":\"Python\",\"allowed_libraries\":\"仅Python标准库\",\"public_examples\":[{\"input\":{\"tree\":{\"a\":[null,2,true],\"b\":3},\"drop_null\":true,\"factor\":2,\"threshold\":4},\"output\":{\"tree\":{\"a\":[4,true],\"b\":6},\"matches\":[{\"path\":[\"a\",0],\"value\":4},{\"path\":[\"b\"],\"value\":6}]}},{\"input\":{\"tree\":[],\"threshold\":0},\"output\":{\"tree\":[],\"matches\":[]}}],\"general_contract\":\"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\"internal_decomposition\":\"自由选择，不给定helper名称或数量\"}\n固定计划：\n{\"helpers\": [{\"name\": \"_transform\", \"signature\": \"def _transform(node, factor, drop_null):\", \"contract\": \"输入node、factor、drop_null；递归变换数值但不变布尔；按规则删除null并保持顺序，返回新树、不修改输入。\", \"depends_on\": []}, {\"name\": \"_select\", \"signature\": \"def _select(tree, threshold):\", \"contract\": \"输入已经变换的tree和threshold；返回数值达阈值的path/value，路径使用该树索引与顺序、不修改输入。\", \"depends_on\": []}]}\n已实现函数：\ndef _transform(node, factor, drop_null):\n    if isinstance(node, dict):\n        return {k: _transform(v, factor, drop_null) for k,v in node.items() if not (drop_null and v is None)}\n    if isinstance(node, list):\n        return [_transform(v, factor, drop_null) for v in node if not (drop_null and v is None)]\n    return node*factor if type(node) in (int,float) else node\n\n仅实现以下函数，签名保持一致，可以添加标准库import，禁止定义其他顶层函数：\n{\"name\": \"_select\", \"signature\": \"def _select(tree, threshold):\", \"contract\": \"输入已经变换的tree和threshold；返回数值达阈值的path/value，路径使用该树索引与顺序、不修改输入。\", \"depends_on\": []}<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "def _select(tree, threshold):\n    result=[]\n    def visit(node, path):\n        if type(node) in (int,float) and node>=threshold: result.append({'path':path,'value':node})\n        elif isinstance(node,dict):\n            for key,value in node.items(): visit(value,path+[key])\n        elif isinstance(node,list):\n            for i,value in enumerate(node): visit(value,path+[i])\n    visit(tree,[])\n    return result\n",
+        "previous_code_names": [
+          "_transform"
+        ],
+        "input_tokens": 688,
+        "visible_output_text_tokens": 93,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "entry",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\"task_id\":\"D1_B05\",\"requirement\":\"实现solve(payload)。tree为嵌套JSON对象或数组。先把所有数值叶子乘factor（默认1），布尔值不算数值；drop_null默认false，为true时删除对象中值为null的条目及数组中的null元素，空容器仍保留。再对变换结果找数值>=threshold的全部叶子，threshold为有限数。返回{tree:变换结果,matches:[{path,value}]}，path从根开始用对象字符串键和数组整数索引表示，数组索引以删除后的结果为准。matches按深度优先顺序，对象沿输入键顺序、数组沿结果索引顺序。factor为有限数，保证结果有限。不能修改输入。只用标准库，内部结构自由。\",\"entry_point\":\"solve(payload)\",\"language\":\"Python\",\"allowed_libraries\":\"仅Python标准库\",\"public_examples\":[{\"input\":{\"tree\":{\"a\":[null,2,true],\"b\":3},\"drop_null\":true,\"factor\":2,\"threshold\":4},\"output\":{\"tree\":{\"a\":[4,true],\"b\":6},\"matches\":[{\"path\":[\"a\",0],\"value\":4},{\"path\":[\"b\"],\"value\":6}]}},{\"input\":{\"tree\":[],\"threshold\":0},\"output\":{\"tree\":[],\"matches\":[]}}],\"general_contract\":\"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\"internal_decomposition\":\"自由选择，不给定helper名称或数量\"}\n固定计划：\n{\"helpers\": [{\"name\": \"_transform\", \"signature\": \"def _transform(node, factor, drop_null):\", \"contract\": \"输入node、factor、drop_null；递归变换数值但不变布尔；按规则删除null并保持顺序，返回新树、不修改输入。\", \"depends_on\": []}, {\"name\": \"_select\", \"signature\": \"def _select(tree, threshold):\", \"contract\": \"输入已经变换的tree和threshold；返回数值达阈值的path/value，路径使用该树索引与顺序、不修改输入。\", \"depends_on\": []}]}\n固定函数：\ndef _transform(node, factor, drop_null):\n    if isinstance(node, dict):\n        return {k: _transform(v, factor, drop_null) for k,v in node.items() if not (drop_null and v is None)}\n    if isinstance(node, list):\n        return [_transform(v, factor, drop_null) for v in node if not (drop_null and v is None)]\n    return node*factor if type(node) in (int,float) else node\n\n\ndef _select(tree, threshold):\n    result=[]\n    def visit(node, path):\n        if type(node) in (int,float) and node>=threshold: result.append({'path':path,'value':node})\n        elif isinstance(node,dict):\n            for key,value in node.items(): visit(value,path+[key])\n        elif isinstance(node,list):\n            for i,value in enumerate(node): visit(value,path+[i])\n    visit(tree,[])\n    return result\n\n仅实现solve(payload)，调用固定辅助函数，不能定义其他顶层函数。只输出代码。<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "def solve(payload):\n    tree=_transform(payload['tree'],payload.get('factor',1),payload.get('drop_null',False))\n    matches=_select(tree,payload['threshold'])\n    return {'tree':tree,'matches':matches}\n",
+        "input_tokens": 721,
+        "visible_output_text_tokens": 48,
+        "P9_smoke_output_cap": 512,
+        "visible_text_fits_smoke_cap": true
+      }
+    ]
+  },
+  {
+    "task_id": "D1_B05",
+    "format": "compact",
+    "arm": "M2",
+    "context": "only_referenced_symbols",
+    "plan": {
+      "helpers": [
+        {
+          "name": "_transform",
+          "signature": "def _transform(node, factor, drop_null):",
+          "contract": "输入node、factor、drop_null；递归变换数值但不变布尔；按规则删除null并保持顺序，返回新树、不修改输入。",
+          "depends_on": []
+        },
+        {
+          "name": "_select",
+          "signature": "def _select(tree, threshold):",
+          "contract": "输入已经变换的tree和threshold；返回数值达阈值的path/value，路径使用该树索引与顺序、不修改输入。",
+          "depends_on": []
+        }
+      ]
+    },
+    "calls": [
+      {
+        "stage": "plan",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\"task_id\":\"D1_B05\",\"requirement\":\"实现solve(payload)。tree为嵌套JSON对象或数组。先把所有数值叶子乘factor（默认1），布尔值不算数值；drop_null默认false，为true时删除对象中值为null的条目及数组中的null元素，空容器仍保留。再对变换结果找数值>=threshold的全部叶子，threshold为有限数。返回{tree:变换结果,matches:[{path,value}]}，path从根开始用对象字符串键和数组整数索引表示，数组索引以删除后的结果为准。matches按深度优先顺序，对象沿输入键顺序、数组沿结果索引顺序。factor为有限数，保证结果有限。不能修改输入。只用标准库，内部结构自由。\",\"entry_point\":\"solve(payload)\",\"language\":\"Python\",\"allowed_libraries\":\"仅Python标准库\",\"public_examples\":[{\"input\":{\"tree\":{\"a\":[null,2,true],\"b\":3},\"drop_null\":true,\"factor\":2,\"threshold\":4},\"output\":{\"tree\":{\"a\":[4,true],\"b\":6},\"matches\":[{\"path\":[\"a\",0],\"value\":4},{\"path\":[\"b\"],\"value\":6}]}},{\"input\":{\"tree\":[],\"threshold\":0},\"output\":{\"tree\":[],\"matches\":[]}}],\"general_contract\":\"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\"internal_decomposition\":\"自由选择，不给定helper名称或数量\"}\n自主分解为2至3个辅助函数，按依赖先后排列。只输出JSON：{\"helpers\":[{\"name\":\"_name\",\"signature\":\"def _name(args):\",\"contract\":\"输入输出及状态修改规则\",\"depends_on\":[]}]}。solve入口另外生成，不在helpers中。<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "{\"helpers\": [{\"name\": \"_transform\", \"signature\": \"def _transform(node, factor, drop_null):\", \"contract\": \"输入node、factor、drop_null；递归变换数值但不变布尔；按规则删除null并保持顺序，返回新树、不修改输入。\", \"depends_on\": []}, {\"name\": \"_select\", \"signature\": \"def _select(tree, threshold):\", \"contract\": \"输入已经变换的tree和threshold；返回数值达阈值的path/value，路径使用该树索引与顺序、不修改输入。\", \"depends_on\": []}]}",
+        "input_tokens": 436,
+        "visible_output_text_tokens": 127,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "_transform",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\"task_id\":\"D1_B05\",\"requirement\":\"实现solve(payload)。tree为嵌套JSON对象或数组。先把所有数值叶子乘factor（默认1），布尔值不算数值；drop_null默认false，为true时删除对象中值为null的条目及数组中的null元素，空容器仍保留。再对变换结果找数值>=threshold的全部叶子，threshold为有限数。返回{tree:变换结果,matches:[{path,value}]}，path从根开始用对象字符串键和数组整数索引表示，数组索引以删除后的结果为准。matches按深度优先顺序，对象沿输入键顺序、数组沿结果索引顺序。factor为有限数，保证结果有限。不能修改输入。只用标准库，内部结构自由。\",\"entry_point\":\"solve(payload)\",\"language\":\"Python\",\"allowed_libraries\":\"仅Python标准库\",\"public_examples\":[{\"input\":{\"tree\":{\"a\":[null,2,true],\"b\":3},\"drop_null\":true,\"factor\":2,\"threshold\":4},\"output\":{\"tree\":{\"a\":[4,true],\"b\":6},\"matches\":[{\"path\":[\"a\",0],\"value\":4},{\"path\":[\"b\"],\"value\":6}]}},{\"input\":{\"tree\":[],\"threshold\":0},\"output\":{\"tree\":[],\"matches\":[]}}],\"general_contract\":\"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\"internal_decomposition\":\"自由选择，不给定helper名称或数量\"}\n固定计划：\n{\"helpers\": [{\"name\": \"_transform\", \"signature\": \"def _transform(node, factor, drop_null):\", \"contract\": \"输入node、factor、drop_null；递归变换数值但不变布尔；按规则删除null并保持顺序，返回新树、不修改输入。\", \"depends_on\": []}, {\"name\": \"_select\", \"signature\": \"def _select(tree, threshold):\", \"contract\": \"输入已经变换的tree和threshold；返回数值达阈值的path/value，路径使用该树索引与顺序、不修改输入。\", \"depends_on\": []}]}\n已实现函数：\n\n仅实现以下函数，签名保持一致，可以添加标准库import，禁止定义其他顶层函数：\n{\"name\": \"_transform\", \"signature\": \"def _transform(node, factor, drop_null):\", \"contract\": \"输入node、factor、drop_null；递归变换数值但不变布尔；按规则删除null并保持顺序，返回新树、不修改输入。\", \"depends_on\": []}<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "def _transform(node, factor, drop_null):\n    if isinstance(node, dict):\n        return {k: _transform(v, factor, drop_null) for k,v in node.items() if not (drop_null and v is None)}\n    if isinstance(node, list):\n        return [_transform(v, factor, drop_null) for v in node if not (drop_null and v is None)]\n    return node*factor if type(node) in (int,float) else node\n",
+        "previous_code_names": [],
+        "input_tokens": 596,
+        "visible_output_text_tokens": 97,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "_select",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\"task_id\":\"D1_B05\",\"requirement\":\"实现solve(payload)。tree为嵌套JSON对象或数组。先把所有数值叶子乘factor（默认1），布尔值不算数值；drop_null默认false，为true时删除对象中值为null的条目及数组中的null元素，空容器仍保留。再对变换结果找数值>=threshold的全部叶子，threshold为有限数。返回{tree:变换结果,matches:[{path,value}]}，path从根开始用对象字符串键和数组整数索引表示，数组索引以删除后的结果为准。matches按深度优先顺序，对象沿输入键顺序、数组沿结果索引顺序。factor为有限数，保证结果有限。不能修改输入。只用标准库，内部结构自由。\",\"entry_point\":\"solve(payload)\",\"language\":\"Python\",\"allowed_libraries\":\"仅Python标准库\",\"public_examples\":[{\"input\":{\"tree\":{\"a\":[null,2,true],\"b\":3},\"drop_null\":true,\"factor\":2,\"threshold\":4},\"output\":{\"tree\":{\"a\":[4,true],\"b\":6},\"matches\":[{\"path\":[\"a\",0],\"value\":4},{\"path\":[\"b\"],\"value\":6}]}},{\"input\":{\"tree\":[],\"threshold\":0},\"output\":{\"tree\":[],\"matches\":[]}}],\"general_contract\":\"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\"internal_decomposition\":\"自由选择，不给定helper名称或数量\"}\n固定计划：\n{\"helpers\": [{\"name\": \"_transform\", \"signature\": \"def _transform(node, factor, drop_null):\", \"contract\": \"输入node、factor、drop_null；递归变换数值但不变布尔；按规则删除null并保持顺序，返回新树、不修改输入。\", \"depends_on\": []}, {\"name\": \"_select\", \"signature\": \"def _select(tree, threshold):\", \"contract\": \"输入已经变换的tree和threshold；返回数值达阈值的path/value，路径使用该树索引与顺序、不修改输入。\", \"depends_on\": []}]}\n已实现函数：\n\n仅实现以下函数，签名保持一致，可以添加标准库import，禁止定义其他顶层函数：\n{\"name\": \"_select\", \"signature\": \"def _select(tree, threshold):\", \"contract\": \"输入已经变换的tree和threshold；返回数值达阈值的path/value，路径使用该树索引与顺序、不修改输入。\", \"depends_on\": []}<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "def _select(tree, threshold):\n    result=[]\n    def visit(node, path):\n        if type(node) in (int,float) and node>=threshold: result.append({'path':path,'value':node})\n        elif isinstance(node,dict):\n            for key,value in node.items(): visit(value,path+[key])\n        elif isinstance(node,list):\n            for i,value in enumerate(node): visit(value,path+[i])\n    visit(tree,[])\n    return result\n",
+        "previous_code_names": [],
+        "input_tokens": 591,
+        "visible_output_text_tokens": 93,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "entry",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\"task_id\":\"D1_B05\",\"requirement\":\"实现solve(payload)。tree为嵌套JSON对象或数组。先把所有数值叶子乘factor（默认1），布尔值不算数值；drop_null默认false，为true时删除对象中值为null的条目及数组中的null元素，空容器仍保留。再对变换结果找数值>=threshold的全部叶子，threshold为有限数。返回{tree:变换结果,matches:[{path,value}]}，path从根开始用对象字符串键和数组整数索引表示，数组索引以删除后的结果为准。matches按深度优先顺序，对象沿输入键顺序、数组沿结果索引顺序。factor为有限数，保证结果有限。不能修改输入。只用标准库，内部结构自由。\",\"entry_point\":\"solve(payload)\",\"language\":\"Python\",\"allowed_libraries\":\"仅Python标准库\",\"public_examples\":[{\"input\":{\"tree\":{\"a\":[null,2,true],\"b\":3},\"drop_null\":true,\"factor\":2,\"threshold\":4},\"output\":{\"tree\":{\"a\":[4,true],\"b\":6},\"matches\":[{\"path\":[\"a\",0],\"value\":4},{\"path\":[\"b\"],\"value\":6}]}},{\"input\":{\"tree\":[],\"threshold\":0},\"output\":{\"tree\":[],\"matches\":[]}}],\"general_contract\":\"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\"internal_decomposition\":\"自由选择，不给定helper名称或数量\"}\n固定计划：\n{\"helpers\": [{\"name\": \"_transform\", \"signature\": \"def _transform(node, factor, drop_null):\", \"contract\": \"输入node、factor、drop_null；递归变换数值但不变布尔；按规则删除null并保持顺序，返回新树、不修改输入。\", \"depends_on\": []}, {\"name\": \"_select\", \"signature\": \"def _select(tree, threshold):\", \"contract\": \"输入已经变换的tree和threshold；返回数值达阈值的path/value，路径使用该树索引与顺序、不修改输入。\", \"depends_on\": []}]}\n固定函数：\ndef _transform(node, factor, drop_null):\n    if isinstance(node, dict):\n        return {k: _transform(v, factor, drop_null) for k,v in node.items() if not (drop_null and v is None)}\n    if isinstance(node, list):\n        return [_transform(v, factor, drop_null) for v in node if not (drop_null and v is None)]\n    return node*factor if type(node) in (int,float) else node\n\n\ndef _select(tree, threshold):\n    result=[]\n    def visit(node, path):\n        if type(node) in (int,float) and node>=threshold: result.append({'path':path,'value':node})\n        elif isinstance(node,dict):\n            for key,value in node.items(): visit(value,path+[key])\n        elif isinstance(node,list):\n            for i,value in enumerate(node): visit(value,path+[i])\n    visit(tree,[])\n    return result\n\n仅实现solve(payload)，调用固定辅助函数，不能定义其他顶层函数。只输出代码。<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "def solve(payload):\n    tree=_transform(payload['tree'],payload.get('factor',1),payload.get('drop_null',False))\n    matches=_select(tree,payload['threshold'])\n    return {'tree':tree,'matches':matches}\n",
+        "input_tokens": 721,
+        "visible_output_text_tokens": 48,
+        "P9_smoke_output_cap": 512,
+        "visible_text_fits_smoke_cap": true
+      }
+    ]
+  },
+  {
+    "task_id": "D1_C03",
+    "format": "pretty",
+    "arm": "M0",
+    "representation": "staged_correct",
+    "calls": [
+      {
+        "stage": "whole",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\n  \"task_id\": \"D1_C03\",\n  \"requirement\": \"实现solve(payload)。capacity为非负整数，初始空缓存和计算次数0。operations为call或clear。call带args整数列表（默认[]）、kwargs字符串键到整数的对象（默认{}）；真实计算为args及kwargs全部值之和。调用键由有序args和按名匹配的kwargs决定，kwargs排列不影响键；位置传参与关键字传参仍不同。同键命中不增加计算次数并刷新最近使用顺序；未命中计算次数+1，capacity>0时存入，满时淘汰最久未用调用；capacity=0仍返回计算结果而不存。clear清空但不重置计算次数，result为null。每步返回{result,computations,size}，size为缓存调用数。只用标准库，内部结构自由。\",\n  \"entry_point\": \"solve(payload)\",\n  \"language\": \"Python\",\n  \"allowed_libraries\": \"仅Python标准库\",\n  \"public_examples\": [\n    {\n      \"input\": {\n        \"capacity\": 1,\n        \"operations\": [\n          {\n            \"op\": \"call\",\n            \"args\": [\n              2\n            ],\n            \"kwargs\": {\n              \"b\": 3\n            }\n          },\n          {\n            \"op\": \"call\",\n            \"args\": [\n              2\n            ],\n            \"kwargs\": {\n              \"b\": 3\n            }\n          },\n          {\n            \"op\": \"clear\"\n          },\n          {\n            \"op\": \"call\",\n            \"args\": [\n              2\n            ],\n            \"kwargs\": {\n              \"b\": 3\n            }\n          }\n        ]\n      },\n      \"output\": [\n        {\n          \"result\": 5,\n          \"computations\": 1,\n          \"size\": 1\n        },\n        {\n          \"result\": 5,\n          \"computations\": 1,\n          \"size\": 1\n        },\n        {\n          \"result\": null,\n          \"computations\": 1,\n          \"size\": 0\n        },\n        {\n          \"result\": 5,\n          \"computations\": 2,\n          \"size\": 1\n        }\n      ]\n    },\n    {\n      \"input\": {\n        \"capacity\": 0,\n        \"operations\": [\n          {\n            \"op\": \"call\"\n          },\n          {\n            \"op\": \"call\"\n          }\n        ]\n      },\n      \"output\": [\n        {\n          \"result\": 0,\n          \"computations\": 1,\n          \"size\": 0\n        },\n        {\n          \"result\": 0,\n          \"computations\": 2,\n          \"size\": 0\n        }\n      ]\n    }\n  ],\n  \"general_contract\": \"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\n  \"internal_decomposition\": \"自由选择，不给定helper名称或数量\"\n}\n直接完整实现solve(payload)，可自行使用辅助函数。只输出Python代码。<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "def _call_key(args,kwargs):\n    return tuple(args),tuple(sorted(kwargs.items()))\n\ndef _compute(args,kwargs):\n    return sum(args)+sum(kwargs.values())\ndef solve(payload):\n    from collections import OrderedDict\n    cache=OrderedDict();computations=0;output=[]\n    for op in payload['operations']:\n        if op['op']=='clear': cache.clear();result=None\n        else:\n            args,kwargs=op.get('args',[]),op.get('kwargs',{})\n            canonical_key=_call_key(args,kwargs)\n            cache_key=canonical_key\n            if cache_key in cache:\n                result=cache[cache_key];cache.move_to_end(cache_key)\n            else:\n                result=_compute(args,kwargs);computations+=1\n                if payload['capacity']>0:\n                    if len(cache)==payload['capacity']:cache.popitem(last=False)\n                    cache[cache_key]=result\n        output.append({'result':result,'computations':computations,'size':len(cache)})\n    return output\n"
+      }
+    ]
+  },
+  {
+    "task_id": "D1_C03",
+    "format": "pretty",
+    "arm": "M0",
+    "representation": "records_correct",
+    "calls": [
+      {
+        "stage": "whole",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\n  \"task_id\": \"D1_C03\",\n  \"requirement\": \"实现solve(payload)。capacity为非负整数，初始空缓存和计算次数0。operations为call或clear。call带args整数列表（默认[]）、kwargs字符串键到整数的对象（默认{}）；真实计算为args及kwargs全部值之和。调用键由有序args和按名匹配的kwargs决定，kwargs排列不影响键；位置传参与关键字传参仍不同。同键命中不增加计算次数并刷新最近使用顺序；未命中计算次数+1，capacity>0时存入，满时淘汰最久未用调用；capacity=0仍返回计算结果而不存。clear清空但不重置计算次数，result为null。每步返回{result,computations,size}，size为缓存调用数。只用标准库，内部结构自由。\",\n  \"entry_point\": \"solve(payload)\",\n  \"language\": \"Python\",\n  \"allowed_libraries\": \"仅Python标准库\",\n  \"public_examples\": [\n    {\n      \"input\": {\n        \"capacity\": 1,\n        \"operations\": [\n          {\n            \"op\": \"call\",\n            \"args\": [\n              2\n            ],\n            \"kwargs\": {\n              \"b\": 3\n            }\n          },\n          {\n            \"op\": \"call\",\n            \"args\": [\n              2\n            ],\n            \"kwargs\": {\n              \"b\": 3\n            }\n          },\n          {\n            \"op\": \"clear\"\n          },\n          {\n            \"op\": \"call\",\n            \"args\": [\n              2\n            ],\n            \"kwargs\": {\n              \"b\": 3\n            }\n          }\n        ]\n      },\n      \"output\": [\n        {\n          \"result\": 5,\n          \"computations\": 1,\n          \"size\": 1\n        },\n        {\n          \"result\": 5,\n          \"computations\": 1,\n          \"size\": 1\n        },\n        {\n          \"result\": null,\n          \"computations\": 1,\n          \"size\": 0\n        },\n        {\n          \"result\": 5,\n          \"computations\": 2,\n          \"size\": 1\n        }\n      ]\n    },\n    {\n      \"input\": {\n        \"capacity\": 0,\n        \"operations\": [\n          {\n            \"op\": \"call\"\n          },\n          {\n            \"op\": \"call\"\n          }\n        ]\n      },\n      \"output\": [\n        {\n          \"result\": 0,\n          \"computations\": 1,\n          \"size\": 0\n        },\n        {\n          \"result\": 0,\n          \"computations\": 2,\n          \"size\": 0\n        }\n      ]\n    }\n  ],\n  \"general_contract\": \"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\n  \"internal_decomposition\": \"自由选择，不给定helper名称或数量\"\n}\n直接完整实现solve(payload)，可自行使用辅助函数。只输出Python代码。<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "def solve(payload):\n    records=[];count=0;output=[]\n    for op in payload['operations']:\n        if op['op']=='clear':records=[];value=None\n        else:\n            key=(tuple(op.get('args',[])),tuple(sorted(op.get('kwargs',{}).items())))\n            matches=[i for i,r in enumerate(records) if r[0]==key]\n            if matches:\n                pair=records.pop(matches[0]);value=pair[1];records.append(pair)\n            else:\n                count+=1;value=sum(op.get('args',[]))+sum(op.get('kwargs',{}).values())\n                if payload['capacity']>0:\n                    records.append((key,value));records=records[-payload['capacity']:]\n        output.append({'result':value,'computations':count,'size':len(records)})\n    return output\n"
+      }
+    ]
+  },
+  {
+    "task_id": "D1_C03",
+    "format": "pretty",
+    "arm": "M2",
+    "context": "all_previous",
+    "plan": {
+      "helpers": [
+        {
+          "name": "_call_key",
+          "signature": "def _call_key(args,kwargs):",
+          "contract": "输入整数args与kwargs；返回完整位置参数tuple及排序关键词tuple，不混同参数来源、键名和顺序。",
+          "depends_on": []
+        },
+        {
+          "name": "_compute",
+          "signature": "def _compute(args,kwargs):",
+          "contract": "输入整数args与kwargs，返回两者全部值之和，不修改输入。",
+          "depends_on": []
+        }
+      ]
+    },
+    "calls": [
+      {
+        "stage": "plan",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\n  \"task_id\": \"D1_C03\",\n  \"requirement\": \"实现solve(payload)。capacity为非负整数，初始空缓存和计算次数0。operations为call或clear。call带args整数列表（默认[]）、kwargs字符串键到整数的对象（默认{}）；真实计算为args及kwargs全部值之和。调用键由有序args和按名匹配的kwargs决定，kwargs排列不影响键；位置传参与关键字传参仍不同。同键命中不增加计算次数并刷新最近使用顺序；未命中计算次数+1，capacity>0时存入，满时淘汰最久未用调用；capacity=0仍返回计算结果而不存。clear清空但不重置计算次数，result为null。每步返回{result,computations,size}，size为缓存调用数。只用标准库，内部结构自由。\",\n  \"entry_point\": \"solve(payload)\",\n  \"language\": \"Python\",\n  \"allowed_libraries\": \"仅Python标准库\",\n  \"public_examples\": [\n    {\n      \"input\": {\n        \"capacity\": 1,\n        \"operations\": [\n          {\n            \"op\": \"call\",\n            \"args\": [\n              2\n            ],\n            \"kwargs\": {\n              \"b\": 3\n            }\n          },\n          {\n            \"op\": \"call\",\n            \"args\": [\n              2\n            ],\n            \"kwargs\": {\n              \"b\": 3\n            }\n          },\n          {\n            \"op\": \"clear\"\n          },\n          {\n            \"op\": \"call\",\n            \"args\": [\n              2\n            ],\n            \"kwargs\": {\n              \"b\": 3\n            }\n          }\n        ]\n      },\n      \"output\": [\n        {\n          \"result\": 5,\n          \"computations\": 1,\n          \"size\": 1\n        },\n        {\n          \"result\": 5,\n          \"computations\": 1,\n          \"size\": 1\n        },\n        {\n          \"result\": null,\n          \"computations\": 1,\n          \"size\": 0\n        },\n        {\n          \"result\": 5,\n          \"computations\": 2,\n          \"size\": 1\n        }\n      ]\n    },\n    {\n      \"input\": {\n        \"capacity\": 0,\n        \"operations\": [\n          {\n            \"op\": \"call\"\n          },\n          {\n            \"op\": \"call\"\n          }\n        ]\n      },\n      \"output\": [\n        {\n          \"result\": 0,\n          \"computations\": 1,\n          \"size\": 0\n        },\n        {\n          \"result\": 0,\n          \"computations\": 2,\n          \"size\": 0\n        }\n      ]\n    }\n  ],\n  \"general_contract\": \"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\n  \"internal_decomposition\": \"自由选择，不给定helper名称或数量\"\n}\n自主分解为2至3个辅助函数，按依赖先后排列。只输出JSON：{\"helpers\":[{\"name\":\"_name\",\"signature\":\"def _name(args):\",\"contract\":\"输入输出及状态修改规则\",\"depends_on\":[]}]}。solve入口另外生成，不在helpers中。<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "{\"helpers\": [{\"name\": \"_call_key\", \"signature\": \"def _call_key(args,kwargs):\", \"contract\": \"输入整数args与kwargs；返回完整位置参数tuple及排序关键词tuple，不混同参数来源、键名和顺序。\", \"depends_on\": []}, {\"name\": \"_compute\", \"signature\": \"def _compute(args,kwargs):\", \"contract\": \"输入整数args与kwargs，返回两者全部值之和，不修改输入。\", \"depends_on\": []}]}",
+        "input_tokens": 761,
+        "visible_output_text_tokens": 110,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "_call_key",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\n  \"task_id\": \"D1_C03\",\n  \"requirement\": \"实现solve(payload)。capacity为非负整数，初始空缓存和计算次数0。operations为call或clear。call带args整数列表（默认[]）、kwargs字符串键到整数的对象（默认{}）；真实计算为args及kwargs全部值之和。调用键由有序args和按名匹配的kwargs决定，kwargs排列不影响键；位置传参与关键字传参仍不同。同键命中不增加计算次数并刷新最近使用顺序；未命中计算次数+1，capacity>0时存入，满时淘汰最久未用调用；capacity=0仍返回计算结果而不存。clear清空但不重置计算次数，result为null。每步返回{result,computations,size}，size为缓存调用数。只用标准库，内部结构自由。\",\n  \"entry_point\": \"solve(payload)\",\n  \"language\": \"Python\",\n  \"allowed_libraries\": \"仅Python标准库\",\n  \"public_examples\": [\n    {\n      \"input\": {\n        \"capacity\": 1,\n        \"operations\": [\n          {\n            \"op\": \"call\",\n            \"args\": [\n              2\n            ],\n            \"kwargs\": {\n              \"b\": 3\n            }\n          },\n          {\n            \"op\": \"call\",\n            \"args\": [\n              2\n            ],\n            \"kwargs\": {\n              \"b\": 3\n            }\n          },\n          {\n            \"op\": \"clear\"\n          },\n          {\n            \"op\": \"call\",\n            \"args\": [\n              2\n            ],\n            \"kwargs\": {\n              \"b\": 3\n            }\n          }\n        ]\n      },\n      \"output\": [\n        {\n          \"result\": 5,\n          \"computations\": 1,\n          \"size\": 1\n        },\n        {\n          \"result\": 5,\n          \"computations\": 1,\n          \"size\": 1\n        },\n        {\n          \"result\": null,\n          \"computations\": 1,\n          \"size\": 0\n        },\n        {\n          \"result\": 5,\n          \"computations\": 2,\n          \"size\": 1\n        }\n      ]\n    },\n    {\n      \"input\": {\n        \"capacity\": 0,\n        \"operations\": [\n          {\n            \"op\": \"call\"\n          },\n          {\n            \"op\": \"call\"\n          }\n        ]\n      },\n      \"output\": [\n        {\n          \"result\": 0,\n          \"computations\": 1,\n          \"size\": 0\n        },\n        {\n          \"result\": 0,\n          \"computations\": 2,\n          \"size\": 0\n        }\n      ]\n    }\n  ],\n  \"general_contract\": \"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\n  \"internal_decomposition\": \"自由选择，不给定helper名称或数量\"\n}\n固定计划：\n{\"helpers\": [{\"name\": \"_call_key\", \"signature\": \"def _call_key(args,kwargs):\", \"contract\": \"输入整数args与kwargs；返回完整位置参数tuple及排序关键词tuple，不混同参数来源、键名和顺序。\", \"depends_on\": []}, {\"name\": \"_compute\", \"signature\": \"def _compute(args,kwargs):\", \"contract\": \"输入整数args与kwargs，返回两者全部值之和，不修改输入。\", \"depends_on\": []}]}\n已实现函数：\n\n仅实现以下函数，签名保持一致，可以添加标准库import，禁止定义其他顶层函数：\n{\"name\": \"_call_key\", \"signature\": \"def _call_key(args,kwargs):\", \"contract\": \"输入整数args与kwargs；返回完整位置参数tuple及排序关键词tuple，不混同参数来源、键名和顺序。\", \"depends_on\": []}<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "def _call_key(args,kwargs):\n    return tuple(args),tuple(sorted(kwargs.items()))\n",
+        "previous_code_names": [],
+        "input_tokens": 899,
+        "visible_output_text_tokens": 18,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "_compute",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\n  \"task_id\": \"D1_C03\",\n  \"requirement\": \"实现solve(payload)。capacity为非负整数，初始空缓存和计算次数0。operations为call或clear。call带args整数列表（默认[]）、kwargs字符串键到整数的对象（默认{}）；真实计算为args及kwargs全部值之和。调用键由有序args和按名匹配的kwargs决定，kwargs排列不影响键；位置传参与关键字传参仍不同。同键命中不增加计算次数并刷新最近使用顺序；未命中计算次数+1，capacity>0时存入，满时淘汰最久未用调用；capacity=0仍返回计算结果而不存。clear清空但不重置计算次数，result为null。每步返回{result,computations,size}，size为缓存调用数。只用标准库，内部结构自由。\",\n  \"entry_point\": \"solve(payload)\",\n  \"language\": \"Python\",\n  \"allowed_libraries\": \"仅Python标准库\",\n  \"public_examples\": [\n    {\n      \"input\": {\n        \"capacity\": 1,\n        \"operations\": [\n          {\n            \"op\": \"call\",\n            \"args\": [\n              2\n            ],\n            \"kwargs\": {\n              \"b\": 3\n            }\n          },\n          {\n            \"op\": \"call\",\n            \"args\": [\n              2\n            ],\n            \"kwargs\": {\n              \"b\": 3\n            }\n          },\n          {\n            \"op\": \"clear\"\n          },\n          {\n            \"op\": \"call\",\n            \"args\": [\n              2\n            ],\n            \"kwargs\": {\n              \"b\": 3\n            }\n          }\n        ]\n      },\n      \"output\": [\n        {\n          \"result\": 5,\n          \"computations\": 1,\n          \"size\": 1\n        },\n        {\n          \"result\": 5,\n          \"computations\": 1,\n          \"size\": 1\n        },\n        {\n          \"result\": null,\n          \"computations\": 1,\n          \"size\": 0\n        },\n        {\n          \"result\": 5,\n          \"computations\": 2,\n          \"size\": 1\n        }\n      ]\n    },\n    {\n      \"input\": {\n        \"capacity\": 0,\n        \"operations\": [\n          {\n            \"op\": \"call\"\n          },\n          {\n            \"op\": \"call\"\n          }\n        ]\n      },\n      \"output\": [\n        {\n          \"result\": 0,\n          \"computations\": 1,\n          \"size\": 0\n        },\n        {\n          \"result\": 0,\n          \"computations\": 2,\n          \"size\": 0\n        }\n      ]\n    }\n  ],\n  \"general_contract\": \"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\n  \"internal_decomposition\": \"自由选择，不给定helper名称或数量\"\n}\n固定计划：\n{\"helpers\": [{\"name\": \"_call_key\", \"signature\": \"def _call_key(args,kwargs):\", \"contract\": \"输入整数args与kwargs；返回完整位置参数tuple及排序关键词tuple，不混同参数来源、键名和顺序。\", \"depends_on\": []}, {\"name\": \"_compute\", \"signature\": \"def _compute(args,kwargs):\", \"contract\": \"输入整数args与kwargs，返回两者全部值之和，不修改输入。\", \"depends_on\": []}]}\n已实现函数：\ndef _call_key(args,kwargs):\n    return tuple(args),tuple(sorted(kwargs.items()))\n\n仅实现以下函数，签名保持一致，可以添加标准库import，禁止定义其他顶层函数：\n{\"name\": \"_compute\", \"signature\": \"def _compute(args,kwargs):\", \"contract\": \"输入整数args与kwargs，返回两者全部值之和，不修改输入。\", \"depends_on\": []}<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "def _compute(args,kwargs):\n    return sum(args)+sum(kwargs.values())\n",
+        "previous_code_names": [
+          "_call_key"
+        ],
+        "input_tokens": 905,
+        "visible_output_text_tokens": 16,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "entry",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\n  \"task_id\": \"D1_C03\",\n  \"requirement\": \"实现solve(payload)。capacity为非负整数，初始空缓存和计算次数0。operations为call或clear。call带args整数列表（默认[]）、kwargs字符串键到整数的对象（默认{}）；真实计算为args及kwargs全部值之和。调用键由有序args和按名匹配的kwargs决定，kwargs排列不影响键；位置传参与关键字传参仍不同。同键命中不增加计算次数并刷新最近使用顺序；未命中计算次数+1，capacity>0时存入，满时淘汰最久未用调用；capacity=0仍返回计算结果而不存。clear清空但不重置计算次数，result为null。每步返回{result,computations,size}，size为缓存调用数。只用标准库，内部结构自由。\",\n  \"entry_point\": \"solve(payload)\",\n  \"language\": \"Python\",\n  \"allowed_libraries\": \"仅Python标准库\",\n  \"public_examples\": [\n    {\n      \"input\": {\n        \"capacity\": 1,\n        \"operations\": [\n          {\n            \"op\": \"call\",\n            \"args\": [\n              2\n            ],\n            \"kwargs\": {\n              \"b\": 3\n            }\n          },\n          {\n            \"op\": \"call\",\n            \"args\": [\n              2\n            ],\n            \"kwargs\": {\n              \"b\": 3\n            }\n          },\n          {\n            \"op\": \"clear\"\n          },\n          {\n            \"op\": \"call\",\n            \"args\": [\n              2\n            ],\n            \"kwargs\": {\n              \"b\": 3\n            }\n          }\n        ]\n      },\n      \"output\": [\n        {\n          \"result\": 5,\n          \"computations\": 1,\n          \"size\": 1\n        },\n        {\n          \"result\": 5,\n          \"computations\": 1,\n          \"size\": 1\n        },\n        {\n          \"result\": null,\n          \"computations\": 1,\n          \"size\": 0\n        },\n        {\n          \"result\": 5,\n          \"computations\": 2,\n          \"size\": 1\n        }\n      ]\n    },\n    {\n      \"input\": {\n        \"capacity\": 0,\n        \"operations\": [\n          {\n            \"op\": \"call\"\n          },\n          {\n            \"op\": \"call\"\n          }\n        ]\n      },\n      \"output\": [\n        {\n          \"result\": 0,\n          \"computations\": 1,\n          \"size\": 0\n        },\n        {\n          \"result\": 0,\n          \"computations\": 2,\n          \"size\": 0\n        }\n      ]\n    }\n  ],\n  \"general_contract\": \"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\n  \"internal_decomposition\": \"自由选择，不给定helper名称或数量\"\n}\n固定计划：\n{\"helpers\": [{\"name\": \"_call_key\", \"signature\": \"def _call_key(args,kwargs):\", \"contract\": \"输入整数args与kwargs；返回完整位置参数tuple及排序关键词tuple，不混同参数来源、键名和顺序。\", \"depends_on\": []}, {\"name\": \"_compute\", \"signature\": \"def _compute(args,kwargs):\", \"contract\": \"输入整数args与kwargs，返回两者全部值之和，不修改输入。\", \"depends_on\": []}]}\n固定函数：\ndef _call_key(args,kwargs):\n    return tuple(args),tuple(sorted(kwargs.items()))\n\n\ndef _compute(args,kwargs):\n    return sum(args)+sum(kwargs.values())\n\n仅实现solve(payload)，调用固定辅助函数，不能定义其他顶层函数。只输出代码。<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "def solve(payload):\n    from collections import OrderedDict\n    cache=OrderedDict();computations=0;output=[]\n    for op in payload['operations']:\n        if op['op']=='clear': cache.clear();result=None\n        else:\n            args,kwargs=op.get('args',[]),op.get('kwargs',{})\n            canonical_key=_call_key(args,kwargs)\n            cache_key=canonical_key\n            if cache_key in cache:\n                result=cache[cache_key];cache.move_to_end(cache_key)\n            else:\n                result=_compute(args,kwargs);computations+=1\n                if payload['capacity']>0:\n                    if len(cache)==payload['capacity']:cache.popitem(last=False)\n                    cache[cache_key]=result\n        output.append({'result':result,'computations':computations,'size':len(cache)})\n    return output\n",
+        "input_tokens": 874,
+        "visible_output_text_tokens": 175,
+        "P9_smoke_output_cap": 512,
+        "visible_text_fits_smoke_cap": true
+      }
+    ]
+  },
+  {
+    "task_id": "D1_C03",
+    "format": "pretty",
+    "arm": "M2",
+    "context": "only_referenced_symbols",
+    "plan": {
+      "helpers": [
+        {
+          "name": "_call_key",
+          "signature": "def _call_key(args,kwargs):",
+          "contract": "输入整数args与kwargs；返回完整位置参数tuple及排序关键词tuple，不混同参数来源、键名和顺序。",
+          "depends_on": []
+        },
+        {
+          "name": "_compute",
+          "signature": "def _compute(args,kwargs):",
+          "contract": "输入整数args与kwargs，返回两者全部值之和，不修改输入。",
+          "depends_on": []
+        }
+      ]
+    },
+    "calls": [
+      {
+        "stage": "plan",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\n  \"task_id\": \"D1_C03\",\n  \"requirement\": \"实现solve(payload)。capacity为非负整数，初始空缓存和计算次数0。operations为call或clear。call带args整数列表（默认[]）、kwargs字符串键到整数的对象（默认{}）；真实计算为args及kwargs全部值之和。调用键由有序args和按名匹配的kwargs决定，kwargs排列不影响键；位置传参与关键字传参仍不同。同键命中不增加计算次数并刷新最近使用顺序；未命中计算次数+1，capacity>0时存入，满时淘汰最久未用调用；capacity=0仍返回计算结果而不存。clear清空但不重置计算次数，result为null。每步返回{result,computations,size}，size为缓存调用数。只用标准库，内部结构自由。\",\n  \"entry_point\": \"solve(payload)\",\n  \"language\": \"Python\",\n  \"allowed_libraries\": \"仅Python标准库\",\n  \"public_examples\": [\n    {\n      \"input\": {\n        \"capacity\": 1,\n        \"operations\": [\n          {\n            \"op\": \"call\",\n            \"args\": [\n              2\n            ],\n            \"kwargs\": {\n              \"b\": 3\n            }\n          },\n          {\n            \"op\": \"call\",\n            \"args\": [\n              2\n            ],\n            \"kwargs\": {\n              \"b\": 3\n            }\n          },\n          {\n            \"op\": \"clear\"\n          },\n          {\n            \"op\": \"call\",\n            \"args\": [\n              2\n            ],\n            \"kwargs\": {\n              \"b\": 3\n            }\n          }\n        ]\n      },\n      \"output\": [\n        {\n          \"result\": 5,\n          \"computations\": 1,\n          \"size\": 1\n        },\n        {\n          \"result\": 5,\n          \"computations\": 1,\n          \"size\": 1\n        },\n        {\n          \"result\": null,\n          \"computations\": 1,\n          \"size\": 0\n        },\n        {\n          \"result\": 5,\n          \"computations\": 2,\n          \"size\": 1\n        }\n      ]\n    },\n    {\n      \"input\": {\n        \"capacity\": 0,\n        \"operations\": [\n          {\n            \"op\": \"call\"\n          },\n          {\n            \"op\": \"call\"\n          }\n        ]\n      },\n      \"output\": [\n        {\n          \"result\": 0,\n          \"computations\": 1,\n          \"size\": 0\n        },\n        {\n          \"result\": 0,\n          \"computations\": 2,\n          \"size\": 0\n        }\n      ]\n    }\n  ],\n  \"general_contract\": \"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\n  \"internal_decomposition\": \"自由选择，不给定helper名称或数量\"\n}\n自主分解为2至3个辅助函数，按依赖先后排列。只输出JSON：{\"helpers\":[{\"name\":\"_name\",\"signature\":\"def _name(args):\",\"contract\":\"输入输出及状态修改规则\",\"depends_on\":[]}]}。solve入口另外生成，不在helpers中。<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "{\"helpers\": [{\"name\": \"_call_key\", \"signature\": \"def _call_key(args,kwargs):\", \"contract\": \"输入整数args与kwargs；返回完整位置参数tuple及排序关键词tuple，不混同参数来源、键名和顺序。\", \"depends_on\": []}, {\"name\": \"_compute\", \"signature\": \"def _compute(args,kwargs):\", \"contract\": \"输入整数args与kwargs，返回两者全部值之和，不修改输入。\", \"depends_on\": []}]}",
+        "input_tokens": 761,
+        "visible_output_text_tokens": 110,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "_call_key",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\n  \"task_id\": \"D1_C03\",\n  \"requirement\": \"实现solve(payload)。capacity为非负整数，初始空缓存和计算次数0。operations为call或clear。call带args整数列表（默认[]）、kwargs字符串键到整数的对象（默认{}）；真实计算为args及kwargs全部值之和。调用键由有序args和按名匹配的kwargs决定，kwargs排列不影响键；位置传参与关键字传参仍不同。同键命中不增加计算次数并刷新最近使用顺序；未命中计算次数+1，capacity>0时存入，满时淘汰最久未用调用；capacity=0仍返回计算结果而不存。clear清空但不重置计算次数，result为null。每步返回{result,computations,size}，size为缓存调用数。只用标准库，内部结构自由。\",\n  \"entry_point\": \"solve(payload)\",\n  \"language\": \"Python\",\n  \"allowed_libraries\": \"仅Python标准库\",\n  \"public_examples\": [\n    {\n      \"input\": {\n        \"capacity\": 1,\n        \"operations\": [\n          {\n            \"op\": \"call\",\n            \"args\": [\n              2\n            ],\n            \"kwargs\": {\n              \"b\": 3\n            }\n          },\n          {\n            \"op\": \"call\",\n            \"args\": [\n              2\n            ],\n            \"kwargs\": {\n              \"b\": 3\n            }\n          },\n          {\n            \"op\": \"clear\"\n          },\n          {\n            \"op\": \"call\",\n            \"args\": [\n              2\n            ],\n            \"kwargs\": {\n              \"b\": 3\n            }\n          }\n        ]\n      },\n      \"output\": [\n        {\n          \"result\": 5,\n          \"computations\": 1,\n          \"size\": 1\n        },\n        {\n          \"result\": 5,\n          \"computations\": 1,\n          \"size\": 1\n        },\n        {\n          \"result\": null,\n          \"computations\": 1,\n          \"size\": 0\n        },\n        {\n          \"result\": 5,\n          \"computations\": 2,\n          \"size\": 1\n        }\n      ]\n    },\n    {\n      \"input\": {\n        \"capacity\": 0,\n        \"operations\": [\n          {\n            \"op\": \"call\"\n          },\n          {\n            \"op\": \"call\"\n          }\n        ]\n      },\n      \"output\": [\n        {\n          \"result\": 0,\n          \"computations\": 1,\n          \"size\": 0\n        },\n        {\n          \"result\": 0,\n          \"computations\": 2,\n          \"size\": 0\n        }\n      ]\n    }\n  ],\n  \"general_contract\": \"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\n  \"internal_decomposition\": \"自由选择，不给定helper名称或数量\"\n}\n固定计划：\n{\"helpers\": [{\"name\": \"_call_key\", \"signature\": \"def _call_key(args,kwargs):\", \"contract\": \"输入整数args与kwargs；返回完整位置参数tuple及排序关键词tuple，不混同参数来源、键名和顺序。\", \"depends_on\": []}, {\"name\": \"_compute\", \"signature\": \"def _compute(args,kwargs):\", \"contract\": \"输入整数args与kwargs，返回两者全部值之和，不修改输入。\", \"depends_on\": []}]}\n已实现函数：\n\n仅实现以下函数，签名保持一致，可以添加标准库import，禁止定义其他顶层函数：\n{\"name\": \"_call_key\", \"signature\": \"def _call_key(args,kwargs):\", \"contract\": \"输入整数args与kwargs；返回完整位置参数tuple及排序关键词tuple，不混同参数来源、键名和顺序。\", \"depends_on\": []}<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "def _call_key(args,kwargs):\n    return tuple(args),tuple(sorted(kwargs.items()))\n",
+        "previous_code_names": [],
+        "input_tokens": 899,
+        "visible_output_text_tokens": 18,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "_compute",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\n  \"task_id\": \"D1_C03\",\n  \"requirement\": \"实现solve(payload)。capacity为非负整数，初始空缓存和计算次数0。operations为call或clear。call带args整数列表（默认[]）、kwargs字符串键到整数的对象（默认{}）；真实计算为args及kwargs全部值之和。调用键由有序args和按名匹配的kwargs决定，kwargs排列不影响键；位置传参与关键字传参仍不同。同键命中不增加计算次数并刷新最近使用顺序；未命中计算次数+1，capacity>0时存入，满时淘汰最久未用调用；capacity=0仍返回计算结果而不存。clear清空但不重置计算次数，result为null。每步返回{result,computations,size}，size为缓存调用数。只用标准库，内部结构自由。\",\n  \"entry_point\": \"solve(payload)\",\n  \"language\": \"Python\",\n  \"allowed_libraries\": \"仅Python标准库\",\n  \"public_examples\": [\n    {\n      \"input\": {\n        \"capacity\": 1,\n        \"operations\": [\n          {\n            \"op\": \"call\",\n            \"args\": [\n              2\n            ],\n            \"kwargs\": {\n              \"b\": 3\n            }\n          },\n          {\n            \"op\": \"call\",\n            \"args\": [\n              2\n            ],\n            \"kwargs\": {\n              \"b\": 3\n            }\n          },\n          {\n            \"op\": \"clear\"\n          },\n          {\n            \"op\": \"call\",\n            \"args\": [\n              2\n            ],\n            \"kwargs\": {\n              \"b\": 3\n            }\n          }\n        ]\n      },\n      \"output\": [\n        {\n          \"result\": 5,\n          \"computations\": 1,\n          \"size\": 1\n        },\n        {\n          \"result\": 5,\n          \"computations\": 1,\n          \"size\": 1\n        },\n        {\n          \"result\": null,\n          \"computations\": 1,\n          \"size\": 0\n        },\n        {\n          \"result\": 5,\n          \"computations\": 2,\n          \"size\": 1\n        }\n      ]\n    },\n    {\n      \"input\": {\n        \"capacity\": 0,\n        \"operations\": [\n          {\n            \"op\": \"call\"\n          },\n          {\n            \"op\": \"call\"\n          }\n        ]\n      },\n      \"output\": [\n        {\n          \"result\": 0,\n          \"computations\": 1,\n          \"size\": 0\n        },\n        {\n          \"result\": 0,\n          \"computations\": 2,\n          \"size\": 0\n        }\n      ]\n    }\n  ],\n  \"general_contract\": \"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\n  \"internal_decomposition\": \"自由选择，不给定helper名称或数量\"\n}\n固定计划：\n{\"helpers\": [{\"name\": \"_call_key\", \"signature\": \"def _call_key(args,kwargs):\", \"contract\": \"输入整数args与kwargs；返回完整位置参数tuple及排序关键词tuple，不混同参数来源、键名和顺序。\", \"depends_on\": []}, {\"name\": \"_compute\", \"signature\": \"def _compute(args,kwargs):\", \"contract\": \"输入整数args与kwargs，返回两者全部值之和，不修改输入。\", \"depends_on\": []}]}\n已实现函数：\n\n仅实现以下函数，签名保持一致，可以添加标准库import，禁止定义其他顶层函数：\n{\"name\": \"_compute\", \"signature\": \"def _compute(args,kwargs):\", \"contract\": \"输入整数args与kwargs，返回两者全部值之和，不修改输入。\", \"depends_on\": []}<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "def _compute(args,kwargs):\n    return sum(args)+sum(kwargs.values())\n",
+        "previous_code_names": [],
+        "input_tokens": 887,
+        "visible_output_text_tokens": 16,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "entry",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\n  \"task_id\": \"D1_C03\",\n  \"requirement\": \"实现solve(payload)。capacity为非负整数，初始空缓存和计算次数0。operations为call或clear。call带args整数列表（默认[]）、kwargs字符串键到整数的对象（默认{}）；真实计算为args及kwargs全部值之和。调用键由有序args和按名匹配的kwargs决定，kwargs排列不影响键；位置传参与关键字传参仍不同。同键命中不增加计算次数并刷新最近使用顺序；未命中计算次数+1，capacity>0时存入，满时淘汰最久未用调用；capacity=0仍返回计算结果而不存。clear清空但不重置计算次数，result为null。每步返回{result,computations,size}，size为缓存调用数。只用标准库，内部结构自由。\",\n  \"entry_point\": \"solve(payload)\",\n  \"language\": \"Python\",\n  \"allowed_libraries\": \"仅Python标准库\",\n  \"public_examples\": [\n    {\n      \"input\": {\n        \"capacity\": 1,\n        \"operations\": [\n          {\n            \"op\": \"call\",\n            \"args\": [\n              2\n            ],\n            \"kwargs\": {\n              \"b\": 3\n            }\n          },\n          {\n            \"op\": \"call\",\n            \"args\": [\n              2\n            ],\n            \"kwargs\": {\n              \"b\": 3\n            }\n          },\n          {\n            \"op\": \"clear\"\n          },\n          {\n            \"op\": \"call\",\n            \"args\": [\n              2\n            ],\n            \"kwargs\": {\n              \"b\": 3\n            }\n          }\n        ]\n      },\n      \"output\": [\n        {\n          \"result\": 5,\n          \"computations\": 1,\n          \"size\": 1\n        },\n        {\n          \"result\": 5,\n          \"computations\": 1,\n          \"size\": 1\n        },\n        {\n          \"result\": null,\n          \"computations\": 1,\n          \"size\": 0\n        },\n        {\n          \"result\": 5,\n          \"computations\": 2,\n          \"size\": 1\n        }\n      ]\n    },\n    {\n      \"input\": {\n        \"capacity\": 0,\n        \"operations\": [\n          {\n            \"op\": \"call\"\n          },\n          {\n            \"op\": \"call\"\n          }\n        ]\n      },\n      \"output\": [\n        {\n          \"result\": 0,\n          \"computations\": 1,\n          \"size\": 0\n        },\n        {\n          \"result\": 0,\n          \"computations\": 2,\n          \"size\": 0\n        }\n      ]\n    }\n  ],\n  \"general_contract\": \"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\n  \"internal_decomposition\": \"自由选择，不给定helper名称或数量\"\n}\n固定计划：\n{\"helpers\": [{\"name\": \"_call_key\", \"signature\": \"def _call_key(args,kwargs):\", \"contract\": \"输入整数args与kwargs；返回完整位置参数tuple及排序关键词tuple，不混同参数来源、键名和顺序。\", \"depends_on\": []}, {\"name\": \"_compute\", \"signature\": \"def _compute(args,kwargs):\", \"contract\": \"输入整数args与kwargs，返回两者全部值之和，不修改输入。\", \"depends_on\": []}]}\n固定函数：\ndef _call_key(args,kwargs):\n    return tuple(args),tuple(sorted(kwargs.items()))\n\n\ndef _compute(args,kwargs):\n    return sum(args)+sum(kwargs.values())\n\n仅实现solve(payload)，调用固定辅助函数，不能定义其他顶层函数。只输出代码。<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "def solve(payload):\n    from collections import OrderedDict\n    cache=OrderedDict();computations=0;output=[]\n    for op in payload['operations']:\n        if op['op']=='clear': cache.clear();result=None\n        else:\n            args,kwargs=op.get('args',[]),op.get('kwargs',{})\n            canonical_key=_call_key(args,kwargs)\n            cache_key=canonical_key\n            if cache_key in cache:\n                result=cache[cache_key];cache.move_to_end(cache_key)\n            else:\n                result=_compute(args,kwargs);computations+=1\n                if payload['capacity']>0:\n                    if len(cache)==payload['capacity']:cache.popitem(last=False)\n                    cache[cache_key]=result\n        output.append({'result':result,'computations':computations,'size':len(cache)})\n    return output\n",
+        "input_tokens": 874,
+        "visible_output_text_tokens": 175,
+        "P9_smoke_output_cap": 512,
+        "visible_text_fits_smoke_cap": true
+      }
+    ]
+  },
+  {
+    "task_id": "D1_C03",
+    "format": "compact",
+    "arm": "M0",
+    "representation": "staged_correct",
+    "calls": [
+      {
+        "stage": "whole",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\"task_id\":\"D1_C03\",\"requirement\":\"实现solve(payload)。capacity为非负整数，初始空缓存和计算次数0。operations为call或clear。call带args整数列表（默认[]）、kwargs字符串键到整数的对象（默认{}）；真实计算为args及kwargs全部值之和。调用键由有序args和按名匹配的kwargs决定，kwargs排列不影响键；位置传参与关键字传参仍不同。同键命中不增加计算次数并刷新最近使用顺序；未命中计算次数+1，capacity>0时存入，满时淘汰最久未用调用；capacity=0仍返回计算结果而不存。clear清空但不重置计算次数，result为null。每步返回{result,computations,size}，size为缓存调用数。只用标准库，内部结构自由。\",\"entry_point\":\"solve(payload)\",\"language\":\"Python\",\"allowed_libraries\":\"仅Python标准库\",\"public_examples\":[{\"input\":{\"capacity\":1,\"operations\":[{\"op\":\"call\",\"args\":[2],\"kwargs\":{\"b\":3}},{\"op\":\"call\",\"args\":[2],\"kwargs\":{\"b\":3}},{\"op\":\"clear\"},{\"op\":\"call\",\"args\":[2],\"kwargs\":{\"b\":3}}]},\"output\":[{\"result\":5,\"computations\":1,\"size\":1},{\"result\":5,\"computations\":1,\"size\":1},{\"result\":null,\"computations\":1,\"size\":0},{\"result\":5,\"computations\":2,\"size\":1}]},{\"input\":{\"capacity\":0,\"operations\":[{\"op\":\"call\"},{\"op\":\"call\"}]},\"output\":[{\"result\":0,\"computations\":1,\"size\":0},{\"result\":0,\"computations\":2,\"size\":0}]}],\"general_contract\":\"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\"internal_decomposition\":\"自由选择，不给定helper名称或数量\"}\n直接完整实现solve(payload)，可自行使用辅助函数。只输出Python代码。<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "def _call_key(args,kwargs):\n    return tuple(args),tuple(sorted(kwargs.items()))\n\ndef _compute(args,kwargs):\n    return sum(args)+sum(kwargs.values())\ndef solve(payload):\n    from collections import OrderedDict\n    cache=OrderedDict();computations=0;output=[]\n    for op in payload['operations']:\n        if op['op']=='clear': cache.clear();result=None\n        else:\n            args,kwargs=op.get('args',[]),op.get('kwargs',{})\n            canonical_key=_call_key(args,kwargs)\n            cache_key=canonical_key\n            if cache_key in cache:\n                result=cache[cache_key];cache.move_to_end(cache_key)\n            else:\n                result=_compute(args,kwargs);computations+=1\n                if payload['capacity']>0:\n                    if len(cache)==payload['capacity']:cache.popitem(last=False)\n                    cache[cache_key]=result\n        output.append({'result':result,'computations':computations,'size':len(cache)})\n    return output\n"
+      }
+    ]
+  },
+  {
+    "task_id": "D1_C03",
+    "format": "compact",
+    "arm": "M0",
+    "representation": "records_correct",
+    "calls": [
+      {
+        "stage": "whole",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\"task_id\":\"D1_C03\",\"requirement\":\"实现solve(payload)。capacity为非负整数，初始空缓存和计算次数0。operations为call或clear。call带args整数列表（默认[]）、kwargs字符串键到整数的对象（默认{}）；真实计算为args及kwargs全部值之和。调用键由有序args和按名匹配的kwargs决定，kwargs排列不影响键；位置传参与关键字传参仍不同。同键命中不增加计算次数并刷新最近使用顺序；未命中计算次数+1，capacity>0时存入，满时淘汰最久未用调用；capacity=0仍返回计算结果而不存。clear清空但不重置计算次数，result为null。每步返回{result,computations,size}，size为缓存调用数。只用标准库，内部结构自由。\",\"entry_point\":\"solve(payload)\",\"language\":\"Python\",\"allowed_libraries\":\"仅Python标准库\",\"public_examples\":[{\"input\":{\"capacity\":1,\"operations\":[{\"op\":\"call\",\"args\":[2],\"kwargs\":{\"b\":3}},{\"op\":\"call\",\"args\":[2],\"kwargs\":{\"b\":3}},{\"op\":\"clear\"},{\"op\":\"call\",\"args\":[2],\"kwargs\":{\"b\":3}}]},\"output\":[{\"result\":5,\"computations\":1,\"size\":1},{\"result\":5,\"computations\":1,\"size\":1},{\"result\":null,\"computations\":1,\"size\":0},{\"result\":5,\"computations\":2,\"size\":1}]},{\"input\":{\"capacity\":0,\"operations\":[{\"op\":\"call\"},{\"op\":\"call\"}]},\"output\":[{\"result\":0,\"computations\":1,\"size\":0},{\"result\":0,\"computations\":2,\"size\":0}]}],\"general_contract\":\"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\"internal_decomposition\":\"自由选择，不给定helper名称或数量\"}\n直接完整实现solve(payload)，可自行使用辅助函数。只输出Python代码。<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "def solve(payload):\n    records=[];count=0;output=[]\n    for op in payload['operations']:\n        if op['op']=='clear':records=[];value=None\n        else:\n            key=(tuple(op.get('args',[])),tuple(sorted(op.get('kwargs',{}).items())))\n            matches=[i for i,r in enumerate(records) if r[0]==key]\n            if matches:\n                pair=records.pop(matches[0]);value=pair[1];records.append(pair)\n            else:\n                count+=1;value=sum(op.get('args',[]))+sum(op.get('kwargs',{}).values())\n                if payload['capacity']>0:\n                    records.append((key,value));records=records[-payload['capacity']:]\n        output.append({'result':value,'computations':count,'size':len(records)})\n    return output\n"
+      }
+    ]
+  },
+  {
+    "task_id": "D1_C03",
+    "format": "compact",
+    "arm": "M2",
+    "context": "all_previous",
+    "plan": {
+      "helpers": [
+        {
+          "name": "_call_key",
+          "signature": "def _call_key(args,kwargs):",
+          "contract": "输入整数args与kwargs；返回完整位置参数tuple及排序关键词tuple，不混同参数来源、键名和顺序。",
+          "depends_on": []
+        },
+        {
+          "name": "_compute",
+          "signature": "def _compute(args,kwargs):",
+          "contract": "输入整数args与kwargs，返回两者全部值之和，不修改输入。",
+          "depends_on": []
+        }
+      ]
+    },
+    "calls": [
+      {
+        "stage": "plan",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\"task_id\":\"D1_C03\",\"requirement\":\"实现solve(payload)。capacity为非负整数，初始空缓存和计算次数0。operations为call或clear。call带args整数列表（默认[]）、kwargs字符串键到整数的对象（默认{}）；真实计算为args及kwargs全部值之和。调用键由有序args和按名匹配的kwargs决定，kwargs排列不影响键；位置传参与关键字传参仍不同。同键命中不增加计算次数并刷新最近使用顺序；未命中计算次数+1，capacity>0时存入，满时淘汰最久未用调用；capacity=0仍返回计算结果而不存。clear清空但不重置计算次数，result为null。每步返回{result,computations,size}，size为缓存调用数。只用标准库，内部结构自由。\",\"entry_point\":\"solve(payload)\",\"language\":\"Python\",\"allowed_libraries\":\"仅Python标准库\",\"public_examples\":[{\"input\":{\"capacity\":1,\"operations\":[{\"op\":\"call\",\"args\":[2],\"kwargs\":{\"b\":3}},{\"op\":\"call\",\"args\":[2],\"kwargs\":{\"b\":3}},{\"op\":\"clear\"},{\"op\":\"call\",\"args\":[2],\"kwargs\":{\"b\":3}}]},\"output\":[{\"result\":5,\"computations\":1,\"size\":1},{\"result\":5,\"computations\":1,\"size\":1},{\"result\":null,\"computations\":1,\"size\":0},{\"result\":5,\"computations\":2,\"size\":1}]},{\"input\":{\"capacity\":0,\"operations\":[{\"op\":\"call\"},{\"op\":\"call\"}]},\"output\":[{\"result\":0,\"computations\":1,\"size\":0},{\"result\":0,\"computations\":2,\"size\":0}]}],\"general_contract\":\"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\"internal_decomposition\":\"自由选择，不给定helper名称或数量\"}\n自主分解为2至3个辅助函数，按依赖先后排列。只输出JSON：{\"helpers\":[{\"name\":\"_name\",\"signature\":\"def _name(args):\",\"contract\":\"输入输出及状态修改规则\",\"depends_on\":[]}]}。solve入口另外生成，不在helpers中。<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "{\"helpers\": [{\"name\": \"_call_key\", \"signature\": \"def _call_key(args,kwargs):\", \"contract\": \"输入整数args与kwargs；返回完整位置参数tuple及排序关键词tuple，不混同参数来源、键名和顺序。\", \"depends_on\": []}, {\"name\": \"_compute\", \"signature\": \"def _compute(args,kwargs):\", \"contract\": \"输入整数args与kwargs，返回两者全部值之和，不修改输入。\", \"depends_on\": []}]}",
+        "input_tokens": 537,
+        "visible_output_text_tokens": 110,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "_call_key",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\"task_id\":\"D1_C03\",\"requirement\":\"实现solve(payload)。capacity为非负整数，初始空缓存和计算次数0。operations为call或clear。call带args整数列表（默认[]）、kwargs字符串键到整数的对象（默认{}）；真实计算为args及kwargs全部值之和。调用键由有序args和按名匹配的kwargs决定，kwargs排列不影响键；位置传参与关键字传参仍不同。同键命中不增加计算次数并刷新最近使用顺序；未命中计算次数+1，capacity>0时存入，满时淘汰最久未用调用；capacity=0仍返回计算结果而不存。clear清空但不重置计算次数，result为null。每步返回{result,computations,size}，size为缓存调用数。只用标准库，内部结构自由。\",\"entry_point\":\"solve(payload)\",\"language\":\"Python\",\"allowed_libraries\":\"仅Python标准库\",\"public_examples\":[{\"input\":{\"capacity\":1,\"operations\":[{\"op\":\"call\",\"args\":[2],\"kwargs\":{\"b\":3}},{\"op\":\"call\",\"args\":[2],\"kwargs\":{\"b\":3}},{\"op\":\"clear\"},{\"op\":\"call\",\"args\":[2],\"kwargs\":{\"b\":3}}]},\"output\":[{\"result\":5,\"computations\":1,\"size\":1},{\"result\":5,\"computations\":1,\"size\":1},{\"result\":null,\"computations\":1,\"size\":0},{\"result\":5,\"computations\":2,\"size\":1}]},{\"input\":{\"capacity\":0,\"operations\":[{\"op\":\"call\"},{\"op\":\"call\"}]},\"output\":[{\"result\":0,\"computations\":1,\"size\":0},{\"result\":0,\"computations\":2,\"size\":0}]}],\"general_contract\":\"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\"internal_decomposition\":\"自由选择，不给定helper名称或数量\"}\n固定计划：\n{\"helpers\": [{\"name\": \"_call_key\", \"signature\": \"def _call_key(args,kwargs):\", \"contract\": \"输入整数args与kwargs；返回完整位置参数tuple及排序关键词tuple，不混同参数来源、键名和顺序。\", \"depends_on\": []}, {\"name\": \"_compute\", \"signature\": \"def _compute(args,kwargs):\", \"contract\": \"输入整数args与kwargs，返回两者全部值之和，不修改输入。\", \"depends_on\": []}]}\n已实现函数：\n\n仅实现以下函数，签名保持一致，可以添加标准库import，禁止定义其他顶层函数：\n{\"name\": \"_call_key\", \"signature\": \"def _call_key(args,kwargs):\", \"contract\": \"输入整数args与kwargs；返回完整位置参数tuple及排序关键词tuple，不混同参数来源、键名和顺序。\", \"depends_on\": []}<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "def _call_key(args,kwargs):\n    return tuple(args),tuple(sorted(kwargs.items()))\n",
+        "previous_code_names": [],
+        "input_tokens": 675,
+        "visible_output_text_tokens": 18,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "_compute",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\"task_id\":\"D1_C03\",\"requirement\":\"实现solve(payload)。capacity为非负整数，初始空缓存和计算次数0。operations为call或clear。call带args整数列表（默认[]）、kwargs字符串键到整数的对象（默认{}）；真实计算为args及kwargs全部值之和。调用键由有序args和按名匹配的kwargs决定，kwargs排列不影响键；位置传参与关键字传参仍不同。同键命中不增加计算次数并刷新最近使用顺序；未命中计算次数+1，capacity>0时存入，满时淘汰最久未用调用；capacity=0仍返回计算结果而不存。clear清空但不重置计算次数，result为null。每步返回{result,computations,size}，size为缓存调用数。只用标准库，内部结构自由。\",\"entry_point\":\"solve(payload)\",\"language\":\"Python\",\"allowed_libraries\":\"仅Python标准库\",\"public_examples\":[{\"input\":{\"capacity\":1,\"operations\":[{\"op\":\"call\",\"args\":[2],\"kwargs\":{\"b\":3}},{\"op\":\"call\",\"args\":[2],\"kwargs\":{\"b\":3}},{\"op\":\"clear\"},{\"op\":\"call\",\"args\":[2],\"kwargs\":{\"b\":3}}]},\"output\":[{\"result\":5,\"computations\":1,\"size\":1},{\"result\":5,\"computations\":1,\"size\":1},{\"result\":null,\"computations\":1,\"size\":0},{\"result\":5,\"computations\":2,\"size\":1}]},{\"input\":{\"capacity\":0,\"operations\":[{\"op\":\"call\"},{\"op\":\"call\"}]},\"output\":[{\"result\":0,\"computations\":1,\"size\":0},{\"result\":0,\"computations\":2,\"size\":0}]}],\"general_contract\":\"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\"internal_decomposition\":\"自由选择，不给定helper名称或数量\"}\n固定计划：\n{\"helpers\": [{\"name\": \"_call_key\", \"signature\": \"def _call_key(args,kwargs):\", \"contract\": \"输入整数args与kwargs；返回完整位置参数tuple及排序关键词tuple，不混同参数来源、键名和顺序。\", \"depends_on\": []}, {\"name\": \"_compute\", \"signature\": \"def _compute(args,kwargs):\", \"contract\": \"输入整数args与kwargs，返回两者全部值之和，不修改输入。\", \"depends_on\": []}]}\n已实现函数：\ndef _call_key(args,kwargs):\n    return tuple(args),tuple(sorted(kwargs.items()))\n\n仅实现以下函数，签名保持一致，可以添加标准库import，禁止定义其他顶层函数：\n{\"name\": \"_compute\", \"signature\": \"def _compute(args,kwargs):\", \"contract\": \"输入整数args与kwargs，返回两者全部值之和，不修改输入。\", \"depends_on\": []}<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "def _compute(args,kwargs):\n    return sum(args)+sum(kwargs.values())\n",
+        "previous_code_names": [
+          "_call_key"
+        ],
+        "input_tokens": 681,
+        "visible_output_text_tokens": 16,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "entry",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\"task_id\":\"D1_C03\",\"requirement\":\"实现solve(payload)。capacity为非负整数，初始空缓存和计算次数0。operations为call或clear。call带args整数列表（默认[]）、kwargs字符串键到整数的对象（默认{}）；真实计算为args及kwargs全部值之和。调用键由有序args和按名匹配的kwargs决定，kwargs排列不影响键；位置传参与关键字传参仍不同。同键命中不增加计算次数并刷新最近使用顺序；未命中计算次数+1，capacity>0时存入，满时淘汰最久未用调用；capacity=0仍返回计算结果而不存。clear清空但不重置计算次数，result为null。每步返回{result,computations,size}，size为缓存调用数。只用标准库，内部结构自由。\",\"entry_point\":\"solve(payload)\",\"language\":\"Python\",\"allowed_libraries\":\"仅Python标准库\",\"public_examples\":[{\"input\":{\"capacity\":1,\"operations\":[{\"op\":\"call\",\"args\":[2],\"kwargs\":{\"b\":3}},{\"op\":\"call\",\"args\":[2],\"kwargs\":{\"b\":3}},{\"op\":\"clear\"},{\"op\":\"call\",\"args\":[2],\"kwargs\":{\"b\":3}}]},\"output\":[{\"result\":5,\"computations\":1,\"size\":1},{\"result\":5,\"computations\":1,\"size\":1},{\"result\":null,\"computations\":1,\"size\":0},{\"result\":5,\"computations\":2,\"size\":1}]},{\"input\":{\"capacity\":0,\"operations\":[{\"op\":\"call\"},{\"op\":\"call\"}]},\"output\":[{\"result\":0,\"computations\":1,\"size\":0},{\"result\":0,\"computations\":2,\"size\":0}]}],\"general_contract\":\"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\"internal_decomposition\":\"自由选择，不给定helper名称或数量\"}\n固定计划：\n{\"helpers\": [{\"name\": \"_call_key\", \"signature\": \"def _call_key(args,kwargs):\", \"contract\": \"输入整数args与kwargs；返回完整位置参数tuple及排序关键词tuple，不混同参数来源、键名和顺序。\", \"depends_on\": []}, {\"name\": \"_compute\", \"signature\": \"def _compute(args,kwargs):\", \"contract\": \"输入整数args与kwargs，返回两者全部值之和，不修改输入。\", \"depends_on\": []}]}\n固定函数：\ndef _call_key(args,kwargs):\n    return tuple(args),tuple(sorted(kwargs.items()))\n\n\ndef _compute(args,kwargs):\n    return sum(args)+sum(kwargs.values())\n\n仅实现solve(payload)，调用固定辅助函数，不能定义其他顶层函数。只输出代码。<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "def solve(payload):\n    from collections import OrderedDict\n    cache=OrderedDict();computations=0;output=[]\n    for op in payload['operations']:\n        if op['op']=='clear': cache.clear();result=None\n        else:\n            args,kwargs=op.get('args',[]),op.get('kwargs',{})\n            canonical_key=_call_key(args,kwargs)\n            cache_key=canonical_key\n            if cache_key in cache:\n                result=cache[cache_key];cache.move_to_end(cache_key)\n            else:\n                result=_compute(args,kwargs);computations+=1\n                if payload['capacity']>0:\n                    if len(cache)==payload['capacity']:cache.popitem(last=False)\n                    cache[cache_key]=result\n        output.append({'result':result,'computations':computations,'size':len(cache)})\n    return output\n",
+        "input_tokens": 650,
+        "visible_output_text_tokens": 175,
+        "P9_smoke_output_cap": 512,
+        "visible_text_fits_smoke_cap": true
+      }
+    ]
+  },
+  {
+    "task_id": "D1_C03",
+    "format": "compact",
+    "arm": "M2",
+    "context": "only_referenced_symbols",
+    "plan": {
+      "helpers": [
+        {
+          "name": "_call_key",
+          "signature": "def _call_key(args,kwargs):",
+          "contract": "输入整数args与kwargs；返回完整位置参数tuple及排序关键词tuple，不混同参数来源、键名和顺序。",
+          "depends_on": []
+        },
+        {
+          "name": "_compute",
+          "signature": "def _compute(args,kwargs):",
+          "contract": "输入整数args与kwargs，返回两者全部值之和，不修改输入。",
+          "depends_on": []
+        }
+      ]
+    },
+    "calls": [
+      {
+        "stage": "plan",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\"task_id\":\"D1_C03\",\"requirement\":\"实现solve(payload)。capacity为非负整数，初始空缓存和计算次数0。operations为call或clear。call带args整数列表（默认[]）、kwargs字符串键到整数的对象（默认{}）；真实计算为args及kwargs全部值之和。调用键由有序args和按名匹配的kwargs决定，kwargs排列不影响键；位置传参与关键字传参仍不同。同键命中不增加计算次数并刷新最近使用顺序；未命中计算次数+1，capacity>0时存入，满时淘汰最久未用调用；capacity=0仍返回计算结果而不存。clear清空但不重置计算次数，result为null。每步返回{result,computations,size}，size为缓存调用数。只用标准库，内部结构自由。\",\"entry_point\":\"solve(payload)\",\"language\":\"Python\",\"allowed_libraries\":\"仅Python标准库\",\"public_examples\":[{\"input\":{\"capacity\":1,\"operations\":[{\"op\":\"call\",\"args\":[2],\"kwargs\":{\"b\":3}},{\"op\":\"call\",\"args\":[2],\"kwargs\":{\"b\":3}},{\"op\":\"clear\"},{\"op\":\"call\",\"args\":[2],\"kwargs\":{\"b\":3}}]},\"output\":[{\"result\":5,\"computations\":1,\"size\":1},{\"result\":5,\"computations\":1,\"size\":1},{\"result\":null,\"computations\":1,\"size\":0},{\"result\":5,\"computations\":2,\"size\":1}]},{\"input\":{\"capacity\":0,\"operations\":[{\"op\":\"call\"},{\"op\":\"call\"}]},\"output\":[{\"result\":0,\"computations\":1,\"size\":0},{\"result\":0,\"computations\":2,\"size\":0}]}],\"general_contract\":\"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\"internal_decomposition\":\"自由选择，不给定helper名称或数量\"}\n自主分解为2至3个辅助函数，按依赖先后排列。只输出JSON：{\"helpers\":[{\"name\":\"_name\",\"signature\":\"def _name(args):\",\"contract\":\"输入输出及状态修改规则\",\"depends_on\":[]}]}。solve入口另外生成，不在helpers中。<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "{\"helpers\": [{\"name\": \"_call_key\", \"signature\": \"def _call_key(args,kwargs):\", \"contract\": \"输入整数args与kwargs；返回完整位置参数tuple及排序关键词tuple，不混同参数来源、键名和顺序。\", \"depends_on\": []}, {\"name\": \"_compute\", \"signature\": \"def _compute(args,kwargs):\", \"contract\": \"输入整数args与kwargs，返回两者全部值之和，不修改输入。\", \"depends_on\": []}]}",
+        "input_tokens": 537,
+        "visible_output_text_tokens": 110,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "_call_key",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\"task_id\":\"D1_C03\",\"requirement\":\"实现solve(payload)。capacity为非负整数，初始空缓存和计算次数0。operations为call或clear。call带args整数列表（默认[]）、kwargs字符串键到整数的对象（默认{}）；真实计算为args及kwargs全部值之和。调用键由有序args和按名匹配的kwargs决定，kwargs排列不影响键；位置传参与关键字传参仍不同。同键命中不增加计算次数并刷新最近使用顺序；未命中计算次数+1，capacity>0时存入，满时淘汰最久未用调用；capacity=0仍返回计算结果而不存。clear清空但不重置计算次数，result为null。每步返回{result,computations,size}，size为缓存调用数。只用标准库，内部结构自由。\",\"entry_point\":\"solve(payload)\",\"language\":\"Python\",\"allowed_libraries\":\"仅Python标准库\",\"public_examples\":[{\"input\":{\"capacity\":1,\"operations\":[{\"op\":\"call\",\"args\":[2],\"kwargs\":{\"b\":3}},{\"op\":\"call\",\"args\":[2],\"kwargs\":{\"b\":3}},{\"op\":\"clear\"},{\"op\":\"call\",\"args\":[2],\"kwargs\":{\"b\":3}}]},\"output\":[{\"result\":5,\"computations\":1,\"size\":1},{\"result\":5,\"computations\":1,\"size\":1},{\"result\":null,\"computations\":1,\"size\":0},{\"result\":5,\"computations\":2,\"size\":1}]},{\"input\":{\"capacity\":0,\"operations\":[{\"op\":\"call\"},{\"op\":\"call\"}]},\"output\":[{\"result\":0,\"computations\":1,\"size\":0},{\"result\":0,\"computations\":2,\"size\":0}]}],\"general_contract\":\"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\"internal_decomposition\":\"自由选择，不给定helper名称或数量\"}\n固定计划：\n{\"helpers\": [{\"name\": \"_call_key\", \"signature\": \"def _call_key(args,kwargs):\", \"contract\": \"输入整数args与kwargs；返回完整位置参数tuple及排序关键词tuple，不混同参数来源、键名和顺序。\", \"depends_on\": []}, {\"name\": \"_compute\", \"signature\": \"def _compute(args,kwargs):\", \"contract\": \"输入整数args与kwargs，返回两者全部值之和，不修改输入。\", \"depends_on\": []}]}\n已实现函数：\n\n仅实现以下函数，签名保持一致，可以添加标准库import，禁止定义其他顶层函数：\n{\"name\": \"_call_key\", \"signature\": \"def _call_key(args,kwargs):\", \"contract\": \"输入整数args与kwargs；返回完整位置参数tuple及排序关键词tuple，不混同参数来源、键名和顺序。\", \"depends_on\": []}<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "def _call_key(args,kwargs):\n    return tuple(args),tuple(sorted(kwargs.items()))\n",
+        "previous_code_names": [],
+        "input_tokens": 675,
+        "visible_output_text_tokens": 18,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "_compute",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\"task_id\":\"D1_C03\",\"requirement\":\"实现solve(payload)。capacity为非负整数，初始空缓存和计算次数0。operations为call或clear。call带args整数列表（默认[]）、kwargs字符串键到整数的对象（默认{}）；真实计算为args及kwargs全部值之和。调用键由有序args和按名匹配的kwargs决定，kwargs排列不影响键；位置传参与关键字传参仍不同。同键命中不增加计算次数并刷新最近使用顺序；未命中计算次数+1，capacity>0时存入，满时淘汰最久未用调用；capacity=0仍返回计算结果而不存。clear清空但不重置计算次数，result为null。每步返回{result,computations,size}，size为缓存调用数。只用标准库，内部结构自由。\",\"entry_point\":\"solve(payload)\",\"language\":\"Python\",\"allowed_libraries\":\"仅Python标准库\",\"public_examples\":[{\"input\":{\"capacity\":1,\"operations\":[{\"op\":\"call\",\"args\":[2],\"kwargs\":{\"b\":3}},{\"op\":\"call\",\"args\":[2],\"kwargs\":{\"b\":3}},{\"op\":\"clear\"},{\"op\":\"call\",\"args\":[2],\"kwargs\":{\"b\":3}}]},\"output\":[{\"result\":5,\"computations\":1,\"size\":1},{\"result\":5,\"computations\":1,\"size\":1},{\"result\":null,\"computations\":1,\"size\":0},{\"result\":5,\"computations\":2,\"size\":1}]},{\"input\":{\"capacity\":0,\"operations\":[{\"op\":\"call\"},{\"op\":\"call\"}]},\"output\":[{\"result\":0,\"computations\":1,\"size\":0},{\"result\":0,\"computations\":2,\"size\":0}]}],\"general_contract\":\"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\"internal_decomposition\":\"自由选择，不给定helper名称或数量\"}\n固定计划：\n{\"helpers\": [{\"name\": \"_call_key\", \"signature\": \"def _call_key(args,kwargs):\", \"contract\": \"输入整数args与kwargs；返回完整位置参数tuple及排序关键词tuple，不混同参数来源、键名和顺序。\", \"depends_on\": []}, {\"name\": \"_compute\", \"signature\": \"def _compute(args,kwargs):\", \"contract\": \"输入整数args与kwargs，返回两者全部值之和，不修改输入。\", \"depends_on\": []}]}\n已实现函数：\n\n仅实现以下函数，签名保持一致，可以添加标准库import，禁止定义其他顶层函数：\n{\"name\": \"_compute\", \"signature\": \"def _compute(args,kwargs):\", \"contract\": \"输入整数args与kwargs，返回两者全部值之和，不修改输入。\", \"depends_on\": []}<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "def _compute(args,kwargs):\n    return sum(args)+sum(kwargs.values())\n",
+        "previous_code_names": [],
+        "input_tokens": 663,
+        "visible_output_text_tokens": 16,
+        "P9_smoke_output_cap": 256,
+        "visible_text_fits_smoke_cap": true
+      },
+      {
+        "stage": "entry",
+        "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\"task_id\":\"D1_C03\",\"requirement\":\"实现solve(payload)。capacity为非负整数，初始空缓存和计算次数0。operations为call或clear。call带args整数列表（默认[]）、kwargs字符串键到整数的对象（默认{}）；真实计算为args及kwargs全部值之和。调用键由有序args和按名匹配的kwargs决定，kwargs排列不影响键；位置传参与关键字传参仍不同。同键命中不增加计算次数并刷新最近使用顺序；未命中计算次数+1，capacity>0时存入，满时淘汰最久未用调用；capacity=0仍返回计算结果而不存。clear清空但不重置计算次数，result为null。每步返回{result,computations,size}，size为缓存调用数。只用标准库，内部结构自由。\",\"entry_point\":\"solve(payload)\",\"language\":\"Python\",\"allowed_libraries\":\"仅Python标准库\",\"public_examples\":[{\"input\":{\"capacity\":1,\"operations\":[{\"op\":\"call\",\"args\":[2],\"kwargs\":{\"b\":3}},{\"op\":\"call\",\"args\":[2],\"kwargs\":{\"b\":3}},{\"op\":\"clear\"},{\"op\":\"call\",\"args\":[2],\"kwargs\":{\"b\":3}}]},\"output\":[{\"result\":5,\"computations\":1,\"size\":1},{\"result\":5,\"computations\":1,\"size\":1},{\"result\":null,\"computations\":1,\"size\":0},{\"result\":5,\"computations\":2,\"size\":1}]},{\"input\":{\"capacity\":0,\"operations\":[{\"op\":\"call\"},{\"op\":\"call\"}]},\"output\":[{\"result\":0,\"computations\":1,\"size\":0},{\"result\":0,\"computations\":2,\"size\":0}]}],\"general_contract\":\"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\"internal_decomposition\":\"自由选择，不给定helper名称或数量\"}\n固定计划：\n{\"helpers\": [{\"name\": \"_call_key\", \"signature\": \"def _call_key(args,kwargs):\", \"contract\": \"输入整数args与kwargs；返回完整位置参数tuple及排序关键词tuple，不混同参数来源、键名和顺序。\", \"depends_on\": []}, {\"name\": \"_compute\", \"signature\": \"def _compute(args,kwargs):\", \"contract\": \"输入整数args与kwargs，返回两者全部值之和，不修改输入。\", \"depends_on\": []}]}\n固定函数：\ndef _call_key(args,kwargs):\n    return tuple(args),tuple(sorted(kwargs.items()))\n\n\ndef _compute(args,kwargs):\n    return sum(args)+sum(kwargs.values())\n\n仅实现solve(payload)，调用固定辅助函数，不能定义其他顶层函数。只输出代码。<|im_end|>\n<|im_start|>assistant\n",
+        "given_output_text": "def solve(payload):\n    from collections import OrderedDict\n    cache=OrderedDict();computations=0;output=[]\n    for op in payload['operations']:\n        if op['op']=='clear': cache.clear();result=None\n        else:\n            args,kwargs=op.get('args',[]),op.get('kwargs',{})\n            canonical_key=_call_key(args,kwargs)\n            cache_key=canonical_key\n            if cache_key in cache:\n                result=cache[cache_key];cache.move_to_end(cache_key)\n            else:\n                result=_compute(args,kwargs);computations+=1\n                if payload['capacity']>0:\n                    if len(cache)==payload['capacity']:cache.popitem(last=False)\n                    cache[cache_key]=result\n        output.append({'result':result,'computations':computations,'size':len(cache)})\n    return output\n",
+        "input_tokens": 650,
+        "visible_output_text_tokens": 175,
+        "P9_smoke_output_cap": 512,
+        "visible_text_fits_smoke_cap": true
+      }
+    ]
+  }
+]

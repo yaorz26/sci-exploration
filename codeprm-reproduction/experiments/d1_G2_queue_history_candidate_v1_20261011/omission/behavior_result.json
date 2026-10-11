@@ -1,0 +1,121 @@
+{
+  "workspace": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_G2_queue_history_candidate_v1_20261011\\omission",
+  "cases": [
+    {
+      "case_id": "same_priority_fifo",
+      "imported_from": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_G2_queue_history_candidate_v1_20261011\\omission\\programs\\queue_task.py",
+      "observed": [
+        {
+          "op": "add",
+          "task": "a"
+        },
+        {
+          "op": "add",
+          "task": "b"
+        },
+        {
+          "op": "peek",
+          "value": "a"
+        },
+        {
+          "op": "len",
+          "value": 2
+        }
+      ],
+      "passed": true,
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "case_id": "readd_moves_to_back_same_priority",
+      "imported_from": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_G2_queue_history_candidate_v1_20261011\\omission\\programs\\queue_task.py",
+      "passed": false,
+      "exception_type": "IndexError",
+      "exception": "peek on empty queue",
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "case_id": "priority_still_dominates_after_readd",
+      "imported_from": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_G2_queue_history_candidate_v1_20261011\\omission\\programs\\queue_task.py",
+      "passed": false,
+      "exception_type": "IndexError",
+      "exception": "peek on empty queue",
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "case_id": "remove_then_peek",
+      "imported_from": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_G2_queue_history_candidate_v1_20261011\\omission\\programs\\queue_task.py",
+      "observed": [
+        {
+          "op": "add",
+          "task": "a"
+        },
+        {
+          "op": "add",
+          "task": "b"
+        },
+        {
+          "op": "remove",
+          "task": "a",
+          "ok": true
+        },
+        {
+          "op": "peek",
+          "value": "b"
+        },
+        {
+          "op": "len",
+          "value": 1
+        }
+      ],
+      "passed": true,
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "case_id": "empty_default_then_add",
+      "imported_from": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_G2_queue_history_candidate_v1_20261011\\omission\\programs\\queue_task.py",
+      "observed": [
+        {
+          "op": "peek",
+          "value": "none"
+        },
+        {
+          "op": "pop",
+          "value": "none"
+        },
+        {
+          "op": "add",
+          "task": "a"
+        },
+        {
+          "op": "peek",
+          "value": "a"
+        },
+        {
+          "op": "len",
+          "value": 1
+        }
+      ],
+      "passed": true,
+      "returncode": 0,
+      "stderr": ""
+    },
+    {
+      "case_id": "empty_without_default_raises",
+      "imported_from": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_G2_queue_history_candidate_v1_20261011\\omission\\programs\\queue_task.py",
+      "passed": true,
+      "observed_exception": "IndexError",
+      "returncode": 0,
+      "stderr": ""
+    }
+  ],
+  "passed": 4,
+  "total": 6,
+  "worker_runs": 6,
+  "model_calls": 0,
+  "human_reviews": 0,
+  "scope": "公开五类操作的有限序列，不证明全域正确、性能或模型收益"
+}

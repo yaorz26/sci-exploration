@@ -1,0 +1,139 @@
+{
+  "status": "三种候选数值契约完成最小区分比较",
+  "previous_observation_sha256": "48b2d961f82c8e0310e0835a2946c79ef6a81782229fad4bee5fe0f075bd2356",
+  "cases": [
+    {
+      "case": "等价算法浮点差",
+      "expected_semantic": true,
+      "finite_inputs": true,
+      "exact": false,
+      "tolerance_1e12": true,
+      "rounded_12_places": true,
+      "left": "{'mean': 2.3333333333333335, 'variance': 3.555555555555556}",
+      "right": "{'mean': 2.3333333333333335, 'variance': 3.5555555555555554}"
+    },
+    {
+      "case": "完全相同",
+      "expected_semantic": true,
+      "finite_inputs": true,
+      "exact": true,
+      "tolerance_1e12": true,
+      "rounded_12_places": true,
+      "left": "{'mean': 2.3333333333333335, 'variance': 3.555555555555556}",
+      "right": "{'mean': 2.3333333333333335, 'variance': 3.555555555555556}"
+    },
+    {
+      "case": "1与1.0",
+      "expected_semantic": true,
+      "finite_inputs": true,
+      "exact": true,
+      "tolerance_1e12": true,
+      "rounded_12_places": true,
+      "left": "1",
+      "right": "1.0"
+    },
+    {
+      "case": "布尔与数字",
+      "expected_semantic": false,
+      "finite_inputs": true,
+      "exact": true,
+      "tolerance_1e12": false,
+      "rounded_12_places": false,
+      "left": "False",
+      "right": "0"
+    },
+    {
+      "case": "明显错误",
+      "expected_semantic": false,
+      "finite_inputs": true,
+      "exact": false,
+      "tolerance_1e12": false,
+      "rounded_12_places": false,
+      "left": "{'mean': 2.3333333333333335, 'variance': 3.555555555555556}",
+      "right": "{'mean': 2.3333333333333335, 'variance': 3.5565555555555557}"
+    },
+    {
+      "case": "绝对小量",
+      "expected_semantic": true,
+      "finite_inputs": true,
+      "exact": false,
+      "tolerance_1e12": true,
+      "rounded_12_places": true,
+      "left": "1e-15",
+      "right": "0.0"
+    },
+    {
+      "case": "大数小相对误差",
+      "expected_semantic": true,
+      "finite_inputs": true,
+      "exact": false,
+      "tolerance_1e12": true,
+      "rounded_12_places": false,
+      "left": "1000000000000.0",
+      "right": "1000000000000.001"
+    },
+    {
+      "case": "大数明显相对错误",
+      "expected_semantic": false,
+      "finite_inputs": true,
+      "exact": false,
+      "tolerance_1e12": false,
+      "rounded_12_places": false,
+      "left": "1000000000000.0",
+      "right": "1000000000010.0"
+    },
+    {
+      "case": "NaN",
+      "expected_semantic": false,
+      "finite_inputs": false,
+      "exact": false,
+      "tolerance_1e12": false,
+      "rounded_12_places": false,
+      "left": "nan",
+      "right": "nan"
+    },
+    {
+      "case": "Infinity",
+      "expected_semantic": false,
+      "finite_inputs": false,
+      "exact": true,
+      "tolerance_1e12": false,
+      "rounded_12_places": false,
+      "left": "inf",
+      "right": "inf"
+    }
+  ],
+  "options": {
+    "exact": {
+      "accepts_equivalent": false,
+      "rejects_obvious_error": true,
+      "finite_only": false
+    },
+    "finite_recursive_tolerance": {
+      "absolute": 1e-12,
+      "relative": 1e-12,
+      "accepts_equivalent": true,
+      "rejects_obvious_error": true,
+      "finite_only": true
+    },
+    "finite_recursive_round_12_places": {
+      "decimal_places": 12,
+      "accepts_equivalent": true,
+      "rejects_obvious_error": true,
+      "finite_only": true
+    }
+  },
+  "decision": "逐位相等拒绝数学等价浮点结果；有限递归绝对+相对误差和有限递归12位规范化都接受该差异并拒绝1e-3错误。两者仍是候选规则，未由这10对证明普遍正确；为避免把容差悄悄扩散到原20，E_B08暂不并入正式数据集。若继续，应把有限输入、输出字段、非有限拒绝和精度规则写进候选任务契约，再由独立审查决定。",
+  "limits": [
+    "10个预设控制对，不是全域浮点稳定性研究",
+    "大数小误差控制只检验一数量级",
+    "固定12位会改变极小/极大数的表示，未宣称适用于所有Stats输出",
+    "没有改evaluate_candidate.py、原20评分或正式协议",
+    "模型/API/下载/任务求值/隐藏读取均0"
+  ],
+  "model_calls": 0,
+  "API_calls": 0,
+  "new_downloads": 0,
+  "task_evaluations": 0,
+  "hidden_reads": 0
+}

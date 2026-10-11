@@ -1,0 +1,39 @@
+{
+  "time": "2026-10-09T12:11:35.740220+00:00",
+  "macro_plan": "v2限定扩展/208号顺序三审已完成",
+  "requirement_sha256": "1e85dc7a5e6f48b1fe08071933235f719b38d505fd965e42891ae0a8d6176364",
+  "cases_sha256": "e5394f20d4624d119949184396c8c4a3e735f8f9bc4f3fb8416161abc6b45c83",
+  "source_manifest_sha256": "264b7ede6ece09696d348b58c718eee4d6e297a5b48621332be16e3ad8e8ad04",
+  "api_name_correction": "PR标题groupfunc；合并公开API reducefunc，使用后者，原元数据保留",
+  "predictions": {
+    "parent": [
+      false,
+      false,
+      true
+    ],
+    "feature": [
+      true,
+      true,
+      true
+    ],
+    "alternative": [
+      true,
+      true,
+      true
+    ],
+    "late_reduction": [
+      false,
+      false,
+      true
+    ]
+  },
+  "maximum_worker_runs": 12,
+  "distinct_public_cases": 3,
+  "direction_check": "真实API回调与源组有效期连接；不是存储布局/参数覆盖",
+  "formal_labels": null,
+  "split": null,
+  "human_reviews": 0,
+  "model_calls": 0,
+  "upstream_tests_read": false,
+  "prior_exposure": "既有两暴露保留，不声称项目零暴露"
+}

@@ -1,0 +1,1467 @@
+{
+  "status": "等生成token预算的开发诊断，非确认或适用边界结论",
+  "protocol": {
+    "dataset": "D:/yaorz/research/codeprm-reproduction/data/processed/d1_project_initial20_v5_20261008",
+    "output": "D:/yaorz/research/codeprm-reproduction/experiments/d1_costed_pilot_b04_c03_v1_20261008",
+    "task_ids": [
+      "D1_B04",
+      "D1_C03"
+    ],
+    "model": "qwen2.5-coder:7b",
+    "temperature": 0.2,
+    "seed": 20261008,
+    "num_ctx": 8192,
+    "per_task_arm_budget": 6500,
+    "whole_cap": 3200,
+    "plan_cap": 700,
+    "helper_cap": 900,
+    "entry_cap": 2600,
+    "call_cap": 30,
+    "wall_cap_seconds": 1200,
+    "request_timeout_seconds": 120,
+    "preflight": {
+      "endpoint": "/api/generate",
+      "num_predict": 1,
+      "temperature": 0,
+      "purpose": "读取同一prompt的prompt_eval_count；不计入每臂生成token预算，但计入API调用数和墙钟时间"
+    },
+    "fairness": {
+      "unit": "每题每臂实际生成请求的prompt_eval_count+eval_count",
+      "equal_envelope": "每题每臂6500 token，动态扣除每次生成的实际输入和输出token",
+      "measurement_overhead": "单独报告，不声称为零成本",
+      "freeze": "全部候选生成完成后再评分；每题每臂首候选，不重试，不按成绩筛选"
+    },
+    "scope": "成本协议小规模开发诊断，不回答正式适用边界；只用开发题，不触碰储备题"
+  },
+  "api_calls": 24,
+  "wall_seconds": 45.9176279000003,
+  "arm_summary": {
+    "M0": {
+      "tasks": 2,
+      "all_pass_count": 0,
+      "generation_failures": 0,
+      "api_calls": 4,
+      "measurement_calls": 2,
+      "generation_calls": 2,
+      "measured_prompt_tokens": 1402,
+      "generation_prompt_tokens": 1402,
+      "generation_output_tokens": 678,
+      "generation_token_spend": 2080
+    },
+    "M2": {
+      "tasks": 2,
+      "all_pass_count": 0,
+      "generation_failures": 0,
+      "api_calls": 20,
+      "measurement_calls": 10,
+      "generation_calls": 10,
+      "measured_prompt_tokens": 10152,
+      "generation_prompt_tokens": 10152,
+      "generation_output_tokens": 1274,
+      "generation_token_spend": 11426
+    }
+  },
+  "candidates": [
+    {
+      "task_id": "D1_B04",
+      "arm": "M0",
+      "candidate_index": 0,
+      "generation_error": null,
+      "per_task_arm_budget": 6500,
+      "generated_token_spend": 1051,
+      "candidate_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_costed_pilot_b04_c03_v1_20261008\\candidates\\D1_B04\\M0\\candidate.py",
+      "candidate_sha256": "14c4b526d72edb41911c08856599765c5011c5ec74fa33435f2771b2eb8166f5",
+      "public": {
+        "cases": 2,
+        "passed": 1,
+        "all_pass": false,
+        "results": [
+          {
+            "case_id": "public_1",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "pairs": [
+                    [
+                      "flag",
+                      null
+                    ],
+                    [
+                      "x",
+                      null
+                    ],
+                    [
+                      "a",
+                      "x y"
+                    ]
+                  ],
+                  "query": "flag&x&a=x%20y"
+                }
+              },
+              "actual": {
+                "value": {
+                  "pairs": [
+                    [
+                      "x",
+                      ""
+                    ],
+                    [
+                      "flag&x",
+                      ""
+                    ],
+                    [
+                      "a",
+                      "x y"
+                    ]
+                  ],
+                  "query": "x=&flag%26x=&a=x%20y"
+                }
+              }
+            }
+          },
+          {
+            "case_id": "public_2",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.06142100000033679,
+        "captured_output_bytes": 428
+      },
+      "private": {
+        "cases": 15,
+        "passed": 6,
+        "all_pass": false,
+        "results": [
+          {
+            "case_id": "hidden_1",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_2",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "pairs": [],
+                  "query": ""
+                }
+              },
+              "actual": {
+                "value": {
+                  "pairs": [
+                    [
+                      ";;",
+                      null
+                    ],
+                    [
+                      "&&",
+                      null
+                    ]
+                  ],
+                  "query": ";;=&%26%26="
+                }
+              }
+            }
+          },
+          {
+            "case_id": "hidden_3",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "pairs": [
+                    [
+                      "a",
+                      "1"
+                    ],
+                    [
+                      "a",
+                      "2"
+                    ]
+                  ],
+                  "query": "a=1&a=2"
+                }
+              },
+              "actual": {
+                "value": {
+                  "pairs": [
+                    [
+                      "a",
+                      "1"
+                    ],
+                    [
+                      "a",
+                      "2"
+                    ],
+                    [
+                      "a",
+                      "1&a=2"
+                    ]
+                  ],
+                  "query": "a=1&a=2&a=1%26a%3D2"
+                }
+              }
+            }
+          },
+          {
+            "case_id": "hidden_4",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "pairs": [
+                    [
+                      "q",
+                      "a b+c"
+                    ]
+                  ],
+                  "query": "q=a%20b%2Bc"
+                }
+              },
+              "actual": {
+                "value": {
+                  "pairs": [
+                    [
+                      "q",
+                      "a b+c"
+                    ],
+                    [
+                      "q",
+                      "a b+c"
+                    ]
+                  ],
+                  "query": "q=a%20b%2Bc&q=a%20b%2Bc"
+                }
+              }
+            }
+          },
+          {
+            "case_id": "hidden_5",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "pairs": [
+                    [
+                      "你",
+                      "好"
+                    ]
+                  ],
+                  "query": "%E4%BD%A0=%E5%A5%BD"
+                }
+              },
+              "actual": {
+                "value": {
+                  "pairs": [
+                    [
+                      "你",
+                      "好"
+                    ],
+                    [
+                      "你",
+                      "好"
+                    ]
+                  ],
+                  "query": "%E4%BD%A0=%E5%A5%BD&%E4%BD%A0=%E5%A5%BD"
+                }
+              }
+            }
+          },
+          {
+            "case_id": "hidden_6",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "pairs": [
+                    [
+                      "a",
+                      "b=c"
+                    ]
+                  ],
+                  "query": "a=b%3Dc"
+                }
+              },
+              "actual": {
+                "value": {
+                  "pairs": [
+                    [
+                      "a",
+                      "b=c"
+                    ],
+                    [
+                      "a",
+                      "b=c"
+                    ]
+                  ],
+                  "query": "a=b%3Dc&a=b%3Dc"
+                }
+              }
+            }
+          },
+          {
+            "case_id": "hidden_7",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "pairs": [
+                    [
+                      "",
+                      "v"
+                    ],
+                    [
+                      "",
+                      null
+                    ]
+                  ],
+                  "query": "=v&"
+                }
+              },
+              "actual": {
+                "value": {
+                  "pairs": [
+                    [
+                      "",
+                      "v"
+                    ],
+                    [
+                      "",
+                      ""
+                    ],
+                    [
+                      "",
+                      "v&="
+                    ]
+                  ],
+                  "query": "=v&=&=v%26%3D"
+                }
+              }
+            }
+          },
+          {
+            "case_id": "hidden_8",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "pairs": [
+                    [
+                      "e",
+                      "é"
+                    ]
+                  ],
+                  "query": "e=%C3%A9"
+                }
+              },
+              "actual": {
+                "value": {
+                  "pairs": [
+                    [
+                      "e",
+                      "é"
+                    ],
+                    [
+                      "e",
+                      "é"
+                    ]
+                  ],
+                  "query": "e=e%CC%81&e=e%CC%81"
+                }
+              }
+            }
+          },
+          {
+            "case_id": "hidden_9",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_10",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_11",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_12",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_13",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_14",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "pairs": [
+                    [
+                      "a",
+                      ";"
+                    ]
+                  ],
+                  "query": "a=;"
+                }
+              },
+              "actual": {
+                "value": {
+                  "pairs": [
+                    [
+                      "a",
+                      ";"
+                    ],
+                    [
+                      "a",
+                      ";"
+                    ]
+                  ],
+                  "query": "a=;&a=;"
+                }
+              }
+            }
+          },
+          {
+            "case_id": "hidden_15",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "pairs": [
+                    [
+                      "",
+                      null
+                    ]
+                  ],
+                  "query": ""
+                }
+              },
+              "actual": {
+                "value": {
+                  "pairs": [
+                    [
+                      "",
+                      null
+                    ]
+                  ],
+                  "query": "="
+                }
+              }
+            }
+          }
+        ],
+        "execution_seconds": 0.06146970000008878,
+        "captured_output_bytes": 2684
+      },
+      "all_pass": false
+    },
+    {
+      "task_id": "D1_B04",
+      "arm": "M2",
+      "candidate_index": 0,
+      "generation_error": null,
+      "per_task_arm_budget": 6500,
+      "generated_token_spend": 5745,
+      "candidate_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_costed_pilot_b04_c03_v1_20261008\\candidates\\D1_B04\\M2\\candidate.py",
+      "candidate_sha256": "917f2650418a00a9141c7fc644d95d1d3d074be3d21a2e2e44618be1659ea27c",
+      "public": {
+        "cases": 2,
+        "passed": 1,
+        "all_pass": false,
+        "results": [
+          {
+            "case_id": "public_1",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "pairs": [
+                    [
+                      "flag",
+                      null
+                    ],
+                    [
+                      "x",
+                      null
+                    ],
+                    [
+                      "a",
+                      "x y"
+                    ]
+                  ],
+                  "query": "flag&x&a=x%20y"
+                }
+              },
+              "actual": {
+                "value": {
+                  "pairs": [
+                    [
+                      "a",
+                      "x y"
+                    ],
+                    [
+                      "x",
+                      null
+                    ],
+                    [
+                      "flag&x",
+                      null
+                    ]
+                  ],
+                  "query": "a=x%20y&x=&flag%26x="
+                }
+              }
+            }
+          },
+          {
+            "case_id": "public_2",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.06153450000056182,
+        "captured_output_bytes": 432
+      },
+      "private": {
+        "cases": 15,
+        "passed": 2,
+        "all_pass": false,
+        "results": [
+          {
+            "case_id": "hidden_1",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_2",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "pairs": [],
+                  "query": ""
+                }
+              },
+              "actual": {
+                "value": {
+                  "pairs": [
+                    [
+                      ";;",
+                      null
+                    ],
+                    [
+                      "&&",
+                      null
+                    ]
+                  ],
+                  "query": "%3B%3B=&%26%26="
+                }
+              }
+            }
+          },
+          {
+            "case_id": "hidden_3",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "pairs": [
+                    [
+                      "a",
+                      "1"
+                    ],
+                    [
+                      "a",
+                      "2"
+                    ]
+                  ],
+                  "query": "a=1&a=2"
+                }
+              },
+              "actual": {
+                "value": {
+                  "pairs": [
+                    [
+                      "a",
+                      "1"
+                    ],
+                    [
+                      "a",
+                      "2"
+                    ],
+                    [
+                      "a",
+                      "1&a=2"
+                    ]
+                  ],
+                  "query": "a=1&a=2&a=1%26a%3D2"
+                }
+              }
+            }
+          },
+          {
+            "case_id": "hidden_4",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "pairs": [
+                    [
+                      "q",
+                      "a b+c"
+                    ]
+                  ],
+                  "query": "q=a%20b%2Bc"
+                }
+              },
+              "actual": {
+                "value": {
+                  "pairs": [
+                    [
+                      "q",
+                      "a b+c"
+                    ],
+                    [
+                      "q",
+                      "a b+c"
+                    ]
+                  ],
+                  "query": "q=a%20b%2Bc&q=a%20b%2Bc"
+                }
+              }
+            }
+          },
+          {
+            "case_id": "hidden_5",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "pairs": [
+                    [
+                      "你",
+                      "好"
+                    ]
+                  ],
+                  "query": "%E4%BD%A0=%E5%A5%BD"
+                }
+              },
+              "actual": {
+                "value": {
+                  "pairs": [
+                    [
+                      "你",
+                      "好"
+                    ],
+                    [
+                      "你",
+                      "好"
+                    ]
+                  ],
+                  "query": "%E4%BD%A0=%E5%A5%BD&%E4%BD%A0=%E5%A5%BD"
+                }
+              }
+            }
+          },
+          {
+            "case_id": "hidden_6",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "pairs": [
+                    [
+                      "a",
+                      "b=c"
+                    ]
+                  ],
+                  "query": "a=b%3Dc"
+                }
+              },
+              "actual": {
+                "value": {
+                  "pairs": [
+                    [
+                      "a",
+                      "b=c"
+                    ],
+                    [
+                      "a",
+                      "b=c"
+                    ]
+                  ],
+                  "query": "a=b%3Dc&a=b%3Dc"
+                }
+              }
+            }
+          },
+          {
+            "case_id": "hidden_7",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "pairs": [
+                    [
+                      "",
+                      "v"
+                    ],
+                    [
+                      "",
+                      null
+                    ]
+                  ],
+                  "query": "=v&"
+                }
+              },
+              "actual": {
+                "value": {
+                  "pairs": [
+                    [
+                      "",
+                      "v"
+                    ],
+                    [
+                      "",
+                      null
+                    ],
+                    [
+                      "",
+                      "v&="
+                    ]
+                  ],
+                  "query": "=v&=&=v%26%3D"
+                }
+              }
+            }
+          },
+          {
+            "case_id": "hidden_8",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "pairs": [
+                    [
+                      "e",
+                      "é"
+                    ]
+                  ],
+                  "query": "e=%C3%A9"
+                }
+              },
+              "actual": {
+                "value": {
+                  "pairs": [
+                    [
+                      "e",
+                      "é"
+                    ],
+                    [
+                      "e",
+                      "é"
+                    ]
+                  ],
+                  "query": "e=e%CC%81&e=e%CC%81"
+                }
+              }
+            }
+          },
+          {
+            "case_id": "hidden_9",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "pairs": [
+                    [
+                      "b",
+                      "2"
+                    ]
+                  ],
+                  "query": "b=2"
+                }
+              },
+              "actual": {
+                "error": "KeyError"
+              }
+            }
+          },
+          {
+            "case_id": "hidden_10",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "pairs": [],
+                  "query": ""
+                }
+              },
+              "actual": {
+                "error": "KeyError"
+              }
+            }
+          },
+          {
+            "case_id": "hidden_11",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "pairs": [
+                    [
+                      "a+b&c",
+                      "!$'()*,;/:?@[]"
+                    ]
+                  ],
+                  "query": "a%2Bb%26c=!$'()*,;/:?@%5B%5D"
+                }
+              },
+              "actual": {
+                "value": {
+                  "pairs": [
+                    [
+                      "a+b&c",
+                      "!$'()*,;/:?@[]"
+                    ]
+                  ],
+                  "query": "a%2Bb%26c=%21%24%27%28%29%2A%2C%3B%2F%3A%3F%40%5B%5D"
+                }
+              }
+            }
+          },
+          {
+            "case_id": "hidden_12",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "pairs": [
+                    [
+                      "all",
+                      " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~"
+                    ]
+                  ],
+                  "query": "all=%20!%22%23$%25%26'()*%2B,-./0123456789:;%3C%3D%3E?@ABCDEFGHIJKLMNOPQRSTUVWXYZ%5B%5C%5D%5E_%60abcdefghijklmnopqrstuvwxyz%7B%7C%7D~"
+                }
+              },
+              "actual": {
+                "value": {
+                  "pairs": [
+                    [
+                      "all",
+                      " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~"
+                    ]
+                  ],
+                  "query": "all=%20%21%22%23%24%25%26%27%28%29%2A%2B%2C-.%2F0123456789%3A%3B%3C%3D%3E%3F%40ABCDEFGHIJKLMNOPQRSTUVWXYZ%5B%5C%5D%5E_%60abcdefghijklmnopqrstuvwxyz%7B%7C%7D~"
+                }
+              }
+            }
+          },
+          {
+            "case_id": "hidden_13",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_14",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "pairs": [
+                    [
+                      "a",
+                      ";"
+                    ]
+                  ],
+                  "query": "a=;"
+                }
+              },
+              "actual": {
+                "value": {
+                  "pairs": [
+                    [
+                      "a",
+                      ";"
+                    ],
+                    [
+                      "a",
+                      ";"
+                    ]
+                  ],
+                  "query": "a=%3B&a=%3B"
+                }
+              }
+            }
+          },
+          {
+            "case_id": "hidden_15",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "pairs": [
+                    [
+                      "",
+                      null
+                    ]
+                  ],
+                  "query": ""
+                }
+              },
+              "actual": {
+                "value": {
+                  "pairs": [
+                    [
+                      "",
+                      null
+                    ]
+                  ],
+                  "query": "="
+                }
+              }
+            }
+          }
+        ],
+        "execution_seconds": 0.06126579999909154,
+        "captured_output_bytes": 3703
+      },
+      "all_pass": false
+    },
+    {
+      "task_id": "D1_C03",
+      "arm": "M0",
+      "candidate_index": 0,
+      "generation_error": null,
+      "per_task_arm_budget": 6500,
+      "generated_token_spend": 1029,
+      "candidate_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_costed_pilot_b04_c03_v1_20261008\\candidates\\D1_C03\\M0\\candidate.py",
+      "candidate_sha256": "b452f6bd909dba764d683d325bb9ac4ec3b8d2f04d3f3dd247954a2603b43a02",
+      "public": {
+        "cases": 2,
+        "passed": 0,
+        "all_pass": false,
+        "results": [
+          {
+            "case_id": "public_1",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": [
+                  {
+                    "result": 5,
+                    "computations": 1,
+                    "size": 1
+                  },
+                  {
+                    "result": 5,
+                    "computations": 1,
+                    "size": 1
+                  },
+                  {
+                    "result": null,
+                    "computations": 1,
+                    "size": 0
+                  },
+                  {
+                    "result": 5,
+                    "computations": 2,
+                    "size": 1
+                  }
+                ]
+              },
+              "actual": {
+                "error": "TypeError"
+              }
+            }
+          },
+          {
+            "case_id": "public_2",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": [
+                  {
+                    "result": 0,
+                    "computations": 1,
+                    "size": 0
+                  },
+                  {
+                    "result": 0,
+                    "computations": 2,
+                    "size": 0
+                  }
+                ]
+              },
+              "actual": {
+                "error": "TypeError"
+              }
+            }
+          }
+        ],
+        "execution_seconds": 0.06121580000035465,
+        "captured_output_bytes": 602
+      },
+      "private": {
+        "cases": 9,
+        "passed": 1,
+        "all_pass": false,
+        "results": [
+          {
+            "case_id": "hidden_1",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_2",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": [
+                  {
+                    "result": 3,
+                    "computations": 1,
+                    "size": 1
+                  },
+                  {
+                    "result": 3,
+                    "computations": 1,
+                    "size": 1
+                  }
+                ]
+              },
+              "actual": {
+                "error": "TypeError"
+              }
+            }
+          },
+          {
+            "case_id": "hidden_3",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": [
+                  {
+                    "result": 1,
+                    "computations": 1,
+                    "size": 1
+                  },
+                  {
+                    "result": 1,
+                    "computations": 2,
+                    "size": 2
+                  }
+                ]
+              },
+              "actual": {
+                "error": "TypeError"
+              }
+            }
+          },
+          {
+            "case_id": "hidden_4",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": [
+                  {
+                    "result": 1,
+                    "computations": 1,
+                    "size": 1
+                  },
+                  {
+                    "result": 2,
+                    "computations": 2,
+                    "size": 2
+                  },
+                  {
+                    "result": 1,
+                    "computations": 2,
+                    "size": 2
+                  },
+                  {
+                    "result": 3,
+                    "computations": 3,
+                    "size": 2
+                  },
+                  {
+                    "result": 2,
+                    "computations": 4,
+                    "size": 2
+                  }
+                ]
+              },
+              "actual": {
+                "error": "TypeError"
+              }
+            }
+          },
+          {
+            "case_id": "hidden_5",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": [
+                  {
+                    "result": 3,
+                    "computations": 1,
+                    "size": 1
+                  },
+                  {
+                    "result": 3,
+                    "computations": 2,
+                    "size": 1
+                  },
+                  {
+                    "result": 3,
+                    "computations": 3,
+                    "size": 1
+                  }
+                ]
+              },
+              "actual": {
+                "error": "TypeError"
+              }
+            }
+          },
+          {
+            "case_id": "hidden_6",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": [
+                  {
+                    "result": 0,
+                    "computations": 1,
+                    "size": 0
+                  },
+                  {
+                    "result": 0,
+                    "computations": 2,
+                    "size": 0
+                  },
+                  {
+                    "result": null,
+                    "computations": 2,
+                    "size": 0
+                  }
+                ]
+              },
+              "actual": {
+                "error": "TypeError"
+              }
+            }
+          },
+          {
+            "case_id": "hidden_7",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": [
+                  {
+                    "result": null,
+                    "computations": 0,
+                    "size": 0
+                  },
+                  {
+                    "result": 3,
+                    "computations": 1,
+                    "size": 1
+                  },
+                  {
+                    "result": null,
+                    "computations": 1,
+                    "size": 0
+                  },
+                  {
+                    "result": null,
+                    "computations": 1,
+                    "size": 0
+                  },
+                  {
+                    "result": 3,
+                    "computations": 2,
+                    "size": 1
+                  }
+                ]
+              },
+              "actual": {
+                "error": "TypeError"
+              }
+            }
+          },
+          {
+            "case_id": "hidden_8",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": [
+                  {
+                    "result": 0,
+                    "computations": 1,
+                    "size": 1
+                  },
+                  {
+                    "result": 0,
+                    "computations": 1,
+                    "size": 1
+                  },
+                  {
+                    "result": 0,
+                    "computations": 2,
+                    "size": 2
+                  }
+                ]
+              },
+              "actual": {
+                "error": "TypeError"
+              }
+            }
+          },
+          {
+            "case_id": "hidden_9",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": [
+                  {
+                    "result": 1,
+                    "computations": 1,
+                    "size": 1
+                  },
+                  {
+                    "result": 1,
+                    "computations": 2,
+                    "size": 1
+                  },
+                  {
+                    "result": 1,
+                    "computations": 3,
+                    "size": 1
+                  }
+                ]
+              },
+              "actual": {
+                "error": "TypeError"
+              }
+            }
+          }
+        ],
+        "execution_seconds": 0.06168190000062168,
+        "captured_output_bytes": 2400
+      },
+      "all_pass": false
+    },
+    {
+      "task_id": "D1_C03",
+      "arm": "M2",
+      "candidate_index": 0,
+      "generation_error": null,
+      "per_task_arm_budget": 6500,
+      "generated_token_spend": 5681,
+      "candidate_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_costed_pilot_b04_c03_v1_20261008\\candidates\\D1_C03\\M2\\candidate.py",
+      "candidate_sha256": "a1687f31d8511232bdf0f05ff42ef0abc16f30d622812e76a27265283f2587e5",
+      "public": {
+        "cases": 2,
+        "passed": 2,
+        "all_pass": true,
+        "results": [
+          {
+            "case_id": "public_1",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "public_2",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.06130209999901126,
+        "captured_output_bytes": 216
+      },
+      "private": {
+        "cases": 9,
+        "passed": 8,
+        "all_pass": false,
+        "results": [
+          {
+            "case_id": "hidden_1",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_2",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_3",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_4",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": [
+                  {
+                    "result": 1,
+                    "computations": 1,
+                    "size": 1
+                  },
+                  {
+                    "result": 2,
+                    "computations": 2,
+                    "size": 2
+                  },
+                  {
+                    "result": 1,
+                    "computations": 2,
+                    "size": 2
+                  },
+                  {
+                    "result": 3,
+                    "computations": 3,
+                    "size": 2
+                  },
+                  {
+                    "result": 2,
+                    "computations": 4,
+                    "size": 2
+                  }
+                ]
+              },
+              "actual": {
+                "value": [
+                  {
+                    "result": 1,
+                    "computations": 1,
+                    "size": 1
+                  },
+                  {
+                    "result": 2,
+                    "computations": 2,
+                    "size": 2
+                  },
+                  {
+                    "result": 1,
+                    "computations": 2,
+                    "size": 2
+                  },
+                  {
+                    "result": 3,
+                    "computations": 3,
+                    "size": 2
+                  },
+                  {
+                    "result": 2,
+                    "computations": 3,
+                    "size": 2
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "case_id": "hidden_5",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_6",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_7",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_8",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_9",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.06141879999995581,
+        "captured_output_bytes": 1265
+      },
+      "all_pass": false
+    }
+  ],
+  "private_use": "生成阶段只读public；全部候选冻结后才评分private"
+}

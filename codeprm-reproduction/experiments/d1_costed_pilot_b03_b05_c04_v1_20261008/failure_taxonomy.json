@@ -1,0 +1,636 @@
+{
+  "source": "experiments\\d1_costed_pilot_b03_b05_c04_v1_20261008\\summary.json",
+  "scope": "只汇总评分器可观察类别；behavior_mismatch不等于算法根因；分母为本探针3题",
+  "groups": {
+    "D1_B03/M0": {
+      "cases": 14,
+      "categories": {
+        "pass": 6,
+        "candidate_exception:IndexError": 1,
+        "behavior_mismatch": 7
+      },
+      "by_split": {
+        "public": {
+          "pass": 1,
+          "candidate_exception:IndexError": 1
+        },
+        "private": {
+          "pass": 5,
+          "behavior_mismatch": 7
+        },
+        "generation": {}
+      }
+    },
+    "D1_B03/M2": {
+      "cases": 1,
+      "categories": {
+        "generation_failure": 1
+      },
+      "by_split": {
+        "public": {},
+        "private": {},
+        "generation": {
+          "generation_failure": 1
+        }
+      }
+    },
+    "D1_B05/M0": {
+      "cases": 14,
+      "categories": {
+        "behavior_mismatch": 7,
+        "pass": 7
+      },
+      "by_split": {
+        "public": {
+          "behavior_mismatch": 2
+        },
+        "private": {
+          "behavior_mismatch": 5,
+          "pass": 7
+        },
+        "generation": {}
+      }
+    },
+    "D1_B05/M2": {
+      "cases": 14,
+      "categories": {
+        "behavior_mismatch": 3,
+        "pass": 11
+      },
+      "by_split": {
+        "public": {
+          "behavior_mismatch": 1,
+          "pass": 1
+        },
+        "private": {
+          "pass": 10,
+          "behavior_mismatch": 2
+        },
+        "generation": {}
+      }
+    },
+    "D1_C04/M0": {
+      "cases": 10,
+      "categories": {
+        "behavior_mismatch": 5,
+        "pass": 3,
+        "candidate_exception:IndexError": 2
+      },
+      "by_split": {
+        "public": {
+          "behavior_mismatch": 1,
+          "pass": 1
+        },
+        "private": {
+          "candidate_exception:IndexError": 2,
+          "behavior_mismatch": 4,
+          "pass": 2
+        },
+        "generation": {}
+      }
+    },
+    "D1_C04/M2": {
+      "cases": 1,
+      "categories": {
+        "generation_failure": 1
+      },
+      "by_split": {
+        "public": {},
+        "private": {},
+        "generation": {
+          "generation_failure": 1
+        }
+      }
+    },
+    "all/M0": {
+      "cases": 38,
+      "categories": {
+        "pass": 16,
+        "candidate_exception:IndexError": 3,
+        "behavior_mismatch": 19
+      },
+      "by_split": {
+        "public": {
+          "pass": 2,
+          "candidate_exception:IndexError": 1,
+          "behavior_mismatch": 3
+        },
+        "private": {
+          "pass": 14,
+          "behavior_mismatch": 16,
+          "candidate_exception:IndexError": 2
+        },
+        "generation": {}
+      }
+    },
+    "all/M2": {
+      "cases": 16,
+      "categories": {
+        "generation_failure": 2,
+        "behavior_mismatch": 3,
+        "pass": 11
+      },
+      "by_split": {
+        "public": {
+          "behavior_mismatch": 1,
+          "pass": 1
+        },
+        "private": {
+          "pass": 10,
+          "behavior_mismatch": 2
+        },
+        "generation": {
+          "generation_failure": 2
+        }
+      }
+    }
+  },
+  "rows": [
+    {
+      "task_id": "D1_B03",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 648,
+      "split": "public",
+      "case_id": "public_1",
+      "category": "pass"
+    },
+    {
+      "task_id": "D1_B03",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 648,
+      "split": "public",
+      "case_id": "public_2",
+      "category": "candidate_exception:IndexError"
+    },
+    {
+      "task_id": "D1_B03",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 648,
+      "split": "private",
+      "case_id": "hidden_1",
+      "category": "pass"
+    },
+    {
+      "task_id": "D1_B03",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 648,
+      "split": "private",
+      "case_id": "hidden_2",
+      "category": "pass"
+    },
+    {
+      "task_id": "D1_B03",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 648,
+      "split": "private",
+      "case_id": "hidden_3",
+      "category": "pass"
+    },
+    {
+      "task_id": "D1_B03",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 648,
+      "split": "private",
+      "case_id": "hidden_4",
+      "category": "behavior_mismatch"
+    },
+    {
+      "task_id": "D1_B03",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 648,
+      "split": "private",
+      "case_id": "hidden_5",
+      "category": "behavior_mismatch"
+    },
+    {
+      "task_id": "D1_B03",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 648,
+      "split": "private",
+      "case_id": "hidden_6",
+      "category": "behavior_mismatch"
+    },
+    {
+      "task_id": "D1_B03",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 648,
+      "split": "private",
+      "case_id": "hidden_7",
+      "category": "behavior_mismatch"
+    },
+    {
+      "task_id": "D1_B03",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 648,
+      "split": "private",
+      "case_id": "hidden_8",
+      "category": "behavior_mismatch"
+    },
+    {
+      "task_id": "D1_B03",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 648,
+      "split": "private",
+      "case_id": "hidden_9",
+      "category": "pass"
+    },
+    {
+      "task_id": "D1_B03",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 648,
+      "split": "private",
+      "case_id": "hidden_10",
+      "category": "behavior_mismatch"
+    },
+    {
+      "task_id": "D1_B03",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 648,
+      "split": "private",
+      "case_id": "hidden_11",
+      "category": "pass"
+    },
+    {
+      "task_id": "D1_B03",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 648,
+      "split": "private",
+      "case_id": "hidden_12",
+      "category": "behavior_mismatch"
+    },
+    {
+      "task_id": "D1_B03",
+      "arm": "M2",
+      "generation_error": "ValueError: helper completion changed frozen functions",
+      "generated_token_spend": 2014,
+      "split": "generation",
+      "case_id": null,
+      "category": "generation_failure"
+    },
+    {
+      "task_id": "D1_B05",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 1028,
+      "split": "public",
+      "case_id": "public_1",
+      "category": "behavior_mismatch"
+    },
+    {
+      "task_id": "D1_B05",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 1028,
+      "split": "public",
+      "case_id": "public_2",
+      "category": "behavior_mismatch"
+    },
+    {
+      "task_id": "D1_B05",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 1028,
+      "split": "private",
+      "case_id": "hidden_1",
+      "category": "behavior_mismatch"
+    },
+    {
+      "task_id": "D1_B05",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 1028,
+      "split": "private",
+      "case_id": "hidden_2",
+      "category": "pass"
+    },
+    {
+      "task_id": "D1_B05",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 1028,
+      "split": "private",
+      "case_id": "hidden_3",
+      "category": "pass"
+    },
+    {
+      "task_id": "D1_B05",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 1028,
+      "split": "private",
+      "case_id": "hidden_4",
+      "category": "behavior_mismatch"
+    },
+    {
+      "task_id": "D1_B05",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 1028,
+      "split": "private",
+      "case_id": "hidden_5",
+      "category": "pass"
+    },
+    {
+      "task_id": "D1_B05",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 1028,
+      "split": "private",
+      "case_id": "hidden_6",
+      "category": "behavior_mismatch"
+    },
+    {
+      "task_id": "D1_B05",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 1028,
+      "split": "private",
+      "case_id": "hidden_7",
+      "category": "pass"
+    },
+    {
+      "task_id": "D1_B05",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 1028,
+      "split": "private",
+      "case_id": "hidden_8",
+      "category": "pass"
+    },
+    {
+      "task_id": "D1_B05",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 1028,
+      "split": "private",
+      "case_id": "hidden_9",
+      "category": "pass"
+    },
+    {
+      "task_id": "D1_B05",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 1028,
+      "split": "private",
+      "case_id": "hidden_10",
+      "category": "behavior_mismatch"
+    },
+    {
+      "task_id": "D1_B05",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 1028,
+      "split": "private",
+      "case_id": "hidden_11",
+      "category": "behavior_mismatch"
+    },
+    {
+      "task_id": "D1_B05",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 1028,
+      "split": "private",
+      "case_id": "hidden_12",
+      "category": "pass"
+    },
+    {
+      "task_id": "D1_B05",
+      "arm": "M2",
+      "generation_error": null,
+      "generated_token_spend": 4853,
+      "split": "public",
+      "case_id": "public_1",
+      "category": "behavior_mismatch"
+    },
+    {
+      "task_id": "D1_B05",
+      "arm": "M2",
+      "generation_error": null,
+      "generated_token_spend": 4853,
+      "split": "public",
+      "case_id": "public_2",
+      "category": "pass"
+    },
+    {
+      "task_id": "D1_B05",
+      "arm": "M2",
+      "generation_error": null,
+      "generated_token_spend": 4853,
+      "split": "private",
+      "case_id": "hidden_1",
+      "category": "pass"
+    },
+    {
+      "task_id": "D1_B05",
+      "arm": "M2",
+      "generation_error": null,
+      "generated_token_spend": 4853,
+      "split": "private",
+      "case_id": "hidden_2",
+      "category": "pass"
+    },
+    {
+      "task_id": "D1_B05",
+      "arm": "M2",
+      "generation_error": null,
+      "generated_token_spend": 4853,
+      "split": "private",
+      "case_id": "hidden_3",
+      "category": "pass"
+    },
+    {
+      "task_id": "D1_B05",
+      "arm": "M2",
+      "generation_error": null,
+      "generated_token_spend": 4853,
+      "split": "private",
+      "case_id": "hidden_4",
+      "category": "behavior_mismatch"
+    },
+    {
+      "task_id": "D1_B05",
+      "arm": "M2",
+      "generation_error": null,
+      "generated_token_spend": 4853,
+      "split": "private",
+      "case_id": "hidden_5",
+      "category": "pass"
+    },
+    {
+      "task_id": "D1_B05",
+      "arm": "M2",
+      "generation_error": null,
+      "generated_token_spend": 4853,
+      "split": "private",
+      "case_id": "hidden_6",
+      "category": "pass"
+    },
+    {
+      "task_id": "D1_B05",
+      "arm": "M2",
+      "generation_error": null,
+      "generated_token_spend": 4853,
+      "split": "private",
+      "case_id": "hidden_7",
+      "category": "pass"
+    },
+    {
+      "task_id": "D1_B05",
+      "arm": "M2",
+      "generation_error": null,
+      "generated_token_spend": 4853,
+      "split": "private",
+      "case_id": "hidden_8",
+      "category": "pass"
+    },
+    {
+      "task_id": "D1_B05",
+      "arm": "M2",
+      "generation_error": null,
+      "generated_token_spend": 4853,
+      "split": "private",
+      "case_id": "hidden_9",
+      "category": "pass"
+    },
+    {
+      "task_id": "D1_B05",
+      "arm": "M2",
+      "generation_error": null,
+      "generated_token_spend": 4853,
+      "split": "private",
+      "case_id": "hidden_10",
+      "category": "pass"
+    },
+    {
+      "task_id": "D1_B05",
+      "arm": "M2",
+      "generation_error": null,
+      "generated_token_spend": 4853,
+      "split": "private",
+      "case_id": "hidden_11",
+      "category": "behavior_mismatch"
+    },
+    {
+      "task_id": "D1_B05",
+      "arm": "M2",
+      "generation_error": null,
+      "generated_token_spend": 4853,
+      "split": "private",
+      "case_id": "hidden_12",
+      "category": "pass"
+    },
+    {
+      "task_id": "D1_C04",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 1147,
+      "split": "public",
+      "case_id": "public_1",
+      "category": "behavior_mismatch"
+    },
+    {
+      "task_id": "D1_C04",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 1147,
+      "split": "public",
+      "case_id": "public_2",
+      "category": "pass"
+    },
+    {
+      "task_id": "D1_C04",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 1147,
+      "split": "private",
+      "case_id": "hidden_1",
+      "category": "candidate_exception:IndexError"
+    },
+    {
+      "task_id": "D1_C04",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 1147,
+      "split": "private",
+      "case_id": "hidden_2",
+      "category": "behavior_mismatch"
+    },
+    {
+      "task_id": "D1_C04",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 1147,
+      "split": "private",
+      "case_id": "hidden_3",
+      "category": "behavior_mismatch"
+    },
+    {
+      "task_id": "D1_C04",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 1147,
+      "split": "private",
+      "case_id": "hidden_4",
+      "category": "behavior_mismatch"
+    },
+    {
+      "task_id": "D1_C04",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 1147,
+      "split": "private",
+      "case_id": "hidden_5",
+      "category": "pass"
+    },
+    {
+      "task_id": "D1_C04",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 1147,
+      "split": "private",
+      "case_id": "hidden_6",
+      "category": "pass"
+    },
+    {
+      "task_id": "D1_C04",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 1147,
+      "split": "private",
+      "case_id": "hidden_7",
+      "category": "behavior_mismatch"
+    },
+    {
+      "task_id": "D1_C04",
+      "arm": "M0",
+      "generation_error": null,
+      "generated_token_spend": 1147,
+      "split": "private",
+      "case_id": "hidden_8",
+      "category": "candidate_exception:IndexError"
+    },
+    {
+      "task_id": "D1_C04",
+      "arm": "M2",
+      "generation_error": "ValueError: entry completion changed frozen functions",
+      "generated_token_spend": 5886,
+      "split": "generation",
+      "case_id": null,
+      "category": "generation_failure"
+    }
+  ]
+}

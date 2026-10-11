@@ -1,0 +1,25 @@
+{
+  "simulated": true,
+  "token_limit": 6500,
+  "call_limit": 5,
+  "known_token_spend": 0,
+  "blocked": true,
+  "calls": [
+    {
+      "call_id": "001",
+      "stage": "whole",
+      "simulated": true,
+      "prompt_token_upper_bound": 439,
+      "assigned_output_cap": 128,
+      "status": "failed",
+      "cost_status": "unknown",
+      "request": {
+        "path": "001_request.json",
+        "sha256": "ac7d5dc15f845969cd26bd54625c26a83402ff5de4a9488f2ddba766ed532eed"
+      },
+      "error": "TimeoutError: 合成超时",
+      "seconds": 9.2999980552122e-06
+    }
+  ],
+  "refusals": []
+}

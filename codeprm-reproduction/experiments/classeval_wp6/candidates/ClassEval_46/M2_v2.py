@@ -1,0 +1,68 @@
+class Interpolation:
+    """
+    This is a class that implements the Linear interpolation operation of one-dimensional and two-dimensional data
+    """
+
+    def __init__(self):
+        pass
+
+    @staticmethod
+
+    def interpolate_1d(x, y, x_interp):
+        """
+        Linear interpolation of one-dimensional data
+        :param x: The x-coordinate of the data point, list.
+        :param y: The y-coordinate of the data point, list.
+        :param x_interp: The x-coordinate of the interpolation point, list.
+        :return: The y-coordinate of the interpolation point, list.
+        >>> interpolation = Interpolation()
+        >>> interpolation.interpolate_1d([1, 2, 3], [1, 2, 3], [1.5, 2.5])
+        [1.5, 2.5]
+        """
+        y_interp = []
+        for xi in x_interp:
+            idx = bisect.bisect_left(x, xi)
+            if idx == 0:
+                y_interp.append(y[0])
+            elif idx == len(x):
+                y_interp.append(y[-1])
+            else:
+                x1, x2 = x[idx-1], x[idx]
+                y1, y2 = y[idx-1], y[idx]
+                y_interp.append(y1 + (xi - x1) * (y2 - y1) / (x2 - x1))
+        return y_interp
+
+    def interpolate_2d(x, y, z, x_interp, y_interp):
+        """
+        Linear interpolation of two-dimensional data
+        :param x: The x-coordinate of the data point, list.
+        :param y: The y-coordinate of the data point, list.
+        :param z: The z-coordinate of the data point, list.
+        :param x_interp: The x-coordinate of the interpolation point, list.
+        :param y_interp: The y-coordinate of the interpolation point, list.
+        :return: The z-coordinate of the interpolation point, list.
+        >>> interpolation = Interpolation()
+        >>> interpolation.interpolate_2d([1, 2, 3], [1, 2, 3], [[1, 2, 3], [4, 5, 6], [7, 8, 9]], [1.5, 2.5], [1.5, 2.5])
+        [3.0, 7.0]
+        """
+        results = []
+        for xi, yi in zip(x_interp, y_interp):
+            x1, x2 = sorted([x[0], x[1]])
+            y1, y2 = sorted([y[0], y[1]])
+            z11, z12 = z[0]
+            z21, z22 = z[1]
+
+            if xi == x1 and yi == y1:
+                results.append(z11)
+            elif xi == x1 and yi == y2:
+                results.append(z12)
+            elif xi == x2 and yi == y1:
+                results.append(z21)
+            elif xi == x2 and yi == y2:
+                results.append(z22)
+            else:
+                z1 = (z12 - z11) / (x2 - x1) * (xi - x1) + z11
+                z2 = (z22 - z21) / (x2 - x1) * (xi - x1) + z21
+                results.append((z2 - z1) / (y2 - y1) * (yi - y1) + z1)
+
+        return results

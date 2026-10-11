@@ -1,0 +1,464 @@
+[
+  {
+    "id": "late_block",
+    "sources": [
+      {
+        "x": {
+          "a": 1
+        }
+      },
+      {
+        "x": {
+          "b": 2
+        }
+      },
+      {
+        "x": 0
+      }
+    ],
+    "expected": {
+      "x": {
+        "a": 1
+      }
+    },
+    "left_summary": {
+      "first": {
+        "x": {
+          "a": 1
+        }
+      },
+      "all_objects": true,
+      "children": {
+        "x": {
+          "first": {
+            "a": 1
+          },
+          "all_objects": false,
+          "children": null
+        }
+      }
+    },
+    "right_summary": {
+      "first": {
+        "x": {
+          "a": 1
+        }
+      },
+      "all_objects": true,
+      "children": {
+        "x": {
+          "first": {
+            "a": 1
+          },
+          "all_objects": false,
+          "children": null
+        }
+      }
+    },
+    "left_value": {
+      "x": {
+        "a": 1
+      }
+    },
+    "right_value": {
+      "x": {
+        "a": 1
+      }
+    },
+    "summary_associative": true,
+    "input_unchanged": true,
+    "both_final_values_pass": true
+  },
+  {
+    "id": "nested_gate",
+    "sources": [
+      {
+        "x": {
+          "q": {
+            "a": 1
+          },
+          "z": 1
+        }
+      },
+      {
+        "x": {
+          "q": {
+            "b": 2
+          },
+          "z": 2
+        }
+      },
+      {
+        "x": {
+          "q": 0
+        }
+      }
+    ],
+    "expected": {
+      "x": {
+        "q": {
+          "a": 1
+        },
+        "z": 1
+      }
+    },
+    "left_summary": {
+      "first": {
+        "x": {
+          "q": {
+            "a": 1
+          },
+          "z": 1
+        }
+      },
+      "all_objects": true,
+      "children": {
+        "x": {
+          "first": {
+            "q": {
+              "a": 1
+            },
+            "z": 1
+          },
+          "all_objects": true,
+          "children": {
+            "q": {
+              "first": {
+                "a": 1
+              },
+              "all_objects": false,
+              "children": null
+            },
+            "z": {
+              "first": 1,
+              "all_objects": false,
+              "children": null
+            }
+          }
+        }
+      }
+    },
+    "right_summary": {
+      "first": {
+        "x": {
+          "q": {
+            "a": 1
+          },
+          "z": 1
+        }
+      },
+      "all_objects": true,
+      "children": {
+        "x": {
+          "first": {
+            "q": {
+              "a": 1
+            },
+            "z": 1
+          },
+          "all_objects": true,
+          "children": {
+            "q": {
+              "first": {
+                "a": 1
+              },
+              "all_objects": false,
+              "children": null
+            },
+            "z": {
+              "first": 1,
+              "all_objects": false,
+              "children": null
+            }
+          }
+        }
+      }
+    },
+    "left_value": {
+      "x": {
+        "q": {
+          "a": 1
+        },
+        "z": 1
+      }
+    },
+    "right_value": {
+      "x": {
+        "q": {
+          "a": 1
+        },
+        "z": 1
+      }
+    },
+    "summary_associative": true,
+    "input_unchanged": true,
+    "both_final_values_pass": true
+  },
+  {
+    "id": "missing_identity",
+    "sources": [
+      {
+        "x": {
+          "a": 1
+        }
+      },
+      {},
+      {
+        "x": {
+          "b": 2
+        }
+      }
+    ],
+    "expected": {
+      "x": {
+        "a": 1,
+        "b": 2
+      }
+    },
+    "left_summary": {
+      "first": {
+        "x": {
+          "a": 1
+        }
+      },
+      "all_objects": true,
+      "children": {
+        "x": {
+          "first": {
+            "a": 1
+          },
+          "all_objects": true,
+          "children": {
+            "a": {
+              "first": 1,
+              "all_objects": false,
+              "children": null
+            },
+            "b": {
+              "first": 2,
+              "all_objects": false,
+              "children": null
+            }
+          }
+        }
+      }
+    },
+    "right_summary": {
+      "first": {
+        "x": {
+          "a": 1
+        }
+      },
+      "all_objects": true,
+      "children": {
+        "x": {
+          "first": {
+            "a": 1
+          },
+          "all_objects": true,
+          "children": {
+            "a": {
+              "first": 1,
+              "all_objects": false,
+              "children": null
+            },
+            "b": {
+              "first": 2,
+              "all_objects": false,
+              "children": null
+            }
+          }
+        }
+      }
+    },
+    "left_value": {
+      "x": {
+        "a": 1,
+        "b": 2
+      }
+    },
+    "right_value": {
+      "x": {
+        "a": 1,
+        "b": 2
+      }
+    },
+    "summary_associative": true,
+    "input_unchanged": true,
+    "both_final_values_pass": true
+  },
+  {
+    "id": "null_is_value",
+    "sources": [
+      {
+        "x": null
+      },
+      {},
+      {
+        "x": {
+          "a": 1
+        }
+      }
+    ],
+    "expected": {
+      "x": null
+    },
+    "left_summary": {
+      "first": {
+        "x": null
+      },
+      "all_objects": true,
+      "children": {
+        "x": {
+          "first": null,
+          "all_objects": false,
+          "children": null
+        }
+      }
+    },
+    "right_summary": {
+      "first": {
+        "x": null
+      },
+      "all_objects": true,
+      "children": {
+        "x": {
+          "first": null,
+          "all_objects": false,
+          "children": null
+        }
+      }
+    },
+    "left_value": {
+      "x": null
+    },
+    "right_value": {
+      "x": null
+    },
+    "summary_associative": true,
+    "input_unchanged": true,
+    "both_final_values_pass": true
+  },
+  {
+    "id": "array_blocks_whole",
+    "sources": [
+      {
+        "x": {
+          "a": 1
+        }
+      },
+      {
+        "x": [
+          1
+        ]
+      },
+      {
+        "x": {
+          "b": 2
+        }
+      }
+    ],
+    "expected": {
+      "x": {
+        "a": 1
+      }
+    },
+    "left_summary": {
+      "first": {
+        "x": {
+          "a": 1
+        }
+      },
+      "all_objects": true,
+      "children": {
+        "x": {
+          "first": {
+            "a": 1
+          },
+          "all_objects": false,
+          "children": null
+        }
+      }
+    },
+    "right_summary": {
+      "first": {
+        "x": {
+          "a": 1
+        }
+      },
+      "all_objects": true,
+      "children": {
+        "x": {
+          "first": {
+            "a": 1
+          },
+          "all_objects": false,
+          "children": null
+        }
+      }
+    },
+    "left_value": {
+      "x": {
+        "a": 1
+      }
+    },
+    "right_value": {
+      "x": {
+        "a": 1
+      }
+    },
+    "summary_associative": true,
+    "input_unchanged": true,
+    "both_final_values_pass": true
+  },
+  {
+    "id": "empty_objects",
+    "sources": [
+      {
+        "x": {}
+      },
+      {},
+      {
+        "x": {}
+      }
+    ],
+    "expected": {
+      "x": {}
+    },
+    "left_summary": {
+      "first": {
+        "x": {}
+      },
+      "all_objects": true,
+      "children": {
+        "x": {
+          "first": {},
+          "all_objects": true,
+          "children": {}
+        }
+      }
+    },
+    "right_summary": {
+      "first": {
+        "x": {}
+      },
+      "all_objects": true,
+      "children": {
+        "x": {
+          "first": {},
+          "all_objects": true,
+          "children": {}
+        }
+      }
+    },
+    "left_value": {
+      "x": {}
+    },
+    "right_value": {
+      "x": {}
+    },
+    "summary_associative": true,
+    "input_unchanged": true,
+    "both_final_values_pass": true
+  }
+]

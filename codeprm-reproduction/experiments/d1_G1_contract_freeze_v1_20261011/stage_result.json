@@ -1,0 +1,39 @@
+{
+  "phase": "G1",
+  "stage_name": "公开契约与评价器冻结",
+  "macro_plan": "RESEARCH_PLAN.md v4 §5 G1",
+  "created_at": "2026-10-11T09:25:00Z",
+  "visible_result": "experiments/d1_G1_contract_freeze_v1_20261011/contract_matrix.json（16 行逐义务矩阵，含需求出处行号、评价项、补充锚点、状态、理由与哈希）",
+  "question": "现有候选的题面明示入口是否被验收覆盖？",
+  "answers": {
+    "H1_covered_complete": "部分成立：11/16 义务已有评价项或行为锚点直接覆盖。",
+    "H2_old_evaluator_missed_entry": "成立且有行为反例：PR126 直接 YamlSource 入口（219 号），并已由形式反例证明盲点可扭曲 Δ 符号（224/225 号）。",
+    "H3_observability_insufficient": "成立一条：PR440 省略 keyfunc/valuefunc 的默认行为，公开需求未规定，评价器始终提供两回调，无法由公开观察判定。"
+  },
+  "judgements": [
+    {"item": "PR126 直接 YamlSource 入口", "status": "contract-ready", "basis": "已有行为锚点（控制旧 8/8、直接入口 0/1、完整与独立组织各 1/1）"},
+    {"item": "PR126 relative_to", "status": "unobserved-freeze", "basis": "与直接入口同属明示入口覆盖类；新增纳入信息已由反例承载，补测不改变纳入判断"},
+    {"item": "PR142 构造时不默认加入环境源", "status": "unobserved-freeze", "basis": "义务公开可观察（不放 set_env 时 env-only 键应为缺省）但评价器始终显式 set_env；属同一种入口覆盖缺口，不改变纳入判断"},
+    {"item": "PR440 默认 keyfunc/valuefunc", "status": "unknown-unobservable", "basis": "公开需求未规定省略时的默认值，无法由公开观察判定"},
+    {"item": "CACHE 物理清理时点", "status": "pending-inconsistent", "basis": "公开读取可能补清理，且 requirement 指向 evaluate_timing.py 而交付目录无该文件；不进可用分母"}
+  ],
+  "task_status": {
+    "PR126": "research-pool-only with unknown",
+    "PR142": "research-pool-only with unknown",
+    "PR440": "research-pool-only with unknown",
+    "CACHE": "reject（不进可用分母）"
+  },
+  "counts": {"covered": 11, "contract-ready": 1, "unobserved-freeze": 2, "unknown-unobservable": 1, "pending-inconsistent": 1},
+  "exit_condition_met": true,
+  "exit_condition_basis": "每项均有 contract-ready / research-pool-only with unknown / reject 状态与原始证据路径；未新增行为证据，只做冻结，未以报告数量充当结果",
+  "new_behavior_evidence_added": 0,
+  "new_entries_requiring_anchor_test": 0,
+  "why_no_anchor_added": "两条未观测条款均不改变纳入判断：PR142 属同一种明示入口覆盖缺口（新增信息已由 PR126 反例承载）；PR440 的默认回调行为不在公开需求内。按 PLAN.md 第 5 节冻结并保留 unknown。",
+  "boundary_written_for_users": "调用方必须显式调用 set_env 才能获得环境来源；未显式调用时的实现定义行为未被本任务固定，也不被验收检查。",
+  "cost": {"model_calls": 0, "behavior_calls": 0, "human_reviews": 0, "downloads": 0, "wall_clock": "约 10 分钟"},
+  "limits": [
+    "静态未观测不证明假通过",
+    "同助手构造，非独立人类验证，非全域 API 完备证明",
+    "formal_labels/split 仍为 null；真实人工双审 0"
+  ]
+}

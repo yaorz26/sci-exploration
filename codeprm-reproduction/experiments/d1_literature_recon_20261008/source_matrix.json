@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-08",
+  "sources": [
+    {
+      "name": "FEA-Bench",
+      "repository": "https://github.com/microsoft/FEA-Bench",
+      "readme_url": "https://raw.githubusercontent.com/microsoft/FEA-Bench/main/README.md",
+      "paper_url": "https://arxiv.org/abs/2503.06680",
+      "readme_sha256": "44cb36b8b85f9e3bc8d6eabf06dc20977224f862e9624118f4f4d8dcd13dc7c8",
+      "license_sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+      "readme_bytes": 8375,
+      "license_bytes": 1141,
+      "readme_status": "read",
+      "full_paper_status": "not_read",
+      "abstract_evidence": "arxiv_2503.06680.xml: 83 GitHub repositories; PR collection; unit test pairing; repository-level incremental development"
+    },
+    {
+      "name": "FeatureBench",
+      "repository": "https://github.com/LiberCoders/FeatureBench",
+      "readme_url": "https://raw.githubusercontent.com/LiberCoders/FeatureBench/main/README.md",
+      "paper_url": "https://arxiv.org/abs/2602.10975",
+      "readme_sha256": "14a44f2f00e8f601b2fdab642ab941bdb2e08190432f795e60c86fbef9d04da6",
+      "license_sha256": "7aa12a2f72652dce526236807be821878b94f9f1d1986a5423665b8713d31afd",
+      "readme_bytes": 5808,
+      "license_bytes": 1158,
+      "readme_status": "read",
+      "full_paper_status": "not_read",
+      "abstract_evidence": "arxiv_2602.10975.xml: 200 tasks; 3825 executable environments; 24 repositories; dependency-graph tracing from unit tests; agentic feature development"
+    }
+  ],
+  "search_limitations": [
+    "web search endpoint returned HTTP500 unsupported search",
+    "GitHub API repository search was used for discovery; README and LICENSE read directly",
+    "FEA-Bench full data requires GitHub scraping and is not downloaded",
+    "FeatureBench uses containerized repository evaluation and was not executed"
+  ],
+  "screening_decision": "纳入：任务域与本研究直接相关；只用可直接读取摘要/README的主来源事实，不将仓库README排行榜当本研究结果"
+}

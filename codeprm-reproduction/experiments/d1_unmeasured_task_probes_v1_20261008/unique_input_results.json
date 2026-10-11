@@ -1,0 +1,1396 @@
+[
+  {
+    "task_id": "D1_C05",
+    "input": {
+      "typed": false,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "evaluation": {
+      "outcomes": [
+        {
+          "value": [
+            true
+          ]
+        },
+        {
+          "value": [
+            true
+          ]
+        }
+      ],
+      "implementations_agree": true,
+      "input_unchanged": true
+    }
+  },
+  {
+    "task_id": "D1_C05",
+    "input": {
+      "typed": false,
+      "pairs": [
+        [
+          {
+            "args": [
+              2
+            ]
+          },
+          {
+            "args": [
+              2
+            ]
+          }
+        ],
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "evaluation": {
+      "outcomes": [
+        {
+          "value": [
+            true,
+            true
+          ]
+        },
+        {
+          "value": [
+            true,
+            true
+          ]
+        }
+      ],
+      "implementations_agree": true,
+      "input_unchanged": true
+    }
+  },
+  {
+    "task_id": "D1_C05",
+    "input": {
+      "typed": false,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ],
+        [
+          {
+            "args": [
+              2
+            ]
+          },
+          {
+            "args": [
+              2
+            ]
+          }
+        ]
+      ]
+    },
+    "evaluation": {
+      "outcomes": [
+        {
+          "value": [
+            true,
+            true
+          ]
+        },
+        {
+          "value": [
+            true,
+            true
+          ]
+        }
+      ],
+      "implementations_agree": true,
+      "input_unchanged": true
+    }
+  },
+  {
+    "task_id": "D1_C05",
+    "input": {
+      "typed": false,
+      "pairs": [
+        [
+          {
+            "args": [
+              null
+            ]
+          },
+          {
+            "args": [
+              "none"
+            ]
+          }
+        ],
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "evaluation": {
+      "outcomes": [
+        {
+          "value": [
+            false,
+            true
+          ]
+        },
+        {
+          "value": [
+            false,
+            true
+          ]
+        }
+      ],
+      "implementations_agree": true,
+      "input_unchanged": true
+    }
+  },
+  {
+    "task_id": "D1_C05",
+    "input": {
+      "typed": false,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ],
+        [
+          {
+            "args": [
+              null
+            ]
+          },
+          {
+            "args": [
+              "none"
+            ]
+          }
+        ]
+      ]
+    },
+    "evaluation": {
+      "outcomes": [
+        {
+          "value": [
+            true,
+            false
+          ]
+        },
+        {
+          "value": [
+            true,
+            false
+          ]
+        }
+      ],
+      "implementations_agree": true,
+      "input_unchanged": true
+    }
+  },
+  {
+    "task_id": "D1_C05",
+    "input": {
+      "typed": false,
+      "pairs": [
+        [
+          {
+            "kwargs": {
+              "a": 1,
+              "b": 2
+            }
+          },
+          {
+            "kwargs": {
+              "b": 2,
+              "a": 1
+            }
+          }
+        ],
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "evaluation": {
+      "outcomes": [
+        {
+          "value": [
+            true,
+            true
+          ]
+        },
+        {
+          "value": [
+            true,
+            true
+          ]
+        }
+      ],
+      "implementations_agree": true,
+      "input_unchanged": true
+    }
+  },
+  {
+    "task_id": "D1_C05",
+    "input": {
+      "typed": false,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ],
+        [
+          {
+            "kwargs": {
+              "a": 1,
+              "b": 2
+            }
+          },
+          {
+            "kwargs": {
+              "b": 2,
+              "a": 1
+            }
+          }
+        ]
+      ]
+    },
+    "evaluation": {
+      "outcomes": [
+        {
+          "value": [
+            true,
+            true
+          ]
+        },
+        {
+          "value": [
+            true,
+            true
+          ]
+        }
+      ],
+      "implementations_agree": true,
+      "input_unchanged": true
+    }
+  },
+  {
+    "task_id": "D1_C05",
+    "input": {
+      "typed": false,
+      "pairs": [
+        [
+          {
+            "args": [
+              true
+            ]
+          },
+          {
+            "args": [
+              1
+            ]
+          }
+        ],
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "evaluation": {
+      "outcomes": [
+        {
+          "value": [
+            true,
+            true
+          ]
+        },
+        {
+          "value": [
+            true,
+            true
+          ]
+        }
+      ],
+      "implementations_agree": true,
+      "input_unchanged": true
+    }
+  },
+  {
+    "task_id": "D1_C05",
+    "input": {
+      "typed": false,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ],
+        [
+          {
+            "args": [
+              true
+            ]
+          },
+          {
+            "args": [
+              1
+            ]
+          }
+        ]
+      ]
+    },
+    "evaluation": {
+      "outcomes": [
+        {
+          "value": [
+            true,
+            true
+          ]
+        },
+        {
+          "value": [
+            true,
+            true
+          ]
+        }
+      ],
+      "implementations_agree": true,
+      "input_unchanged": true
+    }
+  },
+  {
+    "task_id": "D1_C05",
+    "input": {
+      "typed": false,
+      "pairs": [
+        [
+          {
+            "args": [
+              "x"
+            ]
+          },
+          {
+            "kwargs": {
+              "x": "x"
+            }
+          }
+        ],
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "evaluation": {
+      "outcomes": [
+        {
+          "value": [
+            false,
+            true
+          ]
+        },
+        {
+          "value": [
+            false,
+            true
+          ]
+        }
+      ],
+      "implementations_agree": true,
+      "input_unchanged": true
+    }
+  },
+  {
+    "task_id": "D1_C05",
+    "input": {
+      "typed": false,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ],
+        [
+          {
+            "args": [
+              "x"
+            ]
+          },
+          {
+            "kwargs": {
+              "x": "x"
+            }
+          }
+        ]
+      ]
+    },
+    "evaluation": {
+      "outcomes": [
+        {
+          "value": [
+            true,
+            false
+          ]
+        },
+        {
+          "value": [
+            true,
+            false
+          ]
+        }
+      ],
+      "implementations_agree": true,
+      "input_unchanged": true
+    }
+  },
+  {
+    "task_id": "D1_C05",
+    "input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "evaluation": {
+      "outcomes": [
+        {
+          "value": [
+            false
+          ]
+        },
+        {
+          "value": [
+            false
+          ]
+        }
+      ],
+      "implementations_agree": true,
+      "input_unchanged": true
+    }
+  },
+  {
+    "task_id": "D1_C05",
+    "input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "args": [
+              2
+            ]
+          },
+          {
+            "args": [
+              2
+            ]
+          }
+        ],
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "evaluation": {
+      "outcomes": [
+        {
+          "value": [
+            true,
+            false
+          ]
+        },
+        {
+          "value": [
+            true,
+            false
+          ]
+        }
+      ],
+      "implementations_agree": true,
+      "input_unchanged": true
+    }
+  },
+  {
+    "task_id": "D1_C05",
+    "input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ],
+        [
+          {
+            "args": [
+              2
+            ]
+          },
+          {
+            "args": [
+              2
+            ]
+          }
+        ]
+      ]
+    },
+    "evaluation": {
+      "outcomes": [
+        {
+          "value": [
+            false,
+            true
+          ]
+        },
+        {
+          "value": [
+            false,
+            true
+          ]
+        }
+      ],
+      "implementations_agree": true,
+      "input_unchanged": true
+    }
+  },
+  {
+    "task_id": "D1_C05",
+    "input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "args": [
+              null
+            ]
+          },
+          {
+            "args": [
+              "none"
+            ]
+          }
+        ],
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "evaluation": {
+      "outcomes": [
+        {
+          "value": [
+            false,
+            false
+          ]
+        },
+        {
+          "value": [
+            false,
+            false
+          ]
+        }
+      ],
+      "implementations_agree": true,
+      "input_unchanged": true
+    }
+  },
+  {
+    "task_id": "D1_C05",
+    "input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ],
+        [
+          {
+            "args": [
+              null
+            ]
+          },
+          {
+            "args": [
+              "none"
+            ]
+          }
+        ]
+      ]
+    },
+    "evaluation": {
+      "outcomes": [
+        {
+          "value": [
+            false,
+            false
+          ]
+        },
+        {
+          "value": [
+            false,
+            false
+          ]
+        }
+      ],
+      "implementations_agree": true,
+      "input_unchanged": true
+    }
+  },
+  {
+    "task_id": "D1_C05",
+    "input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "kwargs": {
+              "a": 1,
+              "b": 2
+            }
+          },
+          {
+            "kwargs": {
+              "b": 2,
+              "a": 1
+            }
+          }
+        ],
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "evaluation": {
+      "outcomes": [
+        {
+          "value": [
+            true,
+            false
+          ]
+        },
+        {
+          "value": [
+            true,
+            false
+          ]
+        }
+      ],
+      "implementations_agree": true,
+      "input_unchanged": true
+    }
+  },
+  {
+    "task_id": "D1_C05",
+    "input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ],
+        [
+          {
+            "kwargs": {
+              "a": 1,
+              "b": 2
+            }
+          },
+          {
+            "kwargs": {
+              "b": 2,
+              "a": 1
+            }
+          }
+        ]
+      ]
+    },
+    "evaluation": {
+      "outcomes": [
+        {
+          "value": [
+            false,
+            true
+          ]
+        },
+        {
+          "value": [
+            false,
+            true
+          ]
+        }
+      ],
+      "implementations_agree": true,
+      "input_unchanged": true
+    }
+  },
+  {
+    "task_id": "D1_C05",
+    "input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "args": [
+              true
+            ]
+          },
+          {
+            "args": [
+              1
+            ]
+          }
+        ],
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "evaluation": {
+      "outcomes": [
+        {
+          "value": [
+            false,
+            false
+          ]
+        },
+        {
+          "value": [
+            false,
+            false
+          ]
+        }
+      ],
+      "implementations_agree": true,
+      "input_unchanged": true
+    }
+  },
+  {
+    "task_id": "D1_C05",
+    "input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ],
+        [
+          {
+            "args": [
+              true
+            ]
+          },
+          {
+            "args": [
+              1
+            ]
+          }
+        ]
+      ]
+    },
+    "evaluation": {
+      "outcomes": [
+        {
+          "value": [
+            false,
+            false
+          ]
+        },
+        {
+          "value": [
+            false,
+            false
+          ]
+        }
+      ],
+      "implementations_agree": true,
+      "input_unchanged": true
+    }
+  },
+  {
+    "task_id": "D1_C05",
+    "input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "args": [
+              "x"
+            ]
+          },
+          {
+            "kwargs": {
+              "x": "x"
+            }
+          }
+        ],
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ]
+      ]
+    },
+    "evaluation": {
+      "outcomes": [
+        {
+          "value": [
+            false,
+            false
+          ]
+        },
+        {
+          "value": [
+            false,
+            false
+          ]
+        }
+      ],
+      "implementations_agree": true,
+      "input_unchanged": true
+    }
+  },
+  {
+    "task_id": "D1_C05",
+    "input": {
+      "typed": true,
+      "pairs": [
+        [
+          {
+            "args": [
+              1
+            ]
+          },
+          {
+            "args": [
+              1.0
+            ]
+          }
+        ],
+        [
+          {
+            "args": [
+              "x"
+            ]
+          },
+          {
+            "kwargs": {
+              "x": "x"
+            }
+          }
+        ]
+      ]
+    },
+    "evaluation": {
+      "outcomes": [
+        {
+          "value": [
+            false,
+            false
+          ]
+        },
+        {
+          "value": [
+            false,
+            false
+          ]
+        }
+      ],
+      "implementations_agree": true,
+      "input_unchanged": true
+    }
+  },
+  {
+    "task_id": "D1_M05",
+    "input": {
+      "columns": [
+        [
+          1,
+          1
+        ],
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "evaluation": {
+      "outcomes": [
+        {
+          "value": [
+            [
+              1,
+              1
+            ],
+            [
+              "a",
+              "b"
+            ]
+          ]
+        },
+        {
+          "value": [
+            [
+              1,
+              1
+            ],
+            [
+              "a",
+              "b"
+            ]
+          ]
+        }
+      ],
+      "implementations_agree": true,
+      "input_unchanged": true
+    }
+  },
+  {
+    "task_id": "D1_M05",
+    "input": {
+      "columns": [
+        [
+          1,
+          1
+        ],
+        [
+          "b",
+          "a"
+        ]
+      ]
+    },
+    "evaluation": {
+      "outcomes": [
+        {
+          "value": [
+            [
+              1,
+              1
+            ],
+            [
+              "b",
+              "a"
+            ]
+          ]
+        },
+        {
+          "value": [
+            [
+              1,
+              1
+            ],
+            [
+              "b",
+              "a"
+            ]
+          ]
+        }
+      ],
+      "implementations_agree": true,
+      "input_unchanged": true
+    }
+  },
+  {
+    "task_id": "D1_M05",
+    "input": {
+      "columns": [
+        [
+          2,
+          1
+        ],
+        [
+          "b",
+          "a"
+        ]
+      ]
+    },
+    "evaluation": {
+      "outcomes": [
+        {
+          "value": [
+            [
+              1,
+              2
+            ],
+            [
+              "a",
+              "b"
+            ]
+          ]
+        },
+        {
+          "value": [
+            [
+              1,
+              2
+            ],
+            [
+              "a",
+              "b"
+            ]
+          ]
+        }
+      ],
+      "implementations_agree": true,
+      "input_unchanged": true
+    }
+  },
+  {
+    "task_id": "D1_M05",
+    "input": {
+      "columns": [
+        [
+          1,
+          2
+        ],
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    "evaluation": {
+      "outcomes": [
+        {
+          "value": [
+            [
+              1,
+              2
+            ],
+            [
+              "a",
+              "b"
+            ]
+          ]
+        },
+        {
+          "value": [
+            [
+              1,
+              2
+            ],
+            [
+              "a",
+              "b"
+            ]
+          ]
+        }
+      ],
+      "implementations_agree": true,
+      "input_unchanged": true
+    }
+  },
+  {
+    "task_id": "D1_M05",
+    "input": {
+      "columns": [
+        [
+          2
+        ],
+        [
+          "a"
+        ]
+      ]
+    },
+    "evaluation": {
+      "outcomes": [
+        {
+          "value": [
+            [
+              2
+            ],
+            [
+              "a"
+            ]
+          ]
+        },
+        {
+          "value": [
+            [
+              2
+            ],
+            [
+              "a"
+            ]
+          ]
+        }
+      ],
+      "implementations_agree": true,
+      "input_unchanged": true
+    }
+  },
+  {
+    "task_id": "D1_M05",
+    "input": {
+      "columns": [
+        [
+          1,
+          2
+        ],
+        [
+          "b",
+          "a"
+        ]
+      ]
+    },
+    "evaluation": {
+      "outcomes": [
+        {
+          "value": [
+            [
+              1,
+              2
+            ],
+            [
+              "b",
+              "a"
+            ]
+          ]
+        },
+        {
+          "value": [
+            [
+              1,
+              2
+            ],
+            [
+              "b",
+              "a"
+            ]
+          ]
+        }
+      ],
+      "implementations_agree": true,
+      "input_unchanged": true
+    }
+  },
+  {
+    "task_id": "D1_M05",
+    "input": {
+      "columns": [
+        [
+          1,
+          2
+        ],
+        [
+          "a",
+          "b"
+        ],
+        [
+          7
+        ]
+      ]
+    },
+    "evaluation": {
+      "outcomes": [
+        {
+          "value": [
+            [
+              1
+            ],
+            [
+              "a"
+            ],
+            [
+              7
+            ]
+          ]
+        },
+        {
+          "value": [
+            [
+              1
+            ],
+            [
+              "a"
+            ],
+            [
+              7
+            ]
+          ]
+        }
+      ],
+      "implementations_agree": true,
+      "input_unchanged": true
+    }
+  }
+]

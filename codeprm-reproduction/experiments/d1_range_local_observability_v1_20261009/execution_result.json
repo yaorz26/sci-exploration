@@ -1,0 +1,513 @@
+{
+  "rows": [
+    {
+      "program": "input_order",
+      "id": "repeated_singletons",
+      "valid_input": true,
+      "output": [
+        1,
+        4,
+        4
+      ],
+      "exception": null,
+      "diagnostic_whole_pass": true,
+      "strong_local_order_pass": true,
+      "weak_local_multiset_pass": true,
+      "helper_calls": 1,
+      "captured_helper_returns": [
+        [
+          4,
+          1,
+          4
+        ]
+      ],
+      "local_not_observable_due_to_exception": false,
+      "input_unchanged": true
+    },
+    {
+      "program": "input_order",
+      "id": "descending_overlap",
+      "valid_input": true,
+      "output": [
+        1,
+        2,
+        2,
+        3
+      ],
+      "exception": null,
+      "diagnostic_whole_pass": true,
+      "strong_local_order_pass": true,
+      "weak_local_multiset_pass": true,
+      "helper_calls": 1,
+      "captured_helper_returns": [
+        [
+          3,
+          2,
+          1,
+          2
+        ]
+      ],
+      "local_not_observable_due_to_exception": false,
+      "input_unchanged": true
+    },
+    {
+      "program": "input_order",
+      "id": "empty_segments",
+      "valid_input": true,
+      "output": [
+        1,
+        2,
+        2
+      ],
+      "exception": null,
+      "diagnostic_whole_pass": true,
+      "strong_local_order_pass": true,
+      "weak_local_multiset_pass": true,
+      "helper_calls": 1,
+      "captured_helper_returns": [
+        [
+          2,
+          1,
+          2
+        ]
+      ],
+      "local_not_observable_due_to_exception": false,
+      "input_unchanged": true
+    },
+    {
+      "program": "input_order",
+      "id": "multichar_separators",
+      "valid_input": true,
+      "output": [
+        2,
+        3,
+        3,
+        4
+      ],
+      "exception": null,
+      "diagnostic_whole_pass": true,
+      "strong_local_order_pass": true,
+      "weak_local_multiset_pass": true,
+      "helper_calls": 1,
+      "captured_helper_returns": [
+        [
+          4,
+          3,
+          2,
+          3
+        ]
+      ],
+      "local_not_observable_due_to_exception": false,
+      "input_unchanged": true
+    },
+    {
+      "program": "input_order",
+      "id": "empty_text",
+      "valid_input": true,
+      "output": [],
+      "exception": null,
+      "diagnostic_whole_pass": true,
+      "strong_local_order_pass": true,
+      "weak_local_multiset_pass": true,
+      "helper_calls": 1,
+      "captured_helper_returns": [
+        []
+      ],
+      "local_not_observable_due_to_exception": false,
+      "input_unchanged": true
+    },
+    {
+      "program": "input_order",
+      "id": "zero_and_single_point",
+      "valid_input": true,
+      "output": [
+        0,
+        0,
+        2
+      ],
+      "exception": null,
+      "diagnostic_whole_pass": true,
+      "strong_local_order_pass": true,
+      "weak_local_multiset_pass": true,
+      "helper_calls": 1,
+      "captured_helper_returns": [
+        [
+          0,
+          0,
+          2
+        ]
+      ],
+      "local_not_observable_due_to_exception": false,
+      "input_unchanged": true
+    },
+    {
+      "program": "input_order",
+      "id": "invalid_middle",
+      "valid_input": false,
+      "output": null,
+      "exception": "ValueError",
+      "diagnostic_whole_pass": true,
+      "strong_local_order_pass": null,
+      "weak_local_multiset_pass": null,
+      "helper_calls": 1,
+      "captured_helper_returns": [
+        null
+      ],
+      "local_not_observable_due_to_exception": true,
+      "input_unchanged": true
+    },
+    {
+      "program": "input_order",
+      "id": "invalid_range_tail",
+      "valid_input": false,
+      "output": null,
+      "exception": "ValueError",
+      "diagnostic_whole_pass": true,
+      "strong_local_order_pass": null,
+      "weak_local_multiset_pass": null,
+      "helper_calls": 1,
+      "captured_helper_returns": [
+        null
+      ],
+      "local_not_observable_due_to_exception": true,
+      "input_unchanged": true
+    },
+    {
+      "program": "reversed_order",
+      "id": "repeated_singletons",
+      "valid_input": true,
+      "output": [
+        1,
+        4,
+        4
+      ],
+      "exception": null,
+      "diagnostic_whole_pass": true,
+      "strong_local_order_pass": true,
+      "weak_local_multiset_pass": true,
+      "helper_calls": 1,
+      "captured_helper_returns": [
+        [
+          4,
+          1,
+          4
+        ]
+      ],
+      "local_not_observable_due_to_exception": false,
+      "input_unchanged": true
+    },
+    {
+      "program": "reversed_order",
+      "id": "descending_overlap",
+      "valid_input": true,
+      "output": [
+        1,
+        2,
+        2,
+        3
+      ],
+      "exception": null,
+      "diagnostic_whole_pass": true,
+      "strong_local_order_pass": false,
+      "weak_local_multiset_pass": true,
+      "helper_calls": 1,
+      "captured_helper_returns": [
+        [
+          2,
+          1,
+          2,
+          3
+        ]
+      ],
+      "local_not_observable_due_to_exception": false,
+      "input_unchanged": true
+    },
+    {
+      "program": "reversed_order",
+      "id": "empty_segments",
+      "valid_input": true,
+      "output": [
+        1,
+        2,
+        2
+      ],
+      "exception": null,
+      "diagnostic_whole_pass": true,
+      "strong_local_order_pass": true,
+      "weak_local_multiset_pass": true,
+      "helper_calls": 1,
+      "captured_helper_returns": [
+        [
+          2,
+          1,
+          2
+        ]
+      ],
+      "local_not_observable_due_to_exception": false,
+      "input_unchanged": true
+    },
+    {
+      "program": "reversed_order",
+      "id": "multichar_separators",
+      "valid_input": true,
+      "output": [
+        2,
+        3,
+        3,
+        4
+      ],
+      "exception": null,
+      "diagnostic_whole_pass": true,
+      "strong_local_order_pass": false,
+      "weak_local_multiset_pass": true,
+      "helper_calls": 1,
+      "captured_helper_returns": [
+        [
+          3,
+          2,
+          3,
+          4
+        ]
+      ],
+      "local_not_observable_due_to_exception": false,
+      "input_unchanged": true
+    },
+    {
+      "program": "reversed_order",
+      "id": "empty_text",
+      "valid_input": true,
+      "output": [],
+      "exception": null,
+      "diagnostic_whole_pass": true,
+      "strong_local_order_pass": true,
+      "weak_local_multiset_pass": true,
+      "helper_calls": 1,
+      "captured_helper_returns": [
+        []
+      ],
+      "local_not_observable_due_to_exception": false,
+      "input_unchanged": true
+    },
+    {
+      "program": "reversed_order",
+      "id": "zero_and_single_point",
+      "valid_input": true,
+      "output": [
+        0,
+        0,
+        2
+      ],
+      "exception": null,
+      "diagnostic_whole_pass": true,
+      "strong_local_order_pass": false,
+      "weak_local_multiset_pass": true,
+      "helper_calls": 1,
+      "captured_helper_returns": [
+        [
+          2,
+          0,
+          0
+        ]
+      ],
+      "local_not_observable_due_to_exception": false,
+      "input_unchanged": true
+    },
+    {
+      "program": "reversed_order",
+      "id": "invalid_middle",
+      "valid_input": false,
+      "output": null,
+      "exception": "ValueError",
+      "diagnostic_whole_pass": true,
+      "strong_local_order_pass": null,
+      "weak_local_multiset_pass": null,
+      "helper_calls": 1,
+      "captured_helper_returns": [
+        null
+      ],
+      "local_not_observable_due_to_exception": true,
+      "input_unchanged": true
+    },
+    {
+      "program": "reversed_order",
+      "id": "invalid_range_tail",
+      "valid_input": false,
+      "output": null,
+      "exception": "ValueError",
+      "diagnostic_whole_pass": true,
+      "strong_local_order_pass": null,
+      "weak_local_multiset_pass": null,
+      "helper_calls": 1,
+      "captured_helper_returns": [
+        null
+      ],
+      "local_not_observable_due_to_exception": true,
+      "input_unchanged": true
+    },
+    {
+      "program": "deduplicate_wrong",
+      "id": "repeated_singletons",
+      "valid_input": true,
+      "output": [
+        1,
+        4
+      ],
+      "exception": null,
+      "diagnostic_whole_pass": false,
+      "strong_local_order_pass": false,
+      "weak_local_multiset_pass": false,
+      "helper_calls": 1,
+      "captured_helper_returns": [
+        [
+          4,
+          1
+        ]
+      ],
+      "local_not_observable_due_to_exception": false,
+      "input_unchanged": true
+    },
+    {
+      "program": "deduplicate_wrong",
+      "id": "descending_overlap",
+      "valid_input": true,
+      "output": [
+        1,
+        2,
+        3
+      ],
+      "exception": null,
+      "diagnostic_whole_pass": false,
+      "strong_local_order_pass": false,
+      "weak_local_multiset_pass": false,
+      "helper_calls": 1,
+      "captured_helper_returns": [
+        [
+          3,
+          2,
+          1
+        ]
+      ],
+      "local_not_observable_due_to_exception": false,
+      "input_unchanged": true
+    },
+    {
+      "program": "deduplicate_wrong",
+      "id": "empty_segments",
+      "valid_input": true,
+      "output": [
+        1,
+        2
+      ],
+      "exception": null,
+      "diagnostic_whole_pass": false,
+      "strong_local_order_pass": false,
+      "weak_local_multiset_pass": false,
+      "helper_calls": 1,
+      "captured_helper_returns": [
+        [
+          2,
+          1
+        ]
+      ],
+      "local_not_observable_due_to_exception": false,
+      "input_unchanged": true
+    },
+    {
+      "program": "deduplicate_wrong",
+      "id": "multichar_separators",
+      "valid_input": true,
+      "output": [
+        2,
+        3,
+        4
+      ],
+      "exception": null,
+      "diagnostic_whole_pass": false,
+      "strong_local_order_pass": false,
+      "weak_local_multiset_pass": false,
+      "helper_calls": 1,
+      "captured_helper_returns": [
+        [
+          4,
+          3,
+          2
+        ]
+      ],
+      "local_not_observable_due_to_exception": false,
+      "input_unchanged": true
+    },
+    {
+      "program": "deduplicate_wrong",
+      "id": "empty_text",
+      "valid_input": true,
+      "output": [],
+      "exception": null,
+      "diagnostic_whole_pass": true,
+      "strong_local_order_pass": true,
+      "weak_local_multiset_pass": true,
+      "helper_calls": 1,
+      "captured_helper_returns": [
+        []
+      ],
+      "local_not_observable_due_to_exception": false,
+      "input_unchanged": true
+    },
+    {
+      "program": "deduplicate_wrong",
+      "id": "zero_and_single_point",
+      "valid_input": true,
+      "output": [
+        0,
+        2
+      ],
+      "exception": null,
+      "diagnostic_whole_pass": false,
+      "strong_local_order_pass": false,
+      "weak_local_multiset_pass": false,
+      "helper_calls": 1,
+      "captured_helper_returns": [
+        [
+          0,
+          2
+        ]
+      ],
+      "local_not_observable_due_to_exception": false,
+      "input_unchanged": true
+    },
+    {
+      "program": "deduplicate_wrong",
+      "id": "invalid_middle",
+      "valid_input": false,
+      "output": null,
+      "exception": "ValueError",
+      "diagnostic_whole_pass": true,
+      "strong_local_order_pass": null,
+      "weak_local_multiset_pass": null,
+      "helper_calls": 1,
+      "captured_helper_returns": [
+        null
+      ],
+      "local_not_observable_due_to_exception": true,
+      "input_unchanged": true
+    },
+    {
+      "program": "deduplicate_wrong",
+      "id": "invalid_range_tail",
+      "valid_input": false,
+      "output": null,
+      "exception": "ValueError",
+      "diagnostic_whole_pass": true,
+      "strong_local_order_pass": null,
+      "weak_local_multiset_pass": null,
+      "helper_calls": 1,
+      "captured_helper_returns": [
+        null
+      ],
+      "local_not_observable_due_to_exception": true,
+      "input_unchanged": true
+    }
+  ],
+  "solve_calls": 24,
+  "helper_calls": 24,
+  "valid_local_returns": 18
+}

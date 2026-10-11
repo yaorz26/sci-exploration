@@ -1,0 +1,33 @@
+{
+  "time": "2026-10-09T12:08:40.480614+00:00",
+  "rows": [
+    {
+      "task_id": "D1_M01",
+      "requirement_sha256": "40d53c870f3b665b5531e0c5c4fea5bbdb6ebff4d0112cf97e8f99b69694de7e",
+      "function_or_domain": "窗口"
+    },
+    {
+      "task_id": "D1_M02",
+      "requirement_sha256": "c8d7447b8b47bf0161fead9c0cbd87ba288787f8f67ecf121d5131f1321276f0",
+      "function_or_domain": "排序分段"
+    },
+    {
+      "task_id": "D1_M03",
+      "requirement_sha256": "98f11f4495a3c6d789a8d7514de54c12ff2bccd4e3472cd5ede42abecb3d81aa",
+      "function_or_domain": "seekable游标"
+    },
+    {
+      "task_id": "D1_M04",
+      "requirement_sha256": "45469071ba940308dce80ead9755e17c41a7a1812774b2184a6eeb7bd439a261",
+      "function_or_domain": "分桶独立消费，不要求惰性"
+    },
+    {
+      "task_id": "D1_M05",
+      "requirement_sha256": "005bdd063cb13369a50cce7f87a5d1d9852c5483ed00468211e5441d0bf47ad5",
+      "function_or_domain": "列对齐排序"
+    }
+  ],
+  "duplicate_judgment": "原公开M01—M05没有groupby_transform/groupfunc；桶独立消费不等共享懒组失效/回调保存义务",
+  "scope": "只用公开题面，未读private/curator/上游测试；仍需真实父/feature证据",
+  "new_behavior_calls": 0
+}

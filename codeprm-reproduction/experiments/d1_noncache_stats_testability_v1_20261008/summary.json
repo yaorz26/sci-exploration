@@ -1,0 +1,147 @@
+{
+  "status": "公开Stats两个不同用途统计量的有限契约探针完成",
+  "source_sha256": "0c4d05a17b14244a880e5047c1823d1e1e522e6c5ee76c6b47f54d8bde791e68",
+  "docs_sha256": "a92d11717a0baeebe7b9ac0af5e32ee989bc1a01f2cf1c4507d4ef597fc66e11",
+  "anchors": [
+    {
+      "anchor": "a01",
+      "input": [
+        1,
+        2,
+        3
+      ],
+      "mean": {
+        "observed": 2.0,
+        "expected": 2.0,
+        "pass": true
+      },
+      "variance": {
+        "observed": 0.6666666666666666,
+        "expected": 0.6666666666666666,
+        "pass": true
+      }
+    },
+    {
+      "anchor": "a02",
+      "input": [
+        1,
+        1,
+        5
+      ],
+      "mean": {
+        "observed": 2.3333333333333335,
+        "expected": 2.3333333333333335,
+        "pass": true
+      },
+      "variance": {
+        "observed": 3.555555555555556,
+        "expected": 3.555555555555556,
+        "pass": true
+      }
+    },
+    {
+      "anchor": "a03",
+      "input": [],
+      "mean": {
+        "observed": 0.0,
+        "expected": 0.0,
+        "pass": true
+      },
+      "variance": {
+        "observed": 0.0,
+        "expected": 0.0,
+        "pass": true
+      }
+    },
+    {
+      "anchor": "a04",
+      "input": [
+        -2,
+        0,
+        2
+      ],
+      "mean": {
+        "observed": 0.0,
+        "expected": 0.0,
+        "pass": true
+      },
+      "variance": {
+        "observed": 2.6666666666666665,
+        "expected": 2.6666666666666665,
+        "pass": true
+      }
+    },
+    {
+      "anchor": "a05",
+      "input": [
+        1.5,
+        2.5
+      ],
+      "mean": {
+        "observed": 2.0,
+        "expected": 2.0,
+        "pass": true
+      },
+      "variance": {
+        "observed": 0.25,
+        "expected": 0.25,
+        "pass": true
+      }
+    },
+    {
+      "anchor": "a06",
+      "input": [
+        100,
+        101,
+        102
+      ],
+      "mean": {
+        "observed": 101.0,
+        "expected": 101.0,
+        "pass": true
+      },
+      "variance": {
+        "observed": 0.6666666666666666,
+        "expected": 0.6666666666666666,
+        "pass": true
+      }
+    }
+  ],
+  "behavior_contracts": [
+    {
+      "name": "mean",
+      "purpose": "中心位置",
+      "input": "有限数值序列/空序列",
+      "output": "数值/默认0.0",
+      "observable_unit": "单个数值"
+    },
+    {
+      "name": "variance",
+      "purpose": "离散程度",
+      "input": "有限数值序列/空序列",
+      "output": "数值/默认0.0",
+      "observable_unit": "单个数值"
+    }
+  ],
+  "pass_counts": {
+    "mean": 6,
+    "variance": 6
+  },
+  "interpretation": "两个统计量有不同用途和可分开的输出契约，但variance实现语义依赖mean；它们共享同一数据对象，故是部分独立可测而非无耦合。Stats属性缓存提供方案级共享状态，不能由此抹掉任务侧两个输出机会。",
+  "competing_explanations": {
+    "同一整体多字段无独立契约": "被有限输入的中心位置/离散程度不同输出契约削弱，但未被全域证明排除",
+    "两个用途可分别验证": "六个公开小域锚点的mean和variance均6/6符合独立参考",
+    "有效域/默认值使机会只局部成立": "空序列使用默认0.0且保留为单独域；未覆盖非数值/NaN/大数全域"
+  },
+  "limits": [
+    "6手算式公开锚点/非人工审查，不是全域语义真值",
+    "仅一个固定来源功能，不能填回原20可测标签或声称跨来源",
+    "没有比较模型拆分收益、没有新增private/原测试读取",
+    "mean与variance共享数据且variance调用mean，不能宣称无依赖"
+  ],
+  "model_calls": 0,
+  "API_calls": 0,
+  "new_downloads": 0,
+  "hidden_reads": 0,
+  "task_evaluations": 0
+}

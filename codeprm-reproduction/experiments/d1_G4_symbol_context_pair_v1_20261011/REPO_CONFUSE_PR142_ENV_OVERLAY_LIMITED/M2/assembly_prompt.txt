@@ -1,0 +1,435 @@
+# 环境变量进入项目配置的有限功能任务
+
+任务来源：beetbox/confuse PR142 的公开功能说明。给定直接父提交 `cd1db04b07db00050900d2f548baf144bb92d261` 的非测试包源码。在真实 `confuse.Configuration` 对象中增加显式选择的环境变量配置来源，使配置文件与环境变量能够共同决定最终的配置读取结果。内部模块划分、辅助函数、字典构造方式均自由。
+
+本候选只保留 PR 的有限子范围，不要求完成 PR142 的所有选项。合法输入域是：指定前缀的环境变量名；剥去前缀后非空且无父子键冲突的普通字符串键；`__` 表示嵌套；值为不含集合语法的有效 YAML 标量；普通映射型配置文件。列表转换、完整 YAML 文档值、重新加载、空键和冲突键均未纳入。
+
+公开功能义务：
+
+1. 支持显式添加环境变量来源，不在构造配置对象时默认加入。匹配前缀的变量才参加配置；剥去前缀后的键转换成小写，`__` 映射到嵌套键。
+2. 标量类型转换应与现有 YAML 文件来源一致，例如 `42` 成为整数。最终通过已有配置视图的 `get` 读取，不另建 JSON 求解入口。
+3. 在文件来源之后显式加入的环境变量来源具有更高优先级；未被环境变量提供的键仍可由较低优先级来源读取。
+4. 没有匹配环境变量时，现有配置值保持不变。
+
+任务构建者固定的外部调用入口是 `Configuration.set_env(prefix, sep='__')`，用于把环境来源放在当前最高优先级。这个入口是候选调用约束；不要求采用 PR 的内部类、工具函数或文件布局。其具体内部组织不是答案。
+
+来源说明：前缀、键名转换、嵌套、标量转换和显式选择来自公开 PR 说明；最高优先级入口是任务构建者为现有 `set`/`set_file` 约定选定的调用约束。评价材料、合并版本和手写控制不属于未来模型可见输入。
+
+状态：`research_pool_only`；`formal_labels=null`；`split=null`；真实人工双审 0；模型实验 0；公开来源污染风险未知。
+
+公开案例：
+{
+  "expected_origin": "公开PR义务与手算，未调用合并版本取得答案",
+  "cases": [
+    {
+      "id": "no_matching_environment",
+      "environment": {},
+      "yaml_file": "port: 11\n",
+      "queries": {
+        "port": {
+          "path": [
+            "port"
+          ],
+          "kind": "int"
+        }
+      },
+      "expected": {
+        "port": {
+          "value": 11,
+          "type": "int"
+        }
+      }
+    },
+    {
+      "id": "prefixed_scalar",
+      "environment": {
+        "D1APP_PORT": "42",
+        "D1OTHER_NOISE": "99"
+      },
+      "yaml_file": "{}\n",
+      "queries": {
+        "port": {
+          "path": [
+            "port"
+          ],
+          "kind": "int"
+        },
+        "excluded": {
+          "path": [
+            "noise"
+          ],
+          "kind": "exists"
+        }
+      },
+      "expected": {
+        "port": {
+          "value": 42,
+          "type": "int"
+        },
+        "excluded": false
+      }
+    },
+    {
+      "id": "nested_overlay_and_fallback",
+      "environment": {
+        "D1APP_DB__HOST": "env.local"
+      },
+      "yaml_file": "db:\n  host: file.local\n  timeout: 7\n",
+      "queries": {
+        "host": {
+          "path": [
+            "db",
+            "host"
+          ],
+          "kind": "str"
+        },
+        "timeout": {
+          "path": [
+            "db",
+            "timeout"
+          ],
+          "kind": "int"
+        }
+      },
+      "expected": {
+        "host": {
+          "value": "env.local",
+          "type": "str"
+        },
+        "timeout": {
+          "value": 7,
+          "type": "int"
+        }
+      }
+    }
+  ]
+}
+父源码：
+父文件 confuse/core.py 原行 18—18（下一片段不连续，不得合并当完整文件）
+from __future__ import division, absolute_import, print_function
+
+父文件 confuse/core.py 原行 20—20（下一片段不连续，不得合并当完整文件）
+import errno
+
+父文件 confuse/core.py 原行 21—21（下一片段不连续，不得合并当完整文件）
+import os
+
+父文件 confuse/core.py 原行 22—22（下一片段不连续，不得合并当完整文件）
+import yaml
+
+父文件 confuse/core.py 原行 23—23（下一片段不连续，不得合并当完整文件）
+from collections import OrderedDict
+
+父文件 confuse/core.py 原行 25—25（下一片段不连续，不得合并当完整文件）
+from . import util
+
+父文件 confuse/core.py 原行 26—26（下一片段不连续，不得合并当完整文件）
+from . import templates
+
+父文件 confuse/core.py 原行 27—27（下一片段不连续，不得合并当完整文件）
+from . import yaml_util
+
+父文件 confuse/core.py 原行 28—28（下一片段不连续，不得合并当完整文件）
+from .sources import ConfigSource, YamlSource
+
+父文件 confuse/core.py 原行 29—29（下一片段不连续，不得合并当完整文件）
+from .exceptions import ConfigTypeError, NotFoundError, ConfigError
+
+父文件 confuse/core.py 原行 31—31（下一片段不连续，不得合并当完整文件）
+CONFIG_FILENAME = 'config.yaml'
+
+父文件 confuse/core.py 原行 32—32（下一片段不连续，不得合并当完整文件）
+DEFAULT_FILENAME = 'config_default.yaml'
+
+父文件 confuse/core.py 原行 33—33（下一片段不连续，不得合并当完整文件）
+ROOT_NAME = 'root'
+
+父文件 confuse/core.py 原行 35—35（下一片段不连续，不得合并当完整文件）
+REDACTED_TOMBSTONE = 'REDACTED'
+
+父文件 confuse/core.py 原行 657—668（下一片段不连续，不得合并当完整文件）
+    def set_file(self, filename, base_for_paths=False):
+        """Parses the file as YAML and inserts it into the configuration
+        sources with highest priority.
+
+        :param filename: Filename of the YAML file to load.
+        :param base_for_paths: Indicates whether the directory containing the
+            YAML file will be used as the base directory for resolving relative
+            path values stored in the YAML file. Otherwise, by default, the
+            directory returned by `config_dir()` will be used as the base.
+        """
+        self.set(YamlSource(filename, base_for_paths=base_for_paths,
+                            loader=self.loader))
+
+父文件 confuse/core.py 原行 462—463（下一片段不连续，不得合并当完整文件）
+    def set(self, value):
+        self.sources.insert(0, ConfigSource.of(value))
+
+父文件 confuse/sources.py 原行 1—1（下一片段不连续，不得合并当完整文件）
+from __future__ import division, absolute_import, print_function
+
+父文件 confuse/sources.py 原行 3—3（下一片段不连续，不得合并当完整文件）
+from .util import BASESTRING
+
+父文件 confuse/sources.py 原行 4—4（下一片段不连续，不得合并当完整文件）
+from . import yaml_util
+
+父文件 confuse/sources.py 原行 5—5（下一片段不连续，不得合并当完整文件）
+import os
+
+父文件 confuse/sources.py 原行 12—35（下一片段不连续，不得合并当完整文件）
+    def __init__(self, value, filename=None, default=False,
+                 base_for_paths=False):
+        """Create a configuration source from a dictionary.
+
+        :param filename: The file with the data for this configuration source.
+
+        :param default: Indicates whether this source provides the
+            application's default configuration settings.
+
+        :param base_for_paths: Indicates whether the source file's directory
+        (i.e., the directory component of `self.filename`) should be used as
+        the base directory for resolving relative path values provided by this
+        source, instead of using the application's configuration directory. If
+        no `filename` is provided, `base_for_paths` will be treated as False.
+        See `templates.Filename` for details of the relative path resolution
+        behavior.
+        """
+        super(ConfigSource, self).__init__(value)
+        if (filename is not None
+                and not isinstance(filename, BASESTRING)):
+            raise TypeError(u'filename must be a string or None')
+        self.filename = filename
+        self.default = default
+        self.base_for_paths = base_for_paths if filename is not None else False
+
+父文件 confuse/yaml_util.py 原行 1—1（下一片段不连续，不得合并当完整文件）
+from __future__ import division, absolute_import, print_function
+
+父文件 confuse/yaml_util.py 原行 3—3（下一片段不连续，不得合并当完整文件）
+from collections import OrderedDict
+
+父文件 confuse/yaml_util.py 原行 4—4（下一片段不连续，不得合并当完整文件）
+import yaml
+
+父文件 confuse/yaml_util.py 原行 5—5（下一片段不连续，不得合并当完整文件）
+from .exceptions import ConfigReadError
+
+父文件 confuse/yaml_util.py 原行 10—71（下一片段不连续，不得合并当完整文件）
+class Loader(yaml.SafeLoader):
+    """A customized YAML loader. This loader deviates from the official
+    YAML spec in a few convenient ways:
+
+    - All strings as are Unicode objects.
+    - All maps are OrderedDicts.
+    - Strings can begin with % without quotation.
+    """
+    # All strings should be Unicode objects, regardless of contents.
+    def _construct_unicode(self, node):
+        return self.construct_scalar(node)
+
+    # Use ordered dictionaries for every YAML map.
+    # From https://gist.github.com/844388
+    def construct_yaml_map(self, node):
+        data = OrderedDict()
+        yield data
+        value = self.construct_mapping(node)
+        data.update(value)
+
+    def construct_mapping(self, node, deep=False):
+        if isinstance(node, yaml.MappingNode):
+            self.flatten_mapping(node)
+        else:
+            raise yaml.constructor.ConstructorError(
+                None, None,
+                u'expected a mapping node, but found %s' % node.id,
+                node.start_mark
+            )
+
+        mapping = OrderedDict()
+        for key_node, value_node in node.value:
+            key = self.construct_object(key_node, deep=deep)
+            try:
+                hash(key)
+            except TypeError as exc:
+                raise yaml.constructor.ConstructorError(
+                    u'while constructing a mapping',
+                    node.start_mark, 'found unacceptable key (%s)' % exc,
+                    key_node.start_mark
+                )
+            value = self.construct_object(value_node, deep=deep)
+            mapping[key] = value
+        return mapping
+
+    # Allow bare strings to begin with %. Directives are still detected.
+    def check_plain(self):
+        plain = super(Loader, self).check_plain()
+        return plain or self.peek() == '%'
+
+    @staticmethod
+    def add_constructors(loader):
+        """Modify a PyYAML Loader class to add extra constructors for strings
+        and maps. Call this method on a custom Loader class to make it behave
+        like Confuse's own Loader
+        """
+        loader.add_constructor('tag:yaml.org,2002:str',
+                               Loader._construct_unicode)
+        loader.add_constructor('tag:yaml.org,2002:map',
+                               Loader.construct_yaml_map)
+        loader.add_constructor('tag:yaml.org,2002:omap',
+                               Loader.construct_yaml_map)
+
+父文件 confuse/__init__.py 原行 1—2（下一片段不连续，不得合并当完整文件）
+"""Painless YAML configuration.
+"""
+
+父文件 confuse/__init__.py 原行 4—4（下一片段不连续，不得合并当完整文件）
+from __future__ import division, absolute_import, print_function
+
+父文件 confuse/__init__.py 原行 6—6（下一片段不连续，不得合并当完整文件）
+__version__ = '1.6.1'
+
+父文件 confuse/__init__.py 原行 8—8（下一片段不连续，不得合并当完整文件）
+from .exceptions import * # NOQA
+
+父文件 confuse/__init__.py 原行 9—9（下一片段不连续，不得合并当完整文件）
+from .util import * # NOQA
+
+父文件 confuse/__init__.py 原行 10—10（下一片段不连续，不得合并当完整文件）
+from .yaml_util import * # NOQA
+
+父文件 confuse/__init__.py 原行 11—11（下一片段不连续，不得合并当完整文件）
+from .sources import * # NOQA
+
+父文件 confuse/__init__.py 原行 12—12（下一片段不连续，不得合并当完整文件）
+from .templates import * # NOQA
+
+父文件 confuse/__init__.py 原行 13—13（下一片段不连续，不得合并当完整文件）
+from .core import * # NOQA
+计划：
+```json
+{
+  "components": [
+    {
+      "name": "EnvironmentSource",
+      "files": ["confuse/sources.py"],
+      "contract": "负责处理环境变量来源，提供键值对并进行前缀匹配和键名转换。"
+    },
+    {
+      "name": "Configuration",
+      "files": ["confuse/core.py"],
+      "contract": "负责管理配置文件和环境变量来源，提供统一的配置视图，并根据优先级读取配置值。"
+    }
+  ]
+}
+```
+组件1回答：
+```diff
+--- a/confuse/sources.py
++++ b/confuse/sources.py
+@@ -1,3 +1,4 @@
+ from __future__ import division, absolute_import, print_function
++from collections import OrderedDict
+ from .util import BASESTRING
+ from . import yaml_util
+ import os
+@@ -12,6 +13,7 @@ from . import yaml_util
+     def __init__(self, value, filename=None, default=False,
+                  base_for_paths=False):
+         """Create a configuration source from a dictionary.
++        :param prefix: The prefix for environment variables.
++        :param sep: The separator for nested keys.
+         :param filename: The file with the data for this configuration source.
+ 
+         :param default: Indicates whether this source provides the
+@@ -19,6 +21,8 @@ from . import yaml_util
+         :param base_for_paths: Indicates whether the source file's directory
+         (i.e., the directory component of `self.filename`) should be used as
+         the base directory for resolving relative path values provided by this
++        source, instead of using the application's configuration directory. If
++        no `filename` is provided, `base_for_paths` will be treated as False.
+         See `templates.Filename` for details of the relative path resolution
+         behavior.
+         """
+@@ -26,6 +30,8 @@ from . import yaml_util
+         self.filename = filename
+         self.default = default
+         self.base_for_paths = base_for_paths if filename is not None else False
++        self.prefix = prefix
++        self.sep = sep
+         if filename is not None:
+             with open(filename, 'r') as f:
+                 self.value = yaml_util.load(f)
+@@ -34,6 +40,22 @@ from . import yaml_util
+         else:
+             self.value = value
+ 
++    def get_env_value(self):
++        env_value = {}
++        for key, value in os.environ.items():
++            if key.startswith(self.prefix):
++                env_key = key[len(self.prefix):].lower().replace(self.sep, '_')
++                if env_key:
++                    env_value[env_key] = value
++        return env_value
++
++    def merge_env_with_config(self):
++        env_value = self.get_env_value()
++        for key, value in env_value.items():
++            if key not in self.value:
++                self.value[key] = value
++
+     def get(self, key, default=None):
+         """Get the value for a key from this configuration source.
+ 
+@@ -42,6 +64,7 @@ from . import yaml_util
+         :param default: The default value to return if the key is not found.
+         """
+         return self.value.get(key, default)
++
+     def __getitem__(self, key):
+         """Get the value for a key from this configuration source.
+ 
+@@ -50,6 +73,7 @@ from . import yaml_util
+         """
+         return self.value[key]
++
+     def __contains__(self, key):
+         """Check if a key is present in this configuration source.
+ 
+@@ -58,6 +82,7 @@ from . import yaml_util
+         """
+         return key in self.value
++
+     def __iter__(
+组件2回答：
+```diff
+--- a/confuse/core.py
++++ b/confuse/core.py
+@@ -657,6 +657,25 @@ class Configuration(object):
+         :param filename: Filename of the YAML file to load.
+         :param base_for_paths: Indicates whether the directory containing the
+             YAML file will be used as the base directory for resolving relative
+-            path values stored in the YAML file. Otherwise, by default, the
+-            directory returned by `config_dir()` will be used as the base.
++            path values stored in the YAML file. Otherwise, by default, the
++            directory returned by `config_dir()` will be used as the base.
++        """
++        self.set(YamlSource(filename, base_for_paths=base_for_paths,
++                            loader=self.loader))
++
++    def set_env(self, prefix, sep='__'):
++        """Adds environment variables as a source with higher priority.
++
++        :param prefix: Prefix of environment variables to include.
++        :param sep: Separator for nested keys in environment variables.
++        """
++        env_vars = {}
++        for key, value in os.environ.items():
++            if key.startswith(prefix):
++                nested_key = key[len(prefix):].lower().replace(sep, '.')
++                env_vars[nested_key] = value
++        self.set(OrderedDict(env_vars))
+```
+组装两个组件，实现全部需求。输出直接针对父快照的一个完整补丁；修接口可以，但不要将组件补丁重复应用。
+只返回完成指定工作所需的最小unified diff。文件头为--- a/包/文件.py和+++ b/包/文件.py，新文件用--- /dev/null。hunk坐标使用原文件真实行号，old/new行数逐行数清；空行也带空格/加/减前缀。不要拷整份未修改代码、不要解释。只能改指定包内.py。不得用评价器、参考答案或测试。完整父文件存在，但你只能看到冻结片段；若缺信息，不要臆造原行。

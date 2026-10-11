@@ -14,7 +14,7 @@ APPS export can be supplied as JSON/JSONL through `--apps-path`; see
 
 The next executable route, including task order, acceptance gates, feasibility
 limits, expected outputs, and the boundary of what can be claimed, is documented
-in [`执行计划_当前可行路线.md`](执行计划_当前可行路线.md).
+in [`docs/plans/执行计划_当前可行路线.md`](docs/plans/执行计划_当前可行路线.md).
 
 ## Run
 
@@ -124,7 +124,7 @@ The corresponding result files are under `outputs/results/`, tables under
 `reports/experiment_log.md`.
 
 The detailed next-stage research plan is in
-`下一阶段研究计划_神经CodePRM与结构化扩展.md`. It includes the WSL neural
+`docs/plans/下一阶段研究计划_神经CodePRM与结构化扩展.md`. It includes the WSL neural
 CodePRM pilot, step-level labels, GVR error analysis, structured function/AST
 features, official-split validation, and explicit feasibility gates.
 

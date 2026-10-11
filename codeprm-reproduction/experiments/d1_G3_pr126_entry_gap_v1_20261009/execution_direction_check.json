@@ -1,0 +1,23 @@
+{
+  "time": "2026-10-11T04:56:43.9892686Z",
+  "plan_sha256": "5BD245478F6961A2BA8EC7D597F54A88BA00BEE9B9407003D435748AB88D02E6",
+  "direct_evaluator_sha256": "883416E2496DCB0BCD31B285AA47E95AF57295E336313BDC19C12E05ECAEA623",
+  "legacy_evaluator_sha256": "138C07F50905B05DF419C3B408CB464AAE73CD78A5D2F7B570551F947EBAACB2",
+  "allowlist": [
+    "PR126 stable v2 complete/alternative/control only",
+    "no hidden or upstream tests"
+  ],
+  "expected": {
+    "legacy_control": "8/8",
+    "direct_alternative": "1/1",
+    "direct_control": "0/1",
+    "direct_complete": "1/1"
+  },
+  "calls": {
+    "direct": 3,
+    "legacy": 1,
+    "model": 0,
+    "human": 0
+  },
+  "direction": "验证旧评价器是否误收遗漏直接YamlSource公开参数的控制；不测主A收益、不扩任务"
+}

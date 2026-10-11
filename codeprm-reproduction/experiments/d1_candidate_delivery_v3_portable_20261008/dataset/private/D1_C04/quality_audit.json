@@ -1,0 +1,2264 @@
+{
+  "task_id": "D1_C04",
+  "oracle_disagreements": 0,
+  "implementations": {
+    "starter": {
+      "cases": 10,
+      "passed": 0,
+      "all_pass": false,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 11,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 21,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 11,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 1
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "public_2",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": []
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_1",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_2",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 2,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_3",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 2,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 3,
+                  "computations": {
+                    "a": 3,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 2,
+                  "computations": {
+                    "a": 4,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_4",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": -2,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 3,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_5",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 0,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 0,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_6",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": []
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_7",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_8",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": -1,
+                  "computations": {
+                    "a": 0,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 0,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": -1,
+                  "computations": {
+                    "a": 0,
+                    "b": 2
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "error": "NotImplementedError"
+            }
+          }
+        }
+      ],
+      "execution_seconds": 0.061395699998683995,
+      "captured_output_bytes": 3587
+    },
+    "alternate": {
+      "cases": 10,
+      "passed": 10,
+      "all_pass": true,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "public_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_3",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_4",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_5",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_6",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_7",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_8",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        }
+      ],
+      "execution_seconds": 0.06135969999922963,
+      "captured_output_bytes": 850
+    },
+    "reference": {
+      "cases": 10,
+      "passed": 10,
+      "all_pass": true,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "public_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_3",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_4",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_5",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_6",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_7",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_8",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        }
+      ],
+      "execution_seconds": 0.06163640000158921,
+      "captured_output_bytes": 850
+    },
+    "wrong_empty": {
+      "cases": 10,
+      "passed": 2,
+      "all_pass": false,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 11,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 21,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 11,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 1
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "public_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_1",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_2",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 2,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_3",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 2,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 3,
+                  "computations": {
+                    "a": 3,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 2,
+                  "computations": {
+                    "a": 4,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_4",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": -2,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 3,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_5",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 0,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 0,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_6",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_7",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        },
+        {
+          "case_id": "hidden_8",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": -1,
+                  "computations": {
+                    "a": 0,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 0,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": -1,
+                  "computations": {
+                    "a": 0,
+                    "b": 2
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": []
+            }
+          }
+        }
+      ],
+      "execution_seconds": 0.061565199999677134,
+      "captured_output_bytes": 3299
+    },
+    "wrong_drop_last": {
+      "cases": 10,
+      "passed": 2,
+      "all_pass": false,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 11,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 21,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 11,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 1
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": [
+                {
+                  "result": 11,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 21,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 11,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "case_id": "public_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_1",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "case_id": "hidden_2",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 2,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 1
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "case_id": "hidden_3",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 2,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 3,
+                  "computations": {
+                    "a": 3,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 2,
+                  "computations": {
+                    "a": 4,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 2,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 3,
+                  "computations": {
+                    "a": 3,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "case_id": "hidden_4",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": -2,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 3,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": [
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": -2,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "case_id": "hidden_5",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 0,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 0,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": [
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 0,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "case_id": "hidden_6",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_7",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "case_id": "hidden_8",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": -1,
+                  "computations": {
+                    "a": 0,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 0,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": -1,
+                  "computations": {
+                    "a": 0,
+                    "b": 2
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": [
+                {
+                  "result": -1,
+                  "computations": {
+                    "a": 0,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 0,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "execution_seconds": 0.061217200000101,
+      "captured_output_bytes": 4741
+    },
+    "wrong_public_lookup": {
+      "cases": 10,
+      "passed": 2,
+      "all_pass": false,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "public_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_1",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_2",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 2,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_3",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 2,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 3,
+                  "computations": {
+                    "a": 3,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 2,
+                  "computations": {
+                    "a": 4,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 2,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_4",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": -2,
+                  "computations": {
+                    "a": 2,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 0,
+                  "computations": {
+                    "a": 3,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_5",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 0,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 0,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_6",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": []
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_7",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 0
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                },
+                {
+                  "result": 1,
+                  "computations": {
+                    "a": 1,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 1,
+                    "b": 1
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        },
+        {
+          "case_id": "hidden_8",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": -1,
+                  "computations": {
+                    "a": 0,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": null,
+                  "computations": {
+                    "a": 0,
+                    "b": 1
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                },
+                {
+                  "result": -1,
+                  "computations": {
+                    "a": 0,
+                    "b": 2
+                  },
+                  "sizes": {
+                    "a": 0,
+                    "b": 0
+                  }
+                }
+              ]
+            },
+            "actual": {
+              "value": null
+            }
+          }
+        }
+      ],
+      "execution_seconds": 0.06150759999945876,
+      "captured_output_bytes": 3007
+    }
+  },
+  "reference_repeats": [
+    {
+      "cases": 10,
+      "passed": 10,
+      "all_pass": true,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "public_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_3",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_4",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_5",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_6",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_7",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_8",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        }
+      ],
+      "execution_seconds": 0.06159310000111873,
+      "captured_output_bytes": 850
+    },
+    {
+      "cases": 10,
+      "passed": 10,
+      "all_pass": true,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "public_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_3",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_4",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_5",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_6",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_7",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_8",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        }
+      ],
+      "execution_seconds": 0.061642499998924905,
+      "captured_output_bytes": 850
+    },
+    {
+      "cases": 10,
+      "passed": 10,
+      "all_pass": true,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "public_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_1",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_2",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_3",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_4",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_5",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_6",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_7",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        },
+        {
+          "case_id": "hidden_8",
+          "pass": true,
+          "input_unchanged": true,
+          "error": null
+        }
+      ],
+      "execution_seconds": 0.06120980000014242,
+      "captured_output_bytes": 850
+    }
+  ],
+  "reference_stable_3": true,
+  "starter_fails": true,
+  "alternate_passes": true,
+  "wrong_implementations_rejected": true,
+  "quality_pass": true
+}

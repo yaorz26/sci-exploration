@@ -1,0 +1,537 @@
+{
+  "rows": [
+    {
+      "task_id": "D1_B02",
+      "repository": "mahmoud/boltons",
+      "linked_group": "linked_component_2",
+      "conservative_group": "related_keyed_order_aggregation",
+      "function_family": "ordered_multimap",
+      "history_domain": "operation_history",
+      "scope": "原20题中的8已测任务；原标签不改",
+      "registered_evidence": {
+        "capacity_interference_witness": 0,
+        "global_order_witness": 1,
+        "limited_cross_entity_noninterference": 1,
+        "second_entity_not_applicable": 0
+      }
+    },
+    {
+      "task_id": "D1_C01",
+      "repository": "tkem/cachetools",
+      "linked_group": "linked_component_6",
+      "conservative_group": "linked_component_6",
+      "function_family": "cache_lru",
+      "history_domain": "operation_history",
+      "scope": "原20题中的8已测任务；原标签不改",
+      "registered_evidence": {
+        "capacity_interference_witness": 1,
+        "global_order_witness": 0,
+        "limited_cross_entity_noninterference": 0,
+        "second_entity_not_applicable": 0
+      }
+    },
+    {
+      "task_id": "D1_C02",
+      "repository": "tkem/cachetools",
+      "linked_group": "linked_component_6",
+      "conservative_group": "linked_component_6",
+      "function_family": "cache_ttl",
+      "history_domain": "operation_history",
+      "scope": "原20题中的8已测任务；原标签不改",
+      "registered_evidence": {
+        "capacity_interference_witness": 1,
+        "global_order_witness": 0,
+        "limited_cross_entity_noninterference": 0,
+        "second_entity_not_applicable": 0
+      }
+    },
+    {
+      "task_id": "D1_B04",
+      "repository": "mahmoud/boltons",
+      "linked_group": "linked_component_2",
+      "conservative_group": "related_keyed_order_aggregation",
+      "function_family": "query_editing",
+      "history_domain": "operation_history",
+      "scope": "原20题中的8已测任务；原标签不改",
+      "registered_evidence": {
+        "capacity_interference_witness": 0,
+        "global_order_witness": 1,
+        "limited_cross_entity_noninterference": 1,
+        "second_entity_not_applicable": 0
+      }
+    },
+    {
+      "task_id": "D1_M03",
+      "repository": "more-itertools/more-itertools",
+      "linked_group": "linked_component_13",
+      "conservative_group": "linked_component_13",
+      "function_family": "seekable_iteration",
+      "history_domain": "operation_history",
+      "scope": "原20题中的8已测任务；原标签不改",
+      "registered_evidence": {
+        "capacity_interference_witness": 0,
+        "global_order_witness": 0,
+        "limited_cross_entity_noninterference": 0,
+        "second_entity_not_applicable": 1
+      }
+    },
+    {
+      "task_id": "D1_M04",
+      "repository": "more-itertools/more-itertools",
+      "linked_group": "linked_component_14",
+      "conservative_group": "related_keyed_order_aggregation",
+      "function_family": "keyed_bucket_reads",
+      "history_domain": "operation_history",
+      "scope": "原20题中的8已测任务；原标签不改",
+      "registered_evidence": {
+        "capacity_interference_witness": 0,
+        "global_order_witness": 0,
+        "limited_cross_entity_noninterference": 1,
+        "second_entity_not_applicable": 0
+      }
+    },
+    {
+      "task_id": "D1_C03",
+      "repository": "tkem/cachetools",
+      "linked_group": "linked_component_6",
+      "conservative_group": "linked_component_6",
+      "function_family": "memoized_calls",
+      "history_domain": "operation_history",
+      "scope": "原20题中的8已测任务；原标签不改",
+      "registered_evidence": {
+        "capacity_interference_witness": 1,
+        "global_order_witness": 0,
+        "limited_cross_entity_noninterference": 0,
+        "second_entity_not_applicable": 0
+      }
+    },
+    {
+      "task_id": "D1_C04",
+      "repository": "tkem/cachetools",
+      "linked_group": "linked_component_6",
+      "conservative_group": "linked_component_6",
+      "function_family": "instance_method_cache",
+      "history_domain": "operation_history",
+      "scope": "原20题中的8已测任务；原标签不改",
+      "registered_evidence": {
+        "capacity_interference_witness": 1,
+        "global_order_witness": 0,
+        "limited_cross_entity_noninterference": 1,
+        "second_entity_not_applicable": 0
+      }
+    },
+    {
+      "task_id": "E_B07",
+      "repository": "mahmoud/boltons",
+      "linked_group": "linked_component_6",
+      "conservative_group": "linked_component_6",
+      "function_family": "cache_policy_statistics",
+      "history_domain": "operation_history",
+      "scope": "独立扩展池；明确联系原缓存关联群",
+      "registered_evidence": {
+        "capacity_interference_witness": 1,
+        "global_order_witness": 0,
+        "limited_cross_entity_noninterference": 0,
+        "second_entity_not_applicable": 0
+      }
+    },
+    {
+      "task_id": "E_M06",
+      "repository": "more-itertools/more-itertools",
+      "linked_group": "candidate_unique_everseen_unassigned",
+      "conservative_group": "related_keyed_order_aggregation",
+      "function_family": "canonical_first_representative",
+      "history_domain": "input_item_sequence",
+      "scope": "独立扩展池；细组未定，保守敏感性合并已登记保序/按键聚合联系",
+      "registered_evidence": {
+        "capacity_interference_witness": 0,
+        "global_order_witness": 1,
+        "limited_cross_entity_noninterference": 1,
+        "second_entity_not_applicable": 0
+      },
+      "unmeasured_semantic_items": [
+        "capacity_interference"
+      ]
+    }
+  ],
+  "original_unmeasured_tasks": [
+    "D1_B01",
+    "D1_M01",
+    "D1_M02",
+    "D1_F01",
+    "D1_F02",
+    "D1_B03",
+    "D1_B05",
+    "D1_B06",
+    "D1_M05",
+    "D1_C05",
+    "D1_F03",
+    "D1_F04"
+  ],
+  "zero_means": "当前附件没有登记此项证据，不是测得语义不存在",
+  "shared_scope": "只比较是否存在已保存结构见证；不合并历史域/实体粒度为同一效应量",
+  "group_rule": "原显式组件保持；缓存扩展关联保留；unique候选细组未定，宽组仅敏感性",
+  "evidence": {
+    "cache_fixed_capacity_saved_contrast": {
+      "left": {
+        "saved_line_number": 14,
+        "policy": "LRU",
+        "capacity": 1,
+        "operations": [
+          {
+            "op": "put",
+            "key": "a",
+            "value": 1
+          },
+          {
+            "op": "read",
+            "key": "a"
+          }
+        ],
+        "upstream": [
+          {
+            "result": null,
+            "items": [
+              [
+                "a",
+                1
+              ]
+            ],
+            "hits": 0,
+            "misses": 0,
+            "soft_misses": 0
+          },
+          {
+            "result": 1,
+            "items": [
+              [
+                "a",
+                1
+              ]
+            ],
+            "hits": 1,
+            "misses": 0,
+            "soft_misses": 0
+          }
+        ],
+        "alternate": [
+          {
+            "result": null,
+            "items": [
+              [
+                "a",
+                1
+              ]
+            ],
+            "hits": 0,
+            "misses": 0,
+            "soft_misses": 0
+          },
+          {
+            "result": 1,
+            "items": [
+              [
+                "a",
+                1
+              ]
+            ],
+            "hits": 1,
+            "misses": 0,
+            "soft_misses": 0
+          }
+        ],
+        "input_unchanged": true,
+        "pass": true
+      },
+      "right": {
+        "saved_line_number": 104,
+        "policy": "LRU",
+        "capacity": 1,
+        "operations": [
+          {
+            "op": "put",
+            "key": "a",
+            "value": 1
+          },
+          {
+            "op": "put",
+            "key": "b",
+            "value": 2
+          },
+          {
+            "op": "read",
+            "key": "a"
+          }
+        ],
+        "upstream": [
+          {
+            "result": null,
+            "items": [
+              [
+                "a",
+                1
+              ]
+            ],
+            "hits": 0,
+            "misses": 0,
+            "soft_misses": 0
+          },
+          {
+            "result": null,
+            "items": [
+              [
+                "b",
+                2
+              ]
+            ],
+            "hits": 0,
+            "misses": 0,
+            "soft_misses": 0
+          },
+          {
+            "result": {
+              "error": "KeyError"
+            },
+            "items": [
+              [
+                "b",
+                2
+              ]
+            ],
+            "hits": 0,
+            "misses": 1,
+            "soft_misses": 0
+          }
+        ],
+        "alternate": [
+          {
+            "result": null,
+            "items": [
+              [
+                "a",
+                1
+              ]
+            ],
+            "hits": 0,
+            "misses": 0,
+            "soft_misses": 0
+          },
+          {
+            "result": null,
+            "items": [
+              [
+                "b",
+                2
+              ]
+            ],
+            "hits": 0,
+            "misses": 0,
+            "soft_misses": 0
+          },
+          {
+            "result": {
+              "error": "KeyError"
+            },
+            "items": [
+              [
+                "b",
+                2
+              ]
+            ],
+            "hits": 0,
+            "misses": 1,
+            "soft_misses": 0
+          }
+        ],
+        "input_unchanged": true,
+        "pass": true
+      }
+    },
+    "order_global_pairs": [
+      {
+        "id": "global_order_exact",
+        "mode": "exact",
+        "left_input": {
+          "mode": "exact",
+          "records": [
+            {
+              "key": "a",
+              "value": 1
+            },
+            {
+              "key": "b",
+              "value": 4
+            }
+          ]
+        },
+        "right_input": {
+          "mode": "exact",
+          "records": [
+            {
+              "key": "b",
+              "value": 4
+            },
+            {
+              "key": "a",
+              "value": 1
+            }
+          ]
+        },
+        "entity_granularity": "全部首次记录",
+        "projection": "global_output",
+        "left_projection": [
+          {
+            "key": "a",
+            "value": 1
+          },
+          {
+            "key": "b",
+            "value": 4
+          }
+        ],
+        "right_projection": [
+          {
+            "key": "b",
+            "value": 4
+          },
+          {
+            "key": "a",
+            "value": 1
+          }
+        ],
+        "expected_relation": "different",
+        "actual_relation": "different",
+        "implementations_agree": true,
+        "input_unchanged": true,
+        "pass": true
+      },
+      {
+        "id": "global_order_casefold",
+        "mode": "casefold",
+        "left_input": {
+          "mode": "casefold",
+          "records": [
+            {
+              "key": "a",
+              "value": 1
+            },
+            {
+              "key": "b",
+              "value": 4
+            }
+          ]
+        },
+        "right_input": {
+          "mode": "casefold",
+          "records": [
+            {
+              "key": "b",
+              "value": 4
+            },
+            {
+              "key": "a",
+              "value": 1
+            }
+          ]
+        },
+        "entity_granularity": "全部首次记录",
+        "projection": "global_output",
+        "left_projection": [
+          {
+            "key": "a",
+            "value": 1
+          },
+          {
+            "key": "b",
+            "value": 4
+          }
+        ],
+        "right_projection": [
+          {
+            "key": "b",
+            "value": 4
+          },
+          {
+            "key": "a",
+            "value": 1
+          }
+        ],
+        "expected_relation": "different",
+        "actual_relation": "different",
+        "implementations_agree": true,
+        "input_unchanged": true,
+        "pass": true
+      }
+    ],
+    "order_isolation_pair_ids": [
+      "foreign_insert_2",
+      "foreign_insert_3",
+      "foreign_insert_4",
+      "foreign_insert_5",
+      "foreign_insert_6",
+      "foreign_insert_7",
+      "foreign_insert_8",
+      "foreign_insert_9",
+      "foreign_insert_10",
+      "foreign_insert_11",
+      "foreign_insert_12",
+      "foreign_insert_13",
+      "foreign_insert_14",
+      "foreign_insert_15",
+      "foreign_insert_16",
+      "foreign_insert_17",
+      "foreign_insert_18",
+      "foreign_insert_19",
+      "foreign_insert_20",
+      "foreign_insert_21",
+      "foreign_insert_22",
+      "foreign_insert_23",
+      "foreign_insert_24",
+      "foreign_insert_25",
+      "foreign_insert_26",
+      "foreign_insert_27",
+      "foreign_insert_28",
+      "foreign_insert_29",
+      "foreign_insert_30",
+      "foreign_insert_31",
+      "foreign_insert_32",
+      "foreign_insert_33",
+      "foreign_insert_34",
+      "foreign_insert_35",
+      "foreign_insert_37",
+      "foreign_insert_38",
+      "foreign_insert_39",
+      "foreign_insert_40",
+      "foreign_insert_41",
+      "foreign_insert_42",
+      "foreign_insert_43",
+      "foreign_insert_44",
+      "foreign_insert_45",
+      "foreign_insert_46",
+      "foreign_insert_47",
+      "foreign_insert_48",
+      "foreign_insert_49",
+      "foreign_insert_50",
+      "foreign_insert_51",
+      "foreign_insert_52",
+      "foreign_insert_53",
+      "foreign_insert_54",
+      "foreign_insert_55",
+      "foreign_insert_56",
+      "foreign_insert_57",
+      "foreign_insert_58",
+      "foreign_insert_59",
+      "foreign_insert_60",
+      "foreign_insert_61",
+      "foreign_insert_62",
+      "foreign_insert_63",
+      "foreign_insert_64",
+      "foreign_insert_65",
+      "foreign_insert_66",
+      "foreign_insert_67",
+      "foreign_insert_68",
+      "foreign_insert_69",
+      "foreign_insert_70"
+    ]
+  }
+}

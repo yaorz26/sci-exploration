@@ -1,0 +1,90 @@
+{
+  "created_at": "2026-10-09T05:25:24Z",
+  "kind": "research_pool_delivery_index",
+  "publishable": false,
+  "reports": [
+    {
+      "path": "docs\\week3\\data-route\\20261009\\138_admissible_extrema_comparator_report.md",
+      "sha256": "718102b923555fda17ebbad634630af3d9732fef1371a01b13e8bc2476b08928"
+    },
+    {
+      "path": "docs\\week3\\data-route\\20261009\\139_candidate_structure_support_contract.md",
+      "sha256": "a3eff26761c09d0bf62a936677c699e02ba660d408d15a093cbda0f7155f5a73"
+    },
+    {
+      "path": "docs\\week3\\data-route\\20261009\\140_candidate_structure_support_audit_report.md",
+      "sha256": "5afd9012ab1bdd89f0d464b67076d133324338fa30b8a1c969913c2c0f740edb"
+    },
+    {
+      "path": "docs\\week3\\data-route\\20261009\\141_evidence_provenance_schema_contract.md",
+      "sha256": "44d3f3a8f53085cc008e6d5dd5c8c1abecaba5b197606a6dd7094b45be5172cb"
+    },
+    {
+      "path": "docs\\week3\\data-route\\20261009\\142_evidence_provenance_schema_report.md",
+      "sha256": "68552af32d13b0131ce3d15398a2169ecd9e6e98bd095faaa86c2225ae0c1135"
+    },
+    {
+      "path": "docs\\week3\\data-route\\20261009\\143_evidence_sidecar_delivery_contract.md",
+      "sha256": "4970239b4218fc22f4ec36ac45daea59e70782df124a69e878d022eb3d54dac2"
+    },
+    {
+      "path": "docs\\week3\\data-route\\20261009\\144_evidence_sidecar_delivery_report.md",
+      "sha256": "86cdf184b03f0334ad1d265a2ff52c78ed15868dfa05cab761cbac8cb29da940"
+    },
+    {
+      "path": "docs\\week3\\data-route\\20261009\\145_prepublication_gate_contract.md",
+      "sha256": "a9838cb31e64f79a073b166b21b4b8e4ac3377a455789984bc66cb28c7c8296b"
+    },
+    {
+      "path": "docs\\week3\\data-route\\20261009\\146_prepublication_gate_report.md",
+      "sha256": "9333d98d0dc990bd8064bb9fe7f30ea6e6287074bd1d8bcab98ade1ecc13c070"
+    },
+    {
+      "path": "docs\\week3\\data-route\\20261009\\147_research_delivery_audit_contract.md",
+      "sha256": "39e8fbfca1d1c185c62e48049afea2c53f9308a32c4a49aa0fc72b672b5c9128"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "experiments/d1_admissible_extrema_comparator_v1_20261009/admissibility_comparison_summary.json",
+      "sha256": "f0651efa8be062ebbf974d600b17e9a212cb6c036ac224253c1d3f8eeaa69ba2"
+    },
+    {
+      "path": "experiments/d1_candidate_structure_support_audit_v1_20261009",
+      "kind": "preserved_failure_directory",
+      "file_count": 0
+    },
+    {
+      "path": "experiments/d1_candidate_structure_support_audit_v2_20261009/summary.json",
+      "sha256": "3f23d7e933549b1c7a9cee7d3ce370b52ac6b7ec3b040e4260fffd6ffbd2b359"
+    },
+    {
+      "path": "experiments/d1_evidence_provenance_schema_v1_20261009/summary.json",
+      "sha256": "f93e14c898cf7e30d8bbd8813830cbac159bae5b5067e3f27a9703fd9c6d11f1"
+    },
+    {
+      "path": "experiments/d1_evidence_sidecar_delivery_v1_20261009/delivery_manifest.json",
+      "sha256": "6d4e51fb4e97c41355ede31dbf66f9a702bef882e3e269e89b144643c055c5ea"
+    },
+    {
+      "path": "experiments/d1_evidence_sidecar_delivery_v1_20261009/summary.json",
+      "sha256": "08d9f1b90ced1d5d9f5ecafc13bd285cd7300388b434367793d242704ce3590f"
+    },
+    {
+      "path": "experiments/d1_prepublication_gate_v1_20261009/gate_results.json",
+      "sha256": "639fe39af0157224a776c52276e5b46db78dc0b2c3f769c4edc9d4f8797de2c4"
+    },
+    {
+      "path": "experiments/d1_prepublication_gate_v1_20261009/summary.json",
+      "sha256": "b6eb2d0f3060bdc1531e12ac06496bef608843b5b3543fb9d8c97b464b24ae23"
+    }
+  ],
+  "preserved_failure_directories": [
+    "experiments\\d1_candidate_structure_support_audit_v1_20261009"
+  ],
+  "missing": [],
+  "private_paths_in_sidecar_package": [],
+  "status_consistent": true,
+  "gate_current_package_allowed": false,
+  "formal_labels_filled": false
+}

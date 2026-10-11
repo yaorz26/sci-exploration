@@ -1,0 +1,32 @@
+{
+  "solve_calls": 24,
+  "helper_calls": 24,
+  "valid_local_returns": 18,
+  "programs": {
+    "input_order": {
+      "valid_whole": 6,
+      "invalid_exception": 2,
+      "strong": 6,
+      "weak": 6
+    },
+    "reversed_order": {
+      "valid_whole": 6,
+      "invalid_exception": 2,
+      "strong": 3,
+      "weak": 6
+    },
+    "deduplicate_wrong": {
+      "valid_whole": 1,
+      "invalid_exception": 2,
+      "strong": 1,
+      "weak": 1
+    }
+  },
+  "input_unchanged": true,
+  "model_calls": 0,
+  "private_reads": 0,
+  "source_calls": 0,
+  "whole_measurement": "新手算诊断，不是原数据集评分结果",
+  "predictions_all_match": true,
+  "conclusion": "排序保留数值多重集合但隐藏展开顺序；强局部契约可拒整体合法方案，弱契约检出去重；异常例局部返回不可观察"
+}

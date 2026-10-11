@@ -1,0 +1,74 @@
+{
+  "task_id": "D1_C05",
+  "requirement": "实现solve(payload)。pairs中每项是两个调用对象，每调用含args列表（默认[]）和kwargs对象（默认{}）。参数值仅字符串、有限数、布尔或null，均可哈希。返回每对是否同缓存键的布尔列表：位置参数必须长度、顺序和值相等；kwargs必须名称和值相等，名称排列无影响；args与kwargs互不互换。typed默认false，值按Python相等比较（如1、1.0、true相等）。typed=true时，对应参数的Python类型也必须相同；整数、浮点数、布尔分别算不同类型。只用标准库，内部结构自由。",
+  "entry_point": "solve(payload)",
+  "language": "Python",
+  "allowed_libraries": "仅Python标准库",
+  "public_examples": [
+    {
+      "input": {
+        "pairs": [
+          [
+            {
+              "args": [
+                1
+              ]
+            },
+            {
+              "args": [
+                1.0
+              ]
+            }
+          ],
+          [
+            {
+              "kwargs": {
+                "a": 1,
+                "b": 2
+              }
+            },
+            {
+              "kwargs": {
+                "b": 2,
+                "a": 1
+              }
+            }
+          ]
+        ]
+      },
+      "output": [
+        true,
+        true
+      ]
+    },
+    {
+      "input": {
+        "typed": true,
+        "pairs": [
+          [
+            {
+              "args": [
+                1
+              ]
+            },
+            {
+              "args": [
+                true
+              ]
+            }
+          ],
+          [
+            {},
+            {}
+          ]
+        ]
+      },
+      "output": [
+        false,
+        true
+      ]
+    }
+  ],
+  "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。",
+  "internal_decomposition": "自由选择，不给定helper名称或数量"
+}

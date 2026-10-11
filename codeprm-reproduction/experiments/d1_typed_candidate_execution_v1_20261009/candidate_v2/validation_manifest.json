@@ -1,0 +1,38 @@
+{
+  "whole_v2_new_cases": [
+    8,
+    8
+  ],
+  "controls": {
+    "float_count": {
+      "raw": 8,
+      "typed": 3,
+      "typed_content_without_input": 3,
+      "value_only": 0
+    },
+    "numeric_mode_drift": {
+      "raw": 8,
+      "typed": 5,
+      "typed_content_without_input": 5,
+      "value_only": 2
+    },
+    "mutate_after_result": {
+      "raw": 6,
+      "typed": 6,
+      "typed_content_without_input": 8,
+      "value_only": 5
+    },
+    "wrong_exception": {
+      "raw": 5,
+      "typed": 5,
+      "typed_content_without_input": 5,
+      "value_only": 5
+    }
+  },
+  "helpers_v2": "未运行",
+  "source_adapter_v2": "未运行",
+  "old_36_calls": "仍v1，未升级或重跑",
+  "execution_result": "../five_execution_results.json",
+  "formal_freeze": false,
+  "human_reviews": 0
+}

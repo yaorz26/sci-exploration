@@ -1,0 +1,14 @@
+{
+  "model": "qwen2.5-coder:7b",
+  "created_at": "2026-10-11T07:26:07.1603041Z",
+  "response": " ```diff\n--- a/beetbox/confuse/core.py\n+++ b/beetbox/confuse/core.py\n@@ -657,6 +657,25 @@ class Configuration(object):\n         :param filename: Filename of the YAML file to load.\n         :param base_for_paths: Indicates whether the directory containing the\n             YAML file will be used as the base directory for resolving relative\n-            path values stored in the YAML file. Otherwise, by default, the\n-            directory returned by `config_dir()` will be used as the base.\n+            path values stored in the YAML file. Otherwise, by default, the\n+            directory returned by `config_dir()` will be used as the base.\n+        \"\"\"\n+        self.set(YamlSource(filename, base_for_paths=base_for_paths,\n+                            loader=self.loader))\n+\n+    def set_env(self, prefix, sep='__'):\n+        \"\"\"Adds environment variables as a configuration source with highest priority.\n+\n+        :param prefix: Prefix of environment variable names to include.\n+        :param sep: Separator for nested keys in environment variable names.\n+        \"\"\"\n+        env_vars = {}\n+        for key, value in os.environ.items():\n+            if key.startswith(prefix):\n+                env_key = key[len(prefix):].replace(sep, '.').lower()\n+                env_vars[env_key] = value\n+        self.set(OrderedDict(env_vars))\n+\n+    def set(self, value):\n+        self.sources.insert(0, ConfigSource.of(value))\n```",
+  "done": true,
+  "done_reason": "stop",
+  "total_duration": 8829070600,
+  "load_duration": 5461600,
+  "prompt_eval_count": 3247,
+  "prompt_eval_cached_count": 25,
+  "prompt_eval_duration": 1410601000,
+  "eval_count": 323,
+  "eval_duration": 7382712000
+}

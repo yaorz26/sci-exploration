@@ -1,0 +1,262 @@
+{
+  "version": "d1_project_prototype8_v1_20261008",
+  "built_at": "2026-10-08T02:02:47.237440+00:00",
+  "tasks": [
+    {
+      "task_id": "D1_B01",
+      "name": "编号区间文本转换",
+      "source": {
+        "repository": "mahmoud/boltons",
+        "commit": "4e5faa3d7e4008d89e0d8bf1ea87b6d9a061a16d",
+        "license": "BSD-3-Clause",
+        "file": "boltons/strutils.py",
+        "symbol": "parse_int_list",
+        "line": 886,
+        "source_sha256": "c5ecb7efd3b2e86f92545c18d8d72193f45a1bd1d0edaf3da65868aa0e8bcdda",
+        "license_sha256": "c301912653a8d8c99eab6212aa3aea8d164ea249d8ad53c941e0558a0a5ac1e3",
+        "contamination_risk": "unknown"
+      },
+      "requirement_origin": "上游公开API文档/说明为主，适配器范围与边界补充；已查看实现，需独立泄漏审查",
+      "adaptation": "统一JSON入口和返回值，保留所选功能；不作为完整仓库任务",
+      "split": "development",
+      "structure": {
+        "kind": "pipeline",
+        "shared_state": "none",
+        "dependency_evidence": "输入规范与展开结果依赖，整体无跨调用状态",
+        "independent_test_evidence": "可按数值片段和最终排序分别定义行为测试，未规定被测拆法",
+        "status": "单人预标注，尚未取得独立一致性统计"
+      },
+      "function_family": "range_parser",
+      "public_cases": 2,
+      "private_cases": 19,
+      "status": "候选原型，非冻结确认集",
+      "authoring_seed": 20261008,
+      "quality_pass": true
+    },
+    {
+      "task_id": "D1_B02",
+      "name": "有序多值记录操作",
+      "source": {
+        "repository": "mahmoud/boltons",
+        "commit": "4e5faa3d7e4008d89e0d8bf1ea87b6d9a061a16d",
+        "license": "BSD-3-Clause",
+        "file": "boltons/dictutils.py",
+        "symbol": "OrderedMultiDict",
+        "line": 86,
+        "source_sha256": "6319c07cb68f18c2bfc01aa4393d0423463cf5d6357f229173d2d1e485e7b656",
+        "license_sha256": "c301912653a8d8c99eab6212aa3aea8d164ea249d8ad53c941e0558a0a5ac1e3",
+        "contamination_risk": "unknown"
+      },
+      "requirement_origin": "上游公开API文档/说明为主，适配器范围与边界补充；已查看实现，需独立泄漏审查",
+      "adaptation": "统一JSON入口和返回值，保留所选功能；不作为完整仓库任务",
+      "split": "development",
+      "structure": {
+        "kind": "stateful",
+        "shared_state": "ordered_pairs",
+        "dependency_evidence": "新增、替换、查询、删除共同读写键值记录与顺序",
+        "independent_test_evidence": "操作结果可单测，跨操作一致性必须用序列验证",
+        "status": "单人预标注，尚未取得独立一致性统计"
+      },
+      "function_family": "ordered_multimap",
+      "public_cases": 2,
+      "private_cases": 17,
+      "status": "候选原型，非冻结确认集",
+      "authoring_seed": 20261008,
+      "quality_pass": true
+    },
+    {
+      "task_id": "D1_M01",
+      "name": "定宽滑动数据窗口",
+      "source": {
+        "repository": "more-itertools/more-itertools",
+        "commit": "81c21a8db1c922260cd673841257fb9b112c1318",
+        "license": "MIT",
+        "file": "more_itertools/more.py",
+        "symbol": "windowed",
+        "line": 1027,
+        "source_sha256": "1bdc5f323ea18906436a42268b942d5b4d15ac8b3ff17c1211a59fb192fa068e",
+        "license_sha256": "09f1c8c9e941af3e584d59641ea9b87d83c0cb0fd007eb5ef391a7e2643c1a46",
+        "contamination_risk": "unknown"
+      },
+      "requirement_origin": "上游公开API文档/说明为主，适配器范围与边界补充；已查看实现，需独立泄漏审查",
+      "adaptation": "统一JSON入口和返回值，保留所选功能；不作为完整仓库任务",
+      "split": "reserve",
+      "structure": {
+        "kind": "pipeline",
+        "shared_state": "sequence_cursor",
+        "dependency_evidence": "窗口宽度、起点步长、末尾填充共同约束输出",
+        "independent_test_evidence": "参数边界和每个窗口内容可测，窗口覆盖仍需整体比较",
+        "status": "单人预标注，尚未取得独立一致性统计"
+      },
+      "function_family": "sliding_windows",
+      "public_cases": 2,
+      "private_cases": 16,
+      "status": "候选原型，非冻结确认集",
+      "authoring_seed": 20261008,
+      "quality_pass": true
+    },
+    {
+      "task_id": "D1_M02",
+      "name": "按相邻下降划分序列",
+      "source": {
+        "repository": "more-itertools/more-itertools",
+        "commit": "81c21a8db1c922260cd673841257fb9b112c1318",
+        "license": "MIT",
+        "file": "more_itertools/more.py",
+        "symbol": "split_when",
+        "line": 1690,
+        "source_sha256": "1bdc5f323ea18906436a42268b942d5b4d15ac8b3ff17c1211a59fb192fa068e",
+        "license_sha256": "09f1c8c9e941af3e584d59641ea9b87d83c0cb0fd007eb5ef391a7e2643c1a46",
+        "contamination_risk": "unknown"
+      },
+      "requirement_origin": "上游公开API文档/说明为主，适配器范围与边界补充；已查看实现，需独立泄漏审查",
+      "adaptation": "统一JSON入口和返回值，保留所选功能；不作为完整仓库任务",
+      "split": "reserve",
+      "structure": {
+        "kind": "single_pass_control",
+        "shared_state": "adjacent_pair",
+        "dependency_evidence": "每个边界只依赖相邻两值和已用拆分次数",
+        "independent_test_evidence": "边界条件简单，强制多阶段可能增加成本，属于低拆分价值候选对照",
+        "status": "单人预标注，尚未取得独立一致性统计"
+      },
+      "function_family": "adjacent_runs",
+      "public_cases": 2,
+      "private_cases": 17,
+      "status": "候选原型，非冻结确认集",
+      "authoring_seed": 20261008,
+      "quality_pass": false
+    },
+    {
+      "task_id": "D1_C01",
+      "name": "限容量最近使用缓存",
+      "source": {
+        "repository": "tkem/cachetools",
+        "commit": "9976f1a8076631560f49c5b0dfda7e4d00ee0a4a",
+        "license": "MIT",
+        "file": "src/cachetools/__init__.py",
+        "symbol": "LRUCache",
+        "line": 287,
+        "source_sha256": "c595cd9ea1ce7e52be423397398f33ad9fb8074d568bd664f229570e97f7a660",
+        "license_sha256": "28c000b52b0ee27138a68ef778227e4057046e86b65f62f1cacb99b0cc49e0d2",
+        "contamination_risk": "unknown"
+      },
+      "requirement_origin": "上游公开API文档/说明为主，适配器范围与边界补充；已查看实现，需独立泄漏审查",
+      "adaptation": "统一JSON入口和返回值，保留所选功能；不作为完整仓库任务",
+      "split": "development",
+      "structure": {
+        "kind": "stateful",
+        "shared_state": "values_and_recency",
+        "dependency_evidence": "读写、容量限制与淘汰共同维护状态",
+        "independent_test_evidence": "各操作可局部测，淘汰正确性必须跨操作验证",
+        "status": "单人预标注，尚未取得独立一致性统计"
+      },
+      "function_family": "cache_lru",
+      "public_cases": 2,
+      "private_cases": 18,
+      "status": "候选原型，非冻结确认集",
+      "authoring_seed": 20261008,
+      "quality_pass": true
+    },
+    {
+      "task_id": "D1_C02",
+      "name": "带期限的最近使用缓存",
+      "source": {
+        "repository": "tkem/cachetools",
+        "commit": "9976f1a8076631560f49c5b0dfda7e4d00ee0a4a",
+        "license": "MIT",
+        "file": "src/cachetools/__init__.py",
+        "symbol": "TTLCache",
+        "line": 450,
+        "source_sha256": "c595cd9ea1ce7e52be423397398f33ad9fb8074d568bd664f229570e97f7a660",
+        "license_sha256": "28c000b52b0ee27138a68ef778227e4057046e86b65f62f1cacb99b0cc49e0d2",
+        "contamination_risk": "unknown"
+      },
+      "requirement_origin": "上游公开API文档/说明为主，适配器范围与边界补充；已查看实现，需独立泄漏审查",
+      "adaptation": "统一JSON入口和返回值，保留所选功能；不作为完整仓库任务",
+      "split": "development",
+      "structure": {
+        "kind": "stateful",
+        "shared_state": "values_recency_and_expiry",
+        "dependency_evidence": "时间失效与最近使用淘汰共同作用，读取不续期",
+        "independent_test_evidence": "失效/淘汰可分别单测，组合行为仍需时间操作序列",
+        "status": "单人预标注，尚未取得独立一致性统计"
+      },
+      "function_family": "cache_ttl",
+      "public_cases": 2,
+      "private_cases": 18,
+      "status": "候选原型，非冻结确认集",
+      "authoring_seed": 20261008,
+      "quality_pass": true
+    },
+    {
+      "task_id": "D1_F01",
+      "name": "字符串配置值规范化",
+      "source": {
+        "repository": "beetbox/confuse",
+        "commit": "bf42783301ac4e9c640328ec95486952fd599ce6",
+        "license": "MIT",
+        "file": "confuse/templates.py",
+        "symbol": "StrSeq",
+        "line": 468,
+        "source_sha256": "3d402899899c4b919bd1692c434a0dc8e1800ffbfbe59b0bb2a8da3cc9b18030",
+        "license_sha256": "0b308ae66aaa1412ebbe645bec4002fd262d91e9cdf67b6f198026677ddfafcc",
+        "contamination_risk": "unknown"
+      },
+      "requirement_origin": "上游公开API文档/说明为主，适配器范围与边界补充；已查看实现，需独立泄漏审查",
+      "adaptation": "统一JSON入口和返回值，保留所选功能；不作为完整仓库任务",
+      "split": "reserve",
+      "structure": {
+        "kind": "single_pass_control",
+        "shared_state": "none",
+        "dependency_evidence": "仅输入类型与split开关影响输出",
+        "independent_test_evidence": "单一转换行为可直接验证，作为低拆分价值候选对照",
+        "status": "单人预标注，尚未取得独立一致性统计"
+      },
+      "function_family": "string_config",
+      "public_cases": 2,
+      "private_cases": 13,
+      "status": "候选原型，非冻结确认集",
+      "authoring_seed": 20261008,
+      "quality_pass": false
+    },
+    {
+      "task_id": "D1_F02",
+      "name": "混合键值配置规范化",
+      "source": {
+        "repository": "beetbox/confuse",
+        "commit": "bf42783301ac4e9c640328ec95486952fd599ce6",
+        "license": "MIT",
+        "file": "confuse/templates.py",
+        "symbol": "Pairs",
+        "line": 512,
+        "source_sha256": "3d402899899c4b919bd1692c434a0dc8e1800ffbfbe59b0bb2a8da3cc9b18030",
+        "license_sha256": "0b308ae66aaa1412ebbe645bec4002fd262d91e9cdf67b6f198026677ddfafcc",
+        "contamination_risk": "unknown"
+      },
+      "requirement_origin": "上游公开API文档/说明为主，适配器范围与边界补充；已查看实现，需独立泄漏审查",
+      "adaptation": "统一JSON入口和返回值，保留所选功能；不作为完整仓库任务",
+      "split": "reserve",
+      "structure": {
+        "kind": "pipeline",
+        "shared_state": "none",
+        "dependency_evidence": "各条目的格式判定与输出类型一致性",
+        "independent_test_evidence": "每种条目可独立测，整体保序输出可直接比对",
+        "status": "单人预标注，尚未取得独立一致性统计"
+      },
+      "function_family": "pair_config",
+      "public_cases": 2,
+      "private_cases": 11,
+      "status": "候选原型，非冻结确认集",
+      "authoring_seed": 20261008,
+      "quality_pass": true
+    }
+  ],
+  "task_count": 8,
+  "quality_pass_count": 6,
+  "public_case_count": 16,
+  "private_case_count": 129,
+  "source_repository_count": 4,
+  "split_policy": "按来源仓库隔离；开发boltons/cachetools，储备more-itertools/confuse；未冻结",
+  "independent_review": "尚未完成",
+  "state": "候选原型"
+}

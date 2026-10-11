@@ -1,0 +1,141 @@
+[
+  {
+    "left_prefix": [
+      {
+        "x": {
+          "a": 1
+        }
+      },
+      {
+        "x": 0
+      }
+    ],
+    "right_prefix": [
+      {
+        "x": {
+          "a": 1
+        }
+      },
+      {}
+    ],
+    "suffix": {
+      "x": {
+        "b": 2
+      }
+    },
+    "expected_after_left": {
+      "x": {
+        "a": 1
+      }
+    },
+    "expected_after_right": {
+      "x": {
+        "a": 1,
+        "b": 2
+      }
+    },
+    "execution_status": "手算冻结，未执行",
+    "id": "x_path_block",
+    "path": [
+      "x"
+    ],
+    "expected_different": true
+  },
+  {
+    "id": "nested_path_block",
+    "left_prefix": [
+      {
+        "outer": {
+          "x": {
+            "a": 1
+          }
+        }
+      },
+      {
+        "outer": {
+          "x": 0
+        }
+      }
+    ],
+    "right_prefix": [
+      {
+        "outer": {
+          "x": {
+            "a": 1
+          }
+        }
+      },
+      {
+        "outer": {}
+      }
+    ],
+    "suffix": {
+      "outer": {
+        "x": {
+          "b": 2
+        }
+      }
+    },
+    "expected_after_left": {
+      "outer": {
+        "x": {
+          "a": 1
+        }
+      }
+    },
+    "expected_after_right": {
+      "outer": {
+        "x": {
+          "a": 1,
+          "b": 2
+        }
+      }
+    },
+    "path": [
+      "outer",
+      "x"
+    ],
+    "expected_different": true
+  },
+  {
+    "left_prefix": [
+      {
+        "x": {
+          "a": 1
+        }
+      },
+      {
+        "x": 0
+      }
+    ],
+    "right_prefix": [
+      {
+        "x": {
+          "a": 1
+        }
+      },
+      {}
+    ],
+    "suffix": {
+      "y": 2
+    },
+    "expected_after_left": {
+      "x": {
+        "a": 1
+      },
+      "y": 2
+    },
+    "expected_after_right": {
+      "x": {
+        "a": 1
+      },
+      "y": 2
+    },
+    "execution_status": "手算冻结，未执行",
+    "id": "foreign_key_control",
+    "path": [
+      "x"
+    ],
+    "expected_different": false
+  }
+]

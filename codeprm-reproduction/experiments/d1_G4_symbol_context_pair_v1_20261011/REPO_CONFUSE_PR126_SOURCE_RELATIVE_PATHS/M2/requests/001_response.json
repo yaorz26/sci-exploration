@@ -1,0 +1,14 @@
+{
+  "model": "qwen2.5-coder:7b",
+  "created_at": "2026-10-11T07:25:45.5934925Z",
+  "response": "```json\n{\n  \"components\": [\n    {\n      \"name\": \"c1\",\n      \"files\": [\"confuse/sources.py\"],\n      \"contract\": \"增加可选参数 base_for_paths 和 in_source_dir，并在 ConfigSource 和 YamlSource 中实现相对路径功能。\"\n    },\n    {\n      \"name\": \"c2\",\n      \"files\": [\"confuse/core.py\"],\n      \"contract\": \"修改 Configuration.set_file 方法，接受可选 base_for_paths 参数，并在加载文件配置源时使用该功能。\"\n    }\n  ]\n}\n```",
+  "done": true,
+  "done_reason": "stop",
+  "total_duration": 2793640400,
+  "load_duration": 5807400,
+  "prompt_eval_count": 646,
+  "prompt_eval_cached_count": 403,
+  "prompt_eval_duration": 109214000,
+  "eval_count": 119,
+  "eval_duration": 2614253000
+}

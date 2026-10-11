@@ -1,0 +1,30 @@
+{
+  "simulated": true,
+  "token_limit": 6500,
+  "call_limit": 5,
+  "known_token_spend": 603,
+  "blocked": false,
+  "calls": [
+    {
+      "call_id": "001",
+      "stage": "plan",
+      "simulated": true,
+      "prompt_token_upper_bound": 600,
+      "assigned_output_cap": 128,
+      "status": "completed",
+      "cost_status": "known",
+      "request": {
+        "path": "001_request.json",
+        "sha256": "53b79d753f7591d91d6e542561ea7d45468d523646866f03107ae9c07af35145"
+      },
+      "response": {
+        "path": "001_response.json",
+        "sha256": "b4f32650a02769d8397f98b315674f2fc26ec32aaa8fd9ab38ac69010e327a90"
+      },
+      "prompt_tokens": 600,
+      "output_tokens": 3,
+      "seconds": 0.00044580000030691735
+    }
+  ],
+  "refusals": []
+}

@@ -1,0 +1,30 @@
+```json
+{
+  "helpers": [
+    {
+      "name": "_execute_operation",
+      "signature": "def _execute_operation(operation, cache, capacity):",
+      "contract": "执行单个操作并返回结果。操作包括put、get、delete、contains和clear。返回每条操作后的记录。",
+      "depends_on": ["_get_key", "_get_value", "_get_error"]
+    },
+    {
+      "name": "_get_key",
+      "signature": "def _get_key(operation):",
+      "contract": "从操作中提取键。如果操作类型不支持键，则返回None。",
+      "depends_on": []
+    },
+    {
+      "name": "_get_value",
+      "signature": "def _get_value(operation):",
+      "contract": "从操作中提取值。如果操作类型不支持值，则返回None。",
+      "depends_on": []
+    },
+    {
+      "name": "_get_error",
+      "signature": "def _get_error(operation):",
+      "contract": "根据操作类型返回错误信息。如果操作类型不支持错误，则返回None。",
+      "depends_on": []
+    }
+  ]
+}
+```

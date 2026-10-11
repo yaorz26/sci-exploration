@@ -1,0 +1,66 @@
+{
+  "phase": "G4-step1",
+  "stage_name": "补丁协议只读归因与确定性夹具校准",
+  "created_at": "2026-10-11T11:00:00Z",
+  "macro_plan": "RESEARCH_PLAN.md v4 §5 G4 第一步",
+  "question": "已保存 M0 输出的失败属运输/格式失败、包路径失败、坐标失败，还是代码语义失败？补丁入口本身是否过严？",
+  "code_legend": {
+    "E1": "运输/格式失败（补丁结构不合法）",
+    "E2": "包路径失败（目标不在指定工作区包内）",
+    "E3": "坐标失败（hunk 原行不存在或坐标漂移）",
+    "E4": "语义失败（原行存在，插入位置/内容本身错误）"
+  },
+  "attribution_result": {
+    "REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS": {
+      "declared_file": "confuse/sources.py",
+      "hunks": 5,
+      "format_errors": 0,
+      "codes": ["E3"],
+      "detail": "5 个 hunk 声明的原行都不在声明坐标处；其中 hunk 1 的 6 行原行在文件中全部存在（仅坐标漂移），hunk 2/3 分别有 2/4 与 3/4 行在文件中根本不存在（模型改写了 docstring 文本），hunk 4/5 的声明行号（128、652）与真实位置相差很大（sources.py 实际行数远小于 652）"
+    },
+    "REPO_CONFUSE_PR142_ENV_OVERLAY_LIMITED": {
+      "declared_file": "beetbox/confuse/core.py",
+      "hunks": 1,
+      "format_errors": 0,
+      "codes": ["E2"],
+      "detail": "模型把目标写成 beetbox/confuse/core.py；工作区内的包根是 confuse/，不存在 beetbox 前缀目录"
+    },
+    "REPO_MORE_PR440_GROUP_LIFETIME_LIMITED": {
+      "declared_file": "more_itertools/more.py",
+      "hunks": 1,
+      "format_errors": 0,
+      "codes": ["E3"],
+      "detail": "声明起始行 1764，该 hunk 的 3 行原行在文件中均存在但不在该坐标"
+    }
+  },
+  "fixture_calibration": {
+    "design": "对每个任务的 parent 工作区构造四个确定性补丁：正确补丁、错误原行补丁、错误包路径补丁、包外路径补丁",
+    "results": "三个任务 × 四个夹具全部符合预期（正确补丁在声明坐标处原行完全匹配；错误原行被判原行找不到；错误/包外路径被判包路径失败）",
+    "conclusion": "补丁入口的判定逻辑在确定性输入上表现正确：既接受合法补丁，也只在真正不合规时拒绝。因此先前的失败不能归因于入口过严。"
+  },
+  "answer": {
+    "E1_transport_format": "否。三题补丁结构均合法：0 个格式错误，文件头、hunk 头、行类型齐备。",
+    "E2_package_path": "是，1 题（PR142）：模型自行加了不存在的工作区前缀 beetbox/。",
+    "E3_coordinate": "是，2 题（PR126 全部 5 个 hunk、PR440 唯一 hunk）：模型给出的行号/原行与父源码不匹配，其中夹杂被改写的文本。",
+    "E4_semantics": "未被单独证实。语义内容（要加哪些参数、要在哪条链上加判断）与需求方向一致；失败发生在补丁定位而非语义表达。",
+    "verdict": "失败集中在**补丁坐标与包路径**这一个环节，属模型产出 unified diff 的能力问题，不是运输格式问题，也不是入口过严。"
+  },
+  "decision": {
+    "choice": "改补丁接口：由统一 diff 改为“给出完整文件内容”",
+    "rationale": "归因把 E3/E2 定为唯一失败类；换接口可整类消除该失败源，同时保留同一评价器与同一公开行为验收",
+    "cost": "完整文件比 diff 输出更长，需按冻结的每臂总 token 预算做请求前预检并记录拒绝",
+    "constraints_kept": [
+      "评价器、公开用例、父上下文、seed、每臂总 token 上限不变",
+      "任务定义与公开锚点不因接口变化而改动",
+      "旧批次的失败与新批次的失败分开记，不回写旧成绩"
+    ],
+    "not_chosen": "提高 token 预算（归因显示失败与预算无关）；放宽补丁解析（夹具已证明入口判定正确，放宽会把定位错误当成实现错误）"
+  },
+  "cost": {"model_calls": 0, "behavior_calls": 0, "human_reviews": 0, "downloads": 0},
+  "limits": [
+    "归因只针对已保存的三份 M0 输出，不是新生成的样本",
+    "E4 未被单独证伪：本脚本无法判断插入内容的语义正确性，只报告定位证据",
+    "夹具是构造补丁，不代表真实模型的分布"
+  ],
+  "next": "按新接口冻结新协议版本并执行一次有界本地生成；若预算内仍无完整候选，则记录为该方法—接口组合的边界"
+}

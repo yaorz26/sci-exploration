@@ -1,0 +1,24 @@
+{
+  "dataset": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_allin_pipeline_simulation_v1_20261008\\synthetic_dataset",
+  "output": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_allin_pipeline_simulation_v1_20261008\\context",
+  "task_ids": [
+    "S01"
+  ],
+  "arms": [
+    "M0"
+  ],
+  "simulated": true,
+  "purpose": "合成完整路径检查，非模型结果",
+  "model": "synthetic-model",
+  "per_task_arm_budget": 6500,
+  "per_arm_call_cap": 5,
+  "global_call_cap": 20,
+  "wall_cap_seconds": 30,
+  "num_ctx": 32,
+  "temperature": 0.2,
+  "seed": 20261008,
+  "whole_cap": 128,
+  "plan_cap": 128,
+  "helper_cap": 128,
+  "entry_cap": 128
+}

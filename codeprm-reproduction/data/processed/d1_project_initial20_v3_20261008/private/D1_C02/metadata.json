@@ -1,0 +1,50 @@
+{
+  "task_id": "D1_C02",
+  "name": "带期限的最近使用缓存",
+  "source": {
+    "repository": "tkem/cachetools",
+    "commit": "9976f1a8076631560f49c5b0dfda7e4d00ee0a4a",
+    "license": "MIT",
+    "file": "src/cachetools/__init__.py",
+    "symbol": "TTLCache",
+    "line": 450,
+    "source_sha256": "c595cd9ea1ce7e52be423397398f33ad9fb8074d568bd664f229570e97f7a660",
+    "license_sha256": "28c000b52b0ee27138a68ef778227e4057046e86b65f62f1cacb99b0cc49e0d2",
+    "contamination_risk": "unknown",
+    "additional_symbols": []
+  },
+  "requirement_origin": "上游公开API文档/说明为主，适配器范围与边界补充；已查看实现，需独立泄漏审查",
+  "adaptation": "统一JSON入口和返回值，保留所选功能；不作为完整仓库任务",
+  "split": "development",
+  "structure": {
+    "kind": "stateful",
+    "shared_state": "values_recency_and_expiry",
+    "dependency_evidence": "时间失效与最近使用淘汰共同作用，读取不续期",
+    "independent_test_evidence": "失效/淘汰可分别单测，组合行为仍需时间操作序列",
+    "status": "单人预标注，尚未取得独立一致性统计"
+  },
+  "function_family": "cache_ttl",
+  "public_cases": 2,
+  "private_cases": 21,
+  "status": "候选原型，非冻结确认集",
+  "authoring_seed": 20261008,
+  "structure_v2": {
+    "schema_version": "0.2",
+    "cross_operation_state": "operation_sequence",
+    "state_scope": "global",
+    "behavior_dependencies": [
+      "operation_sequence"
+    ],
+    "separate_behavior_testability": "partial",
+    "evidence": "失效与跨键淘汰共同改变后续读取，读取不续期",
+    "status": "单人初标；依据外部契约，未取得独立人工一致性统计",
+    "legacy_author_description": {
+      "kind": "stateful",
+      "shared_state": "values_recency_and_expiry",
+      "dependency_evidence": "时间失效与最近使用淘汰共同作用，读取不续期",
+      "independent_test_evidence": "失效/淘汰可分别单测，组合行为仍需时间操作序列",
+      "status": "单人预标注，尚未取得独立一致性统计"
+    }
+  },
+  "related_families": []
+}

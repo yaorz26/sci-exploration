@@ -1,0 +1,150 @@
+{
+  "workspace": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_cache_expiry_repository_task_v1_20261009\\execution_v1\\research_controls\\cleanup_only",
+  "python": "3.13.7",
+  "cases": [
+    {
+      "case": "empty",
+      "expected_returns": [
+        []
+      ],
+      "actual_returns": [
+        {
+          "invalid_iterable": "NoneType",
+          "exception": "TypeError"
+        }
+      ],
+      "expected_stored": [],
+      "actual_stored": [],
+      "expected_size": 0,
+      "actual_size": 0,
+      "return_pass": false,
+      "state_pass": true,
+      "pass": false
+    },
+    {
+      "case": "boundary_mixed",
+      "expected_returns": [
+        [
+          [
+            "a",
+            1
+          ]
+        ]
+      ],
+      "actual_returns": [
+        {
+          "invalid_iterable": "NoneType",
+          "exception": "TypeError"
+        }
+      ],
+      "expected_stored": [
+        [
+          "b",
+          2
+        ]
+      ],
+      "actual_stored": [
+        [
+          "b",
+          2
+        ]
+      ],
+      "expected_size": 2,
+      "actual_size": 2,
+      "return_pass": false,
+      "state_pass": true,
+      "pass": false
+    },
+    {
+      "case": "repeat",
+      "expected_returns": [
+        [
+          [
+            "a",
+            1
+          ]
+        ],
+        []
+      ],
+      "actual_returns": [
+        {
+          "invalid_iterable": "NoneType",
+          "exception": "TypeError"
+        },
+        {
+          "invalid_iterable": "NoneType",
+          "exception": "TypeError"
+        }
+      ],
+      "expected_stored": [],
+      "actual_stored": [],
+      "expected_size": 0,
+      "actual_size": 0,
+      "return_pass": false,
+      "state_pass": true,
+      "pass": false
+    },
+    {
+      "case": "same_deadline",
+      "expected_returns": [
+        [
+          [
+            "a",
+            1
+          ],
+          [
+            "b",
+            2
+          ]
+        ]
+      ],
+      "actual_returns": [
+        {
+          "invalid_iterable": "NoneType",
+          "exception": "TypeError"
+        }
+      ],
+      "expected_stored": [],
+      "actual_stored": [],
+      "expected_size": 0,
+      "actual_size": 0,
+      "return_pass": false,
+      "state_pass": true,
+      "pass": false
+    },
+    {
+      "case": "insertion_cleanup",
+      "expected_returns": [
+        []
+      ],
+      "actual_returns": [
+        {
+          "invalid_iterable": "NoneType",
+          "exception": "TypeError"
+        }
+      ],
+      "expected_stored": [
+        [
+          "b",
+          2
+        ]
+      ],
+      "actual_stored": [
+        [
+          "b",
+          2
+        ]
+      ],
+      "expected_size": 2,
+      "actual_size": 2,
+      "return_pass": false,
+      "state_pass": true,
+      "pass": false
+    }
+  ],
+  "passed": 0,
+  "return_passed": 0,
+  "state_passed": 5,
+  "total": 5,
+  "scope": "公开确定性项目诊断，不要求返回顺序/列表类型，非模型/人工/未见确认"
+}

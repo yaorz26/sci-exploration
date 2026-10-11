@@ -1,0 +1,2930 @@
+{
+  "status": "linked",
+  "task_count": 6,
+  "rule_count": 39,
+  "scope": "6题关键条款对照，不是20题全部条款、覆盖率或独立人工真值；规则关联不意味着所有分支已测",
+  "full_behavior_coverage_assessed": false,
+  "model_calls": 0,
+  "human_review_count": 0,
+  "discovered_blocking_requirement_contradictions": [],
+  "judgment": "这些条款的所列输入与期望未见明显矛盾；其余条款与任务尚未在本次做完整语义审查",
+  "rows": [
+    {
+      "task_id": "D1_B03",
+      "rule_id": "D1_B03-R01",
+      "requirement_excerpt": "完整码为ESC后接一个ASCII @到Z或反斜线到下划线字符",
+      "requirement_task_sha256": "8899f382241f28a4cf9561ce07a09d4c408482058356393f9ae295f3e81e3fd4",
+      "all_tests_sha256": "18bc58270b8f898287c8eb4fd8d86fd5c71fb1dc10ce94bab0a69e98b10e644f",
+      "evidence_cases": [
+        {
+          "case_id": "hidden_4",
+          "input": {
+            "text": "a\u001b@b"
+          },
+          "expected": {
+            "value": "ab"
+          }
+        },
+        {
+          "case_id": "hidden_5",
+          "input": {
+            "text": "\u001bZ\u001b\\\u001b_"
+          },
+          "expected": {
+            "value": ""
+          }
+        }
+      ],
+      "author_rationale": "两字节控制码及范围端点",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_B03",
+      "rule_id": "D1_B03-R02",
+      "requirement_excerpt": "零或多个ASCII 0到?参数字符",
+      "requirement_task_sha256": "8899f382241f28a4cf9561ce07a09d4c408482058356393f9ae295f3e81e3fd4",
+      "all_tests_sha256": "18bc58270b8f898287c8eb4fd8d86fd5c71fb1dc10ce94bab0a69e98b10e644f",
+      "evidence_cases": [
+        {
+          "case_id": "public_1",
+          "input": {
+            "text": "a\u001b[31m红\u001b[0mz"
+          },
+          "expected": {
+            "value": "a红z"
+          }
+        },
+        {
+          "case_id": "hidden_6",
+          "input": {
+            "text": "\u001b[?25lX"
+          },
+          "expected": {
+            "value": "X"
+          }
+        },
+        {
+          "case_id": "hidden_7",
+          "input": {
+            "text": "\u001b[1;2 mY"
+          },
+          "expected": {
+            "value": "Y"
+          }
+        }
+      ],
+      "author_rationale": "CSI参数与中间字符",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_B03",
+      "rule_id": "D1_B03-R03",
+      "requirement_excerpt": "一个@到~终止字符",
+      "requirement_task_sha256": "8899f382241f28a4cf9561ce07a09d4c408482058356393f9ae295f3e81e3fd4",
+      "all_tests_sha256": "18bc58270b8f898287c8eb4fd8d86fd5c71fb1dc10ce94bab0a69e98b10e644f",
+      "evidence_cases": [
+        {
+          "case_id": "hidden_9",
+          "input": {
+            "text": "\u001b[a"
+          },
+          "expected": {
+            "value": ""
+          }
+        }
+      ],
+      "author_rationale": "无参数也可构成完整CSI",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_B03",
+      "rule_id": "D1_B03-R04",
+      "requirement_excerpt": "不完整、不符合该形式的片段逐字保留",
+      "requirement_task_sha256": "8899f382241f28a4cf9561ce07a09d4c408482058356393f9ae295f3e81e3fd4",
+      "all_tests_sha256": "18bc58270b8f898287c8eb4fd8d86fd5c71fb1dc10ce94bab0a69e98b10e644f",
+      "evidence_cases": [
+        {
+          "case_id": "public_2",
+          "input": {
+            "text": "x\u001b[31"
+          },
+          "expected": {
+            "value": "x\u001b[31"
+          }
+        },
+        {
+          "case_id": "hidden_3",
+          "input": {
+            "text": "\u001b"
+          },
+          "expected": {
+            "value": "\u001b"
+          }
+        },
+        {
+          "case_id": "hidden_8",
+          "input": {
+            "text": "\u001b[32\nZ"
+          },
+          "expected": {
+            "value": "\u001b[32\nZ"
+          }
+        }
+      ],
+      "author_rationale": "缺终止符或遇换行保留",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_B03",
+      "rule_id": "D1_B03-R05",
+      "requirement_excerpt": "返回去除完整ANSI控制码后的字符串",
+      "requirement_task_sha256": "8899f382241f28a4cf9561ce07a09d4c408482058356393f9ae295f3e81e3fd4",
+      "all_tests_sha256": "18bc58270b8f898287c8eb4fd8d86fd5c71fb1dc10ce94bab0a69e98b10e644f",
+      "evidence_cases": [
+        {
+          "case_id": "hidden_11",
+          "input": {
+            "text": "\u001b[0m\u001b[1m"
+          },
+          "expected": {
+            "value": ""
+          }
+        },
+        {
+          "case_id": "hidden_12",
+          "input": {
+            "text": "\u001b[\u001b[0m"
+          },
+          "expected": {
+            "value": "\u001b["
+          }
+        }
+      ],
+      "author_rationale": "连续完整码及完整码前的不完整片段",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_B03",
+      "rule_id": "D1_B03-R06",
+      "requirement_excerpt": "text是字符串",
+      "requirement_task_sha256": "8899f382241f28a4cf9561ce07a09d4c408482058356393f9ae295f3e81e3fd4",
+      "all_tests_sha256": "18bc58270b8f898287c8eb4fd8d86fd5c71fb1dc10ce94bab0a69e98b10e644f",
+      "evidence_cases": [
+        {
+          "case_id": "hidden_1",
+          "input": {
+            "text": ""
+          },
+          "expected": {
+            "value": ""
+          }
+        },
+        {
+          "case_id": "hidden_2",
+          "input": {
+            "text": "plain"
+          },
+          "expected": {
+            "value": "plain"
+          }
+        }
+      ],
+      "author_rationale": "空串与普通文本",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_B04",
+      "rule_id": "D1_B04-R01",
+      "requirement_excerpt": "按&或;分段，忽略空段",
+      "requirement_task_sha256": "47b39de3c762b029162b30512cd201e60b7b2e71f6d55404320ca9ce61bd63b1",
+      "all_tests_sha256": "783df65707b8c47d65e0cbbfdf2bee3c27632d3d8c139459907c269db9214126",
+      "evidence_cases": [
+        {
+          "case_id": "public_1",
+          "input": {
+            "query": "a=1&a=2;flag&x=",
+            "operations": [
+              {
+                "op": "set",
+                "key": "a",
+                "value": "x y"
+              }
+            ]
+          },
+          "expected": {
+            "value": {
+              "pairs": [
+                [
+                  "flag",
+                  null
+                ],
+                [
+                  "x",
+                  null
+                ],
+                [
+                  "a",
+                  "x y"
+                ]
+              ],
+              "query": "flag&x&a=x%20y"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_2",
+          "input": {
+            "query": "&&;;",
+            "operations": []
+          },
+          "expected": {
+            "value": {
+              "pairs": [],
+              "query": ""
+            }
+          }
+        }
+      ],
+      "author_rationale": "两种分隔及空段",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_B04",
+      "rule_id": "D1_B04-R02",
+      "requirement_excerpt": "每段只在第一个=处切开",
+      "requirement_task_sha256": "47b39de3c762b029162b30512cd201e60b7b2e71f6d55404320ca9ce61bd63b1",
+      "all_tests_sha256": "783df65707b8c47d65e0cbbfdf2bee3c27632d3d8c139459907c269db9214126",
+      "evidence_cases": [
+        {
+          "case_id": "hidden_6",
+          "input": {
+            "query": "a=b=c",
+            "operations": []
+          },
+          "expected": {
+            "value": {
+              "pairs": [
+                [
+                  "a",
+                  "b=c"
+                ]
+              ],
+              "query": "a=b%3Dc"
+            }
+          }
+        }
+      ],
+      "author_rationale": "值可包含等号",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_B04",
+      "rule_id": "D1_B04-R03",
+      "requirement_excerpt": "键和值将+解为空格、%HH按UTF-8解码",
+      "requirement_task_sha256": "47b39de3c762b029162b30512cd201e60b7b2e71f6d55404320ca9ce61bd63b1",
+      "all_tests_sha256": "783df65707b8c47d65e0cbbfdf2bee3c27632d3d8c139459907c269db9214126",
+      "evidence_cases": [
+        {
+          "case_id": "hidden_4",
+          "input": {
+            "query": "q=a+b%2Bc",
+            "operations": []
+          },
+          "expected": {
+            "value": {
+              "pairs": [
+                [
+                  "q",
+                  "a b+c"
+                ]
+              ],
+              "query": "q=a%20b%2Bc"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_5",
+          "input": {
+            "query": "%E4%BD%A0=%E5%A5%BD",
+            "operations": []
+          },
+          "expected": {
+            "value": {
+              "pairs": [
+                [
+                  "你",
+                  "好"
+                ]
+              ],
+              "query": "%E4%BD%A0=%E5%A5%BD"
+            }
+          }
+        }
+      ],
+      "author_rationale": "加号、百分号和Unicode",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_B04",
+      "rule_id": "D1_B04-R04",
+      "requirement_excerpt": "保留重复键和全局顺序",
+      "requirement_task_sha256": "47b39de3c762b029162b30512cd201e60b7b2e71f6d55404320ca9ce61bd63b1",
+      "all_tests_sha256": "783df65707b8c47d65e0cbbfdf2bee3c27632d3d8c139459907c269db9214126",
+      "evidence_cases": [
+        {
+          "case_id": "public_1",
+          "input": {
+            "query": "a=1&a=2;flag&x=",
+            "operations": [
+              {
+                "op": "set",
+                "key": "a",
+                "value": "x y"
+              }
+            ]
+          },
+          "expected": {
+            "value": {
+              "pairs": [
+                [
+                  "flag",
+                  null
+                ],
+                [
+                  "x",
+                  null
+                ],
+                [
+                  "a",
+                  "x y"
+                ]
+              ],
+              "query": "flag&x&a=x%20y"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_3",
+          "input": {
+            "query": "a=1&a=2",
+            "operations": []
+          },
+          "expected": {
+            "value": {
+              "pairs": [
+                [
+                  "a",
+                  "1"
+                ],
+                [
+                  "a",
+                  "2"
+                ]
+              ],
+              "query": "a=1&a=2"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_9",
+          "input": {
+            "query": "a=1&b=2&a=3",
+            "operations": [
+              {
+                "op": "delete",
+                "key": "a"
+              }
+            ]
+          },
+          "expected": {
+            "value": {
+              "pairs": [
+                [
+                  "b",
+                  "2"
+                ]
+              ],
+              "query": "b=2"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_13",
+          "input": {
+            "query": "a=1",
+            "operations": [
+              {
+                "op": "add",
+                "key": "a",
+                "value": null
+              },
+              {
+                "op": "set",
+                "key": "a",
+                "value": ""
+              },
+              {
+                "op": "add",
+                "key": "a",
+                "value": "2"
+              }
+            ]
+          },
+          "expected": {
+            "value": {
+              "pairs": [
+                [
+                  "a",
+                  ""
+                ],
+                [
+                  "a",
+                  "2"
+                ]
+              ],
+              "query": "a=&a=2"
+            }
+          }
+        }
+      ],
+      "author_rationale": "重复、替换和删除后的顺序",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_B04",
+      "rule_id": "D1_B04-R05",
+      "requirement_excerpt": "null只写键，空字符串写key=",
+      "requirement_task_sha256": "47b39de3c762b029162b30512cd201e60b7b2e71f6d55404320ca9ce61bd63b1",
+      "all_tests_sha256": "783df65707b8c47d65e0cbbfdf2bee3c27632d3d8c139459907c269db9214126",
+      "evidence_cases": [
+        {
+          "case_id": "public_2",
+          "input": {
+            "query": "",
+            "operations": [
+              {
+                "op": "add",
+                "key": "q",
+                "value": ""
+              }
+            ]
+          },
+          "expected": {
+            "value": {
+              "pairs": [
+                [
+                  "q",
+                  ""
+                ]
+              ],
+              "query": "q="
+            }
+          }
+        },
+        {
+          "case_id": "hidden_7",
+          "input": {
+            "query": "=v&=",
+            "operations": []
+          },
+          "expected": {
+            "value": {
+              "pairs": [
+                [
+                  "",
+                  "v"
+                ],
+                [
+                  "",
+                  null
+                ]
+              ],
+              "query": "=v&"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_13",
+          "input": {
+            "query": "a=1",
+            "operations": [
+              {
+                "op": "add",
+                "key": "a",
+                "value": null
+              },
+              {
+                "op": "set",
+                "key": "a",
+                "value": ""
+              },
+              {
+                "op": "add",
+                "key": "a",
+                "value": "2"
+              }
+            ]
+          },
+          "expected": {
+            "value": {
+              "pairs": [
+                [
+                  "a",
+                  ""
+                ],
+                [
+                  "a",
+                  "2"
+                ]
+              ],
+              "query": "a=&a=2"
+            }
+          }
+        }
+      ],
+      "author_rationale": "无值与显式空字符串区别",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_B04",
+      "rule_id": "D1_B04-R06",
+      "requirement_excerpt": "编码前各字符串做Unicode NFC规范化",
+      "requirement_task_sha256": "47b39de3c762b029162b30512cd201e60b7b2e71f6d55404320ca9ce61bd63b1",
+      "all_tests_sha256": "783df65707b8c47d65e0cbbfdf2bee3c27632d3d8c139459907c269db9214126",
+      "evidence_cases": [
+        {
+          "case_id": "hidden_8",
+          "input": {
+            "query": "e=e%CC%81",
+            "operations": []
+          },
+          "expected": {
+            "value": {
+              "pairs": [
+                [
+                  "e",
+                  "é"
+                ]
+              ],
+              "query": "e=%C3%A9"
+            }
+          }
+        }
+      ],
+      "author_rationale": "pairs不规范化而编码规范化",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_B04",
+      "rule_id": "D1_B04-R07",
+      "requirement_excerpt": "其他字符用大写%HH编码UTF-8",
+      "requirement_task_sha256": "47b39de3c762b029162b30512cd201e60b7b2e71f6d55404320ca9ce61bd63b1",
+      "all_tests_sha256": "783df65707b8c47d65e0cbbfdf2bee3c27632d3d8c139459907c269db9214126",
+      "evidence_cases": [
+        {
+          "case_id": "hidden_11",
+          "input": {
+            "query": "",
+            "operations": [
+              {
+                "op": "add",
+                "key": "a+b&c",
+                "value": "!$'()*,;/:?@[]"
+              }
+            ]
+          },
+          "expected": {
+            "value": {
+              "pairs": [
+                [
+                  "a+b&c",
+                  "!$'()*,;/:?@[]"
+                ]
+              ],
+              "query": "a%2Bb%26c=!$'()*,;/:?@%5B%5D"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_12",
+          "input": {
+            "query": "",
+            "operations": [
+              {
+                "op": "add",
+                "key": "all",
+                "value": " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~"
+              }
+            ]
+          },
+          "expected": {
+            "value": {
+              "pairs": [
+                [
+                  "all",
+                  " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~"
+                ]
+              ],
+              "query": "all=%20!%22%23$%25%26'()*%2B,-./0123456789:;%3C%3D%3E?@ABCDEFGHIJKLMNOPQRSTUVWXYZ%5B%5C%5D%5E_%60abcdefghijklmnopqrstuvwxyz%7B%7C%7D~"
+            }
+          }
+        }
+      ],
+      "author_rationale": "允许原样的ASCII集合及需编码字符",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_B04",
+      "rule_id": "D1_B04-R08",
+      "requirement_excerpt": "编码结果再次解析时不保证还原原pairs",
+      "requirement_task_sha256": "47b39de3c762b029162b30512cd201e60b7b2e71f6d55404320ca9ce61bd63b1",
+      "all_tests_sha256": "783df65707b8c47d65e0cbbfdf2bee3c27632d3d8c139459907c269db9214126",
+      "evidence_cases": [
+        {
+          "case_id": "hidden_14",
+          "input": {
+            "query": "a=%3B",
+            "operations": []
+          },
+          "expected": {
+            "value": {
+              "pairs": [
+                [
+                  "a",
+                  ";"
+                ]
+              ],
+              "query": "a=;"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_15",
+          "input": {
+            "query": "",
+            "operations": [
+              {
+                "op": "add",
+                "key": "",
+                "value": null
+              }
+            ]
+          },
+          "expected": {
+            "value": {
+              "pairs": [
+                [
+                  "",
+                  null
+                ]
+              ],
+              "query": ""
+            }
+          }
+        }
+      ],
+      "author_rationale": "分号与空键null非可逆情形",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_C03",
+      "rule_id": "D1_C03-R01",
+      "requirement_excerpt": "kwargs排列不影响键",
+      "requirement_task_sha256": "d5399e4a7d2ff1ee585c2c8ec78831ebfb46723e07e25c7d91da584fc39dabb3",
+      "all_tests_sha256": "0bb45cbd7a64b0c41e6b2eca68c168320ddc839cd075ac89ce0010fef2413c66",
+      "evidence_cases": [
+        {
+          "case_id": "hidden_2",
+          "input": {
+            "capacity": 2,
+            "operations": [
+              {
+                "op": "call",
+                "kwargs": {
+                  "a": 1,
+                  "b": 2
+                }
+              },
+              {
+                "op": "call",
+                "kwargs": {
+                  "b": 2,
+                  "a": 1
+                }
+              }
+            ]
+          },
+          "expected": {
+            "value": [
+              {
+                "result": 3,
+                "computations": 1,
+                "size": 1
+              },
+              {
+                "result": 3,
+                "computations": 1,
+                "size": 1
+              }
+            ]
+          }
+        }
+      ],
+      "author_rationale": "关键字顺序不应造成额外计算",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_C03",
+      "rule_id": "D1_C03-R02",
+      "requirement_excerpt": "位置传参与关键字传参仍不同",
+      "requirement_task_sha256": "d5399e4a7d2ff1ee585c2c8ec78831ebfb46723e07e25c7d91da584fc39dabb3",
+      "all_tests_sha256": "0bb45cbd7a64b0c41e6b2eca68c168320ddc839cd075ac89ce0010fef2413c66",
+      "evidence_cases": [
+        {
+          "case_id": "hidden_3",
+          "input": {
+            "capacity": 2,
+            "operations": [
+              {
+                "op": "call",
+                "args": [
+                  1
+                ]
+              },
+              {
+                "op": "call",
+                "kwargs": {
+                  "x": 1
+                }
+              }
+            ]
+          },
+          "expected": {
+            "value": [
+              {
+                "result": 1,
+                "computations": 1,
+                "size": 1
+              },
+              {
+                "result": 1,
+                "computations": 2,
+                "size": 2
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "hidden_5",
+          "input": {
+            "capacity": 1,
+            "operations": [
+              {
+                "op": "call",
+                "args": [
+                  1,
+                  2
+                ]
+              },
+              {
+                "op": "call",
+                "args": [
+                  2,
+                  1
+                ]
+              },
+              {
+                "op": "call",
+                "args": [
+                  1,
+                  2
+                ]
+              }
+            ]
+          },
+          "expected": {
+            "value": [
+              {
+                "result": 3,
+                "computations": 1,
+                "size": 1
+              },
+              {
+                "result": 3,
+                "computations": 2,
+                "size": 1
+              },
+              {
+                "result": 3,
+                "computations": 3,
+                "size": 1
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "hidden_9",
+          "input": {
+            "capacity": 1,
+            "operations": [
+              {
+                "op": "call",
+                "kwargs": {
+                  "x": 1
+                }
+              },
+              {
+                "op": "call",
+                "kwargs": {
+                  "y": 1
+                }
+              },
+              {
+                "op": "call",
+                "kwargs": {
+                  "x": 1
+                }
+              }
+            ]
+          },
+          "expected": {
+            "value": [
+              {
+                "result": 1,
+                "computations": 1,
+                "size": 1
+              },
+              {
+                "result": 1,
+                "computations": 2,
+                "size": 1
+              },
+              {
+                "result": 1,
+                "computations": 3,
+                "size": 1
+              }
+            ]
+          }
+        }
+      ],
+      "author_rationale": "传参位置、位置次序、关键词名",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_C03",
+      "rule_id": "D1_C03-R03",
+      "requirement_excerpt": "同键命中不增加计算次数并刷新最近使用顺序",
+      "requirement_task_sha256": "d5399e4a7d2ff1ee585c2c8ec78831ebfb46723e07e25c7d91da584fc39dabb3",
+      "all_tests_sha256": "0bb45cbd7a64b0c41e6b2eca68c168320ddc839cd075ac89ce0010fef2413c66",
+      "evidence_cases": [
+        {
+          "case_id": "hidden_4",
+          "input": {
+            "capacity": 2,
+            "operations": [
+              {
+                "op": "call",
+                "args": [
+                  1
+                ]
+              },
+              {
+                "op": "call",
+                "args": [
+                  2
+                ]
+              },
+              {
+                "op": "call",
+                "args": [
+                  1
+                ]
+              },
+              {
+                "op": "call",
+                "args": [
+                  3
+                ]
+              },
+              {
+                "op": "call",
+                "args": [
+                  2
+                ]
+              }
+            ]
+          },
+          "expected": {
+            "value": [
+              {
+                "result": 1,
+                "computations": 1,
+                "size": 1
+              },
+              {
+                "result": 2,
+                "computations": 2,
+                "size": 2
+              },
+              {
+                "result": 1,
+                "computations": 2,
+                "size": 2
+              },
+              {
+                "result": 3,
+                "computations": 3,
+                "size": 2
+              },
+              {
+                "result": 2,
+                "computations": 4,
+                "size": 2
+              }
+            ]
+          }
+        }
+      ],
+      "author_rationale": "命中后淘汰顺序与次数",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_C03",
+      "rule_id": "D1_C03-R04",
+      "requirement_excerpt": "clear清空但不重置计算次数",
+      "requirement_task_sha256": "d5399e4a7d2ff1ee585c2c8ec78831ebfb46723e07e25c7d91da584fc39dabb3",
+      "all_tests_sha256": "0bb45cbd7a64b0c41e6b2eca68c168320ddc839cd075ac89ce0010fef2413c66",
+      "evidence_cases": [
+        {
+          "case_id": "public_1",
+          "input": {
+            "capacity": 1,
+            "operations": [
+              {
+                "op": "call",
+                "args": [
+                  2
+                ],
+                "kwargs": {
+                  "b": 3
+                }
+              },
+              {
+                "op": "call",
+                "args": [
+                  2
+                ],
+                "kwargs": {
+                  "b": 3
+                }
+              },
+              {
+                "op": "clear"
+              },
+              {
+                "op": "call",
+                "args": [
+                  2
+                ],
+                "kwargs": {
+                  "b": 3
+                }
+              }
+            ]
+          },
+          "expected": {
+            "value": [
+              {
+                "result": 5,
+                "computations": 1,
+                "size": 1
+              },
+              {
+                "result": 5,
+                "computations": 1,
+                "size": 1
+              },
+              {
+                "result": null,
+                "computations": 1,
+                "size": 0
+              },
+              {
+                "result": 5,
+                "computations": 2,
+                "size": 1
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "hidden_7",
+          "input": {
+            "capacity": 2,
+            "operations": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "call",
+                "args": [
+                  -2,
+                  5
+                ]
+              },
+              {
+                "op": "clear"
+              },
+              {
+                "op": "clear"
+              },
+              {
+                "op": "call",
+                "args": [
+                  -2,
+                  5
+                ]
+              }
+            ]
+          },
+          "expected": {
+            "value": [
+              {
+                "result": null,
+                "computations": 0,
+                "size": 0
+              },
+              {
+                "result": 3,
+                "computations": 1,
+                "size": 1
+              },
+              {
+                "result": null,
+                "computations": 1,
+                "size": 0
+              },
+              {
+                "result": null,
+                "computations": 1,
+                "size": 0
+              },
+              {
+                "result": 3,
+                "computations": 2,
+                "size": 1
+              }
+            ]
+          }
+        }
+      ],
+      "author_rationale": "清空后的累计次数和重新计算",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_C03",
+      "rule_id": "D1_C03-R05",
+      "requirement_excerpt": "capacity=0仍返回计算结果而不存",
+      "requirement_task_sha256": "d5399e4a7d2ff1ee585c2c8ec78831ebfb46723e07e25c7d91da584fc39dabb3",
+      "all_tests_sha256": "0bb45cbd7a64b0c41e6b2eca68c168320ddc839cd075ac89ce0010fef2413c66",
+      "evidence_cases": [
+        {
+          "case_id": "public_2",
+          "input": {
+            "capacity": 0,
+            "operations": [
+              {
+                "op": "call"
+              },
+              {
+                "op": "call"
+              }
+            ]
+          },
+          "expected": {
+            "value": [
+              {
+                "result": 0,
+                "computations": 1,
+                "size": 0
+              },
+              {
+                "result": 0,
+                "computations": 2,
+                "size": 0
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "hidden_6",
+          "input": {
+            "capacity": 0,
+            "operations": [
+              {
+                "op": "call",
+                "args": [
+                  0
+                ]
+              },
+              {
+                "op": "call",
+                "args": [
+                  0
+                ]
+              },
+              {
+                "op": "clear"
+              }
+            ]
+          },
+          "expected": {
+            "value": [
+              {
+                "result": 0,
+                "computations": 1,
+                "size": 0
+              },
+              {
+                "result": 0,
+                "computations": 2,
+                "size": 0
+              },
+              {
+                "result": null,
+                "computations": 2,
+                "size": 0
+              }
+            ]
+          }
+        }
+      ],
+      "author_rationale": "零容量多次计算",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_C03",
+      "rule_id": "D1_C03-R06",
+      "requirement_excerpt": "args整数列表（默认[]）、kwargs字符串键到整数的对象（默认{}）",
+      "requirement_task_sha256": "d5399e4a7d2ff1ee585c2c8ec78831ebfb46723e07e25c7d91da584fc39dabb3",
+      "all_tests_sha256": "0bb45cbd7a64b0c41e6b2eca68c168320ddc839cd075ac89ce0010fef2413c66",
+      "evidence_cases": [
+        {
+          "case_id": "hidden_8",
+          "input": {
+            "capacity": 2,
+            "operations": [
+              {
+                "op": "call"
+              },
+              {
+                "op": "call",
+                "args": [],
+                "kwargs": {}
+              },
+              {
+                "op": "call",
+                "kwargs": {
+                  "a": 0
+                }
+              }
+            ]
+          },
+          "expected": {
+            "value": [
+              {
+                "result": 0,
+                "computations": 1,
+                "size": 1
+              },
+              {
+                "result": 0,
+                "computations": 1,
+                "size": 1
+              },
+              {
+                "result": 0,
+                "computations": 2,
+                "size": 2
+              }
+            ]
+          }
+        }
+      ],
+      "author_rationale": "省略参数与显式空参数同键",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_C04",
+      "rule_id": "D1_C04-R01",
+      "requirement_excerpt": "不同实例相同x也必须各自计算",
+      "requirement_task_sha256": "250b236499c1c180c76ac44b1254dd9d215e2b20485bc55482cf7dc365001afa",
+      "all_tests_sha256": "416dcd04d53cdaa913adefab619f2f859287960a258c7d444dfcab105cf9493b",
+      "evidence_cases": [
+        {
+          "case_id": "public_1",
+          "input": {
+            "capacity": 1,
+            "instances": [
+              {
+                "id": "a",
+                "bias": 10
+              },
+              {
+                "id": "b",
+                "bias": 20
+              }
+            ],
+            "operations": [
+              {
+                "op": "call",
+                "instance": "a",
+                "x": 1
+              },
+              {
+                "op": "call",
+                "instance": "b",
+                "x": 1
+              },
+              {
+                "op": "call",
+                "instance": "a",
+                "x": 1
+              },
+              {
+                "op": "clear",
+                "instance": "a"
+              }
+            ]
+          },
+          "expected": {
+            "value": [
+              {
+                "result": 11,
+                "computations": {
+                  "a": 1,
+                  "b": 0
+                },
+                "sizes": {
+                  "a": 1,
+                  "b": 0
+                }
+              },
+              {
+                "result": 21,
+                "computations": {
+                  "a": 1,
+                  "b": 1
+                },
+                "sizes": {
+                  "a": 1,
+                  "b": 1
+                }
+              },
+              {
+                "result": 11,
+                "computations": {
+                  "a": 1,
+                  "b": 1
+                },
+                "sizes": {
+                  "a": 1,
+                  "b": 1
+                }
+              },
+              {
+                "result": null,
+                "computations": {
+                  "a": 1,
+                  "b": 1
+                },
+                "sizes": {
+                  "a": 0,
+                  "b": 1
+                }
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "hidden_2",
+          "input": {
+            "capacity": 1,
+            "instances": [
+              {
+                "id": "a",
+                "bias": 0
+              },
+              {
+                "id": "b",
+                "bias": -1
+              }
+            ],
+            "operations": [
+              {
+                "op": "call",
+                "instance": "a",
+                "x": 1
+              },
+              {
+                "op": "call",
+                "instance": "b",
+                "x": 1
+              },
+              {
+                "op": "clear",
+                "instance": "a"
+              },
+              {
+                "op": "call",
+                "instance": "b",
+                "x": 1
+              },
+              {
+                "op": "call",
+                "instance": "a",
+                "x": 1
+              }
+            ]
+          },
+          "expected": {
+            "value": [
+              {
+                "result": 1,
+                "computations": {
+                  "a": 1,
+                  "b": 0
+                },
+                "sizes": {
+                  "a": 1,
+                  "b": 0
+                }
+              },
+              {
+                "result": 0,
+                "computations": {
+                  "a": 1,
+                  "b": 1
+                },
+                "sizes": {
+                  "a": 1,
+                  "b": 1
+                }
+              },
+              {
+                "result": null,
+                "computations": {
+                  "a": 1,
+                  "b": 1
+                },
+                "sizes": {
+                  "a": 0,
+                  "b": 1
+                }
+              },
+              {
+                "result": 0,
+                "computations": {
+                  "a": 1,
+                  "b": 1
+                },
+                "sizes": {
+                  "a": 0,
+                  "b": 1
+                }
+              },
+              {
+                "result": 1,
+                "computations": {
+                  "a": 2,
+                  "b": 1
+                },
+                "sizes": {
+                  "a": 1,
+                  "b": 1
+                }
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "hidden_7",
+          "input": {
+            "capacity": 1,
+            "instances": [
+              {
+                "id": "a",
+                "bias": 0
+              },
+              {
+                "id": "b",
+                "bias": -1
+              }
+            ],
+            "operations": [
+              {
+                "op": "call",
+                "instance": "a",
+                "x": 1
+              },
+              {
+                "op": "call",
+                "instance": "b",
+                "x": 2
+              },
+              {
+                "op": "call",
+                "instance": "a",
+                "x": 1
+              }
+            ]
+          },
+          "expected": {
+            "value": [
+              {
+                "result": 1,
+                "computations": {
+                  "a": 1,
+                  "b": 0
+                },
+                "sizes": {
+                  "a": 1,
+                  "b": 0
+                }
+              },
+              {
+                "result": 1,
+                "computations": {
+                  "a": 1,
+                  "b": 1
+                },
+                "sizes": {
+                  "a": 1,
+                  "b": 1
+                }
+              },
+              {
+                "result": 1,
+                "computations": {
+                  "a": 1,
+                  "b": 1
+                },
+                "sizes": {
+                  "a": 1,
+                  "b": 1
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "author_rationale": "实例内复用与实例间隔离",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_C04",
+      "rule_id": "D1_C04-R02",
+      "requirement_excerpt": "满淘汰该实例最久未用x",
+      "requirement_task_sha256": "250b236499c1c180c76ac44b1254dd9d215e2b20485bc55482cf7dc365001afa",
+      "all_tests_sha256": "416dcd04d53cdaa913adefab619f2f859287960a258c7d444dfcab105cf9493b",
+      "evidence_cases": [
+        {
+          "case_id": "hidden_3",
+          "input": {
+            "capacity": 2,
+            "instances": [
+              {
+                "id": "a",
+                "bias": 0
+              },
+              {
+                "id": "b",
+                "bias": -1
+              }
+            ],
+            "operations": [
+              {
+                "op": "call",
+                "instance": "a",
+                "x": 1
+              },
+              {
+                "op": "call",
+                "instance": "a",
+                "x": 2
+              },
+              {
+                "op": "call",
+                "instance": "a",
+                "x": 1
+              },
+              {
+                "op": "call",
+                "instance": "a",
+                "x": 3
+              },
+              {
+                "op": "call",
+                "instance": "a",
+                "x": 2
+              }
+            ]
+          },
+          "expected": {
+            "value": [
+              {
+                "result": 1,
+                "computations": {
+                  "a": 1,
+                  "b": 0
+                },
+                "sizes": {
+                  "a": 1,
+                  "b": 0
+                }
+              },
+              {
+                "result": 2,
+                "computations": {
+                  "a": 2,
+                  "b": 0
+                },
+                "sizes": {
+                  "a": 2,
+                  "b": 0
+                }
+              },
+              {
+                "result": 1,
+                "computations": {
+                  "a": 2,
+                  "b": 0
+                },
+                "sizes": {
+                  "a": 2,
+                  "b": 0
+                }
+              },
+              {
+                "result": 3,
+                "computations": {
+                  "a": 3,
+                  "b": 0
+                },
+                "sizes": {
+                  "a": 2,
+                  "b": 0
+                }
+              },
+              {
+                "result": 2,
+                "computations": {
+                  "a": 4,
+                  "b": 0
+                },
+                "sizes": {
+                  "a": 2,
+                  "b": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "hidden_4",
+          "input": {
+            "capacity": 1,
+            "instances": [
+              {
+                "id": "a",
+                "bias": 0
+              },
+              {
+                "id": "b",
+                "bias": -1
+              }
+            ],
+            "operations": [
+              {
+                "op": "call",
+                "instance": "a",
+                "x": 0
+              },
+              {
+                "op": "call",
+                "instance": "a",
+                "x": -2
+              },
+              {
+                "op": "call",
+                "instance": "a",
+                "x": 0
+              }
+            ]
+          },
+          "expected": {
+            "value": [
+              {
+                "result": 0,
+                "computations": {
+                  "a": 1,
+                  "b": 0
+                },
+                "sizes": {
+                  "a": 1,
+                  "b": 0
+                }
+              },
+              {
+                "result": -2,
+                "computations": {
+                  "a": 2,
+                  "b": 0
+                },
+                "sizes": {
+                  "a": 1,
+                  "b": 0
+                }
+              },
+              {
+                "result": 0,
+                "computations": {
+                  "a": 3,
+                  "b": 0
+                },
+                "sizes": {
+                  "a": 1,
+                  "b": 0
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "author_rationale": "LRU命中刷新与淘汰后重新计算",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_C04",
+      "rule_id": "D1_C04-R03",
+      "requirement_excerpt": "clear只清空指定实例，计数不重置",
+      "requirement_task_sha256": "250b236499c1c180c76ac44b1254dd9d215e2b20485bc55482cf7dc365001afa",
+      "all_tests_sha256": "416dcd04d53cdaa913adefab619f2f859287960a258c7d444dfcab105cf9493b",
+      "evidence_cases": [
+        {
+          "case_id": "hidden_2",
+          "input": {
+            "capacity": 1,
+            "instances": [
+              {
+                "id": "a",
+                "bias": 0
+              },
+              {
+                "id": "b",
+                "bias": -1
+              }
+            ],
+            "operations": [
+              {
+                "op": "call",
+                "instance": "a",
+                "x": 1
+              },
+              {
+                "op": "call",
+                "instance": "b",
+                "x": 1
+              },
+              {
+                "op": "clear",
+                "instance": "a"
+              },
+              {
+                "op": "call",
+                "instance": "b",
+                "x": 1
+              },
+              {
+                "op": "call",
+                "instance": "a",
+                "x": 1
+              }
+            ]
+          },
+          "expected": {
+            "value": [
+              {
+                "result": 1,
+                "computations": {
+                  "a": 1,
+                  "b": 0
+                },
+                "sizes": {
+                  "a": 1,
+                  "b": 0
+                }
+              },
+              {
+                "result": 0,
+                "computations": {
+                  "a": 1,
+                  "b": 1
+                },
+                "sizes": {
+                  "a": 1,
+                  "b": 1
+                }
+              },
+              {
+                "result": null,
+                "computations": {
+                  "a": 1,
+                  "b": 1
+                },
+                "sizes": {
+                  "a": 0,
+                  "b": 1
+                }
+              },
+              {
+                "result": 0,
+                "computations": {
+                  "a": 1,
+                  "b": 1
+                },
+                "sizes": {
+                  "a": 0,
+                  "b": 1
+                }
+              },
+              {
+                "result": 1,
+                "computations": {
+                  "a": 2,
+                  "b": 1
+                },
+                "sizes": {
+                  "a": 1,
+                  "b": 1
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "author_rationale": "清空一实例后另一实例仍命中",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_C04",
+      "rule_id": "D1_C04-R04",
+      "requirement_excerpt": "capacity=0不缓存",
+      "requirement_task_sha256": "250b236499c1c180c76ac44b1254dd9d215e2b20485bc55482cf7dc365001afa",
+      "all_tests_sha256": "416dcd04d53cdaa913adefab619f2f859287960a258c7d444dfcab105cf9493b",
+      "evidence_cases": [
+        {
+          "case_id": "hidden_1",
+          "input": {
+            "capacity": 0,
+            "instances": [
+              {
+                "id": "a",
+                "bias": 0
+              },
+              {
+                "id": "b",
+                "bias": -1
+              }
+            ],
+            "operations": [
+              {
+                "op": "call",
+                "instance": "a",
+                "x": 1
+              },
+              {
+                "op": "call",
+                "instance": "a",
+                "x": 1
+              }
+            ]
+          },
+          "expected": {
+            "value": [
+              {
+                "result": 1,
+                "computations": {
+                  "a": 1,
+                  "b": 0
+                },
+                "sizes": {
+                  "a": 0,
+                  "b": 0
+                }
+              },
+              {
+                "result": 1,
+                "computations": {
+                  "a": 2,
+                  "b": 0
+                },
+                "sizes": {
+                  "a": 0,
+                  "b": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "hidden_8",
+          "input": {
+            "capacity": 0,
+            "instances": [
+              {
+                "id": "a",
+                "bias": 0
+              },
+              {
+                "id": "b",
+                "bias": -1
+              }
+            ],
+            "operations": [
+              {
+                "op": "call",
+                "instance": "b",
+                "x": 0
+              },
+              {
+                "op": "clear",
+                "instance": "b"
+              },
+              {
+                "op": "call",
+                "instance": "b",
+                "x": 0
+              }
+            ]
+          },
+          "expected": {
+            "value": [
+              {
+                "result": -1,
+                "computations": {
+                  "a": 0,
+                  "b": 1
+                },
+                "sizes": {
+                  "a": 0,
+                  "b": 0
+                }
+              },
+              {
+                "result": null,
+                "computations": {
+                  "a": 0,
+                  "b": 1
+                },
+                "sizes": {
+                  "a": 0,
+                  "b": 0
+                }
+              },
+              {
+                "result": -1,
+                "computations": {
+                  "a": 0,
+                  "b": 2
+                },
+                "sizes": {
+                  "a": 0,
+                  "b": 0
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "author_rationale": "零容量重复调用与清空",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_C04",
+      "rule_id": "D1_C04-R05",
+      "requirement_excerpt": "后两项分别是所有实例id到累计次数/当前缓存项数的对象",
+      "requirement_task_sha256": "250b236499c1c180c76ac44b1254dd9d215e2b20485bc55482cf7dc365001afa",
+      "all_tests_sha256": "416dcd04d53cdaa913adefab619f2f859287960a258c7d444dfcab105cf9493b",
+      "evidence_cases": [
+        {
+          "case_id": "public_2",
+          "input": {
+            "capacity": 1,
+            "instances": [],
+            "operations": []
+          },
+          "expected": {
+            "value": []
+          }
+        },
+        {
+          "case_id": "hidden_5",
+          "input": {
+            "capacity": 1,
+            "instances": [
+              {
+                "id": "a",
+                "bias": 0
+              },
+              {
+                "id": "b",
+                "bias": -1
+              }
+            ],
+            "operations": [
+              {
+                "op": "clear",
+                "instance": "a"
+              },
+              {
+                "op": "clear",
+                "instance": "b"
+              }
+            ]
+          },
+          "expected": {
+            "value": [
+              {
+                "result": null,
+                "computations": {
+                  "a": 0,
+                  "b": 0
+                },
+                "sizes": {
+                  "a": 0,
+                  "b": 0
+                }
+              },
+              {
+                "result": null,
+                "computations": {
+                  "a": 0,
+                  "b": 0
+                },
+                "sizes": {
+                  "a": 0,
+                  "b": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "case_id": "hidden_6",
+          "input": {
+            "capacity": 2,
+            "instances": [
+              {
+                "id": "a",
+                "bias": 0
+              },
+              {
+                "id": "b",
+                "bias": -1
+              }
+            ],
+            "operations": []
+          },
+          "expected": {
+            "value": []
+          }
+        }
+      ],
+      "author_rationale": "空实例、空操作和初始清空",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_C05",
+      "rule_id": "D1_C05-R01",
+      "requirement_excerpt": "如1、1.0、true相等",
+      "requirement_task_sha256": "8e9761c4df50235919dc5ca7d554fc9502d832b30fd768a8069c3992aff8df38",
+      "all_tests_sha256": "27c99d1f5f7d4df33985ea78fcdc6d68215f08052e82a2efe8711906b23874fa",
+      "evidence_cases": [
+        {
+          "case_id": "public_1",
+          "input": {
+            "pairs": [
+              [
+                {
+                  "args": [
+                    1
+                  ]
+                },
+                {
+                  "args": [
+                    1.0
+                  ]
+                }
+              ],
+              [
+                {
+                  "kwargs": {
+                    "a": 1,
+                    "b": 2
+                  }
+                },
+                {
+                  "kwargs": {
+                    "b": 2,
+                    "a": 1
+                  }
+                }
+              ]
+            ]
+          },
+          "expected": {
+            "value": [
+              true,
+              true
+            ]
+          }
+        },
+        {
+          "case_id": "hidden_7",
+          "input": {
+            "pairs": [
+              [
+                {
+                  "args": [
+                    false
+                  ]
+                },
+                {
+                  "args": [
+                    0.0
+                  ]
+                }
+              ]
+            ],
+            "typed": false
+          },
+          "expected": {
+            "value": [
+              true
+            ]
+          }
+        },
+        {
+          "case_id": "hidden_10",
+          "input": {
+            "pairs": [
+              [
+                {
+                  "kwargs": {
+                    "x": true
+                  }
+                },
+                {
+                  "kwargs": {
+                    "x": 1
+                  }
+                }
+              ]
+            ],
+            "typed": false
+          },
+          "expected": {
+            "value": [
+              true
+            ]
+          }
+        }
+      ],
+      "author_rationale": "非类型敏感的Python数值相等",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_C05",
+      "rule_id": "D1_C05-R02",
+      "requirement_excerpt": "整数、浮点数、布尔分别算不同类型",
+      "requirement_task_sha256": "8e9761c4df50235919dc5ca7d554fc9502d832b30fd768a8069c3992aff8df38",
+      "all_tests_sha256": "27c99d1f5f7d4df33985ea78fcdc6d68215f08052e82a2efe8711906b23874fa",
+      "evidence_cases": [
+        {
+          "case_id": "public_2",
+          "input": {
+            "typed": true,
+            "pairs": [
+              [
+                {
+                  "args": [
+                    1
+                  ]
+                },
+                {
+                  "args": [
+                    true
+                  ]
+                }
+              ],
+              [
+                {},
+                {}
+              ]
+            ]
+          },
+          "expected": {
+            "value": [
+              false,
+              true
+            ]
+          }
+        },
+        {
+          "case_id": "hidden_6",
+          "input": {
+            "pairs": [
+              [
+                {
+                  "kwargs": {
+                    "x": 1
+                  }
+                },
+                {
+                  "kwargs": {
+                    "x": 1.0
+                  }
+                }
+              ]
+            ],
+            "typed": true
+          },
+          "expected": {
+            "value": [
+              false
+            ]
+          }
+        },
+        {
+          "case_id": "hidden_8",
+          "input": {
+            "pairs": [
+              [
+                {
+                  "args": [
+                    false
+                  ]
+                },
+                {
+                  "args": [
+                    0.0
+                  ]
+                }
+              ]
+            ],
+            "typed": true
+          },
+          "expected": {
+            "value": [
+              false
+            ]
+          }
+        }
+      ],
+      "author_rationale": "类型敏感分离整数/浮点/布尔",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_C05",
+      "rule_id": "D1_C05-R03",
+      "requirement_excerpt": "位置参数必须长度、顺序和值相等",
+      "requirement_task_sha256": "8e9761c4df50235919dc5ca7d554fc9502d832b30fd768a8069c3992aff8df38",
+      "all_tests_sha256": "27c99d1f5f7d4df33985ea78fcdc6d68215f08052e82a2efe8711906b23874fa",
+      "evidence_cases": [
+        {
+          "case_id": "hidden_2",
+          "input": {
+            "pairs": [
+              [
+                {
+                  "args": [
+                    1,
+                    2
+                  ]
+                },
+                {
+                  "args": [
+                    2,
+                    1
+                  ]
+                }
+              ]
+            ],
+            "typed": false
+          },
+          "expected": {
+            "value": [
+              false
+            ]
+          }
+        },
+        {
+          "case_id": "hidden_9",
+          "input": {
+            "pairs": [
+              [
+                {
+                  "args": [
+                    0
+                  ]
+                },
+                {
+                  "args": []
+                }
+              ]
+            ],
+            "typed": false
+          },
+          "expected": {
+            "value": [
+              false
+            ]
+          }
+        }
+      ],
+      "author_rationale": "位置参数顺序及长度",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_C05",
+      "rule_id": "D1_C05-R04",
+      "requirement_excerpt": "名称排列无影响",
+      "requirement_task_sha256": "8e9761c4df50235919dc5ca7d554fc9502d832b30fd768a8069c3992aff8df38",
+      "all_tests_sha256": "27c99d1f5f7d4df33985ea78fcdc6d68215f08052e82a2efe8711906b23874fa",
+      "evidence_cases": [
+        {
+          "case_id": "public_1",
+          "input": {
+            "pairs": [
+              [
+                {
+                  "args": [
+                    1
+                  ]
+                },
+                {
+                  "args": [
+                    1.0
+                  ]
+                }
+              ],
+              [
+                {
+                  "kwargs": {
+                    "a": 1,
+                    "b": 2
+                  }
+                },
+                {
+                  "kwargs": {
+                    "b": 2,
+                    "a": 1
+                  }
+                }
+              ]
+            ]
+          },
+          "expected": {
+            "value": [
+              true,
+              true
+            ]
+          }
+        },
+        {
+          "case_id": "hidden_4",
+          "input": {
+            "pairs": [
+              [
+                {
+                  "kwargs": {
+                    "x": 1
+                  }
+                },
+                {
+                  "kwargs": {
+                    "y": 1
+                  }
+                }
+              ]
+            ],
+            "typed": false
+          },
+          "expected": {
+            "value": [
+              false
+            ]
+          }
+        }
+      ],
+      "author_rationale": "关键字顺序不影响等价，名称不同仍不同",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_C05",
+      "rule_id": "D1_C05-R05",
+      "requirement_excerpt": "args与kwargs互不互换",
+      "requirement_task_sha256": "8e9761c4df50235919dc5ca7d554fc9502d832b30fd768a8069c3992aff8df38",
+      "all_tests_sha256": "27c99d1f5f7d4df33985ea78fcdc6d68215f08052e82a2efe8711906b23874fa",
+      "evidence_cases": [
+        {
+          "case_id": "hidden_3",
+          "input": {
+            "pairs": [
+              [
+                {
+                  "args": [
+                    1
+                  ]
+                },
+                {
+                  "kwargs": {
+                    "x": 1
+                  }
+                }
+              ]
+            ],
+            "typed": false
+          },
+          "expected": {
+            "value": [
+              false
+            ]
+          }
+        }
+      ],
+      "author_rationale": "位置与关键字不混同",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_C05",
+      "rule_id": "D1_C05-R06",
+      "requirement_excerpt": "args列表（默认[]）和kwargs对象（默认{}）",
+      "requirement_task_sha256": "8e9761c4df50235919dc5ca7d554fc9502d832b30fd768a8069c3992aff8df38",
+      "all_tests_sha256": "27c99d1f5f7d4df33985ea78fcdc6d68215f08052e82a2efe8711906b23874fa",
+      "evidence_cases": [
+        {
+          "case_id": "hidden_11",
+          "input": {
+            "pairs": [
+              [
+                {},
+                {
+                  "args": [],
+                  "kwargs": {}
+                }
+              ]
+            ],
+            "typed": true
+          },
+          "expected": {
+            "value": [
+              true
+            ]
+          }
+        }
+      ],
+      "author_rationale": "缺失与显式空参数",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_C05",
+      "rule_id": "D1_C05-R07",
+      "requirement_excerpt": "参数值仅字符串、有限数、布尔或null",
+      "requirement_task_sha256": "8e9761c4df50235919dc5ca7d554fc9502d832b30fd768a8069c3992aff8df38",
+      "all_tests_sha256": "27c99d1f5f7d4df33985ea78fcdc6d68215f08052e82a2efe8711906b23874fa",
+      "evidence_cases": [
+        {
+          "case_id": "hidden_5",
+          "input": {
+            "pairs": [
+              [
+                {
+                  "args": [
+                    null,
+                    "1"
+                  ]
+                },
+                {
+                  "args": [
+                    null,
+                    1
+                  ]
+                }
+              ]
+            ],
+            "typed": false
+          },
+          "expected": {
+            "value": [
+              false
+            ]
+          }
+        },
+        {
+          "case_id": "hidden_12",
+          "input": {
+            "pairs": [
+              [
+                {
+                  "args": [
+                    "你好"
+                  ],
+                  "kwargs": {
+                    "a": null
+                  }
+                },
+                {
+                  "args": [
+                    "你好"
+                  ],
+                  "kwargs": {
+                    "a": null
+                  }
+                }
+              ]
+            ],
+            "typed": true
+          },
+          "expected": {
+            "value": [
+              true
+            ]
+          }
+        }
+      ],
+      "author_rationale": "字符串与数字不同、null/Unicode可比较",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_M05",
+      "rule_id": "D1_M05-R01",
+      "requirement_excerpt": "同键行仍保持输入次序",
+      "requirement_task_sha256": "17d6abeadbe9e12ad4d3b9514061a64e7fbb7aca42828ea2976737c89111eaf5",
+      "all_tests_sha256": "faababf2d7ff5853775f9f5ced8716c53e3ea3018c8f152689bba3f67fb0cc61",
+      "evidence_cases": [
+        {
+          "case_id": "public_1",
+          "input": {
+            "columns": [
+              [
+                2,
+                1,
+                2
+              ],
+              [
+                "a",
+                "b",
+                "c"
+              ]
+            ]
+          },
+          "expected": {
+            "value": [
+              [
+                1,
+                2,
+                2
+              ],
+              [
+                "b",
+                "a",
+                "c"
+              ]
+            ]
+          }
+        },
+        {
+          "case_id": "hidden_3",
+          "input": {
+            "columns": [
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                "a",
+                "b",
+                "c"
+              ]
+            ],
+            "reverse": true
+          },
+          "expected": {
+            "value": [
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                "a",
+                "b",
+                "c"
+              ]
+            ]
+          }
+        },
+        {
+          "case_id": "hidden_11",
+          "input": {
+            "columns": [
+              [
+                1,
+                1,
+                0
+              ],
+              [
+                "a",
+                "a",
+                "z"
+              ],
+              [
+                4,
+                5,
+                6
+              ]
+            ],
+            "keys": [
+              0,
+              1
+            ],
+            "reverse": true
+          },
+          "expected": {
+            "value": [
+              [
+                1,
+                1,
+                0
+              ],
+              [
+                "a",
+                "a",
+                "z"
+              ],
+              [
+                4,
+                5,
+                6
+              ]
+            ]
+          }
+        }
+      ],
+      "author_rationale": "升降序下同键行稳定",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_M05",
+      "rule_id": "D1_M05-R02",
+      "requirement_excerpt": "为true则按键降序",
+      "requirement_task_sha256": "17d6abeadbe9e12ad4d3b9514061a64e7fbb7aca42828ea2976737c89111eaf5",
+      "all_tests_sha256": "faababf2d7ff5853775f9f5ced8716c53e3ea3018c8f152689bba3f67fb0cc61",
+      "evidence_cases": [
+        {
+          "case_id": "hidden_7",
+          "input": {
+            "columns": [
+              [
+                3,
+                2,
+                1
+              ],
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            "reverse": true
+          },
+          "expected": {
+            "value": [
+              [
+                3,
+                2,
+                1
+              ],
+              [
+                0,
+                1,
+                2
+              ]
+            ]
+          }
+        },
+        {
+          "case_id": "hidden_8",
+          "input": {
+            "columns": [
+              [
+                9,
+                8
+              ],
+              [
+                "a",
+                "b"
+              ]
+            ],
+            "keys": [
+              1
+            ],
+            "reverse": true
+          },
+          "expected": {
+            "value": [
+              [
+                8,
+                9
+              ],
+              [
+                "b",
+                "a"
+              ]
+            ]
+          }
+        }
+      ],
+      "author_rationale": "默认键及其他列键的降序",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_M05",
+      "rule_id": "D1_M05-R03",
+      "requirement_excerpt": "按keys列组成的字典序键稳定排序行",
+      "requirement_task_sha256": "17d6abeadbe9e12ad4d3b9514061a64e7fbb7aca42828ea2976737c89111eaf5",
+      "all_tests_sha256": "faababf2d7ff5853775f9f5ced8716c53e3ea3018c8f152689bba3f67fb0cc61",
+      "evidence_cases": [
+        {
+          "case_id": "hidden_4",
+          "input": {
+            "columns": [
+              [
+                2,
+                1,
+                2
+              ],
+              [
+                "b",
+                "z",
+                "a"
+              ],
+              [
+                9,
+                8,
+                7
+              ]
+            ],
+            "keys": [
+              0,
+              1
+            ]
+          },
+          "expected": {
+            "value": [
+              [
+                1,
+                2,
+                2
+              ],
+              [
+                "z",
+                "a",
+                "b"
+              ],
+              [
+                8,
+                7,
+                9
+              ]
+            ]
+          }
+        },
+        {
+          "case_id": "hidden_11",
+          "input": {
+            "columns": [
+              [
+                1,
+                1,
+                0
+              ],
+              [
+                "a",
+                "a",
+                "z"
+              ],
+              [
+                4,
+                5,
+                6
+              ]
+            ],
+            "keys": [
+              0,
+              1
+            ],
+            "reverse": true
+          },
+          "expected": {
+            "value": [
+              [
+                1,
+                1,
+                0
+              ],
+              [
+                "a",
+                "a",
+                "z"
+              ],
+              [
+                4,
+                5,
+                6
+              ]
+            ]
+          }
+        }
+      ],
+      "author_rationale": "多关键列的字典序",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_M05",
+      "rule_id": "D1_M05-R04",
+      "requirement_excerpt": "非键列保持行对齐",
+      "requirement_task_sha256": "17d6abeadbe9e12ad4d3b9514061a64e7fbb7aca42828ea2976737c89111eaf5",
+      "all_tests_sha256": "faababf2d7ff5853775f9f5ced8716c53e3ea3018c8f152689bba3f67fb0cc61",
+      "evidence_cases": [
+        {
+          "case_id": "hidden_10",
+          "input": {
+            "columns": [
+              [
+                2,
+                1
+              ],
+              [
+                {
+                  "a": 2
+                },
+                [
+                  1
+                ]
+              ]
+            ],
+            "strict": true
+          },
+          "expected": {
+            "value": [
+              [
+                1,
+                2
+              ],
+              [
+                [
+                  1
+                ],
+                {
+                  "a": 2
+                }
+              ]
+            ]
+          }
+        }
+      ],
+      "author_rationale": "非键列嵌套对象原样对齐",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_M05",
+      "rule_id": "D1_M05-R05",
+      "requirement_excerpt": "strict=true且长度不齐则引发ValueError",
+      "requirement_task_sha256": "17d6abeadbe9e12ad4d3b9514061a64e7fbb7aca42828ea2976737c89111eaf5",
+      "all_tests_sha256": "faababf2d7ff5853775f9f5ced8716c53e3ea3018c8f152689bba3f67fb0cc61",
+      "evidence_cases": [
+        {
+          "case_id": "public_2",
+          "input": {
+            "columns": [
+              [
+                1
+              ],
+              []
+            ],
+            "strict": true
+          },
+          "expected": {
+            "error": "ValueError"
+          }
+        },
+        {
+          "case_id": "hidden_9",
+          "input": {
+            "columns": [
+              [
+                1,
+                2
+              ],
+              [
+                3
+              ]
+            ],
+            "strict": true
+          },
+          "expected": {
+            "error": "ValueError"
+          }
+        }
+      ],
+      "author_rationale": "严格长度异常",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_M05",
+      "rule_id": "D1_M05-R06",
+      "requirement_excerpt": "各列先截到最短长度",
+      "requirement_task_sha256": "17d6abeadbe9e12ad4d3b9514061a64e7fbb7aca42828ea2976737c89111eaf5",
+      "all_tests_sha256": "faababf2d7ff5853775f9f5ced8716c53e3ea3018c8f152689bba3f67fb0cc61",
+      "evidence_cases": [
+        {
+          "case_id": "hidden_5",
+          "input": {
+            "columns": [
+              [
+                2,
+                1
+              ],
+              [
+                "b"
+              ]
+            ]
+          },
+          "expected": {
+            "value": [
+              [
+                2
+              ],
+              [
+                "b"
+              ]
+            ]
+          }
+        }
+      ],
+      "author_rationale": "非严格模式截短",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    },
+    {
+      "task_id": "D1_M05",
+      "rule_id": "D1_M05-R07",
+      "requirement_excerpt": "没有任何行时返回[]",
+      "requirement_task_sha256": "17d6abeadbe9e12ad4d3b9514061a64e7fbb7aca42828ea2976737c89111eaf5",
+      "all_tests_sha256": "faababf2d7ff5853775f9f5ced8716c53e3ea3018c8f152689bba3f67fb0cc61",
+      "evidence_cases": [
+        {
+          "case_id": "hidden_1",
+          "input": {
+            "columns": [
+              []
+            ]
+          },
+          "expected": {
+            "value": []
+          }
+        },
+        {
+          "case_id": "hidden_6",
+          "input": {
+            "columns": [
+              [],
+              [
+                1
+              ]
+            ]
+          },
+          "expected": {
+            "value": []
+          }
+        }
+      ],
+      "author_rationale": "一列空或最短列空",
+      "evidence_status": "当前助手按题面对照已存输入与期望；同一作者非独立语义复核"
+    }
+  ]
+}

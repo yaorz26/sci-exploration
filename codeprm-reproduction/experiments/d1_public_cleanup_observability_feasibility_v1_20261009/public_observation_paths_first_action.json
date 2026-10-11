@@ -1,0 +1,65 @@
+{
+  "time": "2026-10-09T10:14:25.913738+00:00",
+  "purpose": "P95有限可行性接口调查，未构造/执行read-repair，正式计划三审待完成",
+  "file": "experiments\\d1_cache_expiry_repository_task_v1_20261009\\feature\\src\\cachetools\\__init__.py",
+  "sha256": "a9dc6d3bf2d69c7ea7cf94f646b64e4d675fda22679f695c5c250d809702b7b4",
+  "public_observation_methods": [
+    {
+      "symbol": "Cache.__getitem__",
+      "line": 65,
+      "end_line": 69,
+      "source": "def __getitem__(self, key):\n        try:\n            return self.__data[key]\n        except KeyError:\n            return self.__missing__(key)"
+    },
+    {
+      "symbol": "Cache.__iter__",
+      "line": 98,
+      "end_line": 99,
+      "source": "def __iter__(self):\n        return iter(self.__data)"
+    },
+    {
+      "symbol": "Cache.__len__",
+      "line": 101,
+      "end_line": 102,
+      "source": "def __len__(self):\n        return len(self.__data)"
+    },
+    {
+      "symbol": "Cache.currsize",
+      "line": 133,
+      "end_line": 135,
+      "source": "def currsize(self):\n        \"\"\"The current size of the cache.\"\"\"\n        return self.__currsize"
+    },
+    {
+      "symbol": "_TimedCache.__len__",
+      "line": 342,
+      "end_line": 345,
+      "source": "def __len__(self, cache_len=Cache.__len__):\n        with self.__timer as time:\n            self.expire(time)\n            return cache_len(self)"
+    },
+    {
+      "symbol": "_TimedCache.currsize",
+      "line": 348,
+      "end_line": 351,
+      "source": "def currsize(self):\n        with self.__timer as time:\n            self.expire(time)\n            return super().currsize"
+    },
+    {
+      "symbol": "TTLCache.__getitem__",
+      "line": 410,
+      "end_line": 420,
+      "source": "def __getitem__(self, key, cache_getitem=Cache.__getitem__):\n        try:\n            link = self.__getlink(key)\n        except KeyError:\n            expired = False\n        else:\n            expired = not (self.timer() < link.expires)\n        if expired:\n            return self.__missing__(key)\n        else:\n            return cache_getitem(self, key)"
+    },
+    {
+      "symbol": "TTLCache.__iter__",
+      "line": 444,
+      "end_line": 452,
+      "source": "def __iter__(self):\n        root = self.__root\n        curr = root.next\n        while curr is not root:\n            # \"freeze\" time for iterator access\n            with self.timer as time:\n                if time < curr.expires:\n                    yield curr.key\n            curr = curr.next"
+    },
+    {
+      "symbol": "TTLCache.expire",
+      "line": 469,
+      "end_line": 489,
+      "source": "def expire(self, time=None):\n        \"\"\"Remove expired items from the cache and return an iterable of the\n        expired `(key, value)` pairs.\n\n        \"\"\"\n        if time is None:\n            time = self.timer()\n        root = self.__root\n        curr = root.next\n        links = self.__links\n        expired = []\n        cache_delitem = Cache.__delitem__\n        cache_getitem = Cache.__getitem__\n        while curr is not root and not (time < curr.expires):\n            expired.append((curr.key, cache_getitem(self, curr.key)))\n            cache_delitem(self, curr.key)\n            del links[curr.key]\n            next = curr.next\n            curr.unlink()\n            curr = next\n        return expired"
+    }
+  ],
+  "unknown": "公共读取触发清理时，是否可证明expire返回前物理清理；区别任务义务与可观察结论",
+  "model_calls": 0,
+  "behavior_evaluations": 0
+}

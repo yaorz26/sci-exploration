@@ -1,0 +1,43 @@
+{
+  "status": "非独立第二遍审查v2",
+  "formal_ready": false,
+  "checks": [
+    {
+      "name": "reviewer_delivery",
+      "result": "pass",
+      "evidence": "v3仅交付4文件ZIP，21/21检查；实际人工回收0"
+    },
+    {
+      "name": "cost_ledger_and_call_count",
+      "result": "pass",
+      "evidence": "两轮56调用=28预检/28生成；含预检总成本8004/45301；8个成功候选哈希复核"
+    },
+    {
+      "name": "source_holdout",
+      "result": "retained_with_limit",
+      "evidence": "保留仓库隔离，同题配对可行；来源×结构混杂限制因素解释与外推"
+    },
+    {
+      "name": "family_dependence",
+      "result": "documented",
+      "evidence": "20细分家族形成15显式相关组件；不是15独立样本证明"
+    },
+    {
+      "name": "primary_method_read",
+      "result": "targeted_read",
+      "evidence": "两篇官方HTML方法读取成功；不称通读或穷尽"
+    },
+    {
+      "name": "allin_budget_instrument",
+      "result": "simulation_pass",
+      "evidence": "12/12检查；真实token上界及冻结/评分集成待验证"
+    },
+    {
+      "name": "human_structure_review",
+      "result": "not_yet",
+      "evidence": "人类0；合成检查κ不作为研究结果"
+    }
+  ],
+  "supersession_note": "修正v1对盲审交付、来源切分与家族重复的过强判断；v1保留。",
+  "next": "核验token上界并模拟端到端集成，回收真实双审，之后才开发烟测；不继续同配置扩量。"
+}

@@ -1,0 +1,46 @@
+{
+  "phase": "G2",
+  "stage_name": "K2 非缓存操作历史候选：boltons.queueutils 队首语义",
+  "created_at": "2026-10-11T09:45:00Z",
+  "macro_plan": "RESEARCH_PLAN.md v4 §5 G2（只为 K2/K3/cache 缺口找候选）",
+  "question": "是否存在新的官方功能，其公开结果依赖此前的合法操作历史（非容量淘汰、非全局排序）？",
+  "source_evidence": {
+    "module": "boltons.queueutils",
+    "parent_snapshot": "data/raw/d1_project_v1_20261008/repositories/boltons/boltons/queueutils.py",
+    "official_docs": "data/raw/d1_project_v1_20261008/repositories/boltons/docs/queueutils.rst",
+    "official_doctest": "queueutils.py 模块 docstring 第 49-61 行（PriorityQueue 示例）",
+    "changelog": "data/raw/d1_project_v1_20261008/repositories/boltons/CHANGELOG.md（第 272 行 float 优先级条目）",
+    "license": "boltons 仓库 LICENSE（BSD-3-Clause）"
+  },
+  "mechanism": {
+    "source_reading": "queueutils.py:124-138 add() 在任务已在队列时先 remove 再以新序号入队；:140-145 remove() 采用懒删除标记；:147-156 _cull() 在读取时清理已移除条目；:158-170 peek() 会调用 _cull()，即读操作自身改变内部结构。",
+    "probe": "experiments/d1_G2_queue_history_candidate_v1_20261011/probe_result.json（首次独立探针）",
+    "probe_result": "PriorityQueue 与 HeapPriorityQueue 均出现历史效应：依次 add t1,t2,t3 后 peek=t1；再 add(t1) 后 peek=t2，重加改变队首=True。"
+  },
+  "behavior_result": {
+    "cases": 6,
+    "feature": "6/6（完整组织：排序列表 + 序号）",
+    "alternative": "6/6（独立组织：heapq + 懒删除 + 任务到条目映射）",
+    "omission": "4/6（遗漏控制：再次 add 只改优先级、不重排）",
+    "omission_failed_cases": ["readd_moves_to_back_same_priority", "priority_still_dominates_after_readd"],
+    "control_isolation": "未通过的两条正好是需要“更新即重排”的义务用例；其余四条（先入先出、移除后队首、默认值、无默认值抛异常）仍通过，说明控制只改变了该义务而非整体破坏。"
+  },
+  "inclusion_check": {
+    "existing_gap": "K2 非缓存操作历史义务",
+    "what_this_adds": "队首顺序依赖“对已有任务再次 add”的历史，且读取操作 peek 自身触发内部清理；与 PR440 的组生命周期（外层推进后旧组失效）机制不同",
+    "why_existing_cannot_replace": "缓存类义务是容量/时点淘汰；PR440 是组枚举生命周期；initial20 的 global 类是全局输出顺序。本条是同优先级下的**位置更新语义**，三者都不是。",
+    "distinct_from_no_go": "不与 more-itertools 游标/seekable（D1_M03 重复，已 No-Go）、boltons PR466 流复用（未合并，已 No-Go）重合。",
+    "two_legal_organizations": true,
+    "omission_control": true,
+    "license_clear": true
+  },
+  "unresolved_boundary": "官方文档承诺“add 可更新已有任务的优先级”，但未逐字承诺“同优先级下更新后移动到队尾”；该位置语义来自官方实现。若未来审查者认为公开契约不含此义务，则该任务需降级或另附说明。",
+  "judgement": "纳入 research_pool_only",
+  "cost": {"model_calls": 0, "behavior_evaluations": 18, "human_reviews": 0, "downloads": 0},
+  "limits": [
+    "单模块、有限调用序列；不证明全域行为、性能或内存",
+    "未读上游测试；仅依据公开文档、doctest 与源码语义",
+    "同助手构造，非独立人工真值；formal_labels/split 仍为 null"
+  ],
+  "next": "K3 项目内不同用途（第二处缺口）；cache 强时点按 v4 保持 pending"
+}

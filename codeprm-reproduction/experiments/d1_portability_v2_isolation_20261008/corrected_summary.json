@@ -1,0 +1,413 @@
+{
+  "status": "fail",
+  "correction": "旧汇总将检查器自身__main__误算为外部依赖；仅豁免精确isolated_worker.py路径，不重跑，不改原始输出。",
+  "runs": 40,
+  "passed_runs": 20,
+  "reference_passed_tasks": 0,
+  "alternate_passed_tasks": 20,
+  "case_executions": 614,
+  "passed_case_executions": 307,
+  "all_reference_failures_are_module_not_found": true,
+  "records": [
+    {
+      "record": "D1_B01_alternate.json",
+      "record_sha256": "c9bb316f96f5c2415242f995e59f64f12ac7bfa0bb8a3607726fd3b93e759a75",
+      "task_id": "D1_B01",
+      "implementation": "alternate",
+      "pass": true,
+      "external_loaded_files_corrected": {},
+      "cases": 21,
+      "passed": 21
+    },
+    {
+      "record": "D1_B01_reference.json",
+      "record_sha256": "7aba5044b7b32c7f699728e669a79538da5439aa97d7affeca2963e0b1017623",
+      "task_id": "D1_B01",
+      "implementation": "reference",
+      "pass": false,
+      "external_loaded_files_corrected": {},
+      "cases": 21,
+      "passed": 0
+    },
+    {
+      "record": "D1_B02_alternate.json",
+      "record_sha256": "555db08fb5edc2e0c9ee95e98b39a21c2b0e453137480b40b48a7bfe8c40ee29",
+      "task_id": "D1_B02",
+      "implementation": "alternate",
+      "pass": true,
+      "external_loaded_files_corrected": {},
+      "cases": 20,
+      "passed": 20
+    },
+    {
+      "record": "D1_B02_reference.json",
+      "record_sha256": "718598d94278462e62c48cf97fae7f4faa7ed654bb05b71d89272a8ec482c850",
+      "task_id": "D1_B02",
+      "implementation": "reference",
+      "pass": false,
+      "external_loaded_files_corrected": {},
+      "cases": 20,
+      "passed": 0
+    },
+    {
+      "record": "D1_B03_alternate.json",
+      "record_sha256": "5eb3aa51d89cc303fd1aa40be88145968b016bab2bc57e6a6c253b9a5618c779",
+      "task_id": "D1_B03",
+      "implementation": "alternate",
+      "pass": true,
+      "external_loaded_files_corrected": {},
+      "cases": 14,
+      "passed": 14
+    },
+    {
+      "record": "D1_B03_reference.json",
+      "record_sha256": "ceec02da5e373ea0a8226e1b76808bcc97abd554d6e442243b0f2b5d12bb22f3",
+      "task_id": "D1_B03",
+      "implementation": "reference",
+      "pass": false,
+      "external_loaded_files_corrected": {},
+      "cases": 14,
+      "passed": 0
+    },
+    {
+      "record": "D1_B04_alternate.json",
+      "record_sha256": "b8b5e2eec2907aed7e5c4193c870326fd8516b4422bb060b72bb87af1812c47b",
+      "task_id": "D1_B04",
+      "implementation": "alternate",
+      "pass": true,
+      "external_loaded_files_corrected": {},
+      "cases": 17,
+      "passed": 17
+    },
+    {
+      "record": "D1_B04_reference.json",
+      "record_sha256": "9d64e930258fa3f27f8380fff8a293847b26dee162eb5e11b5363367c2d16cd2",
+      "task_id": "D1_B04",
+      "implementation": "reference",
+      "pass": false,
+      "external_loaded_files_corrected": {},
+      "cases": 17,
+      "passed": 0
+    },
+    {
+      "record": "D1_B05_alternate.json",
+      "record_sha256": "f8a56966d3928951f77595be32de7b65abfbd154e24a4d73244546b55141b195",
+      "task_id": "D1_B05",
+      "implementation": "alternate",
+      "pass": true,
+      "external_loaded_files_corrected": {},
+      "cases": 14,
+      "passed": 14
+    },
+    {
+      "record": "D1_B05_reference.json",
+      "record_sha256": "08c70efe2cad32c954fce24f663528ad26839b001739d8c94054633c89d65f1f",
+      "task_id": "D1_B05",
+      "implementation": "reference",
+      "pass": false,
+      "external_loaded_files_corrected": {},
+      "cases": 14,
+      "passed": 0
+    },
+    {
+      "record": "D1_B06_alternate.json",
+      "record_sha256": "2e35b8c676f94dd38b359c0b203d68aecd16ba4a3c61e264539c2a5f6af2c565",
+      "task_id": "D1_B06",
+      "implementation": "alternate",
+      "pass": true,
+      "external_loaded_files_corrected": {},
+      "cases": 11,
+      "passed": 11
+    },
+    {
+      "record": "D1_B06_reference.json",
+      "record_sha256": "1248a0e53ced3802b4f7cc567363c4df5ff032f3d5874f69f06acbd778bd3b88",
+      "task_id": "D1_B06",
+      "implementation": "reference",
+      "pass": false,
+      "external_loaded_files_corrected": {},
+      "cases": 11,
+      "passed": 0
+    },
+    {
+      "record": "D1_C01_alternate.json",
+      "record_sha256": "3a1c3b8db169ce2aa5a2d6b4490e416f123c7acef751351fe1aedb4980b24ce9",
+      "task_id": "D1_C01",
+      "implementation": "alternate",
+      "pass": true,
+      "external_loaded_files_corrected": {},
+      "cases": 22,
+      "passed": 22
+    },
+    {
+      "record": "D1_C01_reference.json",
+      "record_sha256": "e94324e979dc3c81e794a69b87bbc3d6cdb7f7349f1919a0cb7da3b47cbd37d9",
+      "task_id": "D1_C01",
+      "implementation": "reference",
+      "pass": false,
+      "external_loaded_files_corrected": {},
+      "cases": 22,
+      "passed": 0
+    },
+    {
+      "record": "D1_C02_alternate.json",
+      "record_sha256": "dc39ec00eeaf0427bd970e97c662516f717ca50a359baa9cc75e21ee52d0c00f",
+      "task_id": "D1_C02",
+      "implementation": "alternate",
+      "pass": true,
+      "external_loaded_files_corrected": {},
+      "cases": 23,
+      "passed": 23
+    },
+    {
+      "record": "D1_C02_reference.json",
+      "record_sha256": "3ecc3e459f7b018d10943ba0200338a19a421de169e34441cf8f8fb44f3dd9bd",
+      "task_id": "D1_C02",
+      "implementation": "reference",
+      "pass": false,
+      "external_loaded_files_corrected": {},
+      "cases": 23,
+      "passed": 0
+    },
+    {
+      "record": "D1_C03_alternate.json",
+      "record_sha256": "364c0afa932cc929a77c25f802b30b71381da0118de3ddc8c84e3dc494ab1e45",
+      "task_id": "D1_C03",
+      "implementation": "alternate",
+      "pass": true,
+      "external_loaded_files_corrected": {},
+      "cases": 11,
+      "passed": 11
+    },
+    {
+      "record": "D1_C03_reference.json",
+      "record_sha256": "b1c6da73cb02aa8a5b348e686bef36b69c4f60ac31a13d3f583dde7d9783adfa",
+      "task_id": "D1_C03",
+      "implementation": "reference",
+      "pass": false,
+      "external_loaded_files_corrected": {},
+      "cases": 11,
+      "passed": 0
+    },
+    {
+      "record": "D1_C04_alternate.json",
+      "record_sha256": "0567c5c45608f493b6cf11ea961f8fb69e1aab782ce51d3b7993dfb4e11543cd",
+      "task_id": "D1_C04",
+      "implementation": "alternate",
+      "pass": true,
+      "external_loaded_files_corrected": {},
+      "cases": 10,
+      "passed": 10
+    },
+    {
+      "record": "D1_C04_reference.json",
+      "record_sha256": "5233c8a13f1f170c78e5407bce96cab84e88c3bf000f6202456c8be3b467e846",
+      "task_id": "D1_C04",
+      "implementation": "reference",
+      "pass": false,
+      "external_loaded_files_corrected": {},
+      "cases": 10,
+      "passed": 0
+    },
+    {
+      "record": "D1_C05_alternate.json",
+      "record_sha256": "6706ce4b4d428cbf47ec3baa5f059298b26f24c7fda476e99546e447b3464da5",
+      "task_id": "D1_C05",
+      "implementation": "alternate",
+      "pass": true,
+      "external_loaded_files_corrected": {},
+      "cases": 14,
+      "passed": 14
+    },
+    {
+      "record": "D1_C05_reference.json",
+      "record_sha256": "09fcaca39393dc97547775799699401e8658ce68cb10246ed998614b0f89e621",
+      "task_id": "D1_C05",
+      "implementation": "reference",
+      "pass": false,
+      "external_loaded_files_corrected": {},
+      "cases": 14,
+      "passed": 0
+    },
+    {
+      "record": "D1_F01_alternate.json",
+      "record_sha256": "3b983453da520562413e509eb1e81106adf4a2aba51a6b843fc65ee8362abbf1",
+      "task_id": "D1_F01",
+      "implementation": "alternate",
+      "pass": true,
+      "external_loaded_files_corrected": {},
+      "cases": 15,
+      "passed": 15
+    },
+    {
+      "record": "D1_F01_reference.json",
+      "record_sha256": "3b7cdb49a8b3dda764bb737de835d0478780f3f41416bd2465efcc535d910013",
+      "task_id": "D1_F01",
+      "implementation": "reference",
+      "pass": false,
+      "external_loaded_files_corrected": {},
+      "cases": 15,
+      "passed": 0
+    },
+    {
+      "record": "D1_F02_alternate.json",
+      "record_sha256": "c16008dd11b0fe0f441838b4e9827a424ad0572463ae6bd8e6f95c0bcdc7b2c9",
+      "task_id": "D1_F02",
+      "implementation": "alternate",
+      "pass": true,
+      "external_loaded_files_corrected": {},
+      "cases": 13,
+      "passed": 13
+    },
+    {
+      "record": "D1_F02_reference.json",
+      "record_sha256": "8d61d2de35b5d6a56ca450019ac0a5f408487374f55d3349869520fb4a359b6c",
+      "task_id": "D1_F02",
+      "implementation": "reference",
+      "pass": false,
+      "external_loaded_files_corrected": {},
+      "cases": 13,
+      "passed": 0
+    },
+    {
+      "record": "D1_F03_alternate.json",
+      "record_sha256": "d37d7338927b4fbf04ec0cbe24f83f10e2b7ce4d8b4e8a6396a4fd89e4af4b2e",
+      "task_id": "D1_F03",
+      "implementation": "alternate",
+      "pass": true,
+      "external_loaded_files_corrected": {},
+      "cases": 14,
+      "passed": 14
+    },
+    {
+      "record": "D1_F03_reference.json",
+      "record_sha256": "8a2085847e1ecd593f4acb2076886f79f86488be34a615c4370dd3118ec42370",
+      "task_id": "D1_F03",
+      "implementation": "reference",
+      "pass": false,
+      "external_loaded_files_corrected": {},
+      "cases": 14,
+      "passed": 0
+    },
+    {
+      "record": "D1_F04_alternate.json",
+      "record_sha256": "3e87c17b717a72fc1c3007e8c41acd74e007ac1f400420d742a829e13cad39ff",
+      "task_id": "D1_F04",
+      "implementation": "alternate",
+      "pass": true,
+      "external_loaded_files_corrected": {},
+      "cases": 16,
+      "passed": 16
+    },
+    {
+      "record": "D1_F04_reference.json",
+      "record_sha256": "8b956a813435fef2575d381697a3e386e10742f7f327fdac90d497bbbc0c6651",
+      "task_id": "D1_F04",
+      "implementation": "reference",
+      "pass": false,
+      "external_loaded_files_corrected": {},
+      "cases": 16,
+      "passed": 0
+    },
+    {
+      "record": "D1_M01_alternate.json",
+      "record_sha256": "8b87bec9e3fe5239245df79fdb3e4a988456fdcd05c35acfe92ca79ac29b661f",
+      "task_id": "D1_M01",
+      "implementation": "alternate",
+      "pass": true,
+      "external_loaded_files_corrected": {},
+      "cases": 18,
+      "passed": 18
+    },
+    {
+      "record": "D1_M01_reference.json",
+      "record_sha256": "39856384b1578a39fab1f92a6ac2b279e8b2ed472637a3ea4ee44581d6dd912d",
+      "task_id": "D1_M01",
+      "implementation": "reference",
+      "pass": false,
+      "external_loaded_files_corrected": {},
+      "cases": 18,
+      "passed": 0
+    },
+    {
+      "record": "D1_M02_alternate.json",
+      "record_sha256": "8144debb2dd05e96c0c6e9f1955d04b009a3aa1370f4c50101fb9330cd1ab609",
+      "task_id": "D1_M02",
+      "implementation": "alternate",
+      "pass": true,
+      "external_loaded_files_corrected": {},
+      "cases": 19,
+      "passed": 19
+    },
+    {
+      "record": "D1_M02_reference.json",
+      "record_sha256": "21affefbf4592b285ecb0f53fc73c7348e38e2be161041ef422f065156923658",
+      "task_id": "D1_M02",
+      "implementation": "reference",
+      "pass": false,
+      "external_loaded_files_corrected": {},
+      "cases": 19,
+      "passed": 0
+    },
+    {
+      "record": "D1_M03_alternate.json",
+      "record_sha256": "f2b5f14f0f8db16d84cd83653782a75d083ddbdea22eb1621b1407275eedcc00",
+      "task_id": "D1_M03",
+      "implementation": "alternate",
+      "pass": true,
+      "external_loaded_files_corrected": {},
+      "cases": 12,
+      "passed": 12
+    },
+    {
+      "record": "D1_M03_reference.json",
+      "record_sha256": "83e28d3d7521f173d913bd5bf19eb2db536b52872b879a0133c3b4b71f0bbcc1",
+      "task_id": "D1_M03",
+      "implementation": "reference",
+      "pass": false,
+      "external_loaded_files_corrected": {},
+      "cases": 12,
+      "passed": 0
+    },
+    {
+      "record": "D1_M04_alternate.json",
+      "record_sha256": "056a0910c16a64b293c71aa68459318b3dcdf9a6ab6ee2bd71b8e995b6928e90",
+      "task_id": "D1_M04",
+      "implementation": "alternate",
+      "pass": true,
+      "external_loaded_files_corrected": {},
+      "cases": 10,
+      "passed": 10
+    },
+    {
+      "record": "D1_M04_reference.json",
+      "record_sha256": "47675e38e06b51e1f6a6bdc4d36cee4eac0d4a7547a5d62b982f23411f4958e1",
+      "task_id": "D1_M04",
+      "implementation": "reference",
+      "pass": false,
+      "external_loaded_files_corrected": {},
+      "cases": 10,
+      "passed": 0
+    },
+    {
+      "record": "D1_M05_alternate.json",
+      "record_sha256": "675510502974392af4553f5f1c08c9c67f5e878c593c0de1f0134daf8167745d",
+      "task_id": "D1_M05",
+      "implementation": "alternate",
+      "pass": true,
+      "external_loaded_files_corrected": {},
+      "cases": 13,
+      "passed": 13
+    },
+    {
+      "record": "D1_M05_reference.json",
+      "record_sha256": "fcb1827afdba0b7b0140a40e9aa8c80111a02c8cc65600343512d76bb7917023",
+      "task_id": "D1_M05",
+      "implementation": "reference",
+      "pass": false,
+      "external_loaded_files_corrected": {},
+      "cases": 13,
+      "passed": 0
+    }
+  ]
+}

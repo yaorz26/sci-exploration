@@ -1,0 +1,15 @@
+{
+  "model": "qwen2.5-coder:7b",
+  "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\n  \"task_id\": \"D1_B03\",\n  \"requirement\": \"实现solve(payload)，text是字符串，返回去除完整ANSI控制码后的字符串。ESC表示U+001B。完整码为ESC后接一个ASCII @到Z或反斜线到下划线字符（不包括[）；或ESC+[，再接零或多个ASCII 0到?参数字符、零或多个空格到/中间字符、一个@到~终止字符。这些范围均含端点。不完整、不符合该形式的片段逐字保留；不解释光标或颜色。只用标准库，内部结构自由。\",\n  \"entry_point\": \"solve(payload)\",\n  \"language\": \"Python\",\n  \"allowed_libraries\": \"仅Python标准库\",\n  \"public_examples\": [\n    {\n      \"input\": {\n        \"text\": \"a\\u001b[31m红\\u001b[0mz\"\n      },\n      \"output\": \"a红z\"\n    },\n    {\n      \"input\": {\n        \"text\": \"x\\u001b[31\"\n      },\n      \"output\": \"x\\u001b[31\"\n    }\n  ],\n  \"general_contract\": \"不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。\",\n  \"internal_decomposition\": \"自由选择，不给定helper名称或数量\"\n}\n直接完整实现solve(payload)，可自行使用辅助函数。只输出Python代码。<|im_end|>\n<|im_start|>assistant\n",
+  "stream": false,
+  "options": {
+    "temperature": 0.2,
+    "seed": 20261008,
+    "num_ctx": 8192,
+    "stop": [
+      "<D1_END>"
+    ],
+    "num_predict": 512
+  },
+  "raw": true
+}

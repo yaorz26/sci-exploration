@@ -1,0 +1,257 @@
+{
+  "retrieved_at": "2026-10-09T11:19:04.648480+00:00",
+  "repo": "beetbox/confuse",
+  "parent": "cd1db04b07db00050900d2f548baf144bb92d261",
+  "merge": "8c8c3df5b539ef45862a7043b31dccac3daf204a",
+  "source": "GitHub public git tree/blob API",
+  "excluded_prefixes": [
+    "test/",
+    "docs/",
+    "unknown other paths"
+  ],
+  "selected_files": [
+    {
+      "label": "parent",
+      "path": "LICENSE",
+      "sha": "7f24cf99ba4216760668990706173930d49ea5b4",
+      "size": 1075,
+      "actual_bytes": 1075,
+      "sha256": "0b308ae66aaa1412ebbe645bec4002fd262d91e9cdf67b6f198026677ddfafcc",
+      "api_status": 200
+    },
+    {
+      "label": "parent",
+      "path": "README.rst",
+      "sha": "965825b23831ac9697f25ba9857b1e3f58492758",
+      "size": 2856,
+      "actual_bytes": 2856,
+      "sha256": "c0c81a30f80e1a385259e47d192c7f1dbd3d51f25ebdd25ad01ac91a332eeb8f",
+      "api_status": 200
+    },
+    {
+      "label": "parent",
+      "path": "confuse/__init__.py",
+      "sha": "7190625ffde3763079217bc5ad70bc084e32df18",
+      "size": 307,
+      "actual_bytes": 307,
+      "sha256": "d29b4583b616c807873e3b5959b3076ce816430f1c4d63cb0b07646c2c90a7d1",
+      "api_status": 200
+    },
+    {
+      "label": "parent",
+      "path": "confuse/core.py",
+      "sha": "bb97aadb739c32251872ff4a454ce56a55c5884c",
+      "size": 26900,
+      "actual_bytes": 26900,
+      "sha256": "d9838b0b8646b3c0aad5df295f5e2e682d56b48c283fd7a077c0d81a819bbce7",
+      "api_status": 200
+    },
+    {
+      "label": "parent",
+      "path": "confuse/exceptions.py",
+      "sha": "a6dcf264d825bbe7c8c801c65073765a985e9b2b",
+      "size": 1691,
+      "actual_bytes": 1691,
+      "sha256": "fdde86bcee02fc4a8ed9f64c560e7a5974a0037241027af9ca04d65b4baf6815",
+      "api_status": 200
+    },
+    {
+      "label": "parent",
+      "path": "confuse/sources.py",
+      "sha": "2772cd5e9f2a89f3fa7e7f78691df2f4bf5f5f82",
+      "size": 3229,
+      "actual_bytes": 3229,
+      "sha256": "b9d89a32b5cacdd23982538e4429eedaaf779ad167d1321cb7fb6cbee76df92a",
+      "api_status": 200
+    },
+    {
+      "label": "parent",
+      "path": "confuse/templates.py",
+      "sha": "1b56b28a20a7df35d5bcde2ad974a01fa8f459c0",
+      "size": 25039,
+      "actual_bytes": 25039,
+      "sha256": "2714114575a7ef0c715eb90dc623e2f03291214f7d19ba7b7f348eda61f71f9f",
+      "api_status": 200
+    },
+    {
+      "label": "parent",
+      "path": "confuse/util.py",
+      "sha": "0793824a81c3c1108f0d61f562def0cb4c01bd35",
+      "size": 3283,
+      "actual_bytes": 3283,
+      "sha256": "1bfa310c757e5b212b484719257db55227b6738c8cc58d66fe587c819bf48e2a",
+      "api_status": 200
+    },
+    {
+      "label": "parent",
+      "path": "confuse/yaml_util.py",
+      "sha": "f8aa9853ed03196777ce3bc61daf9017153ee03f",
+      "size": 6650,
+      "actual_bytes": 6650,
+      "sha256": "47ee86d9f839300ef436989ba1bac96d894bf9f2085dc7168d6b0ea91c1eb792",
+      "api_status": 200
+    },
+    {
+      "label": "parent",
+      "path": "pyproject.toml",
+      "sha": "2abd5f0e9e2466359f63396aca7788fce4fd04db",
+      "size": 998,
+      "actual_bytes": 998,
+      "sha256": "5f4872292b23b7c3d9cf1f05b15bea69cde5d829cb112fce878f620883dc0bd1",
+      "api_status": 200
+    },
+    {
+      "label": "parent",
+      "path": "requirements.txt",
+      "sha": "dbfc7099c777c70607c73b1d45c425869c26c53c",
+      "size": 6,
+      "actual_bytes": 6,
+      "sha256": "ad205bd03dcba1f17e6de3d053e5e1b000a78a53935a48f7a2e22c8e335a603c",
+      "api_status": 200
+    },
+    {
+      "label": "parent",
+      "path": "setup.cfg",
+      "sha": "f8f8f37e86705ab6a33f41f40d139e0e62dc7892",
+      "size": 864,
+      "actual_bytes": 864,
+      "sha256": "a2cf8d285f2d2cead24d8c3e5c47cfe9e70f5a197bba5410d6b8e067d26c461e",
+      "api_status": 200
+    },
+    {
+      "label": "merge",
+      "path": "LICENSE",
+      "sha": "7f24cf99ba4216760668990706173930d49ea5b4",
+      "size": 1075,
+      "actual_bytes": 1075,
+      "sha256": "0b308ae66aaa1412ebbe645bec4002fd262d91e9cdf67b6f198026677ddfafcc",
+      "api_status": 200
+    },
+    {
+      "label": "merge",
+      "path": "README.rst",
+      "sha": "c320d63b58e26c95f175464a283ace696de65cad",
+      "size": 3038,
+      "actual_bytes": 3038,
+      "sha256": "08d99403378014e225f356df82bc853eb693ca69843d43660af593ebd2b58bf1",
+      "api_status": 200
+    },
+    {
+      "label": "merge",
+      "path": "confuse/__init__.py",
+      "sha": "7190625ffde3763079217bc5ad70bc084e32df18",
+      "size": 307,
+      "actual_bytes": 307,
+      "sha256": "d29b4583b616c807873e3b5959b3076ce816430f1c4d63cb0b07646c2c90a7d1",
+      "api_status": 200
+    },
+    {
+      "label": "merge",
+      "path": "confuse/core.py",
+      "sha": "6c6c4b095db87ec0e1f35b7b86568c54d482044d",
+      "size": 25676,
+      "actual_bytes": 25676,
+      "sha256": "3f1f101b45216f326953c43c1d6de94fea2c752de37f505ea129f0540fb67f7d",
+      "api_status": 200
+    },
+    {
+      "label": "merge",
+      "path": "confuse/exceptions.py",
+      "sha": "782260ea478582c96195a69701e3d0afba5dfda0",
+      "size": 1672,
+      "actual_bytes": 1672,
+      "sha256": "cec218dd5eafd318c69c91df0ab52eb5de1b3a8f4e682cfe797339e14e0354a6",
+      "api_status": 200
+    },
+    {
+      "label": "merge",
+      "path": "confuse/sources.py",
+      "sha": "2b0f53ba3c1ac3dd4e12b773dd6281734cb32be1",
+      "size": 7675,
+      "actual_bytes": 7675,
+      "sha256": "a8e397a567f1dbf0b6f2fe765c2c50ce120a5ca7c619bca7058bd59793633c2a",
+      "api_status": 200
+    },
+    {
+      "label": "merge",
+      "path": "confuse/templates.py",
+      "sha": "1b56b28a20a7df35d5bcde2ad974a01fa8f459c0",
+      "size": 25039,
+      "actual_bytes": 25039,
+      "sha256": "2714114575a7ef0c715eb90dc623e2f03291214f7d19ba7b7f348eda61f71f9f",
+      "api_status": 200
+    },
+    {
+      "label": "merge",
+      "path": "confuse/util.py",
+      "sha": "70bd456923273263c079f7bcd75cd3b44dffc3f9",
+      "size": 5762,
+      "actual_bytes": 5762,
+      "sha256": "b7e63d7db4323da1d2a49e573feaf760f446b5e79ddab0c78ee8ab6a14811b94",
+      "api_status": 200
+    },
+    {
+      "label": "merge",
+      "path": "confuse/yaml_util.py",
+      "sha": "2cb4b529db8c5da46aa3c6a9a22dc34ee93dd213",
+      "size": 8264,
+      "actual_bytes": 8264,
+      "sha256": "d24d1a5d80382ae42692ff773c582300f5044a905f98b3c61a16e5e29b21748f",
+      "api_status": 200
+    },
+    {
+      "label": "merge",
+      "path": "pyproject.toml",
+      "sha": "2abd5f0e9e2466359f63396aca7788fce4fd04db",
+      "size": 998,
+      "actual_bytes": 998,
+      "sha256": "5f4872292b23b7c3d9cf1f05b15bea69cde5d829cb112fce878f620883dc0bd1",
+      "api_status": 200
+    },
+    {
+      "label": "merge",
+      "path": "requirements.txt",
+      "sha": "dbfc7099c777c70607c73b1d45c425869c26c53c",
+      "size": 6,
+      "actual_bytes": 6,
+      "sha256": "ad205bd03dcba1f17e6de3d053e5e1b000a78a53935a48f7a2e22c8e335a603c",
+      "api_status": 200
+    },
+    {
+      "label": "merge",
+      "path": "setup.cfg",
+      "sha": "f8f8f37e86705ab6a33f41f40d139e0e62dc7892",
+      "size": 864,
+      "actual_bytes": 864,
+      "sha256": "a2cf8d285f2d2cead24d8c3e5c47cfe9e70f5a197bba5410d6b8e067d26c461e",
+      "api_status": 200
+    }
+  ],
+  "requests": [
+    {
+      "stage": "parent-tree",
+      "status": 200,
+      "bytes": 9401,
+      "sha256": "42aba2e63e270912a0e1e5d1cec8e7e0ed61c053d6cc89ea023c499ef044c7b4"
+    },
+    {
+      "stage": "parent-files",
+      "count": 12,
+      "bytes": 72898
+    },
+    {
+      "stage": "merge-tree",
+      "status": 200,
+      "bytes": 9850,
+      "sha256": "cd94d8f1f1c676cdde0166431aad4444ae28a0ecafaac61e47f19d76e3b4bb39"
+    },
+    {
+      "stage": "merge-files",
+      "count": 12,
+      "bytes": 80376
+    }
+  ],
+  "tests_retrieved": false,
+  "model_calls": 0,
+  "human_reviews": 0
+}

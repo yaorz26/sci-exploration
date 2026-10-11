@@ -1,0 +1,822 @@
+[
+  {
+    "problem_id": "apps-train-2950",
+    "dataset": "APPS",
+    "source_problem_id": 2950,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "In this Kata, you will be given an array of integers and your task is to return the number of arithmetic progressions of size `3` that are possible from that list. In each progression, the differences between the elements must be the same.\n\n```\n[1, 2, 3, 5, 7, 9] ==> 5\n// [1, 2, 3], [1, 3, 5], [1, 5, 9], [3, 5, 7], and [5, 7, 9]\n```\n\nAll inputs will be sorted. More examples in test cases. \n\nGood luck!",
+    "starter_code": "\ndef solve(arr):\n\t",
+    "public_tests": [
+      {
+        "input": "[[1, 2, 3, 4, 5]]",
+        "output": "[4]"
+      },
+      {
+        "input": "[[1, 2, 3, 5, 7, 9]]",
+        "output": "[5]"
+      },
+      {
+        "input": "[[0, 5, 8, 9, 11, 13, 14, 16, 17, 19]]",
+        "output": "[10]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[[0, 1, 2, 3, 5, 6, 7, 11, 13, 15, 17, 19]]",
+        "output": "[17]"
+      },
+      {
+        "input": "[[0, 1, 4, 5, 7, 9, 10, 13, 15, 16, 18, 19]]",
+        "output": "[15]"
+      },
+      {
+        "input": "[[0, 1, 2, 3, 5, 8, 11, 13, 14, 16, 18, 19]]",
+        "output": "[13]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2951",
+    "dataset": "APPS",
+    "source_problem_id": 2951,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "I found this interesting interview question just today:\n\n> *8 coins are given where all the coins have equal weight, except one. The odd one weights less than the others, not being of pure gold. In the worst case, how many iterations are actually needed to find the odd one out on a two plates scale*.\n\nI am asking you then to tell me what is the *minimum* amount of weighings it will take to measure `n` coins in every possible occurrence (including worst case scenario, ie: without relying on luck at all).\n\n`n` is guaranteed to be a positive integer.\n\n***Tip:*** being able to think *recursively* might help here :p\n\n***Note:*** albeit this is more clearly a logical than a coding problem, do not underestimate (or under-rank) the kata for requiring not necessarily wizard-class coding skills: a good coder is a master of pattern recognition and subsequent optimization ;)",
+    "starter_code": "\ndef how_many_measurements(n):\n\t",
+    "public_tests": [
+      {
+        "input": "[1]",
+        "output": "[0]"
+      },
+      {
+        "input": "[2]",
+        "output": "[1]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[3]",
+        "output": "[1]"
+      },
+      {
+        "input": "[8]",
+        "output": "[2]"
+      },
+      {
+        "input": "[100]",
+        "output": "[5]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2952",
+    "dataset": "APPS",
+    "source_problem_id": 2952,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "A forest fire has been spotted at *fire*, a simple 2 element array with x, y coordinates.\n\nThe forest service has decided to send smoke jumpers in by plane and drop them in the forest.\n\nThe terrain is dangerous and surveyors have determined that there are three possible safe *dropzones*, an array of three simple arrays with x, y coordinates. \n\nThe plane is en route and time is of the essence. Your mission is to return a simple [x,y] array with the coordinates of the dropzone closest to the fire. \n\nEDIT: \nThe airplane is leaving from the origin at 0,0. If your result returns two possible dropzones that are both an equal distance from the fire, choose the dropzone that is closest to 0,0.\n\nIf the two dropzones are both equal distance away from 0,0, then return the dropzone that is first in the given array. \n\nFor example, if you are given: fire = [1,1], possibleDZ = [0,1],[1,0],[2,2] . The answer is [0,1] because that is the first possible drop zone in the given array.",
+    "starter_code": "\ndef dropzone(p, dropzones):\n\t",
+    "public_tests": [
+      {
+        "input": "[[6, 8], [[3, 2], [6, 1], [7, 9]]]",
+        "output": "[[7, 9]]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[[9, 2], [[1, 4], [9, 9], [5, 5]]]",
+        "output": "[[5, 5]]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2953",
+    "dataset": "APPS",
+    "source_problem_id": 2953,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "You are given an input string.\n\nFor each symbol in the string if it's the first character occurrence, replace it with a '1', else replace it with the amount of times you've already seen it...\n      \nBut will your code be **performant enough**?\n\n___\n\n## Examples:\n\n```\ninput   =  \"Hello, World!\"\nresult  =  \"1112111121311\"\n\ninput   =  \"aaaaaaaaaaaa\"\nresult  =  \"123456789101112\"\n```\n\nThere might be some non-ascii characters in the string.\n\n~~~if:java\nNote: there will be no int domain overflow (character occurrences will be less than 2 billion).\n~~~\n~~~if:c\n(this does not apply to the C language translation)\n~~~",
+    "starter_code": "\ndef numericals(s):\n\t",
+    "public_tests": [
+      {
+        "input": "['Hello, World!']",
+        "output": "['1112111121311']"
+      },
+      {
+        "input": "[\"Hello, World! It's me, JomoPipi!\"]",
+        "output": "['11121111213112111131224132411122']"
+      },
+      {
+        "input": "['hello hello']",
+        "output": "['11121122342']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['Hello']",
+        "output": "['11121']"
+      },
+      {
+        "input": "['11111']",
+        "output": "['12345']"
+      },
+      {
+        "input": "['hope you 123456789 expected numbers in the string']",
+        "output": "['1111112121111111113212311414121151151262267232231']"
+      },
+      {
+        "input": "[\"In this string, I'll make sure the amounts of a character go over 9\"]",
+        "output": "['11111112221221132112411115312263237221234482193101343525441123124155131']"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2954",
+    "dataset": "APPS",
+    "source_problem_id": 2954,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "# A History Lesson\n\nThe Pony Express was a mail service operating in the US in 1859-60.\n\n\n\n\nIt reduced the time for messages to travel between the Atlantic and Pacific coasts to about 10 days, before it was made obsolete by the [transcontinental telegraph](https://en.wikipedia.org/wiki/First_transcontinental_telegraph).\n\n# How it worked\n\nThere were a number of *stations*, where:\n\n* The rider switched to a fresh horse and carried on, or\n* The mail bag was handed over to the next rider\n\n\n# Kata Task\n\n`stations` is a list/array of distances (miles) from one station to the next along the Pony Express route.\n\nImplement the `riders` method/function, to return how many riders are necessary to get the mail from one end to the other.\n\n**NOTE:** Each rider travels as far as he can, but never more than 100 miles.\n\n---\n*Good Luck.\nDM.*\n\n---\n\nSee also\n\n* The Pony Express\n* The Pony Express (missing rider)",
+    "starter_code": "\ndef riders(stations):\n\t",
+    "public_tests": [
+      {
+        "input": "[[18, 15]]",
+        "output": "[1]"
+      },
+      {
+        "input": "[[43, 23, 40, 13]]",
+        "output": "[2]"
+      },
+      {
+        "input": "[[33, 8, 16, 47, 30, 30, 46]]",
+        "output": "[3]"
+      },
+      {
+        "input": "[[6, 24, 6, 8, 28, 8, 23, 47, 17, 29, 37, 18, 40, 49]]",
+        "output": "[4]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[[50, 50]]",
+        "output": "[1]"
+      },
+      {
+        "input": "[[50, 50, 25, 50, 24]]",
+        "output": "[2]"
+      },
+      {
+        "input": "[[50, 50, 25, 50, 25]]",
+        "output": "[2]"
+      },
+      {
+        "input": "[[50, 50, 25, 50, 26]]",
+        "output": "[3]"
+      },
+      {
+        "input": "[[90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90, 90]]",
+        "output": "[100]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2955",
+    "dataset": "APPS",
+    "source_problem_id": 2955,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Some integral numbers are odd. All are more odd, or less odd, than others.\n\nEven numbers satisfy `n = 2m` ( with `m` also integral ) and we will ( completely arbitrarily ) think of odd numbers as `n = 2m + 1`.  \nNow, some odd numbers can be more odd than others: when for some `n`, `m` is more odd than for another's. Recursively. :]  \nEven numbers are always less odd than odd numbers, but they also can be more, or less, odd than other even numbers, by the same mechanism.\n\n# Task\n\nGiven a _non-empty_ finite list of _unique_ integral ( not necessarily non-negative ) numbers, determine the number that is _odder than the rest_.  \nGiven the constraints, there will always be exactly one such number.\n\n# Examples\n\n```python\noddest([1,2]) => 1\noddest([1,3]) => 3\noddest([1,5]) => 5\n```\n\n# Hint\n\nDo you _really_ want one? Point or tap here.",
+    "starter_code": "\ndef oddest(a):\n\t",
+    "public_tests": [
+      {
+        "input": "[[1, 2]]",
+        "output": "[1]"
+      },
+      {
+        "input": "[[1, 3]]",
+        "output": "[3]"
+      },
+      {
+        "input": "[[1, 5]]",
+        "output": "[5]"
+      },
+      {
+        "input": "[[0]]",
+        "output": "[0]"
+      },
+      {
+        "input": "[[1, 3, 5, 7]]",
+        "output": "[7]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[[2, 4]]",
+        "output": "[2]"
+      },
+      {
+        "input": "[[-1]]",
+        "output": "[-1]"
+      },
+      {
+        "input": "[[-1, 0, 1]]",
+        "output": "[-1]"
+      },
+      {
+        "input": "[[-3, 3]]",
+        "output": "[3]"
+      },
+      {
+        "input": "[[-5, 3]]",
+        "output": "[-5]"
+      },
+      {
+        "input": "[[-42, -41, -40, -39, -38, -37, -36, -35, -34, -33, -32, -31, -30, -29, -28, -27, -26, -25, -24, -23, -22, -21, -20, -19, -18, -17, -16, -15, -14, -13, -12, -11, -10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42]]",
+        "output": "[-1]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2956",
+    "dataset": "APPS",
+    "source_problem_id": 2956,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "*Translations appreciated*\n\n## Background information\n\nThe Hamming Code is used to correct errors, so-called bit flips, in data transmissions. Later in the description follows a detailed explanation of how it works.\nIn this Kata we will implement the Hamming Code with bit length 3, this has some advantages and disadvantages:\n- ✓ Compared to other versions of hamming code, we can correct more mistakes\n- ✓ It's simple to implement\n- x  The size of the input triples\n\n\n\n## Task 1: Encode function:\n\nFirst of all we have to implement the encode function, which is pretty easy, just follow the steps below.\n\nSteps:\n1. convert every letter of our text to ASCII value\n2. convert ASCII value to 8-bit binary string\n3. replace every \"0\" with \"000\" and every \"1\" with \"111\"\n\nLet's do an example:\n\nWe have to convert the string ```hey``` to hamming code sequence.\n\n1. First convert it to ASCII values:\n\n```104``` for ```h```, ```101``` for ```e``` and ```121``` for ```y```.\n\n\n2. Now we convert the ASCII values to a 8-bit binary string:\n\n```104``` -> ```01101000```, ```101``` -> ```01100101``` and ```121``` -> ```01111001```\n\nif we concat the binarys we get ```011010000110010101111001```\n\n\n3. Now we replace every \"0\" with \"000\" and every \"1\" with \"111\":\n\n```011010000110010101111001``` -> ```000111111000111000000000000111111000000111000111000111111111111000000111```\n\nThat's it good job!\n\n\n## Task 2: Decode function:\n\nNow we have to check if there happened any mistakes and correct them.\nErrors will only be a bit flip and not a loose of bits, so the length of the input string is always divisible by 3.\n\nexample: \n- 111 --> 101  this can and will happen\n- 111 --> 11   this won't happen\n\nThe length of the input string is also always divsible by 24 so that you can convert it to an ASCII value.\n\nSteps:\n1. Split the string of 0 and 1 in groups of three characters example: \"000\", \"111\"\n2. Check if an error occured:\n If no error occured the group is \"000\" or \"111\", then replace \"000\" with \"0\" and \"111\" with 1\n If an error occured the group is for example \"001\" or \"100\" or \"101\" and so on...\n Replace this group with the character that occurs most often. example: \"010\" -> \"0\" , \"110\" -> \"1\" \n\n3. Now take a group of 8 characters and convert that binary number to decimal ASCII value\n4. Convert the ASCII value to a char and well done you made it :)\n\n\n\nLook at this example carefully to understand it better:\n\nWe got a bit sequence:\n\n```100111111000111001000010000111111000000111001111000111110110111000010111``` \n\nFirst we split the bit sequence into groups of three:\n\n```100```, ```111```, ```111```, ```000```, ```111```, ```001``` ....\n\nEvery group with the most \"0\" becomes \"0\" and every group with the most \"1\" becomes \"1\":\n\n```100``` -> ```0``` Because there are two ```0``` and only one ```1```\n\n```111``` -> ```1``` Because there are zero ```0``` and three ```1```\n\n```111``` -> ```1``` Because there are zero ```0``` and three ```1```\n\n```000``` -> ```0``` Because there are three ```0``` and zero ```1```\n\n```111``` -> ```1``` Because there are zero ```0``` and three ```1```\n\n```001``` -> ```0``` Because there are two ```0``` and one ```1```\n\nNow concat all 0 and 1 to get ```011010000110010101111001```\n\nWe split this string into groups of eight:\n```01101000```, ```01100101``` and ```01111001```.\n\nAnd now convert it back to letters:\n\n```01101000``` is binary representation of 104, which is ASCII value of ```h```\n\n```01100101``` is binary representation of 101, which is ASCII value of ```e```\n\n```01111001``` is binary representation of 121, which is ASCII value of ```y```\n\nNow we got our word ```hey``` !",
+    "starter_code": "\ndef encode(string):\n\t",
+    "public_tests": [
+      {
+        "input": "['hey']",
+        "output": "['000111111000111000000000000111111000000111000111000111111111111000000111']"
+      },
+      {
+        "input": "['The Sensei told me that i can do this kata']",
+        "output": "['000111000111000111000000000111111000111000000000000111111000000111000111000000111000000000000000000111000111000000111111000111111000000111000111000111111000111111111000000111111111000000111111000111111000000111000111000111111000111000000111000000111000000000000000000111111111000111000000000111111000111111111111000111111000111111000000000111111000000111000000000000111000000000000000000111111000111111000111000111111000000111000111000000111000000000000000000111111111000111000000000111111000111000000000000111111000000000000111000111111111000111000000000000111000000000000000000111111000111000000111000000111000000000000000000111111000000000111111000111111000000000000111000111111000111111111000000000111000000000000000000111111000000111000000000111111000111111111111000000111000000000000000000111111111000111000000000111111000111000000000000111111000111000000111000111111111000000111111000000111000000000000000000111111000111000111111000111111000000000000111000111111111000111000000000111111000000000000111']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['T3st']",
+        "output": "['000111000111000111000000000000111111000000111111000111111111000000111111000111111111000111000000']"
+      },
+      {
+        "input": "['T?st!%']",
+        "output": "['000111000111000111000000000000111111111111111111000111111111000000111111000111111111000111000000000000111000000000000111000000111000000111000111']"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2957",
+    "dataset": "APPS",
+    "source_problem_id": 2957,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Write a function `getDrinkByProfession`/`get_drink_by_profession()` that receives as input parameter a string, and produces outputs according to the following table:\n\n\n\n\nInput\nOutput\n\n\n\"Jabroni\"\n\"Patron Tequila\"\n\n\n\"School Counselor\"\n\"Anything with Alcohol\"\n\n\n \"Programmer\"\n \"Hipster Craft Beer\"\n\n\n \"Bike Gang Member\"\n\"Moonshine\" \n\n\n \"Politician\"\n\"Your tax dollars\" \n\n\n \"Rapper\"\n\"Cristal\" \n\n\n *anything else* \n\"Beer\" \n\n\n\n\n\nNote: *anything else* is the default case: if the input to the function is not any of the values in the table, then the return value should be \"Beer.\"\n\nMake sure you cover the cases where certain words do not show up with correct capitalization. For example, getDrinkByProfession(\"pOLitiCIaN\") should still return \"Your tax dollars\".",
+    "starter_code": "\ndef get_drink_by_profession(param):\n\t",
+    "public_tests": [
+      {
+        "input": "['jabrOni']",
+        "output": "['Patron Tequila']"
+      },
+      {
+        "input": "['scHOOl counselor']",
+        "output": "['Anything with Alcohol']"
+      },
+      {
+        "input": "['prOgramMer']",
+        "output": "['Hipster Craft Beer']"
+      },
+      {
+        "input": "['bike ganG member']",
+        "output": "['Moonshine']"
+      },
+      {
+        "input": "['poLiTiCian']",
+        "output": "['Your tax dollars']"
+      },
+      {
+        "input": "['rapper']",
+        "output": "['Cristal']"
+      },
+      {
+        "input": "['pundit']",
+        "output": "['Beer']"
+      },
+      {
+        "input": "['Pug']",
+        "output": "['Beer']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['jabrOnI']",
+        "output": "['Patron Tequila']"
+      },
+      {
+        "input": "['scHOOl COUnselor']",
+        "output": "['Anything with Alcohol']"
+      },
+      {
+        "input": "['prOgramMeR']",
+        "output": "['Hipster Craft Beer']"
+      },
+      {
+        "input": "['bike GanG member']",
+        "output": "['Moonshine']"
+      },
+      {
+        "input": "['poLiTiCiAN']",
+        "output": "['Your tax dollars']"
+      },
+      {
+        "input": "['RAPPer']",
+        "output": "['Cristal']"
+      },
+      {
+        "input": "['punDIT']",
+        "output": "['Beer']"
+      },
+      {
+        "input": "['pUg']",
+        "output": "['Beer']"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2958",
+    "dataset": "APPS",
+    "source_problem_id": 2958,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "# Your Task\nYou have a cuboid with dimensions x,y,z ∈ ℕ. A subcuboid of this cuboid has dimensions length, width, height ∈ ℕ where 1≤length≤x, 1≤width≤y, 1≤height≤z. If two subcuboids have the same length, width, and height, but they are at different positions within the cuboid, they are distinct. Find the total number of subcuboids for the given cuboid.\n# Examples\nSee sample tests and the image below\n### 27 subcuboids for a 2×2×2 cuboid\n![subcuboids(2,2,2)](https://i.imgur.com/3CnboOW.jpg)",
+    "starter_code": "\ndef subcuboids(x,y,z):\n\t",
+    "public_tests": [
+      {
+        "input": "[1, 1, 1]",
+        "output": "[1]"
+      },
+      {
+        "input": "[2, 2, 2]",
+        "output": "[27]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[2, 3, 3]",
+        "output": "[108]"
+      },
+      {
+        "input": "[4, 5, 6]",
+        "output": "[3150]"
+      },
+      {
+        "input": "[3, 7, 11]",
+        "output": "[11088]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2959",
+    "dataset": "APPS",
+    "source_problem_id": 2959,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Coffee Vending Machine Problems [Part 1]\n\nYou have a vending machine, but it can not give the change back. You decide to implement this functionality. First of all, you need to know the minimum number of coins for this operation (i'm sure you don't want to return 100 pennys instead of 1$ coin).\nSo, find an optimal number of coins required, if you have unlimited set of coins with given denominations.\n\nAssume all inputs are valid positive integers, and every set of coin denominations has len 4 for simplicity;\n\nExamples:\n\noptimal_number_of_coins(1, [1, 2, 5, 10]) \n(1 penny) so returns 1  \noptimal_number_of_coins(5, [1, 2, 5, 10])\n(5) so returns 1\noptimal_number_of_coins(6, [1, 3, 5, 10])\n(3+3 or 5+1) = 6 so returns 2\noptimal_number_of_coins(10, [1, 2, 5, 10]) \n(10) so returns 1\noptimal_number_of_coins(12, [1, 3, 5, 10])\n(10+1+1) = 12 so returns 3\noptimal_number_of_coins(53, [1, 2, 5, 25])\n(25+25+2+1) = 53 so returns 4\noptimal_number_of_coins(7, [1, 1, 1, 25])\n(1+1+1+1+1+1+1) = 7 so returns 7\netc..\n\nHave fun =)",
+    "starter_code": "\ndef optimal_number_of_coins(n, coins):\n\t",
+    "public_tests": [
+      {
+        "input": "[1, [1, 2, 5, 10]]",
+        "output": "[1]"
+      },
+      {
+        "input": "[5, [1, 2, 5, 10]]",
+        "output": "[1]"
+      },
+      {
+        "input": "[6, [1, 3, 5, 10]]",
+        "output": "[2]"
+      },
+      {
+        "input": "[10, [1, 2, 5, 10]]",
+        "output": "[1]"
+      },
+      {
+        "input": "[12, [1, 3, 5, 10]]",
+        "output": "[3]"
+      },
+      {
+        "input": "[53, [1, 2, 5, 25]]",
+        "output": "[4]"
+      },
+      {
+        "input": "[7, [1, 1, 1, 25]]",
+        "output": "[7]"
+      },
+      {
+        "input": "[76, [1, 3, 4, 10]]",
+        "output": "[9]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[33, [1, 6, 9, 10]]",
+        "output": "[4]"
+      },
+      {
+        "input": "[63, [1, 2, 9, 10]]",
+        "output": "[7]"
+      },
+      {
+        "input": "[239, [1, 2, 3, 10]]",
+        "output": "[26]"
+      },
+      {
+        "input": "[333, [1, 1, 5, 25]]",
+        "output": "[17]"
+      },
+      {
+        "input": "[543, [1, 3, 5, 25]]",
+        "output": "[25]"
+      },
+      {
+        "input": "[777, [1, 2, 3, 10]]",
+        "output": "[80]"
+      },
+      {
+        "input": "[18, [1, 3, 9, 10]]",
+        "output": "[2]"
+      },
+      {
+        "input": "[16, [1, 8, 9, 10]]",
+        "output": "[2]"
+      },
+      {
+        "input": "[14, [1, 3, 7, 9]]",
+        "output": "[2]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2960",
+    "dataset": "APPS",
+    "source_problem_id": 2960,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "In this kata you need to create a function that takes a 2D array/list of non-negative integer pairs and returns the sum of all the \"saving\" that you can have getting the [LCM](https://en.wikipedia.org/wiki/Least_common_multiple) of each couple of number compared to their simple product.\n\nFor example, if you are given:\n```\n[[15,18], [4,5], [12,60]]\n```\nTheir product would be:\n```\n[270, 20, 720]\n```\nWhile their respective LCM would be:\n```\n[90, 20, 60]\n```\nThus the result should be:\n```\n(270-90)+(20-20)+(720-60)==840\n```\nThis is a kata that I made, among other things, to let some of my trainees familiarize with the [euclidean algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm), a really neat tool to have on your belt ;)",
+    "starter_code": "\ndef sum_differences_between_products_and_LCMs(pairs):\n\t",
+    "public_tests": [
+      {
+        "input": "[[[15, 18], [4, 5], [12, 60]]]",
+        "output": "[840]"
+      },
+      {
+        "input": "[[[1, 1], [0, 0], [13, 91]]]",
+        "output": "[1092]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[[[15, 7], [4, 5], [19, 60]]]",
+        "output": "[0]"
+      },
+      {
+        "input": "[[[20, 50], [10, 10], [50, 20]]]",
+        "output": "[1890]"
+      },
+      {
+        "input": "[[]]",
+        "output": "[0]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2961",
+    "dataset": "APPS",
+    "source_problem_id": 2961,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "You are given an array of non-negative integers, your task is to complete the series from 0 to the highest number in the array.\n\nIf the numbers in the sequence provided are not in order you should order them, but if a value repeats, then you must return a sequence with only one item, and the value of that item must be 0. like this:\n```\ninputs        outputs\n[2,1]     ->  [0,1,2]\n[1,4,4,6] ->  [0]\n```\nNotes: all numbers are positive integers.\n\nThis is set of example outputs based on the input sequence.\n```\ninputs        outputs\n[0,1]   ->    [0,1]\n[1,4,6] ->    [0,1,2,3,4,5,6]\n[3,4,5] ->    [0,1,2,3,4,5]\n[0,1,0] ->    [0]\n```",
+    "starter_code": "\ndef complete_series(seq):\n\t",
+    "public_tests": [
+      {
+        "input": "[[0, 1]]",
+        "output": "[[0, 1]]"
+      },
+      {
+        "input": "[[1, 4, 6]]",
+        "output": "[[0, 1, 2, 3, 4, 5, 6]]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[[3, 4, 5]]",
+        "output": "[[0, 1, 2, 3, 4, 5]]"
+      },
+      {
+        "input": "[[2, 1]]",
+        "output": "[[0, 1, 2]]"
+      },
+      {
+        "input": "[[1, 4, 4, 6]]",
+        "output": "[[0]]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2962",
+    "dataset": "APPS",
+    "source_problem_id": 2962,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Complete the function which takes two arguments and returns all numbers which are divisible by the given divisor. First argument is an array of `numbers` and the second is the `divisor`.\n\n## Example\n\n```python\ndivisible_by([1, 2, 3, 4, 5, 6], 2) == [2, 4, 6]\n```",
+    "starter_code": "\ndef divisible_by(numbers, divisor):\n\t",
+    "public_tests": [
+      {
+        "input": "[[1, 2, 3, 4, 5, 6], 2]",
+        "output": "[[2, 4, 6]]"
+      },
+      {
+        "input": "[[1, 2, 3, 4, 5, 6], 3]",
+        "output": "[[3, 6]]"
+      },
+      {
+        "input": "[[0, 1, 2, 3, 4, 5, 6], 4]",
+        "output": "[[0, 4]]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[[0], 4]",
+        "output": "[[0]]"
+      },
+      {
+        "input": "[[1, 3, 5], 2]",
+        "output": "[[]]"
+      },
+      {
+        "input": "[[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 1]",
+        "output": "[[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2963",
+    "dataset": "APPS",
+    "source_problem_id": 2963,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Given a string, swap the case for each of the letters.\n\ne.g. CodEwArs --> cODeWaRS\n\n### Examples\n\n```\n\"\"           ->   \"\"\n\"CodeWars\"   ->   \"cODEwARS\"\n\"abc\"        ->   \"ABC\"\n\"ABC\"        ->   \"abc\"\n\"123235\"     ->   \"123235\"\n```",
+    "starter_code": "\ndef swap(string_):\n\t",
+    "public_tests": [
+      {
+        "input": "['HelloWorld']",
+        "output": "['hELLOwORLD']"
+      },
+      {
+        "input": "['CodeWars']",
+        "output": "['cODEwARS']"
+      },
+      {
+        "input": "['ThIs iS A l0NG sENTence witH nUMbERs in IT 123 456']",
+        "output": "['tHiS Is a L0ng SentENCE WITh NumBerS IN it 123 456']"
+      },
+      {
+        "input": "['']",
+        "output": "['']"
+      },
+      {
+        "input": "[' ']",
+        "output": "[' ']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['  ']",
+        "output": "['  ']"
+      },
+      {
+        "input": "[' 1a1 ']",
+        "output": "[' 1A1 ']"
+      },
+      {
+        "input": "['H_E_l-l_0 WO|||Rld']",
+        "output": "['h_e_L-L_0 wo|||rLD']"
+      },
+      {
+        "input": "['TeSt']",
+        "output": "['tEsT']"
+      },
+      {
+        "input": "['EeEEeeEEEeee']",
+        "output": "['eEeeEEeeeEEE']"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2964",
+    "dataset": "APPS",
+    "source_problem_id": 2964,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Create a function that returns the sum of the two lowest positive numbers given an array of minimum 4 positive integers. No floats or non-positive integers will be passed.\n\nFor example, when an array is passed like `[19, 5, 42, 2, 77]`, the output should be `7`.\n\n`[10, 343445353, 3453445, 3453545353453]` should return `3453455`.",
+    "starter_code": "\ndef sum_two_smallest_numbers(numbers):\n\t",
+    "public_tests": [
+      {
+        "input": "[[5, 8, 12, 18, 22]]",
+        "output": "[13]"
+      },
+      {
+        "input": "[[7, 15, 12, 18, 22]]",
+        "output": "[19]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[[25, 42, 12, 18, 22]]",
+        "output": "[30]"
+      },
+      {
+        "input": "[[1, 8, 12, 18, 5]]",
+        "output": "[6]"
+      },
+      {
+        "input": "[[13, 12, 5, 61, 22]]",
+        "output": "[17]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2965",
+    "dataset": "APPS",
+    "source_problem_id": 2965,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "We have 3 equations with 3 unknowns x, y, and z and we are to solve for these unknowns.\nEquations 4x -3y +z = -10, 2x +y +3z = 0, and -x +2y -5z = 17 will be passed in as an array of [[4, -3, 1, -10], [2, 1, 3, 0], [-1, 2, -5, 17]] and the result should be returned as an array like [1, 4, -2] (i.e. [x, y, z]).\n\nNote: In C++ do not use new or malloc to allocate memory for the returned variable as allocated memory will not be freed in the Test Cases. Setting the variable as static will do.",
+    "starter_code": "\ndef solve_eq(eq):\n\t",
+    "public_tests": [
+      {
+        "input": "[[[4, -3, 1, -10], [2, 1, 3, 0], [-1, 2, -5, 17]]]",
+        "output": "[[1, 4, -2]]"
+      },
+      {
+        "input": "[[[2, 1, 3, 10], [-3, -2, 7, 5], [3, 3, -4, 7]]]",
+        "output": "[[-1, 6, 2]]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[[[3, 2, 0, 7], [-4, 0, 3, -6], [0, -2, -6, -10]]]",
+        "output": "[[3, -1, 2]]"
+      },
+      {
+        "input": "[[[4, 2, -5, -21], [2, -2, 1, 7], [4, 3, -1, -1]]]",
+        "output": "[[1, 0, 5]]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2966",
+    "dataset": "APPS",
+    "source_problem_id": 2966,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Given a string of words and numbers. Extract the expression including: \n1. the operator: either addition or subtraction\n2. the two numbers that we are operating on\n\nReturn the result of the calculation.\n\nExample:\n\n\"Panda has 48 apples and loses 4\" returns 44\n\n\"Jerry has 34 apples and gains 6\" returns 40\n\n\"loses\" and \"gains\" are the only two words describing operators.\n\nShould be a nice little kata for you :)\n\nNote:\nNo fruit debts nor bitten apples = The numbers are integers and no negatives",
+    "starter_code": "\ndef calculate(string):\n\t",
+    "public_tests": [
+      {
+        "input": "['Panda has 48 apples and loses 4']",
+        "output": "[44]"
+      },
+      {
+        "input": "['Jerry has 34 apples and gains 6']",
+        "output": "[40]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['Tom has 20 apples and gains 15']",
+        "output": "[35]"
+      },
+      {
+        "input": "['Fred has 110 bananas and loses 50']",
+        "output": "[60]"
+      },
+      {
+        "input": "['Pippi has 20 tunas and gains 0']",
+        "output": "[20]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2967",
+    "dataset": "APPS",
+    "source_problem_id": 2967,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Define two functions: `hex_to_bin` and `bin_to_hex` (or `hexToBin` and `binToHex`)\n\n\n# hex_to_bin\n\nTakes a hexadecimal string as an argument .\n\n**Note:** This string can contain upper or lower case characters and start with any amount of zeros.\n\nReturns the binary representation (without leading zeros) of the numerical value of the hexadecimal string.\n\nExamples:\n\n```\n\"00F\"    -->  \"1111\"\n\"5\"      -->  \"101\"\n\"00000\"  -->  \"0\"\n\"04D2\"   -->  \"10011010010\"\n```\n\n# bin_to_hex\n\nTakes a binary string (with or without leading zeros) as an argument .\n\nReturns the hexadecimal representation of the numerical value of the binary string.\n\n**Note:** Any non-numerical characters should be lower case\n\n\nExamples:\n\n```\n\"1111\"         -->  \"f\"\n\"000101\"       -->  \"5\"\n\"10011010010\"  -->  \"4d2\"\n```\n\n**Note:** You can assume all arguments are valid so there is no need for error checking.\n\nOh, and I've disabled a few things.\n\n\nAny feedback would be much appreciated",
+    "starter_code": "\ndef bin_to_hex(binary_string):\n\t",
+    "public_tests": [
+      {
+        "input": "['000101']",
+        "output": "['5']"
+      },
+      {
+        "input": "['001111']",
+        "output": "['f']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['000']",
+        "output": "['0']"
+      },
+      {
+        "input": "['10011010010']",
+        "output": "['4d2']"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2968",
+    "dataset": "APPS",
+    "source_problem_id": 2968,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "You are going to be given a word. Your job is to return the middle character of the word. If the word's length is odd, return the middle character. If the word's length is even, return the middle 2 characters.\n\n#Examples:\n~~~if-not:bf\n```\nKata.getMiddle(\"test\") should return \"es\"\n\nKata.getMiddle(\"testing\") should return \"t\"\n\nKata.getMiddle(\"middle\") should return \"dd\"\n\nKata.getMiddle(\"A\") should return \"A\"\n\n```\n~~~\n~~~if:bf\n```\nrunBF(\"test\\0\") should return \"es\"\n\nrunBF(\"testing\\0\") should return \"t\"\n\nrunBF(\"middle\\0\") should return \"dd\"\n\nrunBF(\"A\\0\") should return \"A\"\n\n```\n~~~\n\n#Input\n\nA word (string) of length `0 < str < 1000` (In javascript you may get slightly more than 1000 in some test cases due to an error in the test cases). You do not need to test for this. This is only here to tell you that you do not need to worry about your solution timing out.\n\n\n#Output\n\nThe middle character(s) of the word represented as a string.",
+    "starter_code": "\ndef get_middle(s):\n\t",
+    "public_tests": [
+      {
+        "input": "['test']",
+        "output": "['es']"
+      },
+      {
+        "input": "['testing']",
+        "output": "['t']"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "['middle']",
+        "output": "['dd']"
+      },
+      {
+        "input": "['A']",
+        "output": "['A']"
+      },
+      {
+        "input": "['of']",
+        "output": "['of']"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  },
+  {
+    "problem_id": "apps-train-2969",
+    "dataset": "APPS",
+    "source_problem_id": 2969,
+    "source_split": "train",
+    "difficulty": "introductory",
+    "question": "Laura Bassi was the first female professor at a European university.  \nDespite her immense intellect, she was not always allowed to lecture publicly.\n\nOne day a professor with very strong beliefs against women in academia sent some `agents` to find Bassi and end her career.\n\nHelp her escape by telling her the safest places in town!\n\nTask\n\n```if:python,javascript\nImplement the function `advice(agents, n)` where\n```\n```if:haskell\nImplement the function `advice agents n :: [(Int,Int)] -> Int -> [(Int,Int)]` where\n```\n```if:swift\nImplement the function `advice(agents: [[Int]], n: Int) -> [[Int]]` where\n```\n\n- `agents` is an array of agent coordinates.\n- `n` defines the size of the city that Bassi needs to hide in, in other words the side length of the square grid. \n\nThe function should return a list of coordinates that are the furthest away (by Manhattan distance) from all agents.\n\nAs an example, say you have a 6x6 map, and agents at locations\n\n```python\n[(0, 0), (1, 5), (5, 1)]\n```\n\nThe distances to the nearest agent look like this.\n\n\n\nThe safest spaces are the ones with distance `4`, marked in bright red. So the function should return\n\n```python\n[(2, 2), (3, 3), (4, 4), (5, 5)]\n```\n\nin any order.\n\nEdge cases:\n- If there is an agent on every grid cell, there is no safe space, so return an empty list.\n- If there are no agents, then every cell is a safe spaces, so return all coordinates.\n- if `n` is `0`, return an empty list.\n- If agent coordinates are outside of the map, they are simply not considered.\n- There are no duplicate agents on the same square.\n\nPerformance\n\nAll reference solutions run in around 6 seconds.\nYou might not pass the tests if you use a brute-force solution.\n\n```if-not:swift,javascript\nThere are `200` random tests with `n <= 50`. Inefficient solutions might time out.\n```\n```if:javascript\nThere are `300` random tests with `n <= 70`. Inefficient solutions might time out.\n```\n```if:swift\nThere are `200` random tests with `n <= 70`. Inefficient solutions might time out.\n```\n\nThis kata is inspired by ThoughtWorks' coding challenge",
+    "starter_code": "\ndef advice(agents, n):\n\t",
+    "public_tests": [
+      {
+        "input": "[[[1, 1]], 2]",
+        "output": "[[[0, 0]]]"
+      },
+      {
+        "input": "[[[1, 1]], 0]",
+        "output": "[[]]"
+      }
+    ],
+    "private_tests": [
+      {
+        "input": "[[[9, 9]], 1]",
+        "output": "[[[0, 0]]]"
+      },
+      {
+        "input": "[[[0, 0]], 10]",
+        "output": "[[[9, 9]]]"
+      }
+    ],
+    "prompt_visible_private_tests_removed": 0
+  }
+]

@@ -1,0 +1,88 @@
+{
+  "experiment": "funprm_helperfirst_scale_prm_20260924",
+  "amendment": "confirmation_evaluator_safety_v2",
+  "frozen_at": "2026-09-25T16:50:43+08:00",
+  "scope": "Safety-only evaluator repair after confirmation A v1 aborted before any private evaluation or selector scoring.",
+  "supersedes_run_only": "confirmation_a30_functionized_qwen25coder_7b_n10_seed20261224_v1",
+  "does_not_supersede": [
+    "training_protocol.md",
+    "validation20_gate_audit_v2.json",
+    "confirmation_run_manifest.json"
+  ],
+  "verified_failure_mechanism": {
+    "aborted_evaluation_jsonl_bytes": 1041197131,
+    "aborted_completed_problems": 21,
+    "aborted_private_evaluations": 0,
+    "largest_embedded_actual_output_blocks_bytes": [
+      333193666,
+      288405768,
+      400000149
+    ],
+    "diagnosis": "A small number of timed-out candidate programs printed hundreds of megabytes before termination. The old evaluator retained the full stdout in each JSON result and had no capture-size limit.",
+    "evidence": "confirmation_a30_v1_abort_record.json and byte-offset sampling of the preserved v1 evaluation JSONL"
+  },
+  "evaluator_change": {
+    "path": "src/executor.py",
+    "sha256": "bec8fb3bb0bd776ed43e622f0a6609346f23eadb72141a90437aae3a60f10348",
+    "combined_stdout_stderr_limit_bytes_per_test": 1048576,
+    "stdin_delivery": "background thread so the wall-clock deadline starts even if the candidate ignores a large stdin pipe",
+    "limit_outcome": "output_limit failure",
+    "process_policy": "terminate the candidate process tree when the time or output limit is exceeded",
+    "unchanged": [
+      "normalized token comparison",
+      "numeric math.isclose tolerances",
+      "function-output literal comparison",
+      "per-test timeout of 10 seconds",
+      "all frozen public and private test cases"
+    ]
+  },
+  "cap_safety_audit": {
+    "confirmation_a_max_test_input_bytes": 488,
+    "confirmation_a_max_expected_output_bytes": 485,
+    "confirmation_b_max_test_input_bytes": 455,
+    "confirmation_b_max_expected_output_bytes": 462,
+    "validation20_max_expected_output_bytes": 209,
+    "interpretation": "The 1 MiB capture cap is more than 2000 times the largest expected answer in either confirmation split; it is an execution-safety boundary, not an answer-length tuning parameter."
+  },
+  "verification": {
+    "targeted_tests": "14 passed in 1.67s before the final fast-finite-output edge case was added",
+    "full_pytest": "77 passed in 3.36s",
+    "legacy_executor_smoke": [
+      "passed",
+      "wrong_answer",
+      "runtime_error",
+      "timeout",
+      "child-process timeout",
+      "function call"
+    ],
+    "compileall": "passed",
+    "test_path": "tests/test_executor_limits.py",
+    "test_sha256": "dfa6f2d251cc382fd6b5ce0c26cc4a2314dcbfdce5dd5439a37bbeef066ed1b4"
+  },
+  "v2_generation": {
+    "data_path": "data/processed/funprm_helperfirst_scale_20260923/frozen_splits/confirmation_a30.json",
+    "data_sha256": "81f2b711bac2553716c85ad8d89cadc0a7e530e473bc4dfdfbeb0140948427fd",
+    "method": "functionized",
+    "model": "qwen2.5-coder:7b",
+    "seed": 20261224,
+    "temperature": 0.4,
+    "candidates_per_problem": 10,
+    "max_requests": 300,
+    "per_test_timeout_seconds": 10.0,
+    "candidate_timeout_seconds": null,
+    "private_evaluation_deferred": true,
+    "runner": "scripts/run_whole_program_experiment.py",
+    "runner_sha256": "b797566be7faddc4f8622858697b24a7349236964b44a255594813e85b6c5b4c",
+    "output_prefix": "data/processed/funprm_label_calibration_20260924/confirmation_a30_functionized_qwen25coder_7b_n10_seed20261224_v2"
+  },
+  "analysis_policy": {
+    "v1_partial_pool": "invalid and preserved only as failure evidence",
+    "v2": "must start from all 30 frozen A problems and exactly 300 planned requests",
+    "private_before_pool_freeze": false,
+    "confirmation_b_status": "unopened until A v2 completes and passes integrity checks",
+    "retuning_authorized": false,
+    "stronger_scorer_authorized": false,
+    "rl_authorized": false
+  },
+  "retry_budget": "Exactly one safety-repaired A v2 generation run. A repeated evaluator failure stops the confirmation branch for a new direction review."
+}

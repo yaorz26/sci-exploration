@@ -1,0 +1,62 @@
+{
+  "workspace": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_repository_patch_entry_v2_20261009\\candidates\\confuse_core_omission\\workspace",
+  "python": "3.13.7",
+  "pyyaml": "6.0.3",
+  "module": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_repository_patch_entry_v2_20261009\\candidates\\confuse_core_omission\\workspace\\confuse\\__init__.py",
+  "cases": [
+    {
+      "case": "default_file",
+      "expected": "D:\\Temp\\d1_repo_path_hoj_1m38\\app\\assets\\a.txt",
+      "actual": "D:\\Temp\\d1_repo_path_hoj_1m38\\app\\assets\\a.txt",
+      "pass": true
+    },
+    {
+      "case": "source_flag",
+      "expected": "D:\\Temp\\d1_repo_path_hoj_1m38\\project\\settings\\assets\\a.txt",
+      "actual": "D:\\Temp\\d1_repo_path_hoj_1m38\\project\\settings\\assets\\a.txt",
+      "pass": true
+    },
+    {
+      "case": "template_flag",
+      "expected": "D:\\Temp\\d1_repo_path_hoj_1m38\\project\\settings\\assets\\a.txt",
+      "actual": "D:\\Temp\\d1_repo_path_hoj_1m38\\project\\settings\\assets\\a.txt",
+      "pass": true
+    },
+    {
+      "case": "app_over_source_flag",
+      "expected": "D:\\Temp\\d1_repo_path_hoj_1m38\\app\\assets\\a.txt",
+      "actual": "D:\\Temp\\d1_repo_path_hoj_1m38\\app\\assets\\a.txt",
+      "pass": true
+    },
+    {
+      "case": "cwd_over_source_flag",
+      "expected": "D:\\Temp\\d1_repo_path_hoj_1m38\\override\\assets\\a.txt",
+      "actual": "D:\\Temp\\d1_repo_path_hoj_1m38\\override\\assets\\a.txt",
+      "pass": true
+    },
+    {
+      "case": "flag_without_filename",
+      "expected": "D:\\Temp\\d1_repo_path_hoj_1m38\\working\\assets\\a.txt",
+      "actual": "D:\\Temp\\d1_repo_path_hoj_1m38\\working\\assets\\a.txt",
+      "pass": true
+    },
+    {
+      "case": "absolute_preserved",
+      "expected": "D:\\Temp\\d1_repo_path_hoj_1m38\\absolute\\file.bin",
+      "actual": "D:\\Temp\\d1_repo_path_hoj_1m38\\absolute\\file.bin",
+      "pass": true
+    },
+    {
+      "case": "file_loader_flag",
+      "expected": "D:\\Temp\\d1_repo_path_hoj_1m38\\project\\settings\\assets\\a.txt",
+      "exception": "TypeError",
+      "message": "Configuration.set_file() got an unexpected keyword argument 'base_for_paths'",
+      "pass": false
+    }
+  ],
+  "passed": 7,
+  "total": 8,
+  "all_pass": false,
+  "scope": "公开研究诊断；非隐藏确认；非模型效果",
+  "evaluator_sha256": "138c07f50905b05df419c3b408cb464aae73cd78a5d2f7b570551f947ebaacb2"
+}

@@ -1,0 +1,41 @@
+{
+  "time": "2026-10-09T11:35:37.072511+00:00",
+  "macro_stage": "G2",
+  "task_id": "REPO_CONFUSE_PR142_ENV_OVERLAY_LIMITED",
+  "results": {
+    "parent": {
+      "passed": 0,
+      "total": 3,
+      "prediction_match": true
+    },
+    "feature": {
+      "passed": 3,
+      "total": 3,
+      "prediction_match": true
+    },
+    "alternative": {
+      "passed": 3,
+      "total": 3,
+      "prediction_match": true
+    },
+    "priority_omission": {
+      "passed": 2,
+      "total": 3,
+      "prediction_match": true
+    }
+  },
+  "distinct_public_scenarios": 3,
+  "worker_runs": 12,
+  "new_task_candidates": 1,
+  "source_files_downloaded": 24,
+  "source_bytes_downloaded": 153274,
+  "admission": "有限PR子范围的真实包配置连接研究候选",
+  "visible_obligation": "环境来源解析后进入已有配置视图；高优先覆盖与下层回退共同决定输出",
+  "organization_limit": "两个正确组织共享Loader/同助手构造，有限输入而非全域等价",
+  "formal_labels": null,
+  "split": null,
+  "model_calls": 0,
+  "human_reviews": 0,
+  "question_A_effect_measured": false,
+  "next_stage_question": "G2 boltons逆序JSONL自然功能恢复；先计划三审"
+}

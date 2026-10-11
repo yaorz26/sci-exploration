@@ -1,0 +1,27 @@
+{
+  "simulated": true,
+  "model": "synthetic-model",
+  "protocol_sha256": "6ce471fb433fcc5c8d375e8e6ce95ca02736512740baf351449c724434d1dcb8",
+  "manifest_sha256": "b3772e9e855e681c755187a114d2ec5f179439504e1964fe7e9ce6ff402e249c",
+  "public_input_hashes": {
+    "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_allin_pipeline_simulation_v2_20261008\\synthetic_dataset\\public\\S01\\task.json": "bed7a78c9298c701b030dfe998db1ce21f30b337a2cfa61d42974d90013e1a47"
+  },
+  "candidates": [
+    {
+      "task_id": "S01",
+      "arm": "M0",
+      "candidate_index": 0,
+      "generation_error": "BudgetRefusal: 输入无法完整纳入上下文，禁止默默截断题面",
+      "failure_category": "budget_or_context_failure",
+      "candidate_path": null,
+      "candidate_sha256": null,
+      "total_token_spend": 0,
+      "cost_status": "known",
+      "api_calls": 0,
+      "request_ledger_sha256": "d61b22e355cbe924ac376b3e7cabb46f0b7b51b8d244093ce983f2f58bb6d2f9",
+      "request_ledger_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_allin_pipeline_simulation_v2_20261008\\context\\candidates\\S01\\M0\\requests\\ledger.json",
+      "budget_limit": 6500
+    }
+  ],
+  "rule": "全部预定题/方法首候选及失败先冻结，再读取private；无重试、无public筛选"
+}

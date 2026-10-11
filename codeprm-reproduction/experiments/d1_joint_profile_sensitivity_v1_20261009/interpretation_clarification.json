@@ -1,0 +1,121 @@
+{
+  "summary_sha256": "30d4047ad8218ed0a1d672fb1eee925d5403adfee4f94a79e33f5bda0a9eaadb",
+  "status": "从原删除成员表判读，不重算原枚举",
+  "scenario_count": 13,
+  "each_scenario_has_some_repeated_profile": true,
+  "profile_survival": [
+    {
+      "profile": {
+        "behavior_dependencies": [
+          "ordered_transform"
+        ],
+        "state_scope": "none",
+        "separate_behavior_testability": "yes"
+      },
+      "tasks": [
+        "D1_B01",
+        "D1_B05"
+      ],
+      "deletions": {
+        "leave_one_source": {
+          "removals_erasing_this_repetition": [
+            "mahmoud/boltons"
+          ],
+          "survives_every_removal": false
+        },
+        "leave_one_explicit_component": {
+          "removals_erasing_this_repetition": [
+            0,
+            3
+          ],
+          "survives_every_removal": false
+        },
+        "leave_one_wider_component": {
+          "removals_erasing_this_repetition": [
+            0,
+            16
+          ],
+          "survives_every_removal": false
+        }
+      }
+    },
+    {
+      "profile": {
+        "behavior_dependencies": [
+          "operation_sequence"
+        ],
+        "state_scope": "global",
+        "separate_behavior_testability": "partial"
+      },
+      "tasks": [
+        "D1_B02",
+        "D1_C01",
+        "D1_C02"
+      ],
+      "deletions": {
+        "leave_one_source": {
+          "removals_erasing_this_repetition": [
+            "tkem/cachetools"
+          ],
+          "survives_every_removal": false
+        },
+        "leave_one_explicit_component": {
+          "removals_erasing_this_repetition": [
+            5
+          ],
+          "survives_every_removal": false
+        },
+        "leave_one_wider_component": {
+          "removals_erasing_this_repetition": [
+            17
+          ],
+          "survives_every_removal": false
+        }
+      }
+    },
+    {
+      "profile": {
+        "behavior_dependencies": [
+          "branch_rules",
+          "direct"
+        ],
+        "state_scope": "none",
+        "separate_behavior_testability": "no"
+      },
+      "tasks": [
+        "D1_B06",
+        "D1_C05"
+      ],
+      "deletions": {
+        "leave_one_source": {
+          "removals_erasing_this_repetition": [
+            "mahmoud/boltons",
+            "tkem/cachetools"
+          ],
+          "survives_every_removal": false
+        },
+        "leave_one_explicit_component": {
+          "removals_erasing_this_repetition": [
+            4,
+            5
+          ],
+          "survives_every_removal": false
+        },
+        "leave_one_wider_component": {
+          "removals_erasing_this_repetition": [
+            16,
+            17
+          ],
+          "survives_every_removal": false
+        }
+      }
+    }
+  ],
+  "development_profile_count": 7,
+  "development_repeated": 3,
+  "reserve_singleton_profile_count": 2,
+  "corrected_interpretation": "每次剩重复不等同一画像稳定；两个开发重复画像跨两来源/组件，不是完全来源绑定",
+  "model_calls": 0,
+  "task_evaluations": 0,
+  "hidden_reads": 0
+}

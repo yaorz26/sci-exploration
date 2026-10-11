@@ -1,0 +1,3529 @@
+[
+  {
+    "id": "global_order_exact",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "b",
+          "value": 4
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "b",
+          "value": 4
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "entity_granularity": "全部首次记录",
+    "projection": "global_output",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      },
+      {
+        "key": "b",
+        "value": 4
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "b",
+        "value": 4
+      },
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "different",
+    "actual_relation": "different",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_2",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": []
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "b",
+          "value": 4
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [],
+    "right_projection": [],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_3",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": []
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "B",
+          "value": 9
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [],
+    "right_projection": [],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_4",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "b",
+          "value": 4
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_5",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "b",
+          "value": 4
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_6",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "B",
+          "value": 9
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_7",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "B",
+          "value": 9
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_8",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "b",
+          "value": 4
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_9",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "b",
+          "value": 4
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_10",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "B",
+          "value": 9
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_11",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "B",
+          "value": 9
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_12",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "b",
+          "value": 4
+        },
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_13",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "b",
+          "value": 4
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_14",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "b",
+          "value": 4
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_15",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "B",
+          "value": 9
+        },
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_16",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "B",
+          "value": 9
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_17",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "B",
+          "value": 9
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_18",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "b",
+          "value": 4
+        },
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_19",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "b",
+          "value": 4
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_20",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "b",
+          "value": 4
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_21",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "B",
+          "value": 9
+        },
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_22",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "B",
+          "value": 9
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_23",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "B",
+          "value": 9
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_24",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "b",
+          "value": 4
+        },
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_25",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "b",
+          "value": 4
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_26",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "b",
+          "value": 4
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_27",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "B",
+          "value": 9
+        },
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_28",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "B",
+          "value": 9
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_29",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "B",
+          "value": 9
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_30",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "b",
+          "value": 4
+        },
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_31",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "b",
+          "value": 4
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_32",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "b",
+          "value": 4
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_33",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "B",
+          "value": 9
+        },
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_34",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "B",
+          "value": 9
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_35",
+    "mode": "exact",
+    "left_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "exact",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "B",
+          "value": 9
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "global_order_casefold",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "b",
+          "value": 4
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "b",
+          "value": 4
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "entity_granularity": "全部首次记录",
+    "projection": "global_output",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      },
+      {
+        "key": "b",
+        "value": 4
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "b",
+        "value": 4
+      },
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "different",
+    "actual_relation": "different",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_37",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": []
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "b",
+          "value": 4
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [],
+    "right_projection": [],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_38",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": []
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "B",
+          "value": 9
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [],
+    "right_projection": [],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_39",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "b",
+          "value": 4
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_40",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "b",
+          "value": 4
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_41",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "B",
+          "value": 9
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_42",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "B",
+          "value": 9
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_43",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "b",
+          "value": 4
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_44",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "b",
+          "value": 4
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_45",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "B",
+          "value": 9
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_46",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "B",
+          "value": 9
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_47",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "b",
+          "value": 4
+        },
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_48",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "b",
+          "value": 4
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_49",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "b",
+          "value": 4
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_50",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "B",
+          "value": 9
+        },
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_51",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "B",
+          "value": 9
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_52",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "B",
+          "value": 9
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_53",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "b",
+          "value": 4
+        },
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_54",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "b",
+          "value": 4
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_55",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "b",
+          "value": 4
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_56",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "B",
+          "value": 9
+        },
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_57",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "B",
+          "value": 9
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_58",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "B",
+          "value": 9
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_59",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "b",
+          "value": 4
+        },
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_60",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "b",
+          "value": 4
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_61",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "b",
+          "value": 4
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_62",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "B",
+          "value": 9
+        },
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_63",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "B",
+          "value": 9
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_64",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "B",
+          "value": 9
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_65",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "b",
+          "value": 4
+        },
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_66",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "b",
+          "value": 4
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_67",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "b",
+          "value": 4
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_68",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "B",
+          "value": 9
+        },
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_69",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "B",
+          "value": 9
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "foreign_insert_70",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 2
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 2
+        },
+        {
+          "key": "B",
+          "value": 9
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "a",
+        "value": 2
+      }
+    ],
+    "expected_relation": "equal",
+    "actual_relation": "equal",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  },
+  {
+    "id": "raw_spelling_is_same_entity",
+    "mode": "casefold",
+    "left_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "right_input": {
+      "mode": "casefold",
+      "records": [
+        {
+          "key": "A",
+          "value": 3
+        },
+        {
+          "key": "a",
+          "value": 1
+        }
+      ]
+    },
+    "entity_granularity": "规范键",
+    "projection": "target_normalized_a",
+    "left_projection": [
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "right_projection": [
+      {
+        "key": "A",
+        "value": 3
+      }
+    ],
+    "expected_relation": "different",
+    "actual_relation": "different",
+    "implementations_agree": true,
+    "input_unchanged": true,
+    "pass": true
+  }
+]

@@ -1,0 +1,160 @@
+{
+  "completed_at": "2026-10-09T07:10:43.334973+00:00",
+  "stage": "D1-P78-repository-path-context-task",
+  "task_id": "E_C11",
+  "unique_inputs": 6,
+  "task_records": 6,
+  "actual_solve_calls": 18,
+  "passed": 18,
+  "input_unchanged": 18,
+  "by_reference": {
+    "whole": {
+      "passed": 6,
+      "total": 6
+    },
+    "helpers": {
+      "passed": 6,
+      "total": 6
+    },
+    "public_logic_adapter": {
+      "passed": 6,
+      "total": 6
+    }
+  },
+  "relations": [
+    {
+      "reference": "whole",
+      "relation": "base_for_paths_changes_source_root",
+      "before": [
+        "/workspace/app/assets/a.txt",
+        "/workspace/app/logs/x.txt"
+      ],
+      "after": [
+        "/workspace/app/sub/assets/a.txt",
+        "/workspace/app/sub/other/b.txt"
+      ],
+      "passed": true
+    },
+    {
+      "reference": "whole",
+      "relation": "in_app_dir_overrides_source_base",
+      "before": [
+        "/workspace/app/sub/assets/a.txt",
+        "/workspace/app/sub/other/b.txt"
+      ],
+      "after": [
+        "/workspace/app/assets/a.txt",
+        "/workspace/app/other/b.txt"
+      ],
+      "passed": true
+    },
+    {
+      "reference": "whole",
+      "relation": "cwd_precedes_source_metadata",
+      "before": [
+        "/workspace/app/sub/assets/a.txt",
+        "/workspace/app/sub/other/b.txt"
+      ],
+      "after": [
+        "/tmp/job/assets/a.txt",
+        "/tmp/data/b.txt"
+      ],
+      "passed": true
+    },
+    {
+      "reference": "helpers",
+      "relation": "base_for_paths_changes_source_root",
+      "before": [
+        "/workspace/app/assets/a.txt",
+        "/workspace/app/logs/x.txt"
+      ],
+      "after": [
+        "/workspace/app/sub/assets/a.txt",
+        "/workspace/app/sub/other/b.txt"
+      ],
+      "passed": true
+    },
+    {
+      "reference": "helpers",
+      "relation": "in_app_dir_overrides_source_base",
+      "before": [
+        "/workspace/app/sub/assets/a.txt",
+        "/workspace/app/sub/other/b.txt"
+      ],
+      "after": [
+        "/workspace/app/assets/a.txt",
+        "/workspace/app/other/b.txt"
+      ],
+      "passed": true
+    },
+    {
+      "reference": "helpers",
+      "relation": "cwd_precedes_source_metadata",
+      "before": [
+        "/workspace/app/sub/assets/a.txt",
+        "/workspace/app/sub/other/b.txt"
+      ],
+      "after": [
+        "/tmp/job/assets/a.txt",
+        "/tmp/data/b.txt"
+      ],
+      "passed": true
+    },
+    {
+      "reference": "public_logic_adapter",
+      "relation": "base_for_paths_changes_source_root",
+      "before": [
+        "/workspace/app/assets/a.txt",
+        "/workspace/app/logs/x.txt"
+      ],
+      "after": [
+        "/workspace/app/sub/assets/a.txt",
+        "/workspace/app/sub/other/b.txt"
+      ],
+      "passed": true
+    },
+    {
+      "reference": "public_logic_adapter",
+      "relation": "in_app_dir_overrides_source_base",
+      "before": [
+        "/workspace/app/sub/assets/a.txt",
+        "/workspace/app/sub/other/b.txt"
+      ],
+      "after": [
+        "/workspace/app/assets/a.txt",
+        "/workspace/app/other/b.txt"
+      ],
+      "passed": true
+    },
+    {
+      "reference": "public_logic_adapter",
+      "relation": "cwd_precedes_source_metadata",
+      "before": [
+        "/workspace/app/sub/assets/a.txt",
+        "/workspace/app/sub/other/b.txt"
+      ],
+      "after": [
+        "/tmp/job/assets/a.txt",
+        "/tmp/data/b.txt"
+      ],
+      "passed": true
+    }
+  ],
+  "relation_passed": 9,
+  "model_calls": 0,
+  "external_api_calls": 0,
+  "private_reads": 0,
+  "human_reviews": 0,
+  "formal_labels": null,
+  "split": null,
+  "published": false,
+  "initial20_unchanged": true,
+  "limitations": [
+    "抽取POSIX规则，不等于完整Confuse对象/跨OS测试",
+    "三参考同助手非独立真值",
+    "六锚点非全域",
+    "真实PR支持来源与语义，不等人工需求标注",
+    "不证明拆分相对整体模型收益",
+    "P76公开测试片段暴露已登记"
+  ]
+}

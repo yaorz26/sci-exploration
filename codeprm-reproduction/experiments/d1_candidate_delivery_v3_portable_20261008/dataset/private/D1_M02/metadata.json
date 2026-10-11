@@ -1,0 +1,51 @@
+{
+  "task_id": "D1_M02",
+  "name": "按相邻下降划分序列",
+  "source": {
+    "repository": "more-itertools/more-itertools",
+    "commit": "81c21a8db1c922260cd673841257fb9b112c1318",
+    "license": "MIT",
+    "file": "more_itertools/more.py",
+    "symbol": "split_when",
+    "line": 1690,
+    "source_sha256": "1bdc5f323ea18906436a42268b942d5b4d15ac8b3ff17c1211a59fb192fa068e",
+    "license_sha256": "09f1c8c9e941af3e584d59641ea9b87d83c0cb0fd007eb5ef391a7e2643c1a46",
+    "contamination_risk": "unknown",
+    "additional_symbols": []
+  },
+  "requirement_origin": "上游公开API文档/说明为主，适配器范围与边界补充；已查看实现，需独立泄漏审查",
+  "adaptation": "统一JSON入口和返回值，保留所选功能；不作为完整仓库任务",
+  "split": "reserve",
+  "structure": {
+    "kind": "single_pass_control",
+    "shared_state": "adjacent_pair",
+    "dependency_evidence": "每个边界只依赖相邻两值和已用拆分次数",
+    "independent_test_evidence": "边界条件简单，强制多阶段可能增加成本，属于低拆分价值候选对照",
+    "status": "单人预标注，尚未取得独立一致性统计"
+  },
+  "function_family": "adjacent_runs",
+  "public_cases": 2,
+  "private_cases": 17,
+  "status": "候选原型，非冻结确认集",
+  "authoring_seed": 20261008,
+  "structure_v2": {
+    "schema_version": "0.2",
+    "cross_operation_state": "none",
+    "state_scope": "none",
+    "behavior_dependencies": [
+      "direct",
+      "branch_rules"
+    ],
+    "separate_behavior_testability": "no",
+    "evidence": "单一边界分段及上限规则，无输入操作历史",
+    "status": "单人初标；依据外部契约，未取得独立人工一致性统计",
+    "legacy_author_description": {
+      "kind": "single_pass_control",
+      "shared_state": "adjacent_pair",
+      "dependency_evidence": "每个边界只依赖相邻两值和已用拆分次数",
+      "independent_test_evidence": "边界条件简单，强制多阶段可能增加成本，属于低拆分价值候选对照",
+      "status": "单人预标注，尚未取得独立一致性统计"
+    }
+  },
+  "related_families": []
+}

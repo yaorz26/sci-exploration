@@ -1,0 +1,23 @@
+1. **初始化方法 (`__init__`)**:
+   - 实现获取当前日期和时间，并将其存储在类的实例变量 `self.datetime` 中。
+
+2. **获取当前时间 (`get_current_time`)**:
+   - 使用 `self.datetime` 获取当前时间，并将其格式化为 '%H:%M:%S'。
+
+3. **获取当前日期 (`get_current_date`)**:
+   - 使用 `self.datetime` 获取当前日期，并将其格式化为 '%Y-%m-%d'。
+
+4. **添加秒数 (`add_seconds`)**:
+   - 使用 `self.datetime` 加上指定的秒数，并返回格式化后的时间字符串 '%H:%M:%S'。
+
+5. **字符串转日期时间 (`string_to_datetime`)**:
+   - 使用 `datetime.strptime` 将字符串转换为 `datetime` 实例。
+
+6. **日期时间转字符串 (`datetime_to_string`)**:
+   - 使用 `strftime` 将 `datetime` 实例转换为字符串。
+
+7. **计算分钟差 (`get_minutes`)**:
+   - 使用 `string_to_datetime` 将两个时间字符串转换为 `datetime` 实例，然后计算它们之间的分钟差并返回。
+
+8. **格式化时间 (`get_format_time`)**:
+   - 使用 `datetime.strptime` 将年、月、日、时、分、秒组合成一个 `datetime` 实例，并返回格式化后的字符串。

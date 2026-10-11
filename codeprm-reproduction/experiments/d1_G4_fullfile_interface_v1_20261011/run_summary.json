@@ -1,0 +1,53 @@
+{
+  "protocol": "G4-v3-full-file",
+  "created_at": "20261011T090713Z",
+  "model": "qwen2.5-coder:7b",
+  "seed": 20261011,
+  "temperature": 0.2,
+  "num_ctx": 8192,
+  "arm_budget": 6500,
+  "output_cap": 2400,
+  "interface_change": "统一 diff → 完整文件内容（唯一变更）",
+  "scope": {
+    "only": "PR126",
+    "arms": [
+      "M0"
+    ]
+  },
+  "tokenizer": {
+    "path": "codeprm-reproduction\\models\\Qwen2.5-Coder-7B-Instruct\\tokenizer.json",
+    "available": true
+  },
+  "tasks": {
+    "REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS": {
+      "id": "REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS",
+      "arms": {
+        "M0": {
+          "preflight": {
+            "prompt_tokens": 1864,
+            "arm_budget": 6500,
+            "output_cap": 2400,
+            "remaining_after_prompt": 4636,
+            "request_sent": true,
+            "reason": null,
+            "num_predict_used": 2400
+          },
+          "status": "parse_problems",
+          "server_tokens": {
+            "prompt_eval_count": 1835,
+            "eval_count": 2,
+            "done_reason": "stop"
+          },
+          "elapsed_s": 7.5,
+          "files_received": [],
+          "problems": [
+            "未解析到任何 ### FILE 块"
+          ],
+          "tokenizer_matches_server": false
+        }
+      }
+    }
+  },
+  "model_calls": 1,
+  "total_tokens_known": 1837
+}

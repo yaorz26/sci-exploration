@@ -1,0 +1,177 @@
+{
+  "time": "2026-10-09T10:57:56.083133+00:00",
+  "macro_stage": "G1",
+  "plan": "../docs/week3/data-route/20261009/192_G1_task_admission_plan.md",
+  "rows": [
+    {
+      "id": "REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS",
+      "current_candidate": "experiments/d1_runnable_repository_task_v2_20261009/candidate",
+      "source": {
+        "repo": "beetbox/confuse",
+        "merge": "2c1f97e7b6aadbeb8bd6f112bd7ef965dbd977b0",
+        "parent": "8b69242b8facdd7d1f87113693ea72017d61a0ff",
+        "official_record": "experiments/d1_repository_feature_candidate_v1_20261009/confuse_pr126_metadata.json",
+        "title": "Add options for Filename templates to resolve relative paths using source file location",
+        "request": "These two commits allow confuse ConfigSources and Filename templates to be set up to resolve relative paths from the base directory of the configuration file itself, rather than the application's configuration directory. The new behavior is opt-in.\r\n\r\nThe first commit implements the new relative path behavior at the ConfigSource level, by allowing the source file to be marked as resolving paths relative to its base directory. This was the suggested approach in response to #125.\r\n\r\nThe second commit provides an additional way to invoke the new relative path behavior at the level of an individual template, regardless of the setting for the source. This could potentially allow applications to have more fine-grained control over path resolution. It would also allow applications to resolve paths in the application's default `config_default.yaml` file relative to that location within the package. This could be useful for packages with default settings that refer to a default data file. However, if it is not desirable to have two ways to invoke the same behavior, the second commit could be dropped."
+      },
+      "visible_function": "来源/模板/文件载入API传递路径基准，保持默认与覆盖行为",
+      "behavior_evidence": [
+        {
+          "label": "parent",
+          "passed": 1,
+          "total": 8,
+          "failures": [
+            "source_flag",
+            "template_flag",
+            "app_over_source_flag",
+            "cwd_over_source_flag",
+            "flag_without_filename",
+            "absolute_preserved",
+            "file_loader_flag"
+          ]
+        },
+        {
+          "label": "complete",
+          "passed": 8,
+          "total": 8,
+          "failures": []
+        },
+        {
+          "label": "source_only",
+          "passed": 5,
+          "total": 8,
+          "failures": [
+            "source_flag",
+            "template_flag",
+            "file_loader_flag"
+          ]
+        },
+        {
+          "label": "core_omission",
+          "passed": 7,
+          "total": 8,
+          "failures": [
+            "file_loader_flag"
+          ]
+        }
+      ],
+      "organization_evidence": {
+        "saved_alternative": "experiments/d1_repository_alternative_organization_v1_20261009/actual.json",
+        "passed": 8,
+        "total": 8,
+        "scope": "同八公开输入的单模块组织，非全域API等价"
+      },
+      "task_evidence": "源对象元数据到Filename的跨组件数据连接；对象级保存，不据此认定唯一阶段或跨helper共享",
+      "testability_limit": "多个路径开关能观察，但各行为用途的独立性与正式结构标签未审定",
+      "budget_limit": "1982输入+1400给定正确patch=3382仅容纳；全模块超预算；真实生成和公平多轮未证",
+      "admission": "有限公开行为的研究候选；正式冻结/主A实证条件未满足",
+      "formal_labels": null,
+      "split": null,
+      "human_reviews": 0,
+      "evidence": [
+        "experiments/d1_repository_feature_candidate_v1_20261009/actual_project_v1/structure_evidence_v1.json",
+        "experiments/d1_repository_symbol_context_patch_v1_20261009/actual_result.json"
+      ]
+    },
+    {
+      "id": "REPO_CACHETOOLS_EXPIRED_REPORT",
+      "current_candidate": "experiments/d1_repository_expiry_public_oracle_v1_20261009/candidate",
+      "source": {
+        "repo": "tkem/cachetools",
+        "feature": "bb4b37cfc76ba42707db59a90220bf724393d263",
+        "parent": "726b0111e06f655c332ea4765a89d4669719649b",
+        "message": "Fix #292, fix #205, fix #103: TTLCache.expire() returns iterable of expired (key, value) pairs.",
+        "official_record": "experiments/d1_cache_expiry_repository_task_v1_20261009/official_feature_commit.json",
+        "issue": "experiments/d1_cache_expiry_repository_task_v1_20261009/official_requirement_issue292.json"
+      },
+      "visible_function": "过期清理与本次清理(key,value)报告；显式时间边界/重复/插入清理",
+      "behavior_evidence": [
+        {
+          "name": "complete",
+          "passed": 5,
+          "total": 5,
+          "all_pass": true,
+          "prediction_match": true
+        },
+        {
+          "name": "delegated",
+          "passed": 5,
+          "total": 5,
+          "all_pass": true,
+          "prediction_match": true
+        },
+        {
+          "name": "report_only",
+          "passed": 1,
+          "total": 5,
+          "all_pass": false,
+          "prediction_match": true
+        },
+        {
+          "name": "deferred",
+          "passed": 1,
+          "total": 5,
+          "all_pass": false,
+          "prediction_match": true
+        }
+      ],
+      "organization_evidence": {
+        "saved_delegated": "experiments/d1_delegated_state_oracle_v2_20261009/summary.json",
+        "scope": "P94同五公开场景接受委托，非全库语义等价"
+      },
+      "task_evidence": "时间/插入历史与清理状态相关，报告及后续容量观察有连接；不是非缓存历史机制",
+      "construction_added_clause": "P90要求调用返回前物理存储和容量改变；当前公开读取有副作用，不能证明全域物理时点",
+      "delivery_defect": {
+        "requirement_refers_to": "evaluate_timing.py",
+        "current_top_level_files": [
+          "evaluate.py",
+          "requirement.md",
+          "RUN.md"
+        ],
+        "status": "当前目录未含需求提及的独立脚本；不把P90额外脚本执行冒称P94交付验证"
+      },
+      "testability_limit": "len/currsize/迭代可能触发清理；公开观察状态与先前物理状态分开",
+      "admission": "公开报告/状态的有限诊断研究候选，时点条款未充分识别与交付文字不一致，不能正式验收",
+      "formal_labels": null,
+      "split": null,
+      "human_reviews": 0,
+      "evidence": [
+        "experiments/d1_repository_expiry_public_oracle_v1_20261009/candidate/requirement.md",
+        "experiments/d1_repository_expiry_public_oracle_v1_20261009/candidate/RUN.md",
+        "experiments/d1_repository_expiry_public_oracle_v1_20261009/candidate/evaluate.py",
+        "experiments/d1_public_cleanup_observability_feasibility_v1_20261009/public_observation_paths_first_action.json"
+      ]
+    }
+  ],
+  "admission_criteria": [
+    "真实需求与直接父源码可追溯，必要依赖可用",
+    "实际项目API/调用路径，不只是JSON重写",
+    "有限正常/关键区别/旧行为保持证据，遗漏控制不是导入失败",
+    "合法替代组织同观察域相容；不规定参考私有存储",
+    "官方义务/新增约束/观察/推断分开，未验证条款保持待解决",
+    "研究池标签/切分null、人类0，模型和正式冻结条件另列"
+  ],
+  "gap_priority": [
+    {
+      "gap": "K2",
+      "priority": 1,
+      "reason": "两真实任务没有非缓存游标/操作历史任务；输入流不等对象操作序列，需真实官方功能确认"
+    },
+    {
+      "gap": "K1",
+      "priority": 2,
+      "reason": "已有路径连接，可补非路径域但先避免再做同类元数据开关"
+    },
+    {
+      "gap": "K3",
+      "priority": 3,
+      "reason": "用途独立需要自然需求证据，不能仅以report/state或字段数充数"
+    }
+  ],
+  "next_unknown": "more-itertools的真实游标功能变更能否形成操作历史、合法替代组织、非破坏性公开观察的项目任务",
+  "new_behavior_evaluations": 0,
+  "new_model_calls": 0,
+  "new_downloads": 0,
+  "new_human_reviews": 0,
+  "contribution_status": "一次必要设计支撑，不是新增任务或主A结果"
+}

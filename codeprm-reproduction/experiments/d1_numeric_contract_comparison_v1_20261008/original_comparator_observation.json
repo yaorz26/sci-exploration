@@ -1,0 +1,60 @@
+{
+  "status": "原比较器八JSON/非JSON控制已比较，候选正式数值契约尚未冻结",
+  "comparisons": [
+    {
+      "case": "保存完整输出差异",
+      "json_equal_default": false,
+      "left_representation": "{'mean': 2.3333333333333335, 'variance': 3.555555555555556}",
+      "right_representation": "{'mean': 2.3333333333333335, 'variance': 3.5555555555555554}"
+    },
+    {
+      "case": "同对象值复制",
+      "json_equal_default": true,
+      "left_representation": "{'mean': 2.3333333333333335, 'variance': 3.555555555555556}",
+      "right_representation": "{'mean': 2.3333333333333335, 'variance': 3.555555555555556}"
+    },
+    {
+      "case": "int/float同值",
+      "json_equal_default": true,
+      "left_representation": "1",
+      "right_representation": "1.0"
+    },
+    {
+      "case": "bool/number",
+      "json_equal_default": false,
+      "left_representation": "False",
+      "right_representation": "0"
+    },
+    {
+      "case": "明确数值错误",
+      "json_equal_default": false,
+      "left_representation": "{'mean': 2.3333333333333335, 'variance': 3.555555555555556}",
+      "right_representation": "{'mean': 2.3333333333333335, 'variance': 3.5565555555555557}"
+    },
+    {
+      "case": "NaN/NaN",
+      "json_equal_default": false,
+      "left_representation": "nan",
+      "right_representation": "nan"
+    },
+    {
+      "case": "Infinity/Infinity",
+      "json_equal_default": true,
+      "left_representation": "inf",
+      "right_representation": "inf"
+    },
+    {
+      "case": "字典键顺序反转",
+      "json_equal_default": true,
+      "left_representation": "{'mean': 2.3333333333333335, 'variance': 3.555555555555556}",
+      "right_representation": "{'variance': 3.555555555555556, 'mean': 2.3333333333333335}"
+    }
+  ],
+  "old_exact_float_comparison_accepts_saved_difference": false,
+  "scope": "孤立函数行为，不等同整个评分器接纳非有限输出；仅E_B08候选问题，不改原20规则或成绩",
+  "model_calls": 0,
+  "API_calls": 0,
+  "task_evaluations": 0,
+  "hidden_reads": 0,
+  "next": "限定候选数值输入域/非有限数/误差规则，不推广容差；不能合理限定则候选留池换路"
+}

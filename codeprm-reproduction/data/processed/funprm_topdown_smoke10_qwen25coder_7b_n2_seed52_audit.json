@@ -1,0 +1,56 @@
+{
+  "experiment": "funprm_topdown_phase1_smoke",
+  "created_at": "2026-09-22T15:52:32+08:00",
+  "data": "data/processed/apps_train_introductory50_private_safe.json",
+  "problem_rule": "前 10 题",
+  "model": "qwen2.5-coder:7b",
+  "seed": 52,
+  "candidates_per_problem": 2,
+  "private_evaluation_deferred": true,
+  "pass_rule": {
+    "minimum_problems_with_structurally_valid_candidate": 8,
+    "all_prefix_checks_must_pass": true,
+    "private_test_executions_must_equal": 0
+  },
+  "v1": {
+    "generation_requests": 20,
+    "valid_generations": 3,
+    "problems_with_structurally_valid_candidate": 2,
+    "selected_public_all_pass": 1,
+    "private_program_evaluations": 0,
+    "private_test_executions": 0,
+    "errors": {
+      "function_count_out_of_range": 16,
+      "nested_function_definitions": 3,
+      "syntax_error": 1
+    },
+    "passed": false
+  },
+  "v2_after_only_allowed_prompt_repair": {
+    "generation_requests": 20,
+    "valid_generations": 8,
+    "problems_with_structurally_valid_candidate": 6,
+    "selected_public_all_pass": 2,
+    "private_program_evaluations": 0,
+    "private_test_executions": 0,
+    "prefix_nodes": 11,
+    "prefix_checks_passed": 11,
+    "all_prefix_checks_pass": true,
+    "errors": {
+      "function_count_out_of_range": 11,
+      "nested_function_definitions": 1,
+      "missing_function_docstrings": 1
+    },
+    "passed": false
+  },
+  "phase_result": "fail_stop",
+  "reason": "预注册允许的唯一一次提示修复后，只有 6/10 题出现结构有效候选，低于 8/10 门槛。",
+  "output_sha256": {
+    "v1_generations": "fd3f017dafe817e4684b0573bf82eb35f649ea1d0795b928dbb0496421b46a95",
+    "v1_evaluations": "27afef51553f057ef85bc68c7b40866bbd460aea35e0d5b45831fd53169a74b3",
+    "v1_summary": "f82ef8a763d4302b1345b2d70948a470048e08610ef9f3a05194cad3cee05112",
+    "v2_generations": "1862a67aee2e20855bf665f5673ee155c3e5b7e3941dd9aebe82d43a3dfec83a",
+    "v2_evaluations": "62e6f72a6206aecd989fcdca9c23283c0030afb66fea9e0ca8877697be3188d6",
+    "v2_summary": "1813ac6cf7135c309e7d6ef377182e9e8666d30508b9aa3d7470d3e130a0db44"
+  }
+}

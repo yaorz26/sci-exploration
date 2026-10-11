@@ -1,0 +1,476 @@
+{
+  "created_at": "2026-10-08T14:38:08.844048+00:00",
+  "status": "前置行与规则冻结，未读取结果/测试",
+  "sources": [
+    {
+      "path": "data\\processed\\d1_project_initial20_v5_20261008\\manifest.json",
+      "sha256": "c3593d11ae85cc23545aa91418c2ab3c97a4b005fd5e49963bdc28ae7e6eda9f"
+    },
+    {
+      "path": "experiments\\d1_family_link_audit_v1_20261008.json",
+      "sha256": "34aa268f7077a3fce48affae3293d923f8ed4b4b86906ee6cecec6179f9164e2"
+    },
+    {
+      "path": "experiments\\d1_project_initial20_v5_20261008\\family_sensitivity_groups.json",
+      "sha256": "bd5be2a5212f3b0a79f4c462a928271499c7e7ac454987007ef141be51852248"
+    }
+  ],
+  "rows": [
+    {
+      "task_id": "D1_B01",
+      "name": "编号区间文本转换",
+      "source": "mahmoud/boltons",
+      "split": "development",
+      "behavior_dependencies": [
+        "ordered_transform"
+      ],
+      "state_scope": "none",
+      "separate_behavior_testability": "yes",
+      "cross_operation_state": "none",
+      "function_family": "range_parser",
+      "label_status": "单人初标；依据外部契约，未取得独立人工一致性统计"
+    },
+    {
+      "task_id": "D1_B02",
+      "name": "有序多值记录操作",
+      "source": "mahmoud/boltons",
+      "split": "development",
+      "behavior_dependencies": [
+        "operation_sequence"
+      ],
+      "state_scope": "global",
+      "separate_behavior_testability": "partial",
+      "cross_operation_state": "operation_sequence",
+      "function_family": "ordered_multimap",
+      "label_status": "单人初标；依据外部契约，未取得独立人工一致性统计"
+    },
+    {
+      "task_id": "D1_M01",
+      "name": "定宽滑动数据窗口",
+      "source": "more-itertools/more-itertools",
+      "split": "reserve",
+      "behavior_dependencies": [
+        "branch_rules"
+      ],
+      "state_scope": "none",
+      "separate_behavior_testability": "partial",
+      "cross_operation_state": "none",
+      "function_family": "sliding_windows",
+      "label_status": "单人初标；依据外部契约，未取得独立人工一致性统计"
+    },
+    {
+      "task_id": "D1_M02",
+      "name": "按相邻下降划分序列",
+      "source": "more-itertools/more-itertools",
+      "split": "reserve",
+      "behavior_dependencies": [
+        "branch_rules",
+        "direct"
+      ],
+      "state_scope": "none",
+      "separate_behavior_testability": "no",
+      "cross_operation_state": "none",
+      "function_family": "adjacent_runs",
+      "label_status": "单人初标；依据外部契约，未取得独立人工一致性统计"
+    },
+    {
+      "task_id": "D1_C01",
+      "name": "限容量最近使用缓存",
+      "source": "tkem/cachetools",
+      "split": "development",
+      "behavior_dependencies": [
+        "operation_sequence"
+      ],
+      "state_scope": "global",
+      "separate_behavior_testability": "partial",
+      "cross_operation_state": "operation_sequence",
+      "function_family": "cache_lru",
+      "label_status": "单人初标；依据外部契约，未取得独立人工一致性统计"
+    },
+    {
+      "task_id": "D1_C02",
+      "name": "带期限的最近使用缓存",
+      "source": "tkem/cachetools",
+      "split": "development",
+      "behavior_dependencies": [
+        "operation_sequence"
+      ],
+      "state_scope": "global",
+      "separate_behavior_testability": "partial",
+      "cross_operation_state": "operation_sequence",
+      "function_family": "cache_ttl",
+      "label_status": "单人初标；依据外部契约，未取得独立人工一致性统计"
+    },
+    {
+      "task_id": "D1_F01",
+      "name": "字符串配置值规范化",
+      "source": "beetbox/confuse",
+      "split": "reserve",
+      "behavior_dependencies": [
+        "branch_rules",
+        "direct"
+      ],
+      "state_scope": "none",
+      "separate_behavior_testability": "no",
+      "cross_operation_state": "none",
+      "function_family": "string_config",
+      "label_status": "单人初标；依据外部契约，未取得独立人工一致性统计"
+    },
+    {
+      "task_id": "D1_F02",
+      "name": "混合键值配置规范化",
+      "source": "beetbox/confuse",
+      "split": "reserve",
+      "behavior_dependencies": [
+        "branch_rules"
+      ],
+      "state_scope": "none",
+      "separate_behavior_testability": "partial",
+      "cross_operation_state": "none",
+      "function_family": "pair_config",
+      "label_status": "单人初标；依据外部契约，未取得独立人工一致性统计"
+    },
+    {
+      "task_id": "D1_B03",
+      "name": "日志转义控制码清理",
+      "source": "mahmoud/boltons",
+      "split": "development",
+      "behavior_dependencies": [
+        "direct"
+      ],
+      "state_scope": "none",
+      "separate_behavior_testability": "no",
+      "cross_operation_state": "none",
+      "function_family": "ansi_cleanup",
+      "label_status": "单人初标；依据外部契约，未取得独立人工一致性统计"
+    },
+    {
+      "task_id": "D1_B04",
+      "name": "查询参数解析编辑与编码",
+      "source": "mahmoud/boltons",
+      "split": "development",
+      "behavior_dependencies": [
+        "operation_sequence",
+        "ordered_transform"
+      ],
+      "state_scope": "global",
+      "separate_behavior_testability": "yes",
+      "cross_operation_state": "operation_sequence",
+      "function_family": "query_editing",
+      "label_status": "单人初标；依据外部契约，未取得独立人工一致性统计"
+    },
+    {
+      "task_id": "D1_B05",
+      "name": "嵌套数据转换与结果路径筛选",
+      "source": "mahmoud/boltons",
+      "split": "development",
+      "behavior_dependencies": [
+        "ordered_transform"
+      ],
+      "state_scope": "none",
+      "separate_behavior_testability": "yes",
+      "cross_operation_state": "none",
+      "function_family": "tree_transform_search",
+      "label_status": "单人初标；依据外部契约，未取得独立人工一致性统计"
+    },
+    {
+      "task_id": "D1_B06",
+      "name": "批量嵌套路径读取",
+      "source": "mahmoud/boltons",
+      "split": "development",
+      "behavior_dependencies": [
+        "branch_rules",
+        "direct"
+      ],
+      "state_scope": "none",
+      "separate_behavior_testability": "no",
+      "cross_operation_state": "none",
+      "function_family": "nested_path_query",
+      "label_status": "单人初标；依据外部契约，未取得独立人工一致性统计"
+    },
+    {
+      "task_id": "D1_M03",
+      "name": "可回退读取及前缀缓存",
+      "source": "more-itertools/more-itertools",
+      "split": "reserve",
+      "behavior_dependencies": [
+        "operation_sequence"
+      ],
+      "state_scope": "global",
+      "separate_behavior_testability": "partial",
+      "cross_operation_state": "operation_sequence",
+      "function_family": "seekable_iteration",
+      "label_status": "单人初标；依据外部契约，未取得独立人工一致性统计"
+    },
+    {
+      "task_id": "D1_M04",
+      "name": "按键保序分桶与独立消费",
+      "source": "more-itertools/more-itertools",
+      "split": "reserve",
+      "behavior_dependencies": [
+        "operation_sequence",
+        "ordered_transform"
+      ],
+      "state_scope": "partitioned",
+      "separate_behavior_testability": "yes",
+      "cross_operation_state": "operation_sequence",
+      "function_family": "keyed_bucket_reads",
+      "label_status": "单人初标；依据外部契约，未取得独立人工一致性统计"
+    },
+    {
+      "task_id": "D1_M05",
+      "name": "多列稳定联合排序",
+      "source": "more-itertools/more-itertools",
+      "split": "reserve",
+      "behavior_dependencies": [
+        "branch_rules",
+        "ordered_transform"
+      ],
+      "state_scope": "none",
+      "separate_behavior_testability": "yes",
+      "cross_operation_state": "none",
+      "function_family": "aligned_column_sort",
+      "label_status": "单人初标；依据外部契约，未取得独立人工一致性统计"
+    },
+    {
+      "task_id": "D1_C03",
+      "name": "带计算计数的函数调用缓存",
+      "source": "tkem/cachetools",
+      "split": "development",
+      "behavior_dependencies": [
+        "branch_rules",
+        "operation_sequence"
+      ],
+      "state_scope": "global",
+      "separate_behavior_testability": "yes",
+      "cross_operation_state": "operation_sequence",
+      "function_family": "memoized_calls",
+      "label_status": "单人初标；依据外部契约，未取得独立人工一致性统计"
+    },
+    {
+      "task_id": "D1_C04",
+      "name": "多实例方法缓存隔离",
+      "source": "tkem/cachetools",
+      "split": "development",
+      "behavior_dependencies": [
+        "operation_sequence"
+      ],
+      "state_scope": "partitioned",
+      "separate_behavior_testability": "partial",
+      "cross_operation_state": "operation_sequence",
+      "function_family": "instance_method_cache",
+      "label_status": "单人初标；依据外部契约，未取得独立人工一致性统计"
+    },
+    {
+      "task_id": "D1_C05",
+      "name": "调用参数的类型敏感等价判断",
+      "source": "tkem/cachetools",
+      "split": "development",
+      "behavior_dependencies": [
+        "branch_rules",
+        "direct"
+      ],
+      "state_scope": "none",
+      "separate_behavior_testability": "no",
+      "cross_operation_state": "none",
+      "function_family": "call_key_equivalence",
+      "label_status": "单人初标；依据外部契约，未取得独立人工一致性统计"
+    },
+    {
+      "task_id": "D1_F03",
+      "name": "分层配置的递归优先级合并",
+      "source": "beetbox/confuse",
+      "split": "reserve",
+      "behavior_dependencies": [
+        "branch_rules",
+        "ordered_transform"
+      ],
+      "state_scope": "none",
+      "separate_behavior_testability": "yes",
+      "cross_operation_state": "none",
+      "function_family": "layered_config",
+      "label_status": "单人初标；依据外部契约，未取得独立人工一致性统计"
+    },
+    {
+      "task_id": "D1_F04",
+      "name": "对象字段与数值序列配置校验",
+      "source": "beetbox/confuse",
+      "split": "reserve",
+      "behavior_dependencies": [
+        "branch_rules",
+        "ordered_transform"
+      ],
+      "state_scope": "none",
+      "separate_behavior_testability": "yes",
+      "cross_operation_state": "none",
+      "function_family": "object_sequence_validation",
+      "label_status": "单人初标；依据外部契约，未取得独立人工一致性统计"
+    }
+  ],
+  "axes": [
+    "behavior_dependencies",
+    "state_scope",
+    "separate_behavior_testability"
+  ],
+  "explicit_components": [
+    [
+      "D1_B01"
+    ],
+    [
+      "D1_B02",
+      "D1_B04"
+    ],
+    [
+      "D1_B03"
+    ],
+    [
+      "D1_B05"
+    ],
+    [
+      "D1_B06"
+    ],
+    [
+      "D1_C01",
+      "D1_C02",
+      "D1_C03",
+      "D1_C04",
+      "D1_C05"
+    ],
+    [
+      "D1_F01"
+    ],
+    [
+      "D1_F02"
+    ],
+    [
+      "D1_F03"
+    ],
+    [
+      "D1_F04"
+    ],
+    [
+      "D1_M01"
+    ],
+    [
+      "D1_M02"
+    ],
+    [
+      "D1_M03"
+    ],
+    [
+      "D1_M04"
+    ],
+    [
+      "D1_M05"
+    ]
+  ],
+  "wider_sensitivity_components": [
+    [
+      "D1_B01"
+    ],
+    [
+      "D1_B02",
+      "D1_B04"
+    ],
+    [
+      "D1_B03"
+    ],
+    [
+      "D1_B05",
+      "D1_B06"
+    ],
+    [
+      "D1_C01",
+      "D1_C02",
+      "D1_C03",
+      "D1_C04",
+      "D1_C05"
+    ],
+    [
+      "D1_F01"
+    ],
+    [
+      "D1_F02"
+    ],
+    [
+      "D1_F03"
+    ],
+    [
+      "D1_F04"
+    ],
+    [
+      "D1_M01"
+    ],
+    [
+      "D1_M02"
+    ],
+    [
+      "D1_M03"
+    ],
+    [
+      "D1_M04"
+    ],
+    [
+      "D1_M05"
+    ]
+  ],
+  "rule": "同来源，目标轴不同，另外两轴完全相同；各集合内保留全任务对分母",
+  "subsets": {
+    "all20": [
+      "D1_B01",
+      "D1_B02",
+      "D1_B03",
+      "D1_B04",
+      "D1_B05",
+      "D1_B06",
+      "D1_C01",
+      "D1_C02",
+      "D1_C03",
+      "D1_C04",
+      "D1_C05",
+      "D1_F01",
+      "D1_F02",
+      "D1_F03",
+      "D1_F04",
+      "D1_M01",
+      "D1_M02",
+      "D1_M03",
+      "D1_M04",
+      "D1_M05"
+    ],
+    "development11": [
+      "D1_B01",
+      "D1_B02",
+      "D1_C01",
+      "D1_C02",
+      "D1_B03",
+      "D1_B04",
+      "D1_B05",
+      "D1_B06",
+      "D1_C03",
+      "D1_C04",
+      "D1_C05"
+    ],
+    "reserve9": [
+      "D1_M01",
+      "D1_M02",
+      "D1_F01",
+      "D1_F02",
+      "D1_M03",
+      "D1_M04",
+      "D1_M05",
+      "D1_F03",
+      "D1_F04"
+    ]
+  },
+  "limits": [
+    "作者初标人工0，不是新测量真值",
+    "完整依赖集合严格匹配，空格不代表语义不可比",
+    "跨显式组件不保证独立；宽群为敏感性",
+    "有支撑不保证难度/题面长/功能域相同或因果可识别"
+  ],
+  "model_calls": 0,
+  "API_calls": 0,
+  "hidden_test_reads": 0,
+  "task_evaluations": 0
+}

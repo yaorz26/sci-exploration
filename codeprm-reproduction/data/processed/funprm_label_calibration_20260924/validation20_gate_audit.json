@@ -1,0 +1,193 @@
+{
+  "problems": 20,
+  "candidate_slots_per_problem": 10,
+  "metrics": {
+    "new_neural_all_pass_count": 9,
+    "old_neural_all_pass_count": 9,
+    "first_candidate_all_pass_count": 0,
+    "uniform_random_single_expected_all_pass_count": 0.0,
+    "pool_oracle_all_pass_count": 0,
+    "pool_oracle_minus_first_count": 0,
+    "new_vs_old_wins": 2,
+    "new_vs_old_losses": 2
+  },
+  "gate": {
+    "minimum_pool_headroom": 2,
+    "new_not_below_old": true,
+    "new_not_below_first": true,
+    "new_not_below_uniform_random_expected": true,
+    "pool_headroom_at_least_minimum": false,
+    "overall_pass": false
+  },
+  "rows": [
+    {
+      "problem_id": "apps-train-2970",
+      "new_neural_all_pass": false,
+      "old_neural_all_pass": false,
+      "first_candidate_all_pass": false,
+      "uniform_random_single_success_probability": 0.0,
+      "pool_oracle_all_pass": false
+    },
+    {
+      "problem_id": "apps-train-2971",
+      "new_neural_all_pass": true,
+      "old_neural_all_pass": true,
+      "first_candidate_all_pass": false,
+      "uniform_random_single_success_probability": 0.0,
+      "pool_oracle_all_pass": false
+    },
+    {
+      "problem_id": "apps-train-2972",
+      "new_neural_all_pass": false,
+      "old_neural_all_pass": false,
+      "first_candidate_all_pass": false,
+      "uniform_random_single_success_probability": 0.0,
+      "pool_oracle_all_pass": false
+    },
+    {
+      "problem_id": "apps-train-2973",
+      "new_neural_all_pass": false,
+      "old_neural_all_pass": false,
+      "first_candidate_all_pass": false,
+      "uniform_random_single_success_probability": 0.0,
+      "pool_oracle_all_pass": false
+    },
+    {
+      "problem_id": "apps-train-2974",
+      "new_neural_all_pass": true,
+      "old_neural_all_pass": true,
+      "first_candidate_all_pass": false,
+      "uniform_random_single_success_probability": 0.0,
+      "pool_oracle_all_pass": false
+    },
+    {
+      "problem_id": "apps-train-2975",
+      "new_neural_all_pass": false,
+      "old_neural_all_pass": true,
+      "first_candidate_all_pass": false,
+      "uniform_random_single_success_probability": 0.0,
+      "pool_oracle_all_pass": false
+    },
+    {
+      "problem_id": "apps-train-2976",
+      "new_neural_all_pass": true,
+      "old_neural_all_pass": true,
+      "first_candidate_all_pass": false,
+      "uniform_random_single_success_probability": 0.0,
+      "pool_oracle_all_pass": false
+    },
+    {
+      "problem_id": "apps-train-2977",
+      "new_neural_all_pass": true,
+      "old_neural_all_pass": true,
+      "first_candidate_all_pass": false,
+      "uniform_random_single_success_probability": 0.0,
+      "pool_oracle_all_pass": false
+    },
+    {
+      "problem_id": "apps-train-2978",
+      "new_neural_all_pass": false,
+      "old_neural_all_pass": false,
+      "first_candidate_all_pass": false,
+      "uniform_random_single_success_probability": 0.0,
+      "pool_oracle_all_pass": false
+    },
+    {
+      "problem_id": "apps-train-2979",
+      "new_neural_all_pass": true,
+      "old_neural_all_pass": true,
+      "first_candidate_all_pass": false,
+      "uniform_random_single_success_probability": 0.0,
+      "pool_oracle_all_pass": false
+    },
+    {
+      "problem_id": "apps-train-2980",
+      "new_neural_all_pass": false,
+      "old_neural_all_pass": false,
+      "first_candidate_all_pass": false,
+      "uniform_random_single_success_probability": 0.0,
+      "pool_oracle_all_pass": false
+    },
+    {
+      "problem_id": "apps-train-2981",
+      "new_neural_all_pass": true,
+      "old_neural_all_pass": true,
+      "first_candidate_all_pass": false,
+      "uniform_random_single_success_probability": 0.0,
+      "pool_oracle_all_pass": false
+    },
+    {
+      "problem_id": "apps-train-2982",
+      "new_neural_all_pass": true,
+      "old_neural_all_pass": true,
+      "first_candidate_all_pass": false,
+      "uniform_random_single_success_probability": 0.0,
+      "pool_oracle_all_pass": false
+    },
+    {
+      "problem_id": "apps-train-2983",
+      "new_neural_all_pass": false,
+      "old_neural_all_pass": false,
+      "first_candidate_all_pass": false,
+      "uniform_random_single_success_probability": 0.0,
+      "pool_oracle_all_pass": false
+    },
+    {
+      "problem_id": "apps-train-2984",
+      "new_neural_all_pass": true,
+      "old_neural_all_pass": false,
+      "first_candidate_all_pass": false,
+      "uniform_random_single_success_probability": 0.0,
+      "pool_oracle_all_pass": false
+    },
+    {
+      "problem_id": "apps-train-2985",
+      "new_neural_all_pass": false,
+      "old_neural_all_pass": false,
+      "first_candidate_all_pass": false,
+      "uniform_random_single_success_probability": 0.0,
+      "pool_oracle_all_pass": false
+    },
+    {
+      "problem_id": "apps-train-2986",
+      "new_neural_all_pass": true,
+      "old_neural_all_pass": false,
+      "first_candidate_all_pass": false,
+      "uniform_random_single_success_probability": 0.0,
+      "pool_oracle_all_pass": false
+    },
+    {
+      "problem_id": "apps-train-2987",
+      "new_neural_all_pass": false,
+      "old_neural_all_pass": false,
+      "first_candidate_all_pass": false,
+      "uniform_random_single_success_probability": 0.0,
+      "pool_oracle_all_pass": false
+    },
+    {
+      "problem_id": "apps-train-2988",
+      "new_neural_all_pass": false,
+      "old_neural_all_pass": false,
+      "first_candidate_all_pass": false,
+      "uniform_random_single_success_probability": 0.0,
+      "pool_oracle_all_pass": false
+    },
+    {
+      "problem_id": "apps-train-2989",
+      "new_neural_all_pass": false,
+      "old_neural_all_pass": true,
+      "first_candidate_all_pass": false,
+      "uniform_random_single_success_probability": 0.0,
+      "pool_oracle_all_pass": false
+    }
+  ],
+  "experiment": "funprm_helperfirst_scale_prm_20260924",
+  "new_selection": "data\\processed\\funprm_label_calibration_20260924\\validation20_new_adapter_selection.json",
+  "new_selection_sha256": "215a5cd67b99bb92de78220aab5158b1b34cd9ff85a15a6264dfe2bdb19af851",
+  "old_selection": "data\\processed\\funprm_label_calibration_20260924\\validation20_old_adapter_selection.json",
+  "old_selection_sha256": "bc9987dfe6fa260d84b6cbdaddbcb38a3d77bf4403e2e69ccab922f4405dc673",
+  "pool_oracle": "data\\processed\\funprm_label_calibration_20260924\\validation20_pool_oracle.json",
+  "pool_oracle_sha256": "ffaf376ae0c21b2543951cbac421004a4040ad1caaae116bca5bb08107a2d802",
+  "selection_policy": "Both adapters select by highest mean +/- prefix score with candidate-index tie-break; private tests only follow frozen selection.",
+  "interpretation": "Frozen validation gate; it does not itself establish confirmation-set performance."
+}

@@ -1,0 +1,105 @@
+{
+  "task": "queueutils 队首语义（K2 非缓存操作历史候选）",
+  "domain": "五个公开操作的有限调用序列；任务名为字符串；优先级为整数或浮点数",
+  "expected_derivation": "逐条按 requirement.md 的公开义务手写推导，不运行参考实现后回填",
+  "cases": [
+    {
+      "id": "same_priority_fifo",
+      "class": "PriorityQueue",
+      "ops": [
+        {"op": "add", "task": "a", "priority": 1},
+        {"op": "add", "task": "b", "priority": 1},
+        {"op": "peek"},
+        {"op": "len"}
+      ],
+      "expected": [
+        {"op": "add", "task": "a"},
+        {"op": "add", "task": "b"},
+        {"op": "peek", "value": "a"},
+        {"op": "len", "value": 2}
+      ]
+    },
+    {
+      "id": "readd_moves_to_back_same_priority",
+      "class": "PriorityQueue",
+      "ops": [
+        {"op": "add", "task": "a", "priority": 1},
+        {"op": "add", "task": "b", "priority": 1},
+        {"op": "add", "task": "a", "priority": 1},
+        {"op": "peek"},
+        {"op": "len"}
+      ],
+      "expected": [
+        {"op": "add", "task": "a"},
+        {"op": "add", "task": "b"},
+        {"op": "add", "task": "a"},
+        {"op": "peek", "value": "b"},
+        {"op": "len", "value": 2}
+      ]
+    },
+    {
+      "id": "priority_still_dominates_after_readd",
+      "class": "PriorityQueue",
+      "ops": [
+        {"op": "add", "task": "low", "priority": 1},
+        {"op": "add", "task": "high", "priority": 5},
+        {"op": "add", "task": "low", "priority": 1},
+        {"op": "peek"},
+        {"op": "pop"},
+        {"op": "peek"}
+      ],
+      "expected": [
+        {"op": "add", "task": "low"},
+        {"op": "add", "task": "high"},
+        {"op": "add", "task": "low"},
+        {"op": "peek", "value": "high"},
+        {"op": "pop", "value": "high"},
+        {"op": "peek", "value": "low"}
+      ]
+    },
+    {
+      "id": "remove_then_peek",
+      "class": "PriorityQueue",
+      "ops": [
+        {"op": "add", "task": "a", "priority": 1},
+        {"op": "add", "task": "b", "priority": 1},
+        {"op": "remove", "task": "a"},
+        {"op": "peek"},
+        {"op": "len"}
+      ],
+      "expected": [
+        {"op": "add", "task": "a"},
+        {"op": "add", "task": "b"},
+        {"op": "remove", "task": "a", "ok": true},
+        {"op": "peek", "value": "b"},
+        {"op": "len", "value": 1}
+      ]
+    },
+    {
+      "id": "empty_default_then_add",
+      "class": "PriorityQueue",
+      "ops": [
+        {"op": "peek", "default": "none"},
+        {"op": "pop", "default": "none"},
+        {"op": "add", "task": "a", "priority": 1},
+        {"op": "peek"},
+        {"op": "len"}
+      ],
+      "expected": [
+        {"op": "peek", "value": "none"},
+        {"op": "pop", "value": "none"},
+        {"op": "add", "task": "a"},
+        {"op": "peek", "value": "a"},
+        {"op": "len", "value": 1}
+      ]
+    },
+    {
+      "id": "empty_without_default_raises",
+      "class": "PriorityQueue",
+      "expect_exception": "IndexError",
+      "ops": [
+        {"op": "peek"}
+      ]
+    }
+  ]
+}

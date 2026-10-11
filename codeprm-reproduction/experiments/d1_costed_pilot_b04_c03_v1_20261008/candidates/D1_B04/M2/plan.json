@@ -1,0 +1,24 @@
+{
+  "helpers": [
+    {
+      "name": "_parse_query",
+      "signature": "def _parse_query(query):",
+      "contract": "解析查询字符串，返回键值对列表。忽略空段，处理+解码和%HH解码。",
+      "depends_on": []
+    },
+    {
+      "name": "_encode_query",
+      "signature": "def _encode_query(pairs):",
+      "contract": "将键值对列表编码为查询字符串。处理空格编码和ASCII字母数字及~-._!$'()*,;/:?@原样编码。",
+      "depends_on": []
+    },
+    {
+      "name": "_apply_operations",
+      "signature": "def _apply_operations(pairs, operations):",
+      "contract": "根据操作列表修改键值对列表。支持add、set和delete操作。",
+      "depends_on": [
+        "_parse_query"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "task_id": "E_B09",
+  "candidate_version": 2,
+  "extends": "../../d1_discrete_candidate_boundary_v1_20261009/candidate/task.json",
+  "comparison": "typed_comparison.accept_output",
+  "numeric_types": "保持，bool继续独立",
+  "source_comparator_sha256": "8ecaaae3e58c3e4eef67c3bf22fc329c8465c7655c1174a0b1edccefe1df31f8",
+  "status": "候选规则有限比较已验证，未集成完整执行/未正式冻结",
+  "previous_36_calls": "原默认数值比较口径，不是v2下重跑通过",
+  "labels": null,
+  "human_reviews": 0
+}

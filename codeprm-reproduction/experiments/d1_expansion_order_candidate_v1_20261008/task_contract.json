@@ -1,0 +1,26 @@
+{
+  "task_id": "E_M06",
+  "name": "规范键的首次代表与全局保序",
+  "requirement": "实现solve(payload)，仅Python标准库、内部结构自由。输入mode为exact或casefold，records为记录列表，每条记录恰含字符串key及任意JSON值value。exact按原key判等，casefold按Python str.casefold结果判等。返回每个等价类在输入中首次出现的完整原记录，顺序保持这些首次记录在输入中的先后。保留原key拼写和值，不把返回key改成规范key，不排序，不只去除相邻重复，不保留最后一项。不得修改输入及嵌套对象。空输入返回空列表；域外输入不要求。",
+  "source": {
+    "repository": "more-itertools/more-itertools",
+    "commit": "81c21a8db1c922260cd673841257fb9b112c1318",
+    "file": "more_itertools/recipes.py",
+    "symbol": "unique_everseen",
+    "license": "MIT",
+    "source_sha256": "ea9ac19767d3949d72bd0fc24f51aff33f24a693201b5d8e595a0d58ef8f4b1c",
+    "license_sha256": "09f1c8c9e941af3e584d59641ea9b87d83c0cb0fd007eb5ef391a7e2643c1a46"
+  },
+  "split": "expansion_pool_unassigned",
+  "internal_decomposition": "自由选择",
+  "history_domain": "input_item_sequence",
+  "entity_granularity": "按mode得到的规范键；原拼写不同不必属于不同实体",
+  "related_tasks": [
+    "D1_B02",
+    "D1_B04",
+    "D1_M04"
+  ],
+  "relation_kind": "保序/按键聚合的语义关联，不自动等于同一独立家族",
+  "status": "有限候选证据，真实人工0、非正式冻结",
+  "limits": "已见源码/上游测试；不继承cross_operation_state标签；不改原20题/307案例/切分"
+}

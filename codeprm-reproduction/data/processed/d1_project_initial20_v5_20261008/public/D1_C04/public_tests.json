@@ -1,0 +1,98 @@
+[
+  {
+    "case_id": "public_1",
+    "input": {
+      "capacity": 1,
+      "instances": [
+        {
+          "id": "a",
+          "bias": 10
+        },
+        {
+          "id": "b",
+          "bias": 20
+        }
+      ],
+      "operations": [
+        {
+          "op": "call",
+          "instance": "a",
+          "x": 1
+        },
+        {
+          "op": "call",
+          "instance": "b",
+          "x": 1
+        },
+        {
+          "op": "call",
+          "instance": "a",
+          "x": 1
+        },
+        {
+          "op": "clear",
+          "instance": "a"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": 11,
+          "computations": {
+            "a": 1,
+            "b": 0
+          },
+          "sizes": {
+            "a": 1,
+            "b": 0
+          }
+        },
+        {
+          "result": 21,
+          "computations": {
+            "a": 1,
+            "b": 1
+          },
+          "sizes": {
+            "a": 1,
+            "b": 1
+          }
+        },
+        {
+          "result": 11,
+          "computations": {
+            "a": 1,
+            "b": 1
+          },
+          "sizes": {
+            "a": 1,
+            "b": 1
+          }
+        },
+        {
+          "result": null,
+          "computations": {
+            "a": 1,
+            "b": 1
+          },
+          "sizes": {
+            "a": 0,
+            "b": 1
+          }
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "public_2",
+    "input": {
+      "capacity": 1,
+      "instances": [],
+      "operations": []
+    },
+    "expected": {
+      "value": []
+    }
+  }
+]

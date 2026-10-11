@@ -1,0 +1,18 @@
+{
+  "arm": "M2",
+  "calls": [
+    {
+      "label": "plan",
+      "prompt_eval_count": 6903,
+      "eval_count": 138,
+      "total": 7041,
+      "spent_before": 0,
+      "spent_after": 7041,
+      "status": "budget_overrun",
+      "error": "arm cap 6500 exceeded"
+    }
+  ],
+  "spent": 7041,
+  "status": "budget_overrun",
+  "candidate": null
+}

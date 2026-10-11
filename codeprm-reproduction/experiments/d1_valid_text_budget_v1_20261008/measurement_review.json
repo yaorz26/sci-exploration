@@ -1,0 +1,49 @@
+{
+  "review_kind": "同助手对已存文本/源文件的第二遍审查，非独立",
+  "M2_transcripts": 8,
+  "M2_4_calls_each": true,
+  "all_entry_names_canonical": true,
+  "each_stage_text_matches_saved_program_AST": true,
+  "source_program_hashes_checked": 4,
+  "observed_saved_API_extra": [
+    1
+  ],
+  "extra1_per_call_sensitivity_totals": [
+    {
+      "task_id": "D1_B05",
+      "format": "pretty",
+      "text_total": 3350,
+      "plus_one_each_call": 3354,
+      "remaining": 3146
+    },
+    {
+      "task_id": "D1_B05",
+      "format": "compact",
+      "text_total": 2806,
+      "plus_one_each_call": 2810,
+      "remaining": 3690
+    },
+    {
+      "task_id": "D1_C03",
+      "format": "pretty",
+      "text_total": 3758,
+      "plus_one_each_call": 3762,
+      "remaining": 2738
+    },
+    {
+      "task_id": "D1_C03",
+      "format": "compact",
+      "text_total": 2862,
+      "plus_one_each_call": 2866,
+      "remaining": 3634
+    }
+  ],
+  "API_extra_scope": "P9四条响应均相差1，只列经验敏感性；没有证明所有未来输出都恰多1",
+  "script_source_sha256": "0e6b317e5c0cd8d190e806fa67dbee522eb9b2ff4ebb948a1c3c4cacaf6809d3",
+  "public_task_sha256": {
+    "D1_B05": "5477c6668e9b9b2e0aceda2aceeb1dfa979f7000353de71121e35da9314322a8",
+    "D1_C03": "d5399e4a7d2ff1ee585c2c8ec78831ebfb46723e07e25c7d91da584fc39dabb3"
+  },
+  "executor_sha256": "ca91992e33411464719a1fc86db241ded7f01d1bb407a97db3949eb5a3663765",
+  "limits": "同计划只删无符号依赖前代码不代表同模型性能；AST alpha改名证明限这四程序的已检查无冲突绑定"
+}

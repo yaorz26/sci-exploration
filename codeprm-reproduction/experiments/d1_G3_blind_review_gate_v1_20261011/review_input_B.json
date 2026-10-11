@@ -1,0 +1,646 @@
+{
+  "created_at": "2026-10-11T09:02:56.152320+00:00",
+  "blind_discipline": "本文件是审查者可见的唯一材料；不含评价器、参考实现、模型结果与作者初标",
+  "scale": "1=完全不同意 … 5=完全同意",
+  "dimensions": [
+    "需求可理解：不看参考实现也能明白要做什么",
+    "验收可判定：哪些行为算通过、哪些算遗漏，能判定",
+    "内部自由：不把某一种实现当唯一答案",
+    "可纳入正式候选：作为数据集任务合格"
+  ],
+  "instructions": [
+    "你是独立审查者。只依据下面给出的需求文本与公开用例作判断。",
+    "禁止读取工作区中的任何其它文件（评价器、参考实现、模型输出、作者初标都不许看）。",
+    "对每个任务在四个维度上给出 1—5 的整数分（1=完全不同意，5=完全同意）。",
+    "必须为每个任务写出至少一条‘我认为含糊或可能有两种解释的地方’；若确实没有，写‘未发现’。",
+    "不得为了配合而同意。你的判断会被与另一位审查者的判断逐项比对。"
+  ],
+  "tasks": {
+    "T1": {
+      "requirement_text": "# 任务列表队首语义的有限功能任务\n\n任务来源：`boltons` 官方模块 `boltons.queueutils`（官方文档 `docs/queueutils.rst`、模块 docstring 的 doctest、`CHANGELOG.md`）与固定父提交源码 `data/raw/d1_project_v1_20261008/repositories/boltons/boltons/queueutils.py`。\n\n给定该模块的父版本，实现一个**有限域**的任务队列，使同一份公开调用序列在不同内部组织下都可复现。内部数据结构、辅助函数、模块划分、是否复用 `heapq` 或 `bisect` 均自由。\n\n合法输入域：任务名为可哈希的短字符串；优先级为整数或浮点数（含 `0` 与负值）；调用序列只包含 `add`、`remove`、`pop`、`peek`、`len` 五种公开操作。不纳入：线程安全、并发消费、`peek_n`、批量 `add` 之外的扩展 API。\n\n公开功能义务：\n\n1. **同优先级先入先出**：依次加入同一优先级的多个任务后，`peek`/`pop` 按加入先后返回。\n2. **对已在队列的任务再次 `add` 视为更新**：该任务不产生重复条目，并且**移动到与其优先级相符的位置**——在相同优先级下，先前加入的任务再 `add` 之后排在后来者之后。此义务依赖此前的合法操作历史。\n3. **`peek` 不改变公开结果**：连续两次 `peek` 返回同一任务；`peek` 不减少 `len`。\n4. **`remove` 移除指定任务**：被移除任务不再出现；`len` 相应减一；移除队首后 `peek` 返回下一个任务。\n5. **空队列语义**：`peek`/`pop` 在空队列上接受 `default` 参数并返回该默认值；不传 `default` 时抛异常。\n\n公开调用入口固定为这五个方法（与官方 API 同名同签名），内部实现自由。评价只观察返回值与 `len`，不检查内部字段、不检查是否使用堆或有序表。\n\n来源说明：同优先级先入先出、更新既有任务、`peek` 不弹出、`default` 语义均来自官方模块文档与 doctest；**\"更新后移动到同优先级队尾\"这一点由官方实现语义给出，官方文档只承诺\"更新优先级\"，未逐字承诺同优先级下的新位置**——该差异是一处未解决边界，已登记。\n\n状态：`research_pool_only`；`formal_labels=null`；`split=null`；真实人工双审 0；模型实验 0；公开来源污染风险未知。\n",
+      "requirement_sha256": "8fa470a4f09ad71d7db33bef53e0faf4a58fe7d503664973aaf9aaa64edbd008",
+      "public_cases": {
+        "task": "queueutils 队首语义（K2 非缓存操作历史候选）",
+        "domain": "五个公开操作的有限调用序列；任务名为字符串；优先级为整数或浮点数",
+        "expected_derivation": "逐条按 requirement.md 的公开义务手写推导，不运行参考实现后回填",
+        "cases": [
+          {
+            "id": "same_priority_fifo",
+            "class": "PriorityQueue",
+            "ops": [
+              {
+                "op": "add",
+                "task": "a",
+                "priority": 1
+              },
+              {
+                "op": "add",
+                "task": "b",
+                "priority": 1
+              },
+              {
+                "op": "peek"
+              },
+              {
+                "op": "len"
+              }
+            ],
+            "expected": [
+              {
+                "op": "add",
+                "task": "a"
+              },
+              {
+                "op": "add",
+                "task": "b"
+              },
+              {
+                "op": "peek",
+                "value": "a"
+              },
+              {
+                "op": "len",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "id": "readd_moves_to_back_same_priority",
+            "class": "PriorityQueue",
+            "ops": [
+              {
+                "op": "add",
+                "task": "a",
+                "priority": 1
+              },
+              {
+                "op": "add",
+                "task": "b",
+                "priority": 1
+              },
+              {
+                "op": "add",
+                "task": "a",
+                "priority": 1
+              },
+              {
+                "op": "peek"
+              },
+              {
+                "op": "len"
+              }
+            ],
+            "expected": [
+              {
+                "op": "add",
+                "task": "a"
+              },
+              {
+                "op": "add",
+                "task": "b"
+              },
+              {
+                "op": "add",
+                "task": "a"
+              },
+              {
+                "op": "peek",
+                "value": "b"
+              },
+              {
+                "op": "len",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "id": "priority_still_dominates_after_readd",
+            "class": "PriorityQueue",
+            "ops": [
+              {
+                "op": "add",
+                "task": "low",
+                "priority": 1
+              },
+              {
+                "op": "add",
+                "task": "high",
+                "priority": 5
+              },
+              {
+                "op": "add",
+                "task": "low",
+                "priority": 1
+              },
+              {
+                "op": "peek"
+              },
+              {
+                "op": "pop"
+              },
+              {
+                "op": "peek"
+              }
+            ],
+            "expected": [
+              {
+                "op": "add",
+                "task": "low"
+              },
+              {
+                "op": "add",
+                "task": "high"
+              },
+              {
+                "op": "add",
+                "task": "low"
+              },
+              {
+                "op": "peek",
+                "value": "high"
+              },
+              {
+                "op": "pop",
+                "value": "high"
+              },
+              {
+                "op": "peek",
+                "value": "low"
+              }
+            ]
+          },
+          {
+            "id": "remove_then_peek",
+            "class": "PriorityQueue",
+            "ops": [
+              {
+                "op": "add",
+                "task": "a",
+                "priority": 1
+              },
+              {
+                "op": "add",
+                "task": "b",
+                "priority": 1
+              },
+              {
+                "op": "remove",
+                "task": "a"
+              },
+              {
+                "op": "peek"
+              },
+              {
+                "op": "len"
+              }
+            ],
+            "expected": [
+              {
+                "op": "add",
+                "task": "a"
+              },
+              {
+                "op": "add",
+                "task": "b"
+              },
+              {
+                "op": "remove",
+                "task": "a",
+                "ok": true
+              },
+              {
+                "op": "peek",
+                "value": "b"
+              },
+              {
+                "op": "len",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "empty_default_then_add",
+            "class": "PriorityQueue",
+            "ops": [
+              {
+                "op": "peek",
+                "default": "none"
+              },
+              {
+                "op": "pop",
+                "default": "none"
+              },
+              {
+                "op": "add",
+                "task": "a",
+                "priority": 1
+              },
+              {
+                "op": "peek"
+              },
+              {
+                "op": "len"
+              }
+            ],
+            "expected": [
+              {
+                "op": "peek",
+                "value": "none"
+              },
+              {
+                "op": "pop",
+                "value": "none"
+              },
+              {
+                "op": "add",
+                "task": "a"
+              },
+              {
+                "op": "peek",
+                "value": "a"
+              },
+              {
+                "op": "len",
+                "value": 1
+              }
+            ]
+          },
+          {
+            "id": "empty_without_default_raises",
+            "class": "PriorityQueue",
+            "expect_exception": "IndexError",
+            "ops": [
+              {
+                "op": "peek"
+              }
+            ]
+          }
+        ]
+      },
+      "public_cases_note": null,
+      "public_cases_sha256": "0f45ad44c8580a175ca63b75fea19de0b2ca8a66704bfea0561eec6dd276d0b9"
+    },
+    "T2": {
+      "requirement_text": "# URL 渲染双用途的有限功能任务\n\n任务来源：`boltons` 官方模块 `boltons.urlutils`（官方文档 `docs/urlutils.rst`；`URL.to_text` 的 docstring 明示两种用途）与固定父提交源码 `data/raw/d1_project_v1_20261008/repositories/boltons/boltons/urlutils.py`。\n\n给定该模块的父版本，实现一个**有限域**的 URL 对象，使同一次解析既能按\"给人看\"的方式渲染，也能按\"发到网络\"的方式渲染，且两种用途读的是同一份解析结果。内部是否复用 `urllib.parse`、是否自写正则、辅助函数与模块划分均自由。\n\n合法输入域：以 `http://` 或 `https://` 开头、主机为普通域名、可含路径/查询串/片段的 URL；查询项为普通键值对（允许重复键）；不含用户信息（userinfo）、不含 IPv6 主机、不含非 ASCII 主机与相对 URL。\n\n公开功能义务：\n\n1. **映射视图与渲染读同一份解析**：查询串既可通过映射视图读取（`keys`/`items`/`get`/`getlist`），也可通过渲染读取；两者必须一致，映射视图不得改写查询串。\n2. **保留重复键与顺序**：同一键出现多次时，`keys`/`items` 按出现顺序给出全部条目；`getlist` 返回该键的全部值；`get` 返回该键的第一个值。\n3. **保留已有的百分号编码文本**：输入中已存在的 `%XX` 序列在两种渲染下都**不得重复编码**（`%20` 不得变成 `%2520`）。\n4. **两种渲染用途的区别**：`to_text()` 面向显示，允许空格等违规字符原样出现；`to_text(full_quote=True)` 面向发送，必须把空格等违规字符编码为 `%XX`（空格编码为 `%20`）。\n5. **不把 '+' 当空格**：查询串中的 `+` 视为字面加号，映射视图与渲染都不得把它还原成空格。\n\n公开调用入口固定为：`URL(url)`、`URL.to_text(full_quote=False)`、以及查询串映射视图的 `keys/items/get/getlist`。这些名称与官方 API 同名；内部实现自由，评价只观察这些返回值。\n\n来源说明：两种渲染用途（显示 vs 发送）与\"已编码文本不要重复编码\"来自官方 docstring 与 docs；\"空格在发送用途下编码为 `%20`\"与\"`+` 不作空格\"是任务构建者为有限域明确的约定，不假装是 RFC 的唯一要求。\n\n状态：`research_pool_only`；`formal_labels=null`；`split=null`；真实人工双审 0；模型实验 0；公开来源污染风险未知。\n",
+      "requirement_sha256": "628163d1c51eb6ac645887fd25a25112622b76f1880ecef1c8ada2f3c3e70ab9",
+      "public_cases": {
+        "task": "URL 同一次解析的两种渲染用途（K3 项目内不同用途候选）",
+        "domain": "以 http/https 开头、含查询串的有限 URL；查询项为普通键值；不含用户信息与 IPv6",
+        "expected_derivation": "按 requirement.md 的公开义务逐条手写推导；不运行实现后回填",
+        "cases": [
+          {
+            "id": "query_values_and_order",
+            "input": "https://example.com/find?a=1&b=2&a=3",
+            "keys": [
+              "a",
+              "b",
+              "a"
+            ],
+            "items": [
+              [
+                "a",
+                "1"
+              ],
+              [
+                "b",
+                "2"
+              ],
+              [
+                "a",
+                "3"
+              ]
+            ],
+            "get": {
+              "key": "a",
+              "expected": "1"
+            },
+            "getlist": {
+              "key": "a",
+              "expected": [
+                "1",
+                "3"
+              ]
+            },
+            "to_text_minimal": "https://example.com/find?a=1&b=2&a=3",
+            "to_text_full": "https://example.com/find?a=1&b=2&a=3"
+          },
+          {
+            "id": "already_encoded_preserved",
+            "input": "http://h/p?q=a%20b",
+            "keys": [
+              "q"
+            ],
+            "items": [
+              [
+                "q",
+                "a%20b"
+              ]
+            ],
+            "get": {
+              "key": "q",
+              "expected": "a%20b"
+            },
+            "getlist": {
+              "key": "q",
+              "expected": [
+                "a%20b"
+              ]
+            },
+            "to_text_minimal": "http://h/p?q=a%20b",
+            "to_text_full": "http://h/p?q=a%20b",
+            "note": "已存在的百分号编码在两种用途下都不重复编码（两种模式都保留 %25 前的字面 % 序列）"
+          },
+          {
+            "id": "reserved_chars_encoding",
+            "input": "http://h/p?a=%2Fx%3Fy&b=z",
+            "keys": [
+              "a",
+              "b"
+            ],
+            "items": [
+              [
+                "a",
+                "%2Fx%3Fy"
+              ],
+              [
+                "b",
+                "z"
+              ]
+            ],
+            "get": {
+              "key": "a",
+              "expected": "%2Fx%3Fy"
+            },
+            "getlist": {
+              "key": "a",
+              "expected": [
+                "%2Fx%3Fy"
+              ]
+            },
+            "to_text_minimal": "http://h/p?a=%2Fx%3Fy&b=z",
+            "to_text_full": "http://h/p?a=%2Fx%3Fy&b=z"
+          },
+          {
+            "id": "plus_is_not_space",
+            "input": "http://h/s?q=a+b",
+            "keys": [
+              "q"
+            ],
+            "items": [
+              [
+                "q",
+                "a+b"
+              ]
+            ],
+            "get": {
+              "key": "q",
+              "expected": "a+b"
+            },
+            "getlist": {
+              "key": "q",
+              "expected": [
+                "a+b"
+              ]
+            },
+            "to_text_minimal": "http://h/s?q=a+b",
+            "to_text_full": "http://h/s?q=a+b",
+            "note": "映射视图与渲染都把 '+' 当字面加号；不得还原成空格"
+          },
+          {
+            "id": "space_in_path_and_fragment",
+            "input": "http://h/files/report 1.pdf#note one",
+            "keys": [],
+            "items": [],
+            "get": {
+              "key": "missing",
+              "expected": null
+            },
+            "getlist": {
+              "key": "missing",
+              "expected": []
+            },
+            "to_text_minimal": "http://h/files/report 1.pdf#note one",
+            "to_text_full": "http://h/files/report%201.pdf#note%20one"
+          }
+        ]
+      },
+      "public_cases_note": null,
+      "public_cases_sha256": "b9283855768fc04890e1611e5fdf3a946ce3a6045de15660f9fa0676f0fe50ce"
+    },
+    "T3": {
+      "requirement_text": "# 环境变量进入项目配置的有限功能任务\n\n任务来源：beetbox/confuse PR142 的公开功能说明。给定直接父提交 `cd1db04b07db00050900d2f548baf144bb92d261` 的非测试包源码。在真实 `confuse.Configuration` 对象中增加显式选择的环境变量配置来源，使配置文件与环境变量能够共同决定最终的配置读取结果。内部模块划分、辅助函数、字典构造方式均自由。\n\n本候选只保留 PR 的有限子范围，不要求完成 PR142 的所有选项。合法输入域是：指定前缀的环境变量名；剥去前缀后非空且无父子键冲突的普通字符串键；`__` 表示嵌套；值为不含集合语法的有效 YAML 标量；普通映射型配置文件。列表转换、完整 YAML 文档值、重新加载、空键和冲突键均未纳入。\n\n公开功能义务：\n\n1. 支持显式添加环境变量来源，不在构造配置对象时默认加入。匹配前缀的变量才参加配置；剥去前缀后的键转换成小写，`__` 映射到嵌套键。\n2. 标量类型转换应与现有 YAML 文件来源一致，例如 `42` 成为整数。最终通过已有配置视图的 `get` 读取，不另建 JSON 求解入口。\n3. 在文件来源之后显式加入的环境变量来源具有更高优先级；未被环境变量提供的键仍可由较低优先级来源读取。\n4. 没有匹配环境变量时，现有配置值保持不变。\n\n任务构建者固定的外部调用入口是 `Configuration.set_env(prefix, sep='__')`，用于把环境来源放在当前最高优先级。这个入口是候选调用约束；不要求采用 PR 的内部类、工具函数或文件布局。其具体内部组织不是答案。\n\n来源说明：前缀、键名转换、嵌套、标量转换和显式选择来自公开 PR 说明；最高优先级入口是任务构建者为现有 `set`/`set_file` 约定选定的调用约束。评价材料、合并版本和手写控制不属于未来模型可见输入。\n\n状态：`research_pool_only`；`formal_labels=null`；`split=null`；真实人工双审 0；模型实验 0；公开来源污染风险未知。\n",
+      "requirement_sha256": "4eb2b78047dcf5e326fcb266fc6483ab963a65a2d6a6ce3acc7cc91f79e4dabf",
+      "public_cases": {
+        "expected_origin": "公开PR义务与手算，未调用合并版本取得答案",
+        "cases": [
+          {
+            "id": "no_matching_environment",
+            "environment": {},
+            "yaml_file": "port: 11\n",
+            "queries": {
+              "port": {
+                "path": [
+                  "port"
+                ],
+                "kind": "int"
+              }
+            },
+            "expected": {
+              "port": {
+                "value": 11,
+                "type": "int"
+              }
+            }
+          },
+          {
+            "id": "prefixed_scalar",
+            "environment": {
+              "D1APP_PORT": "42",
+              "D1OTHER_NOISE": "99"
+            },
+            "yaml_file": "{}\n",
+            "queries": {
+              "port": {
+                "path": [
+                  "port"
+                ],
+                "kind": "int"
+              },
+              "excluded": {
+                "path": [
+                  "noise"
+                ],
+                "kind": "exists"
+              }
+            },
+            "expected": {
+              "port": {
+                "value": 42,
+                "type": "int"
+              },
+              "excluded": false
+            }
+          },
+          {
+            "id": "nested_overlay_and_fallback",
+            "environment": {
+              "D1APP_DB__HOST": "env.local"
+            },
+            "yaml_file": "db:\n  host: file.local\n  timeout: 7\n",
+            "queries": {
+              "host": {
+                "path": [
+                  "db",
+                  "host"
+                ],
+                "kind": "str"
+              },
+              "timeout": {
+                "path": [
+                  "db",
+                  "timeout"
+                ],
+                "kind": "int"
+              }
+            },
+            "expected": {
+              "host": {
+                "value": "env.local",
+                "type": "str"
+              },
+              "timeout": {
+                "value": 7,
+                "type": "int"
+              }
+            }
+          }
+        ]
+      },
+      "public_cases_note": null,
+      "public_cases_sha256": "2d4e39d914be1d18b3649edb57df502f7235936b5d85f07c5410ff90d30cd294"
+    },
+    "T4": {
+      "requirement_text": "# 相邻组变换在迭代生命周期内完成\n\n来源：more-itertools PR440，官方合并`78405e9b24d0ccdd67785136ecd56774f38ae95e`，直接父`38d070c9252d2138dbd86f8f85b9970741401cb6`。PR标题/正文初称groupfunc，合并版本的公开API参数为reducefunc，任务采用实际公开API名。不要求复制合并实现或固定内部helper/存储结构。\n\n给定父包源码，为`more_itertools.groupby_transform(iterable, keyfunc=None, valuefunc=None, reducefunc=None)`增加整组变换：仅相邻且key相同的项分为一组，keyfunc计算key，valuefunc先变换组内每项，reducefunc接受该组变换后的可迭代值，其返回值作为外层 `(key, result)` 的result。\n\n有限合法域：有限可迭代数据、纯key/value回调，以及在调用时完整消费传入组的list或数值sum回调。同key的非相邻组保持分开，不排序或合并。reducefunc完成的list/数值结果即使外层迭代继续前进，也应保留已返回值；不是要求任意惰性reducefunc都永久保存数据。\n\n未提供reducefunc时，保留父API的懒组可迭代结果及共享底层迭代器的行为，不能为新功能擅自将全部组永久物化。keyfunc/valuefunc未提供时保留父默认行为。内部可以组合既有groupby，也可以另组织模块，但外部调用与迭代结果相同。\n\n本候选不是完整more-itertools仓库任务，也不测无界流、内存/效率或任意回调副作用。正式labels/split null，research_pool_only；人工双审/模型效果0，公共污染unknown，既有暴露另存。\n",
+      "requirement_sha256": "1e85dc7a5e6f48b1fe08071933235f719b38d505fd965e42891ae0a8d6176364",
+      "public_cases": {
+        "expected_origin": "公开组生命周期义务与手算；不从feature执行取期望",
+        "cases": [
+          {
+            "id": "retained_lists_after_outer_exhaustion",
+            "mode": "retain_after_advance",
+            "items": [
+              [
+                "a",
+                1
+              ],
+              [
+                "a",
+                2
+              ],
+              [
+                "b",
+                3
+              ],
+              [
+                "a",
+                4
+              ]
+            ],
+            "factor": 10,
+            "reducefunc": "list",
+            "expected": [
+              [
+                "a",
+                [
+                  10,
+                  20
+                ]
+              ],
+              [
+                "b",
+                [
+                  30
+                ]
+              ],
+              [
+                "a",
+                [
+                  40
+                ]
+              ]
+            ]
+          },
+          {
+            "id": "group_sums",
+            "mode": "normal",
+            "items": [
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                3
+              ]
+            ],
+            "factor": 1,
+            "reducefunc": "sum",
+            "expected": [
+              [
+                0,
+                6
+              ],
+              [
+                1,
+                4
+              ]
+            ]
+          },
+          {
+            "id": "no_reducer_keeps_parent_lazy_groups",
+            "mode": "baseline_lazy",
+            "items": [
+              [
+                "a",
+                1
+              ],
+              [
+                "a",
+                2
+              ],
+              [
+                "b",
+                3
+              ]
+            ],
+            "factor": 1,
+            "expected": {
+              "first_key": "a",
+              "first_after_advance": [],
+              "second_key": "b",
+              "second_now": [
+                3
+              ]
+            }
+          }
+        ]
+      },
+      "public_cases_note": null,
+      "public_cases_sha256": "e5394f20d4624d119949184396c8c4a3e735f8f9bc4f3fb8416161abc6b45c83"
+    },
+    "T5": {
+      "requirement_text": "# 配置文件来源的相对路径\n\n在给定项目包源码中实现源文件目录相对路径功能，保持现有外部API和默认行为。Python3，依赖PyYAML。通过修改现有项目代码交付功能，不要求特定内部拆法。\n\n1. ConfigSource 和 YamlSource 增加可选参数 base_for_paths，默认False；有filename且该参数为True时，来源的相对路径默认以源文件目录为基准。无filename时该标志无效，路径保留按当前工作目录解析的默认行为。\n2. Filename 增加可选参数 in_source_dir，默认False；有源文件时，该选项明确选择源文件目录。默认情况下来自文件的相对路径继续按应用配置目录解析。\n3. Configuration.set_file 接受可选 base_for_paths 参数，并将该功能用于载入文件的配置源。\n4. 绝对路径保持不变。相对路径优先使用模板 cwd，其次保持现有 relative_to 行为；in_source_dir对有filename的源生效；in_app_dir覆盖源级base_for_paths选项，仍保持现有应用目录行为。没有源文件且没有强制应用目录时，继续使用当前工作目录。\n\n公开例：应用目录为<app>，配置文件为<project>/settings/config.yaml，值为assets/a.txt。默认返回<app>/assets/a.txt；源级base_for_paths=True或模板in_source_dir=True返回<project>/settings/assets/a.txt；源级base_for_paths=True且模板in_app_dir=True返回<app>/assets/a.txt。以上占位符表示测试运行时创建的真实绝对目录；输出使用本机路径形式。\n\n该任务为研究池候选，公开诊断用于说明功能义务。没有正式结构标签、人工双审或模型效果结论。\n",
+      "requirement_sha256": "f63dbd281ccb5bbcafeaa3e5ef625f4ddf3c1b11ce1a31e3530214b3d61e9af2",
+      "public_cases": null,
+      "public_cases_note": "该任务的公开用例内嵌在评价器中；此处不提供，请仅按需求条目判断验收可判定性"
+    }
+  }
+}

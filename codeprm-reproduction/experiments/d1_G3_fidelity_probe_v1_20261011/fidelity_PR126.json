@@ -1,0 +1,117 @@
+{
+  "created_at": "2026-10-11T10:15:40.927685+00:00",
+  "candidate": "PR126",
+  "purpose": "决策 2：上游保真度实测（父版 vs 合并版 vs 判定表）",
+  "discipline": "只读；不读上游测试；不修改冻结候选；子进程隔离",
+  "model_calls": 0,
+  "upstream": {
+    "parent_workspace": "codeprm-reproduction\\data\\processed\\d1_actual_project_candidate_v2_20261009\\public\\REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS\\parent",
+    "merged_workspace": "codeprm-reproduction\\data\\processed\\d1_actual_project_candidate_v2_20261009\\evaluation\\REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS\\programs\\complete",
+    "parent_templates_sha256": "d200a9f3e7cf070dc392f23bd6a3b25a30655f08d81f3805dc2b875c332fb910",
+    "merged_templates_sha256": "2714114575a7ef0c715eb90dc623e2f03291214f7d19ba7b7f348eda61f71f9f",
+    "authority_quote": "合并版 Filename docstring: 'Relative paths are relative to the template cwd argument when it is specified.'"
+  },
+  "contract_derived_from": "requirement.md §三 判定表（已按本次实测校正：cwd 无条件优先）",
+  "rows": [
+    {
+      "rule": "r1_abs_path_no_flags",
+      "contract": "elsewhere/z.txt",
+      "parent": "elsewhere/z.txt",
+      "merged": "elsewhere/z.txt",
+      "parent_matches": true,
+      "merged_matches": true
+    },
+    {
+      "rule": "r2_cwd_only",
+      "contract": "app/assets/a.txt",
+      "parent": "app/assets/a.txt",
+      "merged": "app/assets/a.txt",
+      "parent_matches": true,
+      "merged_matches": true
+    },
+    {
+      "rule": "r3_cwd_plus_in_source_dir",
+      "contract": "app/assets/a.txt",
+      "parent": "<TypeError: Filename.__init__() got an unexpected keyword argument 'in_source_dir'>",
+      "merged": "app/assets/a.txt",
+      "parent_matches": false,
+      "merged_matches": true
+    },
+    {
+      "rule": "r4_cwd_plus_base_for_paths",
+      "contract": "app/assets/a.txt",
+      "parent": "<TypeError: Configuration.set_file() got an unexpected keyword argument 'base_for_paths'>",
+      "merged": "app/assets/a.txt",
+      "parent_matches": false,
+      "merged_matches": true
+    },
+    {
+      "rule": "r5_cwd_plus_in_app_dir",
+      "contract": "app/assets/a.txt",
+      "parent": "<TypeError: Configuration.set_file() got an unexpected keyword argument 'base_for_paths'>",
+      "merged": "app/assets/a.txt",
+      "parent_matches": false,
+      "merged_matches": true
+    },
+    {
+      "rule": "r6_no_cwd_default",
+      "contract": "app/assets/a.txt",
+      "parent": "C:\\Users\\yaorz2\\AppData\\Roaming\\appname\\assets\\a.txt",
+      "merged": "C:\\Users\\yaorz2\\AppData\\Roaming\\appname\\assets\\a.txt",
+      "parent_matches": false,
+      "merged_matches": false
+    },
+    {
+      "rule": "r7_no_cwd_base_for_paths",
+      "contract": "project/settings/assets/a.txt",
+      "parent": "<TypeError: Configuration.set_file() got an unexpected keyword argument 'base_for_paths'>",
+      "merged": "project/settings/assets/a.txt",
+      "parent_matches": false,
+      "merged_matches": true
+    },
+    {
+      "rule": "r8_no_cwd_in_source_dir",
+      "contract": "project/settings/assets/a.txt",
+      "parent": "<TypeError: Filename.__init__() got an unexpected keyword argument 'in_source_dir'>",
+      "merged": "project/settings/assets/a.txt",
+      "parent_matches": false,
+      "merged_matches": true
+    }
+  ],
+  "raw": {
+    "parent": {
+      "r1_abs_path_no_flags": "elsewhere/z.txt",
+      "r2_cwd_only": "app/assets/a.txt",
+      "r3_cwd_plus_in_source_dir": "<TypeError: Filename.__init__() got an unexpected keyword argument 'in_source_dir'>",
+      "r4_cwd_plus_base_for_paths": "<TypeError: Configuration.set_file() got an unexpected keyword argument 'base_for_paths'>",
+      "r5_cwd_plus_in_app_dir": "<TypeError: Configuration.set_file() got an unexpected keyword argument 'base_for_paths'>",
+      "r6_no_cwd_default": "C:\\Users\\yaorz2\\AppData\\Roaming\\appname\\assets\\a.txt",
+      "r7_no_cwd_base_for_paths": "<TypeError: Configuration.set_file() got an unexpected keyword argument 'base_for_paths'>",
+      "r8_no_cwd_in_source_dir": "<TypeError: Filename.__init__() got an unexpected keyword argument 'in_source_dir'>"
+    },
+    "merged": {
+      "r1_abs_path_no_flags": "elsewhere/z.txt",
+      "r2_cwd_only": "app/assets/a.txt",
+      "r3_cwd_plus_in_source_dir": "app/assets/a.txt",
+      "r4_cwd_plus_base_for_paths": "app/assets/a.txt",
+      "r5_cwd_plus_in_app_dir": "app/assets/a.txt",
+      "r6_no_cwd_default": "C:\\Users\\yaorz2\\AppData\\Roaming\\appname\\assets\\a.txt",
+      "r7_no_cwd_base_for_paths": "project/settings/assets/a.txt",
+      "r8_no_cwd_in_source_dir": "project/settings/assets/a.txt"
+    }
+  },
+  "agreement": {
+    "merged_matches": 7,
+    "parent_matches": 2,
+    "total": 8
+  },
+  "counterexample_evidence": {
+    "parent_missing_api": [
+      "r3_cwd_plus_in_source_dir",
+      "r4_cwd_plus_base_for_paths",
+      "r5_cwd_plus_in_app_dir",
+      "r7_no_cwd_base_for_paths",
+      "r8_no_cwd_in_source_dir"
+    ]
+  }
+}

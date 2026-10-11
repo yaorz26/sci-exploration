@@ -1,0 +1,48 @@
+{
+  "time": "2026-10-09T12:15:36.316582+00:00",
+  "macro_stage": "G2-v2-limited-extension",
+  "task_id": "REPO_MORE_PR440_GROUP_LIFETIME_LIMITED",
+  "source": {
+    "repo": "more-itertools",
+    "pr": 440,
+    "parent": "38d070c9252d2138dbd86f8f85b9970741401cb6",
+    "feature": "78405e9b24d0ccdd67785136ecd56774f38ae95e",
+    "merged_at": "2020-07-02T01:22:37Z"
+  },
+  "results": {
+    "parent": {
+      "passed": 1,
+      "total": 3,
+      "prediction_match": true
+    },
+    "feature": {
+      "passed": 3,
+      "total": 3,
+      "prediction_match": true
+    },
+    "alternative": {
+      "passed": 3,
+      "total": 3,
+      "prediction_match": true
+    },
+    "late_reduction": {
+      "passed": 1,
+      "total": 3,
+      "prediction_match": true
+    }
+  },
+  "distinct_public_scenarios": 3,
+  "worker_runs": 12,
+  "source_files": 8,
+  "source_bytes": 236482,
+  "behavior_observation": "reducefunc在外层继续推进后保留list/sum结果；无reducefunc仍为父懒组；延迟归约关键两例失败",
+  "contribution": "非缓存组生命周期/回调结果连接任务；外部结果义务与内部保存方式分开",
+  "organization_limit": "官方实现与独立模块各3/3，共用groupby/map且同助手构造，有限域而非独立人类真值",
+  "formal_labels": null,
+  "split": null,
+  "human_reviews": 0,
+  "model_calls": 0,
+  "upstream_tests_read": false,
+  "private_or_curator_read": false,
+  "next": "G3增量结构证据：把组生命周期与PR126/PR142/TTL观察并列，不能宣称三轴独立"
+}

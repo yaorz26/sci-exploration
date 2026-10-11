@@ -1,0 +1,19 @@
+{
+  "task_id": "REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS",
+  "method": "M2",
+  "status": "budget_refusal",
+  "candidate": null,
+  "behavior": null,
+  "error": "输入与最少输出无法纳入总预算",
+  "spent": 3686,
+  "requests_sent": 3,
+  "refusals": [
+    {
+      "stage": "assembly",
+      "reason": "输入与最少输出无法纳入总预算",
+      "before_request": true
+    }
+  ],
+  "cost_known": true,
+  "budget_compliant": true
+}

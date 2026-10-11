@@ -1,0 +1,102 @@
+{
+  "rows": [
+    {
+      "program": "source",
+      "id": "tie_positive_first",
+      "actual": {
+        "minimum": 0,
+        "maximum": -5
+      },
+      "predicted_output_matches": true,
+      "admissible_public_semantics": true,
+      "single_source_exact_pass": true,
+      "input_unchanged": true
+    },
+    {
+      "program": "source",
+      "id": "tie_negative_first",
+      "actual": {
+        "minimum": 0,
+        "maximum": 5
+      },
+      "predicted_output_matches": true,
+      "admissible_public_semantics": true,
+      "single_source_exact_pass": true,
+      "input_unchanged": true
+    },
+    {
+      "program": "source",
+      "id": "unique_zero_min",
+      "actual": {
+        "minimum": 0,
+        "maximum": -5
+      },
+      "predicted_output_matches": true,
+      "admissible_public_semantics": true,
+      "single_source_exact_pass": true,
+      "input_unchanged": true
+    },
+    {
+      "program": "source",
+      "id": "unique_nonzero_min",
+      "actual": {
+        "minimum": 2,
+        "maximum": -6
+      },
+      "predicted_output_matches": true,
+      "admissible_public_semantics": true,
+      "single_source_exact_pass": true,
+      "input_unchanged": true
+    },
+    {
+      "program": "builtin",
+      "id": "tie_positive_first",
+      "actual": {
+        "minimum": 0,
+        "maximum": 5
+      },
+      "predicted_output_matches": true,
+      "admissible_public_semantics": true,
+      "single_source_exact_pass": false,
+      "input_unchanged": true
+    },
+    {
+      "program": "builtin",
+      "id": "tie_negative_first",
+      "actual": {
+        "minimum": 0,
+        "maximum": -5
+      },
+      "predicted_output_matches": true,
+      "admissible_public_semantics": true,
+      "single_source_exact_pass": false,
+      "input_unchanged": true
+    },
+    {
+      "program": "builtin",
+      "id": "unique_zero_min",
+      "actual": {
+        "minimum": 0,
+        "maximum": -5
+      },
+      "predicted_output_matches": true,
+      "admissible_public_semantics": true,
+      "single_source_exact_pass": true,
+      "input_unchanged": true
+    },
+    {
+      "program": "builtin",
+      "id": "unique_nonzero_min",
+      "actual": {
+        "minimum": 2,
+        "maximum": -6
+      },
+      "predicted_output_matches": true,
+      "admissible_public_semantics": true,
+      "single_source_exact_pass": true,
+      "input_unchanged": true
+    }
+  ],
+  "solve_calls": 8,
+  "source_minmax_calls": 4
+}

@@ -1,0 +1,323 @@
+{
+  "status": "measured_given_correct_text_blueprints",
+  "tasks": 2,
+  "correct_source_programs": 4,
+  "rows": 16,
+  "M2_rows": 8,
+  "M2_visible_text_under6500": 8,
+  "M2_all_previous_rows": [
+    {
+      "task_id": "D1_B05",
+      "format": "pretty",
+      "arm": "M2",
+      "representation": "staged_correct",
+      "context": "all_previous",
+      "calls": 4,
+      "input_tokens": 2985,
+      "visible_output_text_tokens": 365,
+      "visible_text_total": 3350,
+      "remaining_at6500": 3150,
+      "each_text_fits_P9_smoke_cap": true,
+      "each_input_plus_text_within8192": true,
+      "stage_counts": [
+        {
+          "stage": "plan",
+          "input_tokens": 572,
+          "visible_output_text_tokens": 127,
+          "P9_smoke_output_cap": 256,
+          "visible_text_fits_smoke_cap": true
+        },
+        {
+          "stage": "_transform",
+          "input_tokens": 732,
+          "visible_output_text_tokens": 97,
+          "P9_smoke_output_cap": 256,
+          "visible_text_fits_smoke_cap": true
+        },
+        {
+          "stage": "_select",
+          "input_tokens": 824,
+          "visible_output_text_tokens": 93,
+          "P9_smoke_output_cap": 256,
+          "visible_text_fits_smoke_cap": true
+        },
+        {
+          "stage": "entry",
+          "input_tokens": 857,
+          "visible_output_text_tokens": 48,
+          "P9_smoke_output_cap": 512,
+          "visible_text_fits_smoke_cap": true
+        }
+      ]
+    },
+    {
+      "task_id": "D1_B05",
+      "format": "compact",
+      "arm": "M2",
+      "representation": "staged_correct",
+      "context": "all_previous",
+      "calls": 4,
+      "input_tokens": 2441,
+      "visible_output_text_tokens": 365,
+      "visible_text_total": 2806,
+      "remaining_at6500": 3694,
+      "each_text_fits_P9_smoke_cap": true,
+      "each_input_plus_text_within8192": true,
+      "stage_counts": [
+        {
+          "stage": "plan",
+          "input_tokens": 436,
+          "visible_output_text_tokens": 127,
+          "P9_smoke_output_cap": 256,
+          "visible_text_fits_smoke_cap": true
+        },
+        {
+          "stage": "_transform",
+          "input_tokens": 596,
+          "visible_output_text_tokens": 97,
+          "P9_smoke_output_cap": 256,
+          "visible_text_fits_smoke_cap": true
+        },
+        {
+          "stage": "_select",
+          "input_tokens": 688,
+          "visible_output_text_tokens": 93,
+          "P9_smoke_output_cap": 256,
+          "visible_text_fits_smoke_cap": true
+        },
+        {
+          "stage": "entry",
+          "input_tokens": 721,
+          "visible_output_text_tokens": 48,
+          "P9_smoke_output_cap": 512,
+          "visible_text_fits_smoke_cap": true
+        }
+      ]
+    },
+    {
+      "task_id": "D1_C03",
+      "format": "pretty",
+      "arm": "M2",
+      "representation": "staged_correct",
+      "context": "all_previous",
+      "calls": 4,
+      "input_tokens": 3439,
+      "visible_output_text_tokens": 319,
+      "visible_text_total": 3758,
+      "remaining_at6500": 2742,
+      "each_text_fits_P9_smoke_cap": true,
+      "each_input_plus_text_within8192": true,
+      "stage_counts": [
+        {
+          "stage": "plan",
+          "input_tokens": 761,
+          "visible_output_text_tokens": 110,
+          "P9_smoke_output_cap": 256,
+          "visible_text_fits_smoke_cap": true
+        },
+        {
+          "stage": "_call_key",
+          "input_tokens": 899,
+          "visible_output_text_tokens": 18,
+          "P9_smoke_output_cap": 256,
+          "visible_text_fits_smoke_cap": true
+        },
+        {
+          "stage": "_compute",
+          "input_tokens": 905,
+          "visible_output_text_tokens": 16,
+          "P9_smoke_output_cap": 256,
+          "visible_text_fits_smoke_cap": true
+        },
+        {
+          "stage": "entry",
+          "input_tokens": 874,
+          "visible_output_text_tokens": 175,
+          "P9_smoke_output_cap": 512,
+          "visible_text_fits_smoke_cap": true
+        }
+      ]
+    },
+    {
+      "task_id": "D1_C03",
+      "format": "compact",
+      "arm": "M2",
+      "representation": "staged_correct",
+      "context": "all_previous",
+      "calls": 4,
+      "input_tokens": 2543,
+      "visible_output_text_tokens": 319,
+      "visible_text_total": 2862,
+      "remaining_at6500": 3638,
+      "each_text_fits_P9_smoke_cap": true,
+      "each_input_plus_text_within8192": true,
+      "stage_counts": [
+        {
+          "stage": "plan",
+          "input_tokens": 537,
+          "visible_output_text_tokens": 110,
+          "P9_smoke_output_cap": 256,
+          "visible_text_fits_smoke_cap": true
+        },
+        {
+          "stage": "_call_key",
+          "input_tokens": 675,
+          "visible_output_text_tokens": 18,
+          "P9_smoke_output_cap": 256,
+          "visible_text_fits_smoke_cap": true
+        },
+        {
+          "stage": "_compute",
+          "input_tokens": 681,
+          "visible_output_text_tokens": 16,
+          "P9_smoke_output_cap": 256,
+          "visible_text_fits_smoke_cap": true
+        },
+        {
+          "stage": "entry",
+          "input_tokens": 650,
+          "visible_output_text_tokens": 175,
+          "P9_smoke_output_cap": 512,
+          "visible_text_fits_smoke_cap": true
+        }
+      ]
+    }
+  ],
+  "only_referenced_symbol_savings": [
+    {
+      "task_id": "D1_B05",
+      "format": "pretty",
+      "saved_input_tokens": 97,
+      "given_output_text_identical": true
+    },
+    {
+      "task_id": "D1_B05",
+      "format": "compact",
+      "saved_input_tokens": 97,
+      "given_output_text_identical": true
+    },
+    {
+      "task_id": "D1_C03",
+      "format": "pretty",
+      "saved_input_tokens": 18,
+      "given_output_text_identical": true
+    },
+    {
+      "task_id": "D1_C03",
+      "format": "compact",
+      "saved_input_tokens": 18,
+      "given_output_text_identical": true
+    }
+  ],
+  "saved_P9_output_audit": [
+    {
+      "arm": "M0",
+      "stage": "whole",
+      "response_sha256": "e06ccd00e16b18e08a5d0bb344b2d941a550aa71b8d30a4f207fc6bef417b151",
+      "visible_response_text_tokens": 248,
+      "API_eval_count": 249,
+      "API_minus_visible_text": 1,
+      "done_reason": "stop",
+      "source": "P9保存原始响应，非新API调用"
+    },
+    {
+      "arm": "M2",
+      "stage": "plan",
+      "response_sha256": "ae709fd4733e9c226541dcc6067dfbc3818e98272bae9b5c67807d70689d21f6",
+      "visible_response_text_tokens": 130,
+      "API_eval_count": 131,
+      "API_minus_visible_text": 1,
+      "done_reason": "stop",
+      "source": "P9保存原始响应，非新API调用"
+    },
+    {
+      "arm": "M2",
+      "stage": "helper_1",
+      "response_sha256": "a651b851cd80303b7afae783ec48b772d2fbf48660595e8c03670bdd9e192259",
+      "visible_response_text_tokens": 37,
+      "API_eval_count": 38,
+      "API_minus_visible_text": 1,
+      "done_reason": "stop",
+      "source": "P9保存原始响应，非新API调用"
+    },
+    {
+      "arm": "M2",
+      "stage": "helper_2",
+      "response_sha256": "ffe82430da897c066c7286dd59b64d58d99683c1fb411e50b2e646f6f0d2811a",
+      "visible_response_text_tokens": 90,
+      "API_eval_count": 91,
+      "API_minus_visible_text": 1,
+      "done_reason": "stop",
+      "source": "P9保存原始响应，非新API调用"
+    }
+  ],
+  "prepared_code": [
+    {
+      "task_id": "D1_B05",
+      "program": "staged_correct",
+      "source_sha256": "0151a2078a632ac7bc0e0cfc3bd3ef5c8639ebe4cb13301f24ee8bb2bee15db5",
+      "alpha_renamed_name_tokens": 5,
+      "alpha_ast_equivalent": true,
+      "normalized_sha256": "24d58e50c442f9e579966906f64f472890387c97a5f2232dc181488151a46b9e",
+      "normalized_file": "D1_B05_staged_correct.py",
+      "top_level_functions": [
+        "_transform",
+        "_select",
+        "solve"
+      ]
+    },
+    {
+      "task_id": "D1_B05",
+      "program": "fused_correct",
+      "source_sha256": "a789df1975a922db888d20aa6d0aa667cdfdb5eeb7043333c1371f79547d298a",
+      "alpha_renamed_name_tokens": 6,
+      "alpha_ast_equivalent": true,
+      "normalized_sha256": "d3553d58d49782d18480b3aa379ecb897e39aae675207f974fbcf9cfba77307c",
+      "normalized_file": "D1_B05_fused_correct.py",
+      "top_level_functions": [
+        "solve"
+      ]
+    },
+    {
+      "task_id": "D1_C03",
+      "program": "staged_correct",
+      "source_sha256": "33f28551557c0aa9a50d4a46c0046dd768b40df92564c4d6fdb4e8eb28be685c",
+      "alpha_renamed_name_tokens": 4,
+      "alpha_ast_equivalent": true,
+      "normalized_sha256": "03e922b593df66361356943933c7f68cc8260b31dc319325d86b3bacdad3e4b2",
+      "normalized_file": "D1_C03_staged_correct.py",
+      "top_level_functions": [
+        "_call_key",
+        "_compute",
+        "solve"
+      ]
+    },
+    {
+      "task_id": "D1_C03",
+      "program": "records_correct",
+      "source_sha256": "420de6627d11fdcefda8b85158ad0e401f13f988420205cbfaa17ceb023e85c0",
+      "alpha_renamed_name_tokens": 4,
+      "alpha_ast_equivalent": true,
+      "normalized_sha256": "c9a16063d5d3be17c260caf6fdbb5b17255cd5cf59863001c64c50e19e2b4fea",
+      "normalized_file": "D1_C03_records_correct.py",
+      "top_level_functions": [
+        "solve"
+      ]
+    }
+  ],
+  "tokenizer": {
+    "build": "version: 0.5.0-dev (build 1, commit 631109b34)\nbuilt with Clang 18.1.8 for Windows AMD64",
+    "vocab_only": true,
+    "model_path": "D:\\yaorz\\tools\\ollamaModels\\blobs\\sha256-60e05f2100071479f596b964f89f510f057ce397ea22f2833a0cfe029bfc2463",
+    "model_file_bytes": 4683074048,
+    "dll_sha256": "8eeb51bbe0cda0ba2864c40abf7d73a13ac92f0857086185b357a95a858aee5b",
+    "model_hash_status": "blob名称记录上游digest，本次未重算4.6GB文件哈希"
+  },
+  "model_calls": 0,
+  "API_calls": 0,
+  "human_reviewers": 0,
+  "executor_changed": false,
+  "script_sha256": "0e6b317e5c0cd8d190e806fa67dbee522eb9b2ff4ebb948a1c3c4cacaf6809d3",
+  "P13_freeze_sha256": "1d2a419cfa598a6f7733d4450b343e13dda5d92a5491435dec4a9d972d4aa02e",
+  "scope": "人工给定合法代码/计划的可见文本构造计量，非API实际新花费、模型产出概率、全域最短代码、相同模型成绩或正式预算配置"
+}

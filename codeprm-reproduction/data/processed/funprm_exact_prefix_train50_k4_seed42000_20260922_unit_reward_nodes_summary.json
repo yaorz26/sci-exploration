@@ -1,0 +1,11 @@
+{
+  "input": "data\\processed\\funprm_exact_prefix_train50_k4_seed42000_20260922_nodes.jsonl",
+  "output": "data\\processed\\funprm_exact_prefix_train50_k4_seed42000_20260922_unit_reward_nodes.jsonl",
+  "nodes": 103,
+  "rollouts": 412,
+  "unique_program_evaluations": 405,
+  "changed_rollout_labels": 113,
+  "successful_rollouts": 160,
+  "reward_policy": "final unit-test all-pass only; no function-count or entrypoint-order gate",
+  "new_model_calls": 0
+}

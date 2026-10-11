@@ -1,0 +1,49 @@
+{
+  "tasks": [
+    {
+      "task_id": "D1_B01",
+      "cases": 21,
+      "json_behavior_only": true
+    },
+    {
+      "task_id": "D1_B02",
+      "cases": 20,
+      "json_behavior_only": true
+    },
+    {
+      "task_id": "D1_C01",
+      "cases": 22,
+      "json_behavior_only": true
+    },
+    {
+      "task_id": "D1_C02",
+      "cases": 23,
+      "json_behavior_only": true
+    },
+    {
+      "task_id": "D1_F01",
+      "cases": 15,
+      "json_behavior_only": true
+    },
+    {
+      "task_id": "D1_F02",
+      "cases": 13,
+      "json_behavior_only": true
+    },
+    {
+      "task_id": "D1_M01",
+      "cases": 18,
+      "json_behavior_only": true
+    },
+    {
+      "task_id": "D1_M02",
+      "cases": 19,
+      "json_behavior_only": true
+    }
+  ],
+  "candidate_calls": [
+    "module.solve"
+  ],
+  "helper_names_required": false,
+  "scope": "检查纯JSON行为用例格式和评测器调用点；没有从JSON执行代码或访问候选私有helper；不证明所有需求边界完备"
+}

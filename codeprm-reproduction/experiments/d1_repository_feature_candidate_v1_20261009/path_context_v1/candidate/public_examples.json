@@ -1,0 +1,206 @@
+[
+  {
+    "case_id": "default_source_app_base",
+    "input": {
+      "app_dir": "/workspace/app",
+      "sources": [
+        {
+          "filename": "/workspace/app/default.yaml",
+          "base_for_paths": false
+        }
+      ],
+      "queries": [
+        {
+          "source_index": 0,
+          "path": "assets/a.txt",
+          "cwd": null,
+          "in_app_dir": false,
+          "in_source_dir": false
+        },
+        {
+          "source_index": 0,
+          "path": "logs/x.txt",
+          "cwd": null,
+          "in_app_dir": false,
+          "in_source_dir": false
+        }
+      ]
+    },
+    "output": {
+      "resolved": [
+        "/workspace/app/assets/a.txt",
+        "/workspace/app/logs/x.txt"
+      ]
+    }
+  },
+  {
+    "case_id": "source_base",
+    "input": {
+      "app_dir": "/workspace/app",
+      "sources": [
+        {
+          "filename": "/workspace/app/sub/local.yaml",
+          "base_for_paths": true
+        }
+      ],
+      "queries": [
+        {
+          "source_index": 0,
+          "path": "assets/a.txt",
+          "cwd": null,
+          "in_app_dir": false,
+          "in_source_dir": false
+        },
+        {
+          "source_index": 0,
+          "path": "other/b.txt",
+          "cwd": null,
+          "in_app_dir": false,
+          "in_source_dir": false
+        }
+      ]
+    },
+    "output": {
+      "resolved": [
+        "/workspace/app/sub/assets/a.txt",
+        "/workspace/app/sub/other/b.txt"
+      ]
+    }
+  },
+  {
+    "case_id": "force_app_dir",
+    "input": {
+      "app_dir": "/workspace/app",
+      "sources": [
+        {
+          "filename": "/workspace/app/sub/local.yaml",
+          "base_for_paths": true
+        }
+      ],
+      "queries": [
+        {
+          "source_index": 0,
+          "path": "assets/a.txt",
+          "cwd": null,
+          "in_app_dir": true,
+          "in_source_dir": false
+        },
+        {
+          "source_index": 0,
+          "path": "other/b.txt",
+          "cwd": null,
+          "in_app_dir": true,
+          "in_source_dir": false
+        }
+      ]
+    },
+    "output": {
+      "resolved": [
+        "/workspace/app/assets/a.txt",
+        "/workspace/app/other/b.txt"
+      ]
+    }
+  },
+  {
+    "case_id": "template_source_dir",
+    "input": {
+      "app_dir": "/workspace/app",
+      "sources": [
+        {
+          "filename": "/workspace/app/sub/local.yaml",
+          "base_for_paths": false
+        }
+      ],
+      "queries": [
+        {
+          "source_index": 0,
+          "path": "assets/a.txt",
+          "cwd": null,
+          "in_app_dir": false,
+          "in_source_dir": true
+        },
+        {
+          "source_index": 0,
+          "path": "other/b.txt",
+          "cwd": null,
+          "in_app_dir": false,
+          "in_source_dir": true
+        }
+      ]
+    },
+    "output": {
+      "resolved": [
+        "/workspace/app/sub/assets/a.txt",
+        "/workspace/app/sub/other/b.txt"
+      ]
+    }
+  },
+  {
+    "case_id": "cwd_precedence",
+    "input": {
+      "app_dir": "/workspace/app",
+      "sources": [
+        {
+          "filename": "/workspace/app/sub/local.yaml",
+          "base_for_paths": true
+        }
+      ],
+      "queries": [
+        {
+          "source_index": 0,
+          "path": "assets/a.txt",
+          "cwd": "/tmp/job",
+          "in_app_dir": false,
+          "in_source_dir": true
+        },
+        {
+          "source_index": 0,
+          "path": "../data/b.txt",
+          "cwd": "/tmp/job",
+          "in_app_dir": false,
+          "in_source_dir": true
+        }
+      ]
+    },
+    "output": {
+      "resolved": [
+        "/tmp/job/assets/a.txt",
+        "/tmp/data/b.txt"
+      ]
+    }
+  },
+  {
+    "case_id": "absolute_preserved",
+    "input": {
+      "app_dir": "/workspace/app",
+      "sources": [
+        {
+          "filename": "/workspace/app/sub/local.yaml",
+          "base_for_paths": true
+        }
+      ],
+      "queries": [
+        {
+          "source_index": 0,
+          "path": "/var/data/x.txt",
+          "cwd": null,
+          "in_app_dir": true,
+          "in_source_dir": true
+        },
+        {
+          "source_index": 0,
+          "path": "/var/../srv/y.txt",
+          "cwd": "/tmp/job",
+          "in_app_dir": false,
+          "in_source_dir": false
+        }
+      ]
+    },
+    "output": {
+      "resolved": [
+        "/var/data/x.txt",
+        "/srv/y.txt"
+      ]
+    }
+  }
+]

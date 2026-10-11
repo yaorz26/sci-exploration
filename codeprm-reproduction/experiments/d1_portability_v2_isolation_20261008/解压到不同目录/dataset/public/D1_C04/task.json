@@ -1,0 +1,101 @@
+{
+  "task_id": "D1_C04",
+  "requirement": "实现solve(payload)。instances为唯一字符串id与整数bias的对象列表，每实例独立空缓存和计算次数0，各缓存capacity为同一个非负整数。operations含instance（保证存在），call另有整数x：返回该实例bias+x；同实例同x命中不增加计算次数并刷新最近使用，未命中次数+1，容量满淘汰该实例最久未用x，capacity=0不缓存。clear只清空指定实例，计数不重置，result为null。每步返回{result,computations,sizes}，后两项分别是所有实例id到累计次数/当前缓存项数的对象。不同实例相同x也必须各自计算；不修改输入。只用标准库，内部结构自由。",
+  "entry_point": "solve(payload)",
+  "language": "Python",
+  "allowed_libraries": "仅Python标准库",
+  "public_examples": [
+    {
+      "input": {
+        "capacity": 1,
+        "instances": [
+          {
+            "id": "a",
+            "bias": 10
+          },
+          {
+            "id": "b",
+            "bias": 20
+          }
+        ],
+        "operations": [
+          {
+            "op": "call",
+            "instance": "a",
+            "x": 1
+          },
+          {
+            "op": "call",
+            "instance": "b",
+            "x": 1
+          },
+          {
+            "op": "call",
+            "instance": "a",
+            "x": 1
+          },
+          {
+            "op": "clear",
+            "instance": "a"
+          }
+        ]
+      },
+      "output": [
+        {
+          "result": 11,
+          "computations": {
+            "a": 1,
+            "b": 0
+          },
+          "sizes": {
+            "a": 1,
+            "b": 0
+          }
+        },
+        {
+          "result": 21,
+          "computations": {
+            "a": 1,
+            "b": 1
+          },
+          "sizes": {
+            "a": 1,
+            "b": 1
+          }
+        },
+        {
+          "result": 11,
+          "computations": {
+            "a": 1,
+            "b": 1
+          },
+          "sizes": {
+            "a": 1,
+            "b": 1
+          }
+        },
+        {
+          "result": null,
+          "computations": {
+            "a": 1,
+            "b": 1
+          },
+          "sizes": {
+            "a": 0,
+            "b": 1
+          }
+        }
+      ]
+    },
+    {
+      "input": {
+        "capacity": 1,
+        "instances": [],
+        "operations": []
+      },
+      "output": []
+    }
+  ],
+  "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。",
+  "internal_decomposition": "自由选择，不给定helper名称或数量"
+}

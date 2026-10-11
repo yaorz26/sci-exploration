@@ -1,0 +1,38 @@
+{
+  "status": "pass",
+  "task_id": "D1_F03",
+  "hand_anchors": 7,
+  "hand_expectation_checks": 42,
+  "finite_grid_inputs": 216,
+  "grid_counts": {
+    "reference": {
+      "left_mismatches": 28,
+      "right_mismatches": 14,
+      "both_mismatch": 14,
+      "nonassociative": 14
+    },
+    "alternate": {
+      "left_mismatches": 28,
+      "right_mismatches": 14,
+      "both_mismatch": 14,
+      "nonassociative": 14
+    }
+  },
+  "direct_implementation_disagreement_ids": [],
+  "distinct_actual_calls_by_implementation": {
+    "reference": 273,
+    "alternate": 273
+  },
+  "distinct_inputs_all_implementations": 273,
+  "actual_implementation_calls": 546,
+  "cached_evaluation_references_not_calls": 2230,
+  "hidden_test_evaluations": 0,
+  "hidden_expected_outputs_read": 0,
+  "F03_hidden_input_descriptors_exposed": 12,
+  "adjacent_task_hidden_descriptors_exposed": true,
+  "model_calls": 0,
+  "API_calls": 0,
+  "human_reviewers": 0,
+  "seconds": 0.08436479999363655,
+  "limits": "手算/有限公开规则诊断；已接触隐藏输入描述，非未见确认；二元规则的局部正确不证明完整计划正确，无模型效果/独立任务数/最小必要状态结论"
+}

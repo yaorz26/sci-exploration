@@ -1,0 +1,83 @@
+[
+  {
+    "case_id": "public_1",
+    "input": {
+      "items": [
+        1,
+        2
+      ],
+      "operations": [
+        {
+          "op": "peek"
+        },
+        {
+          "op": "next"
+        },
+        {
+          "op": "seek",
+          "index": 0
+        },
+        {
+          "op": "next"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": 1,
+          "cache": [
+            1
+          ]
+        },
+        {
+          "result": 1,
+          "cache": [
+            1
+          ]
+        },
+        {
+          "result": null,
+          "cache": [
+            1
+          ]
+        },
+        {
+          "result": 1,
+          "cache": [
+            1
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "public_2",
+    "input": {
+      "items": [],
+      "operations": [
+        {
+          "op": "next"
+        },
+        {
+          "op": "peek",
+          "default": "end"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": {
+            "error": "StopIteration"
+          },
+          "cache": []
+        },
+        {
+          "result": "end",
+          "cache": []
+        }
+      ]
+    }
+  }
+]

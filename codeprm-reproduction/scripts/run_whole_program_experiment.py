@@ -1,4 +1,4 @@
-"""Run M0 direct or M1 plan-first whole-program generation with public-only selection."""
+"""Run whole-program generation methods with public-only candidate selection."""
 
 from __future__ import annotations
 
@@ -25,7 +25,7 @@ def main() -> None:
     parser.add_argument("--limit", type=int, default=2)
     parser.add_argument("--problem-id", action="append", default=[], help="Restrict the run to one or more exact problem IDs.")
     parser.add_argument("--stratum", default=None, help="Restrict the run to a frozen slice stratum field.")
-    parser.add_argument("--method", choices=["direct", "plan"], required=True)
+    parser.add_argument("--method", choices=["direct", "plan", "functionized", "top_down_cof"], required=True)
     parser.add_argument("--model", default="qwen2.5-coder:7b")
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--candidates", type=int, default=8)
@@ -33,6 +33,10 @@ def main() -> None:
     parser.add_argument("--candidate-timeout", type=float, default=None, help="Optional total test-time budget per candidate and split")
     parser.add_argument("--output-prefix", default=None)
     parser.add_argument("--overwrite", action="store_true")
+    parser.add_argument("--defer-private", action="store_true", help="Write generation/public results only; defer private evaluation to a separate frozen selector.")
+    parser.add_argument("--max-requests", type=int, default=None)
+    parser.add_argument("--stop-after-candidate-problems", type=int, default=None)
+    parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
 
     data_path = Path(args.data)
@@ -51,6 +55,19 @@ def main() -> None:
         for path in [*paths, summary_path]:
             path.unlink(missing_ok=True)
     completed = _completed_problem_ids(evaluation_path)
+    planned_requests = sum(str(problem.get("problem_id")) not in completed for problem in problems) * args.candidates
+    if args.max_requests is not None and planned_requests > args.max_requests:
+        raise ValueError(f"planned requests {planned_requests} exceed max {args.max_requests}")
+    if args.dry_run:
+        print(json.dumps({
+            "problems": len(problems),
+            "completed_problems": len(completed),
+            "candidates_per_problem": args.candidates,
+            "planned_additional_requests": planned_requests,
+            "stop_after_candidate_problems": args.stop_after_candidate_problems,
+            "private_evaluation_deferred": args.defer_private,
+        }, ensure_ascii=False, indent=2))
+        return
     if completed:
         _retain_completed_lines(generation_path, completed)
 
@@ -62,6 +79,7 @@ def main() -> None:
         "candidate_budget_per_problem": args.candidates,
         "per_test_timeout_seconds": args.timeout,
         "candidate_timeout_seconds": args.candidate_timeout,
+        "private_evaluation_deferred": args.defer_private,
         "evaluator_policy": "normalized token comparison; numeric tokens math.isclose(rel_tol=1e-6, abs_tol=1e-6); function outputs literal comparison",
         "problems": len(problems),
         "generation_requests": 0,
@@ -94,13 +112,17 @@ def main() -> None:
             problem_id = str(problem.get("problem_id"))
             if problem_id in completed:
                 continue
+            prompt_problem = {
+                key: value for key, value in problem.items()
+                if key not in {"public_tests", "private_tests", "public_test_cases", "private_test_cases", "tests"}
+            }
             candidates: list[dict[str, Any]] = []
             public_cache: dict[str, tuple[dict[str, Any], str]] = {}
 
             for candidate_index in range(args.candidates):
                 summary["generation_requests"] += 1
                 try:
-                    generation = generator.generate(problem, args.method, candidate_index)
+                    generation = generator.generate(prompt_problem, args.method, candidate_index)
                     _add_usage(summary, generation.get("usage", {}))
                 except Exception as exc:
                     generation = {
@@ -160,16 +182,17 @@ def main() -> None:
                 public = selected.get("public") or {}
                 if public.get("total", 0) and public.get("passed") == public.get("total"):
                     summary["selected_public_pass"] += 1
-                private = evaluate_split(str(selected["code"]), problem, "private", args.timeout, args.candidate_timeout)
-                summary["private_program_evaluations"] += 1
-                summary["private_test_executions"] += int(private.get("total", 0))
-                if private.get("total", 0) and private.get("passed") == private.get("total"):
-                    summary["selected_private_pass"] += 1
-                final_evaluation = {
-                    "selected_candidate_id": selected["candidate_id"],
-                    "code_hash": selected["code_hash"],
-                    "private": private,
-                }
+                if not args.defer_private:
+                    private = evaluate_split(str(selected["code"]), problem, "private", args.timeout, args.candidate_timeout)
+                    summary["private_program_evaluations"] += 1
+                    summary["private_test_executions"] += int(private.get("total", 0))
+                    if private.get("total", 0) and private.get("passed") == private.get("total"):
+                        summary["selected_private_pass"] += 1
+                    final_evaluation = {
+                        "selected_candidate_id": selected["candidate_id"],
+                        "code_hash": selected["code_hash"],
+                        "private": private,
+                    }
 
             _write_jsonl(evaluation_handle, {
                 "problem_id": problem_id,
@@ -179,6 +202,12 @@ def main() -> None:
             completed.add(problem_id)
             summary["completed_problem_ids"] = sorted(completed)
             _write_summary(summary_path, summary, previous_elapsed + time.perf_counter() - started, paths)
+            if (
+                args.stop_after_candidate_problems is not None
+                and int(summary["problems_with_candidate"]) >= args.stop_after_candidate_problems
+            ):
+                summary["stopped_after_candidate_problem_target"] = args.stop_after_candidate_problems
+                break
 
     summary["model_reported_seconds"] = round(float(summary["model_reported_seconds"]), 3)
     _write_summary(summary_path, summary, previous_elapsed + time.perf_counter() - started, paths)

@@ -1,0 +1,284 @@
+{
+  "status": "measured_constructed_scenarios",
+  "tasks": 20,
+  "M0_rows": 40,
+  "M2_scenarios": 160,
+  "model_calls": 0,
+  "API_calls": 0,
+  "groups": [
+    {
+      "format": "pretty",
+      "helpers": 2,
+      "comment_lines": 0,
+      "tasks": 20,
+      "input_min": 1872,
+      "input_median": 2606.0,
+      "input_max": 3556,
+      "over6500": 0,
+      "remaining_output_min": 2944,
+      "remaining_output_median": 3894.0,
+      "ratio_median": 4.921624995541606
+    },
+    {
+      "format": "pretty",
+      "helpers": 2,
+      "comment_lines": 128,
+      "tasks": 20,
+      "input_min": 7248,
+      "input_median": 7982.0,
+      "input_max": 8932,
+      "over6500": 20,
+      "remaining_output_min": -2432,
+      "remaining_output_median": -1482.0,
+      "ratio_median": 15.074608552983557
+    },
+    {
+      "format": "pretty",
+      "helpers": 3,
+      "comment_lines": 0,
+      "tasks": 20,
+      "input_min": 2600,
+      "input_median": 3517.5,
+      "input_max": 4705,
+      "over6500": 0,
+      "remaining_output_min": 1795,
+      "remaining_output_median": 2982.5,
+      "ratio_median": 6.643060955166387
+    },
+    {
+      "format": "pretty",
+      "helpers": 3,
+      "comment_lines": 128,
+      "tasks": 20,
+      "input_min": 13352,
+      "input_median": 14269.5,
+      "input_max": 15457,
+      "over6500": 20,
+      "remaining_output_min": -8957,
+      "remaining_output_median": -7769.5,
+      "ratio_median": 26.94902807005029
+    },
+    {
+      "format": "compact",
+      "helpers": 2,
+      "comment_lines": 0,
+      "tasks": 20,
+      "input_min": 1580,
+      "input_median": 2042.0,
+      "input_max": 2760,
+      "over6500": 0,
+      "remaining_output_min": 3740,
+      "remaining_output_median": 4458.0,
+      "ratio_median": 5.256365058117188
+    },
+    {
+      "format": "compact",
+      "helpers": 2,
+      "comment_lines": 128,
+      "tasks": 20,
+      "input_min": 6956,
+      "input_median": 7418.0,
+      "input_max": 8136,
+      "over6500": 20,
+      "remaining_output_min": -1636,
+      "remaining_output_median": -918.0,
+      "ratio_median": 19.096976845899988
+    },
+    {
+      "format": "compact",
+      "helpers": 3,
+      "comment_lines": 0,
+      "tasks": 20,
+      "input_min": 2235,
+      "input_median": 2812.5,
+      "input_max": 3710,
+      "over6500": 0,
+      "remaining_output_min": 2790,
+      "remaining_output_median": 3687.5,
+      "ratio_median": 7.239831148692529
+    },
+    {
+      "format": "compact",
+      "helpers": 3,
+      "comment_lines": 128,
+      "tasks": 20,
+      "input_min": 12987,
+      "input_median": 13564.5,
+      "input_max": 14462,
+      "over6500": 20,
+      "remaining_output_min": -7962,
+      "remaining_output_median": -7064.5,
+      "ratio_median": 34.92105472425813
+    }
+  ],
+  "same_fields_compaction_savings": [
+    {
+      "task_id": "D1_B01",
+      "same_semantic_fields": true,
+      "M0_input_saving": 79,
+      "M2_input_saving": 316,
+      "M2_saving_fraction": 0.15643564356435644
+    },
+    {
+      "task_id": "D1_B02",
+      "same_semantic_fields": true,
+      "M0_input_saving": 211,
+      "M2_input_saving": 844,
+      "M2_saving_fraction": 0.25857843137254904
+    },
+    {
+      "task_id": "D1_M01",
+      "same_semantic_fields": true,
+      "M0_input_saving": 123,
+      "M2_input_saving": 492,
+      "M2_saving_fraction": 0.20707070707070707
+    },
+    {
+      "task_id": "D1_M02",
+      "same_semantic_fields": true,
+      "M0_input_saving": 88,
+      "M2_input_saving": 352,
+      "M2_saving_fraction": 0.18219461697722567
+    },
+    {
+      "task_id": "D1_C01",
+      "same_semantic_fields": true,
+      "M0_input_saving": 209,
+      "M2_input_saving": 836,
+      "M2_saving_fraction": 0.24733727810650888
+    },
+    {
+      "task_id": "D1_C02",
+      "same_semantic_fields": true,
+      "M0_input_saving": 164,
+      "M2_input_saving": 656,
+      "M2_saving_fraction": 0.1920374707259953
+    },
+    {
+      "task_id": "D1_F01",
+      "same_semantic_fields": true,
+      "M0_input_saving": 69,
+      "M2_input_saving": 276,
+      "M2_saving_fraction": 0.14743589743589744
+    },
+    {
+      "task_id": "D1_F02",
+      "same_semantic_fields": true,
+      "M0_input_saving": 116,
+      "M2_input_saving": 464,
+      "M2_saving_fraction": 0.20863309352517986
+    },
+    {
+      "task_id": "D1_B03",
+      "same_semantic_fields": true,
+      "M0_input_saving": 54,
+      "M2_input_saving": 216,
+      "M2_saving_fraction": 0.10526315789473684
+    },
+    {
+      "task_id": "D1_B04",
+      "same_semantic_fields": true,
+      "M0_input_saving": 126,
+      "M2_input_saving": 504,
+      "M2_saving_fraction": 0.15730337078651685
+    },
+    {
+      "task_id": "D1_B05",
+      "same_semantic_fields": true,
+      "M0_input_saving": 136,
+      "M2_input_saving": 544,
+      "M2_saving_fraction": 0.2085889570552147
+    },
+    {
+      "task_id": "D1_B06",
+      "same_semantic_fields": true,
+      "M0_input_saving": 129,
+      "M2_input_saving": 516,
+      "M2_saving_fraction": 0.2084006462035541
+    },
+    {
+      "task_id": "D1_M03",
+      "same_semantic_fields": true,
+      "M0_input_saving": 188,
+      "M2_input_saving": 752,
+      "M2_saving_fraction": 0.22871046228710462
+    },
+    {
+      "task_id": "D1_M04",
+      "same_semantic_fields": true,
+      "M0_input_saving": 186,
+      "M2_input_saving": 744,
+      "M2_saving_fraction": 0.2554945054945055
+    },
+    {
+      "task_id": "D1_M05",
+      "same_semantic_fields": true,
+      "M0_input_saving": 100,
+      "M2_input_saving": 400,
+      "M2_saving_fraction": 0.17825311942959002
+    },
+    {
+      "task_id": "D1_C03",
+      "same_semantic_fields": true,
+      "M0_input_saving": 224,
+      "M2_input_saving": 896,
+      "M2_saving_fraction": 0.26634958382877527
+    },
+    {
+      "task_id": "D1_C04",
+      "same_semantic_fields": true,
+      "M0_input_saving": 244,
+      "M2_input_saving": 976,
+      "M2_saving_fraction": 0.2744656917885264
+    },
+    {
+      "task_id": "D1_C05",
+      "same_semantic_fields": true,
+      "M0_input_saving": 146,
+      "M2_input_saving": 584,
+      "M2_saving_fraction": 0.22427035330261136
+    },
+    {
+      "task_id": "D1_F03",
+      "same_semantic_fields": true,
+      "M0_input_saving": 136,
+      "M2_input_saving": 544,
+      "M2_saving_fraction": 0.2138364779874214
+    },
+    {
+      "task_id": "D1_F04",
+      "same_semantic_fields": true,
+      "M0_input_saving": 138,
+      "M2_input_saving": 552,
+      "M2_saving_fraction": 0.19519094766619519
+    }
+  ],
+  "author_state_descriptive": [
+    {
+      "author_state": "none",
+      "tasks": 12,
+      "M0_input_median": 455.5,
+      "M2_input_median": 2310.0,
+      "M2_max_output_remainder_median": 4190.0
+    },
+    {
+      "author_state": "operation_sequence",
+      "tasks": 8,
+      "M0_input_median": 709.5,
+      "M2_input_median": 3326.0,
+      "M2_max_output_remainder_median": 3174.0
+    }
+  ],
+  "tokenizer": {
+    "build": "version: 0.5.0-dev (build 1, commit 631109b34)\nbuilt with Clang 18.1.8 for Windows AMD64",
+    "vocab_only": true,
+    "model_path": "D:\\yaorz\\tools\\ollamaModels\\blobs\\sha256-60e05f2100071479f596b964f89f510f057ce397ea22f2833a0cfe029bfc2463",
+    "model_file_bytes": 4683074048,
+    "dll_sha256": "8eeb51bbe0cda0ba2864c40abf7d73a13ac92f0857086185b357a95a858aee5b",
+    "model_hash_status": "blob名称记录上游digest，本次未重算4.6GB文件哈希"
+  },
+  "public_manifest_sha256": "c3593d11ae85cc23545aa91418c2ab3c97a4b005fd5e49963bdc28ae7e6eda9f",
+  "executor_template_source_sha256": "ca91992e33411464719a1fc86db241ded7f01d1bb407a97db3949eb5a3663765",
+  "script_sha256": "587b63cdd3b128364c748d5306d48b3ecb17a56ff44637c33ae188607a562a5b",
+  "scope": "占位计划/长度情景的精确输入token，不是模型实际计划、代码正确性、所有可能计划最低成本、预算违例或效果；余额忽略输出，仅为情景上界"
+}

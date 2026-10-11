@@ -1,0 +1,26 @@
+{
+  "status": "pass",
+  "hand_inputs": 6,
+  "hand_plan_evaluations": 18,
+  "plan_hand_passed": {
+    "wrong_identity_join": 3,
+    "indices_preserve_identity": 6,
+    "original_input_recovery": 6
+  },
+  "local_helper_evaluations": 18,
+  "local_helper_passed": 18,
+  "limited_information_collision_pairs": 1,
+  "same_helpers_recovered_by_entry": true,
+  "first_input_sorted_calls": {
+    "wrong_identity_join": 1,
+    "indices_preserve_identity": 1,
+    "original_input_recovery": 2
+  },
+  "old_grid_or_reference_calls": 0,
+  "new_hidden_inputs_read": 0,
+  "model_calls": 0,
+  "API_calls": 0,
+  "human_reviewers": 0,
+  "seconds": 0.01639400000004798,
+  "limits": "六手算/人工计划，非全域证明/模型效果；限定接口丢失不等实际M2必失败，完整原输入可改变边界；P31已知暴露限制保持"
+}

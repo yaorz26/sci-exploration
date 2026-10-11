@@ -1,0 +1,293 @@
+{
+  "status": "fail",
+  "checks": [
+    {
+      "name": "287原始文件：285相同，仅2登记路径变化",
+      "pass": true
+    },
+    {
+      "name": "原始定义额外副本逐字保留",
+      "pass": true
+    },
+    {
+      "name": "两份定义除来源定位与搜索路径外AST不变",
+      "pass": true
+    },
+    {
+      "name": "全部题面/案例/切分/评分器/参考入口和旧审计相同",
+      "pass": true
+    },
+    {
+      "name": "20题/40公开/267隐藏，合并表与分表相同",
+      "pass": true
+    },
+    {
+      "name": "每题case_id唯一且同一字节输入无冲突期望",
+      "pass": true
+    },
+    {
+      "name": "公开题面示例与公开测试输出一致",
+      "pass": false
+    },
+    {
+      "name": "5份运行依赖及许可已登记且源哈希一致",
+      "pass": true
+    },
+    {
+      "name": "原20题来源许可哈希不变",
+      "pass": true
+    },
+    {
+      "name": "清单中的全部文件哈希正确",
+      "pass": true
+    },
+    {
+      "name": "ZIP成员清单精确且内容正确",
+      "pass": true
+    },
+    {
+      "name": "ZIP无缓存及包外校验/评测记录",
+      "pass": true
+    },
+    {
+      "name": "包外ZIP哈希/字节/清单哈希正确",
+      "pass": true
+    },
+    {
+      "name": "该ZIP完成40/40隔离复跑614/614案例",
+      "pass": true
+    }
+  ],
+  "case_audit": [
+    {
+      "task_id": "D1_B01",
+      "public_cases": 2,
+      "private_cases": 19,
+      "all_cases": 21,
+      "union_exact": true,
+      "unique_case_ids": true,
+      "public_examples_match_cases": true,
+      "exact_duplicate_input_groups": [],
+      "conflicting_expected_same_exact_input": 0
+    },
+    {
+      "task_id": "D1_B02",
+      "public_cases": 2,
+      "private_cases": 18,
+      "all_cases": 20,
+      "union_exact": true,
+      "unique_case_ids": true,
+      "public_examples_match_cases": true,
+      "exact_duplicate_input_groups": [
+        [
+          "public_2",
+          "hidden_1"
+        ]
+      ],
+      "conflicting_expected_same_exact_input": 0
+    },
+    {
+      "task_id": "D1_M01",
+      "public_cases": 2,
+      "private_cases": 16,
+      "all_cases": 18,
+      "union_exact": true,
+      "unique_case_ids": true,
+      "public_examples_match_cases": true,
+      "exact_duplicate_input_groups": [],
+      "conflicting_expected_same_exact_input": 0
+    },
+    {
+      "task_id": "D1_M02",
+      "public_cases": 2,
+      "private_cases": 17,
+      "all_cases": 19,
+      "union_exact": true,
+      "unique_case_ids": true,
+      "public_examples_match_cases": true,
+      "exact_duplicate_input_groups": [],
+      "conflicting_expected_same_exact_input": 0
+    },
+    {
+      "task_id": "D1_C01",
+      "public_cases": 2,
+      "private_cases": 20,
+      "all_cases": 22,
+      "union_exact": true,
+      "unique_case_ids": true,
+      "public_examples_match_cases": true,
+      "exact_duplicate_input_groups": [],
+      "conflicting_expected_same_exact_input": 0
+    },
+    {
+      "task_id": "D1_C02",
+      "public_cases": 2,
+      "private_cases": 21,
+      "all_cases": 23,
+      "union_exact": true,
+      "unique_case_ids": true,
+      "public_examples_match_cases": true,
+      "exact_duplicate_input_groups": [],
+      "conflicting_expected_same_exact_input": 0
+    },
+    {
+      "task_id": "D1_F01",
+      "public_cases": 2,
+      "private_cases": 13,
+      "all_cases": 15,
+      "union_exact": true,
+      "unique_case_ids": true,
+      "public_examples_match_cases": true,
+      "exact_duplicate_input_groups": [],
+      "conflicting_expected_same_exact_input": 0
+    },
+    {
+      "task_id": "D1_F02",
+      "public_cases": 2,
+      "private_cases": 11,
+      "all_cases": 13,
+      "union_exact": true,
+      "unique_case_ids": true,
+      "public_examples_match_cases": true,
+      "exact_duplicate_input_groups": [],
+      "conflicting_expected_same_exact_input": 0
+    },
+    {
+      "task_id": "D1_B03",
+      "public_cases": 2,
+      "private_cases": 12,
+      "all_cases": 14,
+      "union_exact": true,
+      "unique_case_ids": true,
+      "public_examples_match_cases": true,
+      "exact_duplicate_input_groups": [],
+      "conflicting_expected_same_exact_input": 0
+    },
+    {
+      "task_id": "D1_B04",
+      "public_cases": 2,
+      "private_cases": 15,
+      "all_cases": 17,
+      "union_exact": true,
+      "unique_case_ids": true,
+      "public_examples_match_cases": true,
+      "exact_duplicate_input_groups": [],
+      "conflicting_expected_same_exact_input": 0
+    },
+    {
+      "task_id": "D1_B05",
+      "public_cases": 2,
+      "private_cases": 12,
+      "all_cases": 14,
+      "union_exact": true,
+      "unique_case_ids": true,
+      "public_examples_match_cases": true,
+      "exact_duplicate_input_groups": [],
+      "conflicting_expected_same_exact_input": 0
+    },
+    {
+      "task_id": "D1_B06",
+      "public_cases": 2,
+      "private_cases": 9,
+      "all_cases": 11,
+      "union_exact": true,
+      "unique_case_ids": true,
+      "public_examples_match_cases": true,
+      "exact_duplicate_input_groups": [],
+      "conflicting_expected_same_exact_input": 0
+    },
+    {
+      "task_id": "D1_M03",
+      "public_cases": 2,
+      "private_cases": 10,
+      "all_cases": 12,
+      "union_exact": true,
+      "unique_case_ids": true,
+      "public_examples_match_cases": true,
+      "exact_duplicate_input_groups": [],
+      "conflicting_expected_same_exact_input": 0
+    },
+    {
+      "task_id": "D1_M04",
+      "public_cases": 2,
+      "private_cases": 8,
+      "all_cases": 10,
+      "union_exact": true,
+      "unique_case_ids": true,
+      "public_examples_match_cases": true,
+      "exact_duplicate_input_groups": [],
+      "conflicting_expected_same_exact_input": 0
+    },
+    {
+      "task_id": "D1_M05",
+      "public_cases": 2,
+      "private_cases": 11,
+      "all_cases": 13,
+      "union_exact": true,
+      "unique_case_ids": true,
+      "public_examples_match_cases": false,
+      "exact_duplicate_input_groups": [],
+      "conflicting_expected_same_exact_input": 0
+    },
+    {
+      "task_id": "D1_C03",
+      "public_cases": 2,
+      "private_cases": 9,
+      "all_cases": 11,
+      "union_exact": true,
+      "unique_case_ids": true,
+      "public_examples_match_cases": true,
+      "exact_duplicate_input_groups": [],
+      "conflicting_expected_same_exact_input": 0
+    },
+    {
+      "task_id": "D1_C04",
+      "public_cases": 2,
+      "private_cases": 8,
+      "all_cases": 10,
+      "union_exact": true,
+      "unique_case_ids": true,
+      "public_examples_match_cases": true,
+      "exact_duplicate_input_groups": [],
+      "conflicting_expected_same_exact_input": 0
+    },
+    {
+      "task_id": "D1_C05",
+      "public_cases": 2,
+      "private_cases": 12,
+      "all_cases": 14,
+      "union_exact": true,
+      "unique_case_ids": true,
+      "public_examples_match_cases": true,
+      "exact_duplicate_input_groups": [],
+      "conflicting_expected_same_exact_input": 0
+    },
+    {
+      "task_id": "D1_F03",
+      "public_cases": 2,
+      "private_cases": 12,
+      "all_cases": 14,
+      "union_exact": true,
+      "unique_case_ids": true,
+      "public_examples_match_cases": true,
+      "exact_duplicate_input_groups": [],
+      "conflicting_expected_same_exact_input": 0
+    },
+    {
+      "task_id": "D1_F04",
+      "public_cases": 2,
+      "private_cases": 14,
+      "all_cases": 16,
+      "union_exact": true,
+      "unique_case_ids": true,
+      "public_examples_match_cases": true,
+      "exact_duplicate_input_groups": [],
+      "conflicting_expected_same_exact_input": 0
+    }
+  ],
+  "duplicate_input_group_count": 1,
+  "reviewer": "同一助手第二遍程序复核，非独立人工",
+  "human_review_count": 0,
+  "model_calls": 0,
+  "scope": "字节与执行一致性；不证明完整语义覆盖、结构标注可靠、新颖性或模型效果"
+}

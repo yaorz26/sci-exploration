@@ -1,0 +1,56 @@
+[
+  {
+    "case": "C04两粒度",
+    "protocol_layer": "task_question_unit",
+    "evidence_path": "experiments/d1_granularity_review_v2_20261008/review_summary.json",
+    "sha256": "4585b7dfbf1f434951c325ee3b822e3bc9c19cfce75273092f3236149e8b1e23",
+    "status": "measurement_unit_refinement_supported",
+    "independence": "同助手复核，非人工可靠性",
+    "new_execution": false
+  },
+  {
+    "case": "C03不同状态结构",
+    "protocol_layer": "post_generation_plan",
+    "evidence_path": "experiments/d1_plan_state_distribution_v1_20261008/summary.json",
+    "sha256": "841ea11e3b4da4b264849b7498ea080b93190fb057d2eab540a35fd4a950ab34",
+    "status": "pass",
+    "independence": "同助手复核，非人工可靠性",
+    "new_execution": false
+  },
+  {
+    "case": "M05有效域/合法次序",
+    "protocol_layer": "plan_domain_obligation",
+    "evidence_path": "experiments/d1_alignment_composition_v1_20261008/summary.json",
+    "sha256": "532618d7ddf95067cacc8cbed4365353cc80a106d688c3f6aa2ecb64de573b71",
+    "status": "pass",
+    "independence": "同助手复核，非人工可靠性",
+    "new_execution": false
+  },
+  {
+    "case": "F04拒绝/局部缺值",
+    "protocol_layer": "observation_gate",
+    "evidence_path": "experiments/d1_expected_rejection_v1_20261008/summary.json",
+    "sha256": "04bc7aa904748fc8992ddc59177c83b82d3c273b147ffd51a5233861c54c355e",
+    "status": "pass",
+    "independence": "同助手复核，非人工可靠性",
+    "new_execution": false
+  },
+  {
+    "case": "入口参数注解",
+    "protocol_layer": "method_acceptance",
+    "evidence_path": "experiments/d1_method_gate_v1_20261008/summary.json",
+    "sha256": "c2b87d699a9e440d8e5452c28f5a3a074f9893361fd93a4476450d93500cd7d7",
+    "status": "pass",
+    "independence": "同助手复核，非人工可靠性",
+    "new_execution": false
+  },
+  {
+    "case": "真实失败无完整候选",
+    "protocol_layer": "strategy_vs_observation_denominator",
+    "evidence_path": "experiments/d1_failure_observation_v1_20261008/summary.json",
+    "sha256": "44925a5637c51e922bc558308bbcf654a2acd682c167ab5ea800fd23e97a1902",
+    "status": "pass",
+    "independence": "同助手复核，非人工可靠性",
+    "new_execution": false
+  }
+]

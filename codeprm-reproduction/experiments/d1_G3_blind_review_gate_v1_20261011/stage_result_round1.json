@@ -1,0 +1,39 @@
+{
+  "phase": "G3",
+  "stage_name": "隔离独立审查（第一轮）与需求修订",
+  "created_at": "2026-10-11T11:20:00Z",
+  "macro_plan": "RESEARCH_PLAN.md v4 §5 G3（真实盲审与切分门）",
+  "purpose": "在两位真实人类审查者不可得时，验证需求文本能否被独立方稳定判定；并按发现的问题修订需求",
+  "what_was_done": {
+    "isolation": "两份审查输入逐字节相同（SHA256 ce65a782…），两位审查者各只读自己那份；均声明未读评价器、参考实现、模型结果与作者初标",
+    "reviewer_type": "ai_isolated_subagent（同一模型家族的两个隔离实例）",
+    "not_human": "明确不是人工双审，不得用于生成 formal_labels/split"
+  },
+  "headline_result": {
+    "total_judgements": 20,
+    "agreements": 8,
+    "raw_agreement": 0.4,
+    "expected_agreement_independence": 0.3675,
+    "cohen_kappa_estimate": 0.0514,
+    "rejection_agreement": "4/5（T5 分歧：A 拒收、B 不拒收）",
+    "meaning": "在**修订前**的需求文本下，两位独立审查者的打分几乎不相关（kappa≈0.05）：任务尚不具备稳定的可判定语义。这与第 5 节自查里提到的‘κ=0.436 不足’是同类现象。"
+  },
+  "replicated_defects": {
+    "T1": ["未写优先级方向", "remove 返回约定缺失", "remove 不存在任务与 pop/peek 无 default 的异常类型缺失"],
+    "T2": ["映射视图是否解码未写", "full_quote 对 / & = 与非 ASCII 的编码范围无定义", "note 文字自相矛盾"],
+    "T3": ["前缀是否含下划线未写", "嵌套是叶子合并还是整树替换未写", "调用序列与异常缺失"],
+    "T4": ["公开用例不含显式 keyfunc/valuefunc", "reducefunc 调用时机与保留规则不明", "兜底表述不可判定"],
+    "T5": ["public_cases 为 null 导致验收不可判定（A 据此拒收）", "模板 cwd/in_source_dir/in_app_dir 未定义归属", "优先级无最小判定例"]
+  },
+  "revisions": "见同目录 ../d1_G3_blind_review_gate_v1_20261011/REVISIONS.json：五份需求均已出 v2，逐条补齐上述缺陷",
+  "discipline_deviations": [
+    "T1–T4 的需求文件在写 v2 前未先快照 v1（v1 原文仍可从第一轮审查输入 review_input_A/B.json 完整恢复）",
+    "PR126 的 v2 曾被误写到工作区根下不存在的路径，误建目录已删除，仓库内 v1 未被改动"
+  ],
+  "limits": [
+    "两位审查者来自同一模型家族，一致率高不代表独立人类一致",
+    "20 项判断、5 点序数，kappa 估计只作参考",
+    "修订后再审查只能证明‘缺陷是否被消除’，不能证明任务已达到正式数据集的语义标准"
+  ],
+  "next": "第二轮隔离审查（材料 c8d4b37b…）核验五份需求的缺陷是否逐条解决；仍未解决则继续修订，不以报告数量充当进展"
+}

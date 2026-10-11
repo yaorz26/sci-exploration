@@ -1,0 +1,26 @@
+{
+  "helpers": [
+    {
+      "name": "_initialize_cache",
+      "signature": "def _initialize_cache(capacity):",
+      "contract": "初始化缓存，返回一个空的缓存字典。",
+      "depends_on": []
+    },
+    {
+      "name": "_update_cache",
+      "signature": "def _update_cache(cache, instance, capacity):",
+      "contract": "更新缓存，如果缓存已满，则淘汰最久未使用的项。",
+      "depends_on": [
+        "_initialize_cache"
+      ]
+    },
+    {
+      "name": "_handle_operation",
+      "signature": "def _handle_operation(cache, instance, x, computations, sizes):",
+      "contract": "处理操作，返回结果、计算次数和缓存大小。",
+      "depends_on": [
+        "_update_cache"
+      ]
+    }
+  ]
+}

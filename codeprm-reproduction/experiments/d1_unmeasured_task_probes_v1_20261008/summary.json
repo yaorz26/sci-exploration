@@ -1,0 +1,20 @@
+{
+  "status": "pass",
+  "screened_public_tasks": 12,
+  "newly_probed_original_tasks": [
+    "D1_C05",
+    "D1_M05"
+  ],
+  "relations": 26,
+  "passed": 26,
+  "unique_task_inputs": 29,
+  "implementation_calls": 58,
+  "hidden_cases_read": 0,
+  "model_calls": 0,
+  "API_calls": 0,
+  "human_reviewers": 0,
+  "seconds": 0.024883199999749195,
+  "script_sha256": "808972fce0cfd287fdec80aa5806c3792de0f0ec00ec9cfa0bb8f46080085f20",
+  "finding": "缓存关联群含无缓存历史的逐对判断；无操作状态的排序任务存在稳定排列与跨列对齐域依赖",
+  "limits": "两新有限探针非全域独立/模型效果；输入行/列/规则与操作历史不同，不改原v0.2/20题307/切分"
+}

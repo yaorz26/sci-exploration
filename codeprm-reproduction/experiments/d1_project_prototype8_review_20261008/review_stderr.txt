@@ -1,0 +1,14 @@
+workbuddy-run: spawn ENAMETOOLONG
+Usage: node workbuddy-run.mjs [options]
+
+  --prompt <text>          Task prompt (or pipe prompt on stdin)
+  --prompt-file <path>     Read the task prompt from a UTF-8 file
+  --task-kind <kind>       light, standard, or review (default: standard)
+  --model <id>             Override the model ID
+  --cwd <directory>        Worktree/repository directory
+  --add-dir <directory>    Additional allowed directory (repeatable)
+  --allow-tools            Bypass permission checks for an authorized task
+  --effort <level>         Reasoning effort (default: high)
+  --autocompact <size>     Context target (default: 1m)
+  --max-turns <number>     Agent turn limit (default: 8)
+  --timeout-ms <number>    Timeout (default: 600000)

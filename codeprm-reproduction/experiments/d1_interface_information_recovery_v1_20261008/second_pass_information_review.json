@@ -1,0 +1,48 @@
+{
+  "limited_information_equal": true,
+  "limited_information": [
+    {
+      "sorted_key_values": [
+        1,
+        2
+      ],
+      "non_key_columns": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "common_length": 2
+    },
+    {
+      "sorted_key_values": [
+        1,
+        2
+      ],
+      "non_key_columns": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "common_length": 2
+    }
+  ],
+  "required_outputs_differ": true,
+  "full_payloads_differ": true,
+  "wrong_and_recovered_helpers_same_AST": true,
+  "sorting_calls_on_first_input": {
+    "wrong_identity_join": [
+      "_sorted_keys"
+    ],
+    "indices_preserve_identity": [
+      "_sorted_indices"
+    ],
+    "original_input_recovery": [
+      "_sorted_keys",
+      "solve"
+    ]
+  },
+  "interpretation": "限定边界不足，但原输入可访问时可重计算排序映射，不能归为任务无法拆分；额外排序调用不是token/速度结论",
+  "review_independence": "同助手改变问题的第二遍审查，非独立人工"
+}

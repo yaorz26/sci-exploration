@@ -1,0 +1,32 @@
+--- a/more_itertools/more.py
++++ b/more_itertools/more.py
+@@ -1764,7 +1764,12 @@ def groupby_transform(iterable, keyfunc=None, valuefunc=None):
+     *keyfunc* and *valuefunc* default to identity functions if they are not
+     specified.
+
+-    :func:`groupby_transform` is useful when grouping elements of an iterable
++    :func:`groupby_transform` is useful when grouping elements of an iterable and applying a transformation to the grouped values.
++    *reducefunc* is a function that takes the transformed group and returns a result.
++
++        >>> iterable = 'AaaABbBCcA'
++        >>> keyfunc = lambda x: x.upper()
++        >>> valuefunc = lambda x: x.lower()
++        >>> reducefunc = lambda x: ''.join(x)
++        >>> grouper = groupby_transform(iterable, keyfunc, valuefunc, reducefunc)
++        >>> [(k, reducefunc(g)) for k, g in grouper]
++        [('A', 'aaaa'), ('B', 'bbb'), ('C', 'cc'), ('A', 'a')]
++
++    Note that the order of items in the iterable is significant.
++    Only adjacent items are grouped together, so if you don't want any
++    duplicate groups, you should sort the iterable by the key function.
++
++    """
++    res = groupby(iterable, keyfunc)
++    if valuefunc:
++        transformed_groups = ((k, map(valuefunc, g)) for k, g in res)
++    else:
++        transformed_groups = res
++    if reducefunc:
++        return ((k, reducefunc(g)) for k, g in transformed_groups)
++    else:
++        return transformed_groups

@@ -1,0 +1,107 @@
+{
+  "time": "2026-10-11T07:26:56.825675+00:00",
+  "rows": [
+    {
+      "task_id": "REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS",
+      "method": "M0",
+      "status": "patch_failure",
+      "candidate": {
+        "ok": false,
+        "error": "PatchFailure: 原行内容不匹配，拒绝模糊应用"
+      },
+      "behavior": null,
+      "spent": 3314,
+      "requests_sent": 1,
+      "refusals": [],
+      "cost_known": true,
+      "budget_compliant": true
+    },
+    {
+      "task_id": "REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS",
+      "method": "M2",
+      "status": "budget_refusal",
+      "candidate": null,
+      "behavior": null,
+      "error": "输入与最少输出无法纳入总预算",
+      "spent": 3686,
+      "requests_sent": 3,
+      "refusals": [
+        {
+          "stage": "assembly",
+          "reason": "输入与最少输出无法纳入总预算",
+          "before_request": true
+        }
+      ],
+      "cost_known": true,
+      "budget_compliant": true
+    },
+    {
+      "task_id": "REPO_CONFUSE_PR142_ENV_OVERLAY_LIMITED",
+      "method": "M0",
+      "status": "patch_failure",
+      "candidate": {
+        "ok": false,
+        "error": "PatchFailure: 目标不是指定包内的规范.py路径"
+      },
+      "behavior": null,
+      "spent": 3570,
+      "requests_sent": 1,
+      "refusals": [],
+      "cost_known": true,
+      "budget_compliant": true
+    },
+    {
+      "task_id": "REPO_CONFUSE_PR142_ENV_OVERLAY_LIMITED",
+      "method": "M2",
+      "status": "budget_refusal",
+      "candidate": null,
+      "behavior": null,
+      "error": "输入与最少输出无法纳入总预算",
+      "spent": 5810,
+      "requests_sent": 3,
+      "refusals": [
+        {
+          "stage": "assembly",
+          "reason": "输入与最少输出无法纳入总预算",
+          "before_request": true
+        }
+      ],
+      "cost_known": true,
+      "budget_compliant": true
+    },
+    {
+      "task_id": "REPO_MORE_PR440_GROUP_LIFETIME_LIMITED",
+      "method": "M0",
+      "status": "patch_failure",
+      "candidate": {
+        "ok": false,
+        "error": "PatchFailure: 原行内容不匹配，拒绝模糊应用"
+      },
+      "behavior": null,
+      "spent": 2947,
+      "requests_sent": 1,
+      "refusals": [],
+      "cost_known": true,
+      "budget_compliant": true
+    },
+    {
+      "task_id": "REPO_MORE_PR440_GROUP_LIFETIME_LIMITED",
+      "method": "M2",
+      "status": "budget_refusal",
+      "candidate": null,
+      "behavior": null,
+      "error": "输入与最少输出无法纳入总预算",
+      "spent": 4053,
+      "requests_sent": 2,
+      "refusals": [
+        {
+          "stage": "helper2",
+          "reason": "输入与最少输出无法纳入总预算",
+          "before_request": true
+        }
+      ],
+      "cost_known": true,
+      "budget_compliant": true
+    }
+  ]
+}

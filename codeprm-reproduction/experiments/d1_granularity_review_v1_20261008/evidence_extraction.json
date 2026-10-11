@@ -1,0 +1,470 @@
+{
+  "status": "已提取证据，候选逐粒度复核协议待完成",
+  "record_kind": "助手逻辑反例，不是人类标注或人工一致性结果",
+  "existing_C04_relations": [
+    {
+      "probe_id": "different_instance",
+      "task_id": "D1_C04",
+      "entity_granularity": "instance",
+      "projection": "instance_increment",
+      "reason": "同x/异x的另一实例均不挤走a缓存",
+      "left_input": {
+        "capacity": 1,
+        "instances": [
+          {
+            "id": "a",
+            "bias": 0
+          },
+          {
+            "id": "b",
+            "bias": 10
+          }
+        ],
+        "operations": [
+          {
+            "op": "call",
+            "instance": "a",
+            "x": 1
+          },
+          {
+            "op": "call",
+            "instance": "a",
+            "x": 1
+          }
+        ]
+      },
+      "right_input": {
+        "capacity": 1,
+        "instances": [
+          {
+            "id": "a",
+            "bias": 0
+          },
+          {
+            "id": "b",
+            "bias": 10
+          }
+        ],
+        "operations": [
+          {
+            "op": "call",
+            "instance": "a",
+            "x": 1
+          },
+          {
+            "op": "call",
+            "instance": "b",
+            "x": 2
+          },
+          {
+            "op": "call",
+            "instance": "a",
+            "x": 1
+          }
+        ]
+      },
+      "left_outcomes": [
+        {
+          "value": [
+            {
+              "result": 1,
+              "computations": {
+                "a": 1,
+                "b": 0
+              },
+              "sizes": {
+                "a": 1,
+                "b": 0
+              }
+            },
+            {
+              "result": 1,
+              "computations": {
+                "a": 1,
+                "b": 0
+              },
+              "sizes": {
+                "a": 1,
+                "b": 0
+              }
+            }
+          ]
+        },
+        {
+          "value": [
+            {
+              "result": 1,
+              "computations": {
+                "a": 1,
+                "b": 0
+              },
+              "sizes": {
+                "a": 1,
+                "b": 0
+              }
+            },
+            {
+              "result": 1,
+              "computations": {
+                "a": 1,
+                "b": 0
+              },
+              "sizes": {
+                "a": 1,
+                "b": 0
+              }
+            }
+          ]
+        }
+      ],
+      "right_outcomes": [
+        {
+          "value": [
+            {
+              "result": 1,
+              "computations": {
+                "a": 1,
+                "b": 0
+              },
+              "sizes": {
+                "a": 1,
+                "b": 0
+              }
+            },
+            {
+              "result": 12,
+              "computations": {
+                "a": 1,
+                "b": 1
+              },
+              "sizes": {
+                "a": 1,
+                "b": 1
+              }
+            },
+            {
+              "result": 1,
+              "computations": {
+                "a": 1,
+                "b": 1
+              },
+              "sizes": {
+                "a": 1,
+                "b": 1
+              }
+            }
+          ]
+        },
+        {
+          "value": [
+            {
+              "result": 1,
+              "computations": {
+                "a": 1,
+                "b": 0
+              },
+              "sizes": {
+                "a": 1,
+                "b": 0
+              }
+            },
+            {
+              "result": 12,
+              "computations": {
+                "a": 1,
+                "b": 1
+              },
+              "sizes": {
+                "a": 1,
+                "b": 1
+              }
+            },
+            {
+              "result": 1,
+              "computations": {
+                "a": 1,
+                "b": 1
+              },
+              "sizes": {
+                "a": 1,
+                "b": 1
+              }
+            }
+          ]
+        }
+      ],
+      "left_projection": 0,
+      "right_projection": 0,
+      "expected_relation": "equal",
+      "actual_relation": "equal",
+      "input_unchanged": true,
+      "implementations_agree": true,
+      "manual_projection_expected": [
+        0,
+        0
+      ],
+      "pass": true
+    },
+    {
+      "probe_id": "same_instance_different_key",
+      "task_id": "D1_C04",
+      "entity_granularity": "(instance,x)",
+      "projection": "instance_increment",
+      "reason": "同实例的另一个x会挤走旧x；作用范围依赖实体粒度",
+      "left_input": {
+        "capacity": 1,
+        "instances": [
+          {
+            "id": "a",
+            "bias": 0
+          },
+          {
+            "id": "b",
+            "bias": 10
+          }
+        ],
+        "operations": [
+          {
+            "op": "call",
+            "instance": "a",
+            "x": 1
+          },
+          {
+            "op": "call",
+            "instance": "a",
+            "x": 1
+          }
+        ]
+      },
+      "right_input": {
+        "capacity": 1,
+        "instances": [
+          {
+            "id": "a",
+            "bias": 0
+          },
+          {
+            "id": "b",
+            "bias": 10
+          }
+        ],
+        "operations": [
+          {
+            "op": "call",
+            "instance": "a",
+            "x": 1
+          },
+          {
+            "op": "call",
+            "instance": "a",
+            "x": 2
+          },
+          {
+            "op": "call",
+            "instance": "a",
+            "x": 1
+          }
+        ]
+      },
+      "left_outcomes": [
+        {
+          "value": [
+            {
+              "result": 1,
+              "computations": {
+                "a": 1,
+                "b": 0
+              },
+              "sizes": {
+                "a": 1,
+                "b": 0
+              }
+            },
+            {
+              "result": 1,
+              "computations": {
+                "a": 1,
+                "b": 0
+              },
+              "sizes": {
+                "a": 1,
+                "b": 0
+              }
+            }
+          ]
+        },
+        {
+          "value": [
+            {
+              "result": 1,
+              "computations": {
+                "a": 1,
+                "b": 0
+              },
+              "sizes": {
+                "a": 1,
+                "b": 0
+              }
+            },
+            {
+              "result": 1,
+              "computations": {
+                "a": 1,
+                "b": 0
+              },
+              "sizes": {
+                "a": 1,
+                "b": 0
+              }
+            }
+          ]
+        }
+      ],
+      "right_outcomes": [
+        {
+          "value": [
+            {
+              "result": 1,
+              "computations": {
+                "a": 1,
+                "b": 0
+              },
+              "sizes": {
+                "a": 1,
+                "b": 0
+              }
+            },
+            {
+              "result": 2,
+              "computations": {
+                "a": 2,
+                "b": 0
+              },
+              "sizes": {
+                "a": 1,
+                "b": 0
+              }
+            },
+            {
+              "result": 1,
+              "computations": {
+                "a": 3,
+                "b": 0
+              },
+              "sizes": {
+                "a": 1,
+                "b": 0
+              }
+            }
+          ]
+        },
+        {
+          "value": [
+            {
+              "result": 1,
+              "computations": {
+                "a": 1,
+                "b": 0
+              },
+              "sizes": {
+                "a": 1,
+                "b": 0
+              }
+            },
+            {
+              "result": 2,
+              "computations": {
+                "a": 2,
+                "b": 0
+              },
+              "sizes": {
+                "a": 1,
+                "b": 0
+              }
+            },
+            {
+              "result": 1,
+              "computations": {
+                "a": 3,
+                "b": 0
+              },
+              "sizes": {
+                "a": 1,
+                "b": 0
+              }
+            }
+          ]
+        }
+      ],
+      "left_projection": 0,
+      "right_projection": 1,
+      "expected_relation": "different",
+      "actual_relation": "different",
+      "input_unchanged": true,
+      "implementations_agree": true,
+      "manual_projection_expected": [
+        0,
+        1
+      ],
+      "pass": true
+    }
+  ],
+  "existing_canonical_key_relation": [
+    {
+      "id": "raw_spelling_is_same_entity",
+      "mode": "casefold",
+      "left_input": {
+        "mode": "casefold",
+        "records": [
+          {
+            "key": "a",
+            "value": 1
+          }
+        ]
+      },
+      "right_input": {
+        "mode": "casefold",
+        "records": [
+          {
+            "key": "A",
+            "value": 3
+          },
+          {
+            "key": "a",
+            "value": 1
+          }
+        ]
+      },
+      "entity_granularity": "规范键",
+      "projection": "target_normalized_a",
+      "left_projection": [
+        {
+          "key": "a",
+          "value": 1
+        }
+      ],
+      "right_projection": [
+        {
+          "key": "A",
+          "value": 3
+        }
+      ],
+      "expected_relation": "different",
+      "actual_relation": "different",
+      "implementations_agree": true,
+      "input_unchanged": true,
+      "pass": true
+    }
+  ],
+  "input_hashes": {
+    "experiments\\d1_semantic_contrasts_v1_20261008\\paired_probes.jsonl": "e1e7aa25089bcde5ebca06b4d857e9211e00ebc92b7a1824befd2f3498304fb0",
+    "experiments\\d1_expansion_order_candidate_v1_20261008\\paired_relations.json": "7c1b738770ecaa291cbfd1b3577a2260bc7fb67a109bd7eed5ca5a0da3186c0d"
+  },
+  "draft_questions": [
+    "同一题不同实体粒度是否应进入同一个行为一致性分母？",
+    "raw key拼写和规范等价类如何记录以免问错实体问题？"
+  ],
+  "human_reviewers": 0,
+  "model_calls": 0,
+  "next": "写逐粒度候选协议和可比较/不可比较的逻辑记录，保持完整分母"
+}

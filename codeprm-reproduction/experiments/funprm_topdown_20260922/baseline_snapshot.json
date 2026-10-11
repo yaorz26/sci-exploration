@@ -1,0 +1,73 @@
+{
+  "snapshot_time": "2026-09-22T15:33:41.7947743+08:00",
+  "phase_id": "funprm_topdown_20260922_phase0",
+  "git_head": "ec557dc4ef5f79cbd5aaa489a15f2e86725f7032",
+  "git_head_subject": "P5c 完成：k=8+A1 使池 oracle 2->3，但等预算 M0 达 8——L0-L2 通过、L3/L4 不通过",
+  "tracked_diff_git_blob": "c61665f105624924b51dc359bf1aa805b7ec929a",
+  "tracked_status_entries": 12,
+  "untracked_file_count": 22835,
+  "untracked_note": "包含本地虚拟环境、模型与研究产物；本快照不自动提交或移动用户现有文件",
+  "environment": {
+    "os": "Windows",
+    "python": "3.13.7",
+    "gpu": "RTX 4060 Laptop 8GB",
+    "ollama_model": "qwen2.5-coder:7b",
+    "ollama_model_id": "dae161e27b0e"
+  },
+  "validation_before_phase1": {
+    "pytest": "42 passed",
+    "research_state_validator": "passed"
+  },
+  "files": [
+    {
+      "path": "src/whole_program.py",
+      "sha256": "a833bb39a7e527f3cb66dde3ad4c2e04d412eeec2549aebfd0f0a156c5820f4f",
+      "bytes": 8774
+    },
+    {
+      "path": "scripts/run_whole_program_experiment.py",
+      "sha256": "95cf2b78b96512d1691e811a7c862739cad50e57a0beefa798d8123ae3df1fe5",
+      "bytes": 11819
+    },
+    {
+      "path": "scripts/collect_funprm_function_prefix_rollouts.py",
+      "sha256": "aee659cd393dfd69ab8ffbb195f62fb8662c7718db6ac612563db591e481a2aa",
+      "bytes": 12018
+    },
+    {
+      "path": "scripts/train_funprm_generative.py",
+      "sha256": "4f368394af63eb2548fd8913ac755dfcfe8c5cb0dfd6f13baccefe7efd1f8e4c",
+      "bytes": 7775
+    },
+    {
+      "path": "data/processed/apps_train_introductory50_private_safe.json",
+      "sha256": "c68a5c43047bf07183af6311800e2f25c9bc6dbd499039c92de558a940c89cb2",
+      "bytes": 121823
+    },
+    {
+      "path": "experiments/funprm_exact_prefix_20260922/budget_manifest.json",
+      "sha256": "166998eb1d2d90568bc1e006738c621aeaa4253a5cc06cedae967ee2efcad552",
+      "bytes": 2215
+    },
+    {
+      "path": "data/processed/funprm_exact_prefix_train50_k4_seed42000_20260922_unit_reward_audit.json",
+      "sha256": "d7c869a682d2442e35e78afd7c5394e15d4a9cb08efe353b5f2c890d02864a70",
+      "bytes": 1320
+    },
+    {
+      "path": "data/processed/funprm_confirm_after80_generative_exact_prefix_k4_v1_audit.json",
+      "sha256": "7190a81b16742dce8a33eaf153701d21f61bb7a24255186476a66d0445a4a526",
+      "bytes": 9252
+    },
+    {
+      "path": "outputs/models/funprm_qwen25coder_7b_generative_exact_prefix_k4_v1/adapter_model.safetensors",
+      "sha256": "334f2dffdb17fd7638079e8fee1b86906ba05553ce40d4bd9840418878ca65f9",
+      "bytes": 20214760
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "a15e33d772816c39bff3a74053628c6a15ccb55e9fd2b63a2a2afca3544f1a76",
+      "bytes": 207
+    }
+  ]
+}

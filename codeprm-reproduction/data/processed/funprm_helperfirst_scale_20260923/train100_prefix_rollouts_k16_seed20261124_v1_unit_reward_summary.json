@@ -1,0 +1,37 @@
+{
+  "source_problems": 100,
+  "apps_files": [
+    "data/processed/funprm_helperfirst_scale_20260923/frozen_splits/train_primary120.json",
+    "data/processed/funprm_helperfirst_scale_20260923/frozen_splits/train_reserve20.json"
+  ],
+  "source_candidate_files": [
+    "data/processed/funprm_helperfirst_scale_20260923/train_primary120_functionized_qwen25coder_7b_n4_seed20260924_v1_generations.jsonl",
+    "data/processed/funprm_helperfirst_scale_20260923/train_reserve20_functionized_qwen25coder_7b_n4_seed20261024_v1_generations.jsonl"
+  ],
+  "partial_prefix_nodes": 188,
+  "target_rollouts_per_selected_node": 16,
+  "existing_nodes": 188,
+  "selected_nodes": 42,
+  "planned_additional_requests": 336,
+  "max_requests": 336,
+  "source_rule": "first structurally valid unique candidate by candidate index per problem",
+  "uncertainty_filter": {
+    "minimum_success_rate": 0.25,
+    "maximum_success_rate": 0.75,
+    "required_existing_rollouts": 8
+  },
+  "reward_policy": "unit_test_only",
+  "completed_nodes": 188,
+  "completed_requests": 1308,
+  "newly_completed_requests": 336,
+  "successful_rollouts": 567,
+  "prompt_tokens": 171096,
+  "output_tokens": 58974,
+  "model_reported_seconds": 1440.0454377,
+  "elapsed_seconds": 1637.8067946,
+  "private_policy": "training split only; tests and feedback absent from prompts",
+  "outputs": {
+    "nodes": "data\\processed\\funprm_helperfirst_scale_20260923\\train100_prefix_rollouts_k16_seed20261124_v1_unit_reward_nodes.jsonl",
+    "finals": "data\\processed\\funprm_helperfirst_scale_20260923\\train100_prefix_rollouts_k16_seed20261124_v1_unit_reward_finals.jsonl"
+  }
+}

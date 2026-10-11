@@ -1,0 +1,23 @@
+{
+  "experiment": "funprm_helperfirst_scale_prm_20260924",
+  "phase": "confirmation_a30_scoring",
+  "frozen_at": "2026-09-25T22:52:22+08:00",
+  "status": "pass",
+  "selection": "data/processed/funprm_label_calibration_20260924/confirmation_a30_new_adapter_selection_deferred_20260925.json",
+  "selection_sha256": "2763cfc01934f4249c0cb661631111515f1bb5e4872da890505fb2c3d06fc7a2",
+  "source_candidate_evaluations": "data/processed/funprm_label_calibration_20260924/confirmation_a30_functionized_qwen25coder_7b_n10_seed20261224_v2_evaluations.jsonl",
+  "source_candidate_evaluations_sha256": "d627bf7370d9371552d1ae7ad32c77f74810443f565e5e7cc68fe04632c50bac",
+  "adapter_model_sha256": "195122fea26f60241892061d538814dcbc4af7e7d5e63b7d148c3cebe57c79b6",
+  "scorer_sha256": "92373fcde3c0ff2a69c89766ede81df664a10f519e3926dfe4ad631807f91776",
+  "total_problems": 30,
+  "covered_problems": 28,
+  "candidate_count": 243,
+  "unique_scored_codes": 239,
+  "selection_rule_mismatches": 0,
+  "candidate_identity_mismatches": 0,
+  "invalid_or_out_of_range_scores": 0,
+  "private_evaluation_deferred": true,
+  "private_evaluations": 0,
+  "private_fields_used_for_selection": [],
+  "decision": "A selection is frozen. Do not evaluate A privately until B selection is also frozen and audited."
+}

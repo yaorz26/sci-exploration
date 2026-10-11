@@ -1,0 +1,24 @@
+{
+  "helpers": [
+    {
+      "name": "_update_items",
+      "signature": "def _update_items(items, key, value, ttl, time):",
+      "contract": "更新或添加项，处理过期项，返回更新后的items和size。",
+      "depends_on": []
+    },
+    {
+      "name": "_snapshot",
+      "signature": "def _snapshot(items):",
+      "contract": "返回当前items的快照。",
+      "depends_on": []
+    },
+    {
+      "name": "_get_result",
+      "signature": "def _get_result(items, key, time):",
+      "contract": "根据操作类型返回结果，处理过期项。",
+      "depends_on": [
+        "_update_items"
+      ]
+    }
+  ]
+}

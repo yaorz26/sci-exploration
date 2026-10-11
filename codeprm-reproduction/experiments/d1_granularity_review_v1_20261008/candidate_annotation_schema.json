@@ -1,0 +1,40 @@
+{
+  "schema_version": "candidate_0.3_unit_definition",
+  "required_unit_fields": [
+    "task_id",
+    "history_domain",
+    "entity_fields",
+    "equivalence",
+    "partition",
+    "observer",
+    "quantifier",
+    "domain"
+  ],
+  "judgments": [
+    "yes",
+    "no",
+    "unknown",
+    "not_applicable"
+  ],
+  "evidence_strength": [
+    "counterexample",
+    "finite_no_witness",
+    "contract_argument",
+    "unassessed"
+  ],
+  "quantifiers": [
+    "exists_in_contract_domain",
+    "within_declared_probe_pair",
+    "within_declared_finite_domain"
+  ],
+  "reporting": [
+    "预定题目及问题单位总分母",
+    "两人粒度选择与等价规则分布",
+    "单位不匹配/未知/不适用/契约不兼容数",
+    "所有预定单位的原始判断表和分歧理由",
+    "同一预先规定单位上的一致率和κ，unknown按登记类别保留",
+    "若另报明确判断子集一致率，同时报其分子分母和覆盖，不能替代总体"
+  ],
+  "semantic_checks": "字段相同只表示形式同单位；需人工复核字段含义，不能验证任意自由文本正确性",
+  "usage": "管理端候选协议，不替换原v0.2、旧审查员ZIP、旧κ；真实人工仍0"
+}

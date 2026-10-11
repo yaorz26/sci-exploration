@@ -1,0 +1,154 @@
+{
+  "status": "measurement_refinement_supported",
+  "raw_probe_sha256": "e1e7aa25089bcde5ebca06b4d857e9211e00ebc92b7a1824befd2f3498304fb0",
+  "review_kind": "同一助手改变观察指标的第二遍反证检查，非独立人工",
+  "observer_false_positive_examples": [
+    {
+      "probe_id": "call_eviction_cap2",
+      "naive_observer": "累计computations",
+      "naive_values": [
+        1,
+        2
+      ],
+      "naive_different": true,
+      "declared_target_observer": "call_increment",
+      "target_values": [
+        0,
+        0
+      ],
+      "target_equal": true,
+      "implication": "全局累计/聚合输出差异会给局部干扰制造假阳性；需要实体与投影"
+    },
+    {
+      "probe_id": "different_instance",
+      "naive_observer": "完整最后记录",
+      "naive_values": [
+        {
+          "result": 1,
+          "computations": {
+            "a": 1,
+            "b": 0
+          },
+          "sizes": {
+            "a": 1,
+            "b": 0
+          }
+        },
+        {
+          "result": 1,
+          "computations": {
+            "a": 1,
+            "b": 1
+          },
+          "sizes": {
+            "a": 1,
+            "b": 1
+          }
+        }
+      ],
+      "naive_different": true,
+      "declared_target_observer": "instance_increment",
+      "target_values": [
+        0,
+        0
+      ],
+      "target_equal": true,
+      "implication": "全局累计/聚合输出差异会给局部干扰制造假阳性；需要实体与投影"
+    }
+  ],
+  "candidate_profiles": [
+    {
+      "task_id": "D1_B02",
+      "entity_granularity": "key",
+      "behavioral_coupling_evidence": "所列范围内目标键隔离；有需求级证明思路",
+      "aggregation_order": "history_sensitive_global_items_order",
+      "anchor_ids": [
+        "history_B02",
+        "global_order_D1_B02"
+      ],
+      "status": "候选操作性描述，不替代原作者初标或真实双审"
+    },
+    {
+      "task_id": "D1_B04",
+      "entity_granularity": "raw_key",
+      "behavioral_coupling_evidence": "所列范围内目标键隔离；有需求级证明思路",
+      "aggregation_order": "history_sensitive_global_pairs_order",
+      "anchor_ids": [
+        "history_B04",
+        "global_order_D1_B04"
+      ],
+      "status": "候选操作性描述，不替代原作者初标或真实双审"
+    },
+    {
+      "task_id": "D1_C01",
+      "entity_granularity": "key",
+      "behavioral_coupling_evidence": "容量淘汰跨键干扰",
+      "aggregation_order": "非本次关注项",
+      "anchor_ids": [
+        "eviction_D1_C01",
+        "capacity_control_D1_C01"
+      ],
+      "status": "候选操作性描述，不替代原作者初标或真实双审"
+    },
+    {
+      "task_id": "D1_C02",
+      "entity_granularity": "key",
+      "behavioral_coupling_evidence": "固定观察时间下容量淘汰跨键干扰",
+      "aggregation_order": "非本次关注项",
+      "anchor_ids": [
+        "eviction_D1_C02",
+        "capacity_control_D1_C02"
+      ],
+      "status": "候选操作性描述，不替代原作者初标或真实双审"
+    },
+    {
+      "task_id": "D1_C03",
+      "entity_granularity": "call_key",
+      "behavioral_coupling_evidence": "容量淘汰跨调用键干扰；观察计算增量",
+      "aggregation_order": "非本次关注项",
+      "anchor_ids": [
+        "call_eviction_cap1",
+        "call_eviction_cap2"
+      ],
+      "status": "候选操作性描述，不替代原作者初标或真实双审"
+    },
+    {
+      "task_id": "D1_C04",
+      "entity_granularity": "instance及(instance,x)",
+      "behavioral_coupling_evidence": "实例间隔离、实例内调用键容量干扰",
+      "aggregation_order": "非本次关注项",
+      "anchor_ids": [
+        "different_instance",
+        "same_instance_different_key"
+      ],
+      "status": "候选操作性描述，不替代原作者初标或真实双审"
+    },
+    {
+      "task_id": "D1_M03",
+      "entity_granularity": "single_cursor",
+      "behavioral_coupling_evidence": "有历史依赖；第二实体不存在，跨实体项不适用",
+      "aggregation_order": "非本次关注项",
+      "anchor_ids": [
+        "history_M03"
+      ],
+      "status": "候选操作性描述，不替代原作者初标或真实双审"
+    },
+    {
+      "task_id": "D1_M04",
+      "entity_granularity": "key",
+      "behavioral_coupling_evidence": "所列范围内各桶消费隔离",
+      "aggregation_order": "非本次关注项",
+      "anchor_ids": [
+        "history_M04"
+      ],
+      "status": "候选操作性描述，不替代原作者初标或真实双审"
+    }
+  ],
+  "conclusion": "global/partitioned的解释依赖实体粒度与观察投影；global6不能直接当同质跨实体干扰类别",
+  "not_proven": [
+    "所有输入全域独立",
+    "结构标签一致性",
+    "结构因素导致模型收益变化"
+  ],
+  "next_question": "当需求允许两个可单测行为时，拆分的局部验证能否保证组合正确？"
+}

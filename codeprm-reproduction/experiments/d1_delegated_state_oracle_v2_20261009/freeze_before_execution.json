@@ -1,0 +1,64 @@
+{
+  "time": "2026-10-09T10:05:09.152334+00:00",
+  "input": {
+    "puts": [
+      [
+        0,
+        "a",
+        1
+      ],
+      [
+        2,
+        "b",
+        2
+      ]
+    ],
+    "ttl": 4,
+    "expire": 4,
+    "observe_timer": 2,
+    "getsizeof": 2
+  },
+  "predictions_public_and_original_base": {
+    "complete": [
+      true,
+      true
+    ],
+    "delegated": [
+      true,
+      false
+    ],
+    "report_only": [
+      false,
+      false
+    ],
+    "deferred": [
+      false,
+      true
+    ]
+  },
+  "workspaces": {
+    "complete": {
+      "cachetools/__init__.py": "a9dc6d3bf2d69c7ea7cf94f646b64e4d675fda22679f695c5c250d809702b7b4",
+      "cachetools/func.py": "68e55f4a4b8d58c4400e99076462bb2de27f559f30963cdb4702009623ae8408",
+      "cachetools/keys.py": "00e81fa22fa88a804e9c4124d75e7ff6ab341ca212ad89db715e05d21c99d729"
+    },
+    "delegated": {
+      "cachetools/__init__.py": "7fb8ccaa7fdc67702b51e4e7f07701d200cfaf83381471fa43a19ca6ab0c3e60",
+      "cachetools/func.py": "68e55f4a4b8d58c4400e99076462bb2de27f559f30963cdb4702009623ae8408",
+      "cachetools/keys.py": "00e81fa22fa88a804e9c4124d75e7ff6ab341ca212ad89db715e05d21c99d729"
+    },
+    "report_only": {
+      "cachetools/__init__.py": "3b17340a8d0f1a3780643053d1eeb0a8037360b41969d3330a10ebbafeb24d61",
+      "cachetools/func.py": "68e55f4a4b8d58c4400e99076462bb2de27f559f30963cdb4702009623ae8408",
+      "cachetools/keys.py": "00e81fa22fa88a804e9c4124d75e7ff6ab341ca212ad89db715e05d21c99d729"
+    },
+    "deferred": {
+      "cachetools/__init__.py": "f921a369ecf14513a524bbbc3600c9de856b4135563a1a8ebea80527d9b309d2",
+      "cachetools/func.py": "68e55f4a4b8d58c4400e99076462bb2de27f559f30963cdb4702009623ae8408",
+      "cachetools/keys.py": "00e81fa22fa88a804e9c4124d75e7ff6ab341ca212ad89db715e05d21c99d729"
+    }
+  },
+  "program_sha256": "d7cb33271a5c4e854d4a3a98bbd5899321b49450147e89273669070a2800ee17",
+  "model_calls": 0,
+  "source_input": "P88原boundary_mixed；独特新增输入0"
+}

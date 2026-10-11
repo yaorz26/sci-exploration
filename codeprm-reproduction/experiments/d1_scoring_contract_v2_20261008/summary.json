@@ -1,0 +1,209 @@
+{
+  "checks": 8,
+  "checks_passed": 8,
+  "rows": [
+    {
+      "name": "boolean_is_not_number",
+      "expected_all_pass": false,
+      "check_pass": true,
+      "result": {
+        "cases": 1,
+        "passed": 0,
+        "all_pass": false,
+        "results": [
+          {
+            "case_id": "boolean_is_not_number",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": true
+              },
+              "actual": {
+                "value": 1
+              }
+            }
+          }
+        ],
+        "execution_seconds": 0.061637200000404846,
+        "captured_output_bytes": 201
+      }
+    },
+    {
+      "name": "numeric_equivalence",
+      "expected_all_pass": true,
+      "check_pass": true,
+      "result": {
+        "cases": 1,
+        "passed": 1,
+        "all_pass": true,
+        "results": [
+          {
+            "case_id": "numeric_equivalence",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.061690700000326615,
+        "captured_output_bytes": 148
+      }
+    },
+    {
+      "name": "boolean_input_mutation",
+      "expected_all_pass": false,
+      "check_pass": true,
+      "result": {
+        "cases": 1,
+        "passed": 0,
+        "all_pass": false,
+        "results": [
+          {
+            "case_id": "boolean_input_mutation",
+            "pass": false,
+            "input_unchanged": false,
+            "error": {
+              "expected": {
+                "value": true
+              },
+              "actual": {
+                "value": true
+              }
+            }
+          }
+        ],
+        "execution_seconds": 0.0614674999997078,
+        "captured_output_bytes": 206
+      }
+    },
+    {
+      "name": "numeric_input_mutation",
+      "expected_all_pass": false,
+      "check_pass": true,
+      "result": {
+        "cases": 1,
+        "passed": 0,
+        "all_pass": false,
+        "results": [
+          {
+            "case_id": "numeric_input_mutation",
+            "pass": false,
+            "input_unchanged": false,
+            "error": {
+              "expected": {
+                "value": 1
+              },
+              "actual": {
+                "value": 1
+              }
+            }
+          }
+        ],
+        "execution_seconds": 0.061589499999172403,
+        "captured_output_bytes": 200
+      }
+    },
+    {
+      "name": "nested_boolean",
+      "expected_all_pass": false,
+      "check_pass": true,
+      "result": {
+        "cases": 1,
+        "passed": 0,
+        "all_pass": false,
+        "results": [
+          {
+            "case_id": "nested_boolean",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "x": [
+                    true
+                  ]
+                }
+              },
+              "actual": {
+                "value": {
+                  "x": [
+                    1
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "execution_seconds": 0.06144730000050913,
+        "captured_output_bytes": 212
+      }
+    },
+    {
+      "name": "input_order_mutation",
+      "expected_all_pass": false,
+      "check_pass": true,
+      "result": {
+        "cases": 1,
+        "passed": 0,
+        "all_pass": false,
+        "results": [
+          {
+            "case_id": "input_order_mutation",
+            "pass": false,
+            "input_unchanged": false,
+            "error": {
+              "expected": {
+                "value": 0
+              },
+              "actual": {
+                "value": 0
+              }
+            }
+          }
+        ],
+        "execution_seconds": 0.061523899999883724,
+        "captured_output_bytes": 198
+      }
+    },
+    {
+      "name": "output_order_irrelevant",
+      "expected_all_pass": true,
+      "check_pass": true,
+      "result": {
+        "cases": 1,
+        "passed": 1,
+        "all_pass": true,
+        "results": [
+          {
+            "case_id": "output_order_irrelevant",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.061008499998933985,
+        "captured_output_bytes": 152
+      }
+    },
+    {
+      "name": "prints_do_not_break_scoring",
+      "expected_all_pass": true,
+      "check_pass": true,
+      "result": {
+        "cases": 1,
+        "passed": 1,
+        "all_pass": true,
+        "results": [
+          {
+            "case_id": "prints_do_not_break_scoring",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.060994100000243634,
+        "captured_output_bytes": 189
+      }
+    }
+  ]
+}

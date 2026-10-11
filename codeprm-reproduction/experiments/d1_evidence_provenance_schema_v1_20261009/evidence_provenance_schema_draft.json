@@ -1,0 +1,179 @@
+{
+  "created_at": "2026-10-09T05:09:11Z",
+  "schema": {
+    "schema_version": "evidence-provenance-0.1",
+    "formal_fields_untouched": [
+      "dependency",
+      "state_scope",
+      "testability",
+      "formal_split"
+    ],
+    "fields": {
+      "contract_origin": {
+        "type": "enum",
+        "values": [
+          "task_output_obligation",
+          "specified_interface_condition",
+          "additional_local_expectation",
+          "observation_unsettled",
+          "source_public_contract",
+          "adaptation_requirement",
+          "not_specified"
+        ]
+      },
+      "necessity_scope": {
+        "type": "enum",
+        "values": [
+          "task_final_output",
+          "conditional_on_interface",
+          "counterexample_nonnecessary",
+          "candidate_version_specific",
+          "task_necessity_unsettled",
+          "unknown"
+        ]
+      },
+      "evidence_status": {
+        "type": "enum",
+        "values": [
+          "supported_finite",
+          "partial",
+          "unknown",
+          "not_specified",
+          "contradicted"
+        ]
+      },
+      "provenance": {
+        "required": [
+          "record_id",
+          "source_path",
+          "evidence_kind",
+          "source_sha256"
+        ],
+        "evidence_kind_values": [
+          "task_text",
+          "saved_execution",
+          "counterexample",
+          "metadata"
+        ]
+      }
+    }
+  },
+  "legacy_delta_input": "experiments\\d1_local_contract_scope_audit_v1_20261009\\measurement_protocol_delta_candidate.json",
+  "p58_claim_records": [
+    {
+      "record_id": "B01_expand_input_order",
+      "contract_origin": "additional_local_expectation",
+      "necessity_scope": "counterexample_nonnecessary",
+      "evidence_status": "supported_finite",
+      "provenance": {
+        "record_id": "B01_expand_input_order",
+        "source_path": "experiments\\d1_local_contract_scope_audit_v1_20261009\\six_claim_scope_review.json",
+        "evidence_kind": "counterexample",
+        "source_sha256": "49ad93dad57a6e677e03f2e61486b755d94272630086a74da4ae4eb8084e0a37"
+      },
+      "formal_fields_untouched": true
+    },
+    {
+      "record_id": "B01_expand_multiset",
+      "contract_origin": "specified_interface_condition",
+      "necessity_scope": "conditional_on_interface",
+      "evidence_status": "supported_finite",
+      "provenance": {
+        "record_id": "B01_expand_multiset",
+        "source_path": "experiments\\d1_local_contract_scope_audit_v1_20261009\\six_claim_scope_review.json",
+        "evidence_kind": "saved_execution",
+        "source_sha256": "49ad93dad57a6e677e03f2e61486b755d94272630086a74da4ae4eb8084e0a37"
+      },
+      "formal_fields_untouched": true
+    },
+    {
+      "record_id": "B03_original_spans",
+      "contract_origin": "specified_interface_condition",
+      "necessity_scope": "conditional_on_interface",
+      "evidence_status": "supported_finite",
+      "provenance": {
+        "record_id": "B03_original_spans",
+        "source_path": "experiments\\d1_local_contract_scope_audit_v1_20261009\\six_claim_scope_review.json",
+        "evidence_kind": "saved_execution",
+        "source_sha256": "49ad93dad57a6e677e03f2e61486b755d94272630086a74da4ae4eb8084e0a37"
+      },
+      "formal_fields_untouched": true
+    },
+    {
+      "record_id": "E_B09_integer_count",
+      "contract_origin": "source_public_contract",
+      "necessity_scope": "task_final_output",
+      "evidence_status": "supported_finite",
+      "provenance": {
+        "record_id": "E_B09_integer_count",
+        "source_path": "experiments\\d1_local_contract_scope_audit_v1_20261009\\six_claim_scope_review.json",
+        "evidence_kind": "saved_execution",
+        "source_sha256": "49ad93dad57a6e677e03f2e61486b755d94272630086a74da4ae4eb8084e0a37"
+      },
+      "formal_fields_untouched": true
+    },
+    {
+      "record_id": "E_B09_default_type",
+      "contract_origin": "adaptation_requirement",
+      "necessity_scope": "candidate_version_specific",
+      "evidence_status": "supported_finite",
+      "provenance": {
+        "record_id": "E_B09_default_type",
+        "source_path": "experiments\\d1_local_contract_scope_audit_v1_20261009\\six_claim_scope_review.json",
+        "evidence_kind": "saved_execution",
+        "source_sha256": "49ad93dad57a6e677e03f2e61486b755d94272630086a74da4ae4eb8084e0a37"
+      },
+      "formal_fields_untouched": true
+    },
+    {
+      "record_id": "E_B10_prefix_EOF",
+      "contract_origin": "observation_unsettled",
+      "necessity_scope": "task_necessity_unsettled",
+      "evidence_status": "supported_finite",
+      "provenance": {
+        "record_id": "E_B10_prefix_EOF",
+        "source_path": "experiments\\d1_local_contract_scope_audit_v1_20261009\\six_claim_scope_review.json",
+        "evidence_kind": "counterexample",
+        "source_sha256": "49ad93dad57a6e677e03f2e61486b755d94272630086a74da4ae4eb8084e0a37"
+      },
+      "formal_fields_untouched": true
+    }
+  ],
+  "candidate_metadata_records": [
+    {
+      "record_id": "E_B09:formal-label-audit",
+      "contract_origin": "not_specified",
+      "necessity_scope": "unknown",
+      "evidence_status": "unknown",
+      "provenance": {
+        "record_id": "E_B09:formal-label-audit",
+        "source_path": "experiments\\d1_typed_candidate_execution_v1_20261009\\candidate_v2\\task.json",
+        "evidence_kind": "metadata",
+        "source_sha256": "93dbe69b2f27a4c9a8f07ea969e474dbfaa86446167d851f51f2acb67588cdb6"
+      },
+      "formal_fields_untouched": true
+    },
+    {
+      "record_id": "E_M07:formal-label-audit",
+      "contract_origin": "not_specified",
+      "necessity_scope": "unknown",
+      "evidence_status": "unknown",
+      "provenance": {
+        "record_id": "E_M07:formal-label-audit",
+        "source_path": "experiments\\d1_second_source_extrema_v1_20261009\\candidate\\task.json",
+        "evidence_kind": "metadata",
+        "source_sha256": "9175d4c9b0e40a564074d537c6474f0990539194c4b2d79d00fd65206bf7a335"
+      },
+      "formal_fields_untouched": true
+    }
+  ],
+  "initial20_manifest_sha256_before": "c3593d11ae85cc23545aa91418c2ab3c97a4b005fd5e49963bdc28ae7e6eda9f",
+  "initial20_manifest_sha256_after": "c3593d11ae85cc23545aa91418c2ab3c97a4b005fd5e49963bdc28ae7e6eda9f",
+  "formal_labels_filled": false,
+  "old_manifest_changed": false,
+  "limits": [
+    "枚举映射只验证 P58 六条定向主张与 P66 两候选元数据，不估计总体比例",
+    "schema 可机读不等于人工真值或主问题 A 的结构效应",
+    "未读取 private 测试内容，未调用模型、来源或任务程序"
+  ]
+}

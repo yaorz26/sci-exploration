@@ -1,0 +1,56 @@
+{
+  "status": "fail",
+  "checks": [
+    {
+      "name": "两个方法总题数都保留四题",
+      "pass": true
+    },
+    {
+      "name": "两种已构造正确实现经过真实评分器通过",
+      "pass": false
+    },
+    {
+      "name": "计划/签名/预算失败仍计整题分母",
+      "pass": true
+    },
+    {
+      "name": "过长题面在任何API前被拒绝",
+      "pass": true
+    },
+    {
+      "name": "所有请求无私有哨兵且使用显式raw模板",
+      "pass": true
+    },
+    {
+      "name": "完整M2四阶段先生成后统一冻结评分",
+      "pass": true
+    },
+    {
+      "name": "私有测试只由冻结后的评分入口读取",
+      "pass": true
+    },
+    {
+      "name": "签名失败原文仍存在",
+      "pass": true
+    },
+    {
+      "name": "两臂每题实际总token均未超预算",
+      "pass": true
+    },
+    {
+      "name": "储备题在创建生成目录前拒绝",
+      "pass": true
+    },
+    {
+      "name": "冻结候选被修改后拒绝私有评分",
+      "pass": true
+    },
+    {
+      "name": "上下文不足时拒绝而非截断题面",
+      "pass": true
+    }
+  ],
+  "real_model_calls": 0,
+  "scope": "合成数据、合成传输与真实评分器；3/4、1/4只是已构造合成结果，不能算模型或数据集效果",
+  "synthetic_primary_calls": 10
+}

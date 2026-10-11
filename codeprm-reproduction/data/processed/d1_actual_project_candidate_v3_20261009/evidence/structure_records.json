@@ -1,0 +1,264 @@
+{
+  "time": "2026-10-09T11:47:47.713732+00:00",
+  "plan": "202_G3_structure_evidence_plan.md",
+  "records": [
+    {
+      "id": "REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS",
+      "source": "confuse",
+      "mechanism_family": "配置来源解释",
+      "status": "有限行为候选",
+      "external_entities": [
+        "Configuration/ConfigSource",
+        "Filename模板",
+        "来源文件/应用目录"
+      ],
+      "legal_domain": "八个保存公开API锚点；全域未知",
+      "operation_history": "来源构建/文件加入后由配置视图读取路径；仅来源对象生命周期证据",
+      "task_obligation": "来源路径基准/模板覆盖/文件入口决定最终Filename解析结果",
+      "interface_condition": "固定公开来源/模板/文件载入入口；内部文件/helper次序不固定",
+      "state_scope_evidence": "参考来源对象保存元数据；替代组织外部相容；不要求跨helper共享相同容器",
+      "testability_opportunity": "开关/默认/绝对路径/载入入口可分别观察；不证明不同用途能独立验证",
+      "control_results": [
+        {
+          "label": "parent",
+          "passed": 1,
+          "total": 8,
+          "failures": [
+            "source_flag",
+            "template_flag",
+            "app_over_source_flag",
+            "cwd_over_source_flag",
+            "flag_without_filename",
+            "absolute_preserved",
+            "file_loader_flag"
+          ]
+        },
+        {
+          "label": "complete",
+          "passed": 8,
+          "total": 8,
+          "failures": []
+        },
+        {
+          "label": "source_only",
+          "passed": 5,
+          "total": 8,
+          "failures": [
+            "source_flag",
+            "template_flag",
+            "file_loader_flag"
+          ]
+        },
+        {
+          "label": "core_omission",
+          "passed": 7,
+          "total": 8,
+          "failures": [
+            "file_loader_flag"
+          ]
+        }
+      ],
+      "organization": {
+        "alternative_passed": 8,
+        "total": 8,
+        "scope": "同八输入的单模块组织，不是全库等价"
+      },
+      "unsupported_inference": [
+        "跨文件链不证明唯一阶段顺序",
+        "多个开关不证明多个独立用途",
+        "对象元数据不证明特定分解共享状态"
+      ],
+      "evidence": [
+        "experiments/d1_runnable_repository_task_v2_20261009/candidate",
+        "experiments/d1_repository_alternative_organization_v1_20261009/actual.json"
+      ],
+      "formal_labels": null,
+      "split": null,
+      "human_reviews": 0,
+      "model_effect": null
+    },
+    {
+      "id": "REPO_CONFUSE_PR142_ENV_OVERLAY_LIMITED",
+      "source": "confuse",
+      "mechanism_family": "配置来源解释",
+      "status": "有限PR子范围候选",
+      "external_entities": [
+        "环境变量",
+        "YAML文件来源",
+        "Configuration/配置视图"
+      ],
+      "legal_domain": "无父子键冲突的嵌套字符串键/有效YAML标量/有限三个公开场景",
+      "operation_history": "set_file→set_env→get；显式加入次序约束公开优先级",
+      "task_obligation": "环境名/值映射进入配置；最高优先覆盖与下层未提供键回退共同决定输出",
+      "interface_condition": "set_env入口/最高优先为构建者约束；PR不强制内部EnvSource/build_dict",
+      "state_scope_evidence": "同Configuration内来源顺序影响后续get；不指定哪个helper拥有状态",
+      "testability_opportunity": "来源单独有效/冲突整合可分别观察；host与timeout仍同一配置用途",
+      "control_results": {
+        "parent": {
+          "passed": 0,
+          "total": 3
+        },
+        "feature": {
+          "passed": 3,
+          "total": 3
+        },
+        "alternative": {
+          "passed": 3,
+          "total": 3
+        },
+        "priority_omission": {
+          "passed": 2,
+          "total": 3
+        }
+      },
+      "organization": "官方来源类与父包独立env_overlay模块各3/3；共用既有Loader，同助手构造",
+      "discriminating_observation": {
+        "case": "nested_overlay_and_fallback",
+        "correct": {
+          "host": {
+            "value": "env.local",
+            "type": "str"
+          },
+          "timeout": {
+            "value": 7,
+            "type": "int"
+          }
+        },
+        "priority_omission": {
+          "host": {
+            "value": "file.local",
+            "type": "str"
+          },
+          "timeout": {
+            "value": 7,
+            "type": "int"
+          }
+        }
+      },
+      "unsupported_inference": [
+        "不覆盖PR列表/reload/完整YAML/冲突键",
+        "来源解析通过不保证项目整合",
+        "来源优先级不规定唯一解析/组合算法"
+      ],
+      "evidence": [
+        "experiments/d1_G2_confuse_pr142_env_source_v1_20261009/candidate/requirement.md",
+        "experiments/d1_G2_confuse_pr142_env_source_v1_20261009/freeze_before_execution.json",
+        "experiments/d1_G2_confuse_pr142_env_source_v1_20261009/behavior_feature.json",
+        "experiments/d1_G2_confuse_pr142_env_source_v1_20261009/behavior_priority_omission.json"
+      ],
+      "formal_labels": null,
+      "split": null,
+      "human_reviews": 0,
+      "model_effect": null
+    },
+    {
+      "id": "REPO_CACHETOOLS_EXPIRED_REPORT",
+      "source": "cachetools",
+      "mechanism_family": "缓存过期历史",
+      "status": "强时点条款/交付不一致待解决",
+      "external_entities": [
+        "TTLCache",
+        "可控timer",
+        "过期报告/公开容量和键视图"
+      ],
+      "legal_domain": "五个保存公开场景；物理时点全域未识别",
+      "operation_history": "插入/时间推进/expire改变本次报告和后续公开容量/可见键",
+      "task_obligation": "报告本次过期(key,value)并完成清理；额外调用返回前物理完成条款保留待解决",
+      "interface_condition": "公开expire/迭代/len/currsize观察；不得固定基类私有容器",
+      "state_scope_evidence": "合法委托给内部缓存公开相容，外层基类空存储不能否定合法组织",
+      "testability_opportunity": "报告和公开状态可分别观察，不等于两种独立应用用途",
+      "control_results": [
+        {
+          "name": "complete",
+          "passed": 5,
+          "total": 5,
+          "all_pass": true,
+          "prediction_match": true
+        },
+        {
+          "name": "delegated",
+          "passed": 5,
+          "total": 5,
+          "all_pass": true,
+          "prediction_match": true
+        },
+        {
+          "name": "report_only",
+          "passed": 1,
+          "total": 5,
+          "all_pass": false,
+          "prediction_match": true
+        },
+        {
+          "name": "deferred",
+          "passed": 1,
+          "total": 5,
+          "all_pass": false,
+          "prediction_match": true
+        }
+      ],
+      "organization": "完整/委托各5/5；报告/延迟各1/5；同五输入，不是四题",
+      "observation_condition": {
+        "public_reads_call_expire": [
+          "_TimedCache.__len__",
+          "_TimedCache.currsize"
+        ],
+        "meaning": "测量可能补清理，公开状态符合不能证明先前物理完成"
+      },
+      "unresolved": {
+        "requirement_refers_to": "evaluate_timing.py",
+        "current_top_level_files": [
+          "evaluate.py",
+          "requirement.md",
+          "RUN.md"
+        ],
+        "status": "当前目录未含需求提及的独立脚本；不把P90额外脚本执行冒称P94交付验证"
+      },
+      "unsupported_inference": [
+        "不得用消费后/补清理后的符合推返回前物理时点",
+        "不能用基类私有存储统一判所有合法组织",
+        "报告/状态两个字段不证明用途独立"
+      ],
+      "evidence": [
+        "experiments/d1_repository_expiry_public_oracle_v1_20261009/candidate",
+        "experiments/d1_repository_expiry_public_oracle_v1_20261009/summary.json",
+        "experiments/d1_public_cleanup_observability_feasibility_v1_20261009/public_observation_paths_first_action.json"
+      ],
+      "formal_labels": null,
+      "split": null,
+      "human_reviews": 0,
+      "model_effect": null
+    }
+  ],
+  "candidate_tasks": 3,
+  "sources": [
+    "cachetools",
+    "confuse"
+  ],
+  "bounded_behavior_candidates": 2,
+  "unresolved_strong_obligation_candidates": 1,
+  "new_behavior_calls": 0,
+  "new_model_calls": 0,
+  "human_reviews": 0,
+  "new_evidence_conclusion": "行为义务/接口约束/组织证据/观察条件必须分层，当前不足形成统一正式三轴真值",
+  "support": {
+    "configuration_connection": [
+      "PR126",
+      "PR142"
+    ],
+    "cache_history": [
+      "TTLexpire"
+    ],
+    "real_noncache_history": [],
+    "independent_multiple_uses": [],
+    "cross_source_same_mechanism_support": false,
+    "meaning": "两个配置任务同仓库同家族；缓存历史仅第二来源，机制/来源共变，不估独立结构因素"
+  },
+  "question_A": "同题方法配对仍可定义；收益未测，生成前正式标签未定，不外推结构因果或通用边界",
+  "limitations": [
+    "有限锚点/同助手构造/共享依赖，非独立人工真值",
+    "公开源污染unknown/已登记暴露",
+    "无合法组织反例不证明独立，实际源文件次序非任务唯一次序"
+  ],
+  "next": "G4具体配对设计与资源下界，生成不开放"
+}

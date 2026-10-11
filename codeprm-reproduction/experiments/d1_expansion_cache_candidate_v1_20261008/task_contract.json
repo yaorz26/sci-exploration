@@ -1,0 +1,30 @@
+{
+  "task_id": "E_B07",
+  "name": "缓存策略、命中统计与无副作用观察",
+  "requirement": "实现solve(payload)，只用Python标准库，内部拆法自由。输入policy为LRU或LRI，capacity为正整数，operations为操作列表，key为字符串，value/default为任意JSON值。put新增或替换；满容量新增淘汰最旧项。LRU中put和成功read/get刷新最近使用；LRI中仅put刷新最近写入，成功read/get不刷新。read返回值，缺键返回{error:\"KeyError\"}；get返回值，缺键返回所给default（缺省null）。contains返回是否存在，pop返回并删除值（缺键返回所给default，缺省null），clear清空项但保留累计统计。snapshot仅观察，put/clear/snapshot的result为null。每步返回{result,items,hits,misses,soft_misses}，items为按键字典序排序的[key,value]。成功read/get使hits加1；缺键read使misses加1；缺键get使misses和soft_misses各加1。put/contains/pop/clear/snapshot和每步items观察均不增加统计，观察不改变淘汰顺序。不得修改输入及其嵌套对象。域外输入和并发不要求。",
+  "entry_point": "solve(payload)",
+  "allowed_libraries": "仅Python标准库",
+  "internal_decomposition": "自由选择",
+  "source": {
+    "repository": "mahmoud/boltons",
+    "commit": "4e5faa3d7e4008d89e0d8bf1ea87b6d9a061a16d",
+    "file": "boltons/cacheutils.py",
+    "symbols": [
+      "LRU",
+      "LRI"
+    ],
+    "license": "BSD-3-Clause",
+    "source_sha256": "77f6c35dc6332482c2f3f57b13059f3c1962641fbb7a6212aa7fd221c6d8aaad",
+    "license_sha256": "c301912653a8d8c99eab6212aa3aea8d164ea249d8ad53c941e0558a0a5ac1e3"
+  },
+  "split": "expansion_pool_unassigned",
+  "status": "候选行为证据，人工0、非冻结",
+  "related_tasks": [
+    "D1_C01",
+    "D1_C02",
+    "D1_C03",
+    "D1_C04",
+    "D1_C05"
+  ],
+  "limits": "已看源码/上游测试，同助手编写非独立真值；不计入原20题/307案例；第二来源不等于独立缓存家族"
+}

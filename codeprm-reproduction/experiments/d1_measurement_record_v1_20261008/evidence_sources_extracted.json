@@ -1,0 +1,58 @@
+[
+  {
+    "question": "双实体粒度",
+    "evidence_path": "experiments/d1_granularity_review_v2_20261008/review_summary.json",
+    "sha256": "4585b7dfbf1f434951c325ee3b822e3bc9c19cfce75273092f3236149e8b1e23",
+    "status": "measurement_unit_refinement_supported",
+    "usage": "判别记录表达力，不重跑旧实验或产生新人工标签"
+  },
+  {
+    "question": "正确文本与API计数",
+    "evidence_path": "experiments/d1_valid_text_budget_v1_20261008/summary.json",
+    "sha256": "06ad245ac53140c8ab256ed55d4b52798d985a0f192a3e8871d378d3d5177096",
+    "status": "measured_given_correct_text_blueprints",
+    "usage": "判别记录表达力，不重跑旧实验或产生新人工标签"
+  },
+  {
+    "question": "任务与方案状态",
+    "evidence_path": "experiments/d1_plan_state_distribution_v1_20261008/summary.json",
+    "sha256": "841ea11e3b4da4b264849b7498ea080b93190fb057d2eab540a35fd4a950ab34",
+    "status": "pass",
+    "usage": "判别记录表达力，不重跑旧实验或产生新人工标签"
+  },
+  {
+    "question": "关系退化输出",
+    "evidence_path": "experiments/d1_relation_vacuity_v1_20261008/summary.json",
+    "sha256": "ae828cdf5757651f175f5d0e312d021296531c262acc91bf7002aa536f3c5588",
+    "status": "pass",
+    "usage": "判别记录表达力，不重跑旧实验或产生新人工标签"
+  },
+  {
+    "question": "来源/家族/域支撑",
+    "evidence_path": "experiments/d1_expansion_support_v1_20261008/summary.json",
+    "sha256": "c7b66b7dc0025cf7ab5920f4a78290a6e64cf49f4bf20dd0b45705cc35180a36",
+    "status": "pass",
+    "usage": "判别记录表达力，不重跑旧实验或产生新人工标签"
+  },
+  {
+    "question": "无状态对齐域",
+    "evidence_path": "experiments/d1_unmeasured_task_probes_v1_20261008/summary.json",
+    "sha256": "fa33ae8598cf4c85bd634f5e6b530483013a1174fa0e7fbdaa3ea1a6761ebb4e",
+    "status": "pass",
+    "usage": "判别记录表达力，不重跑旧实验或产生新人工标签"
+  },
+  {
+    "question": "合法次序与组合义务",
+    "evidence_path": "experiments/d1_alignment_composition_v1_20261008/summary.json",
+    "sha256": "532618d7ddf95067cacc8cbed4365353cc80a106d688c3f6aa2ecb64de573b71",
+    "status": "pass",
+    "usage": "判别记录表达力，不重跑旧实验或产生新人工标签"
+  },
+  {
+    "question": "合法拒绝与缺局部值",
+    "evidence_path": "experiments/d1_expected_rejection_v1_20261008/summary.json",
+    "sha256": "04bc7aa904748fc8992ddc59177c83b82d3c273b147ffd51a5233861c54c355e",
+    "status": "pass",
+    "usage": "判别记录表达力，不重跑旧实验或产生新人工标签"
+  }
+]

@@ -1,0 +1,1627 @@
+{
+  "status": "pass",
+  "task_count": 2,
+  "correct_structures": 4,
+  "correct_structures_all_pass": 4,
+  "artificial_glue_mutants": 4,
+  "mutants_detected_by_original_dataset": 4,
+  "distinct_local_unit_anchors": 24,
+  "unit_evaluations": 72,
+  "unit_passed": 72,
+  "results": [
+    {
+      "task_id": "D1_B05",
+      "program": "staged_correct",
+      "path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_local_composition_v1_20261008\\D1_B05_staged_correct.py",
+      "sha256": "0151a2078a632ac7bc0e0cfc3bd3ef5c8639ebe4cb13301f24ee8bb2bee15db5",
+      "artificial_mutant": false,
+      "public": {
+        "cases": 2,
+        "passed": 2,
+        "all_pass": true,
+        "results": [
+          {
+            "case_id": "public_1",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "public_2",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.06198940000103903,
+        "captured_output_bytes": 216
+      },
+      "private": {
+        "cases": 12,
+        "passed": 12,
+        "all_pass": true,
+        "results": [
+          {
+            "case_id": "hidden_1",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_2",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_3",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_4",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_5",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_6",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_7",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_8",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_9",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_10",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_11",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_12",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.06088060000183759,
+        "captured_output_bytes": 1011
+      },
+      "manual_integration": {
+        "cases": 1,
+        "passed": 1,
+        "all_pass": true,
+        "results": [
+          {
+            "case_id": "composition_original_version",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.06137189999935799,
+        "captured_output_bytes": 157
+      },
+      "all_pass": true
+    },
+    {
+      "task_id": "D1_B05",
+      "program": "fused_correct",
+      "path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_local_composition_v1_20261008\\D1_B05_fused_correct.py",
+      "sha256": "a789df1975a922db888d20aa6d0aa667cdfdb5eeb7043333c1371f79547d298a",
+      "artificial_mutant": false,
+      "public": {
+        "cases": 2,
+        "passed": 2,
+        "all_pass": true,
+        "results": [
+          {
+            "case_id": "public_1",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "public_2",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.06092510000235052,
+        "captured_output_bytes": 216
+      },
+      "private": {
+        "cases": 12,
+        "passed": 12,
+        "all_pass": true,
+        "results": [
+          {
+            "case_id": "hidden_1",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_2",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_3",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_4",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_5",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_6",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_7",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_8",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_9",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_10",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_11",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_12",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.06136770000011893,
+        "captured_output_bytes": 1011
+      },
+      "manual_integration": {
+        "cases": 1,
+        "passed": 1,
+        "all_pass": true,
+        "results": [
+          {
+            "case_id": "composition_original_version",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.06146939999962342,
+        "captured_output_bytes": 157
+      },
+      "all_pass": true
+    },
+    {
+      "task_id": "D1_B05",
+      "program": "glue_original_tree",
+      "path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_local_composition_v1_20261008\\D1_B05_glue_original_tree.py",
+      "sha256": "ca3d8c1b85661bf9648cd73eb5b5ed68d06d8d26d8b007a4ae9034767fbf5d08",
+      "artificial_mutant": true,
+      "public": {
+        "cases": 2,
+        "passed": 1,
+        "all_pass": false,
+        "results": [
+          {
+            "case_id": "public_1",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "tree": {
+                    "a": [
+                      4,
+                      true
+                    ],
+                    "b": 6
+                  },
+                  "matches": [
+                    {
+                      "path": [
+                        "a",
+                        0
+                      ],
+                      "value": 4
+                    },
+                    {
+                      "path": [
+                        "b"
+                      ],
+                      "value": 6
+                    }
+                  ]
+                }
+              },
+              "actual": {
+                "value": {
+                  "tree": {
+                    "a": [
+                      4,
+                      true
+                    ],
+                    "b": 6
+                  },
+                  "matches": []
+                }
+              }
+            }
+          },
+          {
+            "case_id": "public_2",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.061632799999642884,
+        "captured_output_bytes": 419
+      },
+      "private": {
+        "cases": 12,
+        "passed": 6,
+        "all_pass": false,
+        "results": [
+          {
+            "case_id": "hidden_1",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_2",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "tree": [
+                    1,
+                    3
+                  ],
+                  "matches": [
+                    {
+                      "path": [
+                        1
+                      ],
+                      "value": 3
+                    }
+                  ]
+                }
+              },
+              "actual": {
+                "value": {
+                  "tree": [
+                    1,
+                    3
+                  ],
+                  "matches": [
+                    {
+                      "path": [
+                        3
+                      ],
+                      "value": 3
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "case_id": "hidden_3",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "tree": {
+                    "y": {
+                      "n": 4
+                    }
+                  },
+                  "matches": [
+                    {
+                      "path": [
+                        "y",
+                        "n"
+                      ],
+                      "value": 4
+                    }
+                  ]
+                }
+              },
+              "actual": {
+                "value": {
+                  "tree": {
+                    "y": {
+                      "n": 4
+                    }
+                  },
+                  "matches": []
+                }
+              }
+            }
+          },
+          {
+            "case_id": "hidden_4",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "tree": [
+                    true,
+                    false,
+                    0,
+                    3
+                  ],
+                  "matches": [
+                    {
+                      "path": [
+                        2
+                      ],
+                      "value": 0
+                    },
+                    {
+                      "path": [
+                        3
+                      ],
+                      "value": 3
+                    }
+                  ]
+                }
+              },
+              "actual": {
+                "value": {
+                  "tree": [
+                    true,
+                    false,
+                    0,
+                    3
+                  ],
+                  "matches": [
+                    {
+                      "path": [
+                        2
+                      ],
+                      "value": 0
+                    },
+                    {
+                      "path": [
+                        3
+                      ],
+                      "value": 1
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "case_id": "hidden_5",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_6",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_7",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "tree": {
+                    "x": 4
+                  },
+                  "matches": [
+                    {
+                      "path": [
+                        "x"
+                      ],
+                      "value": 4
+                    }
+                  ]
+                }
+              },
+              "actual": {
+                "value": {
+                  "tree": {
+                    "x": 4
+                  },
+                  "matches": []
+                }
+              }
+            }
+          },
+          {
+            "case_id": "hidden_8",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_9",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "tree": {
+                    "x": 3.0,
+                    "y": -1.0
+                  },
+                  "matches": [
+                    {
+                      "path": [
+                        "x"
+                      ],
+                      "value": 3.0
+                    }
+                  ]
+                }
+              },
+              "actual": {
+                "value": {
+                  "tree": {
+                    "x": 3.0,
+                    "y": -1.0
+                  },
+                  "matches": [
+                    {
+                      "path": [
+                        "x"
+                      ],
+                      "value": 1.5
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "case_id": "hidden_10",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_11",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_12",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "tree": {
+                    "a": [
+                      {
+                        "x": [
+                          3
+                        ]
+                      }
+                    ],
+                    "b": 2
+                  },
+                  "matches": [
+                    {
+                      "path": [
+                        "a",
+                        0,
+                        "x",
+                        0
+                      ],
+                      "value": 3
+                    },
+                    {
+                      "path": [
+                        "b"
+                      ],
+                      "value": 2
+                    }
+                  ]
+                }
+              },
+              "actual": {
+                "value": {
+                  "tree": {
+                    "a": [
+                      {
+                        "x": [
+                          3
+                        ]
+                      }
+                    ],
+                    "b": 2
+                  },
+                  "matches": [
+                    {
+                      "path": [
+                        "a",
+                        1,
+                        "x",
+                        1
+                      ],
+                      "value": 3
+                    },
+                    {
+                      "path": [
+                        "b"
+                      ],
+                      "value": 2
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "execution_seconds": 0.061494899997342145,
+        "captured_output_bytes": 2178
+      },
+      "manual_integration": {
+        "cases": 1,
+        "passed": 0,
+        "all_pass": false,
+        "results": [
+          {
+            "case_id": "composition_original_version",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "tree": [
+                    6
+                  ],
+                  "matches": [
+                    {
+                      "path": [
+                        0
+                      ],
+                      "value": 6
+                    }
+                  ]
+                }
+              },
+              "actual": {
+                "value": {
+                  "tree": [
+                    6
+                  ],
+                  "matches": []
+                }
+              }
+            }
+          }
+        ],
+        "execution_seconds": 0.06076070000199252,
+        "captured_output_bytes": 284
+      },
+      "all_pass": false
+    },
+    {
+      "task_id": "D1_B05",
+      "program": "glue_scaled_threshold",
+      "path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_local_composition_v1_20261008\\D1_B05_glue_scaled_threshold.py",
+      "sha256": "b857871cbfb4827b05d15fb82320eff74595c9646e89e41fba7003e3ac40c816",
+      "artificial_mutant": true,
+      "public": {
+        "cases": 2,
+        "passed": 1,
+        "all_pass": false,
+        "results": [
+          {
+            "case_id": "public_1",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "tree": {
+                    "a": [
+                      4,
+                      true
+                    ],
+                    "b": 6
+                  },
+                  "matches": [
+                    {
+                      "path": [
+                        "a",
+                        0
+                      ],
+                      "value": 4
+                    },
+                    {
+                      "path": [
+                        "b"
+                      ],
+                      "value": 6
+                    }
+                  ]
+                }
+              },
+              "actual": {
+                "value": {
+                  "tree": {
+                    "a": [
+                      4,
+                      true
+                    ],
+                    "b": 6
+                  },
+                  "matches": []
+                }
+              }
+            }
+          },
+          {
+            "case_id": "public_2",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.06115760000102455,
+        "captured_output_bytes": 419
+      },
+      "private": {
+        "cases": 12,
+        "passed": 11,
+        "all_pass": false,
+        "results": [
+          {
+            "case_id": "hidden_1",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_2",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_3",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_4",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_5",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_6",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_7",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "tree": {
+                    "x": 4
+                  },
+                  "matches": [
+                    {
+                      "path": [
+                        "x"
+                      ],
+                      "value": 4
+                    }
+                  ]
+                }
+              },
+              "actual": {
+                "value": {
+                  "tree": {
+                    "x": 4
+                  },
+                  "matches": []
+                }
+              }
+            }
+          },
+          {
+            "case_id": "hidden_8",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_9",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_10",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_11",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_12",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.06126150000272901,
+        "captured_output_bytes": 1150
+      },
+      "manual_integration": {
+        "cases": 1,
+        "passed": 0,
+        "all_pass": false,
+        "results": [
+          {
+            "case_id": "composition_original_version",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": {
+                  "tree": [
+                    6
+                  ],
+                  "matches": [
+                    {
+                      "path": [
+                        0
+                      ],
+                      "value": 6
+                    }
+                  ]
+                }
+              },
+              "actual": {
+                "value": {
+                  "tree": [
+                    6
+                  ],
+                  "matches": []
+                }
+              }
+            }
+          }
+        ],
+        "execution_seconds": 0.0611644000018714,
+        "captured_output_bytes": 284
+      },
+      "all_pass": false
+    },
+    {
+      "task_id": "D1_C03",
+      "program": "staged_correct",
+      "path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_local_composition_v1_20261008\\D1_C03_staged_correct.py",
+      "sha256": "33f28551557c0aa9a50d4a46c0046dd768b40df92564c4d6fdb4e8eb28be685c",
+      "artificial_mutant": false,
+      "public": {
+        "cases": 2,
+        "passed": 2,
+        "all_pass": true,
+        "results": [
+          {
+            "case_id": "public_1",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "public_2",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.062358400002267445,
+        "captured_output_bytes": 216
+      },
+      "private": {
+        "cases": 9,
+        "passed": 9,
+        "all_pass": true,
+        "results": [
+          {
+            "case_id": "hidden_1",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_2",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_3",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_4",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_5",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_6",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_7",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_8",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_9",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.06223849999878439,
+        "captured_output_bytes": 769
+      },
+      "manual_integration": {
+        "cases": 1,
+        "passed": 1,
+        "all_pass": true,
+        "results": [
+          {
+            "case_id": "composition_key_binding",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.06121300000086194,
+        "captured_output_bytes": 152
+      },
+      "all_pass": true
+    },
+    {
+      "task_id": "D1_C03",
+      "program": "records_correct",
+      "path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_local_composition_v1_20261008\\D1_C03_records_correct.py",
+      "sha256": "420de6627d11fdcefda8b85158ad0e401f13f988420205cbfaa17ceb023e85c0",
+      "artificial_mutant": false,
+      "public": {
+        "cases": 2,
+        "passed": 2,
+        "all_pass": true,
+        "results": [
+          {
+            "case_id": "public_1",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "public_2",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.061313300000620075,
+        "captured_output_bytes": 216
+      },
+      "private": {
+        "cases": 9,
+        "passed": 9,
+        "all_pass": true,
+        "results": [
+          {
+            "case_id": "hidden_1",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_2",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_3",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_4",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_5",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_6",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_7",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_8",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_9",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.060824399999546586,
+        "captured_output_bytes": 769
+      },
+      "manual_integration": {
+        "cases": 1,
+        "passed": 1,
+        "all_pass": true,
+        "results": [
+          {
+            "case_id": "composition_key_binding",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.061504000001150416,
+        "captured_output_bytes": 152
+      },
+      "all_pass": true
+    },
+    {
+      "task_id": "D1_C03",
+      "program": "glue_partial_key",
+      "path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_local_composition_v1_20261008\\D1_C03_glue_partial_key.py",
+      "sha256": "22118d94172a9fcd03f9cc855552d72dddbb71963c7fa2e5ca419b32144dc4bd",
+      "artificial_mutant": true,
+      "public": {
+        "cases": 2,
+        "passed": 2,
+        "all_pass": true,
+        "results": [
+          {
+            "case_id": "public_1",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "public_2",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.061185099999420345,
+        "captured_output_bytes": 216
+      },
+      "private": {
+        "cases": 9,
+        "passed": 7,
+        "all_pass": false,
+        "results": [
+          {
+            "case_id": "hidden_1",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_2",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_3",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_4",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_5",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_6",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_7",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_8",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": [
+                  {
+                    "result": 0,
+                    "computations": 1,
+                    "size": 1
+                  },
+                  {
+                    "result": 0,
+                    "computations": 1,
+                    "size": 1
+                  },
+                  {
+                    "result": 0,
+                    "computations": 2,
+                    "size": 2
+                  }
+                ]
+              },
+              "actual": {
+                "value": [
+                  {
+                    "result": 0,
+                    "computations": 1,
+                    "size": 1
+                  },
+                  {
+                    "result": 0,
+                    "computations": 1,
+                    "size": 1
+                  },
+                  {
+                    "result": 0,
+                    "computations": 1,
+                    "size": 1
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "case_id": "hidden_9",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": [
+                  {
+                    "result": 1,
+                    "computations": 1,
+                    "size": 1
+                  },
+                  {
+                    "result": 1,
+                    "computations": 2,
+                    "size": 1
+                  },
+                  {
+                    "result": 1,
+                    "computations": 3,
+                    "size": 1
+                  }
+                ]
+              },
+              "actual": {
+                "value": [
+                  {
+                    "result": 1,
+                    "computations": 1,
+                    "size": 1
+                  },
+                  {
+                    "result": 1,
+                    "computations": 1,
+                    "size": 1
+                  },
+                  {
+                    "result": 1,
+                    "computations": 1,
+                    "size": 1
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "execution_seconds": 0.06138880000071367,
+        "captured_output_bytes": 1400
+      },
+      "manual_integration": {
+        "cases": 1,
+        "passed": 0,
+        "all_pass": false,
+        "results": [
+          {
+            "case_id": "composition_key_binding",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": [
+                  {
+                    "result": 1,
+                    "computations": 1,
+                    "size": 1
+                  },
+                  {
+                    "result": 2,
+                    "computations": 2,
+                    "size": 2
+                  },
+                  {
+                    "result": null,
+                    "computations": 2,
+                    "size": 0
+                  }
+                ]
+              },
+              "actual": {
+                "value": [
+                  {
+                    "result": 1,
+                    "computations": 1,
+                    "size": 1
+                  },
+                  {
+                    "result": 1,
+                    "computations": 1,
+                    "size": 1
+                  },
+                  {
+                    "result": null,
+                    "computations": 1,
+                    "size": 0
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "execution_seconds": 0.06138060000012047,
+        "captured_output_bytes": 474
+      },
+      "all_pass": false
+    },
+    {
+      "task_id": "D1_C03",
+      "program": "glue_clear_count",
+      "path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_local_composition_v1_20261008\\D1_C03_glue_clear_count.py",
+      "sha256": "6721be11211895054853ae048e8637c4f8df61ec4693f066641e831e0bfaf641",
+      "artificial_mutant": true,
+      "public": {
+        "cases": 2,
+        "passed": 1,
+        "all_pass": false,
+        "results": [
+          {
+            "case_id": "public_1",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": [
+                  {
+                    "result": 5,
+                    "computations": 1,
+                    "size": 1
+                  },
+                  {
+                    "result": 5,
+                    "computations": 1,
+                    "size": 1
+                  },
+                  {
+                    "result": null,
+                    "computations": 1,
+                    "size": 0
+                  },
+                  {
+                    "result": 5,
+                    "computations": 2,
+                    "size": 1
+                  }
+                ]
+              },
+              "actual": {
+                "value": [
+                  {
+                    "result": 5,
+                    "computations": 1,
+                    "size": 1
+                  },
+                  {
+                    "result": 5,
+                    "computations": 1,
+                    "size": 1
+                  },
+                  {
+                    "result": null,
+                    "computations": 0,
+                    "size": 0
+                  },
+                  {
+                    "result": 5,
+                    "computations": 1,
+                    "size": 1
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "case_id": "public_2",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.061295999999856576,
+        "captured_output_bytes": 628
+      },
+      "private": {
+        "cases": 9,
+        "passed": 7,
+        "all_pass": false,
+        "results": [
+          {
+            "case_id": "hidden_1",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_2",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_3",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_4",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_5",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_6",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": [
+                  {
+                    "result": 0,
+                    "computations": 1,
+                    "size": 0
+                  },
+                  {
+                    "result": 0,
+                    "computations": 2,
+                    "size": 0
+                  },
+                  {
+                    "result": null,
+                    "computations": 2,
+                    "size": 0
+                  }
+                ]
+              },
+              "actual": {
+                "value": [
+                  {
+                    "result": 0,
+                    "computations": 1,
+                    "size": 0
+                  },
+                  {
+                    "result": 0,
+                    "computations": 2,
+                    "size": 0
+                  },
+                  {
+                    "result": null,
+                    "computations": 0,
+                    "size": 0
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "case_id": "hidden_7",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": [
+                  {
+                    "result": null,
+                    "computations": 0,
+                    "size": 0
+                  },
+                  {
+                    "result": 3,
+                    "computations": 1,
+                    "size": 1
+                  },
+                  {
+                    "result": null,
+                    "computations": 1,
+                    "size": 0
+                  },
+                  {
+                    "result": null,
+                    "computations": 1,
+                    "size": 0
+                  },
+                  {
+                    "result": 3,
+                    "computations": 2,
+                    "size": 1
+                  }
+                ]
+              },
+              "actual": {
+                "value": [
+                  {
+                    "result": null,
+                    "computations": 0,
+                    "size": 0
+                  },
+                  {
+                    "result": 3,
+                    "computations": 1,
+                    "size": 1
+                  },
+                  {
+                    "result": null,
+                    "computations": 0,
+                    "size": 0
+                  },
+                  {
+                    "result": null,
+                    "computations": 0,
+                    "size": 0
+                  },
+                  {
+                    "result": 3,
+                    "computations": 1,
+                    "size": 1
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "case_id": "hidden_8",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          },
+          {
+            "case_id": "hidden_9",
+            "pass": true,
+            "input_unchanged": true,
+            "error": null
+          }
+        ],
+        "execution_seconds": 0.06172520000109216,
+        "captured_output_bytes": 1604
+      },
+      "manual_integration": {
+        "cases": 1,
+        "passed": 0,
+        "all_pass": false,
+        "results": [
+          {
+            "case_id": "composition_key_binding",
+            "pass": false,
+            "input_unchanged": true,
+            "error": {
+              "expected": {
+                "value": [
+                  {
+                    "result": 1,
+                    "computations": 1,
+                    "size": 1
+                  },
+                  {
+                    "result": 2,
+                    "computations": 2,
+                    "size": 2
+                  },
+                  {
+                    "result": null,
+                    "computations": 2,
+                    "size": 0
+                  }
+                ]
+              },
+              "actual": {
+                "value": [
+                  {
+                    "result": 1,
+                    "computations": 1,
+                    "size": 1
+                  },
+                  {
+                    "result": 2,
+                    "computations": 2,
+                    "size": 2
+                  },
+                  {
+                    "result": null,
+                    "computations": 0,
+                    "size": 0
+                  }
+                ]
+              }
+            }
+          }
+        ],
+        "execution_seconds": 0.060827000001154374,
+        "captured_output_bytes": 474
+      },
+      "all_pass": false
+    }
+  ],
+  "model_calls": 0,
+  "scope": "手工组件/结构与人工组合缺陷；有限局部锚点非全域证明，非真实模型错误发生率、非拆分收益，未修改原数据/标签"
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "case_id": "public_1",
+    "input": {
+      "capacity": 1,
+      "operations": [
+        {
+          "op": "call",
+          "args": [
+            2
+          ],
+          "kwargs": {
+            "b": 3
+          }
+        },
+        {
+          "op": "call",
+          "args": [
+            2
+          ],
+          "kwargs": {
+            "b": 3
+          }
+        },
+        {
+          "op": "clear"
+        },
+        {
+          "op": "call",
+          "args": [
+            2
+          ],
+          "kwargs": {
+            "b": 3
+          }
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": 5,
+          "computations": 1,
+          "size": 1
+        },
+        {
+          "result": 5,
+          "computations": 1,
+          "size": 1
+        },
+        {
+          "result": null,
+          "computations": 1,
+          "size": 0
+        },
+        {
+          "result": 5,
+          "computations": 2,
+          "size": 1
+        }
+      ]
+    }
+  },
+  {
+    "case_id": "public_2",
+    "input": {
+      "capacity": 0,
+      "operations": [
+        {
+          "op": "call"
+        },
+        {
+          "op": "call"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": 0,
+          "computations": 1,
+          "size": 0
+        },
+        {
+          "result": 0,
+          "computations": 2,
+          "size": 0
+        }
+      ]
+    }
+  }
+]

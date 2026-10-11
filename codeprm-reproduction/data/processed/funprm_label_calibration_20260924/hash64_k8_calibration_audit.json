@@ -1,0 +1,639 @@
+{
+  "experiment": "funprm_label_calibration_20260924",
+  "status": "pass_resume_prm_training_under_revised_protocol",
+  "scope_note": "This revised calibration does not retroactively change the original helper-first scale gate failure.",
+  "inputs": {
+    "manifest": "data\\splits\\funprm_label_calibration_20260924\\hash64_manifest.json",
+    "manifest_sha256": "c7a6282da5d733653aa658fc57f5ac508aaf313d49b9c5a8c8c706d2aa205f13",
+    "baseline_nodes": "data\\processed\\funprm_helperfirst_scale_20260923\\train100_prefix_rollouts_k16_seed20261124_v1_unit_reward_nodes.jsonl",
+    "baseline_sha256": "a9ecd9dd2b013d3f154ee6bfcf2a477f38cf47042a65b40c33f42950ec379048",
+    "calibrated_nodes": "data\\processed\\funprm_label_calibration_20260924\\hash64_k8_nodes.jsonl",
+    "calibrated_sha256": "883b38e372e8b6bb13ae9b353d04a2473c13202cef8ae36e6516057015dd3301"
+  },
+  "integrity": {
+    "population_nodes": 188,
+    "selected_nodes": 64,
+    "nonselected_nodes_unchanged": true,
+    "selected_baseline_rollout_count_histogram": {
+      "16": 13,
+      "4": 48,
+      "8": 3
+    },
+    "expected_added_rollouts": 192,
+    "actual_added_rollouts": 192,
+    "selected_first_eight_error_count": 1,
+    "newly_added_error_count": 0
+  },
+  "primary_metrics": {
+    "independent_first4_vs_second4_pearson": 0.8864800569401953,
+    "first4_mean_success_rate": 0.30859375,
+    "second4_mean_success_rate": 0.31640625,
+    "absolute_half_mean_difference": 0.0078125
+  },
+  "gate": {
+    "pearson_threshold": 0.7,
+    "mean_gap_threshold": 0.1,
+    "pearson_pass": true,
+    "mean_gap_pass": true,
+    "overall_pass": true
+  },
+  "auxiliary_metrics": {
+    "first4_vs_full8_pearson": 0.9718493155015311,
+    "mean_absolute_first4_to_full8_change": 0.05078125,
+    "first4_positive_nodes": 27,
+    "second4_positive_nodes": 29,
+    "positive_to_zero_flips": 0,
+    "zero_to_positive_flips": 2,
+    "bootstrap": {
+      "samples_requested": 10000,
+      "valid_correlation_samples": 10000,
+      "seed": 20260924,
+      "pearson_95_percentile_interval": [
+        0.8296954199142194,
+        0.9362885394485831
+      ],
+      "second_minus_first_mean_95_percentile_interval": [
+        -0.0390625,
+        0.0546875
+      ]
+    }
+  },
+  "per_node": [
+    {
+      "problem_id": "apps-train-2830",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "baseline_rollout_count": 16,
+      "first4_success_rate": 0.25,
+      "second4_success_rate": 0.5,
+      "full8_success_rate": 0.375
+    },
+    {
+      "problem_id": "apps-train-2830",
+      "source_candidate_index": 0,
+      "function_index": 2,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2832",
+      "source_candidate_index": 0,
+      "function_index": 2,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2834",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 1.0,
+      "second4_success_rate": 1.0,
+      "full8_success_rate": 1.0
+    },
+    {
+      "problem_id": "apps-train-2835",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "baseline_rollout_count": 16,
+      "first4_success_rate": 0.5,
+      "second4_success_rate": 0.25,
+      "full8_success_rate": 0.375
+    },
+    {
+      "problem_id": "apps-train-2836",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 1.0,
+      "second4_success_rate": 0.75,
+      "full8_success_rate": 0.875
+    },
+    {
+      "problem_id": "apps-train-2837",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2841",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2842",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "baseline_rollout_count": 16,
+      "first4_success_rate": 0.25,
+      "second4_success_rate": 0.75,
+      "full8_success_rate": 0.5
+    },
+    {
+      "problem_id": "apps-train-2844",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 1.0,
+      "second4_success_rate": 0.75,
+      "full8_success_rate": 0.875
+    },
+    {
+      "problem_id": "apps-train-2845",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2846",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 1.0,
+      "second4_success_rate": 1.0,
+      "full8_success_rate": 1.0
+    },
+    {
+      "problem_id": "apps-train-2846",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "baseline_rollout_count": 8,
+      "first4_success_rate": 0.75,
+      "second4_success_rate": 1.0,
+      "full8_success_rate": 0.875
+    },
+    {
+      "problem_id": "apps-train-2847",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "baseline_rollout_count": 16,
+      "first4_success_rate": 0.75,
+      "second4_success_rate": 0.5,
+      "full8_success_rate": 0.625
+    },
+    {
+      "problem_id": "apps-train-2847",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 1.0,
+      "second4_success_rate": 1.0,
+      "full8_success_rate": 1.0
+    },
+    {
+      "problem_id": "apps-train-2850",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 1.0,
+      "second4_success_rate": 0.75,
+      "full8_success_rate": 0.875
+    },
+    {
+      "problem_id": "apps-train-2854",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "baseline_rollout_count": 16,
+      "first4_success_rate": 0.5,
+      "second4_success_rate": 0.5,
+      "full8_success_rate": 0.5
+    },
+    {
+      "problem_id": "apps-train-2855",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2855",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2855",
+      "source_candidate_index": 0,
+      "function_index": 2,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2855",
+      "source_candidate_index": 0,
+      "function_index": 3,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2857",
+      "source_candidate_index": 3,
+      "function_index": 0,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 1.0,
+      "second4_success_rate": 1.0,
+      "full8_success_rate": 1.0
+    },
+    {
+      "problem_id": "apps-train-2859",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "baseline_rollout_count": 16,
+      "first4_success_rate": 0.5,
+      "second4_success_rate": 0.5,
+      "full8_success_rate": 0.5
+    },
+    {
+      "problem_id": "apps-train-2862",
+      "source_candidate_index": 2,
+      "function_index": 1,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 1.0,
+      "second4_success_rate": 0.5,
+      "full8_success_rate": 0.75
+    },
+    {
+      "problem_id": "apps-train-2866",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "baseline_rollout_count": 16,
+      "first4_success_rate": 0.5,
+      "second4_success_rate": 0.5,
+      "full8_success_rate": 0.5
+    },
+    {
+      "problem_id": "apps-train-2866",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "baseline_rollout_count": 16,
+      "first4_success_rate": 0.75,
+      "second4_success_rate": 0.75,
+      "full8_success_rate": 0.75
+    },
+    {
+      "problem_id": "apps-train-2870",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 1.0,
+      "second4_success_rate": 0.75,
+      "full8_success_rate": 0.875
+    },
+    {
+      "problem_id": "apps-train-2870",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "baseline_rollout_count": 16,
+      "first4_success_rate": 0.5,
+      "second4_success_rate": 0.75,
+      "full8_success_rate": 0.625
+    },
+    {
+      "problem_id": "apps-train-2874",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 1.0,
+      "second4_success_rate": 0.5,
+      "full8_success_rate": 0.75
+    },
+    {
+      "problem_id": "apps-train-2876",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.25,
+      "full8_success_rate": 0.125
+    },
+    {
+      "problem_id": "apps-train-2887",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2891",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2891",
+      "source_candidate_index": 0,
+      "function_index": 2,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2892",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2892",
+      "source_candidate_index": 0,
+      "function_index": 2,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2895",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2895",
+      "source_candidate_index": 0,
+      "function_index": 2,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2906",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2907",
+      "source_candidate_index": 0,
+      "function_index": 2,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2909",
+      "source_candidate_index": 3,
+      "function_index": 1,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2909",
+      "source_candidate_index": 3,
+      "function_index": 2,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2913",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2915",
+      "source_candidate_index": 3,
+      "function_index": 2,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2917",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "baseline_rollout_count": 16,
+      "first4_success_rate": 0.5,
+      "second4_success_rate": 1.0,
+      "full8_success_rate": 0.75
+    },
+    {
+      "problem_id": "apps-train-2920",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.25,
+      "full8_success_rate": 0.125
+    },
+    {
+      "problem_id": "apps-train-2921",
+      "source_candidate_index": 1,
+      "function_index": 2,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2923",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2924",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "baseline_rollout_count": 8,
+      "first4_success_rate": 0.75,
+      "second4_success_rate": 1.0,
+      "full8_success_rate": 0.875
+    },
+    {
+      "problem_id": "apps-train-2927",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2931",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2932",
+      "source_candidate_index": 2,
+      "function_index": 0,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2936",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2939",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "baseline_rollout_count": 16,
+      "first4_success_rate": 0.5,
+      "second4_success_rate": 0.25,
+      "full8_success_rate": 0.375
+    },
+    {
+      "problem_id": "apps-train-2940",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "baseline_rollout_count": 16,
+      "first4_success_rate": 0.5,
+      "second4_success_rate": 1.0,
+      "full8_success_rate": 0.75
+    },
+    {
+      "problem_id": "apps-train-2940",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "baseline_rollout_count": 16,
+      "first4_success_rate": 0.5,
+      "second4_success_rate": 0.75,
+      "full8_success_rate": 0.625
+    },
+    {
+      "problem_id": "apps-train-2943",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2943",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2947",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2949",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2951",
+      "source_candidate_index": 3,
+      "function_index": 0,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2952",
+      "source_candidate_index": 1,
+      "function_index": 1,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 1.0,
+      "second4_success_rate": 0.75,
+      "full8_success_rate": 0.875
+    },
+    {
+      "problem_id": "apps-train-2953",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "baseline_rollout_count": 8,
+      "first4_success_rate": 0.75,
+      "second4_success_rate": 1.0,
+      "full8_success_rate": 0.875
+    },
+    {
+      "problem_id": "apps-train-2954",
+      "source_candidate_index": 0,
+      "function_index": 0,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    },
+    {
+      "problem_id": "apps-train-2955",
+      "source_candidate_index": 0,
+      "function_index": 1,
+      "baseline_rollout_count": 4,
+      "first4_success_rate": 0.0,
+      "second4_success_rate": 0.0,
+      "full8_success_rate": 0.0
+    }
+  ]
+}

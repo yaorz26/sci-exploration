@@ -1,0 +1,25 @@
+实现计划：
+
+1. **初始化方法 (`__init__`)**：
+   - 初始化时，设置一个空的 `portfolio` 列表和传入的 `cash_balance`。
+
+2. **添加股票方法 (`add_stock`)**：
+   - 将传入的股票字典添加到 `portfolio` 列表中。
+
+3. **移除股票方法 (`remove_stock`)**：
+   - 遍历 `portfolio` 列表，找到并移除与传入股票字典匹配的股票。
+
+4. **购买股票方法 (`buy_stock`)**：
+   - 计算购买股票的总费用，如果 `cash_balance` 足够，则更新 `portfolio` 和 `cash_balance`，返回 `True`，否则返回 `False`。
+
+5. **出售股票方法 (`sell_stock`)**：
+   - 遍历 `portfolio` 列表，找到并移除与传入股票字典匹配的股票，更新 `cash_balance`，返回 `True`，如果数量不足则返回 `False`。
+
+6. **计算总价值方法 (`calculate_portfolio_value`)**：
+   - 遍历 `portfolio` 列表，计算所有股票的总价值，返回总价值。
+
+7. **获取摘要方法 (`get_portfolio_summary`)**：
+   - 计算总价值，遍历 `portfolio` 列表，计算每个股票的价值，返回总价值和每个股票的摘要列表。
+
+8. **获取股票价值方法 (`get_stock_value`)**：
+   - 计算并返回传入股票的总价值。

@@ -1,0 +1,40 @@
+{
+  "status": "pass",
+  "checks": [
+    {
+      "name": "源文件清单287",
+      "pass": true
+    },
+    {
+      "name": "复制文件逐项哈希相同",
+      "pass": true
+    },
+    {
+      "name": "题目20且公开隐藏40/267",
+      "pass": true
+    },
+    {
+      "name": "20份许可哈希相同",
+      "pass": true
+    },
+    {
+      "name": "包外哈希和大小相同",
+      "pass": true
+    },
+    {
+      "name": "ZIP可读且成员290",
+      "pass": true
+    },
+    {
+      "name": "ZIP原始文件逐项哈希相同",
+      "pass": true
+    },
+    {
+      "name": "ZIP不含运行缓存或外部校验",
+      "pass": true
+    }
+  ],
+  "human_review_count": 0,
+  "package_status": "candidate_not_frozen_not_published",
+  "scope": "机器完整性和许可文件核对；不证明人工语义真值、污染、新颖性或正式效果"
+}

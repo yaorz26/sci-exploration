@@ -1,0 +1,20 @@
+{
+  "checks": [
+    {
+      "raw": true,
+      "native_expected": 81,
+      "api_measured": 81,
+      "match": true
+    },
+    {
+      "raw": false,
+      "native_expected": 81,
+      "api_measured": 81,
+      "match": true
+    }
+  ],
+  "real_model_calls": 2,
+  "known_token_spend": 164,
+  "status": "pass",
+  "scope": "非任务混合文本和模板的两个单token实测，不证明所有端点/配置等价；模型身份与显式raw渲染冻结后再用"
+}

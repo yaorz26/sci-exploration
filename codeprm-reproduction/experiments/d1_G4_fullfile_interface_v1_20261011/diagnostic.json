@@ -1,0 +1,26 @@
+[
+  {
+    "tag": "probe1_echo_shorter",
+    "prompt_chars": 2411,
+    "eval_count": 5,
+    "done_reason": "stop",
+    "answer_chars": 10,
+    "first_120": "```python\\n"
+  },
+  {
+    "tag": "probe2_format_only",
+    "prompt_chars": 2495,
+    "eval_count": 600,
+    "done_reason": "length",
+    "answer_chars": 2224,
+    "first_120": "### FILE: <relative path>\\n```python\\n<complete new content>\\n```\\n### FILE: <relative path>\\n```python\\n<complete new content"
+  },
+  {
+    "tag": "probe3_chat_api",
+    "prompt_chars": 2268,
+    "eval_count": null,
+    "done_reason": "load",
+    "answer_chars": 0,
+    "first_120": ""
+  }
+]

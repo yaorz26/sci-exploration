@@ -1,0 +1,1703 @@
+{
+  "model_path": "models\\Qwen2.5-Coder-7B-Instruct",
+  "adapter_path": "outputs\\models\\funprm_qwen25coder_7b_generative_helperfirst_scale_v1",
+  "selection_rule": "highest mean generative +/- score across cumulative function prefixes; candidate index tie-break",
+  "private_fields_used_for_selection": [],
+  "private_evaluation_deferred": true,
+  "total_problems": 20,
+  "covered_problems": 18,
+  "candidate_count": 137,
+  "unique_scored_codes": 122,
+  "private_evaluations": 0,
+  "metrics": {
+    "neural": {
+      "problems": 0,
+      "selected_private_pass_rate_mean": 0.0,
+      "selected_private_all_pass": 0,
+      "selected_private_pass_at_1_covered": 0.0,
+      "selected_private_pass_at_1_all_problems": 0.0
+    }
+  },
+  "selection_rows": [
+    {
+      "problem_id": "apps-train-2970",
+      "candidates": [
+        {
+          "candidate_index": 0,
+          "code": "def find_factors(n):\n    factors = []\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            factors.append(i)\n            if i != n // i:\n                factors.append(n // i)\n    return sorted(factors)\n\ndef generate_partitions(n, factors, start=0):\n    if n == 1:\n        return [[]]\n    partitions = []\n    for i in range(start, len(factors)):\n        factor = factors[i]\n        if n % factor == 0:\n            for partition in generate_partitions(n // factor, factors, i):\n                partitions.append([factor] + partition)\n    return partitions\n\ndef sort_partitions(partitions):\n    return sorted(partitions, key=lambda x: (x[0], x[1] if len(x) > 1 else float('inf')))\n\ndef count_partitions(partitions):\n    return len(partitions)\n\ndef prod_int_part(n):\n    if n < 2:\n        return [0, []]\n    factors = find_factors(n)\n    partitions = generate_partitions(n, factors)\n    sorted_partitions = sort_partitions(partitions)\n    max_length = max(len(part) for part in sorted_partitions)\n    result_partitions = [part for part in sorted_partitions if len(part) == max_length]\n    return [count_partitions(result_partitions), result_partitions[0]]\n\n# Example usage:\n# print(prod_int_part(18))  # Output: [3, [2, 3, 3]]\n# print(prod_int_part(60))  # Output: [10, [2, 2, 3, 5]]\n# print(prod_int_part(54))  # Output: [6, [2, 3, 3, 3]]\n# print(prod_int_part(37))  # Output: [0, []]\n# print(prod_int_part(61))  # Output: [0, []]\n",
+          "code_hash": "e1ac53503ce07bb900fb129e869e3f43092b7b3afe12b7b5ceec9b926236054a",
+          "neural_score": 0.020250270282849668,
+          "node_scores": [
+            0.013848611153662205,
+            0.0064882696606218815,
+            0.0029349515680223703,
+            0.006388320587575436,
+            0.07159119844436646
+          ]
+        },
+        {
+          "candidate_index": 1,
+          "code": "def find_factors(n):\n    factors = []\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            factors.append(i)\n            if i != n // i:\n                factors.append(n // i)\n    return sorted(factors)\n\ndef count_partitions(n, factors):\n    if n == 1:\n        return 1\n    count = 0\n    for factor in factors:\n        if factor > n:\n            break\n        count += count_partitions(n // factor, [x for x in factors if x >= factor])\n    return count\n\ndef get_partitions(n, factors):\n    if n == 1:\n        return [[]]\n    partitions = []\n    for factor in factors:\n        if factor > n:\n            break\n        for partition in get_partitions(n // factor, [x for x in factors if x >= factor]):\n            partitions.append([factor] + partition)\n    return partitions\n\ndef prod_int_part(n):\n    if n < 2:\n        return [0, []]\n    \n    factors = find_factors(n)\n    total_partitions = count_partitions(n, factors)\n    partitions = get_partitions(n, factors)\n    \n    max_length = max(len(partition) for partition in partitions)\n    max_partitions = [partition for partition in partitions if len(partition) == max_length]\n    \n    max_partitions.sort(key=lambda x: (x[0], x[1]))\n    \n    return [len(max_partitions), max_partitions[0]]\n\n# Example usage:\n# print(prod_int_part(18))  # Output: [3, [2, 3, 3]]\n# print(prod_int_part(60))  # Output: [10, [2, 2, 3, 5]]\n# print(prod_int_part(54))  # Output: [6, [2, 3, 3, 3]]\n# print(prod_int_part(37))  # Output: [0, []]\n# print(prod_int_part(61))  # Output: [0, []]\n",
+          "code_hash": "ce05ea61b551204234d1b1615433bb68746948c146a0d90fb27c53f312e2e2c6",
+          "neural_score": 0.009729704062920064,
+          "node_scores": [
+            0.013848611153662205,
+            0.001957016997039318,
+            0.00214894930832088,
+            0.020964238792657852
+          ]
+        },
+        {
+          "candidate_index": 2,
+          "code": "def find_factors(n, start=2):\n    factors = []\n    for i in range(start, int(n**0.5) + 1):\n        if n % i == 0:\n            factors.append(i)\n            if i != n // i:\n                factors.append(n // i)\n    return factors\n\ndef generate_partitions(n, factors, partition=[]):\n    if n == 1:\n        return [partition]\n    partitions = []\n    for factor in factors:\n        if partition and factor < partition[-1]:\n            continue\n        partitions.extend(generate_partitions(n // factor, factors, partition + [factor]))\n    return partitions\n\ndef filter_partitions(partitions):\n    unique_partitions = set(tuple(sorted(partition)) for partition in partitions)\n    return sorted(list(unique_partitions), key=lambda x: (x[0], x[1] if len(x) > 1 else float('inf')))\n\ndef count_and_sort_partitions(n):\n    factors = find_factors(n)\n    partitions = generate_partitions(n, factors)\n    sorted_partitions = filter_partitions(partitions)\n    return len(sorted_partitions), sorted_partitions[0] if sorted_partitions else []\n\ndef prod_int_part(n):\n    return count_and_sort_partitions(n)\n",
+          "code_hash": "6817909b5adef5376af8f8c4cbe1352ddcb2908acea40d65d79b08c9082988e8",
+          "neural_score": 0.013651600945740939,
+          "node_scores": [
+            0.005220125894993544,
+            0.003945406526327133,
+            0.011687257327139378,
+            0.026759283617138863,
+            0.020645931363105774
+          ]
+        },
+        {
+          "candidate_index": 3,
+          "code": "def get_factors(n):\n    factors = []\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            factors.append(i)\n            if i != n // i:\n                factors.append(n // i)\n    return sorted(factors)\n\ndef generate_partitions(n, factors, partition, start):\n    if n == 1:\n        partitions.append(partition[:])\n        return\n    for factor in factors[start:]:\n        if n % factor == 0:\n            partition.append(factor)\n            generate_partitions(n // factor, factors, partition, factors.index(factor))\n            partition.pop()\n\ndef count_partitions(n):\n    factors = get_factors(n)\n    partitions = []\n    generate_partitions(n, factors, [], 0)\n    return len(partitions), partitions\n\ndef prod_int_part(n):\n    count, partitions = count_partitions(n)\n    if count == 0:\n        return [0, []]\n    max_length = max(len(partition) for partition in partitions)\n    longest_partitions = [partition for partition in partitions if len(partition) == max_length]\n    longest_partitions.sort(key=lambda x: (x[0], x[1]))\n    return [count, longest_partitions[0]]\n",
+          "code_hash": "d3dca5e42e514b6613f9e6bbd9f9109a1c235f7990c5e60f9cce5a8deb4e15dc",
+          "neural_score": 0.01122323062736541,
+          "node_scores": [
+            0.014063626527786255,
+            0.0064882696606218815,
+            0.01640303246676922,
+            0.007937993854284286
+          ]
+        },
+        {
+          "candidate_index": 4,
+          "code": "def find_factors(n):\n    factors = []\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            factors.append(i)\n            if i != n // i:\n                factors.append(n // i)\n    return sorted(factors)\n\ndef partition(n, factors, start=2):\n    if n == 1:\n        return [[]]\n    partitions = []\n    for i in range(start, len(factors) + 1):\n        factor = factors[i-1]\n        if n % factor == 0:\n            for sub_partition in partition(n // factor, factors, i):\n                partitions.append([factor] + sub_partition)\n    return partitions\n\ndef count_partitions(n):\n    factors = find_factors(n)\n    partitions = partition(n, factors)\n    unique_partitions = set(tuple(sorted(partition)) for partition in partitions)\n    return len(unique_partitions), sorted(unique_partitions, key=lambda x: (x[0], x[1]))\n\ndef prod_int_part(n):\n    return count_partitions(n)\n",
+          "code_hash": "0b712baf563ca0537a91cbecb5a6184f8f42cf6ea9ba5d2ccfc4d8ab63fe55e5",
+          "neural_score": 0.007670767139643431,
+          "node_scores": [
+            0.013848611153662205,
+            0.0031726830638945103,
+            0.0031726830638945103,
+            0.010489091277122498
+          ]
+        },
+        {
+          "candidate_index": 5,
+          "code": "def find_factors(n, start=2):\n    factors = []\n    for i in range(start, int(n**0.5) + 1):\n        if n % i == 0:\n            factors.append(i)\n            if i != n // i:\n                factors.append(n // i)\n    return factors\n\ndef generate_partitions(n, factors, current_partition, min_factor):\n    if n == 1:\n        return [current_partition]\n    partitions = []\n    for factor in factors:\n        if factor >= min_factor and n % factor == 0:\n            new_partition = current_partition + [factor]\n            new_factors = find_factors(n // factor, factor)\n            partitions.extend(generate_partitions(n // factor, new_factors, new_partition, factor))\n    return partitions\n\ndef sort_partitions(partitions):\n    return sorted(partitions, key=lambda x: (x[0], x[1:]), reverse=True)\n\ndef count_max_length_partitions(partitions):\n    if not partitions:\n        return 0\n    max_length = max(len(part) for part in partitions)\n    return sum(1 for part in partitions if len(part) == max_length)\n\ndef prod_int_part(n):\n    factors = find_factors(n)\n    partitions = generate_partitions(n, factors, [], 2)\n    sorted_partitions = sort_partitions(partitions)\n    max_length_count = count_max_length_partitions(sorted_partitions)\n    return [max_length_count, sorted_partitions[0] if sorted_partitions else []]\n",
+          "code_hash": "f81ab4504102cde13982fe67cd0393dd9b47edd9d6afe4cbbfd34533dac23bb2",
+          "neural_score": 0.006261273159179836,
+          "node_scores": [
+            0.005220125894993544,
+            0.0037654137704521418,
+            0.0012743263505399227,
+            0.0006361911655403674,
+            0.020410308614373207
+          ]
+        },
+        {
+          "candidate_index": 7,
+          "code": "def find_factors(n, start=2):\n    factors = []\n    for i in range(start, int(n**0.5) + 1):\n        if n % i == 0:\n            factors.append(i)\n            if i != n // i:\n                factors.append(n // i)\n    return factors\n\ndef generate_partitions(n, factors, current_partition=[]):\n    if n == 1:\n        return [current_partition]\n    partitions = []\n    for factor in factors:\n        if factor <= current_partition[-1] if current_partition else float('inf'):\n            partitions.extend(generate_partitions(n // factor, factors, current_partition + [factor]))\n    return partitions\n\ndef count_max_length_partitions(partitions):\n    max_length = max(len(partition) for partition in partitions)\n    max_partitions = [partition for partition in partitions if len(partition) == max_length]\n    return len(max_partitions), max_partitions[0]\n\ndef prod_int_part(n):\n    if n < 2:\n        return [0, []]\n    factors = find_factors(n)\n    partitions = generate_partitions(n, factors)\n    return count_max_length_partitions(partitions)\n",
+          "code_hash": "ce70d930d745b27b875fa1ba25a464657951b440075a4f4f49ee2861228c634f",
+          "neural_score": 0.008320919529069215,
+          "node_scores": [
+            0.005220125894993544,
+            0.0037654137704521418,
+            0.017176710069179535,
+            0.00712142838165164
+          ]
+        },
+        {
+          "candidate_index": 9,
+          "code": "def find_factors(n):\n    factors = []\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            factors.append(i)\n            if i != n // i:\n                factors.append(n // i)\n    return sorted(factors)\n\ndef generate_partitions(n, factors, start=2, current_partition=[]):\n    if n == 1:\n        if len(current_partition) > 1:\n            partitions.append(current_partition[:])\n    else:\n        for factor in factors:\n            if factor >= start and n % factor == 0:\n                current_partition.append(factor)\n                generate_partitions(n // factor, factors, factor, current_partition)\n                current_partition.pop()\n\ndef count_partitions(n):\n    factors = find_factors(n)\n    partitions = []\n    generate_partitions(n, factors)\n    return len(partitions), partitions\n\ndef prod_int_part(n):\n    count, partitions = count_partitions(n)\n    if count == 0:\n        return [0, []]\n    \n    max_length = max(len(part) for part in partitions)\n    max_partitions = [part for part in partitions if len(part) == max_length]\n    \n    max_partitions.sort(key=lambda x: x[0])\n    if len(max_partitions) > 1:\n        max_partitions.sort(key=lambda x: x[1])\n    \n    return [len(max_partitions), max_partitions[0]]\n",
+          "code_hash": "de16489d28d81f3a17b9995580f66b8bb436246fc5024489d0e206c279427abf",
+          "neural_score": 0.008709022542461753,
+          "node_scores": [
+            0.013848611153662205,
+            0.0024343819823116064,
+            0.003824483836069703,
+            0.014728613197803497
+          ]
+        }
+      ],
+      "selected_candidate_indices": {
+        "neural": 0
+      }
+    },
+    {
+      "problem_id": "apps-train-2971",
+      "candidates": [
+        {
+          "candidate_index": 7,
+          "code": "def watch_pyramid_from_the_side(characters):\n    if not characters:\n        return \"\"\n    height = len(characters)\n    pyramid_side = []\n    for i in range(height):\n        row = \" \" * (height - i - 1) + characters[i] * (2 * i + 1)\n        pyramid_side.append(row)\n    return \"\\n\".join(pyramid_side)\n\n\ndef watch_pyramid_from_above(characters):\n    if not characters:\n        return \"\"\n    height = len(characters)\n    pyramid_above = []\n    for i in range(height):\n        row = \"\".join(characters[j] if j >= i else \" \" for j in range(height))\n        pyramid_above.append(row)\n    return \"\\n\".join(pyramid_above)\n\n\ndef count_visible_characters_of_the_pyramid(characters):\n    if not characters:\n        return -1\n    height = len(characters)\n    visible_count = 0\n    for i in range(height):\n        visible_count += 2 * i + 1\n    return visible_count\n\n\ndef count_all_characters_of_the_pyramid(characters):\n    if not characters:\n        return -1\n    height = len(characters)\n    total_count = 0\n    for i in range(height):\n        total_count += (2 * i + 1) ** 2\n    return total_count\n\n\ndef watch_pyramid_from_the_side(characters):\n    if not characters:\n        return \"\"\n    height = len(characters)\n    pyramid_side = []\n    for i in range(height):\n        row = \" \" * (height - i - 1) + characters[i] * (2 * i + 1)\n        pyramid_side.append(row)\n    return \"\\n\".join(pyramid_side)\n",
+          "code_hash": "ccddecbab3b83ec557bc7497449ca6012d2187b7b8c0076d003896043c2fe2a2",
+          "neural_score": 0.012347261724062263,
+          "node_scores": [
+            0.030675798654556274,
+            0.0018386653391644359,
+            0.004755199886858463,
+            0.0024343819823116064,
+            0.02203226275742054
+          ]
+        }
+      ],
+      "selected_candidate_indices": {
+        "neural": 7
+      }
+    },
+    {
+      "problem_id": "apps-train-2972",
+      "candidates": [
+        {
+          "candidate_index": 0,
+          "code": "def split_by_delimiter(string, delimiter):\n    return [s for s in string.split(delimiter) if s]\n\ndef multiple_split(string, delimiters=[]):\n    result = string\n    for delimiter in delimiters:\n        result = split_by_delimiter(result, delimiter)\n    return result\n\ndef flatten_list(nested_list):\n    return [item for sublist in nested_list for item in (flatten_list(sublist) if isinstance(sublist, list) else [sublist])]\n\ndef filter_empty_strings(string_list):\n    return [s for s in string_list if s]\n\ndef multiple_split(string, delimiters=[]):\n    result = string\n    for delimiter in delimiters:\n        result = split_by_delimiter(result, delimiter)\n    result = flatten_list(result)\n    return filter_empty_strings(result)\n",
+          "code_hash": "9f1815a1733b0525b9e9042cccf012086a5d5c2c402945b0feb15e8eddbf70a3",
+          "neural_score": 0.15095322653651239,
+          "node_scores": [
+            0.08882028609514236,
+            0.024423090741038322,
+            0.031143832951784134,
+            0.017712296918034554,
+            0.5926666259765625
+          ]
+        },
+        {
+          "candidate_index": 1,
+          "code": "def split_by_delimiter(string, delimiter):\n    if not delimiter:\n        return [string]\n    return string.split(delimiter)\n\ndef remove_empty_strings(strings):\n    return [s for s in strings if s]\n\ndef multiple_split(string, delimiters=[]):\n    result = string\n    for delimiter in delimiters:\n        result = split_by_delimiter(result, delimiter)\n    result = remove_empty_strings(result)\n    return result\n",
+          "code_hash": "380ae312309c846f620c661cfd6d300201f14b559d1bb7c6d1d2628926904dc6",
+          "neural_score": 0.09732840955257416,
+          "node_scores": [
+            0.04885777831077576,
+            0.2146914154291153,
+            0.02843603491783142
+          ]
+        },
+        {
+          "candidate_index": 3,
+          "code": "def split_by_delimiter(string, delimiter):\n    if not delimiter:\n        return [string]\n    return string.split(delimiter)\n\ndef filter_empty_strings(strings):\n    return [s for s in strings if s]\n\ndef multiple_split(string, delimiters=[]):\n    result = string\n    for delimiter in delimiters:\n        result = split_by_delimiter(result, delimiter)\n    result = filter_empty_strings(result)\n    return result\n",
+          "code_hash": "0e58551297f47ec03c23d4069b18f19f3313161d5092fd9ff3ebe6b210c269c9",
+          "neural_score": 0.11259612441062927,
+          "node_scores": [
+            0.04885777831077576,
+            0.2422056347131729,
+            0.04672496020793915
+          ]
+        },
+        {
+          "candidate_index": 4,
+          "code": "def split_by_delimiter(string, delimiter):\n    return [part for part in string.split(delimiter) if part]\n\ndef multiple_split(string, delimiters=[]):\n    result = string\n    for delimiter in delimiters:\n        result = split_by_delimiter(result, delimiter)\n    return result\n\ndef flatten_list(nested_list):\n    return [item for sublist in nested_list for item in (flatten_list(sublist) if isinstance(sublist, list) else [sublist])]\n\ndef multiple_split(string, delimiters=[]):\n    result = string\n    for delimiter in delimiters:\n        result = split_by_delimiter(result, delimiter)\n    return flatten_list(result)\n",
+          "code_hash": "d3d5cd7b1e30949cf7b99e1f8de86e50a112b071858ac1264ad72a8f0f0c4202",
+          "neural_score": 0.0892763826996088,
+          "node_scores": [
+            0.07585817575454712,
+            0.023330768570303917,
+            0.029760094359517097,
+            0.22815649211406708
+          ]
+        },
+        {
+          "candidate_index": 5,
+          "code": "def split_by_delimiter(string, delimiter):\n    return [part for part in string.split(delimiter) if part]\n\ndef multiple_split(string, delimiters=[]):\n    if not delimiters:\n        return [string]\n    result = [string]\n    for delimiter in delimiters:\n        result = sum((split_by_delimiter(part, delimiter) for part in result), start=[])\n    return result\n\ndef filter_empty_strings(strings):\n    return [s for s in strings if s]\n\ndef multiple_split(string, delimiters=[]):\n    result = [string]\n    for delimiter in delimiters:\n        result = sum((split_by_delimiter(part, delimiter) for part in result), start=[])\n    return filter_empty_strings(result)\n\ndef multiple_split(string, delimiters=[]):\n    if not delimiters:\n        return [string]\n    result = [string]\n    for delimiter in delimiters:\n        result = sum((split_by_delimiter(part, delimiter) for part in result), start=[])\n    return filter_empty_strings(result)\n",
+          "code_hash": "39e80604281ca5463a8b17bca553c4c7d9a7d37670edc6728fc13fc5100287e6",
+          "neural_score": 0.16075669135898352,
+          "node_scores": [
+            0.07585817575454712,
+            0.02262919954955578,
+            0.014503580518066883,
+            0.29098084568977356,
+            0.39981165528297424
+          ]
+        },
+        {
+          "candidate_index": 6,
+          "code": "def split_string(string, delimiter):\n    return [part for part in string.split(delimiter) if part]\n\ndef apply_delimiters(string, delimiters):\n    for delimiter in delimiters:\n        string = split_string(string, delimiter)\n    return string\n\ndef multiple_split(string, delimiters=[]):\n    if not delimiters:\n        return [string]\n    return apply_delimiters(string, delimiters)\n",
+          "code_hash": "58abf4ccc6a29abca89be061f718967da1fea3861f2ea17b7a1ac4f415beb589",
+          "neural_score": 0.06367209926247597,
+          "node_scores": [
+            0.043365802615880966,
+            0.06008664518594742,
+            0.08756384998559952
+          ]
+        },
+        {
+          "candidate_index": 7,
+          "code": "def split_by_delimiter(string, delimiter):\n    return string.split(delimiter)\n\ndef filter_empty_strings(strings):\n    return [s for s in strings if s]\n\ndef multiple_split(string, delimiters=[]):\n    result = string\n    for delimiter in delimiters:\n        result = split_by_delimiter(result, delimiter)\n    result = filter_empty_strings(result)\n    return result\n\n# Entry point function\ndef multiple_split(string, delimiters=[]):\n    result = string\n    for delimiter in delimiters:\n        result = split_by_delimiter(result, delimiter)\n    result = filter_empty_strings(result)\n    return result\n",
+          "code_hash": "13d1d49ffd7318d04dd497057084eb370300dc15897f8e265ccfa225ede7c8c1",
+          "neural_score": 0.1784012890420854,
+          "node_scores": [
+            0.05582313984632492,
+            0.23370634019374847,
+            0.028007520362734795,
+            0.39606815576553345
+          ]
+        },
+        {
+          "candidate_index": 9,
+          "code": "def split_by_delimiter(string, delimiter):\n    return string.split(delimiter)\n\ndef filter_empty_strings(strings):\n    return [s for s in strings if s]\n\ndef multiple_split(string, delimiters=[]):\n    result = string\n    for delimiter in delimiters:\n        result = split_by_delimiter(result, delimiter)\n    result = filter_empty_strings(result)\n    return result\n",
+          "code_hash": "b4b7cc8f9217282060d35ec04c4de6c5e0678038bf39f4c8cd8c9988f0c51ecc",
+          "neural_score": 0.10584566680093606,
+          "node_scores": [
+            0.05582313984632492,
+            0.23370634019374847,
+            0.028007520362734795
+          ]
+        }
+      ],
+      "selected_candidate_indices": {
+        "neural": 7
+      }
+    },
+    {
+      "problem_id": "apps-train-2973",
+      "candidates": [
+        {
+          "candidate_index": 3,
+          "code": "def sum_pairs(arr):\n    return [arr[i] + arr[i + 1] for i in range(0, len(arr), 2)]\n\ndef product_pairs(arr):\n    return [arr[i] * arr[i + 1] for i in range(0, len(arr), 2)]\n\ndef array_conversion(arr):\n    while len(arr) > 1:\n        if len(arr) % 2 == 0:\n            arr = sum_pairs(arr)\n        else:\n            arr = product_pairs(arr)\n    return arr[0]\n",
+          "code_hash": "60028b98a9374a139783e62858b26847f2449126416661d1851b5bb0ce9c551c",
+          "neural_score": 0.08547372867663701,
+          "node_scores": [
+            0.06097518280148506,
+            0.18242551386356354,
+            0.013020489364862442
+          ]
+        },
+        {
+          "candidate_index": 6,
+          "code": "def sum_consecutive_pairs(arr):\n    return [arr[i] + arr[i + 1] for i in range(0, len(arr), 2)]\n\ndef product_consecutive_pairs(arr):\n    return [arr[i] * arr[i + 1] for i in range(0, len(arr), 2)]\n\ndef array_conversion(arr):\n    while len(arr) > 1:\n        if len(arr) % 2 == 0:\n            arr = sum_consecutive_pairs(arr)\n        else:\n            arr = product_consecutive_pairs(arr)\n    return arr[0]\n",
+          "code_hash": "c7587e20a38083a0deb6bcbbaf5ab41674b22d684d4b98726f44e8a123513203",
+          "neural_score": 0.01911800851424535,
+          "node_scores": [
+            0.010013571009039879,
+            0.037326883524656296,
+            0.010013571009039879
+          ]
+        },
+        {
+          "candidate_index": 7,
+          "code": "def sum_pairs(arr):\n    return [arr[i] + arr[i + 1] for i in range(0, len(arr), 2)]\n\ndef product_pairs(arr):\n    return [arr[i] * arr[i + 1] for i in range(0, len(arr), 2)]\n\ndef array_conversion(arr):\n    while len(arr) > 1:\n        if len(arr) % 2 != 0:\n            arr.append(0)  # Ensure the length is even\n        if len(arr) % 4 == 0:\n            arr = sum_pairs(arr)\n        else:\n            arr = product_pairs(arr)\n    return arr[0]\n",
+          "code_hash": "8d55fba1dbaba185b155eb0b52fb27713f7f213a29a5395737d203083d06b7ed",
+          "neural_score": 0.08147231353602062,
+          "node_scores": [
+            0.06097518280148506,
+            0.18242551386356354,
+            0.0010162439430132508
+          ]
+        }
+      ],
+      "selected_candidate_indices": {
+        "neural": 3
+      }
+    },
+    {
+      "problem_id": "apps-train-2974",
+      "candidates": [
+        {
+          "candidate_index": 3,
+          "code": "def calculate_vat(price):\n    if price is None:\n        return -1\n    vat_rate = 0.15\n    return round(price / (1 + vat_rate), 2)\n\ndef excluding_vat_price(price):\n    return calculate_vat(price)\n",
+          "code_hash": "f404389a2a9fe3625ed405736f1d36960e7e517cfdae015d1c1235e8f253156b",
+          "neural_score": 0.7907824218273163,
+          "node_scores": [
+            0.9481545686721802,
+            0.6334102749824524
+          ]
+        },
+        {
+          "candidate_index": 6,
+          "code": "def calculate_vat(price):\n    \"\"\"Helper function to calculate VAT based on the given price.\"\"\"\n    vat_rate = 0.15\n    return price * vat_rate\n\ndef excluding_vat_price(price):\n    \"\"\"Entrypoint function to calculate the original price excluding VAT.\"\"\"\n    if price is None:\n        return -1\n    vat_amount = calculate_vat(price)\n    original_price = price - vat_amount\n    return round(original_price, 2)\n",
+          "code_hash": "eba67282596fff4152d6cf9bc92bb00daf899acb5ba2fdc173b2c06721b86b9e",
+          "neural_score": 0.40311281755566597,
+          "node_scores": [
+            0.06008664518594742,
+            0.7461389899253845
+          ]
+        }
+      ],
+      "selected_candidate_indices": {
+        "neural": 3
+      }
+    },
+    {
+      "problem_id": "apps-train-2975",
+      "candidates": [
+        {
+          "candidate_index": 0,
+          "code": "def remove_wub(word):\n    return word.replace(\"WUB\", \"\")\n\ndef split_song(song):\n    return song.split()\n\ndef join_words(words):\n    return \" \".join(words)\n\ndef song_decoder(song):\n    words = split_song(song)\n    cleaned_words = [remove_wub(word) for word in words]\n    return join_words(cleaned_words)\n",
+          "code_hash": "8197038f5a6fd6ce23da92b4a9e0f7d1b5fede2c34c6caa5bce182368108753d",
+          "neural_score": 0.03347456268966198,
+          "node_scores": [
+            0.0378924235701561,
+            0.01615283451974392,
+            0.05184547230601311,
+            0.028007520362734795
+          ]
+        },
+        {
+          "candidate_index": 1,
+          "code": "def remove_wub(word):\n    return word.replace(\"WUB\", \"\")\n\ndef split_song(song):\n    return song.split()\n\ndef join_words(words):\n    return \" \".join(words)\n\ndef song_decoder(song):\n    words = split_song(song)\n    cleaned_words = [remove_wub(word) for word in words]\n    return join_words(cleaned_words)\n",
+          "code_hash": "8197038f5a6fd6ce23da92b4a9e0f7d1b5fede2c34c6caa5bce182368108753d",
+          "neural_score": 0.03347456268966198,
+          "node_scores": [
+            0.0378924235701561,
+            0.01615283451974392,
+            0.05184547230601311,
+            0.028007520362734795
+          ]
+        },
+        {
+          "candidate_index": 2,
+          "code": "def remove_wub(word):\n    return word.replace(\"WUB\", \"\")\n\ndef split_song(song):\n    return song.split()\n\ndef join_words(words):\n    return \" \".join(words)\n\ndef song_decoder(song):\n    words = split_song(song)\n    cleaned_words = [remove_wub(word) for word in words]\n    return join_words(cleaned_words)\n",
+          "code_hash": "8197038f5a6fd6ce23da92b4a9e0f7d1b5fede2c34c6caa5bce182368108753d",
+          "neural_score": 0.03347456268966198,
+          "node_scores": [
+            0.0378924235701561,
+            0.01615283451974392,
+            0.05184547230601311,
+            0.028007520362734795
+          ]
+        },
+        {
+          "candidate_index": 3,
+          "code": "def clean_wubs(song):\n    return song.replace('WUB', ' ')\n\ndef remove_extra_spaces(song):\n    return ' '.join(song.split())\n\ndef song_decoder(song):\n    cleaned_song = clean_wubs(song)\n    return remove_extra_spaces(cleaned_song)\n",
+          "code_hash": "ea123c012ee98f304a357d388f3581715318b9c6ad84ef19f5fd3cc02d40e9e3",
+          "neural_score": 0.2860926042000453,
+          "node_scores": [
+            0.10669060051441193,
+            0.36296921968460083,
+            0.38861799240112305
+          ]
+        },
+        {
+          "candidate_index": 4,
+          "code": "def remove_wub(word):\n    return word.replace(\"WUB\", \"\")\n\ndef split_song(song):\n    return song.split()\n\ndef join_words(words):\n    return \" \".join(words)\n\ndef song_decoder(song):\n    words = split_song(song)\n    cleaned_words = [remove_wub(word) for word in words if remove_wub(word)]\n    return join_words(cleaned_words)\n",
+          "code_hash": "a857f072f951b84a14cb1ffec647a4055749f32bc58f6c94e9782d2dd14dba62",
+          "neural_score": 0.04022400313988328,
+          "node_scores": [
+            0.0378924235701561,
+            0.01615283451974392,
+            0.05184547230601311,
+            0.055005282163619995
+          ]
+        },
+        {
+          "candidate_index": 5,
+          "code": "def remove_wub(word):\n    return word.replace(\"WUB\", \"\")\n\ndef split_song(song):\n    return song.split()\n\ndef join_words(words):\n    return \" \".join(words)\n\ndef song_decoder(song):\n    words = split_song(song)\n    words = [remove_wub(word) for word in words]\n    return join_words(words)\n",
+          "code_hash": "b750bab9b9b06b7e11b2d79f838700a9699b867a095e6b2dde1bd0947e139044",
+          "neural_score": 0.03683825070038438,
+          "node_scores": [
+            0.0378924235701561,
+            0.01615283451974392,
+            0.05184547230601311,
+            0.04146227240562439
+          ]
+        },
+        {
+          "candidate_index": 6,
+          "code": "def clean_word(word):\n    return word.strip('WUB')\n\ndef split_song(song):\n    return song.split('WUB')\n\ndef join_words(words):\n    return ' '.join(words)\n\ndef song_decoder(song):\n    words = split_song(song)\n    cleaned_words = [clean_word(word) for word in words if word]\n    return join_words(cleaned_words)\n",
+          "code_hash": "2d7833cbb28934ba1a6389b0d235e74fdabf83cf8a22f46703be0d77d3fcbc98",
+          "neural_score": 0.30118283769115806,
+          "node_scores": [
+            0.01428193412721157,
+            0.3073580265045166,
+            0.3557748794555664,
+            0.5273165106773376
+          ]
+        },
+        {
+          "candidate_index": 7,
+          "code": "def clean_wubs(song):\n    return song.replace(\"WUB\", \" \")\n\ndef remove_extra_spaces(song):\n    return \" \".join(song.split())\n\ndef song_decoder(song):\n    cleaned_song = clean_wubs(song)\n    return remove_extra_spaces(cleaned_song)\n",
+          "code_hash": "6e8c6b83ac7348042d293d6b66e01b33d085bf900e8152016102b5726e075352",
+          "neural_score": 0.28111053506533307,
+          "node_scores": [
+            0.09534946084022522,
+            0.3593641519546509,
+            0.38861799240112305
+          ]
+        },
+        {
+          "candidate_index": 8,
+          "code": "def remove_wub(word):\n    return word.replace(\"WUB\", \"\")\n\ndef split_into_words(text):\n    return text.split()\n\ndef join_with_spaces(words):\n    return ' '.join(words)\n\ndef song_decoder(song):\n    cleaned_song = remove_wub(song)\n    words = split_into_words(cleaned_song)\n    return join_with_spaces(words)\n",
+          "code_hash": "f13daa5c235e27aa31fe16e3d59f84e88404526fd62d483a007cde1ac3311b64",
+          "neural_score": 0.04146051360294223,
+          "node_scores": [
+            0.0378924235701561,
+            0.027585284784436226,
+            0.07807815819978714,
+            0.02228618785738945
+          ]
+        },
+        {
+          "candidate_index": 9,
+          "code": "def clean_wubs(song):\n    return song.replace(\"WUB\", \" \")\n\ndef remove_extra_spaces(song):\n    return ' '.join(song.split())\n\ndef song_decoder(song):\n    cleaned_song = clean_wubs(song)\n    return remove_extra_spaces(cleaned_song)\n",
+          "code_hash": "6a1aa48a7369ebae96fc62e47199824eae77d33471c136994dff8b547ebaf7fc",
+          "neural_score": 0.27984608213106793,
+          "node_scores": [
+            0.09534946084022522,
+            0.36296921968460083,
+            0.3812195658683777
+          ]
+        }
+      ],
+      "selected_candidate_indices": {
+        "neural": 6
+      }
+    },
+    {
+      "problem_id": "apps-train-2976",
+      "candidates": [
+        {
+          "candidate_index": 0,
+          "code": "def to_uppercase(char):\n    return char.upper()\n\ndef to_lowercase(char):\n    return char.lower()\n\ndef repeat_char(char, count):\n    return char * count\n\ndef format_segment(segment):\n    return '-'.join(segment)\n\ndef accum(s):\n    segments = []\n    for i, char in enumerate(s):\n        segment = to_uppercase(char) + repeat_char(to_lowercase(char), i)\n        segments.append(segment)\n    return format_segment(segments)\n",
+          "code_hash": "a8ab3e186583c7d6220820bc54e595df65043c17fd814efb30618c1a78bbd689",
+          "neural_score": 0.2409358024597168,
+          "node_scores": [
+            0.4687906503677368,
+            0.18713268637657166,
+            0.37022536993026733,
+            0.018264278769493103,
+            0.16026602685451508
+          ]
+        },
+        {
+          "candidate_index": 1,
+          "code": "def to_uppercase(char):\n    return char.upper()\n\ndef repeat_char(char, count):\n    return char * count\n\ndef add_hyphen(word):\n    return '-'.join(word)\n\ndef accum(s):\n    result = []\n    for i, char in enumerate(s):\n        upper_char = to_uppercase(char)\n        repeated_char = repeat_char(upper_char, i + 1)\n        result.append(repeated_char)\n    return add_hyphen(result)\n",
+          "code_hash": "e5fc922dd268dd6b0959b74a2d92d2f6bd9c7ba723c6c405ace73fc4d5d3ee00",
+          "neural_score": 0.313656497746706,
+          "node_scores": [
+            0.4687906503677368,
+            0.531209409236908,
+            0.034618839621543884,
+            0.22000709176063538
+          ]
+        },
+        {
+          "candidate_index": 2,
+          "code": "def to_uppercase(s):\n    return s.upper()\n\ndef repeat_char(c, n):\n    return c * n\n\ndef join_with_delimiter(lst, delimiter):\n    return delimiter.join(lst)\n\ndef accum(s):\n    return join_with_delimiter(\n        [repeat_char(to_uppercase(c), i + 1) for i, c in enumerate(s)],\n        '-'\n    )\n",
+          "code_hash": "6d9aaf869e9b8cf3c38720bbf8cb1dde2a504de95d20476e66e7237f56b858c0",
+          "neural_score": 0.4789503514766693,
+          "node_scores": [
+            0.2568320035934448,
+            0.49218812584877014,
+            0.18476751446723938,
+            0.9820137619972229
+          ]
+        },
+        {
+          "candidate_index": 4,
+          "code": "def to_uppercase(char):\n    return char.upper()\n\ndef repeat_char(char, count):\n    return char * count\n\ndef join_with_delimiter(items, delimiter):\n    return delimiter.join(items)\n\ndef process_char(char, index):\n    return to_uppercase(char) + repeat_char(char.lower(), index)\n\ndef accum(s):\n    return join_with_delimiter([process_char(char, index) for index, char in enumerate(s)], '-')\n",
+          "code_hash": "2b551933d8872467727d2091ef7de97d66d4279f7646bfa91b19d276ae0bf138",
+          "neural_score": 0.5724480211734772,
+          "node_scores": [
+            0.4687906503677368,
+            0.531209409236908,
+            0.22270014882087708,
+            0.6791787147521973,
+            0.9603611826896667
+          ]
+        },
+        {
+          "candidate_index": 6,
+          "code": "def to_uppercase(char):\n    return char.upper()\n\ndef repeat_char(char, count):\n    return char * count\n\ndef format_segment(segment, index):\n    return segment.upper() + segment.lower()[1:]\n\ndef accum(s):\n    return '-'.join(format_segment(char, index + 1) for index, char in enumerate(s))\n",
+          "code_hash": "c6b195e89265b9f9ee7493800021b8ec07002a8f2e592a8cb3cc997288fdfa3e",
+          "neural_score": 0.4510387033224106,
+          "node_scores": [
+            0.4687906503677368,
+            0.531209409236908,
+            0.14223188161849976,
+            0.6619228720664978
+          ]
+        },
+        {
+          "candidate_index": 7,
+          "code": "def to_uppercase(s):\n    return s.upper()\n\ndef repeat_char(c, n):\n    return c * n\n\ndef join_with_hyphen(lst):\n    return '-'.join(lst)\n\ndef accum(s):\n    return join_with_hyphen([repeat_char(to_uppercase(c), i + 1) for i, c in enumerate(s)])\n",
+          "code_hash": "eaa01a7ea523cffd699f22f7093f249122b919e3e9d34f2a7595c92fb2967e94",
+          "neural_score": 0.5291397050023079,
+          "node_scores": [
+            0.2568320035934448,
+            0.49218812584877014,
+            0.3923368453979492,
+            0.9752018451690674
+          ]
+        },
+        {
+          "candidate_index": 8,
+          "code": "def to_uppercase(char):\n    return char.upper()\n\ndef repeat_char(char, count):\n    return char * count\n\ndef join_with_separator(parts, separator):\n    return separator.join(parts)\n\ndef accum(s):\n    parts = [repeat_char(char, idx + 1) for idx, char in enumerate(s)]\n    return join_with_separator(parts, \"-\")\n\n# Entry point\naccum(\"abcd\")  # -> \"A-Bb-Ccc-Dddd\"\naccum(\"RqaEzty\")  # -> \"R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy\"\naccum(\"cwAt\")  # -> \"C-Ww-Aaa-Tttt\"\n",
+          "code_hash": "2b4e2348912c3bfbf435d3f7a466a4bff87e7d431acea39df0e65eccda08cd54",
+          "neural_score": 0.5430033393204212,
+          "node_scores": [
+            0.4687906503677368,
+            0.531209409236908,
+            0.2254166156053543,
+            0.9465966820716858
+          ]
+        },
+        {
+          "candidate_index": 9,
+          "code": "def to_uppercase(char):\n    return char.upper()\n\ndef repeat_char(char, count):\n    return char * count\n\ndef format_segment(segment):\n    return segment[0].upper() + segment[1:].lower()\n\ndef process_segment(segment, index):\n    return format_segment(segment) + ('-' if index < len(segment) - 1 else '')\n\ndef accum(s):\n    return ''.join(process_segment(segment, index) for index, segment in enumerate(s.split('')))\n",
+          "code_hash": "7b2986e7d0b1f42c011a9f186d0d6561f47bbf4fa888f6db76ce0529df3a5519",
+          "neural_score": 0.4000387728214264,
+          "node_scores": [
+            0.4687906503677368,
+            0.531209409236908,
+            0.3380771279335022,
+            0.2845759987831116,
+            0.3775406777858734
+          ]
+        }
+      ],
+      "selected_candidate_indices": {
+        "neural": 4
+      }
+    },
+    {
+      "problem_id": "apps-train-2977",
+      "candidates": [
+        {
+          "candidate_index": 0,
+          "code": "def prime_factors(n):\n    i = 2\n    factors = []\n    while i * i <= n:\n        if n % i:\n            i += 1\n        else:\n            n //= i\n            factors.append(i)\n    if n > 1:\n        factors.append(n)\n    return factors\n\ndef sum_of_prime_factors(n):\n    return sum(prime_factors(n))\n\ndef sum_of_divisors(n):\n    divisors = [1]\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            divisors.append(i)\n            if i != n // i:\n                divisors.append(n // i)\n    return sum(divisors)\n\ndef ds_multof_pfs(n_min, n_max):\n    result = []\n    for n in range(n_min, n_max + 1):\n        pfs_sum = sum_of_prime_factors(n)\n        ds_sum = sum_of_divisors(n)\n        if ds_sum % pfs_sum == 0:\n            result.append(n)\n    return result\n",
+          "code_hash": "c15b4879a19a6cef7d977598a44182c099f1abc52871577039ad0b746a61000c",
+          "neural_score": 0.3041017819195986,
+          "node_scores": [
+            0.10818894952535629,
+            0.2018132209777832,
+            0.24798743426799774,
+            0.6584175229072571
+          ]
+        },
+        {
+          "candidate_index": 1,
+          "code": "def prime_factors(n):\n    i = 2\n    factors = []\n    while i * i <= n:\n        if n % i:\n            i += 1\n        else:\n            n //= i\n            factors.append(i)\n    if n > 1:\n        factors.append(n)\n    return factors\n\ndef sum_of_factors(n):\n    return sum(i for i in range(1, n + 1) if n % i == 0)\n\ndef ds_multof_pfs(n_min, n_max):\n    result = []\n    for n in range(n_min, n_max + 1):\n        pfs_sum = sum(prime_factors(n))\n        ds_sum = sum_of_factors(n)\n        if ds_sum % pfs_sum == 0:\n            result.append(n)\n    return result\n",
+          "code_hash": "a971203207200453897583b824a0f87d6b626f4e860e9908d8d1e0fb6f0f3733",
+          "neural_score": 0.45713985711336136,
+          "node_scores": [
+            0.10818894952535629,
+            0.4035668969154358,
+            0.859663724899292
+          ]
+        },
+        {
+          "candidate_index": 2,
+          "code": "def prime_factors(n):\n    factors = []\n    # Check for number of 2s\n    while n % 2 == 0:\n        factors.append(2)\n        n = n // 2\n    # Check for other primes\n    for i in range(3, int(n**0.5) + 1, 2):\n        while n % i == 0:\n            factors.append(i)\n            n = n // i\n    if n > 2:\n        factors.append(n)\n    return factors\n\ndef sum_of_factors(n):\n    return sum(prime_factors(n))\n\ndef ds_multof_pfs(n_min, n_max):\n    result = []\n    for num in range(n_min, n_max + 1):\n        pfs_sum = sum_of_factors(num)\n        ds_sum = sum_of_factors(sum_of_factors(num))\n        if ds_sum % pfs_sum == 0:\n            result.append(num)\n    return sorted(result)\n",
+          "code_hash": "59d562d953b3156fa063b75f9c33a8685b25ee7331f14b255d6239e7f24f34b1",
+          "neural_score": 0.02155135235322329,
+          "node_scores": [
+            0.06371499598026276,
+            0.0005792917218059301,
+            0.00035976935760118067
+          ]
+        },
+        {
+          "candidate_index": 3,
+          "code": "import math\n\ndef prime_factors_sum(n):\n    \"\"\"Calculate the sum of prime factors of a number.\"\"\"\n    factors_sum = 0\n    # Check for number of 2s that divide n\n    while n % 2 == 0:\n        factors_sum += 2\n        n = n // 2\n    # n must be odd at this point, so a skip of 2 (i.e., i = i + 2) can be used\n    for i in range(3, int(math.sqrt(n)) + 1, 2):\n        while n % i == 0:\n            factors_sum += i\n            n = n // i\n    # This condition is to check if n is a prime number greater than 2\n    if n > 2:\n        factors_sum += n\n    return factors_sum\n\ndef divisors_sum(n):\n    \"\"\"Calculate the sum of divisors of a number.\"\"\"\n    divisors_sum = 1  # 1 is a divisor of all numbers\n    for i in range(2, int(math.sqrt(n)) + 1):\n        if n % i == 0:\n            divisors_sum += i\n            if i != n // i:  # Add the quotient only if it's different from i\n                divisors_sum += n // i\n    return divisors_sum\n\ndef ds_multof_pfs(n_min, n_max):\n    \"\"\"Find numbers within the range [n_min, n_max] where the sum of divisors is divisible by the sum of prime factors.\"\"\"\n    result = []\n    for num in range(n_min, n_max + 1):\n        if divisors_sum(num) % prime_factors_sum(num) == 0:\n            result.append(num)\n    return result\n\n# Entry point function\ndef ds_multof_pfs(n_min, n_max):\n    return ds_multof_pfs(n_min, n_max)\n",
+          "code_hash": "9a0827e151ff9a0db1355765a518c5f99a1ebd6131309810629e5178673fa8e6",
+          "neural_score": 0.02437737784930505,
+          "node_scores": [
+            0.001782196224667132,
+            0.028544152155518532,
+            0.03397199511528015,
+            0.03321116790175438
+          ]
+        },
+        {
+          "candidate_index": 4,
+          "code": "def prime_factors(n):\n    i = 2\n    factors = []\n    while i * i <= n:\n        if n % i:\n            i += 1\n        else:\n            n //= i\n            factors.append(i)\n    if n > 1:\n        factors.append(n)\n    return factors\n\ndef sum_of_prime_factors(n):\n    return sum(prime_factors(n))\n\ndef sum_of_divisors(n):\n    divisors = [1]\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            divisors.append(i)\n            if i != n // i:\n                divisors.append(n // i)\n    return sum(divisors)\n\ndef ds_multof_pfs(n_min, n_max):\n    result = []\n    for num in range(n_min, n_max + 1):\n        if sum_of_divisors(num) % sum_of_prime_factors(num) == 0:\n            result.append(num)\n    return result\n",
+          "code_hash": "1129b4b4c870fbc760e69bc8cf69a9f42c57d58777b40355f5c513e1b85b3170",
+          "neural_score": 0.328226150944829,
+          "node_scores": [
+            0.10818894952535629,
+            0.2018132209777832,
+            0.24798743426799774,
+            0.7549149990081787
+          ]
+        },
+        {
+          "candidate_index": 5,
+          "code": "def prime_factors(n):\n    factors = []\n    # Divide n by 2 to remove all even factors\n    while n % 2 == 0:\n        factors.append(2)\n        n //= 2\n    # Check for odd factors\n    for i in range(3, int(n**0.5) + 1, 2):\n        while n % i == 0:\n            factors.append(i)\n            n //= i\n    # If n is a prime number greater than 2\n    if n > 2:\n        factors.append(n)\n    return factors\n\ndef sum_of_factors(n):\n    return sum(1 + i for i in range(2, n) if n % i == 0)\n\ndef ds_multof_pfs(n_min, n_max):\n    result = []\n    for num in range(n_min, n_max + 1):\n        prime_sum = sum(prime_factors(num))\n        divisors_sum = sum_of_factors(num)\n        if divisors_sum % prime_sum == 0:\n            result.append(num)\n    return sorted(result)\n",
+          "code_hash": "64f2a5f8ba76eced775b0a7b3a8d4e94c2064613dbf7b07b23cdff94d2457e19",
+          "neural_score": 0.04157924737470845,
+          "node_scores": [
+            0.05749327689409256,
+            0.002590979216620326,
+            0.06465348601341248
+          ]
+        },
+        {
+          "candidate_index": 6,
+          "code": "def prime_factors(n):\n    i = 2\n    factors = []\n    while i * i <= n:\n        if n % i:\n            i += 1\n        else:\n            n //= i\n            factors.append(i)\n    if n > 1:\n        factors.append(n)\n    return factors\n\ndef sum_of_prime_factors(n):\n    return sum(prime_factors(n))\n\ndef sum_of_divisors(n):\n    divisors = [1]\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            divisors.append(i)\n            if i != n // i:\n                divisors.append(n // i)\n    return sum(divisors)\n\ndef ds_multof_pfs(n_min, n_max):\n    result = []\n    for n in range(n_min, n_max + 1):\n        pfs_sum = sum_of_prime_factors(n)\n        ds_sum = sum_of_divisors(n)\n        if ds_sum % pfs_sum == 0:\n            result.append(n)\n    return sorted(result)\n",
+          "code_hash": "f0d7831c040d82500ab63750440c27ad0e8586c0ee8dc5c8d9e66649f361d299",
+          "neural_score": 0.3478285539895296,
+          "node_scores": [
+            0.10818894952535629,
+            0.2018132209777832,
+            0.24798743426799774,
+            0.8333246111869812
+          ]
+        },
+        {
+          "candidate_index": 7,
+          "code": "def prime_factors(n):\n    i = 2\n    factors = []\n    while i * i <= n:\n        if n % i:\n            i += 1\n        else:\n            n //= i\n            factors.append(i)\n    if n > 1:\n        factors.append(n)\n    return factors\n\ndef sum_of_prime_factors(n):\n    return sum(prime_factors(n))\n\ndef sum_of_divisors(n):\n    divisors = [1]\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            divisors.append(i)\n            if i != n // i:\n                divisors.append(n // i)\n    return sum(divisors)\n\ndef ds_multof_pfs(n_min, n_max):\n    result = []\n    for n in range(n_min, n_max + 1):\n        if sum_of_divisors(n) % sum_of_prime_factors(n) == 0:\n            result.append(n)\n    return result\n",
+          "code_hash": "e25ff234d18bbaf4e86a89db3fe4a4eb83c6f7c03e6b07ca355f8cdcc3f9e2b4",
+          "neural_score": 0.3252893853932619,
+          "node_scores": [
+            0.10818894952535629,
+            0.2018132209777832,
+            0.24798743426799774,
+            0.7431679368019104
+          ]
+        },
+        {
+          "candidate_index": 8,
+          "code": "def prime_factors(n):\n    i = 2\n    factors = []\n    while i * i <= n:\n        if n % i:\n            i += 1\n        else:\n            n //= i\n            factors.append(i)\n    if n > 1:\n        factors.append(n)\n    return factors\n\ndef sum_of_prime_factors(n):\n    return sum(prime_factors(n))\n\ndef sum_of_divisors(n):\n    divisors = [1]\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            divisors.append(i)\n            if i != n // i:\n                divisors.append(n // i)\n    return sum(divisors)\n\ndef ds_multof_pfs(n_min, n_max):\n    result = []\n    for n in range(n_min, n_max + 1):\n        pfs_sum = sum_of_prime_factors(n)\n        ds_sum = sum_of_divisors(n)\n        if ds_sum % pfs_sum == 0:\n            result.append(n)\n    return result\n",
+          "code_hash": "c15b4879a19a6cef7d977598a44182c099f1abc52871577039ad0b746a61000c",
+          "neural_score": 0.3041017819195986,
+          "node_scores": [
+            0.10818894952535629,
+            0.2018132209777832,
+            0.24798743426799774,
+            0.6584175229072571
+          ]
+        },
+        {
+          "candidate_index": 9,
+          "code": "def prime_factors(n):\n    i = 2\n    factors = []\n    while i * i <= n:\n        if n % i:\n            i += 1\n        else:\n            n //= i\n            factors.append(i)\n    if n > 1:\n        factors.append(n)\n    return factors\n\ndef sum_of_prime_factors(n):\n    return sum(prime_factors(n))\n\ndef sum_of_divisors(n):\n    divisors = [1]\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            divisors.append(i)\n            if i != n // i:\n                divisors.append(n // i)\n    return sum(divisors)\n\ndef ds_multof_pfs(n_min, n_max):\n    result = []\n    for n in range(n_min, n_max + 1):\n        pfs_sum = sum_of_prime_factors(n)\n        ds_sum = sum_of_divisors(n)\n        if ds_sum % pfs_sum == 0:\n            result.append(n)\n    return result\n",
+          "code_hash": "c15b4879a19a6cef7d977598a44182c099f1abc52871577039ad0b746a61000c",
+          "neural_score": 0.3041017819195986,
+          "node_scores": [
+            0.10818894952535629,
+            0.2018132209777832,
+            0.24798743426799774,
+            0.6584175229072571
+          ]
+        }
+      ],
+      "selected_candidate_indices": {
+        "neural": 1
+      }
+    },
+    {
+      "problem_id": "apps-train-2978",
+      "candidates": [
+        {
+          "candidate_index": 6,
+          "code": "def count_occurrences(lst):\n    from collections import Counter\n    return Counter(lst)\n\ndef count_unique_values(lst):\n    return len(set(lst))\n\ndef count_single_occurrences(occurrences):\n    return sum(1 for count in occurrences.values() if count == 1)\n\ndef find_max_occurrences(occurrences):\n    max_count = max(occurrences.values())\n    max_values = sorted([value for value, count in occurrences.items() if count == max_count])\n    return [max_values], max_count\n\ndef count_sel(lst):\n    total_count = len(lst)\n    unique_values = count_unique_values(lst)\n    single_occurrences = count_single_occurrences(count_occurrences(lst))\n    max_occurrences = find_max_occurrences(count_occurrences(lst))\n    return [total_count, unique_values, single_occurrences] + max_occurrences\n",
+          "code_hash": "b84f1362bc19a8f1381b0b52c0e79e0db7dda817e6be1aafb8cf839c887a572d",
+          "neural_score": 0.09528269555885345,
+          "node_scores": [
+            0.15002882480621338,
+            0.034100428223609924,
+            0.02161533385515213,
+            0.2689414322376251,
+            0.0017274586716666818
+          ]
+        }
+      ],
+      "selected_candidate_indices": {
+        "neural": 6
+      }
+    },
+    {
+      "problem_id": "apps-train-2979",
+      "candidates": [
+        {
+          "candidate_index": 0,
+          "code": "def extract_age(age):\n    # Extract the number from the age string\n    return int(age.split()[0])\n\ndef get_age(age):\n    # Orchestration function to get the age from the input string\n    return extract_age(age)\n",
+          "code_hash": "9864f2bab0d0767b2b0bf34d4541f598be5bcfa1dd002e07fb15abbe440a06cd",
+          "neural_score": 0.7373940050601959,
+          "node_scores": [
+            0.6548947095870972,
+            0.8198933005332947
+          ]
+        },
+        {
+          "candidate_index": 1,
+          "code": "def extract_age(age_str):\n    # Extract the age number from the string\n    age_number = int(age_str[0])\n    return age_number\n\ndef get_age(age):\n    # Call the helper function to extract the age\n    return extract_age(age)\n",
+          "code_hash": "9041c7070d8d676e00245b0754c12592ac0fafdc13d110797882eca88659279b",
+          "neural_score": 0.42068353295326233,
+          "node_scores": [
+            0.314050555229187,
+            0.5273165106773376
+          ]
+        },
+        {
+          "candidate_index": 3,
+          "code": "def extract_age(age):\n    # Extract the number from the string\n    return int(age.split()[0])\n\ndef get_age(age):\n    # Call the helper function to extract the age\n    return extract_age(age)\n",
+          "code_hash": "51b59f0e86bceb6cfa8c88340ca718b2033fe1b19114da3a44dbb7f654965b4d",
+          "neural_score": 0.8500537276268005,
+          "node_scores": [
+            0.7981867790222168,
+            0.9019206762313843
+          ]
+        },
+        {
+          "candidate_index": 4,
+          "code": "def extract_number_from_string(input_string):\n    for char in input_string:\n        if char.isdigit():\n            return int(char)\n    return None\n\ndef get_age(age):\n    return extract_number_from_string(age)\n",
+          "code_hash": "d93e50710c204919cfc009f5fc8f1b5e17ff67e09f2331b26a6f1b7a6b985f52",
+          "neural_score": 0.14593574404716492,
+          "node_scores": [
+            0.06371499598026276,
+            0.22815649211406708
+          ]
+        },
+        {
+          "candidate_index": 5,
+          "code": "def extract_age(age_str):\n    \"\"\"Extract the age number from the age string.\"\"\"\n    return int(age_str.split()[0])\n\ndef get_age(age):\n    \"\"\"Orchestration function to get the age from the input string.\"\"\"\n    return extract_age(age)\n",
+          "code_hash": "68c937b080d045032dc757657b44bac3e89e3e81a088e3268da670b1c9239646",
+          "neural_score": 0.7201016247272491,
+          "node_scores": [
+            0.6548947095870972,
+            0.7853085398674011
+          ]
+        },
+        {
+          "candidate_index": 6,
+          "code": "def extract_number(text):\n    return int(''.join(filter(str.isdigit, text)))\n\ndef parse_age(age):\n    return extract_number(age)\n\ndef get_age(age):\n    return parse_age(age)\n",
+          "code_hash": "970a7d0351d4cba58d37eb2618f8d78c5c18e9001f2ea3bcc513ade5a88c30e3",
+          "neural_score": 0.8248632152875265,
+          "node_scores": [
+            0.815232515335083,
+            0.7905303239822388,
+            0.8688268065452576
+          ]
+        },
+        {
+          "candidate_index": 7,
+          "code": "def extract_age(age_str):\n    \"\"\"Extract the age from the given string.\"\"\"\n    words = age_str.split()\n    return int(words[0])\n\ndef get_age(age):\n    \"\"\"Orchestration function to get the age from the input string.\"\"\"\n    return extract_age(age)\n",
+          "code_hash": "a3657fbfb0d990161a87152a98ac074ef0d118ed67a0377fecbb0ad2659f2a70",
+          "neural_score": 0.7925562858581543,
+          "node_scores": [
+            0.7606506943702698,
+            0.8244618773460388
+          ]
+        },
+        {
+          "candidate_index": 8,
+          "code": "def extract_age(age):\n    words = age.split()\n    return int(words[0])\n\ndef get_age(age):\n    return extract_age(age)\n",
+          "code_hash": "2fec5c1abffa92e601bcb646911315292f4d41f844d0f7559d1583eedf03ef85",
+          "neural_score": 0.8752964735031128,
+          "node_scores": [
+            0.8459424376487732,
+            0.9046505093574524
+          ]
+        }
+      ],
+      "selected_candidate_indices": {
+        "neural": 8
+      }
+    },
+    {
+      "problem_id": "apps-train-2980",
+      "candidates": [],
+      "selected_candidate_indices": {
+        "neural": null
+      }
+    },
+    {
+      "problem_id": "apps-train-2981",
+      "candidates": [
+        {
+          "candidate_index": 0,
+          "code": "def last_digits(n, d):\n    if d <= 0:\n        return []\n    elif d >= len(str(n)):\n        return [int(digit) for digit in str(n)]\n    else:\n        return [int(digit) for digit in str(n)[-d:]]\n\n# Entry point function\ndef solution(n, d):\n    return last_digits(n, d)\n",
+          "code_hash": "fa6319cf0aa7f59d16cb88eb3aaa51e959af961e757c547ed89d4aded9ee6670",
+          "neural_score": 0.9629791975021362,
+          "node_scores": [
+            0.9693241715431213,
+            0.9566342234611511
+          ]
+        },
+        {
+          "candidate_index": 1,
+          "code": "def last_digits(n, d):\n    if d <= 0:\n        return []\n    elif d >= len(str(n)):\n        return [int(digit) for digit in str(n)]\n    else:\n        return [int(digit) for digit in str(n)[-d:]]\n\ndef solution(n, d):\n    return last_digits(n, d)\n",
+          "code_hash": "afaee85a9a24de5b391b4f60d0e49d4cf93bd93689f2488621d8c5e918d8c8a6",
+          "neural_score": 0.9472770392894745,
+          "node_scores": [
+            0.9693241715431213,
+            0.9252299070358276
+          ]
+        },
+        {
+          "candidate_index": 2,
+          "code": "def last_digits(n, d):\n    if d <= 0:\n        return []\n    elif d >= len(str(n)):\n        return [int(digit) for digit in str(n)]\n    else:\n        return [int(digit) for digit in str(n)[-d:]]\n\n# Entrypoint function\ndef solution(n, d):\n    return last_digits(n, d)\n",
+          "code_hash": "68b22505e9db163e4979d1b3cbafd6b62855c1f3d240fd97e43222e6d95fabfa",
+          "neural_score": 0.9651379585266113,
+          "node_scores": [
+            0.9693241715431213,
+            0.9609517455101013
+          ]
+        },
+        {
+          "candidate_index": 3,
+          "code": "def get_digits(n):\n    return [int(d) for d in str(n)]\n\ndef last_digits(n, d):\n    if d <= 0:\n        return []\n    digits = get_digits(n)\n    return digits[-d:]\n\ndef solution(n, d):\n    return last_digits(n, d)\n",
+          "code_hash": "db99a154cde99ea881b6c690a208ff5cd75702f3fc48e1328f91d2611b8067c6",
+          "neural_score": 0.866480807463328,
+          "node_scores": [
+            0.665410578250885,
+            0.9787126779556274,
+            0.9553191661834717
+          ]
+        },
+        {
+          "candidate_index": 4,
+          "code": "def last_digits(n, d):\n    if d <= 0:\n        return []\n    elif d >= len(str(n)):\n        return [int(digit) for digit in str(n)]\n    else:\n        return [int(digit) for digit in str(n)[-d:]]\n\n# Entrypoint function\ndef solution(n, d):\n    return last_digits(n, d)\n",
+          "code_hash": "68b22505e9db163e4979d1b3cbafd6b62855c1f3d240fd97e43222e6d95fabfa",
+          "neural_score": 0.9651379585266113,
+          "node_scores": [
+            0.9693241715431213,
+            0.9609517455101013
+          ]
+        },
+        {
+          "candidate_index": 5,
+          "code": "def last_digits(n, d):\n    if d <= 0:\n        return []\n    elif d >= len(str(n)):\n        return [int(digit) for digit in str(n)]\n    else:\n        return [int(digit) for digit in str(n)[-d:]]\n\ndef solution(n, d):\n    return last_digits(n, d)\n",
+          "code_hash": "afaee85a9a24de5b391b4f60d0e49d4cf93bd93689f2488621d8c5e918d8c8a6",
+          "neural_score": 0.9472770392894745,
+          "node_scores": [
+            0.9693241715431213,
+            0.9252299070358276
+          ]
+        },
+        {
+          "candidate_index": 6,
+          "code": "def last_digits(n, d):\n    if d <= 0:\n        return []\n    return [int(x) for x in str(n)[-d:]]\n\n# Entrypoint function\ndef solution(n, d):\n    return last_digits(n, d)\n",
+          "code_hash": "681674b3fece1fcb412ec433fe711b4b944149d960105f8272e1a2b9a73755e9",
+          "neural_score": 0.9742329120635986,
+          "node_scores": [
+            0.974821150302887,
+            0.9736446738243103
+          ]
+        },
+        {
+          "candidate_index": 7,
+          "code": "def last_digits(n, d):\n    if d <= 0:\n        return []\n    elif d >= len(str(n)):\n        return [int(digit) for digit in str(n)]\n    else:\n        return [int(digit) for digit in str(n)[-d:]]\n\ndef solution(n, d):\n    return last_digits(n, d)\n",
+          "code_hash": "afaee85a9a24de5b391b4f60d0e49d4cf93bd93689f2488621d8c5e918d8c8a6",
+          "neural_score": 0.9472770392894745,
+          "node_scores": [
+            0.9693241715431213,
+            0.9252299070358276
+          ]
+        },
+        {
+          "candidate_index": 8,
+          "code": "def last_digits(n, d):\n    if d <= 0:\n        return []\n    elif d >= len(str(n)):\n        return [int(digit) for digit in str(n)]\n    else:\n        return [int(digit) for digit in str(n)[-d:]]\n\ndef solution(n, d):\n    return last_digits(n, d)\n",
+          "code_hash": "afaee85a9a24de5b391b4f60d0e49d4cf93bd93689f2488621d8c5e918d8c8a6",
+          "neural_score": 0.9472770392894745,
+          "node_scores": [
+            0.9693241715431213,
+            0.9252299070358276
+          ]
+        },
+        {
+          "candidate_index": 9,
+          "code": "def last_digits(n, d):\n    if d <= 0:\n        return []\n    elif d >= len(str(n)):\n        return [int(digit) for digit in str(n)]\n    else:\n        return [int(digit) for digit in str(n)[-d:]]\n\n# Starter entrypoint\ndef solution(n, d):\n    return last_digits(n, d)\n",
+          "code_hash": "77f63f2903851a706cd0e6bf8d1acac90fae474b24ac3fb1b6332f0b4ef60f42",
+          "neural_score": 0.9657158553600311,
+          "node_scores": [
+            0.9693241715431213,
+            0.9621075391769409
+          ]
+        }
+      ],
+      "selected_candidate_indices": {
+        "neural": 6
+      }
+    },
+    {
+      "problem_id": "apps-train-2982",
+      "candidates": [
+        {
+          "candidate_index": 0,
+          "code": "def generate_row(prev_row):\n    \"\"\"Generate the next row in Pascal's triangle based on the previous row.\"\"\"\n    if not prev_row:\n        return [1]\n    return [1] + [prev_row[i] + prev_row[i+1] for i in range(len(prev_row)-1)] + [1]\n\ndef build_triangle(depth):\n    \"\"\"Build Pascal's triangle up to the specified depth.\"\"\"\n    if depth <= 0:\n        return []\n    triangle = [[1]]\n    for i in range(1, depth):\n        triangle.append(generate_row(triangle[-1]))\n    return triangle\n\ndef pascal(p):\n    \"\"\"Return Pascal's triangle up to the given depth.\"\"\"\n    return build_triangle(p)\n",
+          "code_hash": "d98d1f037c9c73a2e8d56b218e03fbc912befba7875656a98d8bedc57870374f",
+          "neural_score": 0.7404406865437826,
+          "node_scores": [
+            0.4073334336280823,
+            0.8887587189674377,
+            0.9252299070358276
+          ]
+        },
+        {
+          "candidate_index": 1,
+          "code": "def generate_row(prev_row):\n    \"\"\"Generate the next row of Pascal's triangle based on the previous row.\"\"\"\n    row = [1]\n    for i in range(1, len(prev_row)):\n        row.append(prev_row[i - 1] + prev_row[i])\n    row.append(1)\n    return row\n\ndef pascal(p):\n    \"\"\"Generate Pascal's triangle up to the given depth.\"\"\"\n    if p <= 0:\n        return []\n    triangle = [[1]]\n    for i in range(1, p):\n        triangle.append(generate_row(triangle[-1]))\n    return triangle\n",
+          "code_hash": "c7ae7fa354850567782858b777bd93760dba90db01e36e4c57be721bf3ae4c4d",
+          "neural_score": 0.5987545847892761,
+          "node_scores": [
+            0.29421496391296387,
+            0.9032942056655884
+          ]
+        },
+        {
+          "candidate_index": 2,
+          "code": "def generate_row(prev_row):\n    \"\"\"Generate the next row of Pascal's triangle based on the previous row.\"\"\"\n    if not prev_row:\n        return [1]\n    return [1] + [prev_row[i] + prev_row[i + 1] for i in range(len(prev_row) - 1)] + [1]\n\ndef pascal(p):\n    \"\"\"Return Pascal's triangle up to the given depth p.\"\"\"\n    if p <= 0:\n        return []\n    triangle = [[1]]\n    for _ in range(1, p):\n        triangle.append(generate_row(triangle[-1]))\n    return triangle\n",
+          "code_hash": "821cad7d3c0be7099e2f7ced5429635bc417f138e449b7d01682df75328d3a0c",
+          "neural_score": 0.5946032702922821,
+          "node_scores": [
+            0.32766830921173096,
+            0.8615382313728333
+          ]
+        },
+        {
+          "candidate_index": 3,
+          "code": "def generate_row(prev_row):\n    \"\"\"Generate the next row of Pascal's triangle based on the previous row.\"\"\"\n    if not prev_row:\n        return [1]\n    return [1] + [prev_row[i] + prev_row[i + 1] for i in range(len(prev_row) - 1)] + [1]\n\ndef pascal(p):\n    \"\"\"Return Pascal's triangle up to the given depth.\"\"\"\n    if p <= 0:\n        return []\n    triangle = [[1]]\n    for i in range(1, p):\n        triangle.append(generate_row(triangle[-1]))\n    return triangle\n",
+          "code_hash": "097f4d949faba229fd0ae6e9505465f47359bcb6e761423cdf0991a11e3d425d",
+          "neural_score": 0.6025725603103638,
+          "node_scores": [
+            0.32766830921173096,
+            0.8774768114089966
+          ]
+        },
+        {
+          "candidate_index": 4,
+          "code": "def generate_next_row(prev_row):\n    return [1] + [sum(pair) for pair in zip(prev_row, prev_row[1:])] + [1]\n\ndef pascal(p):\n    if p == 0:\n        return []\n    elif p == 1:\n        return [[1]]\n    else:\n        triangle = [[1], [1, 1]]\n        for _ in range(2, p):\n            triangle.append(generate_next_row(triangle[-1]))\n        return triangle\n",
+          "code_hash": "4f26de35ad34562229f2913884234107dc72c1c09bacadbcb3415042152905b2",
+          "neural_score": 0.1484919786453247,
+          "node_scores": [
+            0.1710611879825592,
+            0.1259227693080902
+          ]
+        },
+        {
+          "candidate_index": 5,
+          "code": "def generate_row(prev_row):\n    \"\"\"Generate the next row of Pascal's triangle based on the previous row.\"\"\"\n    return [1] + [sum(pair) for pair in zip(prev_row, prev_row[1:])] + [1]\n\ndef pascal(p):\n    \"\"\"Generate Pascal's triangle up to the given depth.\"\"\"\n    if p <= 0:\n        return []\n    triangle = [[1]]\n    for _ in range(1, p):\n        triangle.append(generate_row(triangle[-1]))\n    return triangle\n",
+          "code_hash": "523e63fc64189b5ecd78fbcc7bd58bf1f81c93124ebbc8032f1e8937360c38cf",
+          "neural_score": 0.15985340997576714,
+          "node_scores": [
+            0.08035746961832047,
+            0.2393493503332138
+          ]
+        },
+        {
+          "candidate_index": 6,
+          "code": "def generate_next_row(prev_row):\n    \"\"\"Generate the next row of Pascal's triangle based on the previous row.\"\"\"\n    return [1] + [sum(pair) for pair in zip(prev_row, prev_row[1:])] + [1]\n\ndef build_pascal_triangle(depth):\n    \"\"\"Build Pascal's triangle up to the given depth.\"\"\"\n    if depth == 0:\n        return []\n    if depth == 1:\n        return [[1]]\n    triangle = [[1], [1, 1]]\n    for _ in range(2, depth):\n        triangle.append(generate_next_row(triangle[-1]))\n    return triangle\n\ndef pascal(p):\n    \"\"\"Return Pascal's triangle up to the given depth.\"\"\"\n    return build_pascal_triangle(p)\n",
+          "code_hash": "88cdea18a0cb9113ded859b1f60e0a5eb48e7f58887cd7a0cd5ce161f31c7fec",
+          "neural_score": 0.20690461993217468,
+          "node_scores": [
+            0.09807932376861572,
+            0.2018132209777832,
+            0.3208213150501251
+          ]
+        },
+        {
+          "candidate_index": 7,
+          "code": "def generate_row(prev_row):\n    \"\"\"Generate the next row of Pascal's triangle based on the previous row.\"\"\"\n    return [1] + [sum(pair) for pair in zip(prev_row, prev_row[1:])] + [1]\n\ndef pascal(p):\n    \"\"\"Return Pascal's triangle up to the given depth p.\"\"\"\n    if p == 0:\n        return []\n    elif p == 1:\n        return [[1]]\n    \n    triangle = [[1]]\n    for i in range(1, p):\n        triangle.append(generate_row(triangle[-1]))\n    return triangle\n",
+          "code_hash": "30630f0f985232680f6f35af44c0adbe6c42a83eebca7927860ae73be70c4700",
+          "neural_score": 0.1612815521657467,
+          "node_scores": [
+            0.08035746961832047,
+            0.2422056347131729
+          ]
+        },
+        {
+          "candidate_index": 8,
+          "code": "def generate_row(prev_row):\n    \"\"\"Generate the next row of Pascal's triangle based on the previous row.\"\"\"\n    if not prev_row:\n        return [1]\n    new_row = [1]\n    for i in range(len(prev_row) - 1):\n        new_row.append(prev_row[i] + prev_row[i + 1])\n    new_row.append(1)\n    return new_row\n\ndef build_triangle(depth):\n    \"\"\"Build Pascal's triangle up to the specified depth.\"\"\"\n    triangle = []\n    for i in range(depth):\n        triangle.append(generate_row(triangle[-1] if triangle else []))\n    return triangle\n\ndef pascal(p):\n    \"\"\"Return Pascal's triangle up to depth p.\"\"\"\n    return build_triangle(p)\n",
+          "code_hash": "a952197cd1dc712541be35ca36915552723dc50e046484f9199c42de3671b92a",
+          "neural_score": 0.8058551351229349,
+          "node_scores": [
+            0.6442251205444336,
+            0.859663724899292,
+            0.9136765599250793
+          ]
+        },
+        {
+          "candidate_index": 9,
+          "code": "def generate_next_row(prev_row):\n    \"\"\"Generate the next row of Pascal's triangle based on the previous row.\"\"\"\n    next_row = [1]\n    for i in range(1, len(prev_row)):\n        next_row.append(prev_row[i - 1] + prev_row[i])\n    next_row.append(1)\n    return next_row\n\ndef build_pascal_triangle(depth):\n    \"\"\"Build Pascal's triangle up to the specified depth.\"\"\"\n    if depth <= 0:\n        return []\n    triangle = [[1]]\n    for i in range(1, depth):\n        triangle.append(generate_next_row(triangle[-1]))\n    return triangle\n\ndef pascal(p):\n    \"\"\"Return Pascal's triangle up to the given depth.\"\"\"\n    return build_pascal_triangle(p)\n",
+          "code_hash": "5b0a4960cc31bb8180a1a84d537117586c532c1d292ad64088b11bce45a0d254",
+          "neural_score": 0.751907100280126,
+          "node_scores": [
+            0.41111084818840027,
+            0.9111796617507935,
+            0.9334307909011841
+          ]
+        }
+      ],
+      "selected_candidate_indices": {
+        "neural": 8
+      }
+    },
+    {
+      "problem_id": "apps-train-2983",
+      "candidates": [
+        {
+          "candidate_index": 0,
+          "code": "def is_bouncy(n):\n    digits = [int(d) for d in str(n)]\n    increasing = decreasing = True\n    for i in range(1, len(digits)):\n        if digits[i] > digits[i - 1]:\n            decreasing = False\n        elif digits[i] < digits[i - 1]:\n            increasing = False\n    return not (increasing or decreasing)\n\ndef count_bouncy_numbers(n):\n    count = 0\n    for i in range(10**(n-1), 10**n):\n        if is_bouncy(i):\n            count += 1\n    return count\n\ndef bouncy_count(n):\n    if n < 1:\n        return 0\n    return count_bouncy_numbers(n)\n",
+          "code_hash": "853504ec72e613cced740db15adb7c854d1140d34bca16373a426272b907d403",
+          "neural_score": 0.7848013242085775,
+          "node_scores": [
+            0.7772998809814453,
+            0.7549149990081787,
+            0.8221890926361084
+          ]
+        },
+        {
+          "candidate_index": 1,
+          "code": "def is_bouncy(n):\n    digits = [int(d) for d in str(n)]\n    increasing = decreasing = True\n    \n    for i in range(1, len(digits)):\n        if digits[i] > digits[i - 1]:\n            decreasing = False\n        elif digits[i] < digits[i - 1]:\n            increasing = False\n    \n    return not (increasing or decreasing)\n\ndef count_bouncy_numbers(n):\n    if n < 10:\n        return 0\n    count = 0\n    for i in range(10**(n-1), 10**n):\n        if is_bouncy(i):\n            count += 1\n    return count\n\ndef bouncy_count(n):\n    return count_bouncy_numbers(n)\n",
+          "code_hash": "858766e51200bc11e16e6faf7c0b00dfd38696f4f6bd83e15560291631f8c1ef",
+          "neural_score": 0.6474529902140299,
+          "node_scores": [
+            0.7956580519676208,
+            0.4882833957672119,
+            0.6584175229072571
+          ]
+        },
+        {
+          "candidate_index": 2,
+          "code": "def is_bouncy(number):\n    digits = [int(d) for d in str(number)]\n    increasing = decreasing = True\n    for i in range(1, len(digits)):\n        if digits[i] > digits[i - 1]:\n            decreasing = False\n        if digits[i] < digits[i - 1]:\n            increasing = False\n    return not (increasing or decreasing)\n\ndef count_bouncy_numbers(n):\n    if n < 100:\n        return 0\n    start = 10**(n-1)\n    end = 10**n\n    count = 0\n    for number in range(start, end):\n        if is_bouncy(number):\n            count += 1\n    return count\n\ndef bouncy_count(n):\n    return count_bouncy_numbers(n)\n",
+          "code_hash": "05cd4259b8f55ee487edea50926f003f08bbd6494f8bd6e41bcd99006d6ebb61",
+          "neural_score": 0.7968727747599283,
+          "node_scores": [
+            0.7799928784370422,
+            0.7490872144699097,
+            0.8615382313728333
+          ]
+        },
+        {
+          "candidate_index": 3,
+          "code": "def is_bouncy(n):\n    digits = [int(d) for d in str(n)]\n    increasing = decreasing = True\n    for i in range(1, len(digits)):\n        if digits[i] > digits[i-1]:\n            decreasing = False\n        elif digits[i] < digits[i-1]:\n            increasing = False\n    return not (increasing or decreasing)\n\ndef count_bouncy_numbers(n):\n    if n < 100:\n        return 0\n    count = 0\n    for i in range(10**(n-1), 10**n):\n        if is_bouncy(i):\n            count += 1\n    return count\n\ndef bouncy_count(n):\n    return count_bouncy_numbers(n)\n",
+          "code_hash": "b0d49a51209f317cf6da50b5e549c3de11040dbcad8ff548f825cef9c098efac",
+          "neural_score": 0.7278437614440918,
+          "node_scores": [
+            0.793105959892273,
+            0.6297746300697327,
+            0.7606506943702698
+          ]
+        },
+        {
+          "candidate_index": 4,
+          "code": "def is_bouncy(n):\n    digits = [int(d) for d in str(n)]\n    increasing = all(digits[i] <= digits[i + 1] for i in range(len(digits) - 1))\n    decreasing = all(digits[i] >= digits[i + 1] for i in range(len(digits) - 1))\n    return not (increasing or decreasing)\n\ndef count_bouncy_numbers(n):\n    if n < 100:\n        return 0\n    count = 0\n    for i in range(10**(n-1), 10**n):\n        if is_bouncy(i):\n            count += 1\n    return count\n\ndef bouncy_count(n):\n    return count_bouncy_numbers(n)\n",
+          "code_hash": "69ef2ad3ac07e3bc94fa2b653b0920bf85564a5643548919026c4893ae12feb2",
+          "neural_score": 0.4037044743696849,
+          "node_scores": [
+            0.1540575623512268,
+            0.4493926465511322,
+            0.6076632142066956
+          ]
+        },
+        {
+          "candidate_index": 5,
+          "code": "def is_bouncy(number):\n    digits = [int(d) for d in str(number)]\n    increasing = decreasing = True\n    \n    for i in range(1, len(digits)):\n        if digits[i] > digits[i - 1]:\n            decreasing = False\n        if digits[i] < digits[i - 1]:\n            increasing = False\n    \n    return not (increasing or decreasing)\n\ndef count_bouncy_numbers(n):\n    if n < 1:\n        return 0\n    if n == 1:\n        return 9  # All single-digit numbers are non-bouncy\n    \n    count = 0\n    for i in range(10**(n-1), 10**n):\n        if is_bouncy(i):\n            count += 1\n    return count\n\ndef bouncy_count(n):\n    return count_bouncy_numbers(n)\n",
+          "code_hash": "3bb1c76dbde6a5f55e354d1cab1be70db83fc87a4643e338294ad96268045015",
+          "neural_score": 0.6584637065728506,
+          "node_scores": [
+            0.7956580519676208,
+            0.4804786741733551,
+            0.6992543935775757
+          ]
+        },
+        {
+          "candidate_index": 6,
+          "code": "def is_bouncy(n):\n    digits = [int(d) for d in str(n)]\n    increasing = all(digits[i] <= digits[i + 1] for i in range(len(digits) - 1))\n    decreasing = all(digits[i] >= digits[i + 1] for i in range(len(digits) - 1))\n    return not increasing and not decreasing\n\ndef count_bouncy_numbers(n):\n    if n < 100:\n        return 0\n    count = 0\n    for i in range(10**(n-1), 10**n):\n        if is_bouncy(i):\n            count += 1\n    return count\n\ndef bouncy_count(n):\n    return count_bouncy_numbers(n)\n",
+          "code_hash": "6ffd6078f28f6759445829585bc4c9f03b19ac7d0866c7c450f25c56a8b43767",
+          "neural_score": 0.6232380072275797,
+          "node_scores": [
+            0.5660185217857361,
+            0.5851011276245117,
+            0.7185943722724915
+          ]
+        },
+        {
+          "candidate_index": 7,
+          "code": "def is_bouncy(num):\n    digits = [int(d) for d in str(num)]\n    increasing = decreasing = False\n    for i in range(1, len(digits)):\n        if digits[i] > digits[i - 1]:\n            increasing = True\n        if digits[i] < digits[i - 1]:\n            decreasing = True\n        if increasing and decreasing:\n            return True\n    return False\n\ndef count_bouncy_numbers(n):\n    count = 0\n    for i in range(10**(n-1), 10**n):\n        if is_bouncy(i):\n            count += 1\n    return count\n\ndef bouncy_count(n):\n    if n < 1:\n        return 0\n    return count_bouncy_numbers(n)\n",
+          "code_hash": "0d5a8d9e3faee5903e2ac2d3cd2799a9b6a394f33ff6dc94eb46f2ebda13c0ca",
+          "neural_score": 0.4163147297998269,
+          "node_scores": [
+            0.04401865229010582,
+            0.5156199336051941,
+            0.6893056035041809
+          ]
+        },
+        {
+          "candidate_index": 8,
+          "code": "def is_bouncy(n):\n    digits = [int(d) for d in str(n)]\n    increasing = all(digits[i] <= digits[i + 1] for i in range(len(digits) - 1))\n    decreasing = all(digits[i] >= digits[i + 1] for i in range(len(digits) - 1))\n    return not increasing and not decreasing\n\ndef count_bouncy_numbers(n):\n    count = 0\n    for i in range(10**(n-1), 10**n):\n        if is_bouncy(i):\n            count += 1\n    return count\n\ndef bouncy_count(n):\n    return count_bouncy_numbers(n)\n",
+          "code_hash": "3865edb53d8a41ef1451af8b4ab638b422fa69db7b666de7eca2359f3087d09b",
+          "neural_score": 0.6928932468096415,
+          "node_scores": [
+            0.5660185217857361,
+            0.685949444770813,
+            0.8267117738723755
+          ]
+        },
+        {
+          "candidate_index": 9,
+          "code": "def is_bouncy(n):\n    digits = [int(d) for d in str(n)]\n    increasing = decreasing = True\n    for i in range(1, len(digits)):\n        if digits[i] > digits[i - 1]:\n            decreasing = False\n        elif digits[i] < digits[i - 1]:\n            increasing = False\n    return not (increasing or decreasing)\n\ndef count_bouncy_numbers(n):\n    if n < 100:\n        return 0\n    return sum(1 for i in range(10**(n-1), 10**n) if is_bouncy(i))\n\ndef bouncy_count(n):\n    return count_bouncy_numbers(n)\n",
+          "code_hash": "0aa6572d7a3258aefe59906e599f49a16192c242f7d7fd89ecf9c7d1eaa14576",
+          "neural_score": 0.7642335096995035,
+          "node_scores": [
+            0.7772998809814453,
+            0.7248703241348267,
+            0.7905303239822388
+          ]
+        }
+      ],
+      "selected_candidate_indices": {
+        "neural": 2
+      }
+    },
+    {
+      "problem_id": "apps-train-2984",
+      "candidates": [
+        {
+          "candidate_index": 0,
+          "code": "def infect_neighbors(lst, index):\n    if index > 0:\n        lst[index - 1] = 0\n    if index < len(lst) - 1:\n        lst[index + 1] = 0\n    return lst\n\ndef count_infected_turns(lst):\n    turns = 0\n    while 1 in lst:\n        new_lst = lst[:]\n        for i, value in enumerate(lst):\n            if value == 0:\n                new_lst = infect_neighbors(new_lst, i)\n        lst = new_lst\n        turns += 1\n    return turns\n\ndef infected_zeroes(lst):\n    return count_infected_turns(lst)\n",
+          "code_hash": "3125beaad6c8bc3db03aa7d5edd2702ae240fe6f83d3fcedce1465d3bb8ba285",
+          "neural_score": 0.3189532905817032,
+          "node_scores": [
+            0.5926666259765625,
+            0.16238002479076385,
+            0.2018132209777832
+          ]
+        },
+        {
+          "candidate_index": 1,
+          "code": "def infect_neighbors(lst, index):\n    for i in [index - 1, index + 1]:\n        if 0 <= i < len(lst):\n            lst[i] = 0\n    return lst\n\ndef count_infections(lst):\n    turns = 0\n    while 1 in lst:\n        new_lst = lst[:]\n        for i in range(len(lst)):\n            if lst[i] == 0:\n                new_lst = infect_neighbors(new_lst, i)\n        if new_lst == lst:\n            break\n        lst = new_lst\n        turns += 1\n    return turns\n\ndef infected_zeroes(lst):\n    return count_infections(lst)\n",
+          "code_hash": "3254a9364d54f9ef7fc37dbce9de476ffabf87f473e71904195c37b154a90496",
+          "neural_score": 0.5875018735726675,
+          "node_scores": [
+            0.7662936449050903,
+            0.41111084818840027,
+            0.5851011276245117
+          ]
+        },
+        {
+          "candidate_index": 2,
+          "code": "def spread_infection(lst):\n    n = len(lst)\n    infected = [i for i, x in enumerate(lst) if x == 0]\n    turns = 0\n\n    while len(infected) < n:\n        new_infected = set()\n        for i in infected:\n            if i > 0 and lst[i-1] == 1:\n                new_infected.add(i-1)\n            if i < n-1 and lst[i+1] == 1:\n                new_infected.add(i+1)\n        infected = list(new_infected)\n        turns += 1\n\n    return turns\n\ndef infected_zeroes(lst):\n    return spread_infection(lst)\n",
+          "code_hash": "9a5d37eb540ddf2111e0a82bd96fbaab8fa73f368d17d10ad1191baad739d8e5",
+          "neural_score": 0.2294599637389183,
+          "node_scores": [
+            0.15817435085773468,
+            0.30074557662010193
+          ]
+        },
+        {
+          "candidate_index": 3,
+          "code": "def will_be_infected(lst):\n    n = len(lst)\n    infected = [i for i, x in enumerate(lst) if x == 0]\n    turns = 0\n    \n    while len(infected) < n:\n        new_infected = set()\n        for i in infected:\n            if i > 0:\n                new_infected.add(i - 1)\n            if i < n - 1:\n                new_infected.add(i + 1)\n        infected = list(new_infected)\n        turns += 1\n    \n    return turns\n\ndef infected_zeroes(lst):\n    return will_be_infected(lst)\n",
+          "code_hash": "40f56f833c923bb9edb0a06a8613908177ed2653c3da1cbe8a2e1ff250d4198a",
+          "neural_score": 0.5711004137992859,
+          "node_scores": [
+            0.5234203934669495,
+            0.6187804341316223
+          ]
+        },
+        {
+          "candidate_index": 4,
+          "code": "def spread_infection(lst):\n    n = len(lst)\n    infected = [i for i, x in enumerate(lst) if x == 0]\n    turns = 0\n\n    while len(infected) < n:\n        new_infected = set()\n        for i in infected:\n            if i > 0:\n                new_infected.add(i - 1)\n            if i < n - 1:\n                new_infected.add(i + 1)\n        infected = list(new_infected)\n        turns += 1\n\n    return turns\n\ndef infected_zeroes(lst):\n    return spread_infection(lst)\n",
+          "code_hash": "47b28504a2a53ca51fbc00668a0925bb2edeaff0101762c673dc481c143f83c5",
+          "neural_score": 0.5764658153057098,
+          "node_scores": [
+            0.5195213556289673,
+            0.6334102749824524
+          ]
+        },
+        {
+          "candidate_index": 5,
+          "code": "def infect_neighbors(lst, index):\n    if index > 0:\n        lst[index - 1] = 0\n    if index < len(lst) - 1:\n        lst[index + 1] = 0\n\ndef infect_round(lst):\n    new_lst = lst[:]\n    for i, value in enumerate(lst):\n        if value == 0:\n            infect_neighbors(new_lst, i)\n    return new_lst\n\ndef count_infections(lst):\n    turns = 0\n    while 1 in lst:\n        lst = infect_round(lst)\n        turns += 1\n    return turns\n\ndef infected_zeroes(lst):\n    return count_infections(lst)\n",
+          "code_hash": "e4ddd6580bc5645e36c6768e711d0ba9da417402de6421d184d3f211a9efabaf",
+          "neural_score": 0.443182997405529,
+          "node_scores": [
+            0.5660185217857361,
+            0.36296921968460083,
+            0.3593641519546509,
+            0.4843800961971283
+          ]
+        },
+        {
+          "candidate_index": 6,
+          "code": "def count_infections(lst):\n    n = len(lst)\n    turns = 0\n    while True:\n        new_lst = lst[:]\n        for i in range(n):\n            if lst[i] == 0:\n                if i > 0:\n                    new_lst[i - 1] = 0\n                if i < n - 1:\n                    new_lst[i + 1] = 0\n        if new_lst == lst:\n            break\n        lst = new_lst\n        turns += 1\n    return turns\n\ndef infected_zeroes(lst):\n    return count_infections(lst)\n",
+          "code_hash": "38c0b4d6280cf3fe025c15d0f619bb430b28e6aabff73351cbd33b52ab3a390d",
+          "neural_score": 0.4394427537918091,
+          "node_scores": [
+            0.3593641519546509,
+            0.5195213556289673
+          ]
+        },
+        {
+          "candidate_index": 7,
+          "code": "def spread_infection(lst):\n    n = len(lst)\n    infected = [i for i, x in enumerate(lst) if x == 0]\n    turns = 0\n\n    while True:\n        new_infected = set()\n        for i in infected:\n            if i > 0 and lst[i-1] == 1:\n                new_infected.add(i-1)\n            if i < n-1 and lst[i+1] == 1:\n                new_infected.add(i+1)\n        if not new_infected:\n            break\n        infected.update(new_infected)\n        turns += 1\n\n    return turns\n\ndef infected_zeroes(lst):\n    return spread_infection(lst)\n",
+          "code_hash": "281f8165add82dd7354fffbf91c246211be1c9d4ba62fbf4555644b0f625e68c",
+          "neural_score": 0.1611325442790985,
+          "node_scores": [
+            0.1127953976392746,
+            0.20946969091892242
+          ]
+        },
+        {
+          "candidate_index": 8,
+          "code": "def infect_neighbors(lst, index):\n    for i in range(max(0, index-1), min(len(lst), index+2)):\n        if lst[i] == 1:\n            lst[i] = 0\n    return lst\n\ndef count_infected_turns(lst):\n    turns = 0\n    while 1 in lst:\n        new_lst = lst[:]\n        for i in range(len(lst)):\n            if lst[i] == 0:\n                new_lst = infect_neighbors(new_lst, i)\n        if new_lst == lst:\n            break\n        lst = new_lst\n        turns += 1\n    return turns\n\ndef infected_zeroes(lst):\n    return count_infected_turns(lst)\n",
+          "code_hash": "36f11eb675f8ae31b276ba42690ad1fbcb3f51a23281adcad3da937f7c020eda",
+          "neural_score": 0.5898071825504303,
+          "node_scores": [
+            0.7310585379600525,
+            0.4532618820667267,
+            0.5851011276245117
+          ]
+        },
+        {
+          "candidate_index": 9,
+          "code": "def spread_infection(lst):\n    n = len(lst)\n    infected = [i for i, x in enumerate(lst) if x == 0]\n    turns = 0\n\n    while len(infected) < n:\n        new_infected = set()\n        for i in infected:\n            if i > 0 and lst[i-1] == 1:\n                new_infected.add(i-1)\n            if i < n-1 and lst[i+1] == 1:\n                new_infected.add(i+1)\n        infected = list(new_infected)\n        turns += 1\n\n    return turns\n\ndef infected_zeroes(lst):\n    return spread_infection(lst)\n",
+          "code_hash": "9a5d37eb540ddf2111e0a82bd96fbaab8fa73f368d17d10ad1191baad739d8e5",
+          "neural_score": 0.2294599637389183,
+          "node_scores": [
+            0.15817435085773468,
+            0.30074557662010193
+          ]
+        }
+      ],
+      "selected_candidate_indices": {
+        "neural": 8
+      }
+    },
+    {
+      "problem_id": "apps-train-2985",
+      "candidates": [
+        {
+          "candidate_index": 0,
+          "code": "def gcd(a, b):\n    while b:\n        a, b = b, a % b\n    return a\n\ndef reflections(max_x, max_y):\n    gcd_value = gcd(max_x, max_y)\n    return (max_x // gcd_value) % 2 == 0 and (max_y // gcd_value) % 2 == 0\n",
+          "code_hash": "01113b4f040bb4be659a923c9af3003a83edf976861de67ba242bc57cad6c557",
+          "neural_score": 0.03501434996724129,
+          "node_scores": [
+            0.05921025201678276,
+            0.010818447917699814
+          ]
+        },
+        {
+          "candidate_index": 1,
+          "code": "def gcd(a, b):\n    while b:\n        a, b = b, a % b\n    return a\n\ndef reflections(max_x, max_y):\n    gcd_value = gcd(max_x, max_y)\n    return (max_x / gcd_value) % 2 == 0 and (max_y / gcd_value) % 2 == 0\n",
+          "code_hash": "376b8e1adffed82f16fef54d0ba8d8f343f77cb2be187f752f5d548bf897d453",
+          "neural_score": 0.036015733145177364,
+          "node_scores": [
+            0.05921025201678276,
+            0.012821214273571968
+          ]
+        },
+        {
+          "candidate_index": 2,
+          "code": "def gcd(a, b):\n    while b:\n        a, b = b, a % b\n    return a\n\ndef reflections(max_x, max_y):\n    gcd_value = gcd(max_x, max_y)\n    return (max_x // gcd_value) % 2 == 0 and (max_y // gcd_value) % 2 == 0\n",
+          "code_hash": "01113b4f040bb4be659a923c9af3003a83edf976861de67ba242bc57cad6c557",
+          "neural_score": 0.03501434996724129,
+          "node_scores": [
+            0.05921025201678276,
+            0.010818447917699814
+          ]
+        },
+        {
+          "candidate_index": 3,
+          "code": "def gcd(a, b):\n    while b:\n        a, b = b, a % b\n    return a\n\ndef lcm(a, b):\n    return a * b // gcd(a, b)\n\ndef reflections(max_x, max_y):\n    lcm_xy = lcm(max_x, max_y)\n    return (lcm_xy // max_x + lcm_xy // max_y) % 2 == 1\n",
+          "code_hash": "8eeaa521a0ba9ae48a96b3168cb9045543178ccd433864e2648ba0c2131c763a",
+          "neural_score": 0.026929283514618874,
+          "node_scores": [
+            0.05921025201678276,
+            0.011869121342897415,
+            0.009708477184176445
+          ]
+        },
+        {
+          "candidate_index": 4,
+          "code": "def gcd(a, b):\n    while b:\n        a, b = b, a % b\n    return a\n\ndef lcm(a, b):\n    return a * b // gcd(a, b)\n\ndef reflections(max_x, max_y):\n    lcm_xy = lcm(max_x, max_y)\n    return (lcm_xy // max_x) % 2 == 0 and (lcm_xy // max_y) % 2 == 0\n",
+          "code_hash": "ccafb2b38a1c8ea6ba481b812a9d868e13e7e7bb764707c7d3a042963fe4f413",
+          "neural_score": 0.027711050895353157,
+          "node_scores": [
+            0.05921025201678276,
+            0.011869121342897415,
+            0.0120537793263793
+          ]
+        },
+        {
+          "candidate_index": 5,
+          "code": "def gcd(a, b):\n    while b:\n        a, b = b, a % b\n    return a\n\ndef reflections(max_x, max_y):\n    lcm = (max_x * max_y) // gcd(max_x, max_y)\n    return lcm % max_x == 0 or lcm % max_y == 0\n",
+          "code_hash": "2c1ed7c58fab6fb96c2d6a356a297637b7c0706aa5539673d23e066e36af97fc",
+          "neural_score": 0.09256651066243649,
+          "node_scores": [
+            0.05921025201678276,
+            0.1259227693080902
+          ]
+        },
+        {
+          "candidate_index": 6,
+          "code": "def gcd(a, b):\n    while b:\n        a, b = b, a % b\n    return a\n\ndef lcm(a, b):\n    return a * b // gcd(a, b)\n\ndef reflections(max_x, max_y):\n    lcm_xy = lcm(max_x, max_y)\n    return lcm_xy % max_x == 0 or lcm_xy % max_y == 0\n",
+          "code_hash": "e08b0f28daf6610ad6dd6f0653d80d758866025568469d24ef4280f50006624f",
+          "neural_score": 0.10347624123096466,
+          "node_scores": [
+            0.05921025201678276,
+            0.011869121342897415,
+            0.2393493503332138
+          ]
+        },
+        {
+          "candidate_index": 7,
+          "code": "def gcd(a, b):\n    while b:\n        a, b = b, a % b\n    return a\n\ndef reflections(max_x, max_y):\n    gcd_value = gcd(max_x, max_y)\n    return (max_x // gcd_value) % 2 == 0 and (max_y // gcd_value) % 2 == 0\n",
+          "code_hash": "01113b4f040bb4be659a923c9af3003a83edf976861de67ba242bc57cad6c557",
+          "neural_score": 0.03501434996724129,
+          "node_scores": [
+            0.05921025201678276,
+            0.010818447917699814
+          ]
+        },
+        {
+          "candidate_index": 8,
+          "code": "def gcd(a, b):\n    while b:\n        a, b = b, a % b\n    return a\n\ndef reflections(max_x, max_y):\n    gcd_value = gcd(max_x, max_y)\n    return (max_x // gcd_value) % 2 == 0 and (max_y // gcd_value) % 2 == 0\n",
+          "code_hash": "01113b4f040bb4be659a923c9af3003a83edf976861de67ba242bc57cad6c557",
+          "neural_score": 0.03501434996724129,
+          "node_scores": [
+            0.05921025201678276,
+            0.010818447917699814
+          ]
+        },
+        {
+          "candidate_index": 9,
+          "code": "def gcd(a, b):\n    while b:\n        a, b = b, a % b\n    return a\n\ndef lcm(a, b):\n    return a * b // gcd(a, b)\n\ndef reflections(max_x, max_y):\n    lcm_xy = lcm(max_x, max_y)\n    return lcm_xy % max_x == 0 or lcm_xy % max_y == 0\n",
+          "code_hash": "e08b0f28daf6610ad6dd6f0653d80d758866025568469d24ef4280f50006624f",
+          "neural_score": 0.10347624123096466,
+          "node_scores": [
+            0.05921025201678276,
+            0.011869121342897415,
+            0.2393493503332138
+          ]
+        }
+      ],
+      "selected_candidate_indices": {
+        "neural": 6
+      }
+    },
+    {
+      "problem_id": "apps-train-2986",
+      "candidates": [
+        {
+          "candidate_index": 1,
+          "code": "def find_points_in_segments(m, segments):\n    points = set(range(m + 1))\n    for l, r in segments:\n        points.discard(l)\n        points.discard(r)\n        for x in range(l + 1, r):\n            points.discard(x)\n    return sorted(points)\n\ndef segments(m, a):\n    return find_points_in_segments(m, a)\n",
+          "code_hash": "93b9bab115fc528a9ec5476c42a0eb6e167a2f1f074288c17f48b9339a42eadd",
+          "neural_score": 0.022936223074793816,
+          "node_scores": [
+            0.014728613197803497,
+            0.031143832951784134
+          ]
+        },
+        {
+          "candidate_index": 2,
+          "code": "def find_points_in_segments(m, segments):\n    # Create a set to track points that are part of any segment\n    points_in_segments = set()\n    \n    # Iterate through each segment and add its points to the set\n    for l, r in segments:\n        for x in range(l, r + 1):\n            points_in_segments.add(x)\n    \n    # Create a set of all points from 0 to m\n    all_points = set(range(m + 1))\n    \n    # Find points that are not in any segment\n    points_not_in_segments = all_points - points_in_segments\n    \n    # Return the sorted list of points that are not in any segment\n    return sorted(points_not_in_segments)\n\ndef segments(m, a):\n    # Convert the input list into a list of tuples\n    segments_list = [tuple(segment) for segment in a]\n    \n    # Call the helper function to find the points not in any segment\n    result = find_points_in_segments(m, segments_list)\n    \n    # Return the result\n    return result\n",
+          "code_hash": "01659223d9e1cd8efdc43323ad4e7d7de7e0c85b7c9474934959b1bf5b2103bc",
+          "neural_score": 0.7025300860404968,
+          "node_scores": [
+            0.7025300860404968,
+            0.7025300860404968
+          ]
+        },
+        {
+          "candidate_index": 3,
+          "code": "def is_point_in_segment(x, segment):\n    l, r = segment\n    return l <= x <= r\n\ndef find_uncovered_points(m, segments):\n    covered_points = set()\n    for segment in segments:\n        for x in range(segment[0], segment[1] + 1):\n            covered_points.add(x)\n    return sorted(list(set(range(m + 1)) - covered_points))\n\ndef segments(m, a):\n    return find_uncovered_points(m, a)\n",
+          "code_hash": "f3e3440acc2564357255dd2244f95842b937001a5ae5b13e6a1da3c44c5f9153",
+          "neural_score": 0.811136265595754,
+          "node_scores": [
+            0.7279754281044006,
+            0.8615382313728333,
+            0.8438951373100281
+          ]
+        },
+        {
+          "candidate_index": 5,
+          "code": "def find_points_not_in_segments(m, segments):\n    covered_points = set()\n    for segment in segments:\n        for point in range(segment[0], segment[1] + 1):\n            covered_points.add(point)\n    all_points = set(range(m + 1))\n    return list(all_points - covered_points)\n\ndef segments(m, a):\n    return find_points_not_in_segments(m, a)\n",
+          "code_hash": "ae5a587b125ac87644a787ba92accb3ece3fd78b04e9f4bd2965ae38961121db",
+          "neural_score": 0.8255868256092072,
+          "node_scores": [
+            0.8244618773460388,
+            0.8267117738723755
+          ]
+        },
+        {
+          "candidate_index": 6,
+          "code": "def is_point_in_segment(x, segment):\n    return segment[0] <= x <= segment[1]\n\ndef collect_points_in_segments(m, segments):\n    points_in_segments = set()\n    for segment in segments:\n        for x in range(segment[0], segment[1] + 1):\n            points_in_segments.add(x)\n    return points_in_segments\n\ndef find_uncovered_points(m, segments):\n    all_points = set(range(m + 1))\n    points_in_segments = collect_points_in_segments(m, segments)\n    return sorted(all_points - points_in_segments)\n\ndef segments(m, a):\n    return find_uncovered_points(m, a)\n",
+          "code_hash": "fca7c167781ccc1a2074c96ac777d0682e634e5b9d2422566bcf7a841d25363a",
+          "neural_score": 0.675168402493,
+          "node_scores": [
+            0.672331690788269,
+            0.30404165387153625,
+            0.851952850818634,
+            0.8723474144935608
+          ]
+        },
+        {
+          "candidate_index": 7,
+          "code": "def find_points_in_segments(m, segments):\n    # Create a set to track points that belong to any segment\n    segment_points = set()\n    \n    # Iterate over each segment and add its points to the set\n    for l, r in segments:\n        for x in range(l, r + 1):\n            segment_points.add(x)\n    \n    # Create a set of all points from 0 to m\n    all_points = set(range(m + 1))\n    \n    # Find the points that do not belong to any segment\n    points_outside_segments = all_points - segment_points\n    \n    # Return the sorted list of points outside segments\n    return sorted(points_outside_segments)\n\ndef segments(m, a):\n    # Convert the array of coordinates into a list of tuples\n    segments_list = [tuple(a[i:i+2]) for i in range(0, len(a), 2)]\n    \n    # Find and return the points that do not belong to any segment\n    return find_points_in_segments(m, segments_list)\n",
+          "code_hash": "3cbd0207ec2392a6ae7d7176ccd294bbab74763ad8b9b79e42735d1bc19e6435",
+          "neural_score": 0.7704385221004486,
+          "node_scores": [
+            0.7662936449050903,
+            0.7745833992958069
+          ]
+        },
+        {
+          "candidate_index": 8,
+          "code": "def find_points_in_segments(m, segments):\n    points = set(range(m + 1))\n    for segment in segments:\n        points -= set(range(segment[0], segment[1] + 1))\n    return sorted(list(points))\n\ndef segments(m, a):\n    return find_points_in_segments(m, a)\n",
+          "code_hash": "b13b3ef519f1e1a0f9421b9a1a0d460f6ecbb4a0cd1932d81bea7d20428e4a3c",
+          "neural_score": 0.5015851855278015,
+          "node_scores": [
+            0.2845759987831116,
+            0.7185943722724915
+          ]
+        },
+        {
+          "candidate_index": 9,
+          "code": "def find_uncovered_points(m, segments):\n    covered = set()\n    for segment in segments:\n        for point in range(segment[0], segment[1] + 1):\n            covered.add(point)\n    return list(sorted([point for point in range(m + 1) if point not in covered]))\n\ndef segments(m, a):\n    return find_uncovered_points(m, a)\n",
+          "code_hash": "fd9ced50f8fdee022bef0ca41f2584da78e05719960db8996dd9326acecb9d92",
+          "neural_score": 0.7640220522880554,
+          "node_scores": [
+            0.7248703241348267,
+            0.8031737804412842
+          ]
+        }
+      ],
+      "selected_candidate_indices": {
+        "neural": 5
+      }
+    },
+    {
+      "problem_id": "apps-train-2987",
+      "candidates": [],
+      "selected_candidate_indices": {
+        "neural": null
+      }
+    },
+    {
+      "problem_id": "apps-train-2988",
+      "candidates": [
+        {
+          "candidate_index": 0,
+          "code": "def reverse_word(word):\n    return word[::-1]\n\ndef pair_and_combine(words):\n    result = []\n    for i in range(0, len(words), 2):\n        if i + 1 < len(words):\n            result.append(words[i+1] + words[i])\n        else:\n            result.append(reverse_word(words[i]))\n    return result\n\ndef reverse_and_combine_text(text):\n    words = text.split()\n    while len(words) > 1:\n        words = pair_and_combine(words)\n    return words[0]\n",
+          "code_hash": "45aa0b0f2060a1a24d763b2a00775f0754e50d1b3ca07795d6636b76f54f3f22",
+          "neural_score": 0.11959265234569709,
+          "node_scores": [
+            0.3345894515514374,
+            0.007011795416474342,
+            0.017176710069179535
+          ]
+        },
+        {
+          "candidate_index": 1,
+          "code": "def reverse_word(word):\n    return word[::-1]\n\ndef combine_words(words):\n    result = []\n    for i in range(0, len(words), 2):\n        if i + 1 < len(words):\n            result.append(words[i] + words[i + 1])\n        else:\n            result.append(words[i])\n    return result\n\ndef reverse_and_combine_text(text):\n    words = text.split()\n    while len(words) > 1:\n        words = combine_words(words)\n        words = [reverse_word(word) for word in words]\n    return words[0]\n",
+          "code_hash": "7057c34499873932736b9831c77ca8bdd6e0f6aecd60f3f209709d88c54f22dd",
+          "neural_score": 0.11805414066960414,
+          "node_scores": [
+            0.3345894515514374,
+            0.010013571009039879,
+            0.00955939944833517
+          ]
+        },
+        {
+          "candidate_index": 2,
+          "code": "def reverse_word(word):\n    return word[::-1]\n\ndef combine_words(words):\n    result = []\n    for i in range(0, len(words), 2):\n        if i + 1 < len(words):\n            result.append(words[i+1] + words[i])\n        else:\n            result.append(reverse_word(words[i]))\n    return result\n\ndef reverse_and_combine_text(text):\n    words = text.split()\n    while len(words) > 1:\n        words = combine_words(words)\n    return words[0]\n",
+          "code_hash": "e0c264f05f8abcfb46fc2ec452613083dba9489f6adf6bd920902e0a8b50e073",
+          "neural_score": 0.11760834821810325,
+          "node_scores": [
+            0.3345894515514374,
+            0.006903838366270065,
+            0.011331754736602306
+          ]
+        },
+        {
+          "candidate_index": 3,
+          "code": "def reverse_word(word):\n    return word[::-1]\n\ndef combine_words(words):\n    result = []\n    for i in range(0, len(words), 2):\n        if i + 1 < len(words):\n            result.append(words[i] + words[i + 1])\n        else:\n            result.append(words[i])\n    return result\n\ndef reverse_and_combine_text(text):\n    words = text.split()\n    while len(words) > 1:\n        words = combine_words(words)\n        words = [reverse_word(word) for word in words]\n    return words[0]\n",
+          "code_hash": "7057c34499873932736b9831c77ca8bdd6e0f6aecd60f3f209709d88c54f22dd",
+          "neural_score": 0.11805414066960414,
+          "node_scores": [
+            0.3345894515514374,
+            0.010013571009039879,
+            0.00955939944833517
+          ]
+        },
+        {
+          "candidate_index": 4,
+          "code": "def reverse_word(word):\n    return word[::-1]\n\ndef combine_words(words):\n    combined = []\n    for i in range(0, len(words), 2):\n        if i + 1 < len(words):\n            combined.append(words[i + 1] + words[i])\n        else:\n            combined.append(words[i])\n    return combined\n\ndef reverse_and_combine_text(text):\n    words = text.split()\n    while len(words) > 1:\n        words = combine_words(words)\n        words = [reverse_word(word) for word in words]\n    return words[0]\n",
+          "code_hash": "611206aca1745e6076b6dee458de9159d3ecdba7a7b1d978320be0f20bb61ad8",
+          "neural_score": 0.11579685953135292,
+          "node_scores": [
+            0.3345894515514374,
+            0.006797531619668007,
+            0.006003595422953367
+          ]
+        },
+        {
+          "candidate_index": 5,
+          "code": "def reverse_word(word):\n    return word[::-1]\n\ndef combine_words(words):\n    result = []\n    for i in range(0, len(words), 2):\n        if i + 1 < len(words):\n            result.append(words[i + 1] + words[i])\n        else:\n            result.append(words[i])\n    return result\n\ndef reverse_and_combine_text(text):\n    words = text.split()\n    while len(words) > 1:\n        words = combine_words(words)\n        words = [reverse_word(word) for word in words]\n    return words[0]\n",
+          "code_hash": "fac135fa3e92017daaeef7d009ab127c43eb36c219d57666a41b68dbce26eba0",
+          "neural_score": 0.11593141251554091,
+          "node_scores": [
+            0.3345894515514374,
+            0.007011795416474342,
+            0.006192990578711033
+          ]
+        },
+        {
+          "candidate_index": 6,
+          "code": "def reverse_word(word):\n    return word[::-1]\n\ndef combine_words(words):\n    result = []\n    for i in range(0, len(words), 2):\n        if i + 1 < len(words):\n            result.append(words[i+1] + words[i])\n        else:\n            result.append(reverse_word(words[i]))\n    return result\n\ndef reverse_and_combine_text(text):\n    words = text.split()\n    while len(words) > 1:\n        words = combine_words(words)\n    return words[0]\n",
+          "code_hash": "e0c264f05f8abcfb46fc2ec452613083dba9489f6adf6bd920902e0a8b50e073",
+          "neural_score": 0.11760834821810325,
+          "node_scores": [
+            0.3345894515514374,
+            0.006903838366270065,
+            0.011331754736602306
+          ]
+        },
+        {
+          "candidate_index": 7,
+          "code": "def reverse_word(word):\n    return word[::-1]\n\ndef combine_words(words):\n    result = []\n    for i in range(0, len(words), 2):\n        if i + 1 < len(words):\n            result.append(words[i + 1] + words[i])\n        else:\n            result.append(reverse_word(words[i]))\n    return result\n\ndef reverse_and_combine_text(text):\n    words = text.split()\n    while len(words) > 1:\n        words = combine_words(words)\n    return words[0]\n",
+          "code_hash": "4812dacce6bf41b742209b134cc264ebf03d046ad2581da469ed05ecbaec241c",
+          "neural_score": 0.11859150215362509,
+          "node_scores": [
+            0.3345894515514374,
+            0.00712142838165164,
+            0.014063626527786255
+          ]
+        },
+        {
+          "candidate_index": 8,
+          "code": "def reverse_word(word):\n    return word[::-1]\n\ndef combine_words(words):\n    return ''.join(words)\n\ndef reverse_and_combine_text(text):\n    words = text.split()\n    while len(words) > 1:\n        pairs = [words[i:i+2] for i in range(0, len(words), 2)]\n        reversed_pairs = [reverse_word(pair[0]) + reverse_word(pair[1]) for pair in pairs]\n        words = reversed_pairs\n    return reverse_word(words[0])\n",
+          "code_hash": "3e0089f73596ed03f5be4ee370e047bae05e49c0579542e0a36f145cd5931972",
+          "neural_score": 0.16162890382111073,
+          "node_scores": [
+            0.3345894515514374,
+            0.13117322325706482,
+            0.01912403665482998
+          ]
+        },
+        {
+          "candidate_index": 9,
+          "code": "def reverse_word(word):\n    return word[::-1]\n\ndef combine_words(words):\n    combined = []\n    for i in range(0, len(words), 2):\n        if i + 1 < len(words):\n            combined.append(words[i + 1] + words[i])\n        else:\n            combined.append(reverse_word(words[i]))\n    return combined\n\ndef reverse_and_combine_text(text):\n    words = text.split()\n    while len(words) > 1:\n        words = combine_words(words)\n    return words[0]\n",
+          "code_hash": "76019c261e707ebf977cb7e907f53678c02f767fb63e32708a485af6609174f3",
+          "neural_score": 0.11793954484164715,
+          "node_scores": [
+            0.3345894515514374,
+            0.006797531619668007,
+            0.01243165135383606
+          ]
+        }
+      ],
+      "selected_candidate_indices": {
+        "neural": 8
+      }
+    },
+    {
+      "problem_id": "apps-train-2989",
+      "candidates": [
+        {
+          "candidate_index": 0,
+          "code": "def count_bits(number, bit):\n    return bin(number).count(bit)\n\ndef calculate_sides_strength(numbers):\n    odd_strength = sum(count_bits(num, '1') for num in numbers if num % 2 != 0)\n    even_strength = sum(count_bits(num, '0') for num in numbers if num % 2 == 0)\n    return odd_strength, even_strength\n\ndef bits_battle(numbers):\n    odd_strength, even_strength = calculate_sides_strength(numbers)\n    if odd_strength > even_strength:\n        return \"odds win\"\n    elif odd_strength < even_strength:\n        return \"evens win\"\n    else:\n        return \"tie\"\n",
+          "code_hash": "8dc220e509b376cfd9b4eb27f875151a8dcbf1708a24b49ee70939b18de20442",
+          "neural_score": 0.29646793007850647,
+          "node_scores": [
+            0.1540575623512268,
+            0.32423537969589233,
+            0.41111084818840027
+          ]
+        },
+        {
+          "candidate_index": 1,
+          "code": "def count_bits(number, bit):\n    return bin(number).count(bit)\n\ndef count_odd_bits(numbers):\n    return sum(count_bits(num, '1') for num in numbers if num % 2 != 0)\n\ndef count_even_bits(numbers):\n    return sum(count_bits(num, '0') for num in numbers if num % 2 == 0)\n\ndef bits_battle(numbers):\n    odd_bits = count_odd_bits(numbers)\n    even_bits = count_even_bits(numbers)\n    \n    if odd_bits > even_bits:\n        return \"odds win\"\n    elif odd_bits < even_bits:\n        return \"evens win\"\n    else:\n        return \"tie\"\n",
+          "code_hash": "ae0000573986e13791a876193b67d3aab8882d168de37bf8692fd019acd6e1f7",
+          "neural_score": 0.21040436998009682,
+          "node_scores": [
+            0.1540575623512268,
+            0.2658804953098297,
+            0.21733751893043518,
+            0.20434190332889557
+          ]
+        },
+        {
+          "candidate_index": 2,
+          "code": "def count_bits(number, bit_type):\n    return bin(number).count(bit_type)\n\ndef count_odd_bits(numbers):\n    return sum(count_bits(num, '1') for num in numbers if num % 2 != 0)\n\ndef count_even_bits(numbers):\n    return sum(count_bits(num, '0') for num in numbers if num % 2 == 0)\n\ndef bits_battle(numbers):\n    odd_bits = count_odd_bits(numbers)\n    even_bits = count_even_bits(numbers)\n    \n    if odd_bits > even_bits:\n        return 'odds win'\n    elif even_bits > odd_bits:\n        return 'evens win'\n    else:\n        return 'tie'\n",
+          "code_hash": "b802856e5eee926a19d26adcd6f90a3b1a4cbeed3b0474c72920b3968944eac3",
+          "neural_score": 0.19087227433919907,
+          "node_scores": [
+            0.16667540371418,
+            0.24798743426799774,
+            0.1755380630493164,
+            0.17328819632530212
+          ]
+        },
+        {
+          "candidate_index": 3,
+          "code": "def count_bits(number, bit):\n    return bin(number).count(bit)\n\ndef count_odd_bits(numbers):\n    return sum(count_bits(number, '1') for number in numbers if number % 2 != 0)\n\ndef count_even_bits(numbers):\n    return sum(count_bits(number, '0') for number in numbers if number % 2 == 0)\n\ndef bits_battle(numbers):\n    odd_count = count_odd_bits(numbers)\n    even_count = count_even_bits(numbers)\n    \n    if odd_count > even_count:\n        return \"odds win\"\n    elif odd_count < even_count:\n        return \"evens win\"\n    else:\n        return \"tie\"\n",
+          "code_hash": "ce9be7009f9658f02d71aca5f8c333d360d83f2be31a02d2829d735070498b90",
+          "neural_score": 0.20534002408385277,
+          "node_scores": [
+            0.1540575623512268,
+            0.24798743426799774,
+            0.22000709176063538,
+            0.19930800795555115
+          ]
+        },
+        {
+          "candidate_index": 4,
+          "code": "def count_bits(number, bit):\n    return bin(number).count(bit)\n\ndef calculate_sides(numbers):\n    odds_ones = sum(count_bits(num, '1') for num in numbers if num % 2 != 0)\n    evens_zeros = sum(count_bits(num, '0') for num in numbers if num % 2 == 0)\n    return odds_ones, evens_zeros\n\ndef bits_battle(numbers):\n    odds_ones, evens_zeros = calculate_sides(numbers)\n    if odds_ones > evens_zeros:\n        return 'odds win'\n    elif odds_ones < evens_zeros:\n        return 'evens win'\n    else:\n        return 'tie'\n",
+          "code_hash": "1898ba663db7760754fa6e0278bdaefd206409f05ba0f1fa8a9f73e985952567",
+          "neural_score": 0.3182095984617869,
+          "node_scores": [
+            0.1540575623512268,
+            0.36658975481987,
+            0.4339814782142639
+          ]
+        },
+        {
+          "candidate_index": 5,
+          "code": "def count_bits(number, bit):\n    return bin(number)[2:].count(bit)\n\ndef calculate_sides(numbers):\n    odds = sum(count_bits(num, '1') for num in numbers if num % 2 != 0)\n    evens = sum(count_bits(num, '0') for num in numbers if num % 2 == 0)\n    return odds, evens\n\ndef bits_battle(numbers):\n    odds, evens = calculate_sides(numbers)\n    if odds > evens:\n        return \"odds win\"\n    elif odds < evens:\n        return \"evens win\"\n    else:\n        return \"tie\"\n",
+          "code_hash": "9a25ea98b5efc40596874345590037f559911a263b0950faba7b05b4e93f4fc3",
+          "neural_score": 0.28793978194395703,
+          "node_scores": [
+            0.24798743426799774,
+            0.230919748544693,
+            0.3849121630191803
+          ]
+        },
+        {
+          "candidate_index": 6,
+          "code": "def count_bits(number, bit):\n    return bin(number).count(bit)\n\ndef count_odd_bits(numbers):\n    return sum(count_bits(number, '1') for number in numbers if number % 2 != 0)\n\ndef count_even_bits(numbers):\n    return sum(count_bits(number, '0') for number in numbers if number % 2 == 0)\n\ndef bits_battle(numbers):\n    odd_bits = count_odd_bits(numbers)\n    even_bits = count_even_bits(numbers)\n    \n    if odd_bits > even_bits:\n        return 'odds win'\n    elif odd_bits < even_bits:\n        return 'evens win'\n    else:\n        return 'tie'\n",
+          "code_hash": "2e7de659ace9a84746bb5bd550a9bb42a377c1ae180f8d5a210c3b96fa8469f5",
+          "neural_score": 0.20471957325935364,
+          "node_scores": [
+            0.1540575623512268,
+            0.24798743426799774,
+            0.22000709176063538,
+            0.19682620465755463
+          ]
+        },
+        {
+          "candidate_index": 7,
+          "code": "def count_bits(number):\n    return bin(number).count('1')\n\ndef count_zeros(number):\n    return bin(number).count('0')\n\ndef calculate_sides(numbers):\n    odd_bits = sum(count_bits(num) for num in numbers if num % 2 != 0)\n    even_zeros = sum(count_zeros(num) for num in numbers if num % 2 == 0)\n    return odd_bits, even_zeros\n\ndef bits_battle(numbers):\n    odd_bits, even_zeros = calculate_sides(numbers)\n    if odd_bits > even_zeros:\n        return \"odds win\"\n    elif odd_bits < even_zeros:\n        return \"evens win\"\n    else:\n        return \"tie\"\n",
+          "code_hash": "68ac596d8526cb6f5e4213aefa60f2994cc29b88634735dd03bf5166625c310c",
+          "neural_score": 0.4235900193452835,
+          "node_scores": [
+            0.3345894515514374,
+            0.18713268637657166,
+            0.5428633093833923,
+            0.6297746300697327
+          ]
+        },
+        {
+          "candidate_index": 8,
+          "code": "def count_bits(number, bit):\n    return bin(number).count(bit)\n\ndef calculate_battle_points(numbers):\n    odd_points = sum(count_bits(num, '1') for num in numbers if num % 2 != 0)\n    even_points = sum(count_bits(num, '0') for num in numbers if num % 2 == 0)\n    return odd_points, even_points\n\ndef bits_battle(numbers):\n    odd_points, even_points = calculate_battle_points(numbers)\n    if odd_points > even_points:\n        return \"odds win\"\n    elif odd_points < even_points:\n        return \"evens win\"\n    else:\n        return \"tie\"\n",
+          "code_hash": "0b6cab4e62195c50b327047ade31f63bce8b21a4edf6c53c7cfcccf3ffe974f3",
+          "neural_score": 0.31672531366348267,
+          "node_scores": [
+            0.1540575623512268,
+            0.3812195658683777,
+            0.4148988127708435
+          ]
+        },
+        {
+          "candidate_index": 9,
+          "code": "def count_bits(number, bit):\n    return bin(number).count(bit)\n\ndef calculate_sides_score(numbers):\n    odd_score = sum(count_bits(num, '1') for num in numbers if num % 2 != 0)\n    even_score = sum(count_bits(num, '0') for num in numbers if num % 2 == 0)\n    return odd_score, even_score\n\ndef bits_battle(numbers):\n    odd_score, even_score = calculate_sides_score(numbers)\n    if odd_score > even_score:\n        return \"odds win\"\n    elif odd_score < even_score:\n        return \"evens win\"\n    else:\n        return \"tie\"\n",
+          "code_hash": "6d14245ce5b04f914bdfa980f0f8953cf2fdb9f60798ae38590c6ebaa57dc0a3",
+          "neural_score": 0.293953279654185,
+          "node_scores": [
+            0.1540575623512268,
+            0.32423537969589233,
+            0.4035668969154358
+          ]
+        }
+      ],
+      "selected_candidate_indices": {
+        "neural": 7
+      }
+    }
+  ],
+  "private_rows": {
+    "neural": {}
+  },
+  "interpretation": "Paper-aligned no-execution Best-of-N selector using generative +/- token probabilities. Selections are frozen; private evaluation is deferred."
+}

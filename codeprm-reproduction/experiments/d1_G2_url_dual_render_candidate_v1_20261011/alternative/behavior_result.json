@@ -1,0 +1,138 @@
+{
+  "workspace": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_G2_url_dual_render_candidate_v1_20261011\\alternative",
+  "cases": [
+    {
+      "case_id": "query_values_and_order",
+      "imported_from": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_G2_url_dual_render_candidate_v1_20261011\\alternative\\programs\\url_task.py",
+      "observed": {
+        "keys": [
+          "a",
+          "b",
+          "a"
+        ],
+        "items": [
+          [
+            "a",
+            "1"
+          ],
+          [
+            "b",
+            "2"
+          ],
+          [
+            "a",
+            "3"
+          ]
+        ],
+        "get": "1",
+        "getlist": [
+          "1",
+          "3"
+        ],
+        "to_text_minimal": "https://example.com/find?a=1&b=2&a=3",
+        "to_text_full": "https://example.com/find?a=1&b=2&a=3"
+      },
+      "differing_fields": {},
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "case_id": "already_encoded_preserved",
+      "imported_from": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_G2_url_dual_render_candidate_v1_20261011\\alternative\\programs\\url_task.py",
+      "observed": {
+        "keys": [
+          "q"
+        ],
+        "items": [
+          [
+            "q",
+            "a%20b"
+          ]
+        ],
+        "get": "a%20b",
+        "getlist": [
+          "a%20b"
+        ],
+        "to_text_minimal": "http://h/p?q=a%20b",
+        "to_text_full": "http://h/p?q=a%20b"
+      },
+      "differing_fields": {},
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "case_id": "reserved_chars_encoding",
+      "imported_from": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_G2_url_dual_render_candidate_v1_20261011\\alternative\\programs\\url_task.py",
+      "observed": {
+        "keys": [
+          "a",
+          "b"
+        ],
+        "items": [
+          [
+            "a",
+            "%2Fx%3Fy"
+          ],
+          [
+            "b",
+            "z"
+          ]
+        ],
+        "get": "%2Fx%3Fy",
+        "getlist": [
+          "%2Fx%3Fy"
+        ],
+        "to_text_minimal": "http://h/p?a=%2Fx%3Fy&b=z",
+        "to_text_full": "http://h/p?a=%2Fx%3Fy&b=z"
+      },
+      "differing_fields": {},
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "case_id": "plus_is_not_space",
+      "imported_from": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_G2_url_dual_render_candidate_v1_20261011\\alternative\\programs\\url_task.py",
+      "observed": {
+        "keys": [
+          "q"
+        ],
+        "items": [
+          [
+            "q",
+            "a+b"
+          ]
+        ],
+        "get": "a+b",
+        "getlist": [
+          "a+b"
+        ],
+        "to_text_minimal": "http://h/s?q=a+b",
+        "to_text_full": "http://h/s?q=a+b"
+      },
+      "differing_fields": {},
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "case_id": "space_in_path_and_fragment",
+      "imported_from": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_G2_url_dual_render_candidate_v1_20261011\\alternative\\programs\\url_task.py",
+      "observed": {
+        "keys": [],
+        "items": [],
+        "get": null,
+        "getlist": [],
+        "to_text_minimal": "http://h/files/report 1.pdf#note one",
+        "to_text_full": "http://h/files/report%201.pdf#note%20one"
+      },
+      "differing_fields": {},
+      "passed": true,
+      "returncode": 0
+    }
+  ],
+  "passed": 5,
+  "total": 5,
+  "worker_runs": 5,
+  "model_calls": 0,
+  "human_reviews": 0,
+  "scope": "公开的有限 URL 与查询串；不证明整个 RFC 3986 一致或模型收益"
+}

@@ -1,0 +1,11 @@
+{
+  "time": "2026-10-08T14:16:46.383131+00:00",
+  "attempted_urls": [
+    "https://arxiv.org/html/2503.06680v1",
+    "https://arxiv.org/html/2602.10975v1"
+  ],
+  "error": "http 500: channel does not support /v1/alpha/search",
+  "scope": "工具通道不可用，不是论文本身不存在/不可达；这次未获得新网页",
+  "decision": "不对同通道原样重试，使用已有官方HTML缓存定向读新段落，标记缓存版本；不宣称最新版本核实",
+  "model_calls": 0
+}

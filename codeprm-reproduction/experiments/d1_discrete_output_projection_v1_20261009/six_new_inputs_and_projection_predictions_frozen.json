@@ -1,0 +1,129 @@
+{
+  "created_at": "2026-10-09T04:01:43Z",
+  "cases": [
+    {
+      "case_id": "count2_mode_int4",
+      "input": {
+        "data": [
+          4,
+          4
+        ]
+      },
+      "expected": {
+        "value": {
+          "count": 2,
+          "mode": 4
+        }
+      }
+    },
+    {
+      "case_id": "count2_mode_strx",
+      "input": {
+        "data": [
+          "x",
+          "x"
+        ]
+      },
+      "expected": {
+        "value": {
+          "count": 2,
+          "mode": "x"
+        }
+      }
+    },
+    {
+      "case_id": "count3_mode_int4",
+      "input": {
+        "data": [
+          4,
+          "x",
+          4
+        ]
+      },
+      "expected": {
+        "value": {
+          "count": 3,
+          "mode": 4
+        }
+      }
+    },
+    {
+      "case_id": "count3_mode_strx",
+      "input": {
+        "data": [
+          "x",
+          4,
+          "x"
+        ]
+      },
+      "expected": {
+        "value": {
+          "count": 3,
+          "mode": "x"
+        }
+      }
+    },
+    {
+      "case_id": "container_default_blocks_count2",
+      "input": {
+        "data": [
+          4,
+          4
+        ],
+        "default": []
+      },
+      "expected": {
+        "error": "TypeError"
+      }
+    },
+    {
+      "case_id": "container_default_blocks_count3",
+      "input": {
+        "data": [
+          "x",
+          4,
+          "x"
+        ],
+        "default": {
+          "ignored": 1
+        }
+      },
+      "expected": {
+        "error": "TypeError"
+      }
+    }
+  ],
+  "predictions": {
+    "each_reference_whole": [
+      6,
+      6
+    ],
+    "each_reference_normal_count": [
+      4,
+      4
+    ],
+    "each_reference_normal_mode": [
+      4,
+      4
+    ],
+    "each_reference_exception_projection_null": 2,
+    "single_field_wrong_control": "只错count时mode仍可判断正确，只错mode时count仍可判断正确；完整返回应拒"
+  },
+  "file_hashes": {
+    "experiments\\d1_typed_candidate_execution_v1_20261009\\candidate_v2\\task.json": "93dbe69b2f27a4c9a8f07ea969e474dbfaa86446167d851f51f2acb67588cdb6",
+    "experiments\\d1_typed_candidate_execution_v1_20261009\\candidate_v2\\requirements.md": "2ea2d9d4597675a1eb0d6814fa14b169f147bf317c6567dc867c0bcc55ee1eca",
+    "experiments\\d1_typed_candidate_execution_v1_20261009\\candidate_v2\\evaluate_typed_candidate.py": "c71b5ca52defc4217c68999d776bcdb3d57c093c25aa0fb3c89763b055ebc0d0",
+    "experiments\\d1_typed_candidate_execution_v1_20261009\\candidate_v2\\typed_comparison.py": "b5088cf118746800d7ed9dacd75ebbd4756abe03a427034cf298aa0b6f2a2014",
+    "experiments\\d1_typed_candidate_execution_v1_20261009\\candidate_v2\\whole.py": "afb6b27b1058b89faeea7c6027858fe8989ddb934482b46bf9a9c7ff40c603e2",
+    "experiments\\d1_typed_candidate_execution_v1_20261009\\candidate_v2\\helpers.py": "87dfb7eb6e36ff5364a01706b300e547f4debec25494fd6198bbc7f17d1ee403",
+    "experiments\\d1_typed_candidate_execution_v1_20261009\\candidate_v2\\source_adapter.py": "d8246ad07b64fb174925e76660249f78b3c919ffec486d796a409673704addc9",
+    "experiments\\d1_typed_candidate_execution_v1_20261009\\candidate_v2\\sources\\statsutils.py": "0c4d05a17b14244a880e5047c1823d1e1e522e6c5ee76c6b47f54d8bde791e68"
+  },
+  "contract_origin": "候选v2公开最终输出，未指定helper",
+  "necessity_scope": "正常返回域的指定count/mode字段；异常域两投影null，非内部或统计独立",
+  "new_solve_calls_so_far": 0,
+  "model_calls": 0,
+  "private_reads": 0,
+  "human_reviews": 0,
+  "next_action": "实现六新输入执行/从保存actual提取字段/构造24输出比较控制；总18solve，旧八/十二例零重跑"
+}

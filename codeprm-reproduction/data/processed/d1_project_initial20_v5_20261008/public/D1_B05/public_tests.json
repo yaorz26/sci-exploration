@@ -1,0 +1,57 @@
+[
+  {
+    "case_id": "public_1",
+    "input": {
+      "tree": {
+        "a": [
+          null,
+          2,
+          true
+        ],
+        "b": 3
+      },
+      "drop_null": true,
+      "factor": 2,
+      "threshold": 4
+    },
+    "expected": {
+      "value": {
+        "tree": {
+          "a": [
+            4,
+            true
+          ],
+          "b": 6
+        },
+        "matches": [
+          {
+            "path": [
+              "a",
+              0
+            ],
+            "value": 4
+          },
+          {
+            "path": [
+              "b"
+            ],
+            "value": 6
+          }
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "public_2",
+    "input": {
+      "tree": [],
+      "threshold": 0
+    },
+    "expected": {
+      "value": {
+        "tree": [],
+        "matches": []
+      }
+    }
+  }
+]

@@ -1,0 +1,91 @@
+{
+  "status": "pass",
+  "scope": "合成反例与交付包完整性检查；没有真实人工标注，不能用测试κ作为研究结果",
+  "human_annotations_received": 0,
+  "checks": [
+    {
+      "name": "空白真实表拒绝且不计算一致性",
+      "pass": true
+    },
+    {
+      "name": "有证据的unknown合法且保留",
+      "pass": true
+    },
+    {
+      "name": "全unknown覆盖为零且κ未定义",
+      "pass": true
+    },
+    {
+      "name": "拒绝非人工声明",
+      "pass": true
+    },
+    {
+      "name": "拒绝重复题号",
+      "pass": true
+    },
+    {
+      "name": "拒绝漏题",
+      "pass": true
+    },
+    {
+      "name": "拒绝无证据",
+      "pass": true
+    },
+    {
+      "name": "拒绝yes缺行为契约",
+      "pass": true
+    },
+    {
+      "name": "拒绝状态范围矛盾",
+      "pass": true
+    },
+    {
+      "name": "拒绝异常meta形状",
+      "pass": true
+    },
+    {
+      "name": "拒绝异常题号形状",
+      "pass": true
+    },
+    {
+      "name": "拒绝异常枚举形状",
+      "pass": true
+    },
+    {
+      "name": "同一审查员双表拒绝",
+      "pass": true
+    },
+    {
+      "name": "平衡且完全相同κ为1",
+      "pass": true
+    },
+    {
+      "name": "平衡且全相反κ为负1",
+      "pass": true
+    },
+    {
+      "name": "独立四格κ为0",
+      "pass": true
+    },
+    {
+      "name": "交付ZIP仅含四份审查材料",
+      "pass": true
+    },
+    {
+      "name": "交付材料哈希一致",
+      "pass": true
+    },
+    {
+      "name": "交付包无显式来源或旧构建文档链接",
+      "pass": true
+    },
+    {
+      "name": "需求与v2字节等价",
+      "pass": true
+    },
+    {
+      "name": "包中人工回收数仍为零",
+      "pass": true
+    }
+  ]
+}

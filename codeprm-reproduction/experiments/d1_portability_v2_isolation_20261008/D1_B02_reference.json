@@ -1,0 +1,4801 @@
+{
+  "task_id": "D1_B02",
+  "implementation": "reference",
+  "command": [
+    "D:\\yaorz\\tools\\python_new\\python.exe",
+    "-I",
+    "-S",
+    "-B",
+    "-X",
+    "utf8",
+    "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py",
+    "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\解压到不同目录",
+    "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\解压到不同目录\\dataset\\private\\_curator\\evaluate_candidate.py",
+    "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\解压到不同目录\\dataset\\private\\D1_B02\\reference.py",
+    "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\解压到不同目录\\dataset\\private\\D1_B02\\all_tests.json"
+  ],
+  "candidate_sha256": "3cb55c0a7495f0d1f90b95385a6306e3fb490b968351259e93c3dde89f7e1669",
+  "cases_sha256": "bb22ce371ce42d64b8488a56fc86087567497eb6bb86a41f8a6fcf4b598f440b",
+  "stdout": "{\"evaluation\": {\"cases\": 20, \"passed\": 0, \"all_pass\": false, \"results\": [{\"case_id\": \"public_1\", \"pass\": false, \"input_unchanged\": true, \"error\": {\"expected\": {\"value\": [{\"result\": null, \"items\": [[\"a\", 1]]}, {\"result\": null, \"items\": [[\"a\", 1], [\"b\", 2]]}, {\"result\": null, \"items\": [[\"a\", 1], [\"b\", 2], [\"a\", 3]]}, {\"result\": [1, 3], \"items\": [[\"a\", 1], [\"b\", 2], [\"a\", 3]]}]}, \"actual\": {\"error\": \"ModuleNotFoundError\"}}}, {\"case_id\": \"public_2\", \"pass\": false, \"input_unchanged\": true, \"error\": {\"expected\": {\"value\": []}, \"actual\": {\"error\": \"ModuleNotFoundError\"}}}, {\"case_id\": \"hidden_1\", \"pass\": false, \"input_unchanged\": true, \"error\": {\"expected\": {\"value\": []}, \"actual\": {\"error\": \"ModuleNotFoundError\"}}}, {\"case_id\": \"hidden_2\", \"pass\": false, \"input_unchanged\": true, \"error\": {\"expected\": {\"value\": [{\"result\": \"missing\", \"items\": []}, {\"result\": {\"error\": \"KeyError\"}, \"items\": []}, {\"result\": null, \"items\": [[\"b\", 0]]}, {\"result\": \"missing\", \"items\": [[\"b\", 0]]}, {\"result\": null, \"items\": [[\"b\", 0], [\"c\", null]]}, {\"result\": null, \"items\": [[\"c\", null]]}, {\"result\": null, \"items\": [[\"c\", null], [\"b\", 0]]}, {\"result\": null, \"items\": [[\"c\", null], [\"b\", 0], [\"b\", null]]}, {\"result\": null, \"items\": [[\"c\", null], [\"b\", 0], [\"b\", null], [\"a\", null]]}, {\"result\": null, \"items\": [[\"c\", null], [\"b\", 0], [\"a\", null]]}, {\"result\": null, \"items\": [[\"c\", null], [\"b\", 0], [\"a\", null], [\"a\", [2]]]}, {\"result\": null, \"items\": [[\"c\", null], [\"b\", 0]]}, {\"result\": [], \"items\": [[\"c\", null], [\"b\", 0]]}, {\"result\": null, \"items\": [[\"c\", null], [\"b\", 0], [\"b\", 0]]}, {\"result\": {\"error\": \"KeyError\"}, \"items\": [[\"c\", null], [\"b\", 0], [\"b\", 0]]}, {\"result\": null, \"items\": [[\"c\", null]]}, {\"result\": [null], \"items\": [[\"c\", null]]}, {\"result\": null, \"items\": [[\"c\", null], [\"b\", 1]]}]}, \"actual\": {\"error\": \"ModuleNotFoundError\"}}}, {\"case_id\": \"hidden_3\", \"pass\": false, \"input_unchanged\": true, \"error\": {\"expected\": {\"value\": [{\"result\": \"missing\", \"items\": []}, {\"result\": {\"error\": \"KeyError\"}, \"items\": []}, {\"result\": null, \"items\": [[\"a\", 0]]}, {\"result\": [], \"items\": [[\"a\", 0]]}, {\"result\": \"missing\", \"items\": [[\"a\", 0]]}, {\"result\": null, \"items\": [[\"a\", 0]]}, {\"result\": {\"error\": \"KeyError\"}, \"items\": [[\"a\", 0]]}, {\"result\": null, \"items\": [[\"a\", 0], [\"b\", null]]}, {\"result\": [null], \"items\": [[\"a\", 0], [\"b\", null]]}, {\"result\": {\"error\": \"KeyError\"}, \"items\": [[\"a\", 0], [\"b\", null]]}, {\"result\": null, \"items\": [[\"a\", 0], [\"b\", null], [\"c\", 1]]}, {\"result\": null, \"items\": [[\"a\", 0], [\"b\", null], [\"c\", 1], [\"c\", 1]]}, {\"result\": 1, \"items\": [[\"a\", 0], [\"b\", null], [\"c\", 1], [\"c\", 1]]}, {\"result\": null, \"items\": [[\"a\", 0], [\"b\", null], [\"c\", 1], [\"c\", 1], [\"c\", 1]]}, {\"result\": null, \"items\": [[\"a\", 0], [\"b\", null], [\"c\", 1], [\"c\", 1], [\"c\", 1], [\"c\", null]]}, {\"result\": null, \"items\": [[\"a\", 0], [\"b\", null], [\"c\", 1], [\"c\", 1], [\"c\", 1], [\"c\", null], [\"b\", null]]}, {\"result\": null, \"items\": [[\"a\", 0], [\"b\", null], [\"c\", 1], [\"c\", 1], [\"c\", 1], [\"c\", null], [\"b\", null], [\"b\", null]]}, {\"result\": [null, null, null], \"items\": [[\"a\", 0], [\"b\", null], [\"c\", 1], [\"c\", 1], [\"c\", 1], [\"c\", null], [\"b\", null], [\"b\", null]]}]}, \"actual\": {\"error\": \"ModuleNotFoundError\"}}}, {\"case_id\": \"hidden_4\", \"pass\": false, \"input_unchanged\": true, \"error\": {\"expected\": {\"value\": [{\"result\": null, \"items\": [[\"b\", 0]]}, {\"result\": \"missing\", \"items\": [[\"b\", 0]]}, {\"result\": null, \"items\": [[\"b\", \"x\"]]}, {\"result\": null, \"items\": [[\"b\", \"x\"], [\"a\", 1]]}, {\"result\": {\"error\": \"KeyError\"}, \"items\": [[\"b\", \"x\"], [\"a\", 1]]}, {\"result\": {\"error\": \"KeyError\"}, \"items\": [[\"b\", \"x\"], [\"a\", 1]]}, {\"result\": null, \"items\": [[\"b\", \"x\"], [\"a\", 1], [\"c\", 0]]}, {\"result\": null, \"items\": [[\"b\", \"x\"], [\"c\", 0]]}, {\"result\": null, \"items\": [[\"b\", \"x\"]]}, {\"result\": null, \"items\": [[\"b\", \"x\"], [\"c\", \"x\"]]}, {\"result\": \"missing\", \"items\": [[\"b\", \"x\"], [\"c\", \"x\"]]}, {\"result\": \"x\", \"items\": [[\"b\", \"x\"], [\"c\", \"x\"]]}, {\"result\": {\"error\": \"KeyError\"}, \"items\": [[\"b\", \"x\"], [\"c\", \"x\"]]}, {\"result\": null, \"items\": [[\"b\", \"x\"], [\"c\", \"x\"], [\"b\", 1]]}, {\"result\": null, \"items\": [[\"b\", \"x\"], [\"c\", \"x\"], [\"b\", 1], [\"a\", null]]}, {\"result\": 1, \"items\": [[\"b\", \"x\"], [\"c\", \"x\"], [\"a\", null]]}, {\"result\": null, \"items\": [[\"b\", \"x\"], [\"c\", \"x\"], [\"a\", null], [\"a\", [2]]]}, {\"result\": \"x\", \"items\": [[\"b\", \"x\"], [\"a\", null], [\"a\", [2]]]}]}, \"actual\": {\"error\": \"ModuleNotFoundError\"}}}, {\"case_id\": \"hidden_5\", \"pass\": false, \"input_unchanged\": true, \"error\": {\"expected\": {\"value\": [{\"result\": null, \"items\": [[\"c\", 1]]}, {\"result\": [], \"items\": [[\"c\", 1]]}, {\"result\": null, \"items\": [[\"c\", 1], [\"a\", 0]]}, {\"result\": null, \"items\": [[\"c\", 1], [\"a\", \"x\"]]}, {\"result\": {\"error\": \"KeyError\"}, \"items\": [[\"c\", 1], [\"a\", \"x\"]]}, {\"result\": {\"error\": \"KeyError\"}, \"items\": [[\"c\", 1], [\"a\", \"x\"]]}, {\"result\": {\"error\": \"KeyError\"}, \"items\": [[\"c\", 1], [\"a\", \"x\"]]}, {\"result\": null, \"items\": [[\"c\", 1], [\"a\", \"x\"], [\"b\", \"x\"]]}, {\"result\": null, \"items\": [[\"c\", 1], [\"a\", \"x\"], [\"b\", \"x\"], [\"c\", \"x\"]]}, {\"result\": null, \"items\": [[\"a\", \"x\"], [\"b\", \"x\"]]}, {\"result\": {\"error\": \"KeyError\"}, \"items\": [[\"a\", \"x\"], [\"b\", \"x\"]]}, {\"result\": {\"error\": \"KeyError\"}, \"items\": [[\"a\", \"x\"], [\"b\", \"x\"]]}, {\"result\": null, \"items\": [[\"a\", \"x\"]]}, {\"result\": \"x\", \"items\": []}, {\"result\": [], \"items\": []}, {\"result\": {\"error\": \"KeyError\"}, \"items\": []}, {\"result\": \"missing\", \"items\": []}, {\"result\": {\"error\": \"KeyError\"}, \"items\": []}]}, \"actual\": {\"error\": \"ModuleNotFoundError\"}}}, {\"case_id\": \"hidden_6\", \"pass\": false, \"input_unchanged\": true, \"error\": {\"expected\": {\"value\": [{\"result\": null, \"items\": [[\"c\", [2]]]}, {\"result\": null, \"items\": [[\"c\", [2]], [\"a\", 0]]}, {\"result\": [], \"items\": [[\"c\", [2]], [\"a\", 0]]}, {\"result\": 0, \"items\": [[\"c\", [2]], [\"a\", 0]]}, {\"result\": null, \"items\": [[\"c\", [2]], [\"a\", 0], [\"b\", \"x\"]]}, {\"result\": null, \"items\": [[\"c\", [2]], [\"a\", 0], [\"b\", \"x\"], [\"a\", 1]]}, {\"result\": null, \"items\": [[\"a\", 0], [\"b\", \"x\"], [\"a\", 1], [\"c\", null]]}, {\"result\": 1, \"items\": [[\"a\", 0], [\"b\", \"x\"], [\"c\", null]]}, {\"result\": null, \"items\": [[\"a\", 0], [\"c\", null]]}, {\"result\": [], \"items\": [[\"a\", 0], [\"c\", null]]}, {\"result\": 0, \"items\": [[\"a\", 0], [\"c\", null]]}, {\"result\": [0], \"items\": [[\"a\", 0], [\"c\", null]]}, {\"result\": \"missing\", \"items\": [[\"a\", 0], [\"c\", null]]}, {\"result\": null, \"items\": [[\"a\", 0], [\"c\", null], [\"a\", 0]]}, {\"result\": [], \"items\": [[\"a\", 0], [\"c\", null], [\"a\", 0]]}, {\"result\": [null], \"items\": [[\"a\", 0], [\"c\", null], [\"a\", 0]]}, {\"result\": null, \"items\": [[\"a\", 0], [\"a\", 0]]}, {\"result\": [], \"items\": [[\"a\", 0], [\"a\", 0]]}]}, \"actual\": {\"error\": \"ModuleNotFoundError\"}}}, {\"case_id\": \"hidden_7\", \"pass\": false, \"input_unchanged\": true, \"error\": {\"expected\": {\"value\": [{\"result\": \"missing\", \"items\": []}, {\"result\": {\"error\": \"KeyError\"}, \"items\": []}, {\"result\": \"missing\", \"items\": []}, {\"result\": {\"error\": \"KeyError\"}, \"items\": []}, {\"result\": {\"error\": \"KeyError\"}, \"items\": []}, {\"result\": {\"error\": \"KeyError\"}, \"items\": []}, {\"result\": \"missing\", \"items\": []}, {\"result\": {\"error\": \"KeyError\"}, \"items\": []}, {\"result\": {\"error\": \"KeyError\"}, \"items\": []}, {\"result\": \"missing\", \"items\": []}, {\"result\": {\"error\": \"KeyError\"}, \"items\": []}, {\"result\": {\"error\": \"KeyError\"}, \"items\": []}, {\"result\": [], \"items\": []}, {\"result\": null, \"items\": [[\"b\", \"x\"]]}, {\"result\": [\"x\"], \"items\": [[\"b\", \"x\"]]}, {\"result\": [], \"items\": [[\"b\", \"x\"]]}, {\"result\": null, \"items\": [[\"b\", \"x\"], [\"c\", null]]}, {\"result\": null, \"items\": [[\"b\", \"x\"], [\"c\", 1]]}]}, \"actual\": {\"error\": \"ModuleNotFoundError\"}}}, {\"case_id\": \"hidden_8\", \"pass\": false, \"input_unchanged\": true, \"error\": {\"expected\": {\"value\": [{\"result\": \"missing\", \"items\": []}, {\"result\": \"missing\", \"items\": []}, {\"result\": null, \"items\": [[\"c\", [2]]]}, {\"result\": {\"error\": \"KeyError\"}, \"items\": [[\"c\", [2]]]}, {\"result\": null, \"items\": [[\"c\", [2]], [\"a\", \"x\"]]}, {\"result\": null, \"items\": [[\"c\", [2]], [\"a\", \"x\"]]}, {\"result\": null, \"items\": [[\"c\", [2]], [\"a\", 0]]}, {\"result\": null, \"items\": [[\"c\", [2]], [\"a\", 0], [\"b\", [2]]]}, {\"result\": [[2]], \"items\": [[\"c\", [2]], [\"a\", 0], [\"b\", [2]]]}, {\"result\": 0, \"items\": [[\"c\", [2]], [\"a\", 0], [\"b\", [2]]]}, {\"result\": null, \"items\": [[\"c\", [2]], [\"a\", 0], [\"b\", [2]], [\"a\", [2]]]}, {\"result\": [2], \"items\": [[\"c\", [2]], [\"a\", 0], [\"a\", [2]]]}, {\"result\": [], \"items\": [[\"c\", [2]], [\"a\", 0], [\"a\", [2]]]}, {\"result\": null, \"items\": [[\"c\", [2]], [\"a\", 0], [\"a\", [2]], [\"a\", 1]]}, {\"result\": null, \"items\": [[\"c\", [2]], [\"a\", 0], [\"a\", [2]], [\"a\", 1], [\"a\", 0]]}, {\"result\": null, \"items\": [[\"c\", [2]], [\"a\", 0], [\"a\", [2]], [\"a\", 1], [\"a\", 0], [\"b\", \"x\"]]}, {\"result\": [0, [2], 1, 0], \"items\": [[\"c\", [2]], [\"a\", 0], [\"a\", [2]], [\"a\", 1], [\"a\", 0], [\"b\", \"x\"]]}, {\"result\": [[2]], \"items\": [[\"c\", [2]], [\"a\", 0], [\"a\", [2]], [\"a\", 1], [\"a\", 0], [\"b\", \"x\"]]}]}, \"actual\": {\"error\": \"ModuleNotFoundError\"}}}, {\"case_id\": \"hidden_9\", \"pass\": false, \"input_unchanged\": true, \"error\": {\"expected\": {\"value\": [{\"result\": null, \"items\": [[\"a\", \"x\"]]}, {\"result\": [\"x\"], \"items\": [[\"a\", \"x\"]]}, {\"result\": \"missing\", \"items\": [[\"a\", \"x\"]]}, {\"result\": null, \"items\": [[\"a\", \"x\"], [\"b\", null]]}, {\"result\": {\"error\": \"KeyError\"}, \"items\": [[\"a\", \"x\"], [\"b\", null]]}, {\"result\": null, \"items\": [[\"a\", \"x\"], [\"b\", null], [\"a\", [2]]]}, {\"result\": {\"error\": \"KeyError\"}, \"items\": [[\"a\", \"x\"], [\"b\", null], [\"a\", [2]]]}, {\"result\": [], \"items\": [[\"a\", \"x\"], [\"b\", null], [\"a\", [2]]]}, {\"result\": null, \"items\": [[\"a\", \"x\"], [\"a\", [2]]]}, {\"result\": null, \"items\": [[\"a\", \"x\"], [\"a\", [2]], [\"c\", [2]]]}, {\"result\": [[2]], \"items\": [[\"a\", \"x\"], [\"a\", [2]], [\"c\", [2]]]}, {\"result\": {\"error\": \"KeyError\"}, \"items\": [[\"a\", \"x\"], [\"a\", [2]], [\"c\", [2]]]}, {\"result\": null, \"items\": [[\"a\", \"x\"], [\"a\", [2]], [\"c\", [2]], [\"a\", \"x\"]]}, {\"result\": null, \"items\": [[\"a\", \"x\"], [\"a\", [2]], [\"c\", [2]], [\"a\", \"x\"], [\"b\", null]]}, {\"result\": null, \"items\": [[\"a\", \"x\"], [\"a\", [2]], [\"a\", \"x\"], [\"b\", null]]}, {\"result\": \"missing\", \"items\": [[\"a\", \"x\"], [\"a\", [2]], [\"a\", \"x\"], [\"b\", null]]}, {\"result\": null, \"items\": [[\"b\", null], [\"a\", null]]}, {\"result\": null, \"items\": [[\"b\", null], [\"a\", null], [\"c\", 0]]}]}, \"actual\": {\"error\": \"ModuleNotFoundError\"}}}, {\"case_id\": \"hidden_10\", \"pass\": false, \"input_unchanged\": true, \"error\": {\"expected\": {\"value\": [{\"result\": \"missing\", \"items\": []}, {\"result\": [], \"items\": []}, {\"result\": null, \"items\": [[\"a\", 1]]}, {\"result\": \"missing\", \"items\": [[\"a\", 1]]}, {\"result\": \"missing\", \"items\": [[\"a\", 1]]}, {\"result\": [], \"items\": [[\"a\", 1]]}, {\"result\": null, \"items\": [[\"a\", 1], [\"c\", [2]]]}, {\"result\": null, \"items\": [[\"a\", 1], [\"c\", [2]], [\"c\", [2]]]}, {\"result\": null, \"items\": [[\"a\", 1], [\"c\", 0]]}, {\"result\": [1], \"items\": [[\"a\", 1], [\"c\", 0]]}, {\"result\": null, \"items\": [[\"c\", 0], [\"a\", 0]]}, {\"result\": \"missing\", \"items\": [[\"c\", 0], [\"a\", 0]]}, {\"result\": 0, \"items\": [[\"c\", 0], [\"a\", 0]]}, {\"result\": 0, \"items\": [[\"c\", 0], [\"a\", 0]]}, {\"result\": 0, \"items\": [[\"a\", 0]]}, {\"result\": null, \"items\": [[\"a\", 0], [\"b\", \"x\"]]}, {\"result\": null, \"items\": [[\"a\", 0]]}, {\"result\": null, \"items\": [[\"a\", 0], [\"b\", null]]}]}, \"actual\": {\"error\": \"ModuleNotFoundError\"}}}, {\"case_id\": \"hidden_11\", \"pass\": false, \"input_unchanged\": true, \"error\": {\"expected\": {\"value\": [{\"result\": null, \"items\": [[\"a\", 1]]}, {\"result\": [], \"items\": [[\"a\", 1]]}, {\"result\": null, \"items\": [[\"a\", 1], [\"a\", null]]}, {\"result\": {\"error\": \"KeyError\"}, \"items\": [[\"a\", 1], [\"a\", null]]}, {\"result\": null, \"items\": [[\"a\", 1], [\"a\", null]]}, {\"result\": {\"error\": \"KeyError\"}, \"items\": [[\"a\", 1], [\"a\", null]]}, {\"result\": null, \"items\": [[\"a\", 1], [\"a\", null], [\"b\", null]]}, {\"result\": \"missing\", \"items\": [[\"a\", 1], [\"a\", null], [\"b\", null]]}, {\"result\": null, \"items\": [[\"a\", 1], [\"a\", null], [\"b\", null]]}, {\"result\": null, \"items\": [[\"b\", null], [\"a\", 0]]}, {\"result\": null, \"items\": [[\"b\", null]]}, {\"result\": {\"error\": \"KeyError\"}, \"items\": [[\"b\", null]]}, {\"result\": [], \"items\": [[\"b\", null]]}, {\"result\": {\"error\": \"KeyError\"}, \"items\": [[\"b\", null]]}, {\"result\": [], \"items\": [[\"b\", null]]}, {\"result\": {\"error\": \"KeyError\"}, \"items\": [[\"b\", null]]}, {\"result\": null, \"items\": [[\"b\", null], [\"a\", 0]]}, {\"result\": null, \"items\": [[\"a\", 0]]}]}, \"actual\": {\"error\": \"ModuleNotFoundError\"}}}, {\"case_id\": \"hidden_12\", \"pass\": false, \"input_unchanged\": true, \"error\": {\"expected\": {\"value\": [{\"result\": {\"error\": \"KeyError\"}, \"items\": []}, {\"result\": [], \"items\": []}, {\"result\": \"missing\", \"items\": []}, {\"result\": null, \"items\": [[\"b\", 1]]}, {\"result\": {\"error\": \"KeyError\"}, \"items\": [[\"b\", 1]]}, {\"result\": {\"error\": \"KeyError\"}, \"items\": [[\"b\", 1]]}, {\"result\": {\"error\": \"KeyError\"}, \"items\": [[\"b\", 1]]}, {\"result\": null, \"items\": [[\"b\", 1], [\"c\", null]]}, {\"result\": [1], \"items\": [[\"b\", 1], [\"c\", null]]}, {\"result\": 1, \"items\": [[\"c\", null]]}, {\"result\": [null], \"items\": [[\"c\", null]]}, {\"result\": [null], \"items\": [[\"c\", null]]}, {\"result\": null, \"items\": []}, {\"result\": \"missing\", \"items\": []}, {\"result\": null, \"items\": [[\"a\", 0]]}, {\"result\": {\"error\": \"KeyError\"}, \"items\": [[\"a\", 0]]}, {\"result\": null, \"items\": [[\"a\", 0], [\"b\", 0]]}, {\"result\": null, \"items\": [[\"b\", 0], [\"a\", [2]]]}]}, \"actual\": {\"error\": \"ModuleNotFoundError\"}}}, {\"case_id\": \"hidden_13\", \"pass\": false, \"input_unchanged\": true, \"error\": {\"expected\": {\"value\": [{\"result\": null, \"items\": [[\"b\", 0]]}, {\"result\": null, \"items\": [[\"b\", 0], [\"a\", 0]]}, {\"result\": [], \"items\": [[\"b\", 0], [\"a\", 0]]}, {\"result\": null, \"items\": [[\"b\", 0], [\"a\", 0], [\"c\", 0]]}, {\"result\": null, \"items\": [[\"b\", 0], [\"c\", 0], [\"a\", \"x\"]]}, {\"result\": null, \"items\": [[\"b\", 0], [\"c\", 0]]}, {\"result\": null, \"items\": [[\"b\", 0], [\"c\", 0]]}, {\"result\": [0], \"items\": [[\"b\", 0], [\"c\", 0]]}, {\"result\": [0], \"items\": [[\"b\", 0], [\"c\", 0]]}, {\"result\": null, \"items\": [[\"b\", 0], [\"c\", 0], [\"a\", \"x\"]]}, {\"result\": [0], \"items\": [[\"b\", 0], [\"c\", 0], [\"a\", \"x\"]]}, {\"result\": null, \"items\": [[\"c\", 0], [\"a\", \"x\"], [\"b\", 0]]}, {\"result\": null, \"items\": [[\"c\", 0], [\"a\", \"x\"], [\"b\", 0], [\"b\", [2]]]}, {\"result\": 0, \"items\": [[\"c\", 0], [\"a\", \"x\"], [\"b\", 0], [\"b\", [2]]]}, {\"result\": [0], \"items\": [[\"c\", 0], [\"a\", \"x\"], [\"b\", 0], [\"b\", [2]]]}, {\"result\": [2], \"items\": [[\"c\", 0], [\"a\", \"x\"], [\"b\", 0], [\"b\", [2]]]}, {\"result\": null, \"items\": [[\"c\", 0], [\"a\", \"x\"], [\"b\", 0], [\"b\", [2]], [\"a\", 0]]}, {\"result\": 0, \"items\": [[\"a\", \"x\"], [\"b\", 0], [\"b\", [2]], [\"a\", 0]]}]}, \"actual\": {\"error\": \"ModuleNotFoundError\"}}}, {\"case_id\": \"hidden_14\", \"pass\": false, \"input_unchanged\": true, \"error\": {\"expected\": {\"value\": [{\"result\": [], \"items\": []}, {\"result\": {\"error\": \"KeyError\"}, \"items\": []}, {\"result\": [], \"items\": []}, {\"result\": null, \"items\": [[\"c\", 0]]}, {\"result\": null, \"items\": [[\"c\", 0], [\"b\", 0]]}, {\"result\": 0, \"items\": [[\"c\", 0]]}, {\"result\": null, \"items\": [[\"c\", 0], [\"b\", null]]}, {\"result\": \"missing\", \"items\": [[\"c\", 0], [\"b\", null]]}, {\"result\": null, \"items\": [[\"c\", 0], [\"b\", null], [\"c\", 0]]}, {\"result\": null, \"items\": [[\"b\", null], [\"c\", [2]]]}, {\"result\": \"missing\", \"items\": [[\"b\", null], [\"c\", [2]]]}, {\"result\": {\"error\": \"KeyError\"}, \"items\": [[\"b\", null], [\"c\", [2]]]}, {\"result\": [2], \"items\": [[\"b\", null]]}, {\"result\": null, \"items\": [[\"b\", null], [\"b\", 0]]}, {\"result\": null, \"items\": [[\"b\", null], [\"b\", 0], [\"c\", 0]]}, {\"result\": null, \"items\": [[\"b\", null], [\"b\", 0]]}, {\"result\": {\"error\": \"KeyError\"}, \"items\": [[\"b\", null], [\"b\", 0]]}, {\"result\": null, \"items\": [[\"b\", 0]]}]}, \"actual\": {\"error\": \"ModuleNotFoundError\"}}}, {\"case_id\": \"hidden_15\", \"pass\": false, \"input_unchanged\": true, \"error\": {\"expected\": {\"value\": [{\"result\": null, \"items\": [[\"c\", 1]]}, {\"result\": {\"error\": \"KeyError\"}, \"items\": [[\"c\", 1]]}, {\"result\": null, \"items\": [[\"c\", 1], [\"a\", [2]]]}, {\"result\": null, \"items\": [[\"c\", 1], [\"a\", [2]], [\"b\", [2]]]}, {\"result\": null, \"items\": [[\"c\", 1], [\"b\", [2]]]}, {\"result\": {\"error\": \"KeyError\"}, \"items\": [[\"c\", 1], [\"b\", [2]]]}, {\"result\": [1], \"items\": [[\"c\", 1], [\"b\", [2]]]}, {\"result\": [2], \"items\": [[\"c\", 1]]}, {\"result\": null, \"items\": [[\"c\", 1], [\"a\", [2]]]}, {\"result\": null, \"items\": [[\"c\", 1], [\"a\", [2]], [\"c\", null]]}, {\"result\": [1, null], \"items\": [[\"c\", 1], [\"a\", [2]], [\"c\", null]]}, {\"result\": null, \"items\": [[\"c\", 1], [\"c\", null], [\"a\", 1]]}, {\"result\": [1], \"items\": [[\"c\", 1], [\"c\", null], [\"a\", 1]]}, {\"result\": null, \"items\": [[\"c\", 1], [\"c\", null], [\"a\", 1], [\"b\", [2]]]}, {\"result\": null, \"items\": [[\"c\", 1], [\"c\", null], [\"a\", 1], [\"b\", [2]], [\"b\", [2]]]}, {\"result\": [2], \"items\": [[\"c\", 1], [\"c\", null], [\"a\", 1], [\"b\", [2]], [\"b\", [2]]]}, {\"result\": [2], \"items\": [[\"c\", 1], [\"c\", null], [\"a\", 1], [\"b\", [2]]]}, {\"result\": null, \"items\": [[\"c\", 1], [\"c\", null], [\"a\", 1], [\"b\", [2]], [\"b\", null]]}]}, \"actual\": {\"error\": \"ModuleNotFoundError\"}}}, {\"case_id\": \"hidden_16\", \"pass\": false, \"input_unchanged\": true, \"error\": {\"expected\": {\"value\": [{\"result\": {\"error\": \"KeyError\"}, \"items\": []}, {\"result\": [], \"items\": []}, {\"result\": \"missing\", \"items\": []}, {\"result\": null, \"items\": [[\"a\", 0]]}, {\"result\": {\"error\": \"KeyError\"}, \"items\": [[\"a\", 0]]}, {\"result\": null, \"items\": [[\"a\", 0], [\"a\", \"x\"]]}, {\"result\": null, \"items\": [[\"a\", 0], [\"a\", \"x\"], [\"b\", \"x\"]]}, {\"result\": \"x\", \"items\": [[\"a\", 0], [\"a\", \"x\"], [\"b\", \"x\"]]}, {\"result\": null, \"items\": [[\"a\", 0], [\"a\", \"x\"], [\"b\", \"x\"], [\"a\", [2]]]}, {\"result\": [\"x\"], \"items\": [[\"a\", 0], [\"a\", \"x\"], [\"b\", \"x\"], [\"a\", [2]]]}, {\"result\": [2], \"items\": [[\"a\", 0], [\"a\", \"x\"], [\"b\", \"x\"], [\"a\", [2]]]}, {\"result\": null, \"items\": [[\"a\", 0], [\"a\", \"x\"], [\"b\", \"x\"], [\"a\", [2]], [\"b\", \"x\"]]}, {\"result\": {\"error\": \"KeyError\"}, \"items\": [[\"a\", 0], [\"a\", \"x\"], [\"b\", \"x\"], [\"a\", [2]], [\"b\", \"x\"]]}, {\"result\": \"missing\", \"items\": [[\"a\", 0], [\"a\", \"x\"], [\"b\", \"x\"], [\"a\", [2]], [\"b\", \"x\"]]}, {\"result\": null, \"items\": [[\"a\", 0], [\"a\", \"x\"], [\"b\", \"x\"], [\"a\", [2]], [\"b\", \"x\"], [\"a\", 1]]}, {\"result\": {\"error\": \"KeyError\"}, \"items\": [[\"a\", 0], [\"a\", \"x\"], [\"b\", \"x\"], [\"a\", [2]], [\"b\", \"x\"], [\"a\", 1]]}, {\"result\": null, \"items\": [[\"a\", 0], [\"a\", \"x\"], [\"a\", [2]], [\"a\", 1], [\"b\", [2]]]}, {\"result\": [2], \"items\": [[\"a\", 0], [\"a\", \"x\"], [\"a\", [2]], [\"a\", 1], [\"b\", [2]]]}]}, \"actual\": {\"error\": \"ModuleNotFoundError\"}}}, {\"case_id\": \"hidden_17\", \"pass\": false, \"input_unchanged\": true, \"error\": {\"expected\": {\"value\": [{\"result\": [], \"items\": []}, {\"result\": null, \"items\": [[\"c\", null]]}, {\"result\": [null], \"items\": [[\"c\", null]]}, {\"result\": null, \"items\": [[\"c\", null], [\"b\", 0]]}, {\"result\": {\"error\": \"KeyError\"}, \"items\": [[\"c\", null], [\"b\", 0]]}, {\"result\": null, \"items\": [[\"c\", null], [\"b\", 0], [\"b\", [2]]]}, {\"result\": null, \"items\": [[\"b\", 0], [\"b\", [2]]]}, {\"result\": null, \"items\": [[\"b\", 0], [\"b\", [2]], [\"a\", [2]]]}, {\"result\": null, \"items\": [[\"b\", 0], [\"b\", [2]], [\"a\", [2]], [\"b\", \"x\"]]}, {\"result\": [[2]], \"items\": [[\"b\", 0], [\"b\", [2]], [\"a\", [2]], [\"b\", \"x\"]]}, {\"result\": [[2]], \"items\": [[\"b\", 0], [\"b\", [2]], [\"a\", [2]], [\"b\", \"x\"]]}, {\"result\": null, \"items\": [[\"a\", [2]]]}, {\"result\": null, \"items\": [[\"a\", [2]], [\"a\", 0]]}, {\"result\": 0, \"items\": [[\"a\", [2]], [\"a\", 0]]}, {\"result\": 0, \"items\": [[\"a\", [2]], [\"a\", 0]]}, {\"result\": null, \"items\": [[\"a\", [2]], [\"a\", 0], [\"b\", 0]]}, {\"result\": [[2], 0], \"items\": [[\"a\", [2]], [\"a\", 0], [\"b\", 0]]}, {\"result\": 0, \"items\": [[\"a\", [2]], [\"a\", 0]]}]}, \"actual\": {\"error\": \"ModuleNotFoundError\"}}}, {\"case_id\": \"hidden_18\", \"pass\": false, \"input_unchanged\": true, \"error\": {\"expected\": {\"value\": [{\"result\": null, \"items\": [[\"a\", 1]]}, {\"result\": null, \"items\": [[\"a\", 1], [\"a\", 2]]}, {\"result\": 2, \"items\": [[\"a\", 1]]}, {\"result\": [1], \"items\": [[\"a\", 1]]}, {\"result\": null, \"items\": []}, {\"result\": {\"error\": \"KeyError\"}, \"items\": []}, {\"result\": null, \"items\": [[\"b\", null]]}]}, \"actual\": {\"error\": \"ModuleNotFoundError\"}}}]}, \"error\": null, \"loaded_files\": {\"_frozen_importlib\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\importlib\\\\_bootstrap.py\", \"_frozen_importlib_external\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\importlib\\\\_bootstrap_external.py\", \"zipimport\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\zipimport.py\", \"codecs\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\codecs.py\", \"encodings.aliases\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\encodings\\\\aliases.py\", \"encodings\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\encodings\\\\__init__.py\", \"encodings.utf_8\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\encodings\\\\utf_8.py\", \"abc\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\abc.py\", \"io\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\io.py\", \"__main__\": \"D:\\\\yaorz\\\\research\\\\codeprm-reproduction\\\\experiments\\\\d1_portability_v2_isolation_20261008\\\\isolated_worker.py\", \"stat\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\stat.py\", \"_collections_abc\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\_collections_abc.py\", \"genericpath\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\genericpath.py\", \"ntpath\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\ntpath.py\", \"os.path\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\ntpath.py\", \"os\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\os.py\", \"collections.abc\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\_collections_abc.py\", \"keyword\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\keyword.py\", \"operator\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\operator.py\", \"reprlib\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\reprlib.py\", \"collections\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\collections\\\\__init__.py\", \"functools\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\functools.py\", \"types\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\types.py\", \"contextlib\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\contextlib.py\", \"importlib._bootstrap\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\importlib\\\\_bootstrap.py\", \"importlib._bootstrap_external\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\importlib\\\\_bootstrap_external.py\", \"importlib\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\importlib\\\\__init__.py\", \"importlib._abc\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\importlib\\\\_abc.py\", \"importlib.util\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\importlib\\\\util.py\", \"enum\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\enum.py\", \"re._constants\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\re\\\\_constants.py\", \"re._parser\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\re\\\\_parser.py\", \"re._casefix\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\re\\\\_casefix.py\", \"re._compiler\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\re\\\\_compiler.py\", \"copyreg\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\copyreg.py\", \"re\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\re\\\\__init__.py\", \"json.scanner\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\json\\\\scanner.py\", \"json.decoder\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\json\\\\decoder.py\", \"json.encoder\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\json\\\\encoder.py\", \"json\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\json\\\\__init__.py\", \"linecache\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\linecache.py\", \"textwrap\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\textwrap.py\", \"warnings\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\warnings.py\", \"__future__\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\__future__.py\", \"_colorize\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\_colorize.py\", \"traceback\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\traceback.py\", \"posixpath\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\posixpath.py\", \"fnmatch\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\fnmatch.py\", \"glob\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\glob.py\", \"pathlib._abc\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\pathlib\\\\_abc.py\", \"pathlib._local\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\pathlib\\\\_local.py\", \"pathlib\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\pathlib\\\\__init__.py\", \"gettext\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\gettext.py\", \"argparse\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\argparse.py\", \"_weakrefset\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\_weakrefset.py\", \"weakref\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\weakref.py\", \"copy\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\copy.py\", \"locale\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\locale.py\", \"_compression\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\_compression.py\", \"_bz2\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\DLLs\\\\_bz2.pyd\", \"bz2\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\bz2.py\", \"_lzma\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\DLLs\\\\_lzma.pyd\", \"lzma\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\lzma.py\", \"shutil\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\shutil.py\", \"bisect\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\bisect.py\", \"random\": \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\\\\random.py\", \"task_specs_expansion\": \"D:\\\\yaorz\\\\research\\\\codeprm-reproduction\\\\experiments\\\\d1_portability_v2_isolation_20261008\\\\解压到不同目录\\\\dataset\\\\private\\\\_curator\\\\task_specs_expansion.py\", \"task_specs_snapshot\": \"D:\\\\yaorz\\\\research\\\\codeprm-reproduction\\\\experiments\\\\d1_portability_v2_isolation_20261008\\\\解压到不同目录\\\\dataset\\\\private\\\\_curator\\\\task_specs_snapshot.py\"}, \"sys_path\": [\"D:\\\\yaorz\\\\research\\\\codeprm-reproduction\\\\experiments\\\\data\\\\raw\\\\d1_project_v1_20261008\\\\repositories\\\\confuse\", \"D:\\\\yaorz\\\\research\\\\codeprm-reproduction\\\\experiments\\\\data\\\\raw\\\\d1_project_v1_20261008\\\\repositories\\\\cachetools\\\\src\", \"D:\\\\yaorz\\\\research\\\\codeprm-reproduction\\\\experiments\\\\data\\\\raw\\\\d1_project_v1_20261008\\\\repositories\\\\more_itertools\", \"D:\\\\yaorz\\\\research\\\\codeprm-reproduction\\\\experiments\\\\data\\\\raw\\\\d1_project_v1_20261008\\\\repositories\\\\boltons\", \"D:\\\\yaorz\\\\research\\\\codeprm-reproduction\\\\experiments\\\\data\\\\raw\\\\d1_project_v1_20261008\\\\repositories\\\\confuse\", \"D:\\\\yaorz\\\\research\\\\codeprm-reproduction\\\\experiments\\\\data\\\\raw\\\\d1_project_v1_20261008\\\\repositories\\\\cachetools\\\\src\", \"D:\\\\yaorz\\\\research\\\\codeprm-reproduction\\\\experiments\\\\data\\\\raw\\\\d1_project_v1_20261008\\\\repositories\\\\more_itertools\", \"D:\\\\yaorz\\\\research\\\\codeprm-reproduction\\\\experiments\\\\data\\\\raw\\\\d1_project_v1_20261008\\\\repositories\\\\boltons\", \"D:\\\\yaorz\\\\research\\\\codeprm-reproduction\\\\experiments\\\\d1_portability_v2_isolation_20261008\\\\解压到不同目录\\\\dataset\\\\private\\\\_curator\", \"D:\\\\yaorz\\\\tools\\\\python_new\\\\python313.zip\", \"D:\\\\yaorz\\\\tools\\\\python_new\\\\DLLs\", \"D:\\\\yaorz\\\\tools\\\\python_new\\\\Lib\", \"D:\\\\yaorz\\\\tools\\\\python_new\"], \"isolated\": 1, \"no_site\": 1}\r\n",
+  "stderr": "",
+  "failure": null,
+  "returncode": 0,
+  "seconds": 0.08112070000061067,
+  "captured_bytes": 25886,
+  "child": {
+    "evaluation": {
+      "cases": 20,
+      "passed": 0,
+      "all_pass": false,
+      "results": [
+        {
+          "case_id": "public_1",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      1
+                    ],
+                    [
+                      "b",
+                      2
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      1
+                    ],
+                    [
+                      "b",
+                      2
+                    ],
+                    [
+                      "a",
+                      3
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    1,
+                    3
+                  ],
+                  "items": [
+                    [
+                      "a",
+                      1
+                    ],
+                    [
+                      "b",
+                      2
+                    ],
+                    [
+                      "a",
+                      3
+                    ]
+                  ]
+                }
+              ]
+            },
+            "actual": {
+              "error": "ModuleNotFoundError"
+            }
+          }
+        },
+        {
+          "case_id": "public_2",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": []
+            },
+            "actual": {
+              "error": "ModuleNotFoundError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_1",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": []
+            },
+            "actual": {
+              "error": "ModuleNotFoundError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_2",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": "missing",
+                  "items": []
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": []
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": "missing",
+                  "items": [
+                    [
+                      "b",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      0
+                    ],
+                    [
+                      "c",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      null
+                    ],
+                    [
+                      "b",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      null
+                    ],
+                    [
+                      "b",
+                      0
+                    ],
+                    [
+                      "b",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      null
+                    ],
+                    [
+                      "b",
+                      0
+                    ],
+                    [
+                      "b",
+                      null
+                    ],
+                    [
+                      "a",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      null
+                    ],
+                    [
+                      "b",
+                      0
+                    ],
+                    [
+                      "a",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      null
+                    ],
+                    [
+                      "b",
+                      0
+                    ],
+                    [
+                      "a",
+                      null
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      null
+                    ],
+                    [
+                      "b",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": [],
+                  "items": [
+                    [
+                      "c",
+                      null
+                    ],
+                    [
+                      "b",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      null
+                    ],
+                    [
+                      "b",
+                      0
+                    ],
+                    [
+                      "b",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": [
+                    [
+                      "c",
+                      null
+                    ],
+                    [
+                      "b",
+                      0
+                    ],
+                    [
+                      "b",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    null
+                  ],
+                  "items": [
+                    [
+                      "c",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      null
+                    ],
+                    [
+                      "b",
+                      1
+                    ]
+                  ]
+                }
+              ]
+            },
+            "actual": {
+              "error": "ModuleNotFoundError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_3",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": "missing",
+                  "items": []
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": []
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": [],
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": "missing",
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "b",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    null
+                  ],
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "b",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "b",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "b",
+                      null
+                    ],
+                    [
+                      "c",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "b",
+                      null
+                    ],
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "c",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": 1,
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "b",
+                      null
+                    ],
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "c",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "b",
+                      null
+                    ],
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "c",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "b",
+                      null
+                    ],
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "c",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "b",
+                      null
+                    ],
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "c",
+                      null
+                    ],
+                    [
+                      "b",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "b",
+                      null
+                    ],
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "c",
+                      null
+                    ],
+                    [
+                      "b",
+                      null
+                    ],
+                    [
+                      "b",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    null,
+                    null,
+                    null
+                  ],
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "b",
+                      null
+                    ],
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "c",
+                      null
+                    ],
+                    [
+                      "b",
+                      null
+                    ],
+                    [
+                      "b",
+                      null
+                    ]
+                  ]
+                }
+              ]
+            },
+            "actual": {
+              "error": "ModuleNotFoundError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_4",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": "missing",
+                  "items": [
+                    [
+                      "b",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      "x"
+                    ],
+                    [
+                      "a",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": [
+                    [
+                      "b",
+                      "x"
+                    ],
+                    [
+                      "a",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": [
+                    [
+                      "b",
+                      "x"
+                    ],
+                    [
+                      "a",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      "x"
+                    ],
+                    [
+                      "a",
+                      1
+                    ],
+                    [
+                      "c",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      "x"
+                    ],
+                    [
+                      "c",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      "x"
+                    ],
+                    [
+                      "c",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": "missing",
+                  "items": [
+                    [
+                      "b",
+                      "x"
+                    ],
+                    [
+                      "c",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": "x",
+                  "items": [
+                    [
+                      "b",
+                      "x"
+                    ],
+                    [
+                      "c",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": [
+                    [
+                      "b",
+                      "x"
+                    ],
+                    [
+                      "c",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      "x"
+                    ],
+                    [
+                      "c",
+                      "x"
+                    ],
+                    [
+                      "b",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      "x"
+                    ],
+                    [
+                      "c",
+                      "x"
+                    ],
+                    [
+                      "b",
+                      1
+                    ],
+                    [
+                      "a",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": 1,
+                  "items": [
+                    [
+                      "b",
+                      "x"
+                    ],
+                    [
+                      "c",
+                      "x"
+                    ],
+                    [
+                      "a",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      "x"
+                    ],
+                    [
+                      "c",
+                      "x"
+                    ],
+                    [
+                      "a",
+                      null
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": "x",
+                  "items": [
+                    [
+                      "b",
+                      "x"
+                    ],
+                    [
+                      "a",
+                      null
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            },
+            "actual": {
+              "error": "ModuleNotFoundError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_5",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": [],
+                  "items": [
+                    [
+                      "c",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": [
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": [
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": [
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "b",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "b",
+                      "x"
+                    ],
+                    [
+                      "c",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "b",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": [
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "b",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": [
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "b",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": "x",
+                  "items": []
+                },
+                {
+                  "result": [],
+                  "items": []
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": []
+                },
+                {
+                  "result": "missing",
+                  "items": []
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": []
+                }
+              ]
+            },
+            "actual": {
+              "error": "ModuleNotFoundError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_6",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": [],
+                  "items": [
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": 0,
+                  "items": [
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "b",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "b",
+                      "x"
+                    ],
+                    [
+                      "a",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "b",
+                      "x"
+                    ],
+                    [
+                      "a",
+                      1
+                    ],
+                    [
+                      "c",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": 1,
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "b",
+                      "x"
+                    ],
+                    [
+                      "c",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "c",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": [],
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "c",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": 0,
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "c",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    0
+                  ],
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "c",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": "missing",
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "c",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "c",
+                      null
+                    ],
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": [],
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "c",
+                      null
+                    ],
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    null
+                  ],
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "c",
+                      null
+                    ],
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": [],
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                }
+              ]
+            },
+            "actual": {
+              "error": "ModuleNotFoundError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_7",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": "missing",
+                  "items": []
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": []
+                },
+                {
+                  "result": "missing",
+                  "items": []
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": []
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": []
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": []
+                },
+                {
+                  "result": "missing",
+                  "items": []
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": []
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": []
+                },
+                {
+                  "result": "missing",
+                  "items": []
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": []
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": []
+                },
+                {
+                  "result": [],
+                  "items": []
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    "x"
+                  ],
+                  "items": [
+                    [
+                      "b",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": [],
+                  "items": [
+                    [
+                      "b",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      "x"
+                    ],
+                    [
+                      "c",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      "x"
+                    ],
+                    [
+                      "c",
+                      1
+                    ]
+                  ]
+                }
+              ]
+            },
+            "actual": {
+              "error": "ModuleNotFoundError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_8",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": "missing",
+                  "items": []
+                },
+                {
+                  "result": "missing",
+                  "items": []
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": [
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "b",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    [
+                      2
+                    ]
+                  ],
+                  "items": [
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "b",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": 0,
+                  "items": [
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "b",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "b",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    2
+                  ],
+                  "items": [
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": [],
+                  "items": [
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      1
+                    ],
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      1
+                    ],
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "b",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    0,
+                    [
+                      2
+                    ],
+                    1,
+                    0
+                  ],
+                  "items": [
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      1
+                    ],
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "b",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    [
+                      2
+                    ]
+                  ],
+                  "items": [
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      1
+                    ],
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "b",
+                      "x"
+                    ]
+                  ]
+                }
+              ]
+            },
+            "actual": {
+              "error": "ModuleNotFoundError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_9",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    "x"
+                  ],
+                  "items": [
+                    [
+                      "a",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": "missing",
+                  "items": [
+                    [
+                      "a",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "b",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": [
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "b",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "b",
+                      null
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": [
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "b",
+                      null
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": [],
+                  "items": [
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "b",
+                      null
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    [
+                      2
+                    ]
+                  ],
+                  "items": [
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": [
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "b",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "b",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": "missing",
+                  "items": [
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "b",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      null
+                    ],
+                    [
+                      "a",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      null
+                    ],
+                    [
+                      "a",
+                      null
+                    ],
+                    [
+                      "c",
+                      0
+                    ]
+                  ]
+                }
+              ]
+            },
+            "actual": {
+              "error": "ModuleNotFoundError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_10",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": "missing",
+                  "items": []
+                },
+                {
+                  "result": [],
+                  "items": []
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": "missing",
+                  "items": [
+                    [
+                      "a",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": "missing",
+                  "items": [
+                    [
+                      "a",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": [],
+                  "items": [
+                    [
+                      "a",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      1
+                    ],
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      1
+                    ],
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      1
+                    ],
+                    [
+                      "c",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    1
+                  ],
+                  "items": [
+                    [
+                      "a",
+                      1
+                    ],
+                    [
+                      "c",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      0
+                    ],
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": "missing",
+                  "items": [
+                    [
+                      "c",
+                      0
+                    ],
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": 0,
+                  "items": [
+                    [
+                      "c",
+                      0
+                    ],
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": 0,
+                  "items": [
+                    [
+                      "c",
+                      0
+                    ],
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": 0,
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "b",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "b",
+                      null
+                    ]
+                  ]
+                }
+              ]
+            },
+            "actual": {
+              "error": "ModuleNotFoundError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_11",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": [],
+                  "items": [
+                    [
+                      "a",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      1
+                    ],
+                    [
+                      "a",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": [
+                    [
+                      "a",
+                      1
+                    ],
+                    [
+                      "a",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      1
+                    ],
+                    [
+                      "a",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": [
+                    [
+                      "a",
+                      1
+                    ],
+                    [
+                      "a",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      1
+                    ],
+                    [
+                      "a",
+                      null
+                    ],
+                    [
+                      "b",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": "missing",
+                  "items": [
+                    [
+                      "a",
+                      1
+                    ],
+                    [
+                      "a",
+                      null
+                    ],
+                    [
+                      "b",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      1
+                    ],
+                    [
+                      "a",
+                      null
+                    ],
+                    [
+                      "b",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      null
+                    ],
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": [
+                    [
+                      "b",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": [],
+                  "items": [
+                    [
+                      "b",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": [
+                    [
+                      "b",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": [],
+                  "items": [
+                    [
+                      "b",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": [
+                    [
+                      "b",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      null
+                    ],
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                }
+              ]
+            },
+            "actual": {
+              "error": "ModuleNotFoundError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_12",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": []
+                },
+                {
+                  "result": [],
+                  "items": []
+                },
+                {
+                  "result": "missing",
+                  "items": []
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": [
+                    [
+                      "b",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": [
+                    [
+                      "b",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": [
+                    [
+                      "b",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      1
+                    ],
+                    [
+                      "c",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    1
+                  ],
+                  "items": [
+                    [
+                      "b",
+                      1
+                    ],
+                    [
+                      "c",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": 1,
+                  "items": [
+                    [
+                      "c",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    null
+                  ],
+                  "items": [
+                    [
+                      "c",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    null
+                  ],
+                  "items": [
+                    [
+                      "c",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": []
+                },
+                {
+                  "result": "missing",
+                  "items": []
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "b",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      0
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            },
+            "actual": {
+              "error": "ModuleNotFoundError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_13",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      0
+                    ],
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": [],
+                  "items": [
+                    [
+                      "b",
+                      0
+                    ],
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      0
+                    ],
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "c",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      0
+                    ],
+                    [
+                      "c",
+                      0
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      0
+                    ],
+                    [
+                      "c",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      0
+                    ],
+                    [
+                      "c",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    0
+                  ],
+                  "items": [
+                    [
+                      "b",
+                      0
+                    ],
+                    [
+                      "c",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    0
+                  ],
+                  "items": [
+                    [
+                      "b",
+                      0
+                    ],
+                    [
+                      "c",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      0
+                    ],
+                    [
+                      "c",
+                      0
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    0
+                  ],
+                  "items": [
+                    [
+                      "b",
+                      0
+                    ],
+                    [
+                      "c",
+                      0
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      0
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "b",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      0
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "b",
+                      0
+                    ],
+                    [
+                      "b",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": 0,
+                  "items": [
+                    [
+                      "c",
+                      0
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "b",
+                      0
+                    ],
+                    [
+                      "b",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    0
+                  ],
+                  "items": [
+                    [
+                      "c",
+                      0
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "b",
+                      0
+                    ],
+                    [
+                      "b",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    2
+                  ],
+                  "items": [
+                    [
+                      "c",
+                      0
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "b",
+                      0
+                    ],
+                    [
+                      "b",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      0
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "b",
+                      0
+                    ],
+                    [
+                      "b",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": 0,
+                  "items": [
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "b",
+                      0
+                    ],
+                    [
+                      "b",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                }
+              ]
+            },
+            "actual": {
+              "error": "ModuleNotFoundError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_14",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": [],
+                  "items": []
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": []
+                },
+                {
+                  "result": [],
+                  "items": []
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      0
+                    ],
+                    [
+                      "b",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": 0,
+                  "items": [
+                    [
+                      "c",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      0
+                    ],
+                    [
+                      "b",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": "missing",
+                  "items": [
+                    [
+                      "c",
+                      0
+                    ],
+                    [
+                      "b",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      0
+                    ],
+                    [
+                      "b",
+                      null
+                    ],
+                    [
+                      "c",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      null
+                    ],
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": "missing",
+                  "items": [
+                    [
+                      "b",
+                      null
+                    ],
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": [
+                    [
+                      "b",
+                      null
+                    ],
+                    [
+                      "c",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    2
+                  ],
+                  "items": [
+                    [
+                      "b",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      null
+                    ],
+                    [
+                      "b",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      null
+                    ],
+                    [
+                      "b",
+                      0
+                    ],
+                    [
+                      "c",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      null
+                    ],
+                    [
+                      "b",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": [
+                    [
+                      "b",
+                      null
+                    ],
+                    [
+                      "b",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      0
+                    ]
+                  ]
+                }
+              ]
+            },
+            "actual": {
+              "error": "ModuleNotFoundError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_15",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": [
+                    [
+                      "c",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "b",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "b",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": [
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "b",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    1
+                  ],
+                  "items": [
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "b",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    2
+                  ],
+                  "items": [
+                    [
+                      "c",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "c",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    1,
+                    null
+                  ],
+                  "items": [
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "c",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "c",
+                      null
+                    ],
+                    [
+                      "a",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    1
+                  ],
+                  "items": [
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "c",
+                      null
+                    ],
+                    [
+                      "a",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "c",
+                      null
+                    ],
+                    [
+                      "a",
+                      1
+                    ],
+                    [
+                      "b",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "c",
+                      null
+                    ],
+                    [
+                      "a",
+                      1
+                    ],
+                    [
+                      "b",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "b",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    2
+                  ],
+                  "items": [
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "c",
+                      null
+                    ],
+                    [
+                      "a",
+                      1
+                    ],
+                    [
+                      "b",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "b",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    2
+                  ],
+                  "items": [
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "c",
+                      null
+                    ],
+                    [
+                      "a",
+                      1
+                    ],
+                    [
+                      "b",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      1
+                    ],
+                    [
+                      "c",
+                      null
+                    ],
+                    [
+                      "a",
+                      1
+                    ],
+                    [
+                      "b",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "b",
+                      null
+                    ]
+                  ]
+                }
+              ]
+            },
+            "actual": {
+              "error": "ModuleNotFoundError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_16",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": []
+                },
+                {
+                  "result": [],
+                  "items": []
+                },
+                {
+                  "result": "missing",
+                  "items": []
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "b",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": "x",
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "b",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "b",
+                      "x"
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    "x"
+                  ],
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "b",
+                      "x"
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    2
+                  ],
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "b",
+                      "x"
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "b",
+                      "x"
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "b",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "b",
+                      "x"
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "b",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": "missing",
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "b",
+                      "x"
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "b",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "b",
+                      "x"
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "b",
+                      "x"
+                    ],
+                    [
+                      "a",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "b",
+                      "x"
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "b",
+                      "x"
+                    ],
+                    [
+                      "a",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      1
+                    ],
+                    [
+                      "b",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    2
+                  ],
+                  "items": [
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "a",
+                      "x"
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      1
+                    ],
+                    [
+                      "b",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                }
+              ]
+            },
+            "actual": {
+              "error": "ModuleNotFoundError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_17",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": [],
+                  "items": []
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    null
+                  ],
+                  "items": [
+                    [
+                      "c",
+                      null
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      null
+                    ],
+                    [
+                      "b",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": [
+                    [
+                      "c",
+                      null
+                    ],
+                    [
+                      "b",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "c",
+                      null
+                    ],
+                    [
+                      "b",
+                      0
+                    ],
+                    [
+                      "b",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      0
+                    ],
+                    [
+                      "b",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      0
+                    ],
+                    [
+                      "b",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      0
+                    ],
+                    [
+                      "b",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "b",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    [
+                      2
+                    ]
+                  ],
+                  "items": [
+                    [
+                      "b",
+                      0
+                    ],
+                    [
+                      "b",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "b",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    [
+                      2
+                    ]
+                  ],
+                  "items": [
+                    [
+                      "b",
+                      0
+                    ],
+                    [
+                      "b",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "b",
+                      "x"
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": 0,
+                  "items": [
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": 0,
+                  "items": [
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "b",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    [
+                      2
+                    ],
+                    0
+                  ],
+                  "items": [
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      0
+                    ],
+                    [
+                      "b",
+                      0
+                    ]
+                  ]
+                },
+                {
+                  "result": 0,
+                  "items": [
+                    [
+                      "a",
+                      [
+                        2
+                      ]
+                    ],
+                    [
+                      "a",
+                      0
+                    ]
+                  ]
+                }
+              ]
+            },
+            "actual": {
+              "error": "ModuleNotFoundError"
+            }
+          }
+        },
+        {
+          "case_id": "hidden_18",
+          "pass": false,
+          "input_unchanged": true,
+          "error": {
+            "expected": {
+              "value": [
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "a",
+                      1
+                    ],
+                    [
+                      "a",
+                      2
+                    ]
+                  ]
+                },
+                {
+                  "result": 2,
+                  "items": [
+                    [
+                      "a",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": [
+                    1
+                  ],
+                  "items": [
+                    [
+                      "a",
+                      1
+                    ]
+                  ]
+                },
+                {
+                  "result": null,
+                  "items": []
+                },
+                {
+                  "result": {
+                    "error": "KeyError"
+                  },
+                  "items": []
+                },
+                {
+                  "result": null,
+                  "items": [
+                    [
+                      "b",
+                      null
+                    ]
+                  ]
+                }
+              ]
+            },
+            "actual": {
+              "error": "ModuleNotFoundError"
+            }
+          }
+        }
+      ]
+    },
+    "error": null,
+    "loaded_files": {
+      "_frozen_importlib": "D:\\yaorz\\tools\\python_new\\Lib\\importlib\\_bootstrap.py",
+      "_frozen_importlib_external": "D:\\yaorz\\tools\\python_new\\Lib\\importlib\\_bootstrap_external.py",
+      "zipimport": "D:\\yaorz\\tools\\python_new\\Lib\\zipimport.py",
+      "codecs": "D:\\yaorz\\tools\\python_new\\Lib\\codecs.py",
+      "encodings.aliases": "D:\\yaorz\\tools\\python_new\\Lib\\encodings\\aliases.py",
+      "encodings": "D:\\yaorz\\tools\\python_new\\Lib\\encodings\\__init__.py",
+      "encodings.utf_8": "D:\\yaorz\\tools\\python_new\\Lib\\encodings\\utf_8.py",
+      "abc": "D:\\yaorz\\tools\\python_new\\Lib\\abc.py",
+      "io": "D:\\yaorz\\tools\\python_new\\Lib\\io.py",
+      "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py",
+      "stat": "D:\\yaorz\\tools\\python_new\\Lib\\stat.py",
+      "_collections_abc": "D:\\yaorz\\tools\\python_new\\Lib\\_collections_abc.py",
+      "genericpath": "D:\\yaorz\\tools\\python_new\\Lib\\genericpath.py",
+      "ntpath": "D:\\yaorz\\tools\\python_new\\Lib\\ntpath.py",
+      "os.path": "D:\\yaorz\\tools\\python_new\\Lib\\ntpath.py",
+      "os": "D:\\yaorz\\tools\\python_new\\Lib\\os.py",
+      "collections.abc": "D:\\yaorz\\tools\\python_new\\Lib\\_collections_abc.py",
+      "keyword": "D:\\yaorz\\tools\\python_new\\Lib\\keyword.py",
+      "operator": "D:\\yaorz\\tools\\python_new\\Lib\\operator.py",
+      "reprlib": "D:\\yaorz\\tools\\python_new\\Lib\\reprlib.py",
+      "collections": "D:\\yaorz\\tools\\python_new\\Lib\\collections\\__init__.py",
+      "functools": "D:\\yaorz\\tools\\python_new\\Lib\\functools.py",
+      "types": "D:\\yaorz\\tools\\python_new\\Lib\\types.py",
+      "contextlib": "D:\\yaorz\\tools\\python_new\\Lib\\contextlib.py",
+      "importlib._bootstrap": "D:\\yaorz\\tools\\python_new\\Lib\\importlib\\_bootstrap.py",
+      "importlib._bootstrap_external": "D:\\yaorz\\tools\\python_new\\Lib\\importlib\\_bootstrap_external.py",
+      "importlib": "D:\\yaorz\\tools\\python_new\\Lib\\importlib\\__init__.py",
+      "importlib._abc": "D:\\yaorz\\tools\\python_new\\Lib\\importlib\\_abc.py",
+      "importlib.util": "D:\\yaorz\\tools\\python_new\\Lib\\importlib\\util.py",
+      "enum": "D:\\yaorz\\tools\\python_new\\Lib\\enum.py",
+      "re._constants": "D:\\yaorz\\tools\\python_new\\Lib\\re\\_constants.py",
+      "re._parser": "D:\\yaorz\\tools\\python_new\\Lib\\re\\_parser.py",
+      "re._casefix": "D:\\yaorz\\tools\\python_new\\Lib\\re\\_casefix.py",
+      "re._compiler": "D:\\yaorz\\tools\\python_new\\Lib\\re\\_compiler.py",
+      "copyreg": "D:\\yaorz\\tools\\python_new\\Lib\\copyreg.py",
+      "re": "D:\\yaorz\\tools\\python_new\\Lib\\re\\__init__.py",
+      "json.scanner": "D:\\yaorz\\tools\\python_new\\Lib\\json\\scanner.py",
+      "json.decoder": "D:\\yaorz\\tools\\python_new\\Lib\\json\\decoder.py",
+      "json.encoder": "D:\\yaorz\\tools\\python_new\\Lib\\json\\encoder.py",
+      "json": "D:\\yaorz\\tools\\python_new\\Lib\\json\\__init__.py",
+      "linecache": "D:\\yaorz\\tools\\python_new\\Lib\\linecache.py",
+      "textwrap": "D:\\yaorz\\tools\\python_new\\Lib\\textwrap.py",
+      "warnings": "D:\\yaorz\\tools\\python_new\\Lib\\warnings.py",
+      "__future__": "D:\\yaorz\\tools\\python_new\\Lib\\__future__.py",
+      "_colorize": "D:\\yaorz\\tools\\python_new\\Lib\\_colorize.py",
+      "traceback": "D:\\yaorz\\tools\\python_new\\Lib\\traceback.py",
+      "posixpath": "D:\\yaorz\\tools\\python_new\\Lib\\posixpath.py",
+      "fnmatch": "D:\\yaorz\\tools\\python_new\\Lib\\fnmatch.py",
+      "glob": "D:\\yaorz\\tools\\python_new\\Lib\\glob.py",
+      "pathlib._abc": "D:\\yaorz\\tools\\python_new\\Lib\\pathlib\\_abc.py",
+      "pathlib._local": "D:\\yaorz\\tools\\python_new\\Lib\\pathlib\\_local.py",
+      "pathlib": "D:\\yaorz\\tools\\python_new\\Lib\\pathlib\\__init__.py",
+      "gettext": "D:\\yaorz\\tools\\python_new\\Lib\\gettext.py",
+      "argparse": "D:\\yaorz\\tools\\python_new\\Lib\\argparse.py",
+      "_weakrefset": "D:\\yaorz\\tools\\python_new\\Lib\\_weakrefset.py",
+      "weakref": "D:\\yaorz\\tools\\python_new\\Lib\\weakref.py",
+      "copy": "D:\\yaorz\\tools\\python_new\\Lib\\copy.py",
+      "locale": "D:\\yaorz\\tools\\python_new\\Lib\\locale.py",
+      "_compression": "D:\\yaorz\\tools\\python_new\\Lib\\_compression.py",
+      "_bz2": "D:\\yaorz\\tools\\python_new\\DLLs\\_bz2.pyd",
+      "bz2": "D:\\yaorz\\tools\\python_new\\Lib\\bz2.py",
+      "_lzma": "D:\\yaorz\\tools\\python_new\\DLLs\\_lzma.pyd",
+      "lzma": "D:\\yaorz\\tools\\python_new\\Lib\\lzma.py",
+      "shutil": "D:\\yaorz\\tools\\python_new\\Lib\\shutil.py",
+      "bisect": "D:\\yaorz\\tools\\python_new\\Lib\\bisect.py",
+      "random": "D:\\yaorz\\tools\\python_new\\Lib\\random.py",
+      "task_specs_expansion": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\解压到不同目录\\dataset\\private\\_curator\\task_specs_expansion.py",
+      "task_specs_snapshot": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\解压到不同目录\\dataset\\private\\_curator\\task_specs_snapshot.py"
+    },
+    "sys_path": [
+      "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\data\\raw\\d1_project_v1_20261008\\repositories\\confuse",
+      "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\data\\raw\\d1_project_v1_20261008\\repositories\\cachetools\\src",
+      "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\data\\raw\\d1_project_v1_20261008\\repositories\\more_itertools",
+      "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\data\\raw\\d1_project_v1_20261008\\repositories\\boltons",
+      "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\data\\raw\\d1_project_v1_20261008\\repositories\\confuse",
+      "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\data\\raw\\d1_project_v1_20261008\\repositories\\cachetools\\src",
+      "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\data\\raw\\d1_project_v1_20261008\\repositories\\more_itertools",
+      "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\data\\raw\\d1_project_v1_20261008\\repositories\\boltons",
+      "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\解压到不同目录\\dataset\\private\\_curator",
+      "D:\\yaorz\\tools\\python_new\\python313.zip",
+      "D:\\yaorz\\tools\\python_new\\DLLs",
+      "D:\\yaorz\\tools\\python_new\\Lib",
+      "D:\\yaorz\\tools\\python_new"
+    ],
+    "isolated": 1,
+    "no_site": 1
+  },
+  "external_loaded_files": {
+    "__main__": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_portability_v2_isolation_20261008\\isolated_worker.py"
+  },
+  "pass": false
+}

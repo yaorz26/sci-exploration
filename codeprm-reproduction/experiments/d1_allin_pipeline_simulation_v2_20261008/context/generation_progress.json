@@ -1,0 +1,17 @@
+[
+  {
+    "task_id": "S01",
+    "arm": "M0",
+    "candidate_index": 0,
+    "generation_error": "BudgetRefusal: 输入无法完整纳入上下文，禁止默默截断题面",
+    "failure_category": "budget_or_context_failure",
+    "candidate_path": null,
+    "candidate_sha256": null,
+    "total_token_spend": 0,
+    "cost_status": "known",
+    "api_calls": 0,
+    "request_ledger_sha256": "d61b22e355cbe924ac376b3e7cabb46f0b7b51b8d244093ce983f2f58bb6d2f9",
+    "request_ledger_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_allin_pipeline_simulation_v2_20261008\\context\\candidates\\S01\\M0\\requests\\ledger.json",
+    "budget_limit": 6500
+  }
+]

@@ -1,0 +1,37 @@
+{
+  "experiment_id": "p5d_functionized_candidates_20260920",
+  "created_before_confirmation_generation": true,
+  "pilot_problem_count": 5,
+  "pilot_model": "qwen2.5-coder:7b",
+  "pilot_seed": 42,
+  "target_output_tokens_per_problem": 971.2,
+  "source_arm": {
+    "method": "m2a_json_repairv1_a1",
+    "total_output_tokens": 4856,
+    "problems": 5,
+    "decompositions_per_problem": 2,
+    "implementations_per_function": 2,
+    "max_combinations_per_decomposition": 8
+  },
+  "m0_direct": {
+    "pilot_total_output_tokens": 687,
+    "pilot_generation_requests": 10,
+    "mean_output_tokens_per_candidate": 68.7,
+    "confirmation_candidates_per_problem": 14,
+    "estimated_output_tokens_per_problem": 961.8,
+    "estimated_difference_from_target_percent": -0.968
+  },
+  "f1_functionized": {
+    "authoritative_pilot_suffix": "v2",
+    "pilot_total_output_tokens": 986,
+    "pilot_generation_requests": 10,
+    "mean_output_tokens_per_candidate": 98.6,
+    "confirmation_candidates_per_problem": 10,
+    "estimated_output_tokens_per_problem": 986.0,
+    "estimated_difference_from_target_percent": 1.524
+  },
+  "rounding_rule": "max(2, round(target_output_tokens_per_problem / pilot_mean_output_tokens_per_candidate))",
+  "primary_budget_scope": "model output tokens; prompt tokens, model time, calls, and CPU execution are reported separately",
+  "confirmation_problem_count": 19,
+  "frozen_before_confirmation": true
+}

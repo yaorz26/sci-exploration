@@ -1,0 +1,69 @@
+{
+  "created_at": "2026-10-09T03:15:52.547157+00:00",
+  "spans": {
+    "plain_control": {
+      "short": [],
+      "CSI": []
+    },
+    "ordinary_codes": {
+      "short": [
+        [
+          9,
+          11
+        ]
+      ],
+      "CSI": [
+        [
+          1,
+          6
+        ]
+      ]
+    },
+    "CSI_creates_short": {
+      "short": [],
+      "CSI": [
+        [
+          1,
+          6
+        ]
+      ]
+    },
+    "short_creates_CSI": {
+      "short": [
+        [
+          1,
+          3
+        ]
+      ],
+      "CSI": []
+    },
+    "CSI_creates_CSI": {
+      "short": [],
+      "CSI": [
+        [
+          1,
+          6
+        ]
+      ]
+    },
+    "incomplete_control": {
+      "short": [],
+      "CSI": []
+    }
+  },
+  "span_provenance": "新程序执行前，逐字零基半开区间解析；P54执行后，不倒称原P54预期",
+  "saved_terminal_sha256": "4bcdd1fe25601201880c034ba0716548ad9266fefe819dc0cdf3f7b1235905f1",
+  "saved_inputs_sha256": "9416d51804be033da6f838ad764fd2f220050e76d04341e4ef8306ff8e5d966f",
+  "program_hashes": {
+    "short_first": "9965d76f3ac6cb5a2d70a9d35e85b7297471174f09471620bfce985908151d74",
+    "CSI_first": "252f72704f2a9d8a4d4d303929b955a3f1c05caada15b1ad76108a8972d492fc"
+  },
+  "script_sha256": "e92f6bd66d4ca441985a8e2fc41b762d3d5a33c046f7e87d400aa3259be37fd9",
+  "budget": {
+    "solve_calls": 12,
+    "helper_calls": 24,
+    "local_comparisons": 24,
+    "source_calls": 0,
+    "model_calls": 0
+  }
+}

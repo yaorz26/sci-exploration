@@ -1,0 +1,29 @@
+{
+  "results": [
+    {
+      "control": "cleanup_only",
+      "passed": 0,
+      "return_passed": 0,
+      "state_passed": 5,
+      "total": 5
+    },
+    {
+      "control": "complete",
+      "passed": 5,
+      "return_passed": 5,
+      "state_passed": 5,
+      "total": 5
+    },
+    {
+      "control": "report_only",
+      "passed": 1,
+      "return_passed": 5,
+      "state_passed": 1,
+      "total": 5
+    }
+  ],
+  "model_calls": 0,
+  "human_reviews": 0,
+  "unique_scenarios": 5,
+  "actual_scenario_evaluations": 15
+}

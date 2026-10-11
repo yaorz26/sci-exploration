@@ -1,0 +1,69 @@
+{
+  "experiment": "funprm_helperfirst_scale_prm_20260924",
+  "phase": "confirmation_b30_generation_v1_integrity",
+  "audited_at": "2026-09-25T22:21:34+08:00",
+  "status": "pass",
+  "run": "confirmation_b30_functionized_qwen25coder_7b_n10_seed20261224_v1",
+  "scope": "Candidate-pool integrity only. No private tests, frozen PRM scoring, pool oracle, or confirmation success metric was computed.",
+  "frozen_configuration": {
+    "data_path": "data/processed/funprm_helperfirst_scale_20260923/frozen_splits/confirmation_b30.json",
+    "data_sha256": "51edb3d61ae438ab71ff5ce2f96339c35732852f5ff843b292d62cffafd8130c",
+    "method": "functionized",
+    "model": "qwen2.5-coder:7b",
+    "seed": 20261224,
+    "temperature": 0.4,
+    "candidates_per_problem": 10,
+    "per_test_timeout_seconds": 10.0,
+    "private_evaluation_deferred": true,
+    "runner_sha256": "b797566be7faddc4f8622858697b24a7349236964b44a255594813e85b6c5b4c",
+    "evaluator_sha256": "bec8fb3bb0bd776ed43e622f0a6609346f23eadb72141a90437aae3a60f10348"
+  },
+  "summary_reconciliation": {
+    "problems": 30,
+    "completed_problem_ids": 30,
+    "completed_problem_ids_unique": 30,
+    "generation_requests": 300,
+    "generation_jsonl_rows": 300,
+    "generation_json_parse_errors": 0,
+    "evaluation_jsonl_rows": 30,
+    "evaluation_json_parse_errors": 0,
+    "evaluation_candidate_slots": 300,
+    "valid_generations": 238,
+    "unique_valid_programs_within_problem": 236,
+    "duplicate_generations": 2,
+    "public_program_evaluations": 236,
+    "public_test_executions": 10806,
+    "problems_with_candidate": 29,
+    "selected_public_pass": 8,
+    "private_program_evaluations": 0,
+    "private_test_executions": 0,
+    "final_evaluation_non_null": 0,
+    "private_fields_used": 0
+  },
+  "identity_checks": {
+    "split_has_30_unique_problem_ids": true,
+    "generation_problem_ids_match_frozen_split": true,
+    "evaluation_problem_ids_match_frozen_split": true,
+    "each_problem_has_candidate_indices_0_through_9": true,
+    "generation_and_evaluation_candidate_slots_match_one_to_one": true,
+    "candidate_ids_match_problem_and_index": true,
+    "candidate_code_matches_generation_record": true,
+    "candidate_code_sha256_matches": true,
+    "public_result_presence_matches_generation_validity": true,
+    "public_selector_reproduces_with_zero_mismatches": true
+  },
+  "output_limit_audit": {
+    "candidate_stdout_stderr_capture_limit_bytes_per_test": 1048576,
+    "stored_public_test_records": 10868,
+    "timeout_tests": 467,
+    "output_limit_tests": 0,
+    "maximum_stored_actual_plus_stderr_bytes": 1448,
+    "candidate_captures_over_limit": 0
+  },
+  "file_sha256": {
+    "summary": "cc303646265a446875d10ec5cf225fadf161d8b23115e47ef17a40040ed8f419",
+    "generations": "fe619e0c32f7fa6fdaeec40fc96c922d2f5c549f8b25fc4416635343fbfcd6bc",
+    "evaluations": "da164fabfeaf114b14ad6862d7eecc08aa0a551a66101bfe1d012e4a63929c71"
+  },
+  "decision": "B candidate pool is complete and frozen. A and B may now be scored with the one frozen adapter, but both selections must be frozen before any private test or pool-oracle scan is run."
+}

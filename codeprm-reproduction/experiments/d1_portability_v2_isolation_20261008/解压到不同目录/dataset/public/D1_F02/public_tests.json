@@ -1,0 +1,55 @@
+[
+  {
+    "case_id": "public_1",
+    "input": {
+      "value": [
+        "a",
+        {
+          "b": 2
+        },
+        [
+          "c",
+          3
+        ]
+      ]
+    },
+    "expected": {
+      "value": [
+        [
+          "a",
+          null
+        ],
+        [
+          "b",
+          2
+        ],
+        [
+          "c",
+          3
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "public_2",
+    "input": {
+      "value": [
+        "a",
+        "a"
+      ],
+      "default": "x"
+    },
+    "expected": {
+      "value": [
+        [
+          "a",
+          "x"
+        ],
+        [
+          "a",
+          "x"
+        ]
+      ]
+    }
+  }
+]

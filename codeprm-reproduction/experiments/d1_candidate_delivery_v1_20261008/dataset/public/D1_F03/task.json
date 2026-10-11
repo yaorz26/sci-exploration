@@ -1,0 +1,59 @@
+{
+  "task_id": "D1_F03",
+  "requirement": "实现solve(payload)。sources是至少一个JSON对象的列表，前面的来源优先级更高。按键合并成一个对象：对同一键收集各来源中实际存在的值，缺失不参与；若这些值全部是对象，递归按同样规则合并；否则取优先级最高的整个值，不合并数组，也不把null当缺失。例如高层{x:{a:1}}、低层{x:0}时结果x为{a:1}；任何层的非对象候选都会阻止该键继续合并。保留空对象和null。返回合并对象，不修改输入。只用标准库，内部结构自由。",
+  "entry_point": "solve(payload)",
+  "language": "Python",
+  "allowed_libraries": "仅Python标准库",
+  "public_examples": [
+    {
+      "input": {
+        "sources": [
+          {
+            "a": 1,
+            "x": {
+              "p": 2
+            }
+          },
+          {
+            "a": 9,
+            "b": 3,
+            "x": {
+              "q": 4
+            }
+          }
+        ]
+      },
+      "output": {
+        "a": 1,
+        "x": {
+          "p": 2,
+          "q": 4
+        },
+        "b": 3
+      }
+    },
+    {
+      "input": {
+        "sources": [
+          {
+            "x": {
+              "a": 1
+            }
+          },
+          {
+            "x": 0,
+            "z": null
+          }
+        ]
+      },
+      "output": {
+        "x": {
+          "a": 1
+        },
+        "z": null
+      }
+    }
+  ],
+  "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。",
+  "internal_decomposition": "自由选择，不给定helper名称或数量"
+}

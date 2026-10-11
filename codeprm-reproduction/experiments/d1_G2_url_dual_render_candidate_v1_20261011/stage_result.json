@@ -1,0 +1,50 @@
+{
+  "phase": "G2",
+  "stage_name": "K3 项目内不同用途候选：URL 同一次解析的显示/发送两种渲染",
+  "created_at": "2026-10-11T10:05:00Z",
+  "macro_plan": "RESEARCH_PLAN.md v4 §5 G2（K3：公开需求有至少两种用途，分别有有效输入与结果观察）",
+  "question": "是否存在新的官方功能，其同一份公开数据有两种以上可分别观察的用途，并且用途之间必须保持一致？",
+  "source_evidence": {
+    "module": "boltons.urlutils",
+    "parent_snapshot": "data/raw/d1_project_v1_20261008/repositories/boltons/boltons/urlutils.py",
+    "official_docstring": "urlutils.py:745-760 to_text(full_quote) 明示两种用途：未引用更易读、适合显示；完全引用更保守、发送到网络时通常必需",
+    "official_docs": "data/raw/d1_project_v1_20261008/repositories/boltons/docs/urlutils.rst",
+    "license": "boltons 仓库 LICENSE（BSD-3-Clause）"
+  },
+  "two_uses": {
+    "use_a_mapping_view": "查询串的映射视图：keys/items/get/getlist —— 必须保留顺序、重复键与已有的百分号编码文本",
+    "use_b_render": "同一对象的渲染：to_text() 面向显示、to_text(full_quote=True) 面向发送 —— 必须把空格等违规字符编码为 %XX，且不重复编码已有 %XX",
+    "consistency_obligation": "两种用途读取的是同一次解析结果；映射视图不得改写查询串，渲染不得让已编码文本退化或双重编码"
+  },
+  "behavior_result": {
+    "cases": 5,
+    "observations_per_case": 6,
+    "feature": "5/5（完整组织：urllib.parse 拆分 + 含/不含空格的 safe 集合）",
+    "alternative": "5/5（独立组织：自写 RFC 3986 正则拆分 + 自写百分号编码器）",
+    "omission": "4/5（控制：忽略 full_quote，组件原样拼接）",
+    "omission_failed_cases": ["space_in_path_and_fragment"],
+    "omission_detail": "控制把 http://h/files/report 1.pdf#note one 原样输出，未在发送用途下编码空格"
+  },
+  "implementation_pitfalls_found": [
+    "双重编码：不把 '%' 放进 safe 集合时，已有的 %20 会被编码成 %2520（参考实现与独立组织首轮各 3/5 失败）",
+    "用途区分写错：把路径分隔符 '/' 也纳入完全引用的编码范围，会把 https://example.com/find 渲染成 example.com%2Ffind（首轮 bug）",
+    "以上两处均为真实实现缺陷，不是预期写错；修正后两套组织各 5/5"
+  ],
+  "inclusion_check": {
+    "existing_gap": "K3 项目内用途不同的可测行为",
+    "what_this_adds": "同一对象上两种用途分别可观察，且用途间必须保持一致（顺序、重复键、已编码文本、空格编码）",
+    "why_existing_cannot_replace": "PR142 是配置来源优先级（K1）；PR440 是组生命周期（K2）；E_B09/E_M07 是单用途整数契约。本条是同一数据的显示/发送双用途一致性。",
+    "two_legal_organizations": true,
+    "omission_control": true,
+    "license_clear": true
+  },
+  "unresolved_boundary": "本候选只覆盖含查询串的 http(s) URL 有限域；不含用户信息、IPv6 主机、非 ASCII 主机与相对 URL。最小引用是否应保留空格（面向显示）属任务构建者选择，已在 requirement.md 明示，不假装是 RFC 唯一要求。",
+  "judgement": "纳入 research_pool_only",
+  "cost": {"model_calls": 0, "behavior_evaluations": 15, "human_reviews": 0, "downloads": 0},
+  "limits": [
+    "有限 URL 域；不证明完整 RFC 3986/3987 一致或性能",
+    "未读上游测试；仅依据公开 docstring、docs 与源码语义",
+    "同助手构造，非独立人工真值；formal_labels/split 仍为 null"
+  ],
+  "next": "G2 缺口对照表与退出（K2/K3 已补，cache 保持 pending），随后进入 G3 盲审与切分门"
+}

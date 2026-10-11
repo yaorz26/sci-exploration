@@ -1,0 +1,24 @@
+{
+  "task_id": "E_C11",
+  "source": "confuse",
+  "source_commit": "bf42783301ac4e9c640328ec95486952fd599ce6",
+  "source_feature_request": "https://github.com/beetbox/confuse/pull/126",
+  "source_parent_commit": "8b69242b8facdd7d1f87113693ea72017d61a0ff",
+  "source_merge_commit": "2c1f97e7b6aadbeb8bd6f112bd7ef965dbd977b0",
+  "changed_components": [
+    "ConfigSource",
+    "Filename",
+    "Configuration"
+  ],
+  "license": "MIT",
+  "entrypoint": "solve(data)",
+  "family_id": "configuration_source_path_resolution",
+  "candidate_status": "research_pool_only",
+  "formal_labels": null,
+  "split": null,
+  "human_reviews": 0,
+  "published": false,
+  "private_reads": 0,
+  "validity_scope": "固定POSIX路径语义六锚点；不复现完整Confuse对象/OS差异",
+  "source_requirement_origin": "真实已合并PR元数据+公开非测试源码，非人工结构标签"
+}

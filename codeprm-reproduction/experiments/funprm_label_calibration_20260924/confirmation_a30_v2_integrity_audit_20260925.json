@@ -1,0 +1,78 @@
+{
+  "experiment": "funprm_helperfirst_scale_prm_20260924",
+  "phase": "confirmation_a30_generation_v2_integrity",
+  "audited_at": "2026-09-25T19:20:31+08:00",
+  "status": "pass",
+  "run": "confirmation_a30_functionized_qwen25coder_7b_n10_seed20261224_v2",
+  "scope": "Candidate-pool integrity only. No private tests, frozen PRM scoring, pool oracle, or confirmation success metric was computed.",
+  "frozen_configuration": {
+    "data_path": "data/processed/funprm_helperfirst_scale_20260923/frozen_splits/confirmation_a30.json",
+    "data_sha256": "81f2b711bac2553716c85ad8d89cadc0a7e530e473bc4dfdfbeb0140948427fd",
+    "method": "functionized",
+    "model": "qwen2.5-coder:7b",
+    "seed": 20261224,
+    "temperature": 0.4,
+    "candidates_per_problem": 10,
+    "per_test_timeout_seconds": 10.0,
+    "private_evaluation_deferred": true,
+    "runner_sha256": "b797566be7faddc4f8622858697b24a7349236964b44a255594813e85b6c5b4c",
+    "evaluator_sha256": "bec8fb3bb0bd776ed43e622f0a6609346f23eadb72141a90437aae3a60f10348"
+  },
+  "summary_reconciliation": {
+    "problems": 30,
+    "completed_problem_ids": 30,
+    "completed_problem_ids_unique": 30,
+    "generation_requests": 300,
+    "generation_jsonl_rows": 300,
+    "generation_json_parse_errors": 0,
+    "evaluation_jsonl_rows": 30,
+    "evaluation_json_parse_errors": 0,
+    "evaluation_candidate_slots": 300,
+    "valid_generations": 243,
+    "unique_valid_programs_within_problem": 239,
+    "duplicate_generations": 4,
+    "public_program_evaluations": 239,
+    "public_test_executions": 15774,
+    "problems_with_candidate": 28,
+    "selected_public_pass": 5,
+    "private_program_evaluations": 0,
+    "private_test_executions": 0,
+    "final_evaluation_non_null": 0,
+    "private_fields_used": 0
+  },
+  "identity_checks": {
+    "split_has_30_unique_problem_ids": true,
+    "generation_problem_ids_match_frozen_split": true,
+    "evaluation_problem_ids_match_frozen_split": true,
+    "each_problem_has_candidate_indices_0_through_9": true,
+    "generation_and_evaluation_candidate_slots_match_one_to_one": true,
+    "candidate_ids_match_problem_and_index": true,
+    "candidate_code_matches_generation_record": true,
+    "candidate_code_sha256_matches": true,
+    "public_result_presence_matches_generation_validity": true,
+    "public_selector_reproduces_with_zero_mismatches": true
+  },
+  "output_limit_audit": {
+    "candidate_stdout_stderr_capture_limit_bytes_per_test": 1048576,
+    "output_limit_tests": 4,
+    "output_limit_problem_id": "apps-test-45",
+    "output_limit_candidate_ids": [
+      "apps-test-45:c1",
+      "apps-test-45:c4",
+      "apps-test-45:c8",
+      "apps-test-45:c9"
+    ],
+    "output_limit_test_index": 23,
+    "maximum_candidate_captured_bytes": 1048576,
+    "candidate_captures_over_limit": 0,
+    "diagnostic_marker_bytes_stored_after_capture": 41,
+    "maximum_stored_actual_plus_stderr_bytes": 1048617,
+    "interpretation": "The four stored records exceed 1 MiB only by the evaluator's 41-byte truncation marker. Candidate-produced stdout/stderr capture itself never exceeds 1 MiB, and all four cases are classified as output_limit failures."
+  },
+  "file_sha256": {
+    "summary": "10298d8bb773ab0d0d48970b9b531fdc1cf1815d27878ad1e9d7d889d73cf2ab",
+    "generations": "5362cf31b3584d677e755c58b06110c2414c8c3e1ba53b3f38b4ff0a1fe75a80",
+    "evaluations": "d627bf7370d9371552d1ae7ad32c77f74810443f565e5e7cc68fe04632c50bac"
+  },
+  "decision": "A v2 candidate pool is complete and frozen. Confirmation B may start under the unchanged preregistered generation configuration and the same repaired evaluator. Scorer selection and all private analysis remain deferred until both A and B pools are frozen."
+}

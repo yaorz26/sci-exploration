@@ -1,0 +1,127 @@
+{
+  "comparisons": [
+    {
+      "id": "split_tag",
+      "terminal_pass": true,
+      "full_trace_pass": true,
+      "snapshot_differences": []
+    },
+    {
+      "id": "split_entity",
+      "terminal_pass": true,
+      "full_trace_pass": false,
+      "snapshot_differences": [
+        {
+          "index": 0,
+          "no_close": "",
+          "closed": "A &am"
+        }
+      ]
+    },
+    {
+      "id": "split_names",
+      "terminal_pass": true,
+      "full_trace_pass": false,
+      "snapshot_differences": [
+        {
+          "index": 0,
+          "no_close": "",
+          "closed": "<"
+        },
+        {
+          "index": 1,
+          "no_close": "A",
+          "closed": "A</"
+        }
+      ]
+    },
+    {
+      "id": "plain_control",
+      "terminal_pass": true,
+      "full_trace_pass": true,
+      "snapshot_differences": []
+    },
+    {
+      "id": "split_numeric_entity",
+      "terminal_pass": true,
+      "full_trace_pass": false,
+      "snapshot_differences": [
+        {
+          "index": 0,
+          "no_close": "",
+          "closed": "&#"
+        }
+      ]
+    },
+    {
+      "id": "split_attribute_quote",
+      "terminal_pass": true,
+      "full_trace_pass": true,
+      "snapshot_differences": []
+    }
+  ],
+  "EOF_predictions": [
+    {
+      "id": "split_entity",
+      "expected_first_closed": "A &am",
+      "reason": "未完成amp在EOF作为原文字面片段",
+      "actual_first_closed": "A &am",
+      "prediction_matches": true
+    },
+    {
+      "id": "split_names",
+      "expected_first_closed": "<",
+      "reason": "单独小于号在EOF作文本",
+      "actual_first_closed": "<",
+      "prediction_matches": true
+    },
+    {
+      "id": "split_attribute_quote",
+      "expected_first_closed": "<a href='x",
+      "reason": "未完成带引号标签在EOF保留文本",
+      "actual_first_closed": "",
+      "prediction_matches": false
+    },
+    {
+      "id": "plain_control",
+      "expected_first_closed": "A",
+      "reason": "完整普通文本与EOF无关",
+      "actual_first_closed": "A",
+      "prediction_matches": true
+    }
+  ],
+  "terminal_score": [
+    6,
+    6
+  ],
+  "full_trace_score": [
+    3,
+    6
+  ],
+  "terminal_pass_but_trace_fail": 3,
+  "differing_snapshots": 4,
+  "EOF_prediction_matches": [
+    3,
+    4
+  ],
+  "new_solve_calls": 6,
+  "old_solve_reruns": 0,
+  "source_calls": {
+    "objects": 14,
+    "feed": 14,
+    "close": 14,
+    "get_text": 14,
+    "fed_characters": 85
+  },
+  "interpretation": "每步当EOF可保持完整终值却改变已声明的feed后快照；候选须明确EOF与观察时机并计完整轨迹。相对于无close契约不合规，不是所有解析需求的错误或上游bug。",
+  "limits": [
+    "同源轨迹，不是独立人工真值",
+    "六完整字符串，不推广所有HTML/运行时",
+    "原20/旧成绩/标签不改",
+    "模型效果未知"
+  ],
+  "model_calls": 0,
+  "API_calls": 0,
+  "hidden_reads": 0,
+  "new_downloads": 0
+}

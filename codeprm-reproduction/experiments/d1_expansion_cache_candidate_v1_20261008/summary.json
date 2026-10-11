@@ -1,0 +1,59 @@
+{
+  "status": "pass",
+  "candidate_task_count": 1,
+  "original_task_count": 20,
+  "hand_anchors": 10,
+  "hand_anchors_passed": 10,
+  "finite_sequences": 3280,
+  "finite_sequences_passed": 3280,
+  "correct_implementation_evaluations": 6580,
+  "artificial_mutants": [
+    {
+      "mutation": "LRI_promotes_reads",
+      "caught_by_anchor_ids": [
+        "read_eviction_LRI"
+      ],
+      "detected": true
+    },
+    {
+      "mutation": "omit_soft_miss",
+      "caught_by_anchor_ids": [
+        "strict_then_soft",
+        "clear_keeps_stats"
+      ],
+      "detected": true
+    },
+    {
+      "mutation": "clear_resets_stats",
+      "caught_by_anchor_ids": [
+        "clear_keeps_stats"
+      ],
+      "detected": true
+    },
+    {
+      "mutation": "observation_reads",
+      "caught_by_anchor_ids": [
+        "read_eviction_LRU",
+        "rewrite_LRU",
+        "read_eviction_LRI",
+        "rewrite_LRI",
+        "contains_pop_no_stats",
+        "clear_keeps_stats",
+        "capacity_1",
+        "capacity_2"
+      ],
+      "detected": true
+    }
+  ],
+  "failures": [],
+  "model_calls": 0,
+  "API_calls": 0,
+  "human_reviewers": 0,
+  "new_downloads": 0,
+  "seconds": 0.08479150000130176,
+  "upstream_loaded_from": "D:\\yaorz\\research\\codeprm-reproduction\\data\\raw\\d1_project_v1_20261008\\repositories\\boltons\\boltons\\cacheutils.py",
+  "task_contract_sha256": "d6d1b43184d3192b32b895740e7e759be0bb708b51cec6a91ebcd58a2d6ad6c2",
+  "script_sha256": "b8df5063ddd757ea3d12ce4a4b66ff1514b73301b217eb1dd88460402f1b9ceb",
+  "new_evidence": "容量1/2同序列改变目标read；读访问策略在同容量下改变淘汰；自动观察错误会污染命中统计",
+  "limits": "有限格子与人工缺陷，非模型效果/错误率、全域正确、独立人工或新独立家族；不改原20题与切分"
+}

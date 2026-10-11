@@ -1,0 +1,31 @@
+{
+  "simulated": true,
+  "token_limit": 100,
+  "call_limit": 3,
+  "known_token_spend": 0,
+  "blocked": true,
+  "calls": [
+    {
+      "call_id": "001",
+      "stage": "timeout",
+      "simulated": true,
+      "prompt_token_upper_bound": 10,
+      "assigned_output_cap": 1,
+      "status": "failed",
+      "cost_status": "unknown",
+      "request": {
+        "path": "001_request.json",
+        "sha256": "9ce385a69dcfe9a17c8325294d506d0b749ba93823071b4c27d98b33abb19075"
+      },
+      "error": "TimeoutError: 合成超时，服务端是否已生成未知",
+      "seconds": 1.3299999409355223e-05
+    }
+  ],
+  "refusals": [
+    {
+      "stage": "合成阶段",
+      "reason": "先前请求成本未知或协议失效，禁止继续",
+      "before_request": true
+    }
+  ]
+}

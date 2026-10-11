@@ -1,0 +1,29 @@
+{
+  "created_at": "2026-10-08T14:42:25.789633+00:00",
+  "status": "源码/前置表和目标AST位置冻结，未执行或读取测试",
+  "sources": [
+    {
+      "path": "scripts\\d1\\build_dataset.py",
+      "sha256": "e129a61e2fbf29aff5b3959ee23e6a45bce5b397324d6c85f314a052f657121e"
+    },
+    {
+      "path": "data\\processed\\d1_project_initial20_v5_20261008\\manifest.json",
+      "sha256": "c3593d11ae85cc23545aa91418c2ab3c97a4b005fd5e49963bdc28ae7e6eda9f"
+    },
+    {
+      "path": "experiments\\d1_pre_generation_contrast_support_v1_20261008\\inputs_and_rules_frozen.json",
+      "sha256": "1dbe8d0e341ec7d4da85322dbc9a798b256e3aa1edde82612a899728f187d256"
+    }
+  ],
+  "target_functions": [
+    {
+      "name": "main",
+      "line": 41,
+      "end_line": 162
+    }
+  ],
+  "model_calls": 0,
+  "API_calls": 0,
+  "task_evaluations": 0,
+  "hidden_reads": 0
+}

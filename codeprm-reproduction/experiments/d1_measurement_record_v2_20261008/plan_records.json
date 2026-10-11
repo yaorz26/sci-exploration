@@ -1,0 +1,97 @@
+[
+  {
+    "task_id": "D1_C03",
+    "layer": "particular_handwritten_plan",
+    "evidence_ref": "experiments/d1_plan_state_distribution_v1_20261008/candidate_state_profiles_frozen.json",
+    "plan_profiles": [
+      {
+        "plan": "state_in_entry",
+        "state_owner": "solve",
+        "state_holders": [
+          "solve"
+        ],
+        "helpers_receiving_persistent_state": [],
+        "persistent_mutable_state_shared_between_helpers": false,
+        "symbol_edges": [
+          [
+            "_call_key",
+            "solve"
+          ],
+          [
+            "_compute",
+            "solve"
+          ]
+        ],
+        "note": "helpers读取输入args/kwargs不等于访问跨操作缓存；cache/计数仅入口持有"
+      },
+      {
+        "plan": "state_encapsulated_helper",
+        "state_owner": "_run_ops",
+        "state_holders": [
+          "_run_ops"
+        ],
+        "helpers_receiving_persistent_state": [],
+        "persistent_mutable_state_shared_between_helpers": false,
+        "symbol_edges": [
+          [
+            "_call_key",
+            "_run_ops"
+          ],
+          [
+            "_run_ops",
+            "solve"
+          ]
+        ],
+        "note": "_run_ops自身保存缓存，调用纯_call_key；入口不读取缓存/计数"
+      },
+      {
+        "plan": "state_shared_between_helpers",
+        "state_owner": "solve初始化/_update更新",
+        "state_holders": [
+          "solve",
+          "_update",
+          "_render"
+        ],
+        "helpers_receiving_persistent_state": [
+          "_update",
+          "_render"
+        ],
+        "persistent_mutable_state_shared_between_helpers": true,
+        "symbol_edges": [
+          [
+            "_update",
+            "solve"
+          ],
+          [
+            "_render",
+            "solve"
+          ]
+        ],
+        "note": "内部state经参数传两个helper，更新后再观察；不是输入payload"
+      }
+    ],
+    "usage": "生成后方案描述，不能替代任务真值/随机前置分组"
+  },
+  {
+    "task_id": "D1_B05",
+    "layer": "particular_handwritten_plan",
+    "evidence_ref": "experiments/d1_local_composition_v1_20261008/summary.json",
+    "obligations": [
+      "下游消费变换后版本和删除后的索引",
+      "筛选threshold不重复乘factor"
+    ],
+    "usage": "数据版本/阈值/路径义务，多个合法结构非唯一标准分解"
+  },
+  {
+    "task_id": "D1_M05",
+    "layer": "particular_handwritten_plan",
+    "evidence_ref": "experiments/d1_alignment_composition_v1_20261008/summary.json",
+    "obligations": [
+      "排序索引须最终属于所有列的共同有效域",
+      "允许先限制域或先排序后过滤"
+    ],
+    "saved_correct_plans": 2,
+    "saved_finite_inputs": 640,
+    "usage": "共同域义务不等于唯一阶段顺序或共享可变状态"
+  }
+]

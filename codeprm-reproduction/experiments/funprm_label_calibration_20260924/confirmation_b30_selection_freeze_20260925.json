@@ -1,0 +1,23 @@
+{
+  "experiment": "funprm_helperfirst_scale_prm_20260924",
+  "phase": "confirmation_b30_scoring",
+  "frozen_at": "2026-09-25T23:01:16+08:00",
+  "status": "pass",
+  "selection": "data/processed/funprm_label_calibration_20260924/confirmation_b30_new_adapter_selection_deferred_20260925.json",
+  "selection_sha256": "74e22c8c46fa40164d6bf47ce871b09fe78aa354716fd93d788416dae332a5c2",
+  "source_candidate_evaluations": "data/processed/funprm_label_calibration_20260924/confirmation_b30_functionized_qwen25coder_7b_n10_seed20261224_v1_evaluations.jsonl",
+  "source_candidate_evaluations_sha256": "da164fabfeaf114b14ad6862d7eecc08aa0a551a66101bfe1d012e4a63929c71",
+  "adapter_model_sha256": "195122fea26f60241892061d538814dcbc4af7e7d5e63b7d148c3cebe57c79b6",
+  "scorer_sha256": "92373fcde3c0ff2a69c89766ede81df664a10f519e3926dfe4ad631807f91776",
+  "total_problems": 30,
+  "covered_problems": 29,
+  "candidate_count": 238,
+  "unique_scored_codes": 236,
+  "selection_rule_mismatches": 0,
+  "candidate_identity_mismatches": 0,
+  "invalid_or_out_of_range_scores": 0,
+  "private_evaluation_deferred": true,
+  "private_evaluations": 0,
+  "private_fields_used_for_selection": [],
+  "decision": "B selection is frozen. A and B may now proceed to the preregistered private evaluation order."
+}

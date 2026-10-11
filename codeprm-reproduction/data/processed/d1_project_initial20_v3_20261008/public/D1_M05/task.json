@@ -1,0 +1,51 @@
+{
+  "task_id": "D1_M05",
+  "requirement": "实现solve(payload)。columns为至少一列JSON列表，keys为非空有效列索引列表（默认[0]），对应键列保证可比较。按keys列组成的字典序键稳定排序行，再返回排序后的列列表；reverse默认false，为true则按键降序，同键行仍保持输入次序。strict默认false，各列先截到最短长度；strict=true且长度不齐则引发ValueError。没有任何行时返回[]（不是多个空列）。非键列保持行对齐。只用标准库，内部结构自由。",
+  "entry_point": "solve(payload)",
+  "language": "Python",
+  "allowed_libraries": "仅Python标准库",
+  "public_examples": [
+    {
+      "input": {
+        "columns": [
+          [
+            2,
+            1,
+            2
+          ],
+          [
+            "a",
+            "b",
+            "c"
+          ]
+        ]
+      },
+      "output": [
+        [
+          1,
+          2,
+          2
+        ],
+        [
+          "b",
+          "a",
+          "c"
+        ]
+      ]
+    },
+    {
+      "input": {
+        "columns": [
+          [
+            1
+          ],
+          []
+        ],
+        "strict": true
+      },
+      "raises": "ValueError"
+    }
+  ],
+  "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。",
+  "internal_decomposition": "自由选择，不给定helper名称或数量"
+}

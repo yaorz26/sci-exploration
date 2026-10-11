@@ -1,0 +1,14 @@
+{
+  "model": "qwen2.5-coder:7b",
+  "created_at": "2026-10-11T07:26:56.8051548Z",
+  "response": " ```diff\n--- a/more_itertools/more.py\n+++ b/more_itertools/more.py\n@@ -1764,6 +1764,20 @@ def groupby_transform(iterable, keyfunc=None, valuefunc=None):\n     Note that the order of items in the iterable is significant.\n     Only adjacent items are grouped together, so if you don't want any\n     duplicate groups, you should sort the iterable by the key function.\n+\n+    :param reducefunc: A function that takes an iterable and returns a single value.\n+    :type reducefunc: callable\n+    :return: An iterator of (key, result) pairs where result is the output of reducefunc.\n+    :rtype: iterator\n+\n+    Example:\n+    >>> iterable = 'AaaABbBCcA'\n+    >>> keyfunc = lambda x: x.upper()\n+    >>> valuefunc = lambda x: x.lower()\n+    >>> reducefunc = lambda x: ''.join(x)\n+    >>> grouper = groupby_transform(iterable, keyfunc, valuefunc, reducefunc)\n+    >>> list(grouper)\n+    [('A', 'aaaa'), ('B', 'bbb'), ('C', 'cc'), ('A', 'a')]\n     \"\"\"\n     res = groupby(iterable, keyfunc)\n     if valuefunc:\n@@ -1771,6 +1785,12 @@ def groupby_transform(iterable, keyfunc=None, valuefunc=None):\n         return ((k, reduce(reducefunc, map(valuefunc, g))) for k, g in res)\n     else:\n         return ((k, reduce(reducefunc, g)) for k, g in res)\n+    else:\n+        return ((k, reduce(reducefunc, map(valuefunc, g))) for k, g in res)\n+\n+    if reducefunc:\n+        return ((k, reduce(reducefunc, map(valuefunc, g))) for k, g in res)\n+    else:\n+        return ((k, reduce(reducefunc, g)) for k, g in res)\n```",
+  "done": true,
+  "done_reason": "stop",
+  "total_duration": 10889630300,
+  "load_duration": 4494100,
+  "prompt_eval_count": 2486,
+  "prompt_eval_cached_count": 880,
+  "prompt_eval_duration": 717618000,
+  "eval_count": 448,
+  "eval_duration": 10158633000
+}

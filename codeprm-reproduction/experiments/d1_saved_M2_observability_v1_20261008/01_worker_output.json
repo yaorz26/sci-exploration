@@ -1,0 +1,91 @@
+{
+  "run": "d1_costed_pilot_b04_c03_v1_20261008",
+  "task_id": "D1_B04",
+  "example_id": 1,
+  "candidate": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_costed_pilot_b04_c03_v1_20261008\\candidates\\D1_B04\\M2\\candidate.py",
+  "helper_names": [
+    "_parse_query",
+    "_encode_query",
+    "_apply_operations"
+  ],
+  "input": {
+    "query": "a=1&a=2;flag&x=",
+    "operations": [
+      {
+        "op": "set",
+        "key": "a",
+        "value": "x y"
+      }
+    ]
+  },
+  "original_public_task_sha256": "47b39de3c762b029162b30512cd201e60b7b2e71f6d55404320ca9ce61bd63b1",
+  "public_example_expected": {
+    "value": {
+      "pairs": [
+        [
+          "flag",
+          null
+        ],
+        [
+          "x",
+          null
+        ],
+        [
+          "a",
+          "x y"
+        ]
+      ],
+      "query": "flag&x&a=x%20y"
+    }
+  },
+  "diagnostic": {
+    "worker_failure": null,
+    "record": {
+      "outcome": {
+        "value": {
+          "pairs": [
+            [
+              "a",
+              "x y"
+            ],
+            [
+              "x",
+              null
+            ],
+            [
+              "flag&x",
+              null
+            ]
+          ],
+          "query": "a=x%20y&x=&flag%26x="
+        }
+      },
+      "helper_calls": {
+        "_encode_query": 1,
+        "_apply_operations": 1,
+        "_parse_query": 1
+      },
+      "helper_call_events_first1000": [
+        {
+          "helper": "_parse_query",
+          "caller": "solve"
+        },
+        {
+          "helper": "_apply_operations",
+          "caller": "solve"
+        },
+        {
+          "helper": "_encode_query",
+          "caller": "solve"
+        }
+      ],
+      "trace_truncated": false,
+      "input_unchanged": true
+    },
+    "stderr_tail": "",
+    "seconds": 0.08245710000005602,
+    "captured_output_bytes": 428
+  },
+  "observation_category": "helper_entered_then_result_or_exception",
+  "interpretation_limit": "call非返回值贡献；异常前未进入非成功旁路；仅原公开路径，旧模型成绩不重写"
+}

@@ -1,0 +1,31 @@
+{
+  "rows": [
+    {
+      "scope": "full_package",
+      "input_tokens": 13935,
+      "remainder_at6500": -7435,
+      "input_exceeds6500": true,
+      "input_exceeds8192": true
+    },
+    {
+      "scope": "three_api_modules",
+      "input_tokens": 11246,
+      "remainder_at6500": -4746,
+      "input_exceeds6500": true,
+      "input_exceeds8192": true
+    }
+  ],
+  "tokenizer": {
+    "build": "version: 0.5.0-dev (build 1, commit 631109b34)\nbuilt with Clang 18.1.8 for Windows AMD64",
+    "vocab_only": true,
+    "model_path": "D:\\yaorz\\tools\\ollamaModels\\blobs\\sha256-60e05f2100071479f596b964f89f510f057ce397ea22f2833a0cfe029bfc2463",
+    "model_file_bytes": 4683074048,
+    "dll_sha256": "ac18a06da6978791968d81d9423c763d518b03d61a4426833398f1656150d3b5",
+    "model_hash_status": "blob名称记录上游digest，本次未重算4.6GB文件哈希"
+  },
+  "requirement_tokens_with_chat": 408,
+  "model_calls": 0,
+  "api_calls": 0,
+  "human_reviews": 0,
+  "limit": "三模块仅作预算诊断，不保证信息充分；不改变原预算协议"
+}

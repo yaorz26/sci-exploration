@@ -1,0 +1,18 @@
+```json
+{
+  "helpers": [
+    {
+      "name": "_execute_operation",
+      "signature": "def _execute_operation(operation, data):",
+      "contract": "执行单个操作并返回结果和更新后的数据。操作格式为{'op': '操作类型', 'key': '键', 'value': '值'}。操作类型包括'add', 'set', 'get', 'getall', 'poplast', 'delete'。返回格式为{'result': 结果, 'items': 更新后的数据}。",
+      "depends_on": []
+    },
+    {
+      "name": "_process_operations",
+      "signature": "def _process_operations(operations):",
+      "contract": "依次执行一系列操作并返回每一步的结果和最终数据。操作列表格式为[{'op': '操作类型', 'key': '键', 'value': '值'}, ...]。返回格式为[{'result': 结果, 'items': 数据}, ...]。",
+      "depends_on": ["_execute_operation"]
+    }
+  ]
+}
+```

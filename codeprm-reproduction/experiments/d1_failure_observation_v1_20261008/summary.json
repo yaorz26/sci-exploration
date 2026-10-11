@@ -1,0 +1,31 @@
+{
+  "status": "pass",
+  "predefined_tasks_per_arm": 1,
+  "main_all_pass_per_arm": {
+    "M0": 0,
+    "M2": 0
+  },
+  "behavior_scored_candidates_per_arm": {
+    "M0": 1,
+    "M2": 0
+  },
+  "actual_behavior_case_evaluations": {
+    "M0": 14,
+    "M2": 0
+  },
+  "generation_failure_placeholder_case_slots": {
+    "M0": 0,
+    "M2": 14
+  },
+  "actual_tokens_per_arm": {
+    "M0": 640,
+    "M2": 1850
+  },
+  "model_calls": 0,
+  "API_calls": 0,
+  "new_task_scores": 0,
+  "human_reviewers": 0,
+  "script_sha256": "c4b6b554835c41de8d14980c054f4f5a94207ff2d658f7082763174542066ebe",
+  "finding": "两臂主策略0/1，但实际行为观察14对0；M2零passed是主计分占位，非已测逐例语义准确率0%",
+  "limits": "只读一对烟测，无新效果或反事实；保持失败主分母，条件分母不替换预定分母"
+}

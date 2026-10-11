@@ -1,0 +1,50 @@
+{
+  "task_id": "D1_C01",
+  "name": "限容量最近使用缓存",
+  "source": {
+    "repository": "tkem/cachetools",
+    "commit": "9976f1a8076631560f49c5b0dfda7e4d00ee0a4a",
+    "license": "MIT",
+    "file": "src/cachetools/__init__.py",
+    "symbol": "LRUCache",
+    "line": 287,
+    "source_sha256": "c595cd9ea1ce7e52be423397398f33ad9fb8074d568bd664f229570e97f7a660",
+    "license_sha256": "28c000b52b0ee27138a68ef778227e4057046e86b65f62f1cacb99b0cc49e0d2",
+    "contamination_risk": "unknown",
+    "additional_symbols": []
+  },
+  "requirement_origin": "上游公开API文档/说明为主，适配器范围与边界补充；已查看实现，需独立泄漏审查",
+  "adaptation": "统一JSON入口和返回值，保留所选功能；不作为完整仓库任务",
+  "split": "development",
+  "structure": {
+    "kind": "stateful",
+    "shared_state": "values_and_recency",
+    "dependency_evidence": "读写、容量限制与淘汰共同维护状态",
+    "independent_test_evidence": "各操作可局部测，淘汰正确性必须跨操作验证",
+    "status": "单人预标注，尚未取得独立一致性统计"
+  },
+  "function_family": "cache_lru",
+  "public_cases": 2,
+  "private_cases": 20,
+  "status": "候选原型，非冻结确认集",
+  "authoring_seed": 20261008,
+  "structure_v2": {
+    "schema_version": "0.2",
+    "cross_operation_state": "operation_sequence",
+    "state_scope": "global",
+    "behavior_dependencies": [
+      "operation_sequence"
+    ],
+    "separate_behavior_testability": "partial",
+    "evidence": "get刷新最近使用，contains不刷新；跨键容量使淘汰耦合",
+    "status": "单人初标；依据外部契约，未取得独立人工一致性统计",
+    "legacy_author_description": {
+      "kind": "stateful",
+      "shared_state": "values_and_recency",
+      "dependency_evidence": "读写、容量限制与淘汰共同维护状态",
+      "independent_test_evidence": "各操作可局部测，淘汰正确性必须跨操作验证",
+      "status": "单人预标注，尚未取得独立一致性统计"
+    }
+  },
+  "related_families": []
+}

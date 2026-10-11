@@ -1,0 +1,19 @@
+{
+  "created_at": "2026-10-09T09:19:26.415824+00:00",
+  "worker_sha256": "63e8b56bb8a67a30359470112f2c1e53b27270d854c0493ba3d88ec3f9b8e1e1",
+  "source_sha256": "a9dc6d3bf2d69c7ea7cf94f646b64e4d675fda22679f695c5c250d809702b7b4",
+  "input": {
+    "timer": 0,
+    "ttl": 4,
+    "put": [
+      "a",
+      1
+    ],
+    "expire_time": 4
+  },
+  "prediction": {
+    "immediate": "调用后空，消费后空，返回a",
+    "deferred": "调用后a仍在，消费后空，返回a"
+  },
+  "scope": "生成器类型相同，仅清理时点不同；不追溯改旧规范/分母"
+}

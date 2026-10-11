@@ -1,0 +1,76 @@
+{
+  "simulated": false,
+  "token_limit": 6500,
+  "call_limit": 4,
+  "known_token_spend": 3686,
+  "blocked": false,
+  "calls": [
+    {
+      "call_id": "001",
+      "stage": "plan",
+      "simulated": false,
+      "prompt_token_upper_bound": 646,
+      "assigned_output_cap": 350,
+      "status": "completed",
+      "cost_status": "known",
+      "request": {
+        "path": "001_request.json",
+        "sha256": "64a6ea79f35a3e02a1f7d8f92bd3cdd9601bf536c11186e87d9465b214db8fad"
+      },
+      "response": {
+        "path": "001_response.json",
+        "sha256": "8dade752fb69987952b3aee6c7885472aa1baa246ba2edff33f79b7f71aeb30e"
+      },
+      "prompt_tokens": 646,
+      "output_tokens": 119,
+      "seconds": 2.797114100001636
+    },
+    {
+      "call_id": "002",
+      "stage": "helper1",
+      "simulated": false,
+      "prompt_token_upper_bound": 1213,
+      "assigned_output_cap": 700,
+      "status": "completed",
+      "cost_status": "known",
+      "request": {
+        "path": "002_request.json",
+        "sha256": "2a32b6656c2422c93aa540c09d08a8ab19a38548832fbcba7ec58cacd4e80e30"
+      },
+      "response": {
+        "path": "002_response.json",
+        "sha256": "2dc592532a93393d31743d3ec6a37f73ede4a93224bb9e1cfc50a4e215887253"
+      },
+      "prompt_tokens": 1213,
+      "output_tokens": 424,
+      "seconds": 9.835086999999476
+    },
+    {
+      "call_id": "003",
+      "stage": "helper2",
+      "simulated": false,
+      "prompt_token_upper_bound": 1172,
+      "assigned_output_cap": 700,
+      "status": "completed",
+      "cost_status": "known",
+      "request": {
+        "path": "003_request.json",
+        "sha256": "f9465e1d961587ab961b68aeb29aa289c620bb4412675d9676f4733cbf9f3a58"
+      },
+      "response": {
+        "path": "003_response.json",
+        "sha256": "28e08e861d1f4c1b429b5ffd9a3ef8bc7cbcf7e7436af11394f1ee5de9349264"
+      },
+      "prompt_tokens": 1172,
+      "output_tokens": 112,
+      "seconds": 2.85761089999869
+    }
+  ],
+  "refusals": [
+    {
+      "stage": "assembly",
+      "reason": "输入与最少输出无法纳入总预算",
+      "before_request": true
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+```json
+{
+  "components": [
+    {
+      "name": "EnvironmentVariableSource",
+      "files": ["confuse/sources.py"],
+      "contract": "A dictionary that reads configuration values from environment variables with a specified prefix. Keys are converted to lowercase and '__' is replaced with nested keys. Values are converted to the appropriate scalar type."
+    },
+    {
+      "name": "ConfigurationEnvironmentMixin",
+      "files": ["confuse/core.py"],
+      "contract": "A mixin class for Configuration that adds methods to set environment variable sources with a specified prefix. The environment variable source has higher priority than file sources."
+    }
+  ]
+}
+```

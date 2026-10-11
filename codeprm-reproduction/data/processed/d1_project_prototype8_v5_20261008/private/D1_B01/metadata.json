@@ -1,0 +1,30 @@
+{
+  "task_id": "D1_B01",
+  "name": "编号区间文本转换",
+  "source": {
+    "repository": "mahmoud/boltons",
+    "commit": "4e5faa3d7e4008d89e0d8bf1ea87b6d9a061a16d",
+    "license": "BSD-3-Clause",
+    "file": "boltons/strutils.py",
+    "symbol": "parse_int_list",
+    "line": 886,
+    "source_sha256": "c5ecb7efd3b2e86f92545c18d8d72193f45a1bd1d0edaf3da65868aa0e8bcdda",
+    "license_sha256": "c301912653a8d8c99eab6212aa3aea8d164ea249d8ad53c941e0558a0a5ac1e3",
+    "contamination_risk": "unknown"
+  },
+  "requirement_origin": "上游公开API文档/说明为主，适配器范围与边界补充；已查看实现，需独立泄漏审查",
+  "adaptation": "统一JSON入口和返回值，保留所选功能；不作为完整仓库任务",
+  "split": "development",
+  "structure": {
+    "kind": "pipeline",
+    "shared_state": "none",
+    "dependency_evidence": "输入规范与展开结果依赖，整体无跨调用状态",
+    "independent_test_evidence": "可按数值片段和最终排序分别定义行为测试，未规定被测拆法",
+    "status": "单人预标注，尚未取得独立一致性统计"
+  },
+  "function_family": "range_parser",
+  "public_cases": 2,
+  "private_cases": 19,
+  "status": "候选原型，非冻结确认集",
+  "authoring_seed": 20261008
+}

@@ -1,0 +1,24 @@
+{
+  "task_id": "E_B13",
+  "source": "boltons",
+  "source_commit": "4e5faa3d7e4008d89e0d8bf1ea87b6d9a061a16d",
+  "source_apis": [
+    "remap",
+    "research"
+  ],
+  "source_snapshot": "../../../d1_input_result_tree_pair_v1_20261009/source",
+  "license": "BSD-3-Clause",
+  "family_id": "nested_integer_transform_search",
+  "value_version": "input",
+  "path_version": "result",
+  "entrypoint": "solve(data)",
+  "candidate_status": "research_pool_only",
+  "split": null,
+  "formal_labels": null,
+  "human_reviews": 0,
+  "published": false,
+  "requirement_file": "requirement.md",
+  "private_reads": 0,
+  "task_semantics": "值与坐标分开定义的溯源适配；不是原库已有联合API",
+  "natural_project_demand": "未验证，不以程序通过替代项目需求证据"
+}

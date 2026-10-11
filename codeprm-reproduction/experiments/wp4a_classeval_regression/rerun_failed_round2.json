@@ -1,0 +1,352 @@
+{
+  "targets": [
+    "ClassEval_14",
+    "ClassEval_17",
+    "ClassEval_28",
+    "ClassEval_31",
+    "ClassEval_34",
+    "ClassEval_38",
+    "ClassEval_45",
+    "ClassEval_48",
+    "ClassEval_50",
+    "ClassEval_51",
+    "ClassEval_58",
+    "ClassEval_60",
+    "ClassEval_69",
+    "ClassEval_99"
+  ],
+  "results": [
+    {
+      "task_id": "ClassEval_14",
+      "screening_exit": 1,
+      "seconds": 2.36,
+      "cause": "task_internal",
+      "tail": "gementDBTestAddBook.test_add_book)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\experiments\\wp4a_classeval_regression\\work\\ClassEval_14\\ref_full.py\", line 100, in test_add_book\n    self.assertIsNotNone(result)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^\nAssertionError: unexpectedly None\n\n----------------------------------------------------------------------\nRan 7 tests in 2.049s\n\nFAILED (failures=1)\n",
+      "runs": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 2.52,
+          "ok": true
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 2.85,
+          "ok": true
+        }
+      ],
+      "ok": false
+    },
+    {
+      "task_id": "ClassEval_17",
+      "screening_exit": 1,
+      "seconds": 0.32,
+      "cause": "host_or_time_dependent",
+      "tail": " element 0:\n{'date': datetime.datetime(2024, 1, 2, 0, 0), 'start_time': datetime.datetime(2024, 1, 2, 1, 0), 'end_time': datetime.datetime(2024, 1, 2, 2, 0), 'description': 'New Year 2'}\n\n- []\n+ [{'date': datetime.datetime(2024, 1, 2, 0, 0),\n+   'description': 'New Year 2',\n+   'end_time': datetime.datetime(2024, 1, 2, 2, 0),\n+   'start_time': datetime.datetime(2024, 1, 2, 1, 0)}]\n\n----------------------------------------------------------------------\nRan 29 tests in 0.002s\n\nFAILED (failures=1)\n",
+      "runs": [
+        {
+          "run": 1,
+          "exit_code": 1,
+          "seconds": 0.52,
+          "ok": false
+        },
+        {
+          "run": 2,
+          "exit_code": 1,
+          "seconds": 0.32,
+          "ok": false
+        }
+      ],
+      "ok": false
+    },
+    {
+      "task_id": "ClassEval_28",
+      "screening_exit": 0,
+      "seconds": 1.46,
+      "cause": "",
+      "tail": ".....................\n----------------------------------------------------------------------\nRan 21 tests in 0.495s\n\nOK\n",
+      "runs": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 1.38,
+          "ok": true
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 1.27,
+          "ok": true
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 1.39,
+          "ok": true
+        }
+      ],
+      "ok": true
+    },
+    {
+      "task_id": "ClassEval_31",
+      "screening_exit": 1,
+      "seconds": 0.27,
+      "cause": "float_precision",
+      "tail": "ction\\experiments\\wp4a_classeval_regression\\work\\ClassEval_31\\ref_full.py\", line 63, in test_correlation_coefficient_4\n    self.assertEqual(DataStatistics4.correlation_coefficient([1, 2, 3], [1, 2, 4]), 0.9819805060619659)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 0.9819805060619655 != 0.9819805060619659\n\n----------------------------------------------------------------------\nRan 21 tests in 0.001s\n\nFAILED (failures=1)\n",
+      "runs": [
+        {
+          "run": 1,
+          "exit_code": 1,
+          "seconds": 0.32,
+          "ok": false
+        },
+        {
+          "run": 2,
+          "exit_code": 1,
+          "seconds": 0.35,
+          "ok": false
+        }
+      ],
+      "ok": false
+    },
+    {
+      "task_id": "ClassEval_34",
+      "screening_exit": 0,
+      "seconds": 6.43,
+      "cause": "",
+      "tail": ".....................\n----------------------------------------------------------------------\nRan 21 tests in 6.016s\n\nOK\n",
+      "runs": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 6.99,
+          "ok": true
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 6.62,
+          "ok": true
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 7.42,
+          "ok": true
+        }
+      ],
+      "ok": true
+    },
+    {
+      "task_id": "ClassEval_38",
+      "screening_exit": 0,
+      "seconds": 3.53,
+      "cause": "",
+      "tail": "...................\n----------------------------------------------------------------------\nRan 19 tests in 3.013s\n\nOK\n",
+      "runs": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 3.42,
+          "ok": true
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 3.89,
+          "ok": true
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 4.01,
+          "ok": true
+        }
+      ],
+      "ok": true
+    },
+    {
+      "task_id": "ClassEval_45",
+      "screening_exit": 0,
+      "seconds": 0.43,
+      "cause": "",
+      "tail": ".....................C:\\Users\\yaorz2\\.workbuddy\\binaries\\python\\versions\\3.13.12\\Lib\\unittest\\case.py:606: ResourceWarning: unclosed file <_io.BufferedReader name='D:\\\\yaorz\\\\research\\\\codeprm-reproduction\\\\experiments\\\\wp4a_classeval_regression\\\\work\\\\ClassEval_45\\\\test_save.png'>\n  if method() is not None:\nResourceWarning: Enable tracemalloc to get the object allocation traceback\n.....\n----------------------------------------------------------------------\nRan 26 tests in 0.039s\n\nOK\n",
+      "runs": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.46,
+          "ok": true
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.42,
+          "ok": true
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.39,
+          "ok": true
+        }
+      ],
+      "ok": true
+    },
+    {
+      "task_id": "ClassEval_48",
+      "screening_exit": 1,
+      "seconds": 23.45,
+      "cause": "host_or_time_dependent",
+      "tail": "----------\nTraceback (most recent call last):\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\experiments\\wp4a_classeval_regression\\work\\ClassEval_48\\ref_full.py\", line 88, in test_get_hostname_3\n    self.assertEqual(result, 'LAPTOP-2CS86KUM')\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: 'DESKTOP-1CAGBJI' != 'LAPTOP-2CS86KUM'\n- DESKTOP-1CAGBJI\n+ LAPTOP-2CS86KUM\n\n\n----------------------------------------------------------------------\nRan 16 tests in 23.099s\n\nFAILED (failures=1)\n",
+      "runs": [
+        {
+          "run": 1,
+          "exit_code": 1,
+          "seconds": 22.97,
+          "ok": false
+        },
+        {
+          "run": 2,
+          "exit_code": 1,
+          "seconds": 23.01,
+          "ok": false
+        }
+      ],
+      "ok": false
+    },
+    {
+      "task_id": "ClassEval_50",
+      "screening_exit": 1,
+      "seconds": 2.48,
+      "cause": "os_semantics",
+      "tail": "--------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\experiments\\wp4a_classeval_regression\\work\\ClassEval_50\\ref_full.py\", line 95, in setUp\n    with open(self.file_path_only_read, 'w') as f:\n         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nPermissionError: [Errno 13] Permission denied: 'test_only_read.json'\n\n----------------------------------------------------------------------\nRan 16 tests in 2.168s\n\nFAILED (errors=5)\n",
+      "runs": [
+        {
+          "run": 1,
+          "exit_code": 1,
+          "seconds": 2.61,
+          "ok": false
+        },
+        {
+          "run": 2,
+          "exit_code": 1,
+          "seconds": 2.64,
+          "ok": false
+        }
+      ],
+      "ok": false
+    },
+    {
+      "task_id": "ClassEval_51",
+      "screening_exit": 1,
+      "seconds": 0.31,
+      "cause": "numpy2_semantics",
+      "tail": "), 0.19469026548672572)\n                           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\experiments\\wp4a_classeval_regression\\work\\ClassEval_51\\ref_full.py\", line 15, in kappa\n    Pe = float(ysum * xsum) / sum / sum\n         ~~~~~^^^^^^^^^^^^^\nTypeError: only 0-dimensional arrays can be converted to Python scalars\n\n----------------------------------------------------------------------\nRan 11 tests in 0.004s\n\nFAILED (errors=6)\n",
+      "runs": [
+        {
+          "run": 1,
+          "exit_code": 1,
+          "seconds": 0.28,
+          "ok": false
+        },
+        {
+          "run": 2,
+          "exit_code": 1,
+          "seconds": 0.27,
+          "ok": false
+        }
+      ],
+      "ok": false
+    },
+    {
+      "task_id": "ClassEval_58",
+      "screening_exit": 1,
+      "seconds": 0.28,
+      "cause": "task_internal",
+      "tail": "generate_mine_sweeper_map)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\experiments\\wp4a_classeval_regression\\work\\ClassEval_58\\ref_full.py\", line 79, in test_generate_mine_sweeper_map\n    self.assertEqual(2, mine_num)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\nAssertionError: 2 != 1\n\n----------------------------------------------------------------------\nRan 22 tests in 0.001s\n\nFAILED (failures=1)\n",
+      "runs": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.3,
+          "ok": true
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.28,
+          "ok": true
+        }
+      ],
+      "ok": false
+    },
+    {
+      "task_id": "ClassEval_60",
+      "screening_exit": 1,
+      "seconds": 4.78,
+      "cause": "task_internal",
+      "tail": "etDBTest.test_MovieTicketDB)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\experiments\\wp4a_classeval_regression\\work\\ClassEval_60\\ref_full.py\", line 233, in test_MovieTicketDB\n    self.assertEqual(len(tickets), 1)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\nAssertionError: 11 != 1\n\n----------------------------------------------------------------------\nRan 16 tests in 4.446s\n\nFAILED (failures=1)\n",
+      "runs": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 4.74,
+          "ok": true
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 4.86,
+          "ok": true
+        }
+      ],
+      "ok": false
+    },
+    {
+      "task_id": "ClassEval_69",
+      "screening_exit": 1,
+      "seconds": 0.38,
+      "cause": "missing_module",
+      "tail": "Traceback (most recent call last):\n  File \"D:\\yaorz\\research\\codeprm-reproduction\\experiments\\wp4a_classeval_regression\\work\\ClassEval_69\\ref_full.py\", line 36, in <module>\n    from reportlab.pdfgen import canvas\nModuleNotFoundError: No module named 'reportlab'\n",
+      "runs": [
+        {
+          "run": 1,
+          "exit_code": 1,
+          "seconds": 0.4,
+          "ok": false
+        },
+        {
+          "run": 2,
+          "exit_code": 1,
+          "seconds": 0.39,
+          "ok": false
+        }
+      ],
+      "ok": false
+    },
+    {
+      "task_id": "ClassEval_99",
+      "screening_exit": 1,
+      "seconds": 11.86,
+      "cause": "os_semantics",
+      "tail": "eprm-reproduction\\experiments\\wp4a_classeval_regression\\work\\ClassEval_99\\ref_full.py\", line 400, in test_extract_file_5\n    os.rmdir(test_folder)\n    ~~~~~~~~^^^^^^^^^^^^^\n  File \"D:\\yaorz\\tools\\WorkBuddy\\resources\\app.asar.unpacked\\cli\\vendor\\shim\\sitecustomize.py\", line 1111, in _safe_rmdir\n    return _orig_rmdir(path)  # ENOTEMPTY\nOSError: [WinError 145] 目录不是空的。: 'test_folder'\n\n----------------------------------------------------------------------\nRan 25 tests in 11.509s\n\nFAILED (errors=16)\n",
+      "runs": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 19.88,
+          "ok": true
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 18.8,
+          "ok": true
+        }
+      ],
+      "ok": false
+    }
+  ]
+}

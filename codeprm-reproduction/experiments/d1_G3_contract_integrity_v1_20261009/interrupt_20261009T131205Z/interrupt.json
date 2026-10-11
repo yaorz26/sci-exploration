@@ -1,0 +1,13 @@
+{
+  "time": "2026-10-09T13:12:05.275133+00:00",
+  "status": "paused",
+  "reason": "用户当前明确指令：中断",
+  "resume_point": "用户明确中断，D1研究及自动接续暂停。只读契约核对已完成：PR126直接YamlSource参数、PR142未显式调用前的自动加入、PR440默认回调有未独立观察条款；静态缺口不等于已证假通过。218号PR126最小反例计划仅完成第一轮可行性审查，第二/三轮未执行；未构造控制、未冻结/运行新行为，新增模型/行为/人工/下载均0。必须等用户明确恢复后，先完成剩余审查再决定执行；旧结果、候选与失败全部保留。",
+  "next_started": false,
+  "background_research_running": false,
+  "new_model_calls": 0,
+  "new_behavior_calls": 0,
+  "new_human_reviews": 0,
+  "plan_reviews_completed": 1,
+  "plan_reviews_remaining": 2
+}

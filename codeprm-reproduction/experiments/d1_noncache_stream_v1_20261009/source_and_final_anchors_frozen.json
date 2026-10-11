@@ -1,0 +1,88 @@
+{
+  "created_at": "2026-10-09T02:56:35.032723+00:00",
+  "source_sha256": "c5ecb7efd3b2e86f92545c18d8d72193f45a1bd1d0edaf3da65868aa0e8bcdda",
+  "source_path": "data\\raw\\d1_project_v1_20261008\\repositories\\boltons\\boltons\\strutils.py",
+  "source_commit": "4e5faa3d7e4008d89e0d8bf1ea87b6d9a061a16d",
+  "license_sha256": "c301912653a8d8c99eab6212aa3aea8d164ea249d8ad53c941e0558a0a5ac1e3",
+  "source_nodes": [
+    {
+      "name": "HTMLTextExtractor",
+      "lines": [
+        585,
+        609
+      ],
+      "text": "class HTMLTextExtractor(HTMLParser):\n    def __init__(self) -> None:\n        super().__init__(convert_charrefs=True)\n        self.result: list[str] = []\n\n    def handle_data(self, d):\n        self.result.append(d)\n\n    def handle_charref(self, number):\n        if number[0] == 'x' or number[0] == 'X':\n            codepoint = int(number[1:], 16)\n        else:\n            codepoint = int(number)\n        self.result.append(chr(codepoint))\n\n    def handle_entityref(self, name):\n        try:\n            codepoint = htmlentitydefs.name2codepoint[name]\n        except KeyError:\n            self.result.append('&' + name + ';')\n        else:\n            self.result.append(chr(codepoint))\n\n    def get_text(self):\n        return ''.join(self.result)"
+    },
+    {
+      "name": "html2text",
+      "lines": [
+        612,
+        623
+      ],
+      "text": "def html2text(html):\n    \"\"\"Strips tags from HTML text, returning markup-free text. Also, does\n    a best effort replacement of entities like \"&nbsp;\"\n\n    >>> r = html2text(u'<a href=\"#\">Test &amp;<em>(\\u0394&#x03b7;&#956;&#x03CE;)</em></a>')\n    >>> r == u'Test &(\\u0394\\u03b7\\u03bc\\u03ce)'\n    True\n    \"\"\"\n    # based on answers to http://stackoverflow.com/questions/753052/\n    s = HTMLTextExtractor()\n    s.feed(html)\n    return s.get_text()"
+    }
+  ],
+  "cases": [
+    {
+      "id": "split_tag",
+      "chunks": [
+        "<b>",
+        "A",
+        "</b>"
+      ],
+      "expected_final": "A",
+      "reason": "标签外文本A"
+    },
+    {
+      "id": "split_entity",
+      "chunks": [
+        "A &am",
+        "p; B"
+      ],
+      "expected_final": "A & B",
+      "reason": "amp实体成为&，文本含空格"
+    },
+    {
+      "id": "split_names",
+      "chunks": [
+        "<",
+        "em>A</",
+        "em>"
+      ],
+      "expected_final": "A",
+      "reason": "起止em标签完整接合后仅A"
+    },
+    {
+      "id": "plain_control",
+      "chunks": [
+        "A",
+        " B"
+      ],
+      "expected_final": "A B",
+      "reason": "普通片段拼接"
+    },
+    {
+      "id": "split_numeric_entity",
+      "chunks": [
+        "&#",
+        "65;"
+      ],
+      "expected_final": "A",
+      "reason": "十进制65是A"
+    },
+    {
+      "id": "split_attribute_quote",
+      "chunks": [
+        "<a href='x",
+        "'>Z</a>"
+      ],
+      "expected_final": "Z",
+      "reason": "完整属性标签后的文本Z"
+    }
+  ],
+  "expected_provenance": "新三结构执行前逐值解析的终值；中间快照未冒称独立人工真值",
+  "evaluation_started": false,
+  "next_action": "创建三结构，最多18solve/底层调用另记",
+  "model_calls": 0,
+  "hidden_reads": 0
+}

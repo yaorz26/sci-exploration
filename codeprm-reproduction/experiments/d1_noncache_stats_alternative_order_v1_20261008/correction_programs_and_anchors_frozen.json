@@ -1,0 +1,82 @@
+{
+  "created_at": "2026-10-08T14:55:38.544086+00:00",
+  "old_summary_sha256": "270d4fdb00231a7e4884bc457a611a21267942d1ac5efee3dd290321657896db",
+  "source_sha256": "0c4d05a17b14244a880e5047c1823d1e1e522e6c5ee76c6b47f54d8bde791e68",
+  "correction": "旧interpretation中的variance实现语义依赖mean把实现调用与任务义务混在一起，待新方案区分；旧结果/源码不覆盖",
+  "old_expected_scope": "旧6项expected是计算公式，不是事前手算真值；本次解析分数为事后检查",
+  "new_extra_before_execution": {
+    "data": [
+      0,
+      2,
+      4
+    ],
+    "mean": "2",
+    "variance": "8/3"
+  },
+  "analytic_anchors": [
+    {
+      "id": "a01",
+      "data": [
+        1,
+        2,
+        3
+      ],
+      "mean": "2",
+      "variance": "2/3"
+    },
+    {
+      "id": "a02",
+      "data": [
+        1,
+        1,
+        5
+      ],
+      "mean": "7/3",
+      "variance": "32/9"
+    },
+    {
+      "id": "a03",
+      "data": [],
+      "mean": "0",
+      "variance": "0"
+    },
+    {
+      "id": "a04",
+      "data": [
+        -2,
+        0,
+        2
+      ],
+      "mean": "0",
+      "variance": "8/3"
+    },
+    {
+      "id": "a05",
+      "data": [
+        1.5,
+        2.5
+      ],
+      "mean": "2",
+      "variance": "1/4"
+    },
+    {
+      "id": "a06",
+      "data": [
+        100,
+        101,
+        102
+      ],
+      "mean": "101",
+      "variance": "2/3"
+    }
+  ],
+  "numeric_diagnostic": "finite float，rel_tol=0、abs_tol=1e-12；独立候选诊断，不启用正式评分或给原20加容差",
+  "programs": {
+    "center_first": "def solve(payload):\n    values = payload[\"data\"]\n    if not values:\n        return {\"mean\": 0.0, \"variance\": 0.0}\n    center = sum(values, 0.0) / len(values)\n    spread = sum((value - center) ** 2 for value in values) / len(values)\n    return {\"mean\": center, \"variance\": spread}\n",
+    "pairwise_first": "def solve(payload):\n    values = payload[\"data\"]\n    if not values:\n        return {\"mean\": 0.0, \"variance\": 0.0}\n    n = len(values)\n    spread = sum((values[i] - values[j]) ** 2 for i in range(n) for j in range(i + 1, n)) / (n * n)\n    center = sum(values, 0.0) / n\n    return {\"mean\": center, \"variance\": spread}\n"
+  },
+  "proof": "sum(i<j)(xi-xj)^2 = n*sum(xi^2)-(sum xi)^2 = n*sum(xi-mean)^2，因此方差可不读取均值输出而先求。实数/有理数恒等式不保证浮点逐位相同。",
+  "model_calls": 0,
+  "API_calls": 0,
+  "hidden_reads": 0
+}

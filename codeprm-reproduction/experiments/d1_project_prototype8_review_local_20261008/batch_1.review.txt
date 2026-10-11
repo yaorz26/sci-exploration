@@ -1,0 +1,60 @@
+```json
+{
+  "findings": [
+    {
+      "task_id": "D1_B01",
+      "severity": "建议",
+      "evidence": "public_examples中的public_2",
+      "reason": "示例中使用了分号作为分隔符，但要求分隔符保证非空且不同。"
+    },
+    {
+      "task_id": "D1_B02",
+      "severity": "建议",
+      "evidence": "public_examples中的public_2",
+      "reason": "示例中使用了空列表作为操作，但要求每步返回{result,items}。"
+    },
+    {
+      "task_id": "D1_C01",
+      "severity": "建议",
+      "evidence": "public_examples中的public_2",
+      "reason": "示例中使用了空列表作为操作，但要求每条记录为{result,items,size}。"
+    },
+    {
+      "task_id": "D1_C02",
+      "severity": "建议",
+      "evidence": "public_examples中的public_2",
+      "reason": "示例中使用了空列表作为操作，但要求每条记录为{result,items,size}。"
+    }
+  ],
+  "labels": [
+    {
+      "task_id": "D1_B01",
+      "dependency": "无",
+      "shared_state": "无",
+      "independent_test": "是",
+      "reason": "任务要求不修改输入payload及其嵌套内容，且测试输入符合已声明的字段与类型。"
+    },
+    {
+      "task_id": "D1_B02",
+      "dependency": "无",
+      "shared_state": "无",
+      "independent_test": "是",
+      "reason": "任务要求不修改输入payload及其嵌套内容，且测试输入符合已声明的字段与类型。"
+    },
+    {
+      "task_id": "D1_C01",
+      "dependency": "无",
+      "shared_state": "无",
+      "independent_test": "是",
+      "reason": "任务要求不修改输入payload及其嵌套内容，且测试输入符合已声明的字段与类型。"
+    },
+    {
+      "task_id": "D1_C02",
+      "dependency": "无",
+      "shared_state": "无",
+      "independent_test": "是",
+      "reason": "任务要求不修改输入payload及其嵌套内容，且测试输入符合已声明的字段与类型。"
+    }
+  ]
+}
+```

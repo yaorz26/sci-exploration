@@ -1,0 +1,22 @@
+{
+  "helpers": [
+    {
+      "name": "_apply_factor",
+      "signature": "def _apply_factor(tree, factor):",
+      "contract": "递归地将树中的所有数值叶子乘以factor。布尔值不算数值。返回变换后的树。",
+      "depends_on": []
+    },
+    {
+      "name": "_drop_null",
+      "signature": "def _drop_null(tree, drop_null):",
+      "contract": "递归地删除树中值为null的条目及数组中的null元素。空容器仍保留。返回变换后的树。",
+      "depends_on": []
+    },
+    {
+      "name": "_find_matches",
+      "signature": "def _find_matches(tree, threshold):",
+      "contract": "递归地查找树中数值>=threshold的全部叶子。返回匹配的路径和值列表。",
+      "depends_on": []
+    }
+  ]
+}

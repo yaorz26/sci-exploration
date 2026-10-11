@@ -1,0 +1,5 @@
+# 历史检查点的验证范围纠正
+
+P66、P70及P70_v2的checkpoint JSON是在P65通过文件上改写计数与描述形成，不能证明相应后续状态经过验证器执行。原文件全部保留，不再引用其valid=true作为完整校验证据。P65_v2原实际校验与后续研究实验的原输出不因本纠正改变。
+
+本轮状态实际校验应使用既有scripts/validate_project_state.py适配器调用research-scientist的validate_state.py，结果另存d1_state_P75_actual_checkpoint_20261009.json。不增加legacy例外，不修改原账本，不把旧复制计数当机器检验。

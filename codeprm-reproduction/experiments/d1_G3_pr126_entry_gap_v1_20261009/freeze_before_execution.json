@@ -1,0 +1,151 @@
+{
+  "created_at": "2026-10-11T04:56:09.668474+00:00",
+  "question": "旧PR126评价是否误收遗漏直接YamlSource参数的项目实现？",
+  "plan_sha256": "5bd245478f6961a2ba8ec7d597f54a88ba00bee9b9407003d435748ab88d02e6",
+  "input_files": [
+    {
+      "path": "D:\\yaorz\\research\\docs\\week3\\data-route\\20261009\\218_pr126_direct_entry_counterexample_plan.md",
+      "sha256": "5bd245478f6961a2ba8ec7d597f54a88ba00bee9b9407003d435748ab88d02e6"
+    },
+    {
+      "path": "D:\\yaorz\\research\\codeprm-reproduction\\data\\processed\\d1_actual_project_candidate_v2_20261009\\public\\REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS\\requirement.md",
+      "sha256": "f63dbd281ccb5bbcafeaa3e5ef625f4ddf3c1b11ce1a31e3530214b3d61e9af2"
+    },
+    {
+      "path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_G3_pr126_entry_gap_v1_20261009\\evaluate_legacy.py",
+      "sha256": "138c07f50905b05df419c3b408cb464aae73cd78a5d2f7b570551f947ebaacb2"
+    },
+    {
+      "path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_G3_pr126_entry_gap_v1_20261009\\evaluate_direct_yaml.py",
+      "sha256": "883416e2496dcb0bcd31b285aa47e95af57295e336313bdc19c12e05ecaea623"
+    }
+  ],
+  "workspaces": {
+    "control": {
+      "path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_G3_pr126_entry_gap_v1_20261009\\workspaces\\control",
+      "files": [
+        {
+          "path": "workspaces\\control\\confuse\\__init__.py",
+          "sha256": "7a0ad3e38dd881aa18cf67c2eb91a1a3efc50518ca58f49124c028a72484bfb2"
+        },
+        {
+          "path": "workspaces\\control\\confuse\\core.py",
+          "sha256": "ee4bd4326e3d11628263764a983237be503ebab10d8f798d5380ccc6ce04e590"
+        },
+        {
+          "path": "workspaces\\control\\confuse\\exceptions.py",
+          "sha256": "fdde86bcee02fc4a8ed9f64c560e7a5974a0037241027af9ca04d65b4baf6815"
+        },
+        {
+          "path": "workspaces\\control\\confuse\\sources.py",
+          "sha256": "c8cd686455de65ef288f2f9b9a299d4cdcc3d7a13e3163bebc20bef32a64c666"
+        },
+        {
+          "path": "workspaces\\control\\confuse\\templates.py",
+          "sha256": "2714114575a7ef0c715eb90dc623e2f03291214f7d19ba7b7f348eda61f71f9f"
+        },
+        {
+          "path": "workspaces\\control\\confuse\\util.py",
+          "sha256": "1bfa310c757e5b212b484719257db55227b6738c8cc58d66fe587c819bf48e2a"
+        },
+        {
+          "path": "workspaces\\control\\confuse\\yaml_util.py",
+          "sha256": "47ee86d9f839300ef436989ba1bac96d894bf9f2085dc7168d6b0ea91c1eb792"
+        },
+        {
+          "path": "workspaces\\control\\LICENSE",
+          "sha256": "0b308ae66aaa1412ebbe645bec4002fd262d91e9cdf67b6f198026677ddfafcc"
+        }
+      ]
+    },
+    "complete": {
+      "path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_G3_pr126_entry_gap_v1_20261009\\workspaces\\complete",
+      "files": [
+        {
+          "path": "workspaces\\complete\\confuse\\__init__.py",
+          "sha256": "7a0ad3e38dd881aa18cf67c2eb91a1a3efc50518ca58f49124c028a72484bfb2"
+        },
+        {
+          "path": "workspaces\\complete\\confuse\\core.py",
+          "sha256": "57c720d3dfd0235a0f434471de28ef000bfec9c8020eafb81d9ffbbab5e44466"
+        },
+        {
+          "path": "workspaces\\complete\\confuse\\exceptions.py",
+          "sha256": "fdde86bcee02fc4a8ed9f64c560e7a5974a0037241027af9ca04d65b4baf6815"
+        },
+        {
+          "path": "workspaces\\complete\\confuse\\sources.py",
+          "sha256": "b9d89a32b5cacdd23982538e4429eedaaf779ad167d1321cb7fb6cbee76df92a"
+        },
+        {
+          "path": "workspaces\\complete\\confuse\\templates.py",
+          "sha256": "2714114575a7ef0c715eb90dc623e2f03291214f7d19ba7b7f348eda61f71f9f"
+        },
+        {
+          "path": "workspaces\\complete\\confuse\\util.py",
+          "sha256": "1bfa310c757e5b212b484719257db55227b6738c8cc58d66fe587c819bf48e2a"
+        },
+        {
+          "path": "workspaces\\complete\\confuse\\yaml_util.py",
+          "sha256": "47ee86d9f839300ef436989ba1bac96d894bf9f2085dc7168d6b0ea91c1eb792"
+        },
+        {
+          "path": "workspaces\\complete\\LICENSE",
+          "sha256": "0b308ae66aaa1412ebbe645bec4002fd262d91e9cdf67b6f198026677ddfafcc"
+        }
+      ]
+    },
+    "alternative": {
+      "path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_G3_pr126_entry_gap_v1_20261009\\workspaces\\alternative",
+      "files": [
+        {
+          "path": "workspaces\\alternative\\confuse\\__init__.py",
+          "sha256": "ec26311458a8135a39cc4295acf806ced82ff79294a7ba533cd5ea6a96074aad"
+        },
+        {
+          "path": "workspaces\\alternative\\confuse\\core.py",
+          "sha256": "24ce55bef50eb8438941e9f92e283bd1749f5e47b0079213bb59f09ad0c1052c"
+        },
+        {
+          "path": "workspaces\\alternative\\confuse\\exceptions.py",
+          "sha256": "fdde86bcee02fc4a8ed9f64c560e7a5974a0037241027af9ca04d65b4baf6815"
+        },
+        {
+          "path": "workspaces\\alternative\\confuse\\sources.py",
+          "sha256": "2db40f643fc6e93569d8ab9e4bf4b067ab87f4e6563e68080c2a50866814d9f9"
+        },
+        {
+          "path": "workspaces\\alternative\\confuse\\templates.py",
+          "sha256": "d200a9f3e7cf070dc392f23bd6a3b25a30655f08d81f3805dc2b875c332fb910"
+        },
+        {
+          "path": "workspaces\\alternative\\confuse\\util.py",
+          "sha256": "1bfa310c757e5b212b484719257db55227b6738c8cc58d66fe587c819bf48e2a"
+        },
+        {
+          "path": "workspaces\\alternative\\confuse\\yaml_util.py",
+          "sha256": "47ee86d9f839300ef436989ba1bac96d894bf9f2085dc7168d6b0ea91c1eb792"
+        },
+        {
+          "path": "workspaces\\alternative\\LICENSE",
+          "sha256": "0b308ae66aaa1412ebbe645bec4002fd262d91e9cdf67b6f198026677ddfafcc"
+        }
+      ]
+    }
+  },
+  "frozen_before_execution": true,
+  "allowed_calls": {
+    "legacy_control": 1,
+    "direct_yaml_each": 1,
+    "model": 0,
+    "human": 0
+  },
+  "expected_pattern": {
+    "control_legacy": "8/8",
+    "control_direct": "0/1",
+    "complete_direct": "1/1",
+    "alternative_direct": "1/1"
+  },
+  "formal_labels": null,
+  "split": null
+}

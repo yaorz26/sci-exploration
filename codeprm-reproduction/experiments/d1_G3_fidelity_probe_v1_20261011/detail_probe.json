@@ -1,0 +1,48 @@
+{
+  "PR142_detail": {
+    "suffix_eq": {
+      "value": "<NotFoundError>",
+      "keys_shallow": [
+        "",
+        "z"
+      ]
+    },
+    "suffix_eq_plus_normal": {
+      "value": "1",
+      "keys_shallow": [
+        "",
+        "a",
+        "z"
+      ]
+    },
+    "empty_prefix": {
+      "value": "1",
+      "keys_shallow": [
+        "a",
+        "z"
+      ]
+    },
+    "collection_value": {
+      "value": "'[1,2]'",
+      "keys_shallow": [
+        "a",
+        "z"
+      ]
+    }
+  },
+  "PR440_detail": {
+    "consume_first_before_advance": [
+      1,
+      2
+    ],
+    "first_key": "a",
+    "second_key": "b",
+    "second_group": [
+      3
+    ],
+    "advance_then_consume_first": [],
+    "advance_then_consume_second": [
+      3
+    ]
+  }
+}

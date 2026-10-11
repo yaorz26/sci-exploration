@@ -1,0 +1,143 @@
+{
+  "round": 3,
+  "reviewer_type": "ai_isolated_subagent（非人类，不得当作人工双审）",
+  "total_judgements": 20,
+  "agreements": 6,
+  "raw_agreement": 0.3,
+  "expected_agreement_independence": 0.27,
+  "cohen_kappa_estimate": 0.04109589041095887,
+  "flagged_resolution": {
+    "A": "7/11",
+    "B": "7/11"
+  },
+  "rejection": {
+    "T1": {
+      "A": false,
+      "B": false
+    },
+    "T2": {
+      "A": false,
+      "B": true
+    },
+    "T3": {
+      "A": false,
+      "B": false
+    },
+    "T4": {
+      "A": false,
+      "B": false
+    },
+    "T5": {
+      "A": false,
+      "B": true
+    }
+  },
+  "disagreements": [
+    {
+      "task": "T1",
+      "dimension": "验收可判定",
+      "A": 5,
+      "B": 4
+    },
+    {
+      "task": "T2",
+      "dimension": "需求可理解",
+      "A": 3,
+      "B": 4
+    },
+    {
+      "task": "T2",
+      "dimension": "验收可判定",
+      "A": 4,
+      "B": 3
+    },
+    {
+      "task": "T2",
+      "dimension": "可纳入正式候选",
+      "A": 2,
+      "B": 3
+    },
+    {
+      "task": "T3",
+      "dimension": "需求可理解",
+      "A": 5,
+      "B": 4
+    },
+    {
+      "task": "T3",
+      "dimension": "验收可判定",
+      "A": 4,
+      "B": 3
+    },
+    {
+      "task": "T3",
+      "dimension": "可纳入正式候选",
+      "A": 4,
+      "B": 3
+    },
+    {
+      "task": "T4",
+      "dimension": "需求可理解",
+      "A": 3,
+      "B": 4
+    },
+    {
+      "task": "T4",
+      "dimension": "验收可判定",
+      "A": 3,
+      "B": 4
+    },
+    {
+      "task": "T4",
+      "dimension": "内部自由",
+      "A": 5,
+      "B": 4
+    },
+    {
+      "task": "T4",
+      "dimension": "可纳入正式候选",
+      "A": 3,
+      "B": 4
+    },
+    {
+      "task": "T5",
+      "dimension": "需求可理解",
+      "A": 3,
+      "B": 4
+    },
+    {
+      "task": "T5",
+      "dimension": "内部自由",
+      "A": 5,
+      "B": 4
+    },
+    {
+      "task": "T5",
+      "dimension": "可纳入正式候选",
+      "A": 3,
+      "B": 2
+    }
+  ],
+  "trend": {
+    "round1_raw": 0.4,
+    "round1_kappa": 0.0514,
+    "round2_raw": 0.65,
+    "round2_kappa": 0.4488,
+    "round3_raw": 0.3,
+    "round3_kappa": 0.04109589041095887
+  },
+  "new_findings_round3": [
+    "T5：有序判定表与最小判定例互斥（cwd 排第 2 vs 判定例要求源级开关压过 cwd），5 行例中 2 行推不出 → 两位均拒收；已改判定顺序（in_app_dir→源级 base_for_paths→in_source_dir→cwd）并复核 5 行例全部可推出",
+    "T2：映射视图取用入口名未给、getlist 缺键未定义 → 两位均拒收；已补 url_view(url) 入口与缺键返回约定；另修字符表中 % 的重叠区（%00—%FF 不再有两种合法输出）",
+    "T3：A__B 被误列为空层级片段（按 sep 切开正是嵌套正例）→ 已更正为 A__ / A___B / __A，并补‘当前最高优先级’判定顺序",
+    "T4：修订说明称 keyfunc 已显式给出但正文只出现 valuefunc → 已内嵌三例公开用例（含 keyfunc、factor 与义务 4 的观察序列）"
+  ],
+  "limits": [
+    "两位审查者同属一个模型家族；一致率不代表人工一致",
+    "20 项判断 5 点序数，kappa 仅作参考",
+    "审查者无法验证来源声明（父提交、实测一致率），只按文本自证"
+  ],
+  "human_reviews": 0,
+  "formal_labels": null,
+  "split": null
+}

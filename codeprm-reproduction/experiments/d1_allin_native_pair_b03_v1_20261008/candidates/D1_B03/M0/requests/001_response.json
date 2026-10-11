@@ -1,0 +1,14 @@
+{
+  "model": "qwen2.5-coder:7b",
+  "created_at": "2026-10-08T09:40:23.7029773Z",
+  "response": "```python\ndef solve(payload):\n    text = payload.get(\"text\", \"\")\n    result = []\n    i = 0\n    while i < len(text):\n        if text[i] == '\\x1b':  # ESC character\n            if i + 1 < len(text) and text[i + 1] == '[':\n                # Handle ANSI escape sequence starting with ESC[\n                j = i + 2\n                while j < len(text) and text[j].isalnum() or text[j] in ' ;':\n                    j += 1\n                if j < len(text) and (text[j] >= '@' and text[j] <= '~'):\n                    i = j\n                else:\n                    result.append(text[i])\n            else:\n                # Handle other ANSI escape sequences\n                j = i + 1\n                while j < len(text) and text[j].isalnum():\n                    j += 1\n                if j < len(text) and (text[j] >= '@' and text[j] <= '~'):\n                    i = j\n                else:\n                    result.append(text[i])\n        else:\n            result.append(text[i])\n        i += 1\n    return ''.join(result)\n```",
+  "done": true,
+  "done_reason": "stop",
+  "total_duration": 5307417500,
+  "load_duration": 4221100,
+  "prompt_eval_count": 391,
+  "prompt_eval_cached_count": 390,
+  "prompt_eval_duration": 284810000,
+  "eval_count": 249,
+  "eval_duration": 5015595000
+}

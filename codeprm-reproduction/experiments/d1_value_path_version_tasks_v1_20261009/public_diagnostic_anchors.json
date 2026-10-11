@@ -1,0 +1,352 @@
+[
+  {
+    "case_id": "factor_one",
+    "payload": {
+      "tree": {
+        "a": [
+          null,
+          2,
+          -1
+        ],
+        "b": 3
+      },
+      "factor": 1,
+      "drop_null": true,
+      "threshold": 3
+    },
+    "expected": {
+      "raw_value_new_path": {
+        "tree": {
+          "a": [
+            2,
+            -1
+          ],
+          "b": 3
+        },
+        "matches": [
+          {
+            "path": [
+              "b"
+            ],
+            "value": 3
+          }
+        ]
+      },
+      "new_value_raw_path": {
+        "tree": {
+          "a": [
+            2,
+            -1
+          ],
+          "b": 3
+        },
+        "matches": [
+          {
+            "path": [
+              "b"
+            ],
+            "value": 3
+          }
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "factor_two",
+    "payload": {
+      "tree": {
+        "a": [
+          null,
+          2,
+          -1
+        ],
+        "b": 3
+      },
+      "factor": 2,
+      "drop_null": true,
+      "threshold": 3
+    },
+    "expected": {
+      "raw_value_new_path": {
+        "tree": {
+          "a": [
+            4,
+            -2
+          ],
+          "b": 6
+        },
+        "matches": [
+          {
+            "path": [
+              "b"
+            ],
+            "value": 3
+          }
+        ]
+      },
+      "new_value_raw_path": {
+        "tree": {
+          "a": [
+            4,
+            -2
+          ],
+          "b": 6
+        },
+        "matches": [
+          {
+            "path": [
+              "a",
+              1
+            ],
+            "value": 4
+          },
+          {
+            "path": [
+              "b"
+            ],
+            "value": 6
+          }
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "keep_null",
+    "payload": {
+      "tree": {
+        "a": [
+          null,
+          4
+        ],
+        "b": [
+          1
+        ]
+      },
+      "factor": 1,
+      "drop_null": false,
+      "threshold": 3
+    },
+    "expected": {
+      "raw_value_new_path": {
+        "tree": {
+          "a": [
+            null,
+            4
+          ],
+          "b": [
+            1
+          ]
+        },
+        "matches": [
+          {
+            "path": [
+              "a",
+              1
+            ],
+            "value": 4
+          }
+        ]
+      },
+      "new_value_raw_path": {
+        "tree": {
+          "a": [
+            null,
+            4
+          ],
+          "b": [
+            1
+          ]
+        },
+        "matches": [
+          {
+            "path": [
+              "a",
+              1
+            ],
+            "value": 4
+          }
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "drop_null",
+    "payload": {
+      "tree": {
+        "a": [
+          null,
+          4
+        ],
+        "b": [
+          1
+        ]
+      },
+      "factor": 1,
+      "drop_null": true,
+      "threshold": 3
+    },
+    "expected": {
+      "raw_value_new_path": {
+        "tree": {
+          "a": [
+            4
+          ],
+          "b": [
+            1
+          ]
+        },
+        "matches": [
+          {
+            "path": [
+              "a",
+              0
+            ],
+            "value": 4
+          }
+        ]
+      },
+      "new_value_raw_path": {
+        "tree": {
+          "a": [
+            4
+          ],
+          "b": [
+            1
+          ]
+        },
+        "matches": [
+          {
+            "path": [
+              "a",
+              1
+            ],
+            "value": 4
+          }
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "factor_zero",
+    "payload": {
+      "tree": {
+        "a": [
+          null,
+          -2
+        ],
+        "b": 1
+      },
+      "factor": 0,
+      "drop_null": true,
+      "threshold": 0
+    },
+    "expected": {
+      "raw_value_new_path": {
+        "tree": {
+          "a": [
+            0
+          ],
+          "b": 0
+        },
+        "matches": [
+          {
+            "path": [
+              "b"
+            ],
+            "value": 1
+          }
+        ]
+      },
+      "new_value_raw_path": {
+        "tree": {
+          "a": [
+            0
+          ],
+          "b": 0
+        },
+        "matches": [
+          {
+            "path": [
+              "a",
+              1
+            ],
+            "value": 0
+          },
+          {
+            "path": [
+              "b"
+            ],
+            "value": 0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "factor_negative",
+    "payload": {
+      "tree": {
+        "a": [
+          -3,
+          2
+        ],
+        "b": {
+          "z": null,
+          "k": -1
+        }
+      },
+      "factor": -2,
+      "drop_null": true,
+      "threshold": 2
+    },
+    "expected": {
+      "raw_value_new_path": {
+        "tree": {
+          "a": [
+            6,
+            -4
+          ],
+          "b": {
+            "k": 2
+          }
+        },
+        "matches": [
+          {
+            "path": [
+              "a",
+              1
+            ],
+            "value": 2
+          }
+        ]
+      },
+      "new_value_raw_path": {
+        "tree": {
+          "a": [
+            6,
+            -4
+          ],
+          "b": {
+            "k": 2
+          }
+        },
+        "matches": [
+          {
+            "path": [
+              "a",
+              0
+            ],
+            "value": 6
+          },
+          {
+            "path": [
+              "b",
+              "k"
+            ],
+            "value": 2
+          }
+        ]
+      }
+    }
+  }
+]

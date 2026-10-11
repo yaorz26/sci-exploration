@@ -1,0 +1,535 @@
+[
+  {
+    "id": "same_unit",
+    "left": {
+      "task_id": "D1_C04",
+      "history_domain": "operation_history",
+      "entity_fields": [
+        "instance"
+      ],
+      "equivalence": "identity",
+      "partition": "per_instance_cache",
+      "observer": "target_final_call_computation_increment",
+      "quantifier": "within_declared_probe_pair",
+      "domain": {
+        "capacity": 1,
+        "instances": [
+          "a",
+          "b"
+        ],
+        "x_values": [
+          1,
+          2
+        ]
+      },
+      "evidence_ref": "different_instance",
+      "judgment": "no",
+      "support": "finite_no_witness",
+      "evidence_relation": [
+        0,
+        0
+      ]
+    },
+    "right": {
+      "task_id": "D1_C04",
+      "history_domain": "operation_history",
+      "entity_fields": [
+        "instance"
+      ],
+      "equivalence": "identity",
+      "partition": "per_instance_cache",
+      "observer": "target_final_call_computation_increment",
+      "quantifier": "within_declared_probe_pair",
+      "domain": {
+        "capacity": 1,
+        "instances": [
+          "a",
+          "b"
+        ],
+        "x_values": [
+          1,
+          2
+        ]
+      },
+      "evidence_ref": "different_instance",
+      "judgment": "no",
+      "support": "finite_no_witness",
+      "evidence_relation": [
+        0,
+        0
+      ]
+    },
+    "expected": "same_unit_agreement",
+    "actual": "same_unit_agreement",
+    "pass": true,
+    "kind": "助手构造的口径分支演示，非人类一致性"
+  },
+  {
+    "id": "valid_different_grains",
+    "left": {
+      "task_id": "D1_C04",
+      "history_domain": "operation_history",
+      "entity_fields": [
+        "instance"
+      ],
+      "equivalence": "identity",
+      "partition": "per_instance_cache",
+      "observer": "target_final_call_computation_increment",
+      "quantifier": "within_declared_probe_pair",
+      "domain": {
+        "capacity": 1,
+        "instances": [
+          "a",
+          "b"
+        ],
+        "x_values": [
+          1,
+          2
+        ]
+      },
+      "evidence_ref": "different_instance",
+      "judgment": "no",
+      "support": "finite_no_witness",
+      "evidence_relation": [
+        0,
+        0
+      ]
+    },
+    "right": {
+      "task_id": "D1_C04",
+      "history_domain": "operation_history",
+      "entity_fields": [
+        "instance",
+        "x"
+      ],
+      "equivalence": "identity",
+      "partition": "shared_cache_within_instance",
+      "observer": "target_final_call_computation_increment",
+      "quantifier": "within_declared_probe_pair",
+      "domain": {
+        "capacity": 1,
+        "instances": [
+          "a",
+          "b"
+        ],
+        "x_values": [
+          1,
+          2
+        ]
+      },
+      "evidence_ref": "same_instance_different_key",
+      "judgment": "yes",
+      "support": "counterexample",
+      "evidence_relation": [
+        0,
+        1
+      ]
+    },
+    "expected": "different_measurement_units",
+    "actual": "different_measurement_units",
+    "pass": true,
+    "kind": "助手构造的口径分支演示，非人类一致性"
+  },
+  {
+    "id": "same_unit_opposite_judgment",
+    "left": {
+      "task_id": "D1_C04",
+      "history_domain": "operation_history",
+      "entity_fields": [
+        "instance"
+      ],
+      "equivalence": "identity",
+      "partition": "per_instance_cache",
+      "observer": "target_final_call_computation_increment",
+      "quantifier": "within_declared_probe_pair",
+      "domain": {
+        "capacity": 1,
+        "instances": [
+          "a",
+          "b"
+        ],
+        "x_values": [
+          1,
+          2
+        ]
+      },
+      "evidence_ref": "different_instance",
+      "judgment": "no",
+      "support": "finite_no_witness",
+      "evidence_relation": [
+        0,
+        0
+      ]
+    },
+    "right": {
+      "task_id": "D1_C04",
+      "history_domain": "operation_history",
+      "entity_fields": [
+        "instance"
+      ],
+      "equivalence": "identity",
+      "partition": "per_instance_cache",
+      "observer": "target_final_call_computation_increment",
+      "quantifier": "within_declared_probe_pair",
+      "domain": {
+        "capacity": 1,
+        "instances": [
+          "a",
+          "b"
+        ],
+        "x_values": [
+          1,
+          2
+        ]
+      },
+      "evidence_ref": "different_instance",
+      "judgment": "yes",
+      "support": "claimed_counterexample",
+      "evidence_relation": [
+        0,
+        0
+      ]
+    },
+    "expected": "same_unit_disagreement",
+    "actual": "same_unit_disagreement",
+    "pass": true,
+    "kind": "助手构造的口径分支演示，非人类一致性"
+  },
+  {
+    "id": "different_observer",
+    "left": {
+      "task_id": "D1_C04",
+      "history_domain": "operation_history",
+      "entity_fields": [
+        "instance"
+      ],
+      "equivalence": "identity",
+      "partition": "per_instance_cache",
+      "observer": "target_final_call_computation_increment",
+      "quantifier": "within_declared_probe_pair",
+      "domain": {
+        "capacity": 1,
+        "instances": [
+          "a",
+          "b"
+        ],
+        "x_values": [
+          1,
+          2
+        ]
+      },
+      "evidence_ref": "different_instance",
+      "judgment": "no",
+      "support": "finite_no_witness",
+      "evidence_relation": [
+        0,
+        0
+      ]
+    },
+    "right": {
+      "task_id": "D1_C04",
+      "history_domain": "operation_history",
+      "entity_fields": [
+        "instance"
+      ],
+      "equivalence": "identity",
+      "partition": "per_instance_cache",
+      "observer": "all_instances_aggregate_computations",
+      "quantifier": "within_declared_probe_pair",
+      "domain": {
+        "capacity": 1,
+        "instances": [
+          "a",
+          "b"
+        ],
+        "x_values": [
+          1,
+          2
+        ]
+      },
+      "evidence_ref": "different_instance",
+      "judgment": "no",
+      "support": "finite_no_witness",
+      "evidence_relation": [
+        0,
+        0
+      ]
+    },
+    "expected": "different_measurement_units",
+    "actual": "different_measurement_units",
+    "pass": true,
+    "kind": "助手构造的口径分支演示，非人类一致性"
+  },
+  {
+    "id": "unknown_retained",
+    "left": {
+      "task_id": "D1_C04",
+      "history_domain": "operation_history",
+      "entity_fields": [
+        "instance"
+      ],
+      "equivalence": "identity",
+      "partition": "per_instance_cache",
+      "observer": "target_final_call_computation_increment",
+      "quantifier": "within_declared_probe_pair",
+      "domain": {
+        "capacity": 1,
+        "instances": [
+          "a",
+          "b"
+        ],
+        "x_values": [
+          1,
+          2
+        ]
+      },
+      "evidence_ref": "different_instance",
+      "judgment": "no",
+      "support": "finite_no_witness",
+      "evidence_relation": [
+        0,
+        0
+      ]
+    },
+    "right": {
+      "task_id": "D1_C04",
+      "history_domain": "operation_history",
+      "entity_fields": [
+        "instance"
+      ],
+      "equivalence": "identity",
+      "partition": "per_instance_cache",
+      "observer": "target_final_call_computation_increment",
+      "quantifier": "within_declared_probe_pair",
+      "domain": {
+        "capacity": 1,
+        "instances": [
+          "a",
+          "b"
+        ],
+        "x_values": [
+          1,
+          2
+        ]
+      },
+      "evidence_ref": "different_instance",
+      "judgment": "unknown",
+      "support": "unassessed",
+      "evidence_relation": [
+        0,
+        0
+      ]
+    },
+    "expected": "contains_unknown",
+    "actual": "contains_unknown",
+    "pass": true,
+    "kind": "助手构造的口径分支演示，非人类一致性"
+  },
+  {
+    "id": "wrong_contract_equivalence",
+    "left": {
+      "task_id": "E_M06",
+      "history_domain": "input_item_sequence",
+      "entity_fields": [
+        "key"
+      ],
+      "equivalence": "str.casefold",
+      "partition": "normalized_key_class",
+      "observer": "target_class_first_record",
+      "quantifier": "within_declared_probe_pair",
+      "domain": {
+        "mode": "casefold",
+        "raw_keys": [
+          "a",
+          "A"
+        ]
+      },
+      "evidence_ref": "raw_spelling_is_same_entity",
+      "judgment": "not_applicable",
+      "support": "counterexample",
+      "evidence_relation": [
+        [
+          {
+            "key": "a",
+            "value": 1
+          }
+        ],
+        [
+          {
+            "key": "A",
+            "value": 3
+          }
+        ]
+      ]
+    },
+    "right": {
+      "task_id": "E_M06",
+      "history_domain": "input_item_sequence",
+      "entity_fields": [
+        "key"
+      ],
+      "equivalence": "identity",
+      "partition": "normalized_key_class",
+      "observer": "target_class_first_record",
+      "quantifier": "within_declared_probe_pair",
+      "domain": {
+        "mode": "casefold",
+        "raw_keys": [
+          "a",
+          "A"
+        ]
+      },
+      "evidence_ref": "raw_spelling_is_same_entity",
+      "judgment": "yes",
+      "support": "counterexample",
+      "evidence_relation": [
+        [
+          {
+            "key": "a",
+            "value": 1
+          }
+        ],
+        [
+          {
+            "key": "A",
+            "value": 3
+          }
+        ]
+      ]
+    },
+    "expected": "contract_incompatible_entity",
+    "actual": "contract_incompatible_entity",
+    "pass": true,
+    "kind": "助手构造的口径分支演示，非人类一致性"
+  },
+  {
+    "id": "finite_absence_not_universal",
+    "left": {
+      "task_id": "D1_C04",
+      "history_domain": "operation_history",
+      "entity_fields": [
+        "instance"
+      ],
+      "equivalence": "identity",
+      "partition": "per_instance_cache",
+      "observer": "target_final_call_computation_increment",
+      "quantifier": "exists_in_contract_domain",
+      "domain": {
+        "capacity": 1,
+        "instances": [
+          "a",
+          "b"
+        ],
+        "x_values": [
+          1,
+          2
+        ]
+      },
+      "evidence_ref": "different_instance",
+      "judgment": "no",
+      "support": "finite_no_witness",
+      "evidence_relation": [
+        0,
+        0
+      ]
+    },
+    "right": {
+      "task_id": "D1_C04",
+      "history_domain": "operation_history",
+      "entity_fields": [
+        "instance"
+      ],
+      "equivalence": "identity",
+      "partition": "per_instance_cache",
+      "observer": "target_final_call_computation_increment",
+      "quantifier": "exists_in_contract_domain",
+      "domain": {
+        "capacity": 1,
+        "instances": [
+          "a",
+          "b"
+        ],
+        "x_values": [
+          1,
+          2
+        ]
+      },
+      "evidence_ref": "different_instance",
+      "judgment": "no",
+      "support": "finite_no_witness",
+      "evidence_relation": [
+        0,
+        0
+      ]
+    },
+    "expected": "unsupported_universal_negative",
+    "actual": "unsupported_universal_negative",
+    "pass": true,
+    "kind": "助手构造的口径分支演示，非人类一致性"
+  },
+  {
+    "id": "same_unit_different_evidence_id",
+    "left": {
+      "task_id": "D1_C04",
+      "history_domain": "operation_history",
+      "entity_fields": [
+        "instance"
+      ],
+      "equivalence": "identity",
+      "partition": "per_instance_cache",
+      "observer": "target_final_call_computation_increment",
+      "quantifier": "within_declared_probe_pair",
+      "domain": {
+        "capacity": 1,
+        "instances": [
+          "a",
+          "b"
+        ],
+        "x_values": [
+          1,
+          2
+        ]
+      },
+      "evidence_ref": "different_instance",
+      "judgment": "no",
+      "support": "finite_no_witness",
+      "evidence_relation": [
+        0,
+        0
+      ]
+    },
+    "right": {
+      "task_id": "D1_C04",
+      "history_domain": "operation_history",
+      "entity_fields": [
+        "instance"
+      ],
+      "equivalence": "identity",
+      "partition": "per_instance_cache",
+      "observer": "target_final_call_computation_increment",
+      "quantifier": "within_declared_probe_pair",
+      "domain": {
+        "capacity": 1,
+        "instances": [
+          "a",
+          "b"
+        ],
+        "x_values": [
+          1,
+          2
+        ]
+      },
+      "evidence_ref": "另一证据编号，仅检验比较口径、不证明该证据有效",
+      "judgment": "no",
+      "support": "finite_no_witness",
+      "evidence_relation": [
+        0,
+        0
+      ]
+    },
+    "expected": "same_unit_agreement",
+    "actual": "same_unit_agreement",
+    "pass": true,
+    "kind": "助手构造的口径分支演示，非人类一致性"
+  }
+]

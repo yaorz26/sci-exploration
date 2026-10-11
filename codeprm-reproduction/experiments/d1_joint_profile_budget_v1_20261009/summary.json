@@ -1,0 +1,197 @@
+{
+  "created_at": "2026-10-09T02:38:43.653837+00:00",
+  "development_rows": 11,
+  "profiles": 7,
+  "repeated_profiles": [
+    {
+      "profile": {
+        "behavior_dependencies": [
+          "ordered_transform"
+        ],
+        "state_scope": "none",
+        "separate_behavior_testability": "yes"
+      },
+      "members": [
+        "D1_B01",
+        "D1_B05"
+      ],
+      "M0_input_spread": 147,
+      "M2_input_spread": 588,
+      "M2_remainder_min": 3892,
+      "M2_remainder_max": 4480
+    },
+    {
+      "profile": {
+        "behavior_dependencies": [
+          "operation_sequence"
+        ],
+        "state_scope": "global",
+        "separate_behavior_testability": "partial"
+      },
+      "members": [
+        "D1_B02",
+        "D1_C01",
+        "D1_C02"
+      ],
+      "M0_input_spread": 38,
+      "M2_input_spread": 152,
+      "M2_remainder_min": 3084,
+      "M2_remainder_max": 3236
+    },
+    {
+      "profile": {
+        "behavior_dependencies": [
+          "branch_rules",
+          "direct"
+        ],
+        "state_scope": "none",
+        "separate_behavior_testability": "no"
+      },
+      "members": [
+        "D1_B06",
+        "D1_C05"
+      ],
+      "M0_input_spread": 32,
+      "M2_input_spread": 128,
+      "M2_remainder_min": 3896,
+      "M2_remainder_max": 4024
+    }
+  ],
+  "within_profile_pairs": [
+    {
+      "tasks": [
+        "D1_B01",
+        "D1_B05"
+      ],
+      "profile": {
+        "behavior_dependencies": [
+          "ordered_transform"
+        ],
+        "state_scope": "none",
+        "separate_behavior_testability": "yes"
+      },
+      "same_source": true,
+      "delta_M0_input_b_minus_a": 147,
+      "delta_M2_input_b_minus_a": 588,
+      "absolute_M2_input_gap": 588,
+      "gap_fraction_total_cap": 0.09046153846153847,
+      "delta_extra_input_b_minus_a": 441,
+      "delta_M2_remainder_b_minus_a": -588,
+      "input_order_reversal": false
+    },
+    {
+      "tasks": [
+        "D1_B02",
+        "D1_C01"
+      ],
+      "profile": {
+        "behavior_dependencies": [
+          "operation_sequence"
+        ],
+        "state_scope": "global",
+        "separate_behavior_testability": "partial"
+      },
+      "same_source": false,
+      "delta_M0_input_b_minus_a": 29,
+      "delta_M2_input_b_minus_a": 116,
+      "absolute_M2_input_gap": 116,
+      "gap_fraction_total_cap": 0.017846153846153845,
+      "delta_extra_input_b_minus_a": 87,
+      "delta_M2_remainder_b_minus_a": -116,
+      "input_order_reversal": false
+    },
+    {
+      "tasks": [
+        "D1_B02",
+        "D1_C02"
+      ],
+      "profile": {
+        "behavior_dependencies": [
+          "operation_sequence"
+        ],
+        "state_scope": "global",
+        "separate_behavior_testability": "partial"
+      },
+      "same_source": false,
+      "delta_M0_input_b_minus_a": 38,
+      "delta_M2_input_b_minus_a": 152,
+      "absolute_M2_input_gap": 152,
+      "gap_fraction_total_cap": 0.023384615384615386,
+      "delta_extra_input_b_minus_a": 114,
+      "delta_M2_remainder_b_minus_a": -152,
+      "input_order_reversal": false
+    },
+    {
+      "tasks": [
+        "D1_C01",
+        "D1_C02"
+      ],
+      "profile": {
+        "behavior_dependencies": [
+          "operation_sequence"
+        ],
+        "state_scope": "global",
+        "separate_behavior_testability": "partial"
+      },
+      "same_source": true,
+      "delta_M0_input_b_minus_a": 9,
+      "delta_M2_input_b_minus_a": 36,
+      "absolute_M2_input_gap": 36,
+      "gap_fraction_total_cap": 0.005538461538461538,
+      "delta_extra_input_b_minus_a": 27,
+      "delta_M2_remainder_b_minus_a": -36,
+      "input_order_reversal": false
+    },
+    {
+      "tasks": [
+        "D1_B06",
+        "D1_C05"
+      ],
+      "profile": {
+        "behavior_dependencies": [
+          "branch_rules",
+          "direct"
+        ],
+        "state_scope": "none",
+        "separate_behavior_testability": "no"
+      },
+      "same_source": false,
+      "delta_M0_input_b_minus_a": 32,
+      "delta_M2_input_b_minus_a": 128,
+      "absolute_M2_input_gap": 128,
+      "gap_fraction_total_cap": 0.019692307692307693,
+      "delta_extra_input_b_minus_a": 96,
+      "delta_M2_remainder_b_minus_a": -128,
+      "input_order_reversal": false
+    }
+  ],
+  "all_pairs_different_input": true,
+  "maximum_pair_gap": {
+    "tasks": [
+      "D1_B01",
+      "D1_B05"
+    ],
+    "profile": {
+      "behavior_dependencies": [
+        "ordered_transform"
+      ],
+      "state_scope": "none",
+      "separate_behavior_testability": "yes"
+    },
+    "same_source": true,
+    "delta_M0_input_b_minus_a": 147,
+    "delta_M2_input_b_minus_a": 588,
+    "absolute_M2_input_gap": 588,
+    "gap_fraction_total_cap": 0.09046153846153847,
+    "delta_extra_input_b_minus_a": 441,
+    "delta_M2_remainder_b_minus_a": -588,
+    "input_order_reversal": false
+  },
+  "order_reversals": 0,
+  "interpretation": "相同粗联合画像不固定构造提示输入负担；同cap也不固定输出余量。差异不等真实生成成本或结构因果效应。",
+  "model_calls": 0,
+  "API_calls": 0,
+  "tokenizer_calls": 0,
+  "task_calls": 0,
+  "hidden_reads": 0
+}

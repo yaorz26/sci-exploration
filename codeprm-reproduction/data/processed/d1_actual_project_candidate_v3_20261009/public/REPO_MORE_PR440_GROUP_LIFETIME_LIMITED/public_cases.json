@@ -1,0 +1,111 @@
+{
+  "expected_origin": "公开组生命周期义务与手算；不从feature执行取期望",
+  "cases": [
+    {
+      "id": "retained_lists_after_outer_exhaustion",
+      "mode": "retain_after_advance",
+      "items": [
+        [
+          "a",
+          1
+        ],
+        [
+          "a",
+          2
+        ],
+        [
+          "b",
+          3
+        ],
+        [
+          "a",
+          4
+        ]
+      ],
+      "factor": 10,
+      "reducefunc": "list",
+      "expected": [
+        [
+          "a",
+          [
+            10,
+            20
+          ]
+        ],
+        [
+          "b",
+          [
+            30
+          ]
+        ],
+        [
+          "a",
+          [
+            40
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "group_sums",
+      "mode": "normal",
+      "items": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "factor": 1,
+      "reducefunc": "sum",
+      "expected": [
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          4
+        ]
+      ]
+    },
+    {
+      "id": "no_reducer_keeps_parent_lazy_groups",
+      "mode": "baseline_lazy",
+      "items": [
+        [
+          "a",
+          1
+        ],
+        [
+          "a",
+          2
+        ],
+        [
+          "b",
+          3
+        ]
+      ],
+      "factor": 1,
+      "expected": {
+        "first_key": "a",
+        "first_after_advance": [],
+        "second_key": "b",
+        "second_now": [
+          3
+        ]
+      }
+    }
+  ]
+}

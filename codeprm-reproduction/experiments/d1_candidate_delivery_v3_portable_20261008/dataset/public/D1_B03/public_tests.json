@@ -1,0 +1,20 @@
+[
+  {
+    "case_id": "public_1",
+    "input": {
+      "text": "a\u001b[31m红\u001b[0mz"
+    },
+    "expected": {
+      "value": "a红z"
+    }
+  },
+  {
+    "case_id": "public_2",
+    "input": {
+      "text": "x\u001b[31"
+    },
+    "expected": {
+      "value": "x\u001b[31"
+    }
+  }
+]

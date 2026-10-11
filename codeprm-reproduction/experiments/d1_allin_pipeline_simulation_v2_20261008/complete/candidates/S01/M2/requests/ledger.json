@@ -1,0 +1,90 @@
+{
+  "simulated": true,
+  "token_limit": 6500,
+  "call_limit": 5,
+  "known_token_spend": 3024,
+  "blocked": false,
+  "calls": [
+    {
+      "call_id": "001",
+      "stage": "plan",
+      "simulated": true,
+      "prompt_token_upper_bound": 600,
+      "assigned_output_cap": 128,
+      "status": "completed",
+      "cost_status": "known",
+      "request": {
+        "path": "001_request.json",
+        "sha256": "9e44a4a2f364e6b3cfd9eb6d4573a1b79fc2dd04228f018f26cd5461c21c2ed4"
+      },
+      "response": {
+        "path": "001_response.json",
+        "sha256": "caac207c468fcee6a2571c35cea7272bb0b2194fc2df2e3509003af36c050ca0"
+      },
+      "prompt_tokens": 600,
+      "output_tokens": 3,
+      "seconds": 0.0005340000025171321
+    },
+    {
+      "call_id": "002",
+      "stage": "helper_1",
+      "simulated": true,
+      "prompt_token_upper_bound": 806,
+      "assigned_output_cap": 128,
+      "status": "completed",
+      "cost_status": "known",
+      "request": {
+        "path": "002_request.json",
+        "sha256": "4a17e1041abdf4cfc7debacae43e00a793ba2d7dfbc2e39b78f013200fbb0e16"
+      },
+      "response": {
+        "path": "002_response.json",
+        "sha256": "1d4f3fe259d263fb40430c5d5c589b0cb55bdb0e12b92a9c32f7532f5f8adf50"
+      },
+      "prompt_tokens": 806,
+      "output_tokens": 3,
+      "seconds": 0.0009783999994397163
+    },
+    {
+      "call_id": "003",
+      "stage": "helper_2",
+      "simulated": true,
+      "prompt_token_upper_bound": 837,
+      "assigned_output_cap": 128,
+      "status": "completed",
+      "cost_status": "known",
+      "request": {
+        "path": "003_request.json",
+        "sha256": "680a7643c00f991d0faa16c0fb6ecf119870fc0e2e2f9921c07ec29ad6bef67c"
+      },
+      "response": {
+        "path": "003_response.json",
+        "sha256": "d6e39ea0fc5d345f9d8e40d1d75334c1eae27a2255978a8b3dbb322872324f9a"
+      },
+      "prompt_tokens": 837,
+      "output_tokens": 3,
+      "seconds": 0.0009287000029871706
+    },
+    {
+      "call_id": "004",
+      "stage": "entry",
+      "simulated": true,
+      "prompt_token_upper_bound": 769,
+      "assigned_output_cap": 128,
+      "status": "completed",
+      "cost_status": "known",
+      "request": {
+        "path": "004_request.json",
+        "sha256": "678084dd05bcb5ac376387254ac95044b1e65550747ff277a89915d3f4301bc3"
+      },
+      "response": {
+        "path": "004_response.json",
+        "sha256": "15d7583140cbe6dce8d6b7d93866f1615c317db44fa9f00a89adc58994e18463"
+      },
+      "prompt_tokens": 769,
+      "output_tokens": 3,
+      "seconds": 0.00112490000174148
+    }
+  ],
+  "refusals": []
+}

@@ -1,0 +1,40 @@
+{
+  "created_at": "2026-10-09T06:24:19.311993+00:00",
+  "stage": "D1-P74-input-result-tree-pair",
+  "seed": null,
+  "unique_input_count": 6,
+  "task_diagnostic_records": 12,
+  "expected_solve_calls": 36,
+  "references_authorship": "同一助手；非独立审查",
+  "formal_labels": null,
+  "human_reviews": 0,
+  "file_sha256": {
+    "public_diagnostic_anchors.json": "be613cbbd2e58effba1358b818d4cf5b64436e54f949cc98942fb31be0a5a882",
+    "source/LICENSE": "c301912653a8d8c99eab6212aa3aea8d164ea249d8ad53c941e0558a0a5ac1e3",
+    "tasks/E_B11/public_examples.json": "c7da5d167053d976a111a51f2dcbdfdcd7e0bc4b6570b6c714ae6872674d013a",
+    "tasks/E_B11/requirement.md": "69c3a48471ee9e60ef1a95927986baf2ccb4319f1b21922c8d0185949201da19",
+    "tasks/E_B11/task.json": "9367bcfa7bd50be2c719b9b8b40bf5ae6a68928db98710189596300996a97004",
+    "tasks/E_B12/public_examples.json": "200f3a452f896cd2c6ffcc6be12b5d62478531e21ba8d2d974ae3aca5c57adb6",
+    "tasks/E_B12/requirement.md": "bf8a93e8e500d1032eada9ced57806f1081b960a160b9bd6325ee38df7e28d53",
+    "tasks/E_B12/task.json": "7f6785be83e7e271872a440b842fe154a764db44236b61c5ca99c2164d3427c3",
+    "source/boltons/iterutils.py": "7fb67f49dc1d895051549b523c2e21161e3c1f4e21590fa7fd09039386d08510",
+    "source/boltons/__init__.py": "ba0f4ee941c9a000b66251d4a39263a8ed009c2a3e0b77b8665c8aeff7ebe730",
+    "references/input/helpers.py": "f74a82f9fbd85ebbe81e811327e4cbc58b37ecbf1c5b6e296951bd6909fc7a60",
+    "references/input/source_adapter.py": "928d113c21f8332360af658d565ac09b31c99ee26dc869dd84b48b9eac6eccce",
+    "references/input/whole.py": "0bf8dfb59cc5e053ff664840dc0cc906245181d157d91043518fc2f3d3c3edf0",
+    "references/result/helpers.py": "75010c2fc465f7c1a5576259bdcebe9ff3ba7bcc6b0f0659c001dc85ccf1695b",
+    "references/result/source_adapter.py": "768942a1d198a620a6e79c772ae9e944ee77616c0c319e5ed57957c6e5159172",
+    "references/result/whole.py": "b39482c4fc351be3d149387d573d996be0b18f17a45bc349367fa05d853afc57"
+  },
+  "contract_sha256": "3a12394b261e9b710889302a04ab5d15cb83b77418df13ecbb074711e13a0524",
+  "initial20_sha256": "c3593d11ae85cc23545aa91418c2ab3c97a4b005fd5e49963bdc28ae7e6eda9f",
+  "predictions": {
+    "each_reference_passes": 6,
+    "input_mutations": 0,
+    "input_intervention_invariances": 2,
+    "result_intervention_changes": 2,
+    "variant_different_cases": 4
+  },
+  "model_calls": 0,
+  "private_reads": 0
+}

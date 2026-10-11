@@ -1,0 +1,23 @@
+{
+  "parent_archive_sha256": "c12352870ad816a6d6cd77011cd5cd533367ef2aba866021d1af0468402cdfdc",
+  "patches": [
+    {
+      "path": "dataset/private/_curator/task_specs_snapshot.py",
+      "original_sha256": "688076ddec8bd46f7f269a81208a19bd5778d0b833e6c79bac7c5d4f7ce192fb",
+      "patched_sha256": "268101e72f880762ed65b42e5081100631a58a7445b02a64d36e65df6bb9ec02",
+      "original_copy": "ORIGINALS/private/_curator/task_specs_snapshot.py",
+      "change": "只替换工作区定位与库搜索目录；功能/测试代码不改"
+    },
+    {
+      "path": "dataset/private/_curator/task_specs_expansion.py",
+      "original_sha256": "b274fb979221df94aa66617a004c86a9c964ea462d545af57048c7f05cb56bdb",
+      "patched_sha256": "fb2f27eec09aaebfadfe7f2b556c0069808857f4d978d61c3d9f895656311d46",
+      "original_copy": "ORIGINALS/private/_curator/task_specs_expansion.py",
+      "change": "只替换工作区定位与库搜索目录；功能/测试代码不改"
+    }
+  ],
+  "original_dataset_files": 287,
+  "unchanged_original_files": 285,
+  "unchanged_scope": "全部题面、案例、切分、评分器、参考/另一结构入口和旧审计；仅管理端两份依赖定位变化",
+  "authoring_snapshot_status": "build_dataset_snapshot.py等原始作者脚本为历史材料，不承诺离线重建生成"
+}

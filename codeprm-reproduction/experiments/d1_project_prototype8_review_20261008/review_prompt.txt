@@ -1,0 +1,1272 @@
+你是独立研究质量审查员。只审查下列自包含材料，不执行命令、不修改文件、不读取其他目录。
+研究问题：等输出token预算上限下，阶段依赖、共享状态、独立可测程度与代码拆分收益的关系。首批8题仅是原型，非最终20--30题；题目面向项目功能级生成，必须检查是否被缩成孤立工具函数。
+请先按严重程度列出有证据的问题（材料路径/行或字段），再给每题三项独立判定：阶段依赖(无/线性/分支/循环或跨操作)、共享可变状态(无/局部/跨操作)、阶段行为可独立验证(是/部分/否/无法判断)，附依据。不要猜原作者标注，不把函数数量或应拆当真值。
+检查：公开需求/输入域与测试一致；异常/排序/状态/时间规则；测试锁死helper结构或泄漏算法；参考与另一结构实现交叉检查的独立性；测试辨别力；可重复性；公开/私有隔离；近重复/来源混杂；样本数量是否支持问题A。
+已知自动验收：参考3次、alternate各一次通过，starter及3个基本错误实现失败。不把这当强变异覆盖。期望值由上游生成但另结构实现同作者对照；不是独立人工真值。
+输出中文。结尾说明哪些是必须先修复才能本地开发探针的阻断项，哪些是最终数据集冻结前需补的问题。
+
+材料 D:\yaorz\research\codeprm-reproduction\data\processed\d1_project_prototype8_v2_20261008\public\D1_B01\task.json
+{
+  "task_id": "D1_B01",
+  "requirement": "实现solve(payload)。text为由非负整数或闭区间组成的文本，separator默认为逗号，range_separator默认为连字符；分隔符保证非空且不同。返回升序整数列表，重复项保留；区间可正向或反向，均包含两端。首尾空白去除，空分段忽略；非法数值引发ValueError。仅使用标准库，内部函数数量和实现结构自由。",
+  "entry_point": "solve(payload)",
+  "language": "Python",
+  "allowed_libraries": "仅Python标准库",
+  "public_examples": [
+    {
+      "case_id": "public_1",
+      "input": {
+        "text": "1,3-5,3"
+      },
+      "expected": {
+        "value": [
+          1,
+          3,
+          3,
+          4,
+          5
+        ]
+      }
+    },
+    {
+      "case_id": "public_2",
+      "input": {
+        "text": "9:7;2",
+        "separator": ";",
+        "range_separator": ":"
+      },
+      "expected": {
+        "value": [
+          2,
+          7,
+          8,
+          9
+        ]
+      }
+    }
+  ],
+  "internal_decomposition": "自由选择，不给定helper名称或数量"
+}
+
+材料 D:\yaorz\research\codeprm-reproduction\data\processed\d1_project_prototype8_v2_20261008\private\D1_B01\all_tests.json
+{"sampled_case_count":9,"total_case_count":21,"sampling":"前6例及最后3例；未逐例审查全部测试","cases":[{"case_id":"public_1","input":{"text":"1,3-5,3"},"expected":{"value":[1,3,3,4,5]}},{"case_id":"public_2","input":{"text":"9:7;2","separator":";","range_separator":":"},"expected":{"value":[2,7,8,9]}},{"case_id":"hidden_1","input":{"text":""},"expected":{"value":[]}},{"case_id":"hidden_2","input":{"text":",,"},"expected":{"value":[]}},{"case_id":"hidden_3","input":{"text":"  0,2-0  "},"expected":{"value":[0,0,1,2]}},{"case_id":"hidden_4","input":{"text":"3-3"},"expected":{"value":[3]}},{"case_id":"hidden_17","input":{"text":"15-14,14,15"},"expected":{"value":[14,14,15,15]}},{"case_id":"hidden_18","input":{"text":"1-0,11,1"},"expected":{"value":[0,1,1,11]}},{"case_id":"hidden_19","input":{"text":"2-15,2,2"},"expected":{"value":[2,2,2,3,4,5,6,7,8,9,10,11,12,13,14,15]}}]}
+
+材料 D:\yaorz\research\codeprm-reproduction\data\processed\d1_project_prototype8_v2_20261008\private\D1_B01\alternate.py
+from collections import OrderedDict
+
+def range_alternate(p):
+    groups = _range_groups(p["text"], p.get("separator", ","))
+    expanded = [_range_expand(token, p.get("range_separator", "-")) for token in groups]
+    return sorted(value for group in expanded for value in group)
+
+
+def _range_groups(text, separator):
+    return [token for token in text.strip().split(separator) if token]
+
+
+def _range_expand(token, separator):
+    bounds = [int(part) for part in token.split(separator)]
+    if len(bounds) == 1:
+        return bounds
+    return list(range(min(bounds), max(bounds) + 1))
+
+
+def solve(payload):
+    return range_alternate(payload)
+
+
+材料 D:\yaorz\research\codeprm-reproduction\data\processed\d1_project_prototype8_v2_20261008\public\D1_B02\task.json
+{
+  "task_id": "D1_B02",
+  "requirement": "实现solve(payload)，依次执行operations，维护初始为空的有序多值记录。键为字符串，值为JSON值。add(key,value)追加一条；set(key,value)删除该键全部旧条目后在末尾追加一条；get(key,default可选)取该键最后一个值，不存在返回default或null；getall(key)取该键所有值，不存在返回空列表；poplast(key)删除并返回该键最后一个值；delete(key)删除该键全部条目。缺失键的poplast/delete返回{error:'KeyError'}，不影响后续操作。每步返回{result,items}：添加/替换/成功删除的result为null；items为全部[key,value]，保留全局插入顺序。只用标准库，内部结构自由。",
+  "entry_point": "solve(payload)",
+  "language": "Python",
+  "allowed_libraries": "仅Python标准库",
+  "public_examples": [
+    {
+      "case_id": "public_1",
+      "input": {
+        "operations": [
+          {
+            "op": "add",
+            "key": "a",
+            "value": 1
+          },
+          {
+            "op": "add",
+            "key": "b",
+            "value": 2
+          },
+          {
+            "op": "add",
+            "key": "a",
+            "value": 3
+          },
+          {
+            "op": "getall",
+            "key": "a"
+          }
+        ]
+      },
+      "expected": {
+        "value": [
+          {
+            "result": null,
+            "items": [
+              [
+                "a",
+                1
+              ]
+            ]
+          },
+          {
+            "result": null,
+            "items": [
+              [
+                "a",
+                1
+              ],
+              [
+                "b",
+                2
+              ]
+            ]
+          },
+          {
+            "result": null,
+            "items": [
+              [
+                "a",
+                1
+              ],
+              [
+                "b",
+                2
+              ],
+              [
+                "a",
+                3
+              ]
+            ]
+          },
+          {
+            "result": [
+              1,
+              3
+            ],
+            "items": [
+              [
+                "a",
+                1
+              ],
+              [
+                "b",
+                2
+              ],
+              [
+                "a",
+                3
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "public_2",
+      "input": {
+        "operations": []
+      },
+      "expected": {
+        "value": []
+      }
+    }
+  ],
+  "internal_decomposition": "自由选择，不给定helper名称或数量"
+}
+
+材料 D:\yaorz\research\codeprm-reproduction\data\processed\d1_project_prototype8_v2_20261008\private\D1_B02\all_tests.json
+{"sampled_case_count":9,"total_case_count":19,"sampling":"前6例及最后3例；未逐例审查全部测试","cases":[{"case_id":"public_1","input":{"operations":[{"op":"add","key":"a","value":1},{"op":"add","key":"b","value":2},{"op":"add","key":"a","value":3},{"op":"getall","key":"a"}]},"expected":{"value":[{"result":null,"items":[["a",1]]},{"result":null,"items":[["a",1],["b",2]]},{"result":null,"items":[["a",1],["b",2],["a",3]]},{"result":[1,3],"items":[["a",1],["b",2],["a",3]]}]}},{"case_id":"public_2","input":{"operations":[]},"expected":{"value":[]}},{"case_id":"hidden_1","input":{"operations":[]},"expected":{"value":[]}},{"case_id":"hidden_2","input":{"operations":[{"op":"get","key":"c","default":"missing"},{"op":"poplast","key":"c"},{"op":"add","key":"b","value":0},{"op":"get","key":"a","default":"missing"},{"op":"add","key":"c","value":null},{"op":"delete","key":"b"},{"op":"set","key":"b","value":0},{"op":"add","key":"b","value":null},{"op":"set","key":"a","value":null},{"op":"poplast","key":"b"},{"op":"add","key":"a","value":[2]},{"op":"delete","key":"a"},{"op":"getall","key":"a"},{"op":"add","key":"b","value":0},{"op":"delete","key":"a"},{"op":"delete","key":"b"},{"op":"getall","key":"c"},{"op":"add","key":"b","value":1}]},"expected":{"value":[{"result":"missing","items":[]},{"result":{"error":"KeyError"},"items":[]},{"result":null,"items":[["b",0]]},{"result":"missing","items":[["b",0]]},{"result":null,"items":[["b",0],["c",null]]},{"result":null,"items":[["c",null]]},{"result":null,"items":[["c",null],["b",0]]},{"result":null,"items":[["c",null],["b",0],["b",null]]},{"result":null,"items":[["c",null],["b",0],["b",null],["a",null]]},{"result":null,"items":[["c",null],["b",0],["a",null]]},{"result":null,"items":[["c",null],["b",0],["a",null],["a",[2]]]},{"result":null,"items":[["c",null],["b",0]]},{"result":[],"items":[["c",null],["b",0]]},{"result":null,"items":[["c",null],["b",0],["b",0]]},{"result":{"error":"KeyError"},"items":[["c",null],["b",0],["b",0]]},{"result":null,"items":[["c",null]]},{"result":[null],"items":[["c",null]]},{"result":null,"items":[["c",null],["b",1]]}]}},{"case_id":"hidden_3","input":{"operations":[{"op":"get","key":"a","default":"missing"},{"op":"poplast","key":"b"},{"op":"add","key":"a","value":0},{"op":"getall","key":"b"},{"op":"get","key":"c","default":"missing"},{"op":"set","key":"a","value":0},{"op":"delete","key":"c"},{"op":"add","key":"b","value":null},{"op":"getall","key":"b"},{"op":"delete","key":"c"},{"op":"set","key":"c","value":1},{"op":"add","key":"c","value":1},{"op":"get","key":"c","default":"missing"},{"op":"add","key":"c","value":1},{"op":"add","key":"c","value":null},{"op":"add","key":"b","value":null},{"op":"add","key":"b","value":null},{"op":"getall","key":"b"}]},"expected":{"value":[{"result":"missing","items":[]},{"result":{"error":"KeyError"},"items":[]},{"result":null,"items":[["a",0]]},{"result":[],"items":[["a",0]]},{"result":"missing","items":[["a",0]]},{"result":null,"items":[["a",0]]},{"result":{"error":"KeyError"},"items":[["a",0]]},{"result":null,"items":[["a",0],["b",null]]},{"result":[null],"items":[["a",0],["b",null]]},{"result":{"error":"KeyError"},"items":[["a",0],["b",null]]},{"result":null,"items":[["a",0],["b",null],["c",1]]},{"result":null,"items":[["a",0],["b",null],["c",1],["c",1]]},{"result":1,"items":[["a",0],["b",null],["c",1],["c",1]]},{"result":null,"items":[["a",0],["b",null],["c",1],["c",1],["c",1]]},{"result":null,"items":[["a",0],["b",null],["c",1],["c",1],["c",1],["c",null]]},{"result":null,"items":[["a",0],["b",null],["c",1],["c",1],["c",1],["c",null],["b",null]]},{"result":null,"items":[["a",0],["b",null],["c",1],["c",1],["c",1],["c",null],["b",null],["b",null]]},{"result":[null,null,null],"items":[["a",0],["b",null],["c",1],["c",1],["c",1],["c",null],["b",null],["b",null]]}]}},{"case_id":"hidden_4","input":{"operations":[{"op":"set","key":"b","value":0},{"op":"get","key":"a","default":"missing"},{"op":"set","key":"b","value":"x"},{"op":"set","key":"a","value":1},{"op":"delete","key":"c"},{"op":"poplast","key":"c"},{"op":"add","key":"c","value":0},{"op":"delete","key":"a"},{"op":"delete","key":"c"},{"op":"set","key":"c","value":"x"},{"op":"get","key":"a","default":"missing"},{"op":"get","key":"c","default":"missing"},{"op":"delete","key":"a"},{"op":"add","key":"b","value":1},{"op":"set","key":"a","value":null},{"op":"poplast","key":"b"},{"op":"add","key":"a","value":[2]},{"op":"poplast","key":"c"}]},"expected":{"value":[{"result":null,"items":[["b",0]]},{"result":"missing","items":[["b",0]]},{"result":null,"items":[["b","x"]]},{"result":null,"items":[["b","x"],["a",1]]},{"result":{"error":"KeyError"},"items":[["b","x"],["a",1]]},{"result":{"error":"KeyError"},"items":[["b","x"],["a",1]]},{"result":null,"items":[["b","x"],["a",1],["c",0]]},{"result":null,"items":[["b","x"],["c",0]]},{"result":null,"items":[["b","x"]]},{"result":null,"items":[["b","x"],["c","x"]]},{"result":"missing","items":[["b","x"],["c","x"]]},{"result":"x","items":[["b","x"],["c","x"]]},{"result":{"error":"KeyError"},"items":[["b","x"],["c","x"]]},{"result":null,"items":[["b","x"],["c","x"],["b",1]]},{"result":null,"items":[["b","x"],["c","x"],["b",1],["a",null]]},{"result":1,"items":[["b","x"],["c","x"],["a",null]]},{"result":null,"items":[["b","x"],["c","x"],["a",null],["a",[2]]]},{"result":"x","items":[["b","x"],["a",null],["a",[2]]]}]}},{"case_id":"hidden_15","input":{"operations":[{"op":"add","key":"c","value":1},{"op":"poplast","key":"b"},{"op":"add","key":"a","value":[2]},{"op":"add","key":"b","value":[2]},{"op":"delete","key":"a"},{"op":"poplast","key":"a"},{"op":"getall","key":"c"},{"op":"poplast","key":"b"},{"op":"add","key":"a","value":[2]},{"op":"add","key":"c","value":null},{"op":"getall","key":"c"},{"op":"set","key":"a","value":1},{"op":"getall","key":"a"},{"op":"set","key":"b","value":[2]},{"op":"add","key":"b","value":[2]},{"op":"get","key":"b","default":"missing"},{"op":"poplast","key":"b"},{"op":"add","key":"b","value":null}]},"expected":{"value":[{"result":null,"items":[["c",1]]},{"result":{"error":"KeyError"},"items":[["c",1]]},{"result":null,"items":[["c",1],["a",[2]]]},{"result":null,"items":[["c",1],["a",[2]],["b",[2]]]},{"result":null,"items":[["c",1],["b",[2]]]},{"result":{"error":"KeyError"},"items":[["c",1],["b",[2]]]},{"result":[1],"items":[["c",1],["b",[2]]]},{"result":[2],"items":[["c",1]]},{"result":null,"items":[["c",1],["a",[2]]]},{"result":null,"items":[["c",1],["a",[2]],["c",null]]},{"result":[1,null],"items":[["c",1],["a",[2]],["c",null]]},{"result":null,"items":[["c",1],["c",null],["a",1]]},{"result":[1],"items":[["c",1],["c",null],["a",1]]},{"result":null,"items":[["c",1],["c",null],["a",1],["b",[2]]]},{"result":null,"items":[["c",1],["c",null],["a",1],["b",[2]],["b",[2]]]},{"result":[2],"items":[["c",1],["c",null],["a",1],["b",[2]],["b",[2]]]},{"result":[2],"items":[["c",1],["c",null],["a",1],["b",[2]]]},{"result":null,"items":[["c",1],["c",null],["a",1],["b",[2]],["b",null]]}]}},{"case_id":"hidden_16","input":{"operations":[{"op":"poplast","key":"c"},{"op":"getall","key":"c"},{"op":"get","key":"b","default":"missing"},{"op":"add","key":"a","value":0},{"op":"poplast","key":"c"},{"op":"add","key":"a","value":"x"},{"op":"add","key":"b","value":"x"},{"op":"get","key":"b","default":"missing"},{"op":"add","key":"a","value":[2]},{"op":"getall","key":"b"},{"op":"get","key":"a","default":"missing"},{"op":"add","key":"b","value":"x"},{"op":"poplast","key":"c"},{"op":"get","key":"c","default":"missing"},{"op":"add","key":"a","value":1},{"op":"poplast","key":"c"},{"op":"set","key":"b","value":[2]},{"op":"get","key":"b","default":"missing"}]},"expected":{"value":[{"result":{"error":"KeyError"},"items":[]},{"result":[],"items":[]},{"result":"missing","items":[]},{"result":null,"items":[["a",0]]},{"result":{"error":"KeyError"},"items":[["a",0]]},{"result":null,"items":[["a",0],["a","x"]]},{"result":null,"items":[["a",0],["a","x"],["b","x"]]},{"result":"x","items":[["a",0],["a","x"],["b","x"]]},{"result":null,"items":[["a",0],["a","x"],["b","x"],["a",[2]]]},{"result":["x"],"items":[["a",0],["a","x"],["b","x"],["a",[2]]]},{"result":[2],"items":[["a",0],["a","x"],["b","x"],["a",[2]]]},{"result":null,"items":[["a",0],["a","x"],["b","x"],["a",[2]],["b","x"]]},{"result":{"error":"KeyError"},"items":[["a",0],["a","x"],["b","x"],["a",[2]],["b","x"]]},{"result":"missing","items":[["a",0],["a","x"],["b","x"],["a",[2]],["b","x"]]},{"result":null,"items":[["a",0],["a","x"],["b","x"],["a",[2]],["b","x"],["a",1]]},{"result":{"error":"KeyError"},"items":[["a",0],["a","x"],["b","x"],["a",[2]],["b","x"],["a",1]]},{"result":null,"items":[["a",0],["a","x"],["a",[2]],["a",1],["b",[2]]]},{"result":[2],"items":[["a",0],["a","x"],["a",[2]],["a",1],["b",[2]]]}]}},{"case_id":"hidden_17","input":{"operations":[{"op":"getall","key":"a"},{"op":"set","key":"c","value":null},{"op":"getall","key":"c"},{"op":"add","key":"b","value":0},{"op":"delete","key":"a"},{"op":"add","key":"b","value":[2]},{"op":"poplast","key":"c"},{"op":"add","key":"a","value":[2]},{"op":"add","key":"b","value":"x"},{"op":"getall","key":"a"},{"op":"getall","key":"a"},{"op":"delete","key":"b"},{"op":"add","key":"a","value":0},{"op":"get","key":"a","default":"missing"},{"op":"get","key":"a","default":"missing"},{"op":"set","key":"b","value":0},{"op":"getall","key":"a"},{"op":"poplast","key":"b"}]},"expected":{"value":[{"result":[],"items":[]},{"result":null,"items":[["c",null]]},{"result":[null],"items":[["c",null]]},{"result":null,"items":[["c",null],["b",0]]},{"result":{"error":"KeyError"},"items":[["c",null],["b",0]]},{"result":null,"items":[["c",null],["b",0],["b",[2]]]},{"result":null,"items":[["b",0],["b",[2]]]},{"result":null,"items":[["b",0],["b",[2]],["a",[2]]]},{"result":null,"items":[["b",0],["b",[2]],["a",[2]],["b","x"]]},{"result":[[2]],"items":[["b",0],["b",[2]],["a",[2]],["b","x"]]},{"result":[[2]],"items":[["b",0],["b",[2]],["a",[2]],["b","x"]]},{"result":null,"items":[["a",[2]]]},{"result":null,"items":[["a",[2]],["a",0]]},{"result":0,"items":[["a",[2]],["a",0]]},{"result":0,"items":[["a",[2]],["a",0]]},{"result":null,"items":[["a",[2]],["a",0],["b",0]]},{"result":[[2],0],"items":[["a",[2]],["a",0],["b",0]]},{"result":0,"items":[["a",[2]],["a",0]]}]}}]}
+
+材料 D:\yaorz\research\codeprm-reproduction\data\processed\d1_project_prototype8_v2_20261008\private\D1_B02\alternate.py
+from collections import OrderedDict
+
+def multimap_alternate(p):
+    pairs, output = [], []
+    for op in p["operations"]:
+        name, key = op["op"], op.get("key")
+        indexes = [i for i, pair in enumerate(pairs) if pair[0] == key]
+        if name == "add":
+            pairs.append([key, op["value"]]); result = None
+        elif name == "set":
+            pairs = [pair for pair in pairs if pair[0] != key]
+            pairs.append([key, op["value"]]); result = None
+        elif name == "get":
+            result = pairs[indexes[-1]][1] if indexes else op.get("default")
+        elif name == "getall":
+            result = [pairs[i][1] for i in indexes]
+        elif name == "poplast":
+            result = pairs.pop(indexes[-1])[1] if indexes else {"error": "KeyError"}
+        elif name == "delete":
+            result = None if indexes else {"error": "KeyError"}
+            pairs = [pair for pair in pairs if pair[0] != key]
+        else:
+            raise ValueError("unknown operation")
+        output.append({"result": result, "items": [list(pair) for pair in pairs]})
+    return output
+
+
+def solve(payload):
+    return multimap_alternate(payload)
+
+
+材料 D:\yaorz\research\codeprm-reproduction\data\processed\d1_project_prototype8_v2_20261008\public\D1_C01\task.json
+{
+  "task_id": "D1_C01",
+  "requirement": "实现 solve(payload)，接收JSON对象，返回每条操作之后的记录列表。capacity是非负整数，每项占一个容量。键是字符串，值是任意JSON值。operations按顺序执行：put(key,value)新增或替换；get(key)返回值；delete(key)删除；contains(key)返回是否存在；clear清空；snapshot只观察。put/get会把该项视为最近使用，contains和观察不改变最近使用顺序；满容量新增时淘汰最久未使用项。每条记录为{result,items,size}：修改和snapshot的result为null，读取/查询为返回值；不存在的get/delete返回{error:'KeyError'}，capacity为0时put返回{error:'ValueError'}，这些错误不会中断后续操作。items为当前全部[key,value]，按键的字典序排序；size为当前项数。snapshot和每步自动观察都不能改变淘汰顺序。只能使用Python标准库，内部结构自由。",
+  "entry_point": "solve(payload)",
+  "language": "Python",
+  "allowed_libraries": "仅Python标准库",
+  "public_examples": [
+    {
+      "case_id": "public_1",
+      "input": {
+        "capacity": 2,
+        "operations": [
+          {
+            "op": "put",
+            "key": "a",
+            "value": 1
+          },
+          {
+            "op": "put",
+            "key": "b",
+            "value": 2
+          },
+          {
+            "op": "get",
+            "key": "a"
+          },
+          {
+            "op": "put",
+            "key": "c",
+            "value": 3
+          }
+        ]
+      },
+      "expected": {
+        "value": [
+          {
+            "result": null,
+            "items": [
+              [
+                "a",
+                1
+              ]
+            ],
+            "size": 1
+          },
+          {
+            "result": null,
+            "items": [
+              [
+                "a",
+                1
+              ],
+              [
+                "b",
+                2
+              ]
+            ],
+            "size": 2
+          },
+          {
+            "result": 1,
+            "items": [
+              [
+                "a",
+                1
+              ],
+              [
+                "b",
+                2
+              ]
+            ],
+            "size": 2
+          },
+          {
+            "result": null,
+            "items": [
+              [
+                "a",
+                1
+              ],
+              [
+                "c",
+                3
+              ]
+            ],
+            "size": 2
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "public_2",
+      "input": {
+        "capacity": 1,
+        "operations": []
+      },
+      "expected": {
+        "value": []
+      }
+    }
+  ],
+  "internal_decomposition": "自由选择，不给定helper名称或数量"
+}
+
+材料 D:\yaorz\research\codeprm-reproduction\data\processed\d1_project_prototype8_v2_20261008\private\D1_C01\all_tests.json
+{"sampled_case_count":9,"total_case_count":20,"sampling":"前6例及最后3例；未逐例审查全部测试","cases":[{"case_id":"public_1","input":{"capacity":2,"operations":[{"op":"put","key":"a","value":1},{"op":"put","key":"b","value":2},{"op":"get","key":"a"},{"op":"put","key":"c","value":3}]},"expected":{"value":[{"result":null,"items":[["a",1]],"size":1},{"result":null,"items":[["a",1],["b",2]],"size":2},{"result":1,"items":[["a",1],["b",2]],"size":2},{"result":null,"items":[["a",1],["c",3]],"size":2}]}},{"case_id":"public_2","input":{"capacity":1,"operations":[]},"expected":{"value":[]}},{"case_id":"hidden_1","input":{"capacity":0,"operations":[{"op":"snapshot","key":"a"},{"op":"clear","key":"d"},{"op":"clear","key":"d"},{"op":"delete","key":"d"},{"op":"put","key":"d","value":0},{"op":"clear","key":"c"},{"op":"put","key":"a","value":null},{"op":"get","key":"d"},{"op":"contains","key":"b"},{"op":"snapshot","key":"d"},{"op":"snapshot","key":"d"},{"op":"put","key":"b","value":1},{"op":"get","key":"d"},{"op":"get","key":"d"},{"op":"delete","key":"c"},{"op":"contains","key":"b"},{"op":"get","key":"b"},{"op":"snapshot","key":"c"},{"op":"get","key":"d"},{"op":"contains","key":"d"},{"op":"clear","key":"a"},{"op":"put","key":"c","value":[2]}]},"expected":{"value":[{"result":null,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"ValueError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"ValueError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":false,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"ValueError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":false,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":false,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"ValueError"},"items":[],"size":0}]}},{"case_id":"hidden_2","input":{"capacity":1,"operations":[{"op":"put","key":"d","value":null},{"op":"snapshot","key":"d"},{"op":"snapshot","key":"d"},{"op":"contains","key":"b"},{"op":"put","key":"b","value":0},{"op":"snapshot","key":"d"},{"op":"get","key":"c"},{"op":"get","key":"c"},{"op":"delete","key":"d"},{"op":"delete","key":"b"},{"op":"snapshot","key":"d"},{"op":"delete","key":"a"},{"op":"snapshot","key":"a"},{"op":"snapshot","key":"c"},{"op":"delete","key":"d"},{"op":"clear","key":"a"},{"op":"put","key":"d","value":"x"},{"op":"clear","key":"c"},{"op":"snapshot","key":"b"},{"op":"get","key":"d"},{"op":"delete","key":"a"},{"op":"get","key":"d"}]},"expected":{"value":[{"result":null,"items":[["d",null]],"size":1},{"result":null,"items":[["d",null]],"size":1},{"result":null,"items":[["d",null]],"size":1},{"result":false,"items":[["d",null]],"size":1},{"result":null,"items":[["b",0]],"size":1},{"result":null,"items":[["b",0]],"size":1},{"result":{"error":"KeyError"},"items":[["b",0]],"size":1},{"result":{"error":"KeyError"},"items":[["b",0]],"size":1},{"result":{"error":"KeyError"},"items":[["b",0]],"size":1},{"result":null,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":null,"items":[["d","x"]],"size":1},{"result":null,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0}]}},{"case_id":"hidden_3","input":{"capacity":0,"operations":[{"op":"delete","key":"b"},{"op":"clear","key":"c"},{"op":"get","key":"c"},{"op":"get","key":"a"},{"op":"delete","key":"c"},{"op":"delete","key":"b"},{"op":"contains","key":"d"},{"op":"put","key":"a","value":0},{"op":"snapshot","key":"c"},{"op":"delete","key":"b"},{"op":"get","key":"d"},{"op":"delete","key":"d"},{"op":"get","key":"d"},{"op":"contains","key":"c"},{"op":"get","key":"c"},{"op":"snapshot","key":"c"},{"op":"snapshot","key":"a"},{"op":"put","key":"b","value":0},{"op":"put","key":"d","value":null},{"op":"put","key":"d","value":[2]},{"op":"clear","key":"a"},{"op":"put","key":"c","value":1}]},"expected":{"value":[{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":false,"items":[],"size":0},{"result":{"error":"ValueError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":false,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"ValueError"},"items":[],"size":0},{"result":{"error":"ValueError"},"items":[],"size":0},{"result":{"error":"ValueError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"ValueError"},"items":[],"size":0}]}},{"case_id":"hidden_4","input":{"capacity":3,"operations":[{"op":"put","key":"d","value":0},{"op":"put","key":"a","value":0},{"op":"put","key":"d","value":"x"},{"op":"put","key":"d","value":0},{"op":"clear","key":"b"},{"op":"delete","key":"b"},{"op":"clear","key":"d"},{"op":"snapshot","key":"d"},{"op":"put","key":"b","value":0},{"op":"clear","key":"b"},{"op":"contains","key":"a"},{"op":"delete","key":"a"},{"op":"get","key":"b"},{"op":"put","key":"c","value":null},{"op":"clear","key":"b"},{"op":"get","key":"b"},{"op":"get","key":"c"},{"op":"put","key":"a","value":"x"},{"op":"put","key":"c","value":0},{"op":"get","key":"c"},{"op":"put","key":"b","value":1},{"op":"snapshot","key":"b"}]},"expected":{"value":[{"result":null,"items":[["d",0]],"size":1},{"result":null,"items":[["a",0],["d",0]],"size":2},{"result":null,"items":[["a",0],["d","x"]],"size":2},{"result":null,"items":[["a",0],["d",0]],"size":2},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":null,"items":[["b",0]],"size":1},{"result":null,"items":[],"size":0},{"result":false,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[["c",null]],"size":1},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[["a","x"]],"size":1},{"result":null,"items":[["a","x"],["c",0]],"size":2},{"result":0,"items":[["a","x"],["c",0]],"size":2},{"result":null,"items":[["a","x"],["b",1],["c",0]],"size":3},{"result":null,"items":[["a","x"],["b",1],["c",0]],"size":3}]}},{"case_id":"hidden_16","input":{"capacity":0,"operations":[{"op":"put","key":"a","value":null},{"op":"put","key":"a","value":0},{"op":"get","key":"b"},{"op":"get","key":"c"},{"op":"put","key":"a","value":[2]},{"op":"snapshot","key":"d"},{"op":"snapshot","key":"c"},{"op":"contains","key":"c"},{"op":"contains","key":"a"},{"op":"get","key":"a"},{"op":"contains","key":"d"},{"op":"contains","key":"b"},{"op":"contains","key":"d"},{"op":"contains","key":"c"},{"op":"contains","key":"b"},{"op":"clear","key":"a"},{"op":"get","key":"a"},{"op":"put","key":"b","value":"x"},{"op":"get","key":"b"},{"op":"get","key":"c"},{"op":"put","key":"b","value":null},{"op":"delete","key":"b"}]},"expected":{"value":[{"result":{"error":"ValueError"},"items":[],"size":0},{"result":{"error":"ValueError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"ValueError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":false,"items":[],"size":0},{"result":false,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":false,"items":[],"size":0},{"result":false,"items":[],"size":0},{"result":false,"items":[],"size":0},{"result":false,"items":[],"size":0},{"result":false,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"ValueError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"ValueError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0}]}},{"case_id":"hidden_17","input":{"capacity":0,"operations":[{"op":"snapshot","key":"a"},{"op":"clear","key":"a"},{"op":"snapshot","key":"c"},{"op":"get","key":"c"},{"op":"put","key":"c","value":0},{"op":"put","key":"c","value":null},{"op":"get","key":"a"},{"op":"get","key":"d"},{"op":"put","key":"b","value":[2]},{"op":"get","key":"a"},{"op":"clear","key":"c"},{"op":"put","key":"d","value":null},{"op":"snapshot","key":"d"},{"op":"get","key":"d"},{"op":"delete","key":"a"},{"op":"get","key":"c"},{"op":"put","key":"a","value":"x"},{"op":"put","key":"c","value":[2]},{"op":"clear","key":"d"},{"op":"get","key":"c"},{"op":"get","key":"a"},{"op":"put","key":"c","value":[2]}]},"expected":{"value":[{"result":null,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"ValueError"},"items":[],"size":0},{"result":{"error":"ValueError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"ValueError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"ValueError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"ValueError"},"items":[],"size":0},{"result":{"error":"ValueError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"ValueError"},"items":[],"size":0}]}},{"case_id":"hidden_18","input":{"capacity":0,"operations":[{"op":"put","key":"c","value":null},{"op":"put","key":"d","value":1},{"op":"delete","key":"d"},{"op":"put","key":"c","value":0},{"op":"contains","key":"a"},{"op":"snapshot","key":"d"},{"op":"clear","key":"b"},{"op":"clear","key":"a"},{"op":"put","key":"d","value":null},{"op":"delete","key":"b"},{"op":"get","key":"d"},{"op":"put","key":"a","value":1},{"op":"clear","key":"a"},{"op":"contains","key":"d"},{"op":"delete","key":"a"},{"op":"put","key":"c","value":[2]},{"op":"snapshot","key":"c"},{"op":"put","key":"d","value":[2]},{"op":"delete","key":"d"},{"op":"snapshot","key":"d"},{"op":"snapshot","key":"b"},{"op":"get","key":"b"}]},"expected":{"value":[{"result":{"error":"ValueError"},"items":[],"size":0},{"result":{"error":"ValueError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"ValueError"},"items":[],"size":0},{"result":false,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"ValueError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"ValueError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":false,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"ValueError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"ValueError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0}]}}]}
+
+材料 D:\yaorz\research\codeprm-reproduction\data\processed\d1_project_prototype8_v2_20261008\private\D1_C01\alternate.py
+from collections import OrderedDict
+
+def lru_alternate(p):
+    return _cache_alternate(p, False)
+
+
+def _cache_alternate(p, timed):
+    capacity, state, expires, output = p["capacity"], OrderedDict(), {}, []
+    if capacity < 0:
+        raise ValueError("negative capacity")
+    for op in p["operations"]:
+        now = op["time"] if timed else 0
+        for key in list(state):
+            if timed and now >= expires[key]:
+                del state[key]; del expires[key]
+        key, name = op.get("key"), op["op"]
+        if name == "put":
+            if capacity == 0:
+                result = {"error": "ValueError"}
+            else:
+                if key in state:
+                    del state[key]
+                elif len(state) >= capacity:
+                    old, _ = state.popitem(last=False); expires.pop(old, None)
+                state[key] = op["value"]
+                if timed:
+                    expires[key] = now + p["ttl"]
+                result = None
+        elif name == "get":
+            if key not in state:
+                result = {"error": "KeyError"}
+            else:
+                result = state[key]; state.move_to_end(key)
+        elif name == "delete":
+            if key not in state:
+                result = {"error": "KeyError"}
+            else:
+                del state[key]; expires.pop(key, None); result = None
+        elif name == "contains":
+            result = key in state
+        elif name == "clear":
+            state.clear(); expires.clear(); result = None
+        elif name == "snapshot":
+            result = None
+        else:
+            raise ValueError("unknown operation")
+        # A newly inserted entry with nonpositive TTL is already expired.
+        for key in list(state):
+            if timed and now >= expires[key]:
+                del state[key]; del expires[key]
+        output.append({"result": result, "items": [[k, state[k]] for k in sorted(state)], "size": len(state)})
+    return output
+
+
+def solve(payload):
+    return lru_alternate(payload)
+
+
+材料 D:\yaorz\research\codeprm-reproduction\data\processed\d1_project_prototype8_v2_20261008\public\D1_C02\task.json
+{
+  "task_id": "D1_C02",
+  "requirement": "实现 solve(payload)，接收JSON对象，返回每条操作之后的记录列表。capacity是非负整数，每项占一个容量。键是字符串，值是任意JSON值。operations按顺序执行：put(key,value)新增或替换；get(key)返回值；delete(key)删除；contains(key)返回是否存在；clear清空；snapshot只观察。put/get会把该项视为最近使用，contains和观察不改变最近使用顺序；满容量新增时淘汰最久未使用项。每条记录为{result,items,size}：修改和snapshot的result为null，读取/查询为返回值；不存在的get/delete返回{error:'KeyError'}，capacity为0时put返回{error:'ValueError'}，这些错误不会中断后续操作。items为当前全部[key,value]，按键的字典序排序；size为当前项数。snapshot和每步自动观察都不能改变淘汰顺序。只能使用Python标准库，内部结构自由。\n另有ttl（非负数），每条操作都带time（非递减的数值时间）。每次put设该键过期时刻为time+ttl，替换会刷新；get只刷新最近使用顺序，不延长存活时间。time到达过期时刻即不存在，已过期项不占容量；每步记录只包含未过期项。不能使用真实系统时间。",
+  "entry_point": "solve(payload)",
+  "language": "Python",
+  "allowed_libraries": "仅Python标准库",
+  "public_examples": [
+    {
+      "case_id": "public_1",
+      "input": {
+        "capacity": 2,
+        "ttl": 3,
+        "operations": [
+          {
+            "op": "put",
+            "key": "a",
+            "value": 1,
+            "time": 0
+          },
+          {
+            "op": "get",
+            "key": "a",
+            "time": 2
+          },
+          {
+            "op": "get",
+            "key": "a",
+            "time": 3
+          }
+        ]
+      },
+      "expected": {
+        "value": [
+          {
+            "result": null,
+            "items": [
+              [
+                "a",
+                1
+              ]
+            ],
+            "size": 1
+          },
+          {
+            "result": 1,
+            "items": [
+              [
+                "a",
+                1
+              ]
+            ],
+            "size": 1
+          },
+          {
+            "result": {
+              "error": "KeyError"
+            },
+            "items": [],
+            "size": 0
+          }
+        ]
+      }
+    },
+    {
+      "case_id": "public_2",
+      "input": {
+        "capacity": 1,
+        "ttl": 1,
+        "operations": []
+      },
+      "expected": {
+        "value": []
+      }
+    }
+  ],
+  "internal_decomposition": "自由选择，不给定helper名称或数量"
+}
+
+材料 D:\yaorz\research\codeprm-reproduction\data\processed\d1_project_prototype8_v2_20261008\private\D1_C02\all_tests.json
+{"sampled_case_count":9,"total_case_count":20,"sampling":"前6例及最后3例；未逐例审查全部测试","cases":[{"case_id":"public_1","input":{"capacity":2,"ttl":3,"operations":[{"op":"put","key":"a","value":1,"time":0},{"op":"get","key":"a","time":2},{"op":"get","key":"a","time":3}]},"expected":{"value":[{"result":null,"items":[["a",1]],"size":1},{"result":1,"items":[["a",1]],"size":1},{"result":{"error":"KeyError"},"items":[],"size":0}]}},{"case_id":"public_2","input":{"capacity":1,"ttl":1,"operations":[]},"expected":{"value":[]}},{"case_id":"hidden_1","input":{"capacity":2,"operations":[{"op":"put","key":"a","value":null,"time":0},{"op":"clear","key":"d","time":0},{"op":"get","key":"d","time":1},{"op":"put","key":"d","value":0,"time":2},{"op":"get","key":"d","time":2},{"op":"put","key":"a","value":null,"time":4},{"op":"get","key":"a","time":4},{"op":"put","key":"d","value":null,"time":6},{"op":"snapshot","key":"a","time":6},{"op":"put","key":"c","value":[2],"time":6},{"op":"clear","key":"a","time":7},{"op":"clear","key":"b","time":9},{"op":"snapshot","key":"b","time":11},{"op":"get","key":"c","time":11},{"op":"put","key":"c","value":null,"time":12},{"op":"get","key":"a","time":12},{"op":"put","key":"c","value":1,"time":13},{"op":"contains","key":"c","time":15},{"op":"delete","key":"b","time":15},{"op":"contains","key":"b","time":17},{"op":"get","key":"a","time":17},{"op":"delete","key":"a","time":17}],"ttl":0},"expected":{"value":[{"result":null,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":false,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":false,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0}]}},{"case_id":"hidden_2","input":{"capacity":2,"operations":[{"op":"delete","key":"a","time":2},{"op":"snapshot","key":"a","time":4},{"op":"contains","key":"d","time":6},{"op":"contains","key":"b","time":8},{"op":"get","key":"c","time":10},{"op":"clear","key":"a","time":11},{"op":"put","key":"a","value":null,"time":13},{"op":"contains","key":"c","time":15},{"op":"delete","key":"a","time":16},{"op":"contains","key":"d","time":16},{"op":"put","key":"d","value":null,"time":17},{"op":"get","key":"a","time":18},{"op":"clear","key":"d","time":20},{"op":"delete","key":"a","time":20},{"op":"get","key":"c","time":20},{"op":"put","key":"b","value":1,"time":22},{"op":"snapshot","key":"c","time":24},{"op":"clear","key":"d","time":25},{"op":"get","key":"a","time":27},{"op":"get","key":"c","time":28},{"op":"delete","key":"b","time":30},{"op":"put","key":"d","value":1,"time":30}],"ttl":0},"expected":{"value":[{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":false,"items":[],"size":0},{"result":false,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":false,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":false,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[],"size":0}]}},{"case_id":"hidden_3","input":{"capacity":2,"operations":[{"op":"delete","key":"b","time":0},{"op":"clear","key":"c","time":2},{"op":"get","key":"c","time":4},{"op":"get","key":"c","time":6},{"op":"delete","key":"b","time":8},{"op":"put","key":"a","value":1,"time":10},{"op":"put","key":"b","value":null,"time":12},{"op":"clear","key":"d","time":14},{"op":"put","key":"c","value":0,"time":16},{"op":"get","key":"a","time":18},{"op":"put","key":"d","value":0,"time":18},{"op":"delete","key":"c","time":19},{"op":"get","key":"b","time":19},{"op":"put","key":"b","value":0,"time":19},{"op":"get","key":"c","time":20},{"op":"get","key":"d","time":21},{"op":"clear","key":"d","time":22},{"op":"put","key":"b","value":0,"time":22},{"op":"get","key":"c","time":23},{"op":"clear","key":"b","time":25},{"op":"clear","key":"a","time":25},{"op":"snapshot","key":"a","time":25}],"ttl":0},"expected":{"value":[{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":null,"items":[],"size":0}]}},{"case_id":"hidden_4","input":{"capacity":2,"operations":[{"op":"snapshot","key":"a","time":1},{"op":"get","key":"d","time":1},{"op":"get","key":"c","time":3},{"op":"get","key":"d","time":5},{"op":"put","key":"d","value":0,"time":7},{"op":"clear","key":"c","time":7},{"op":"put","key":"c","value":"x","time":8},{"op":"get","key":"c","time":8},{"op":"clear","key":"c","time":9},{"op":"put","key":"a","value":[2],"time":11},{"op":"put","key":"b","value":[2],"time":11},{"op":"delete","key":"c","time":11},{"op":"delete","key":"b","time":12},{"op":"contains","key":"b","time":12},{"op":"clear","key":"a","time":13},{"op":"get","key":"c","time":15},{"op":"put","key":"d","value":"x","time":15},{"op":"put","key":"d","value":null,"time":16},{"op":"get","key":"c","time":17},{"op":"get","key":"b","time":17},{"op":"get","key":"b","time":19},{"op":"get","key":"a","time":21}],"ttl":3},"expected":{"value":[{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[["d",0]],"size":1},{"result":null,"items":[],"size":0},{"result":null,"items":[["c","x"]],"size":1},{"result":"x","items":[["c","x"]],"size":1},{"result":null,"items":[],"size":0},{"result":null,"items":[["a",[2]]],"size":1},{"result":null,"items":[["a",[2]],["b",[2]]],"size":2},{"result":{"error":"KeyError"},"items":[["a",[2]],["b",[2]]],"size":2},{"result":null,"items":[["a",[2]]],"size":1},{"result":false,"items":[["a",[2]]],"size":1},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[["d","x"]],"size":1},{"result":null,"items":[["d",null]],"size":1},{"result":{"error":"KeyError"},"items":[["d",null]],"size":1},{"result":{"error":"KeyError"},"items":[["d",null]],"size":1},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0}]}},{"case_id":"hidden_16","input":{"capacity":2,"operations":[{"op":"get","key":"a","time":0},{"op":"clear","key":"d","time":1},{"op":"delete","key":"a","time":3},{"op":"put","key":"a","value":[2],"time":5},{"op":"snapshot","key":"b","time":5},{"op":"put","key":"d","value":null,"time":6},{"op":"put","key":"c","value":"x","time":6},{"op":"delete","key":"c","time":6},{"op":"get","key":"d","time":8},{"op":"get","key":"d","time":9},{"op":"delete","key":"b","time":11},{"op":"clear","key":"a","time":13},{"op":"put","key":"b","value":0,"time":15},{"op":"delete","key":"a","time":17},{"op":"put","key":"a","value":"x","time":17},{"op":"get","key":"d","time":19},{"op":"put","key":"c","value":"x","time":21},{"op":"contains","key":"a","time":22},{"op":"delete","key":"d","time":22},{"op":"delete","key":"c","time":23},{"op":"clear","key":"a","time":25},{"op":"contains","key":"c","time":26}],"ttl":1},"expected":{"value":[{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[["a",[2]]],"size":1},{"result":null,"items":[["a",[2]]],"size":1},{"result":null,"items":[["d",null]],"size":1},{"result":null,"items":[["c","x"],["d",null]],"size":2},{"result":null,"items":[["d",null]],"size":1},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":null,"items":[["b",0]],"size":1},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[["a","x"]],"size":1},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[["c","x"]],"size":1},{"result":false,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":false,"items":[],"size":0}]}},{"case_id":"hidden_17","input":{"capacity":3,"operations":[{"op":"clear","key":"b","time":1},{"op":"clear","key":"d","time":1},{"op":"put","key":"c","value":0,"time":2},{"op":"put","key":"c","value":[2],"time":2},{"op":"delete","key":"c","time":4},{"op":"put","key":"b","value":[2],"time":4},{"op":"contains","key":"d","time":4},{"op":"get","key":"c","time":4},{"op":"clear","key":"c","time":5},{"op":"get","key":"b","time":6},{"op":"contains","key":"d","time":6},{"op":"put","key":"b","value":[2],"time":6},{"op":"contains","key":"b","time":8},{"op":"clear","key":"c","time":8},{"op":"put","key":"b","value":[2],"time":8},{"op":"put","key":"b","value":"x","time":10},{"op":"snapshot","key":"c","time":11},{"op":"snapshot","key":"d","time":13},{"op":"put","key":"b","value":null,"time":13},{"op":"put","key":"b","value":"x","time":15},{"op":"delete","key":"b","time":15},{"op":"get","key":"d","time":15}],"ttl":8},"expected":{"value":[{"result":null,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":null,"items":[["c",0]],"size":1},{"result":null,"items":[["c",[2]]],"size":1},{"result":null,"items":[],"size":0},{"result":null,"items":[["b",[2]]],"size":1},{"result":false,"items":[["b",[2]]],"size":1},{"result":{"error":"KeyError"},"items":[["b",[2]]],"size":1},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":false,"items":[],"size":0},{"result":null,"items":[["b",[2]]],"size":1},{"result":true,"items":[["b",[2]]],"size":1},{"result":null,"items":[],"size":0},{"result":null,"items":[["b",[2]]],"size":1},{"result":null,"items":[["b","x"]],"size":1},{"result":null,"items":[["b","x"]],"size":1},{"result":null,"items":[["b","x"]],"size":1},{"result":null,"items":[["b",null]],"size":1},{"result":null,"items":[["b","x"]],"size":1},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0}]}},{"case_id":"hidden_18","input":{"capacity":1,"operations":[{"op":"put","key":"a","value":1,"time":1},{"op":"put","key":"c","value":0,"time":3},{"op":"delete","key":"d","time":3},{"op":"snapshot","key":"d","time":4},{"op":"put","key":"c","value":[2],"time":6},{"op":"put","key":"a","value":null,"time":8},{"op":"clear","key":"c","time":10},{"op":"get","key":"b","time":11},{"op":"get","key":"b","time":12},{"op":"put","key":"a","value":"x","time":14},{"op":"clear","key":"d","time":15},{"op":"snapshot","key":"c","time":15},{"op":"get","key":"d","time":17},{"op":"get","key":"c","time":17},{"op":"get","key":"a","time":19},{"op":"put","key":"a","value":[2],"time":21},{"op":"get","key":"b","time":22},{"op":"delete","key":"a","time":23},{"op":"put","key":"c","value":0,"time":25},{"op":"clear","key":"d","time":27},{"op":"get","key":"d","time":28},{"op":"put","key":"d","value":[2],"time":29}],"ttl":8},"expected":{"value":[{"result":null,"items":[["a",1]],"size":1},{"result":null,"items":[["c",0]],"size":1},{"result":{"error":"KeyError"},"items":[["c",0]],"size":1},{"result":null,"items":[["c",0]],"size":1},{"result":null,"items":[["c",[2]]],"size":1},{"result":null,"items":[["a",null]],"size":1},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[["a","x"]],"size":1},{"result":null,"items":[],"size":0},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[["a",[2]]],"size":1},{"result":{"error":"KeyError"},"items":[["a",[2]]],"size":1},{"result":null,"items":[],"size":0},{"result":null,"items":[["c",0]],"size":1},{"result":null,"items":[],"size":0},{"result":{"error":"KeyError"},"items":[],"size":0},{"result":null,"items":[["d",[2]]],"size":1}]}}]}
+
+材料 D:\yaorz\research\codeprm-reproduction\data\processed\d1_project_prototype8_v2_20261008\private\D1_C02\alternate.py
+from collections import OrderedDict
+
+def ttl_alternate(p):
+    return _cache_alternate(p, True)
+
+
+def _cache_alternate(p, timed):
+    capacity, state, expires, output = p["capacity"], OrderedDict(), {}, []
+    if capacity < 0:
+        raise ValueError("negative capacity")
+    for op in p["operations"]:
+        now = op["time"] if timed else 0
+        for key in list(state):
+            if timed and now >= expires[key]:
+                del state[key]; del expires[key]
+        key, name = op.get("key"), op["op"]
+        if name == "put":
+            if capacity == 0:
+                result = {"error": "ValueError"}
+            else:
+                if key in state:
+                    del state[key]
+                elif len(state) >= capacity:
+                    old, _ = state.popitem(last=False); expires.pop(old, None)
+                state[key] = op["value"]
+                if timed:
+                    expires[key] = now + p["ttl"]
+                result = None
+        elif name == "get":
+            if key not in state:
+                result = {"error": "KeyError"}
+            else:
+                result = state[key]; state.move_to_end(key)
+        elif name == "delete":
+            if key not in state:
+                result = {"error": "KeyError"}
+            else:
+                del state[key]; expires.pop(key, None); result = None
+        elif name == "contains":
+            result = key in state
+        elif name == "clear":
+            state.clear(); expires.clear(); result = None
+        elif name == "snapshot":
+            result = None
+        else:
+            raise ValueError("unknown operation")
+        # A newly inserted entry with nonpositive TTL is already expired.
+        for key in list(state):
+            if timed and now >= expires[key]:
+                del state[key]; del expires[key]
+        output.append({"result": result, "items": [[k, state[k]] for k in sorted(state)], "size": len(state)})
+    return output
+
+
+def solve(payload):
+    return ttl_alternate(payload)
+
+
+材料 D:\yaorz\research\codeprm-reproduction\data\processed\d1_project_prototype8_v2_20261008\public\D1_F01\task.json
+{
+  "task_id": "D1_F01",
+  "requirement": "实现solve(payload)。value若为字符串：split默认true，按任意空白切分并去空项；split=false时保留整个字符串作为唯一项，空串也保留。value若为字符串列表，原样返回列表，不能再切开列表内的字符串。其他类型或列表内有非字符串项，引发ValueError。返回字符串列表。只用标准库，内部结构自由。",
+  "entry_point": "solve(payload)",
+  "language": "Python",
+  "allowed_libraries": "仅Python标准库",
+  "public_examples": [
+    {
+      "case_id": "public_1",
+      "input": {
+        "value": "  alpha\tbeta  "
+      },
+      "expected": {
+        "value": [
+          "alpha",
+          "beta"
+        ]
+      }
+    },
+    {
+      "case_id": "public_2",
+      "input": {
+        "value": [
+          "a b",
+          "c"
+        ]
+      },
+      "expected": {
+        "value": [
+          "a b",
+          "c"
+        ]
+      }
+    }
+  ],
+  "internal_decomposition": "自由选择，不给定helper名称或数量"
+}
+
+材料 D:\yaorz\research\codeprm-reproduction\data\processed\d1_project_prototype8_v2_20261008\private\D1_F01\all_tests.json
+{"sampled_case_count":9,"total_case_count":15,"sampling":"前6例及最后3例；未逐例审查全部测试","cases":[{"case_id":"public_1","input":{"value":"  alpha\tbeta  "},"expected":{"value":["alpha","beta"]}},{"case_id":"public_2","input":{"value":["a b","c"]},"expected":{"value":["a b","c"]}},{"case_id":"hidden_1","input":{"value":""},"expected":{"value":[]}},{"case_id":"hidden_2","input":{"value":"","split":false},"expected":{"value":[""]}},{"case_id":"hidden_3","input":{"value":"x y","split":false},"expected":{"value":["x y"]}},{"case_id":"hidden_4","input":{"value":[]},"expected":{"value":[]}},{"case_id":"hidden_11","input":{"value":true},"expected":{"error":"ValueError"}},{"case_id":"hidden_12","input":{"value":{}},"expected":{"error":"ValueError"}},{"case_id":"hidden_13","input":{"value":["x",null]},"expected":{"error":"ValueError"}}]}
+
+材料 D:\yaorz\research\codeprm-reproduction\data\processed\d1_project_prototype8_v2_20261008\private\D1_F01\alternate.py
+from collections import OrderedDict
+
+def strings_alternate(p):
+    value = p["value"]
+    if isinstance(value, str):
+        return value.split() if p.get("split", True) else [value]
+    if isinstance(value, list) and all(isinstance(v, str) for v in value):
+        return value[:]
+    raise ValueError("invalid string sequence")
+
+
+def solve(payload):
+    return strings_alternate(payload)
+
+
+材料 D:\yaorz\research\codeprm-reproduction\data\processed\d1_project_prototype8_v2_20261008\public\D1_F02\task.json
+{
+  "task_id": "D1_F02",
+  "requirement": "实现solve(payload)。value为列表，每项允许三种形式：字符串（作为键，值取default，default默认null）；仅有一项的JSON对象（转为其键和值）；长度正好2的列表（作为[key,value]）。键为字符串，值可为任意JSON值。返回[[key,value],...]，保留输入顺序和重复键，输入不得被修改。其他条目格式引发ValueError。只用标准库，内部结构自由。",
+  "entry_point": "solve(payload)",
+  "language": "Python",
+  "allowed_libraries": "仅Python标准库",
+  "public_examples": [
+    {
+      "case_id": "public_1",
+      "input": {
+        "value": [
+          "a",
+          {
+            "b": 2
+          },
+          [
+            "c",
+            3
+          ]
+        ]
+      },
+      "expected": {
+        "value": [
+          [
+            "a",
+            null
+          ],
+          [
+            "b",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "public_2",
+      "input": {
+        "value": [
+          "a",
+          "a"
+        ],
+        "default": "x"
+      },
+      "expected": {
+        "value": [
+          [
+            "a",
+            "x"
+          ],
+          [
+            "a",
+            "x"
+          ]
+        ]
+      }
+    }
+  ],
+  "internal_decomposition": "自由选择，不给定helper名称或数量"
+}
+
+材料 D:\yaorz\research\codeprm-reproduction\data\processed\d1_project_prototype8_v2_20261008\private\D1_F02\all_tests.json
+{"sampled_case_count":9,"total_case_count":13,"sampling":"前6例及最后3例；未逐例审查全部测试","cases":[{"case_id":"public_1","input":{"value":["a",{"b":2},["c",3]]},"expected":{"value":[["a",null],["b",2],["c",3]]}},{"case_id":"public_2","input":{"value":["a","a"],"default":"x"},"expected":{"value":[["a","x"],["a","x"]]}},{"case_id":"hidden_1","input":{"value":[]},"expected":{"value":[]}},{"case_id":"hidden_2","input":{"value":[{}]},"expected":{"error":"ValueError"}},{"case_id":"hidden_3","input":{"value":[{"a":1,"b":2}]},"expected":{"error":"ValueError"}},{"case_id":"hidden_4","input":{"value":[["a"]]},"expected":{"error":"ValueError"}},{"case_id":"hidden_9","input":{"value":[null]},"expected":{"error":"ValueError"}},{"case_id":"hidden_10","input":{"value":["你好",{"世界":true}]},"expected":{"value":[["你好",null],["世界",true]]}},{"case_id":"hidden_11","input":{"value":[["x",0],["x",1]]},"expected":{"value":[["x",0],["x",1]]}}]}
+
+材料 D:\yaorz\research\codeprm-reproduction\data\processed\d1_project_prototype8_v2_20261008\private\D1_F02\alternate.py
+from collections import OrderedDict
+
+def pairs_alternate(p):
+    value = p["value"]
+    output = []
+    for item in value:
+        if isinstance(item, str):
+            output.append([item, p.get("default")])
+        elif isinstance(item, dict) and len(item) == 1:
+            key = next(iter(item)); output.append([key, item[key]])
+        elif isinstance(item, list) and len(item) == 2:
+            output.append(item[:])
+        else:
+            raise ValueError("invalid pairs")
+    return output
+
+
+def solve(payload):
+    return pairs_alternate(payload)
+
+
+材料 D:\yaorz\research\codeprm-reproduction\data\processed\d1_project_prototype8_v2_20261008\public\D1_M01\task.json
+{
+  "task_id": "D1_M01",
+  "requirement": "实现solve(payload)。items为有限JSON列表，width和step为正整数（step默认1），fill默认null。返回定宽窗口列表，每个起点为0,step,2*step等。空items返回[]；items短于width时只返回一个右侧补fill的窗口。其余情况长度L≥width：step<width时保留起点s≤L-width+step-1的窗口，step≥width时保留s<L的窗口。窗口不足width右侧补fill。width或step≤0引发ValueError。只用标准库，内部结构自由。",
+  "entry_point": "solve(payload)",
+  "language": "Python",
+  "allowed_libraries": "仅Python标准库",
+  "public_examples": [
+    {
+      "case_id": "public_1",
+      "input": {
+        "items": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "width": 3
+      },
+      "expected": {
+        "value": [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            2,
+            3,
+            4
+          ],
+          [
+            3,
+            4,
+            5
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "public_2",
+      "input": {
+        "items": [
+          1,
+          2
+        ],
+        "width": 4,
+        "fill": "x"
+      },
+      "expected": {
+        "value": [
+          [
+            1,
+            2,
+            "x",
+            "x"
+          ]
+        ]
+      }
+    }
+  ],
+  "internal_decomposition": "自由选择，不给定helper名称或数量"
+}
+
+材料 D:\yaorz\research\codeprm-reproduction\data\processed\d1_project_prototype8_v2_20261008\private\D1_M01\all_tests.json
+{"sampled_case_count":9,"total_case_count":18,"sampling":"前6例及最后3例；未逐例审查全部测试","cases":[{"case_id":"public_1","input":{"items":[1,2,3,4,5],"width":3},"expected":{"value":[[1,2,3],[2,3,4],[3,4,5]]}},{"case_id":"public_2","input":{"items":[1,2],"width":4,"fill":"x"},"expected":{"value":[[1,2,"x","x"]]}},{"case_id":"hidden_1","input":{"items":[],"width":3},"expected":{"value":[]}},{"case_id":"hidden_2","input":{"items":[1,2,3,4,5,6],"width":3,"step":2},"expected":{"value":[[1,2,3],[3,4,5],[5,6,null]]}},{"case_id":"hidden_3","input":{"items":[1,2,3,4,5],"width":3,"step":4},"expected":{"value":[[1,2,3],[5,null,null]]}},{"case_id":"hidden_4","input":{"items":[1],"width":0},"expected":{"error":"ValueError"}},{"case_id":"hidden_14","input":{"items":[0,1,2,3,4,5,6,7,8,9],"width":4,"step":3,"fill":"pad"},"expected":{"value":[[0,1,2,3],[3,4,5,6],[6,7,8,9]]}},{"case_id":"hidden_15","input":{"items":[0,1,2,3,4,5,6,7,8,9,10,11],"width":1,"step":4,"fill":"pad"},"expected":{"value":[[0],[4],[8]]}},{"case_id":"hidden_16","input":{"items":[0,1,2],"width":3,"step":9,"fill":"pad"},"expected":{"value":[[0,1,2]]}}]}
+
+材料 D:\yaorz\research\codeprm-reproduction\data\processed\d1_project_prototype8_v2_20261008\private\D1_M01\alternate.py
+from collections import OrderedDict
+
+def window_alternate(p):
+    n, step, items, fill = p["width"], p.get("step", 1), p["items"], p.get("fill")
+    if n <= 0 or step <= 0:
+        raise ValueError("positive width and step required")
+    length = len(items)
+    if not length:
+        return []
+    if length < n:
+        return [items[:] + [fill] * (n - length)]
+    stop = length if step >= n else length - n + step
+    return [items[i:i+n] + [fill] * max(0, i+n-length) for i in range(0, stop, step)]
+
+
+def solve(payload):
+    return window_alternate(payload)
+
+
+材料 D:\yaorz\research\codeprm-reproduction\data\processed\d1_project_prototype8_v2_20261008\public\D1_M02\task.json
+{
+  "task_id": "D1_M02",
+  "requirement": "实现solve(payload)。items为数值列表，遇到前一项大于后一项时在两项之间分段，相等不分。maxsplit为-1或非负整数，默认-1表示不限，达到非负上限后剩余全部放到当前最后一段。保留输入顺序；空列表返回[]。只用标准库，内部结构自由。",
+  "entry_point": "solve(payload)",
+  "language": "Python",
+  "allowed_libraries": "仅Python标准库",
+  "public_examples": [
+    {
+      "case_id": "public_1",
+      "input": {
+        "items": [
+          1,
+          3,
+          2,
+          2,
+          4,
+          0
+        ]
+      },
+      "expected": {
+        "value": [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            2,
+            4
+          ],
+          [
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "public_2",
+      "input": {
+        "items": []
+      },
+      "expected": {
+        "value": []
+      }
+    }
+  ],
+  "internal_decomposition": "自由选择，不给定helper名称或数量"
+}
+
+材料 D:\yaorz\research\codeprm-reproduction\data\processed\d1_project_prototype8_v2_20261008\private\D1_M02\all_tests.json
+{"sampled_case_count":9,"total_case_count":19,"sampling":"前6例及最后3例；未逐例审查全部测试","cases":[{"case_id":"public_1","input":{"items":[1,3,2,2,4,0]},"expected":{"value":[[1,3],[2,2,4],[0]]}},{"case_id":"public_2","input":{"items":[]},"expected":{"value":[]}},{"case_id":"hidden_1","input":{"items":[3,2,1],"maxsplit":0},"expected":{"value":[[3,2,1]]}},{"case_id":"hidden_2","input":{"items":[3,2,1],"maxsplit":1},"expected":{"value":[[3],[2,1]]}},{"case_id":"hidden_3","input":{"items":[2,2,2]},"expected":{"value":[[2,2,2]]}},{"case_id":"hidden_4","input":{"items":[-1,-3,-2]},"expected":{"value":[[-1],[-3,-2]]}},{"case_id":"hidden_15","input":{"items":[3,0,-3,-1,2,-1,1,-3,1,2,1,-2,1,-2,-2],"maxsplit":2},"expected":{"value":[[3],[0],[-3,-1,2,-1,1,-3,1,2,1,-2,1,-2,-2]]}},{"case_id":"hidden_16","input":{"items":[1,3,3,2,1,-1,1,-1,2,-1,0,-2,1,0,1],"maxsplit":2},"expected":{"value":[[1,3,3],[2],[1,-1,1,-1,2,-1,0,-2,1,0,1]]}},{"case_id":"hidden_17","input":{"items":[-3,0,0,0,-1,-2,0,-2,-2,-1,-2,1,-1,-3,3],"maxsplit":2},"expected":{"value":[[-3,0,0,0],[-1],[-2,0,-2,-2,-1,-2,1,-1,-3,3]]}}]}
+
+材料 D:\yaorz\research\codeprm-reproduction\data\processed\d1_project_prototype8_v2_20261008\private\D1_M02\alternate.py
+from collections import OrderedDict
+
+def runs_alternate(p):
+    items, limit = p["items"], p.get("maxsplit", -1)
+    if not items:
+        return []
+    output, splits = [[items[0]]], 0
+    for index in range(1, len(items)):
+        if items[index-1] > items[index] and (limit < 0 or splits < limit):
+            output.append([]); splits += 1
+        output[-1].append(items[index])
+    return output
+
+
+def solve(payload):
+    return runs_alternate(payload)
+
+
+材料 D:\yaorz\research\codeprm-reproduction\scripts\d1\evaluate_candidate.py
+"""Evaluate one saved entry point against explicit JSON behavioral cases."""
+import argparse
+import copy
+import importlib.util
+import json
+from pathlib import Path
+
+def main():
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--candidate',type=Path,required=True)
+    parser.add_argument('--cases',type=Path,required=True)
+    args=parser.parse_args()
+    specification=importlib.util.spec_from_file_location('candidate',args.candidate)
+    module=importlib.util.module_from_spec(specification)
+    specification.loader.exec_module(module)
+    cases=json.loads(args.cases.read_text(encoding='utf-8'))
+    results=[]
+    for case in cases:
+        payload=copy.deepcopy(case['input'])
+        before=copy.deepcopy(payload)
+        try:
+            actual={'value':module.solve(payload)}
+            # Normalize tuples and ensure the result is serializable.
+            actual=json.loads(json.dumps(actual,ensure_ascii=False,allow_nan=False))
+        except Exception as exc:
+            actual={'error':type(exc).__name__}
+        passed=actual==case['expected'] and payload==before
+        results.append({'case_id':case['case_id'],'pass':passed,'input_unchanged':payload==before,
+                        'error':None if passed else {'expected':case['expected'],'actual':actual}})
+    print(json.dumps({'cases':len(results),'passed':sum(row['pass'] for row in results),
+                      'all_pass':all(row['pass'] for row in results),'results':results},ensure_ascii=False))
+
+if __name__=='__main__':
+    main()
+
+
+材料 D:\yaorz\research\codeprm-reproduction\scripts\d1\build_dataset.py
+"""Build and audit a versioned D1 prototype from curator-only specifications."""
+from __future__ import annotations
+import argparse
+import ast
+import copy
+import hashlib
+import inspect
+import json
+import shutil
+import subprocess
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+import task_specs
+
+def write_json(path, data):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+
+def alternate_source(function):
+    collected = {}
+    def collect(fn):
+        if fn.__name__ in collected:
+            return
+        source = inspect.getsource(fn)
+        collected[fn.__name__] = source
+        used = {node.id for node in ast.walk(ast.parse(source)) if isinstance(node, ast.Name)}
+        for name in used:
+            dependency = getattr(task_specs, name, None)
+            if inspect.isfunction(dependency) and dependency.__module__ == "task_specs":
+                collect(dependency)
+    collect(function)
+    return ("from collections import OrderedDict\n\n" + "\n\n".join(collected.values())
+            + f"\n\ndef solve(payload):\n    return {function.__name__}(payload)\n")
+
+def run_candidate(candidate, cases, output_dir):
+    command = [sys.executable, str(Path(__file__).with_name("evaluate_candidate.py")),
+               "--candidate", str(candidate), "--cases", str(cases)]
+    result = subprocess.run(command, capture_output=True, text=True, encoding="utf-8", timeout=20)
+    if len(result.stdout.encode("utf-8")) > 1024 * 1024:
+        raise ValueError("评测输出超过1MiB")
+    if result.returncode:
+        raise RuntimeError(result.stderr[-2000:])
+    return json.loads(result.stdout)
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--version", required=True)
+    args = parser.parse_args()
+    ex = task_specs.EXPERIMENT_ROOT
+    dataset = ex / "data/processed" / args.version
+    experiment = ex / "experiments" / args.version
+    dataset.mkdir(parents=True, exist_ok=False)
+    public_dir, private_dir = dataset / "public", dataset / "private"
+    curator_dir = private_dir / "_curator"
+    curator_dir.mkdir(parents=True)
+    snapshot_source = Path(task_specs.__file__).read_text(encoding="utf-8").replace(
+        "EXPERIMENT_ROOT = Path(__file__).resolve().parents[2]",
+        "EXPERIMENT_ROOT = Path(__file__).resolve().parents[5]")
+    (curator_dir / "task_specs_snapshot.py").write_text(snapshot_source, encoding="utf-8")
+    manifest, checks = [], []
+    for spec in task_specs.TASKS:
+        task_id = spec["id"]
+        public, private = public_dir/task_id, private_dir/task_id
+        public.mkdir(parents=True); private.mkdir(parents=True)
+        upstream = json.loads((ex/f"data/raw/d1_project_v1_20261008/manifests/{spec['repo']}.json").read_text(encoding="utf-8"))
+        file_path = task_specs.SOURCE_ROOT/spec["repo"]/spec["file"]
+        definitions = [node for node in ast.parse(file_path.read_text(encoding="utf-8")).body
+                       if isinstance(node, (ast.FunctionDef, ast.ClassDef)) and node.name == spec["symbol"]]
+        source = {"repository":upstream["repository"], "commit":upstream["commit"],
+                  "license":upstream["license_review"]["license"], "file":spec["file"],
+                  "symbol":spec["symbol"], "line":definitions[0].lineno,
+                  "source_sha256":hashlib.sha256(file_path.read_bytes()).hexdigest(),
+                  "license_sha256":upstream["license_review"]["sha256"],
+                  "contamination_risk":"unknown"}
+        public_cases = [{"case_id":f"public_{i+1}","input":p,"expected":task_specs.MANUAL_PUBLIC_OUTCOMES[task_id][i]}
+                        for i,p in enumerate(spec["public"])]
+        private_cases=[]
+        for i,p in enumerate(spec["private"]):
+            private_cases.append({"case_id":f"hidden_{i+1}","input":p,"expected":task_specs.outcome(spec["reference"],p)})
+        disagreements=[]
+        for case in public_cases + private_cases:
+            reference = task_specs.outcome(spec["reference"],case["input"])
+            alternate = task_specs.outcome(spec["alternate"],case["input"])
+            if reference != case["expected"] or alternate != case["expected"]:
+                disagreements.append({"case_id":case["case_id"],"input":case["input"],"expected":case["expected"],"reference":reference,"alternate":alternate})
+        write_json(private/"oracle_crosscheck.json",{"disagreements":disagreements,"manual_public_anchors":len(public_cases),"comparison":"上游实现与另一种纯标准库实现；同一作者，不等于独立审查"})
+        write_json(public/"public_tests.json",public_cases)
+        write_json(private/"private_tests.json",private_cases)
+        (public/"starter.py").write_text("def solve(payload):\n    raise NotImplementedError('implement external behavior')\n",encoding="utf-8")
+        task = {"task_id":task_id,"requirement":spec["requirement"],"entry_point":"solve(payload)",
+                "language":"Python","allowed_libraries":"仅Python标准库","public_examples":public_cases,
+                "internal_decomposition":"自由选择，不给定helper名称或数量"}
+        write_json(public/"task.json",task)
+        record = {"task_id":task_id,"name":spec["name"],"source":source,
+                  "requirement_origin":"上游公开API文档/说明为主，适配器范围与边界补充；已查看实现，需独立泄漏审查",
+                  "adaptation":"统一JSON入口和返回值，保留所选功能；不作为完整仓库任务",
+                  "split":"development" if spec["repo"] in ["boltons","cachetools"] else "reserve",
+                  "structure":{"kind":spec["kind"],"shared_state":spec["state"],"dependency_evidence":spec["dependency"],"independent_test_evidence":spec["independent_stage_test"],"status":"单人预标注，尚未取得独立一致性统计"},
+                  "function_family":spec["family"],"public_cases":len(public_cases),"private_cases":len(private_cases),
+                  "status":"候选原型，非冻结确认集","authoring_seed":20261008}
+        write_json(private/"metadata.json",record)
+        shutil.copyfile(task_specs.SOURCE_ROOT/spec["repo"]/"LICENSE",private/"UPSTREAM_LICENSE.txt")
+        reference_source = "from pathlib import Path\nimport sys\nsys.path.insert(0, str(Path(__file__).resolve().parents[1] / '_curator'))\nfrom task_specs_snapshot import " + spec["reference"].__name__ + "\ndef solve(payload):\n    return " + spec["reference"].__name__ + "(payload)\n"
+        (private/"reference.py").write_text(reference_source,encoding="utf-8")
+        alternate = alternate_source(spec["alternate"])
+        (private/"alternate.py").write_text(alternate,encoding="utf-8")
+        full_cases=public_cases+private_cases
+        write_json(private/"all_tests.json",full_cases)
+        variants = {"starter":public/"starter.py", "alternate":private/"alternate.py", "reference":private/"reference.py"}
+        wrong_empty=private/"wrong_empty.py"; wrong_empty.write_text("def solve(payload):\n    return []\n",encoding="utf-8")
+        wrong_last=private/"wrong_drop_last.py"; wrong_last.write_text(alternate+"\n_original = solve\ndef solve(payload):\n    value = _original(payload)\n    return value[:-1] if isinstance(value, list) and value else value\n",encoding="utf-8")
+        lookup={json.dumps(case['input'],sort_keys=True,ensure_ascii=False):case['expected'] for case in public_cases}
+        wrong_public=private/"wrong_public_lookup.py"; wrong_public.write_text("import json\n_LOOKUP = "+repr(lookup)+"\ndef solve(payload):\n    found = _LOOKUP.get(json.dumps(payload, sort_keys=True, ensure_ascii=False), {'value':None})\n    if 'error' in found: raise ValueError('public case')\n    return found['value']\n",encoding="utf-8")
+        variants.update({"wrong_empty":wrong_empty,"wrong_drop_last":wrong_last,"wrong_public_lookup":wrong_public})
+        audit={"task_id":task_id,"oracle_disagreements":len(disagreements),"implementations":{},"reference_repeats":[]}
+        for name,path in variants.items():
+            audit["implementations"][name]=run_candidate(path,private/"all_tests.json",experiment)
+        for _ in range(3):
+            audit["reference_repeats"].append(run_candidate(private/"reference.py",private/"all_tests.json",experiment))
+        audit["reference_stable_3"] = all(row["all_pass"] for row in audit["reference_repeats"])
+        audit["starter_fails"] = not audit["implementations"]["starter"]["all_pass"]
+        audit["alternate_passes"] = audit["implementations"]["alternate"]["all_pass"]
+        audit["wrong_implementations_rejected"] = all(not audit["implementations"][name]["all_pass"] for name in ["wrong_empty","wrong_drop_last","wrong_public_lookup"])
+        audit["quality_pass"] = not disagreements and all(audit[key] for key in ["reference_stable_3","starter_fails","alternate_passes","wrong_implementations_rejected"])
+        write_json(private/"quality_audit.json",audit)
+        record["quality_pass"]=audit["quality_pass"]
+        manifest.append(record); checks.append(audit)
+        print(json.dumps({"task_id":task_id,"quality_pass":audit["quality_pass"],"oracle_disagreements":len(disagreements),"cases":len(full_cases)},ensure_ascii=False),flush=True)
+    result={"version":args.version,"built_at":datetime.now(timezone.utc).isoformat(),"tasks":manifest,
+            "task_count":len(manifest),"quality_pass_count":sum(row["quality_pass"] for row in manifest),
+            "public_case_count":sum(row["public_cases"] for row in manifest),"private_case_count":sum(row["private_cases"] for row in manifest),
+            "source_repository_count":len({row["source"]["repository"] for row in manifest}),
+            "split_policy":"按来源仓库隔离；开发boltons/cachetools，储备more-itertools/confuse；未冻结",
+            "independent_review":"尚未完成","state":"候选原型"}
+    write_json(dataset/"manifest.json",result)
+    write_json(experiment/"quality_summary.json",result)
+    hashes={str(path.relative_to(dataset)).replace('\\','/'):hashlib.sha256(path.read_bytes()).hexdigest()
+            for path in sorted(dataset.rglob('*')) if path.is_file()}
+    write_json(experiment/"dataset_hashes.json",hashes)
+
+if __name__ == "__main__":
+    main()
+
+
+材料 D:\yaorz\research\codeprm-reproduction\scripts\d1\task_specs.py
+"""Curator-only task definitions, upstream adapters and independent implementations.
+
+This file is never included in generator inputs. Public records contain only
+requirements, an external entry point and public examples. Independent here
+means implementation structure, not independent human authorship.
+"""
+from __future__ import annotations
+import random
+import sys
+from collections import OrderedDict
+from pathlib import Path
+
+EXPERIMENT_ROOT = Path(__file__).resolve().parents[2]
+SOURCE_ROOT = EXPERIMENT_ROOT / "data/raw/d1_project_v1_20261008/repositories"
+for directory in [SOURCE_ROOT / "boltons", SOURCE_ROOT / "more_itertools",
+                  SOURCE_ROOT / "cachetools/src", SOURCE_ROOT / "confuse"]:
+    sys.path.insert(0, str(directory))
+
+def range_reference(p):
+    from boltons.strutils import parse_int_list
+    return parse_int_list(p["text"], p.get("separator", ","), p.get("range_separator", "-"))
+
+def range_alternate(p):
+    groups = _range_groups(p["text"], p.get("separator", ","))
+    expanded = [_range_expand(token, p.get("range_separator", "-")) for token in groups]
+    return sorted(value for group in expanded for value in group)
+
+def _range_groups(text, separator):
+    return [token for token in text.strip().split(separator) if token]
+
+def _range_expand(token, separator):
+    bounds = [int(part) for part in token.split(separator)]
+    if len(bounds) == 1:
+        return bounds
+    return list(range(min(bounds), max(bounds) + 1))
+
+def multimap_reference(p):
+    from boltons.dictutils import OrderedMultiDict
+    mapping = OrderedMultiDict()
+    output = []
+    for op in p["operations"]:
+        name, key = op["op"], op.get("key")
+        try:
+            if name == "add":
+                mapping.add(key, op["value"]); result = None
+            elif name == "set":
+                mapping[key] = op["value"]; result = None
+            elif name == "get":
+                result = mapping.get(key, op.get("default"))
+            elif name == "getall":
+                result = mapping.getlist(key)
+            elif name == "poplast":
+                result = mapping.poplast(key)
+            elif name == "delete":
+                del mapping[key]; result = None
+            else:
+                raise ValueError("unknown operation")
+        except KeyError:
+            result = {"error": "KeyError"}
+        output.append({"result": result, "items": [list(pair) for pair in mapping.items(multi=True)]})
+    return output
+
+def multimap_alternate(p):
+    pairs, output = [], []
+    for op in p["operations"]:
+        name, key = op["op"], op.get("key")
+        indexes = [i for i, pair in enumerate(pairs) if pair[0] == key]
+        if name == "add":
+            pairs.append([key, op["value"]]); result = None
+        elif name == "set":
+            pairs = [pair for pair in pairs if pair[0] != key]
+            pairs.append([key, op["value"]]); result = None
+        elif name == "get":
+            result = pairs[indexes[-1]][1] if indexes else op.get("default")
+        elif name == "getall":
+            result = [pairs[i][1] for i in indexes]
+        elif name == "poplast":
+            result = pairs.pop(indexes[-1])[1] if indexes else {"error": "KeyError"}
+        elif name == "delete":
+            result = None if indexes else {"error": "KeyError"}
+            pairs = [pair for pair in pairs if pair[0] != key]
+        else:
+            raise ValueError("unknown operation")
+        output.append({"result": result, "items": [list(pair) for pair in pairs]})
+    return output
+
+def window_reference(p):
+    from more_itertools import windowed
+    return [list(x) for x in windowed(p["items"], p["width"], p.get("fill"), p.get("step", 1))]
+
+def window_alternate(p):
+    n, step, items, fill = p["width"], p.get("step", 1), p["items"], p.get("fill")
+    if n <= 0 or step <= 0:
+        raise ValueError("positive width and step required")
+    length = len(items)
+    if not length:
+        return []
+    if length < n:
+        return [items[:] + [fill] * (n - length)]
+    stop = length if step >= n else length - n + step
+    return [items[i:i+n] + [fill] * max(0, i+n-length) for i in range(0, stop, step)]
+
+def runs_reference(p):
+    from more_itertools import split_when
+    return list(split_when(p["items"], lambda x, y: x > y, p.get("maxsplit", -1)))
+
+def runs_alternate(p):
+    items, limit = p["items"], p.get("maxsplit", -1)
+    if not items:
+        return []
+    output, splits = [[items[0]]], 0
+    for index in range(1, len(items)):
+        if items[index-1] > items[index] and (limit < 0 or splits < limit):
+            output.append([]); splits += 1
+        output[-1].append(items[index])
+    return output
+
+def _cache_reference(p, timed):
+    from cachetools import LRUCache, TTLCache
+    now = [0]
+    cache = TTLCache(p["capacity"], p["ttl"], timer=lambda: now[0]) if timed else LRUCache(p["capacity"])
+    values, output = {}, []
+    for op in p["operations"]:
+        if timed:
+            now[0] = op["time"]
+        name, key = op["op"], op.get("key")
+        try:
+            if name == "put":
+                cache[key] = op["value"]; values[key] = op["value"]; result = None
+            elif name == "get":
+                result = cache[key]
+            elif name == "delete":
+                del cache[key]; result = None
+            elif name == "contains":
+                result = key in cache
+            elif name == "clear":
+                cache.clear(); result = None
+            elif name == "snapshot":
+                result = None
+            else:
+                raise ValueError("unknown operation")
+        except (KeyError, ValueError) as exc:
+            result = {"error": type(exc).__name__}
+        size = cache.currsize
+        items = [[k, values[k]] for k in sorted(values) if k in cache]
+        output.append({"result": result, "items": items, "size": size})
+    return output
+
+def lru_reference(p):
+    return _cache_reference(p, False)
+
+def ttl_reference(p):
+    return _cache_reference(p, True)
+
+def _cache_alternate(p, timed):
+    capacity, state, expires, output = p["capacity"], OrderedDict(), {}, []
+    if capacity < 0:
+        raise ValueError("negative capacity")
+    for op in p["operations"]:
+        now = op["time"] if timed else 0
+        for key in list(state):
+            if timed and now >= expires[key]:
+                del state[key]; del expires[key]
+        key, name = op.get("key"), op["op"]
+        if name == "put":
+            if capacity == 0:
+                result = {"error": "ValueError"}
+            else:
+                if key in state:
+                    del state[key]
+                elif len(state) >= capacity:
+                    old, _ = state.popitem(last=False); expires.pop(old, None)
+                state[key] = op["value"]
+                if timed:
+                    expires[key] = now + p["ttl"]
+                result = None
+        elif name == "get":
+            if key not in state:
+                result = {"error": "KeyError"}
+            else:
+                result = state[key]; state.move_to_end(key)
+        elif name == "delete":
+            if key not in state:
+                result = {"error": "KeyError"}
+            else:
+                del state[key]; expires.pop(key, None); result = None
+        elif name == "contains":
+            result = key in state
+        elif name == "clear":
+            state.clear(); expires.clear(); result = None
+        elif name == "snapshot":
+            result = None
+        else:
+            raise ValueError("unknown operation")
+        # A newly inserted entry with nonpositive TTL is already expired.
+        for key in list(state):
+            if timed and now >= expires[key]:
+                del state[key]; del expires[key]
+        output.append({"result": result, "items": [[k, state[k]] for k in sorted(state)], "size": len(state)})
+    return output
+
+def lru_alternate(p):
+    return _cache_alternate(p, False)
+
+def ttl_alternate(p):
+    return _cache_alternate(p, True)
+
+def strings_reference(p):
+    import confuse
+    if not isinstance(p["value"], (str, list)):
+        raise ValueError("benchmark accepts only a string or string list")
+    view = confuse.RootView([confuse.ConfigSource({"value": p["value"]})])
+    try:
+        return view["value"].get(confuse.StrSeq(split=p.get("split", True)))
+    except confuse.ConfigError as exc:
+        raise ValueError("invalid string sequence") from exc
+
+def strings_alternate(p):
+    value = p["value"]
+    if isinstance(value, str):
+        return value.split() if p.get("split", True) else [value]
+    if isinstance(value, list) and all(isinstance(v, str) for v in value):
+        return value[:]
+    raise ValueError("invalid string sequence")
+
+def pairs_reference(p):
+    import confuse
+    view = confuse.RootView([confuse.ConfigSource({"value": p["value"]})])
+    try:
+        return [list(pair) for pair in view["value"].get(confuse.Pairs(default_value=p.get("default")))]
+    except confuse.ConfigError as exc:
+        raise ValueError("invalid pairs") from exc
+
+def pairs_alternate(p):
+    value = p["value"]
+    output = []
+    for item in value:
+        if isinstance(item, str):
+            output.append([item, p.get("default")])
+        elif isinstance(item, dict) and len(item) == 1:
+            key = next(iter(item)); output.append([key, item[key]])
+        elif isinstance(item, list) and len(item) == 2:
+            output.append(item[:])
+        else:
+            raise ValueError("invalid pairs")
+    return output
+
+CACHE_REQUIREMENT = """实现 solve(payload)，接收JSON对象，返回每条操作之后的记录列表。capacity是非负整数，每项占一个容量。键是字符串，值是任意JSON值。operations按顺序执行：put(key,value)新增或替换；get(key)返回值；delete(key)删除；contains(key)返回是否存在；clear清空；snapshot只观察。put/get会把该项视为最近使用，contains和观察不改变最近使用顺序；满容量新增时淘汰最久未使用项。每条记录为{result,items,size}：修改和snapshot的result为null，读取/查询为返回值；不存在的get/delete返回{error:'KeyError'}，capacity为0时put返回{error:'ValueError'}，这些错误不会中断后续操作。items为当前全部[key,value]，按键的字典序排序；size为当前项数。snapshot和每步自动观察都不能改变淘汰顺序。只能使用Python标准库，内部结构自由。"""
+TTL_REQUIREMENT = CACHE_REQUIREMENT + "\n另有ttl（非负数），每条操作都带time（非递减的数值时间）。每次put设该键过期时刻为time+ttl，替换会刷新；get只刷新最近使用顺序，不延长存活时间。time到达过期时刻即不存在，已过期项不占容量；每步记录只包含未过期项。不能使用真实系统时间。"
+

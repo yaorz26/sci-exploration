@@ -1,0 +1,22 @@
+实现计划：
+
+1. **remove_punctuation** 方法：
+   - 实现去除句子中的所有标点符号。
+   - 使用 `string.punctuation` 来定义标点符号集合。
+   - 使用列表推导式遍历句子中的每个字符，如果字符不在标点符号集合中，则保留该字符。
+   - 返回处理后的句子。
+
+2. **get_pos_tag** 方法：
+   - 调用 `remove_punctuation` 方法去除句子中的标点符号。
+   - 使用 `word_tokenize` 方法将句子分词。
+   - 使用 `pos_tag` 方法对每个词进行词性标注。
+   - 返回词性标注结果的列表。
+
+3. **lemmatize_sentence** 方法：
+   - 调用 `remove_punctuation` 方法去除句子中的标点符号。
+   - 使用 `word_tokenize` 方法将句子分词。
+   - 调用 `get_pos_tag` 方法获取每个词的词性标注。
+   - 使用 `lemmatizer.lemmatize` 方法对每个词进行词形还原，根据词性标注传递相应的参数。
+   - 将处理后的词存储在列表中并返回。
+
+实现顺序：先实现 `remove_punctuation` 方法，然后实现 `get_pos_tag` 方法，最后实现 `lemmatize_sentence` 方法。

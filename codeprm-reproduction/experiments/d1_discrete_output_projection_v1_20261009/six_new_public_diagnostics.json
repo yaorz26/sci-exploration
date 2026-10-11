@@ -1,0 +1,93 @@
+[
+  {
+    "case_id": "count2_mode_int4",
+    "input": {
+      "data": [
+        4,
+        4
+      ]
+    },
+    "expected": {
+      "value": {
+        "count": 2,
+        "mode": 4
+      }
+    }
+  },
+  {
+    "case_id": "count2_mode_strx",
+    "input": {
+      "data": [
+        "x",
+        "x"
+      ]
+    },
+    "expected": {
+      "value": {
+        "count": 2,
+        "mode": "x"
+      }
+    }
+  },
+  {
+    "case_id": "count3_mode_int4",
+    "input": {
+      "data": [
+        4,
+        "x",
+        4
+      ]
+    },
+    "expected": {
+      "value": {
+        "count": 3,
+        "mode": 4
+      }
+    }
+  },
+  {
+    "case_id": "count3_mode_strx",
+    "input": {
+      "data": [
+        "x",
+        4,
+        "x"
+      ]
+    },
+    "expected": {
+      "value": {
+        "count": 3,
+        "mode": "x"
+      }
+    }
+  },
+  {
+    "case_id": "container_default_blocks_count2",
+    "input": {
+      "data": [
+        4,
+        4
+      ],
+      "default": []
+    },
+    "expected": {
+      "error": "TypeError"
+    }
+  },
+  {
+    "case_id": "container_default_blocks_count3",
+    "input": {
+      "data": [
+        "x",
+        4,
+        "x"
+      ],
+      "default": {
+        "ignored": 1
+      }
+    },
+    "expected": {
+      "error": "TypeError"
+    }
+  }
+]

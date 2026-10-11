@@ -1,0 +1,31 @@
+{
+  "created_at": "2026-10-09T02:38:43.646906+00:00",
+  "inputs": [
+    {
+      "path": "experiments\\d1_prompt_crowding_v1_20261008\\rows.json",
+      "sha256": "8c1b81c6234fd2f1a26e2502e5f66a0d9f550d41b14ee17956c5993d357ac18d"
+    },
+    {
+      "path": "experiments\\d1_joint_profile_support_v1_20261009\\summary.json",
+      "sha256": "5acbb4294408f58f43079bbfbcb9b83f86130c65e1f22b231a6d1455a5c47ab1"
+    },
+    {
+      "path": "data\\processed\\d1_project_initial20_v5_20261008\\manifest.json",
+      "sha256": "c3593d11ae85cc23545aa91418c2ab3c97a4b005fd5e49963bdc28ae7e6eda9f"
+    }
+  ],
+  "scenario": {
+    "format": "pretty",
+    "helper_count": 2,
+    "synthetic_comment_lines_per_helper": 0
+  },
+  "split": "development",
+  "total_cap": 6500,
+  "quantities": [
+    "M0_input_tokens",
+    "M2_total_input_tokens",
+    "M2-M0 input burden",
+    "cap-input upper output remainder"
+  ],
+  "limits": "历史合成文本计量，非实际生成余量/成绩；不重计token、不查隐藏、不使用储备选择"
+}

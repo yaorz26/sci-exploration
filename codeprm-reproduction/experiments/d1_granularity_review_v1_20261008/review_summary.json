@@ -1,0 +1,24 @@
+{
+  "status": "measurement_unit_refinement_supported",
+  "evidence_cases": 2,
+  "saved_relations_used": 3,
+  "logical_paths": 7,
+  "logical_paths_passed": 7,
+  "path_counts": {
+    "contains_unknown": 1,
+    "contract_incompatible_entity": 1,
+    "different_measurement_units": 2,
+    "same_unit_agreement": 1,
+    "same_unit_disagreement": 1,
+    "unsupported_universal_negative": 1
+  },
+  "human_reviewers": 0,
+  "model_calls": 0,
+  "API_calls": 0,
+  "new_task_evaluations": 0,
+  "kappa_computed": false,
+  "evidence_extraction_sha256": "28b66b23d04043bf1c00586dbc0b9d76eefd3e6739495357418cfe701ec14b9f",
+  "script_sha256": "8713e46a8b0f24303b1cba02a8ec6ae5b24af6c60598405e5554831d98911927",
+  "finding": "先核对合法实体/观察/量词/范围，再区分单位选择与同问题判断分歧；不能一律排除粒度分歧或把有限无反例写全域无干扰",
+  "limits": "两个已有案例与七条助手逻辑路径，不是人类一致性数据、通用语义校验器或模型效应"
+}

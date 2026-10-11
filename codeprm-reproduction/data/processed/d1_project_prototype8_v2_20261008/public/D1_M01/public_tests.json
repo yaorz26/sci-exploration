@@ -1,0 +1,55 @@
+[
+  {
+    "case_id": "public_1",
+    "input": {
+      "items": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "width": 3
+    },
+    "expected": {
+      "value": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          4
+        ],
+        [
+          3,
+          4,
+          5
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "public_2",
+    "input": {
+      "items": [
+        1,
+        2
+      ],
+      "width": 4,
+      "fill": "x"
+    },
+    "expected": {
+      "value": [
+        [
+          1,
+          2,
+          "x",
+          "x"
+        ]
+      ]
+    }
+  }
+]

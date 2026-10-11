@@ -1,0 +1,16 @@
+{
+  "time": "2026-09-26T00:43:00+08:00",
+  "reason": "用户即将关机，要求保留已落盘进度并停止计算",
+  "status": "stopped_without_partial_output",
+  "observed_stop_position": {
+    "currently_executing_candidate_ordinal": 188,
+    "total_valid_candidate_slots": 243,
+    "problem_ordinal": 24,
+    "problem_id": "apps-test-48",
+    "candidate_index": 4
+  },
+  "output_file_exists": false,
+  "reusable_partial_results": false,
+  "processes_terminated": [42876, 38100, 37500],
+  "recovery": "从头重跑A pool oracle。A/B候选池、冻结选择和两批选择私测均已落盘，无需重做；之后运行B pool oracle和冻结合并门控。"
+}

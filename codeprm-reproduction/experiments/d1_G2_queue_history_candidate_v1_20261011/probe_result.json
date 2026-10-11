@@ -1,0 +1,62 @@
+{
+  "created_at": "2026-10-11T08:54:06.437620+00:00",
+  "question": "同一优先级的任务在重新 add 后，后续 peek/pop 的公开结果是否改变？",
+  "source_file": "codeprm-reproduction\\data\\raw\\d1_project_v1_20261008\\repositories\\boltons\\boltons\\queueutils.py",
+  "model_calls": 0,
+  "cases": {
+    "PriorityQueue": {
+      "steps": [
+        "A: add t1,t2,t3 同优先级 1，随后 peek",
+        "B: 再次 add(t1,1)（同优先级），随后 peek",
+        "C: pop 一次，随后 peek",
+        "D: 新队列 add x1,x2,x3 后 remove(x1)，随后 peek"
+      ],
+      "observations": {
+        "A_peek_after_three_adds": "t1",
+        "B_peek_after_readd_t1": "t2",
+        "C_popped": "t2",
+        "C_peek_after_pop": "t3",
+        "D_peek_after_remove_top": "x2",
+        "D_len_after_remove": 2
+      },
+      "judgement": {
+        "readd_changed_head": true,
+        "A": "t1",
+        "B": "t2",
+        "meaning": "若 readd_changed_head 为真，则说明“先前的合法 add”改变了后续公开读取结果"
+      }
+    },
+    "HeapPriorityQueue": {
+      "steps": [
+        "A: add t1,t2,t3 同优先级 1，随后 peek",
+        "B: 再次 add(t1,1)（同优先级），随后 peek",
+        "C: pop 一次，随后 peek",
+        "D: 新队列 add x1,x2,x3 后 remove(x1)，随后 peek"
+      ],
+      "observations": {
+        "A_peek_after_three_adds": "t1",
+        "B_peek_after_readd_t1": "t2",
+        "C_popped": "t2",
+        "C_peek_after_pop": "t3",
+        "D_peek_after_remove_top": "x2",
+        "D_len_after_remove": 2
+      },
+      "judgement": {
+        "readd_changed_head": true,
+        "A": "t1",
+        "B": "t2",
+        "meaning": "若 readd_changed_head 为真，则说明“先前的合法 add”改变了后续公开读取结果"
+      }
+    }
+  },
+  "summary": {
+    "both_classes_show_history_effect": true,
+    "pattern": "同优先级下 add 会先把已有任务移除再重新入队（源码 queueutils.py:133-138），因此依次 add t1,t2,t3 后 peek 得到 t1；再 add(t1) 后 t1 排到队尾，peek 得到 t2。",
+    "new_obligation": "任务输出顺序依赖此前合法操作历史（非容量淘汰、非全局排序），属于 K2“非缓存操作历史义务”的形态。"
+  },
+  "limits": [
+    "单文件、单模块、有限输入；不证明全域行为或性能",
+    "未读上游测试；仅依据模块公开文档、doctest 与源码语义",
+    "正式 labels/split 仍为 null；真实人工双审 0"
+  ]
+}

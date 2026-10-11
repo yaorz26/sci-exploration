@@ -1,0 +1,78 @@
+```diff
+--- a/confuse/sources.py
++++ b/confuse/sources.py
+@@ -1,3 +1,4 @@
+ from __future__ import division, absolute_import, print_function
++from collections import OrderedDict
+ from .util import BASESTRING
+ from . import yaml_util
+ import os
+@@ -12,6 +13,7 @@ from . import yaml_util
+     def __init__(self, value, filename=None, default=False,
+                  base_for_paths=False):
+         """Create a configuration source from a dictionary.
++        :param prefix: The prefix for environment variables.
++        :param sep: The separator for nested keys.
+         :param filename: The file with the data for this configuration source.
+ 
+         :param default: Indicates whether this source provides the
+@@ -19,6 +21,8 @@ from . import yaml_util
+         :param base_for_paths: Indicates whether the source file's directory
+         (i.e., the directory component of `self.filename`) should be used as
+         the base directory for resolving relative path values provided by this
++        source, instead of using the application's configuration directory. If
++        no `filename` is provided, `base_for_paths` will be treated as False.
+         See `templates.Filename` for details of the relative path resolution
+         behavior.
+         """
+@@ -26,6 +30,8 @@ from . import yaml_util
+         self.filename = filename
+         self.default = default
+         self.base_for_paths = base_for_paths if filename is not None else False
++        self.prefix = prefix
++        self.sep = sep
+         if filename is not None:
+             with open(filename, 'r') as f:
+                 self.value = yaml_util.load(f)
+@@ -34,6 +40,22 @@ from . import yaml_util
+         else:
+             self.value = value
+ 
++    def get_env_value(self):
++        env_value = {}
++        for key, value in os.environ.items():
++            if key.startswith(self.prefix):
++                env_key = key[len(self.prefix):].lower().replace(self.sep, '_')
++                if env_key:
++                    env_value[env_key] = value
++        return env_value
++
++    def merge_env_with_config(self):
++        env_value = self.get_env_value()
++        for key, value in env_value.items():
++            if key not in self.value:
++                self.value[key] = value
++
+     def get(self, key, default=None):
+         """Get the value for a key from this configuration source.
+ 
+@@ -42,6 +64,7 @@ from . import yaml_util
+         :param default: The default value to return if the key is not found.
+         """
+         return self.value.get(key, default)
++
+     def __getitem__(self, key):
+         """Get the value for a key from this configuration source.
+ 
+@@ -50,6 +73,7 @@ from . import yaml_util
+         """
+         return self.value[key]
++
+     def __contains__(self, key):
+         """Check if a key is present in this configuration source.
+ 
+@@ -58,6 +82,7 @@ from . import yaml_util
+         """
+         return key in self.value
++
+     def __iter__(

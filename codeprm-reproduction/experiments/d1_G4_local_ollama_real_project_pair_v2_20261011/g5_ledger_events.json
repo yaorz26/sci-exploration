@@ -1,0 +1,33 @@
+[
+  {
+    "time": "2026-10-11T06:10:00Z",
+    "event_id": "d1-g5-boundary-synthesis-20261011",
+    "kind": "phase_review",
+    "phase": "G5-delivery",
+    "stage": "D1-G5",
+    "status": "complete",
+    "summary": "完成真实项目候选、PR126评价器契约盲点和G4本地生成资源边界的证据合成；保留研究池与正式标签/模型效果限制。",
+    "evidence_kind": "artifact",
+    "evidence": ["../docs/week3/data-route/20261011/230_g5_d1_boundary_synthesis.md", "../docs/week3/data-route/20261011/228_g4_local_ollama_result.md", "../docs/week3/data-route/20261011/219_pr126_entry_gap_result.md"],
+    "approval_required": false,
+    "supersedes": [],
+    "budget": "本次仅证据合成；不新增模型、行为、下载或人工；原始实验与失败保留",
+    "uncertainty": "主A收益、正式结构标签、人工双审仍未测"
+  },
+  {
+    "time": "2026-10-11T06:10:01Z",
+    "event_id": "d1-g5-boundary-direction-20261011",
+    "kind": "direction_review",
+    "phase": "G5-delivery",
+    "stage": "D1-G5",
+    "status": "complete",
+    "summary": "阶段性成果达到可见交付；否决用候选数量、报告数量或失败重跑替代主A证据。",
+    "decision": "暂以研究池与适用边界交付；只有冻结新的总token、模型身份或补丁接口计划后才恢复主A生成比较。",
+    "evidence_kind": "artifact",
+    "evidence": ["../docs/week3/data-route/20261011/230_g5_d1_boundary_synthesis.md"],
+    "approval_required": false,
+    "supersedes": [],
+    "budget": "同上",
+    "uncertainty": "资源参数改变后的完整候选可得性未知"
+  }
+]

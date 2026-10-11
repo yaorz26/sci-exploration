@@ -1,0 +1,944 @@
+[
+  {
+    "id": "empty",
+    "upstream": [],
+    "alternate": [],
+    "pass": true
+  },
+  {
+    "id": "read_eviction_LRU",
+    "upstream": [
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            1
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            1
+          ],
+          [
+            "b",
+            2
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": 1,
+        "items": [
+          [
+            "a",
+            1
+          ],
+          [
+            "b",
+            2
+          ]
+        ],
+        "hits": 1,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            1
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "hits": 1,
+        "misses": 0,
+        "soft_misses": 0
+      }
+    ],
+    "alternate": [
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            1
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            1
+          ],
+          [
+            "b",
+            2
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": 1,
+        "items": [
+          [
+            "a",
+            1
+          ],
+          [
+            "b",
+            2
+          ]
+        ],
+        "hits": 1,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            1
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "hits": 1,
+        "misses": 0,
+        "soft_misses": 0
+      }
+    ],
+    "pass": true
+  },
+  {
+    "id": "rewrite_LRU",
+    "upstream": [
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            1
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            1
+          ],
+          [
+            "b",
+            2
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            3
+          ],
+          [
+            "b",
+            2
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            3
+          ],
+          [
+            "c",
+            4
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      }
+    ],
+    "alternate": [
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            1
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            1
+          ],
+          [
+            "b",
+            2
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            3
+          ],
+          [
+            "b",
+            2
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            3
+          ],
+          [
+            "c",
+            4
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      }
+    ],
+    "pass": true
+  },
+  {
+    "id": "read_eviction_LRI",
+    "upstream": [
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            1
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            1
+          ],
+          [
+            "b",
+            2
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": 1,
+        "items": [
+          [
+            "a",
+            1
+          ],
+          [
+            "b",
+            2
+          ]
+        ],
+        "hits": 1,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": null,
+        "items": [
+          [
+            "b",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "hits": 1,
+        "misses": 0,
+        "soft_misses": 0
+      }
+    ],
+    "alternate": [
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            1
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            1
+          ],
+          [
+            "b",
+            2
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": 1,
+        "items": [
+          [
+            "a",
+            1
+          ],
+          [
+            "b",
+            2
+          ]
+        ],
+        "hits": 1,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": null,
+        "items": [
+          [
+            "b",
+            2
+          ],
+          [
+            "c",
+            3
+          ]
+        ],
+        "hits": 1,
+        "misses": 0,
+        "soft_misses": 0
+      }
+    ],
+    "pass": true
+  },
+  {
+    "id": "rewrite_LRI",
+    "upstream": [
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            1
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            1
+          ],
+          [
+            "b",
+            2
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            3
+          ],
+          [
+            "b",
+            2
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            3
+          ],
+          [
+            "c",
+            4
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      }
+    ],
+    "alternate": [
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            1
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            1
+          ],
+          [
+            "b",
+            2
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            3
+          ],
+          [
+            "b",
+            2
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            3
+          ],
+          [
+            "c",
+            4
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      }
+    ],
+    "pass": true
+  },
+  {
+    "id": "strict_then_soft",
+    "upstream": [
+      {
+        "result": {
+          "error": "KeyError"
+        },
+        "items": [],
+        "hits": 0,
+        "misses": 1,
+        "soft_misses": 0
+      },
+      {
+        "result": 7,
+        "items": [],
+        "hits": 0,
+        "misses": 2,
+        "soft_misses": 1
+      }
+    ],
+    "alternate": [
+      {
+        "result": {
+          "error": "KeyError"
+        },
+        "items": [],
+        "hits": 0,
+        "misses": 1,
+        "soft_misses": 0
+      },
+      {
+        "result": 7,
+        "items": [],
+        "hits": 0,
+        "misses": 2,
+        "soft_misses": 1
+      }
+    ],
+    "pass": true
+  },
+  {
+    "id": "contains_pop_no_stats",
+    "upstream": [
+      {
+        "result": null,
+        "items": [
+          [
+            "b",
+            2
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            1
+          ],
+          [
+            "b",
+            2
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": true,
+        "items": [
+          [
+            "a",
+            1
+          ],
+          [
+            "b",
+            2
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": 1,
+        "items": [
+          [
+            "b",
+            2
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      }
+    ],
+    "alternate": [
+      {
+        "result": null,
+        "items": [
+          [
+            "b",
+            2
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            1
+          ],
+          [
+            "b",
+            2
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": true,
+        "items": [
+          [
+            "a",
+            1
+          ],
+          [
+            "b",
+            2
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": 1,
+        "items": [
+          [
+            "b",
+            2
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      }
+    ],
+    "pass": true
+  },
+  {
+    "id": "clear_keeps_stats",
+    "upstream": [
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            1
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": 1,
+        "items": [
+          [
+            "a",
+            1
+          ]
+        ],
+        "hits": 1,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": null,
+        "items": [],
+        "hits": 1,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": 9,
+        "items": [],
+        "hits": 1,
+        "misses": 1,
+        "soft_misses": 1
+      }
+    ],
+    "alternate": [
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            1
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": 1,
+        "items": [
+          [
+            "a",
+            1
+          ]
+        ],
+        "hits": 1,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": null,
+        "items": [],
+        "hits": 1,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": 9,
+        "items": [],
+        "hits": 1,
+        "misses": 1,
+        "soft_misses": 1
+      }
+    ],
+    "pass": true
+  },
+  {
+    "id": "capacity_1",
+    "upstream": [
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            1
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": null,
+        "items": [
+          [
+            "b",
+            2
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": {
+          "error": "KeyError"
+        },
+        "items": [
+          [
+            "b",
+            2
+          ]
+        ],
+        "hits": 0,
+        "misses": 1,
+        "soft_misses": 0
+      }
+    ],
+    "alternate": [
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            1
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": null,
+        "items": [
+          [
+            "b",
+            2
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": {
+          "error": "KeyError"
+        },
+        "items": [
+          [
+            "b",
+            2
+          ]
+        ],
+        "hits": 0,
+        "misses": 1,
+        "soft_misses": 0
+      }
+    ],
+    "pass": true
+  },
+  {
+    "id": "capacity_2",
+    "upstream": [
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            1
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            1
+          ],
+          [
+            "b",
+            2
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": 1,
+        "items": [
+          [
+            "a",
+            1
+          ],
+          [
+            "b",
+            2
+          ]
+        ],
+        "hits": 1,
+        "misses": 0,
+        "soft_misses": 0
+      }
+    ],
+    "alternate": [
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            1
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": null,
+        "items": [
+          [
+            "a",
+            1
+          ],
+          [
+            "b",
+            2
+          ]
+        ],
+        "hits": 0,
+        "misses": 0,
+        "soft_misses": 0
+      },
+      {
+        "result": 1,
+        "items": [
+          [
+            "a",
+            1
+          ],
+          [
+            "b",
+            2
+          ]
+        ],
+        "hits": 1,
+        "misses": 0,
+        "soft_misses": 0
+      }
+    ],
+    "pass": true
+  }
+]

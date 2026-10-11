@@ -1,0 +1,415 @@
+[
+  {
+    "case_id": "hidden_1",
+    "input": {
+      "items": [],
+      "width": 3
+    },
+    "expected": {
+      "value": []
+    }
+  },
+  {
+    "case_id": "hidden_2",
+    "input": {
+      "items": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "width": 3,
+      "step": 2
+    },
+    "expected": {
+      "value": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          3,
+          4,
+          5
+        ],
+        [
+          5,
+          6,
+          null
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_3",
+    "input": {
+      "items": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "width": 3,
+      "step": 4
+    },
+    "expected": {
+      "value": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          5,
+          null,
+          null
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_4",
+    "input": {
+      "items": [
+        1
+      ],
+      "width": 0
+    },
+    "expected": {
+      "error": "ValueError"
+    }
+  },
+  {
+    "case_id": "hidden_5",
+    "input": {
+      "items": [
+        1
+      ],
+      "width": 1,
+      "step": 0
+    },
+    "expected": {
+      "error": "ValueError"
+    }
+  },
+  {
+    "case_id": "hidden_6",
+    "input": {
+      "items": [
+        0
+      ],
+      "width": 1,
+      "step": 1,
+      "fill": "pad"
+    },
+    "expected": {
+      "value": [
+        [
+          0
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_7",
+    "input": {
+      "items": [
+        0,
+        1,
+        2
+      ],
+      "width": 2,
+      "step": 1,
+      "fill": "pad"
+    },
+    "expected": {
+      "value": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_8",
+    "input": {
+      "items": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "width": 3,
+      "step": 2,
+      "fill": "pad"
+    },
+    "expected": {
+      "value": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          3,
+          "pad"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_9",
+    "input": {
+      "items": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "width": 3,
+      "step": 2,
+      "fill": "pad"
+    },
+    "expected": {
+      "value": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          2,
+          3,
+          4
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_10",
+    "input": {
+      "items": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "width": 3,
+      "step": 4,
+      "fill": "pad"
+    },
+    "expected": {
+      "value": [
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          4,
+          5,
+          6
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_11",
+    "input": {
+      "items": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "width": 2,
+      "step": 5,
+      "fill": "pad"
+    },
+    "expected": {
+      "value": [
+        [
+          0,
+          1
+        ],
+        [
+          5,
+          6
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_12",
+    "input": {
+      "items": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "width": 2,
+      "step": 2,
+      "fill": "pad"
+    },
+    "expected": {
+      "value": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_13",
+    "input": {
+      "items": [
+        0,
+        1
+      ],
+      "width": 5,
+      "step": 4,
+      "fill": "pad"
+    },
+    "expected": {
+      "value": [
+        [
+          0,
+          1,
+          "pad",
+          "pad",
+          "pad"
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_14",
+    "input": {
+      "items": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "width": 4,
+      "step": 3,
+      "fill": "pad"
+    },
+    "expected": {
+      "value": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          3,
+          4,
+          5,
+          6
+        ],
+        [
+          6,
+          7,
+          8,
+          9
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_15",
+    "input": {
+      "items": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "width": 1,
+      "step": 4,
+      "fill": "pad"
+    },
+    "expected": {
+      "value": [
+        [
+          0
+        ],
+        [
+          4
+        ],
+        [
+          8
+        ]
+      ]
+    }
+  },
+  {
+    "case_id": "hidden_16",
+    "input": {
+      "items": [
+        0,
+        1,
+        2
+      ],
+      "width": 3,
+      "step": 9,
+      "fill": "pad"
+    },
+    "expected": {
+      "value": [
+        [
+          0,
+          1,
+          2
+        ]
+      ]
+    }
+  }
+]

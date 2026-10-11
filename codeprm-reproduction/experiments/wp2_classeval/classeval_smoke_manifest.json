@@ -1,0 +1,107 @@
+{
+  "dataset": "FudanSELab/ClassEval",
+  "seed": 20260928,
+  "n": 3,
+  "repeats": 3,
+  "llm_calls": 0,
+  "tasks": [
+    {
+      "task_id": "ClassEval_35",
+      "class_name": "EightPuzzle",
+      "n_methods": 4,
+      "skeleton_chars": 2905,
+      "test_chars": 5175,
+      "runs": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 3.94,
+          "ok": true,
+          "tail": ".....................\n----------------------------------------------------------------------\nRan 21 tests in 3.287s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 5.03,
+          "ok": true,
+          "tail": ".....................\n----------------------------------------------------------------------\nRan 21 tests in 4.424s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 4.01,
+          "ok": true,
+          "tail": ".....................\n----------------------------------------------------------------------\nRan 21 tests in 3.375s\n\nOK\n"
+        }
+      ],
+      "stable_3_runs": true
+    },
+    {
+      "task_id": "ClassEval_70",
+      "class_name": "PersonRequest",
+      "n_methods": 3,
+      "skeleton_chars": 1506,
+      "test_chars": 2714,
+      "runs": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.61,
+          "ok": true,
+          "tail": "................\n----------------------------------------------------------------------\nRan 16 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.62,
+          "ok": true,
+          "tail": "................\n----------------------------------------------------------------------\nRan 16 tests in 0.000s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.62,
+          "ok": true,
+          "tail": "................\n----------------------------------------------------------------------\nRan 16 tests in 0.000s\n\nOK\n"
+        }
+      ],
+      "stable_3_runs": true
+    },
+    {
+      "task_id": "ClassEval_87",
+      "class_name": "TimeUtils",
+      "n_methods": 7,
+      "skeleton_chars": 2567,
+      "test_chars": 7782,
+      "runs": [
+        {
+          "run": 1,
+          "exit_code": 0,
+          "seconds": 0.73,
+          "ok": true,
+          "tail": "....................................\n----------------------------------------------------------------------\nRan 36 tests in 0.011s\n\nOK\n"
+        },
+        {
+          "run": 2,
+          "exit_code": 0,
+          "seconds": 0.69,
+          "ok": true,
+          "tail": "....................................\n----------------------------------------------------------------------\nRan 36 tests in 0.012s\n\nOK\n"
+        },
+        {
+          "run": 3,
+          "exit_code": 0,
+          "seconds": 0.64,
+          "ok": true,
+          "tail": "....................................\n----------------------------------------------------------------------\nRan 36 tests in 0.011s\n\nOK\n"
+        }
+      ],
+      "stable_3_runs": true
+    }
+  ],
+  "summary": {
+    "tasks_all_3_runs_pass": 3,
+    "tasks": 3,
+    "all_stable": true
+  }
+}

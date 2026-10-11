@@ -1,0 +1,93 @@
+{
+  "programs": [
+    {
+      "plan": "state_in_entry",
+      "filename": "state_in_entry.py",
+      "sha256": "03e922b593df66361356943933c7f68cc8260b31dc319325d86b3bacdad3e4b2",
+      "helper_count": 2,
+      "functions": [
+        {
+          "name": "_call_key",
+          "parameters": [
+            "args",
+            "kwargs"
+          ]
+        },
+        {
+          "name": "_compute",
+          "parameters": [
+            "args",
+            "kwargs"
+          ]
+        },
+        {
+          "name": "solve",
+          "parameters": [
+            "payload"
+          ]
+        }
+      ]
+    },
+    {
+      "plan": "state_encapsulated_helper",
+      "filename": "state_encapsulated_helper.py",
+      "sha256": "e11d1f9593fa7b99f920170949b85bcf1ebd4369b1aaedcb1f5dc369d7aebf7d",
+      "helper_count": 2,
+      "functions": [
+        {
+          "name": "_call_key",
+          "parameters": [
+            "args",
+            "kwargs"
+          ]
+        },
+        {
+          "name": "_run_ops",
+          "parameters": [
+            "operations",
+            "capacity"
+          ]
+        },
+        {
+          "name": "solve",
+          "parameters": [
+            "payload"
+          ]
+        }
+      ]
+    },
+    {
+      "plan": "state_shared_between_helpers",
+      "filename": "state_shared_between_helpers.py",
+      "sha256": "935625073352668d676d8c903a6f6c4ea0fc6abb7aba155a7a9d624e2e9305e6",
+      "helper_count": 2,
+      "functions": [
+        {
+          "name": "_update",
+          "parameters": [
+            "state",
+            "op",
+            "capacity"
+          ]
+        },
+        {
+          "name": "_render",
+          "parameters": [
+            "state",
+            "result"
+          ]
+        },
+        {
+          "name": "solve",
+          "parameters": [
+            "payload"
+          ]
+        }
+      ]
+    }
+  ],
+  "source_sha256": "03e922b593df66361356943933c7f68cc8260b31dc319325d86b3bacdad3e4b2",
+  "state_profiles_sha256": "70fc05c3463f7a9a63a9e55975e830b9b4189d9aab58c4beff0d87c5947b05de",
+  "script_sha256": "3c63b5b6c79da0d7e1a49868aa8fd8ef8d9c473c617d171a92f349ca4b0483f0",
+  "rule": "三个助手方案及候选状态表先冻结，之后执行既有评分和新有限序列；不修改原数据"
+}

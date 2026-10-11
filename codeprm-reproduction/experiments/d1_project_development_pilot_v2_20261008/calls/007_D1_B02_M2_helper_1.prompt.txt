@@ -1,0 +1,110 @@
+你要编写Python代码。任务需求与公开示例如下；仅使用标准库，内部结构自由。
+{
+  "task_id": "D1_B02",
+  "requirement": "实现solve(payload)，依次执行operations，维护初始为空的有序多值记录。键为字符串，值为JSON值。add(key,value)追加一条；set(key,value)删除该键全部旧条目后在末尾追加一条；get(key,default可选)取该键最后一个值，不存在返回default或null；getall(key)取该键所有值，不存在返回空列表；poplast(key)删除并返回该键最后一个值；delete(key)删除该键全部条目。缺失键的poplast/delete返回{error:'KeyError'}，不影响后续操作。每步返回{result,items}：add、set及成功delete的result为null，成功poplast的result为被删除的值，get/getall的result为查询结果；items为全部[key,value]，保留全局插入顺序。只用标准库，内部结构自由。",
+  "entry_point": "solve(payload)",
+  "language": "Python",
+  "allowed_libraries": "仅Python标准库",
+  "public_examples": [
+    {
+      "input": {
+        "operations": [
+          {
+            "op": "add",
+            "key": "a",
+            "value": 1
+          },
+          {
+            "op": "add",
+            "key": "b",
+            "value": 2
+          },
+          {
+            "op": "add",
+            "key": "a",
+            "value": 3
+          },
+          {
+            "op": "getall",
+            "key": "a"
+          }
+        ]
+      },
+      "output": [
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              1
+            ]
+          ]
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              1
+            ],
+            [
+              "b",
+              2
+            ]
+          ]
+        },
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              1
+            ],
+            [
+              "b",
+              2
+            ],
+            [
+              "a",
+              3
+            ]
+          ]
+        },
+        {
+          "result": [
+            1,
+            3
+          ],
+          "items": [
+            [
+              "a",
+              1
+            ],
+            [
+              "b",
+              2
+            ],
+            [
+              "a",
+              3
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "input": {
+        "operations": []
+      },
+      "output": []
+    }
+  ],
+  "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。",
+  "internal_decomposition": "自由选择，不给定helper名称或数量"
+}
+已固定计划：
+{"helpers": [{"name": "_execute_operation", "signature": "def _execute_operation(operation, data):", "contract": "执行单个操作并返回结果和更新后的数据。操作格式为{'op': '操作类型', 'key': '键', 'value': '值'}。操作类型包括'add', 'set', 'get', 'getall', 'poplast', 'delete'。返回格式为{'result': 结果, 'items': 更新后的数据}。", "depends_on": []}, {"name": "_process_operations", "signature": "def _process_operations(operations):", "contract": "依次执行一系列操作并返回每一步的结果和最终数据。操作列表格式为[{'op': '操作类型', 'key': '键', 'value': '值'}, ...]。返回格式为[{'result': 结果, 'items': 数据}, ...]。", "depends_on": ["_execute_operation"]}]}
+已实现辅助函数：
+
+本次仅实现以下函数，可以添加所需标准库import，不能重定义其他函数、不能定义solve：
+{"name": "_execute_operation", "signature": "def _execute_operation(operation, data):", "contract": "执行单个操作并返回结果和更新后的数据。操作格式为{'op': '操作类型', 'key': '键', 'value': '值'}。操作类型包括'add', 'set', 'get', 'getall', 'poplast', 'delete'。返回格式为{'result': 结果, 'items': 更新后的数据}。", "depends_on": []}

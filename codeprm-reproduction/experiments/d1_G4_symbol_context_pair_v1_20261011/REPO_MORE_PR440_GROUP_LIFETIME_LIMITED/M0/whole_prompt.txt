@@ -1,0 +1,304 @@
+# 相邻组变换在迭代生命周期内完成
+
+来源：more-itertools PR440，官方合并`78405e9b24d0ccdd67785136ecd56774f38ae95e`，直接父`38d070c9252d2138dbd86f8f85b9970741401cb6`。PR标题/正文初称groupfunc，合并版本的公开API参数为reducefunc，任务采用实际公开API名。不要求复制合并实现或固定内部helper/存储结构。
+
+给定父包源码，为`more_itertools.groupby_transform(iterable, keyfunc=None, valuefunc=None, reducefunc=None)`增加整组变换：仅相邻且key相同的项分为一组，keyfunc计算key，valuefunc先变换组内每项，reducefunc接受该组变换后的可迭代值，其返回值作为外层 `(key, result)` 的result。
+
+有限合法域：有限可迭代数据、纯key/value回调，以及在调用时完整消费传入组的list或数值sum回调。同key的非相邻组保持分开，不排序或合并。reducefunc完成的list/数值结果即使外层迭代继续前进，也应保留已返回值；不是要求任意惰性reducefunc都永久保存数据。
+
+未提供reducefunc时，保留父API的懒组可迭代结果及共享底层迭代器的行为，不能为新功能擅自将全部组永久物化。keyfunc/valuefunc未提供时保留父默认行为。内部可以组合既有groupby，也可以另组织模块，但外部调用与迭代结果相同。
+
+本候选不是完整more-itertools仓库任务，也不测无界流、内存/效率或任意回调副作用。正式labels/split null，research_pool_only；人工双审/模型效果0，公共污染unknown，既有暴露另存。
+
+公开案例：
+{
+  "expected_origin": "公开组生命周期义务与手算；不从feature执行取期望",
+  "cases": [
+    {
+      "id": "retained_lists_after_outer_exhaustion",
+      "mode": "retain_after_advance",
+      "items": [
+        [
+          "a",
+          1
+        ],
+        [
+          "a",
+          2
+        ],
+        [
+          "b",
+          3
+        ],
+        [
+          "a",
+          4
+        ]
+      ],
+      "factor": 10,
+      "reducefunc": "list",
+      "expected": [
+        [
+          "a",
+          [
+            10,
+            20
+          ]
+        ],
+        [
+          "b",
+          [
+            30
+          ]
+        ],
+        [
+          "a",
+          [
+            40
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "group_sums",
+      "mode": "normal",
+      "items": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "factor": 1,
+      "reducefunc": "sum",
+      "expected": [
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          4
+        ]
+      ]
+    },
+    {
+      "id": "no_reducer_keeps_parent_lazy_groups",
+      "mode": "baseline_lazy",
+      "items": [
+        [
+          "a",
+          1
+        ],
+        [
+          "a",
+          2
+        ],
+        [
+          "b",
+          3
+        ]
+      ],
+      "factor": 1,
+      "expected": {
+        "first_key": "a",
+        "first_after_advance": [],
+        "second_key": "b",
+        "second_now": [
+          3
+        ]
+      }
+    }
+  ]
+}
+父源码完整API片段：
+父文件 more_itertools/more.py 原行 1—1（下一片段不连续，不得合并当完整文件）
+import warnings
+
+父文件 more_itertools/more.py 原行 2—2（下一片段不连续，不得合并当完整文件）
+from collections import Counter, defaultdict, deque, abc
+
+父文件 more_itertools/more.py 原行 3—3（下一片段不连续，不得合并当完整文件）
+from collections.abc import Sequence
+
+父文件 more_itertools/more.py 原行 4—4（下一片段不连续，不得合并当完整文件）
+from functools import partial, wraps
+
+父文件 more_itertools/more.py 原行 5—5（下一片段不连续，不得合并当完整文件）
+from heapq import merge, heapify, heapreplace, heappop
+
+父文件 more_itertools/more.py 原行 6—19（下一片段不连续，不得合并当完整文件）
+from itertools import (
+    chain,
+    compress,
+    count,
+    cycle,
+    dropwhile,
+    groupby,
+    islice,
+    repeat,
+    starmap,
+    takewhile,
+    tee,
+    zip_longest,
+)
+
+父文件 more_itertools/more.py 原行 20—20（下一片段不连续，不得合并当完整文件）
+from math import exp, floor, log
+
+父文件 more_itertools/more.py 原行 21—21（下一片段不连续，不得合并当完整文件）
+from random import random, randrange, uniform
+
+父文件 more_itertools/more.py 原行 22—22（下一片段不连续，不得合并当完整文件）
+from operator import itemgetter, sub, gt, lt
+
+父文件 more_itertools/more.py 原行 23—23（下一片段不连续，不得合并当完整文件）
+from sys import maxsize
+
+父文件 more_itertools/more.py 原行 24—24（下一片段不连续，不得合并当完整文件）
+from time import monotonic
+
+父文件 more_itertools/more.py 原行 26—33（下一片段不连续，不得合并当完整文件）
+from .recipes import (
+    consume,
+    flatten,
+    pairwise,
+    powerset,
+    take,
+    unique_everseen,
+)
+
+父文件 more_itertools/more.py 原行 35—108（下一片段不连续，不得合并当完整文件）
+__all__ = [
+    'adjacent',
+    'always_iterable',
+    'always_reversible',
+    'bucket',
+    'chunked',
+    'circular_shifts',
+    'collapse',
+    'collate',
+    'consecutive_groups',
+    'consumer',
+    'count_cycle',
+    'mark_ends',
+    'difference',
+    'distinct_combinations',
+    'distinct_permutations',
+    'distribute',
+    'divide',
+    'exactly_n',
+    'filter_except',
+    'first',
+    'groupby_transform',
+    'ilen',
+    'interleave_longest',
+    'interleave',
+    'intersperse',
+    'islice_extended',
+    'iterate',
+    'ichunked',
+    'is_sorted',
+    'last',
+    'locate',
+    'lstrip',
+    'make_decorator',
+    'map_except',
+    'map_reduce',
+    'nth_or_last',
+    'numeric_range',
+    'one',
+    'only',
+    'padded',
+    'partitions',
+    'set_partitions',
+    'peekable',
+    'repeat_last',
+    'replace',
+    'rlocate',
+    'rstrip',
+    'run_length',
+    'sample',
+    'seekable',
+    'SequenceView',
+    'side_effect',
+    'sliced',
+    'sort_together',
+    'split_at',
+    'split_after',
+    'split_before',
+    'split_when',
+    'split_into',
+    'spy',
+    'stagger',
+    'strip',
+    'substrings',
+    'substrings_indexes',
+    'time_limited',
+    'unique_to_each',
+    'unzip',
+    'windowed',
+    'with_iter',
+    'UnequalIterablesError',
+    'zip_equal',
+    'zip_offset',
+]
+
+父文件 more_itertools/more.py 原行 1764—1799（下一片段不连续，不得合并当完整文件）
+def groupby_transform(iterable, keyfunc=None, valuefunc=None):
+    """An extension of :func:`itertools.groupby` that transforms the values of
+    *iterable* after grouping them.
+    *keyfunc* is a function used to compute a grouping key for each item.
+    *valuefunc* is a function for transforming the items after grouping.
+
+        >>> iterable = 'AaaABbBCcA'
+        >>> keyfunc = lambda x: x.upper()
+        >>> valuefunc = lambda x: x.lower()
+        >>> grouper = groupby_transform(iterable, keyfunc, valuefunc)
+        >>> [(k, ''.join(g)) for k, g in grouper]
+        [('A', 'aaaa'), ('B', 'bbb'), ('C', 'cc'), ('A', 'a')]
+
+    *keyfunc* and *valuefunc* default to identity functions if they are not
+    specified.
+
+    :func:`groupby_transform` is useful when grouping elements of an iterable
+    using a separate iterable as the key. To do this, :func:`zip` the iterables
+    and pass a *keyfunc* that extracts the first element and a *valuefunc*
+    that extracts the second element::
+
+        >>> from operator import itemgetter
+        >>> keys = [0, 0, 1, 1, 1, 2, 2, 2, 3]
+        >>> values = 'abcdefghi'
+        >>> iterable = zip(keys, values)
+        >>> grouper = groupby_transform(iterable, itemgetter(0), itemgetter(1))
+        >>> [(k, ''.join(g)) for k, g in grouper]
+        [(0, 'ab'), (1, 'cde'), (2, 'fgh'), (3, 'i')]
+
+    Note that the order of items in the iterable is significant.
+    Only adjacent items are grouped together, so if you don't want any
+    duplicate groups, you should sort the iterable by the key function.
+
+    """
+    res = groupby(iterable, keyfunc)
+    return ((k, map(valuefunc, g)) for k, g in res) if valuefunc else res
+
+父文件 more_itertools/__init__.py 原行 1—1（下一片段不连续，不得合并当完整文件）
+from .more import *  # noqa
+
+父文件 more_itertools/__init__.py 原行 2—2（下一片段不连续，不得合并当完整文件）
+from .recipes import *  # noqa
+
+父文件 more_itertools/__init__.py 原行 4—4（下一片段不连续，不得合并当完整文件）
+__version__ = '8.4.0'
+只返回完成指定工作所需的最小unified diff。文件头为--- a/包/文件.py和+++ b/包/文件.py，新文件用--- /dev/null。hunk坐标使用原文件真实行号，old/new行数逐行数清；空行也带空格/加/减前缀。不要拷整份未修改代码、不要解释。只能改指定包内.py。不得用评价器、参考答案或测试。完整父文件存在，但你只能看到冻结片段；若缺信息，不要臆造原行。

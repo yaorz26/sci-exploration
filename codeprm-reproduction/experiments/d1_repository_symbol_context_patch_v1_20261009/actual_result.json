@@ -1,0 +1,40 @@
+{
+  "input_tokens": 1982,
+  "given_correct_patch_tokens": 1400,
+  "visible_text_total": 3382,
+  "remainder_at6500": 3118,
+  "input_with_patch_within8192": true,
+  "patch_application": [
+    {
+      "file": "sources.py",
+      "matches_reference_text": true,
+      "applied_text_sha256": "b9d89a32b5cacdd23982538e4429eedaaf779ad167d1321cb7fb6cbee76df92a",
+      "reference_text_sha256": "b9d89a32b5cacdd23982538e4429eedaaf779ad167d1321cb7fb6cbee76df92a"
+    },
+    {
+      "file": "templates.py",
+      "matches_reference_text": true,
+      "applied_text_sha256": "2714114575a7ef0c715eb90dc623e2f03291214f7d19ba7b7f348eda61f71f9f",
+      "reference_text_sha256": "2714114575a7ef0c715eb90dc623e2f03291214f7d19ba7b7f348eda61f71f9f"
+    },
+    {
+      "file": "core.py",
+      "matches_reference_text": true,
+      "applied_text_sha256": "57c720d3dfd0235a0f434471de28ef000bfec9c8020eafb81d9ffbbab5e44466",
+      "reference_text_sha256": "57c720d3dfd0235a0f434471de28ef000bfec9c8020eafb81d9ffbbab5e44466"
+    }
+  ],
+  "all_reference_modules_restored": true,
+  "tokenizer": {
+    "build": "version: 0.5.0-dev (build 1, commit 631109b34)\nbuilt with Clang 18.1.8 for Windows AMD64",
+    "vocab_only": true,
+    "model_path": "D:\\yaorz\\tools\\ollamaModels\\blobs\\sha256-60e05f2100071479f596b964f89f510f057ce397ea22f2833a0cfe029bfc2463",
+    "model_file_bytes": 4683074048,
+    "dll_sha256": "ac18a06da6978791968d81d9423c763d518b03d61a4426833398f1656150d3b5",
+    "model_hash_status": "blob名称记录上游digest，本次未重算4.6GB文件哈希"
+  },
+  "model_calls": 0,
+  "api_calls": 0,
+  "human_reviews": 0,
+  "scope": "固定父API输入+给定正确补丁可容纳性；输出token非模型实际计费，不含实际多轮检索；八例外语义未知"
+}

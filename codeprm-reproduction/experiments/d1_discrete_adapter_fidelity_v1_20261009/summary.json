@@ -1,0 +1,434 @@
+{
+  "status": "新来源包装与保存输出实际评分完成，空域适配差异已定位",
+  "reference_rows": [
+    {
+      "id": "d01",
+      "expected": {
+        "count": 4,
+        "mode": 2
+      },
+      "observed": {
+        "count": 4,
+        "mode": 2
+      },
+      "json_equal": true,
+      "input_after": [
+        1,
+        2,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "d02",
+      "expected": {
+        "count": 5,
+        "mode": "a"
+      },
+      "observed": {
+        "count": 5,
+        "mode": "a"
+      },
+      "json_equal": true,
+      "input_after": [
+        "a",
+        "b",
+        "b",
+        "a",
+        "a"
+      ]
+    },
+    {
+      "id": "d03",
+      "expected": {
+        "count": 4,
+        "mode": 3
+      },
+      "observed": {
+        "count": 4,
+        "mode": 3
+      },
+      "json_equal": true,
+      "input_after": [
+        3,
+        1,
+        3,
+        1
+      ]
+    },
+    {
+      "id": "d04",
+      "expected": {
+        "count": 0,
+        "mode": -1
+      },
+      "observed": {
+        "count": 0,
+        "mode": -1
+      },
+      "json_equal": true,
+      "input_after": []
+    },
+    {
+      "id": "d05",
+      "expected": {
+        "count": 3,
+        "mode": 0
+      },
+      "observed": {
+        "count": 3,
+        "mode": 0
+      },
+      "json_equal": true,
+      "input_after": [
+        0,
+        0,
+        2
+      ]
+    },
+    {
+      "id": "d06",
+      "expected": {
+        "count": 3,
+        "mode": -2
+      },
+      "observed": {
+        "count": 3,
+        "mode": -2
+      },
+      "json_equal": true,
+      "input_after": [
+        -2,
+        -2,
+        -1
+      ]
+    }
+  ],
+  "saved_scores": [
+    {
+      "id": "d01",
+      "program": "whole",
+      "expected": {
+        "count": 4,
+        "mode": 2
+      },
+      "observed": {
+        "count": 4,
+        "mode": 2
+      },
+      "python_equal": true,
+      "original_json_equal": true
+    },
+    {
+      "id": "d01",
+      "program": "helpers",
+      "expected": {
+        "count": 4,
+        "mode": 2
+      },
+      "observed": {
+        "count": 4,
+        "mode": 2
+      },
+      "python_equal": true,
+      "original_json_equal": true
+    },
+    {
+      "id": "d01",
+      "program": "wrong_tie",
+      "expected": {
+        "count": 4,
+        "mode": 2
+      },
+      "observed": {
+        "count": 4,
+        "mode": 2
+      },
+      "python_equal": true,
+      "original_json_equal": true
+    },
+    {
+      "id": "d02",
+      "program": "whole",
+      "expected": {
+        "count": 5,
+        "mode": "a"
+      },
+      "observed": {
+        "count": 5,
+        "mode": "a"
+      },
+      "python_equal": true,
+      "original_json_equal": true
+    },
+    {
+      "id": "d02",
+      "program": "helpers",
+      "expected": {
+        "count": 5,
+        "mode": "a"
+      },
+      "observed": {
+        "count": 5,
+        "mode": "a"
+      },
+      "python_equal": true,
+      "original_json_equal": true
+    },
+    {
+      "id": "d02",
+      "program": "wrong_tie",
+      "expected": {
+        "count": 5,
+        "mode": "a"
+      },
+      "observed": {
+        "count": 5,
+        "mode": "a"
+      },
+      "python_equal": true,
+      "original_json_equal": true
+    },
+    {
+      "id": "d03",
+      "program": "whole",
+      "expected": {
+        "count": 4,
+        "mode": 3
+      },
+      "observed": {
+        "count": 4,
+        "mode": 3
+      },
+      "python_equal": true,
+      "original_json_equal": true
+    },
+    {
+      "id": "d03",
+      "program": "helpers",
+      "expected": {
+        "count": 4,
+        "mode": 3
+      },
+      "observed": {
+        "count": 4,
+        "mode": 3
+      },
+      "python_equal": true,
+      "original_json_equal": true
+    },
+    {
+      "id": "d03",
+      "program": "wrong_tie",
+      "expected": {
+        "count": 4,
+        "mode": 3
+      },
+      "observed": {
+        "count": 4,
+        "mode": 1
+      },
+      "python_equal": false,
+      "original_json_equal": false
+    },
+    {
+      "id": "d04",
+      "program": "whole",
+      "expected": {
+        "count": 0,
+        "mode": -1
+      },
+      "observed": {
+        "count": 0,
+        "mode": -1
+      },
+      "python_equal": true,
+      "original_json_equal": true
+    },
+    {
+      "id": "d04",
+      "program": "helpers",
+      "expected": {
+        "count": 0,
+        "mode": -1
+      },
+      "observed": {
+        "count": 0,
+        "mode": -1
+      },
+      "python_equal": true,
+      "original_json_equal": true
+    },
+    {
+      "id": "d04",
+      "program": "wrong_tie",
+      "expected": {
+        "count": 0,
+        "mode": -1
+      },
+      "observed": {
+        "count": 0,
+        "mode": -1
+      },
+      "python_equal": true,
+      "original_json_equal": true
+    },
+    {
+      "id": "d05",
+      "program": "whole",
+      "expected": {
+        "count": 3,
+        "mode": 0
+      },
+      "observed": {
+        "count": 3,
+        "mode": 0
+      },
+      "python_equal": true,
+      "original_json_equal": true
+    },
+    {
+      "id": "d05",
+      "program": "helpers",
+      "expected": {
+        "count": 3,
+        "mode": 0
+      },
+      "observed": {
+        "count": 3,
+        "mode": 0
+      },
+      "python_equal": true,
+      "original_json_equal": true
+    },
+    {
+      "id": "d05",
+      "program": "wrong_tie",
+      "expected": {
+        "count": 3,
+        "mode": 0
+      },
+      "observed": {
+        "count": 3,
+        "mode": 0
+      },
+      "python_equal": true,
+      "original_json_equal": true
+    },
+    {
+      "id": "d06",
+      "program": "whole",
+      "expected": {
+        "count": 3,
+        "mode": -2
+      },
+      "observed": {
+        "count": 3,
+        "mode": -2
+      },
+      "python_equal": true,
+      "original_json_equal": true
+    },
+    {
+      "id": "d06",
+      "program": "helpers",
+      "expected": {
+        "count": 3,
+        "mode": -2
+      },
+      "observed": {
+        "count": 3,
+        "mode": -2
+      },
+      "python_equal": true,
+      "original_json_equal": true
+    },
+    {
+      "id": "d06",
+      "program": "wrong_tie",
+      "expected": {
+        "count": 3,
+        "mode": -2
+      },
+      "observed": {
+        "count": 3,
+        "mode": -2
+      },
+      "python_equal": true,
+      "original_json_equal": true
+    }
+  ],
+  "type_controls": [
+    {
+      "id": "bool_count",
+      "expected": {
+        "count": 0,
+        "mode": -1
+      },
+      "observed": {
+        "count": false,
+        "mode": -1
+      },
+      "expect_accept": false,
+      "python_equal": true,
+      "original_json_equal": false
+    },
+    {
+      "id": "bool_mode",
+      "expected": {
+        "count": 3,
+        "mode": 0
+      },
+      "observed": {
+        "count": 3,
+        "mode": false
+      },
+      "expect_accept": false,
+      "python_equal": true,
+      "original_json_equal": false
+    },
+    {
+      "id": "missing_count",
+      "expected": {
+        "count": 3,
+        "mode": 0
+      },
+      "observed": {
+        "mode": 0
+      },
+      "expect_accept": false,
+      "python_equal": false,
+      "original_json_equal": false
+    }
+  ],
+  "single_instance_empty": {
+    "count": -1,
+    "mode": -1
+  },
+  "single_instance_matches_candidate": false,
+  "reference_pass": 6,
+  "reference_total": 6,
+  "saved_scores_by_program": {
+    "whole": 6,
+    "helpers": 6,
+    "wrong_tie": 5
+  },
+  "control_mechanisms_matched": 3,
+  "new_reference_wrapper_calls": 6,
+  "new_stats_objects": 13,
+  "new_stats_attribute_queries": 14,
+  "new_P44_solve_calls": 0,
+  "reused_P44_outputs": 18,
+  "new_original_comparator_calls": 22,
+  "interpretation": "原18合法/错误输出的分数不变，但Python==会接纳bool_count和bool_mode。单Stats(default=-1)空域count=-1；新参考按数量固定0、众数按题面default分别包装，与六解析锚点一致。需将此写成适配，不能称单一原Stats完全等价。",
+  "limits": [
+    "六有限锚点不是全域/人工真值",
+    "candidate仍研究池，未冻结构标签",
+    "14属性查询不等14任务，22比较含18保存/3控制/1空域",
+    "评分器未改、原20/307/11—9和模型成绩不改"
+  ],
+  "model_calls": 0,
+  "API_calls": 0,
+  "hidden_reads": 0,
+  "new_downloads": 0
+}

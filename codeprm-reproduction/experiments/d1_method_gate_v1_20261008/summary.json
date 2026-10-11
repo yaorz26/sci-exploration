@@ -1,0 +1,22 @@
+{
+  "status": "pass",
+  "tasks": 2,
+  "representations": 6,
+  "new_public_scored_programs": 4,
+  "new_public_case_evaluations": 8,
+  "new_public_case_passed": 8,
+  "M0_gates_accepted": 6,
+  "M2_entry_gates_accepted": 4,
+  "M2_parameter_annotations_rejected": 2,
+  "return_annotation_controls_accepted": 2,
+  "baseline_behavior_reruns": 0,
+  "hidden_cases_read": 0,
+  "model_calls": 0,
+  "API_calls": 0,
+  "tokenizer_instances": 0,
+  "actual_pipeline_generation_runs": 0,
+  "human_reviewers": 0,
+  "script_sha256": "0194b43f06fd7c2c1409ea428e771bac57a983fcb77ca8e0d765c6a9006626a0",
+  "finding": "相同调用名/参数/函数体的payload:dict入口在M0门槛接受、M2参数AST门槛拒绝，返回注解控制接受；接受流程包含语法选择",
+  "limits": "两任务四新程序公开8案例有限相容，非模型发生率/效果，不无效所有冻结接口要求，不改变旧协议/成绩"
+}

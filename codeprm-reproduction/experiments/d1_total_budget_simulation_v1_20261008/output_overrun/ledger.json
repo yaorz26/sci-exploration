@@ -1,0 +1,37 @@
+{
+  "simulated": true,
+  "token_limit": 15,
+  "call_limit": 3,
+  "known_token_spend": 19,
+  "blocked": true,
+  "calls": [
+    {
+      "call_id": "001",
+      "stage": "output_overrun",
+      "simulated": true,
+      "prompt_token_upper_bound": 10,
+      "assigned_output_cap": 1,
+      "status": "failed",
+      "cost_status": "known",
+      "request": {
+        "path": "001_request.json",
+        "sha256": "9ce385a69dcfe9a17c8325294d506d0b749ba93823071b4c27d98b33abb19075"
+      },
+      "response": {
+        "path": "001_response.json",
+        "sha256": "fa644259268383923c1591981a55ce9843d36b6c49fc98bc08d3a37b0fca00f4"
+      },
+      "prompt_tokens": 10,
+      "output_tokens": 9,
+      "error": "ProtocolFailure: 计数超出事前上界，保留实际超支并使协议失效",
+      "seconds": 0.0005482999986270443
+    }
+  ],
+  "refusals": [
+    {
+      "stage": "合成阶段",
+      "reason": "先前请求成本未知或协议失效，禁止继续",
+      "before_request": true
+    }
+  ]
+}

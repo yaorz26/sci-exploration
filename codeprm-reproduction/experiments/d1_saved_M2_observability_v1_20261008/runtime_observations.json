@@ -1,0 +1,611 @@
+[
+  {
+    "run": "d1_costed_pilot_b04_c03_v1_20261008",
+    "task_id": "D1_B04",
+    "example_id": 1,
+    "candidate": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_costed_pilot_b04_c03_v1_20261008\\candidates\\D1_B04\\M2\\candidate.py",
+    "helper_names": [
+      "_parse_query",
+      "_encode_query",
+      "_apply_operations"
+    ],
+    "input": {
+      "query": "a=1&a=2;flag&x=",
+      "operations": [
+        {
+          "op": "set",
+          "key": "a",
+          "value": "x y"
+        }
+      ]
+    },
+    "original_public_task_sha256": "47b39de3c762b029162b30512cd201e60b7b2e71f6d55404320ca9ce61bd63b1",
+    "public_example_expected": {
+      "value": {
+        "pairs": [
+          [
+            "flag",
+            null
+          ],
+          [
+            "x",
+            null
+          ],
+          [
+            "a",
+            "x y"
+          ]
+        ],
+        "query": "flag&x&a=x%20y"
+      }
+    },
+    "diagnostic": {
+      "worker_failure": null,
+      "record": {
+        "outcome": {
+          "value": {
+            "pairs": [
+              [
+                "a",
+                "x y"
+              ],
+              [
+                "x",
+                null
+              ],
+              [
+                "flag&x",
+                null
+              ]
+            ],
+            "query": "a=x%20y&x=&flag%26x="
+          }
+        },
+        "helper_calls": {
+          "_encode_query": 1,
+          "_apply_operations": 1,
+          "_parse_query": 1
+        },
+        "helper_call_events_first1000": [
+          {
+            "helper": "_parse_query",
+            "caller": "solve"
+          },
+          {
+            "helper": "_apply_operations",
+            "caller": "solve"
+          },
+          {
+            "helper": "_encode_query",
+            "caller": "solve"
+          }
+        ],
+        "trace_truncated": false,
+        "input_unchanged": true
+      },
+      "stderr_tail": "",
+      "seconds": 0.08245710000005602,
+      "captured_output_bytes": 428
+    },
+    "observation_category": "helper_entered_then_result_or_exception",
+    "interpretation_limit": "call非返回值贡献；异常前未进入非成功旁路；仅原公开路径，旧模型成绩不重写"
+  },
+  {
+    "run": "d1_costed_pilot_b04_c03_v1_20261008",
+    "task_id": "D1_B04",
+    "example_id": 2,
+    "candidate": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_costed_pilot_b04_c03_v1_20261008\\candidates\\D1_B04\\M2\\candidate.py",
+    "helper_names": [
+      "_parse_query",
+      "_encode_query",
+      "_apply_operations"
+    ],
+    "input": {
+      "query": "",
+      "operations": [
+        {
+          "op": "add",
+          "key": "q",
+          "value": ""
+        }
+      ]
+    },
+    "original_public_task_sha256": "47b39de3c762b029162b30512cd201e60b7b2e71f6d55404320ca9ce61bd63b1",
+    "public_example_expected": {
+      "value": {
+        "pairs": [
+          [
+            "q",
+            ""
+          ]
+        ],
+        "query": "q="
+      }
+    },
+    "diagnostic": {
+      "worker_failure": null,
+      "record": {
+        "outcome": {
+          "value": {
+            "pairs": [
+              [
+                "q",
+                ""
+              ]
+            ],
+            "query": "q="
+          }
+        },
+        "helper_calls": {
+          "_encode_query": 1,
+          "_apply_operations": 1,
+          "_parse_query": 1
+        },
+        "helper_call_events_first1000": [
+          {
+            "helper": "_parse_query",
+            "caller": "solve"
+          },
+          {
+            "helper": "_apply_operations",
+            "caller": "solve"
+          },
+          {
+            "helper": "_encode_query",
+            "caller": "solve"
+          }
+        ],
+        "trace_truncated": false,
+        "input_unchanged": true
+      },
+      "stderr_tail": "",
+      "seconds": 0.08219129999997676,
+      "captured_output_bytes": 376
+    },
+    "observation_category": "helper_entered_then_result_or_exception",
+    "interpretation_limit": "call非返回值贡献；异常前未进入非成功旁路；仅原公开路径，旧模型成绩不重写"
+  },
+  {
+    "run": "d1_costed_pilot_b04_c03_v1_20261008",
+    "task_id": "D1_C03",
+    "example_id": 1,
+    "candidate": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_costed_pilot_b04_c03_v1_20261008\\candidates\\D1_C03\\M2\\candidate.py",
+    "helper_names": [
+      "_hash_key",
+      "_update_cache",
+      "_execute_operation"
+    ],
+    "input": {
+      "capacity": 1,
+      "operations": [
+        {
+          "op": "call",
+          "args": [
+            2
+          ],
+          "kwargs": {
+            "b": 3
+          }
+        },
+        {
+          "op": "call",
+          "args": [
+            2
+          ],
+          "kwargs": {
+            "b": 3
+          }
+        },
+        {
+          "op": "clear"
+        },
+        {
+          "op": "call",
+          "args": [
+            2
+          ],
+          "kwargs": {
+            "b": 3
+          }
+        }
+      ]
+    },
+    "original_public_task_sha256": "d5399e4a7d2ff1ee585c2c8ec78831ebfb46723e07e25c7d91da584fc39dabb3",
+    "public_example_expected": {
+      "value": [
+        {
+          "result": 5,
+          "computations": 1,
+          "size": 1
+        },
+        {
+          "result": 5,
+          "computations": 1,
+          "size": 1
+        },
+        {
+          "result": null,
+          "computations": 1,
+          "size": 0
+        },
+        {
+          "result": 5,
+          "computations": 2,
+          "size": 1
+        }
+      ]
+    },
+    "diagnostic": {
+      "worker_failure": null,
+      "record": {
+        "outcome": {
+          "value": [
+            {
+              "result": 5,
+              "computations": 1,
+              "size": 1
+            },
+            {
+              "result": 5,
+              "computations": 1,
+              "size": 1
+            },
+            {
+              "result": null,
+              "computations": 1,
+              "size": 0
+            },
+            {
+              "result": 5,
+              "computations": 2,
+              "size": 1
+            }
+          ]
+        },
+        "helper_calls": {
+          "_update_cache": 2,
+          "_hash_key": 3,
+          "_execute_operation": 4
+        },
+        "helper_call_events_first1000": [
+          {
+            "helper": "_execute_operation",
+            "caller": "solve"
+          },
+          {
+            "helper": "_hash_key",
+            "caller": "_execute_operation"
+          },
+          {
+            "helper": "_update_cache",
+            "caller": "_execute_operation"
+          },
+          {
+            "helper": "_execute_operation",
+            "caller": "solve"
+          },
+          {
+            "helper": "_hash_key",
+            "caller": "_execute_operation"
+          },
+          {
+            "helper": "_execute_operation",
+            "caller": "solve"
+          },
+          {
+            "helper": "_execute_operation",
+            "caller": "solve"
+          },
+          {
+            "helper": "_hash_key",
+            "caller": "_execute_operation"
+          },
+          {
+            "helper": "_update_cache",
+            "caller": "_execute_operation"
+          }
+        ],
+        "trace_truncated": false,
+        "input_unchanged": true
+      },
+      "stderr_tail": "",
+      "seconds": 0.06285920000004808,
+      "captured_output_bytes": 878
+    },
+    "observation_category": "helper_entered_then_result_or_exception",
+    "interpretation_limit": "call非返回值贡献；异常前未进入非成功旁路；仅原公开路径，旧模型成绩不重写"
+  },
+  {
+    "run": "d1_costed_pilot_b04_c03_v1_20261008",
+    "task_id": "D1_C03",
+    "example_id": 2,
+    "candidate": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_costed_pilot_b04_c03_v1_20261008\\candidates\\D1_C03\\M2\\candidate.py",
+    "helper_names": [
+      "_hash_key",
+      "_update_cache",
+      "_execute_operation"
+    ],
+    "input": {
+      "capacity": 0,
+      "operations": [
+        {
+          "op": "call"
+        },
+        {
+          "op": "call"
+        }
+      ]
+    },
+    "original_public_task_sha256": "d5399e4a7d2ff1ee585c2c8ec78831ebfb46723e07e25c7d91da584fc39dabb3",
+    "public_example_expected": {
+      "value": [
+        {
+          "result": 0,
+          "computations": 1,
+          "size": 0
+        },
+        {
+          "result": 0,
+          "computations": 2,
+          "size": 0
+        }
+      ]
+    },
+    "diagnostic": {
+      "worker_failure": null,
+      "record": {
+        "outcome": {
+          "value": [
+            {
+              "result": 0,
+              "computations": 1,
+              "size": 0
+            },
+            {
+              "result": 0,
+              "computations": 2,
+              "size": 0
+            }
+          ]
+        },
+        "helper_calls": {
+          "_hash_key": 2,
+          "_update_cache": 2,
+          "_execute_operation": 2
+        },
+        "helper_call_events_first1000": [
+          {
+            "helper": "_execute_operation",
+            "caller": "solve"
+          },
+          {
+            "helper": "_hash_key",
+            "caller": "_execute_operation"
+          },
+          {
+            "helper": "_update_cache",
+            "caller": "_execute_operation"
+          },
+          {
+            "helper": "_execute_operation",
+            "caller": "solve"
+          },
+          {
+            "helper": "_hash_key",
+            "caller": "_execute_operation"
+          },
+          {
+            "helper": "_update_cache",
+            "caller": "_execute_operation"
+          }
+        ],
+        "trace_truncated": false,
+        "input_unchanged": true
+      },
+      "stderr_tail": "",
+      "seconds": 0.061460299999907875,
+      "captured_output_bytes": 622
+    },
+    "observation_category": "helper_entered_then_result_or_exception",
+    "interpretation_limit": "call非返回值贡献；异常前未进入非成功旁路；仅原公开路径，旧模型成绩不重写"
+  },
+  {
+    "run": "d1_costed_pilot_b03_b05_c04_v1_20261008",
+    "task_id": "D1_B05",
+    "example_id": 1,
+    "candidate": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_costed_pilot_b03_b05_c04_v1_20261008\\candidates\\D1_B05\\M2\\candidate.py",
+    "helper_names": [
+      "_apply_factor",
+      "_drop_null",
+      "_find_matches"
+    ],
+    "input": {
+      "tree": {
+        "a": [
+          null,
+          2,
+          true
+        ],
+        "b": 3
+      },
+      "drop_null": true,
+      "factor": 2,
+      "threshold": 4
+    },
+    "original_public_task_sha256": "5477c6668e9b9b2e0aceda2aceeb1dfa979f7000353de71121e35da9314322a8",
+    "public_example_expected": {
+      "value": {
+        "tree": {
+          "a": [
+            4,
+            true
+          ],
+          "b": 6
+        },
+        "matches": [
+          {
+            "path": [
+              "a",
+              0
+            ],
+            "value": 4
+          },
+          {
+            "path": [
+              "b"
+            ],
+            "value": 6
+          }
+        ]
+      }
+    },
+    "diagnostic": {
+      "worker_failure": null,
+      "record": {
+        "outcome": {
+          "value": {
+            "tree": {
+              "a": [
+                4,
+                2
+              ],
+              "b": 6
+            },
+            "matches": [
+              {
+                "path": [
+                  "a",
+                  0
+                ],
+                "value": 4
+              },
+              {
+                "path": [
+                  "b"
+                ],
+                "value": 6
+              }
+            ]
+          }
+        },
+        "helper_calls": {
+          "_apply_factor": 5,
+          "_find_matches": 1,
+          "_drop_null": 5
+        },
+        "helper_call_events_first1000": [
+          {
+            "helper": "_apply_factor",
+            "caller": "solve"
+          },
+          {
+            "helper": "_apply_factor",
+            "caller": "_apply_factor"
+          },
+          {
+            "helper": "_apply_factor",
+            "caller": "_apply_factor"
+          },
+          {
+            "helper": "_apply_factor",
+            "caller": "_apply_factor"
+          },
+          {
+            "helper": "_apply_factor",
+            "caller": "_apply_factor"
+          },
+          {
+            "helper": "_drop_null",
+            "caller": "solve"
+          },
+          {
+            "helper": "_drop_null",
+            "caller": "_drop_null"
+          },
+          {
+            "helper": "_drop_null",
+            "caller": "_drop_null"
+          },
+          {
+            "helper": "_drop_null",
+            "caller": "_drop_null"
+          },
+          {
+            "helper": "_drop_null",
+            "caller": "_drop_null"
+          },
+          {
+            "helper": "_find_matches",
+            "caller": "solve"
+          }
+        ],
+        "trace_truncated": false,
+        "input_unchanged": true
+      },
+      "stderr_tail": "",
+      "seconds": 0.061285100000077364,
+      "captured_output_bytes": 856
+    },
+    "observation_category": "helper_entered_then_result_or_exception",
+    "interpretation_limit": "call非返回值贡献；异常前未进入非成功旁路；仅原公开路径，旧模型成绩不重写"
+  },
+  {
+    "run": "d1_costed_pilot_b03_b05_c04_v1_20261008",
+    "task_id": "D1_B05",
+    "example_id": 2,
+    "candidate": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_costed_pilot_b03_b05_c04_v1_20261008\\candidates\\D1_B05\\M2\\candidate.py",
+    "helper_names": [
+      "_apply_factor",
+      "_drop_null",
+      "_find_matches"
+    ],
+    "input": {
+      "tree": [],
+      "threshold": 0
+    },
+    "original_public_task_sha256": "5477c6668e9b9b2e0aceda2aceeb1dfa979f7000353de71121e35da9314322a8",
+    "public_example_expected": {
+      "value": {
+        "tree": [],
+        "matches": []
+      }
+    },
+    "diagnostic": {
+      "worker_failure": null,
+      "record": {
+        "outcome": {
+          "value": {
+            "tree": [],
+            "matches": []
+          }
+        },
+        "helper_calls": {
+          "_apply_factor": 1,
+          "_drop_null": 1,
+          "_find_matches": 1
+        },
+        "helper_call_events_first1000": [
+          {
+            "helper": "_apply_factor",
+            "caller": "solve"
+          },
+          {
+            "helper": "_drop_null",
+            "caller": "solve"
+          },
+          {
+            "helper": "_find_matches",
+            "caller": "solve"
+          }
+        ],
+        "trace_truncated": false,
+        "input_unchanged": true
+      },
+      "stderr_tail": "",
+      "seconds": 0.0821081999999933,
+      "captured_output_bytes": 354
+    },
+    "observation_category": "helper_entered_then_result_or_exception",
+    "interpretation_limit": "call非返回值贡献；异常前未进入非成功旁路；仅原公开路径，旧模型成绩不重写"
+  }
+]

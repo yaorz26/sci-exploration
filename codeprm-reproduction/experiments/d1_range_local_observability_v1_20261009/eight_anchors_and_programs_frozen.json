@@ -1,0 +1,146 @@
+{
+  "created_at": "2026-10-09T03:40:27Z",
+  "task_sha256": "3a87236b8218c1a443d78462ab95ccec33705b9960d86f2bc95ad9a44d479365",
+  "script_sha256": "709d2236582720c6597e4481e699b2be850c6923064493d3f888c37765727623",
+  "cases": [
+    {
+      "id": "repeated_singletons",
+      "input": {
+        "text": "4,1,4"
+      },
+      "expanded": [
+        4,
+        1,
+        4
+      ],
+      "expected": [
+        1,
+        4,
+        4
+      ]
+    },
+    {
+      "id": "descending_overlap",
+      "input": {
+        "text": "3-1,2"
+      },
+      "expanded": [
+        3,
+        2,
+        1,
+        2
+      ],
+      "expected": [
+        1,
+        2,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "empty_segments",
+      "input": {
+        "text": " ,2, 1-2,, "
+      },
+      "expanded": [
+        2,
+        1,
+        2
+      ],
+      "expected": [
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "multichar_separators",
+      "input": {
+        "text": " 4::2 || 3 ",
+        "separator": "||",
+        "range_separator": "::"
+      },
+      "expanded": [
+        4,
+        3,
+        2,
+        3
+      ],
+      "expected": [
+        2,
+        3,
+        3,
+        4
+      ]
+    },
+    {
+      "id": "empty_text",
+      "input": {
+        "text": ""
+      },
+      "expanded": [],
+      "expected": []
+    },
+    {
+      "id": "zero_and_single_point",
+      "input": {
+        "text": "0,0,2-2"
+      },
+      "expanded": [
+        0,
+        0,
+        2
+      ],
+      "expected": [
+        0,
+        0,
+        2
+      ]
+    },
+    {
+      "id": "invalid_middle",
+      "input": {
+        "text": "1,x,2"
+      },
+      "expected_exception": "ValueError"
+    },
+    {
+      "id": "invalid_range_tail",
+      "input": {
+        "text": "3-1,2-q"
+      },
+      "expected_exception": "ValueError"
+    }
+  ],
+  "programs": {
+    "input_order": "def expand(payload):\n    values = []\n    separator = payload.get(\"separator\", \",\")\n    range_separator = payload.get(\"range_separator\", \"-\")\n    for piece in payload[\"text\"].split(separator):\n        piece = piece.strip()\n        if not piece:\n            continue\n        parts = piece.split(range_separator)\n        if len(parts) == 1:\n            values.append(int(parts[0]))\n        elif len(parts) == 2:\n            left, right = int(parts[0]), int(parts[1])\n            step = 1 if right >= left else -1\n            values.extend(range(left, right + step, step))\n        else:\n            raise ValueError(\"非法区间\")\n    return values\n\ndef solve(payload):\n    return sorted(expand(payload))\n",
+    "reversed_order": "def expand(payload):\n    values = []\n    separator = payload.get(\"separator\", \",\")\n    range_separator = payload.get(\"range_separator\", \"-\")\n    for piece in payload[\"text\"].split(separator):\n        piece = piece.strip()\n        if not piece:\n            continue\n        parts = piece.split(range_separator)\n        if len(parts) == 1:\n            values.append(int(parts[0]))\n        elif len(parts) == 2:\n            left, right = int(parts[0]), int(parts[1])\n            step = 1 if right >= left else -1\n            values.extend(range(left, right + step, step))\n        else:\n            raise ValueError(\"非法区间\")\n    return values[::-1]\n\ndef solve(payload):\n    return sorted(expand(payload))\n",
+    "deduplicate_wrong": "def expand(payload):\n    values = []\n    separator = payload.get(\"separator\", \",\")\n    range_separator = payload.get(\"range_separator\", \"-\")\n    for piece in payload[\"text\"].split(separator):\n        piece = piece.strip()\n        if not piece:\n            continue\n        parts = piece.split(range_separator)\n        if len(parts) == 1:\n            values.append(int(parts[0]))\n        elif len(parts) == 2:\n            left, right = int(parts[0]), int(parts[1])\n            step = 1 if right >= left else -1\n            values.extend(range(left, right + step, step))\n        else:\n            raise ValueError(\"非法区间\")\n    return list(dict.fromkeys(values))\n\ndef solve(payload):\n    return sorted(expand(payload))\n"
+  },
+  "predictions": {
+    "input_order": {
+      "valid_whole": 6,
+      "invalid_exception": 2,
+      "strong": 6,
+      "weak": 6
+    },
+    "reversed_order": {
+      "valid_whole": 6,
+      "invalid_exception": 2,
+      "strong": 3,
+      "weak": 6
+    },
+    "deduplicate_wrong": {
+      "valid_whole": 1,
+      "invalid_exception": 2,
+      "strong": 1,
+      "weak": 1
+    }
+  },
+  "contracts": {
+    "strong": "按原片段顺序与区间方向展开的具体序列，不是原任务规定的helper规则",
+    "weak": "与原区间/数值展开有相同整数多重集合，无顺序义务",
+    "whole": "手算诊断精确整数列表或ValueError，不调用原评分器/原测试"
+  },
+  "limits": "三结构共享解析基础，非独立oracle；八输入全部公开、初标未改、人工/模型0"
+}

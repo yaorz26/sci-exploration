@@ -1,0 +1,33 @@
+[
+  {
+    "time": "2026-10-11T06:03:30.405644Z",
+    "event_id": "d1-g4-local-ollama-result-20261011",
+    "kind": "phase_review",
+    "phase": "G4-local-execution",
+    "stage": "D1-G4",
+    "status": "complete",
+    "summary": "按既定paired_design执行本地Ollama；v1/v2各6次请求，PR126/PR142四个M0/M2臂均无完整候选。v1超预算；v2出现严格hunk错位、计划解析失败和组件超预算；格式剥离后仍hunk错位。",
+    "evidence_kind": "artifact",
+    "evidence": ["../docs/week3/data-route/20261011/228_g4_local_ollama_result.md", "experiments/d1_G4_local_ollama_real_project_pair_v1_20261011/run_summary.json", "experiments/d1_G4_local_ollama_real_project_pair_v2_20261011/run_summary.json", "experiments/d1_G4_local_ollama_real_project_pair_v2_20261011/format_repair_diagnostic_summary.json"],
+    "approval_required": false,
+    "supersedes": [],
+    "budget": "qwen2.5-coder:7b；两题一seed；v1/v2各6请求；每臂6500服务端token；无云端付费/训练/RL",
+    "uncertainty": "四臂无完整候选，行为分子未定义；不回答主A；formal_labels/split null、人工0"
+  },
+  {
+    "time": "2026-10-11T06:03:30.405657Z",
+    "event_id": "d1-g4-local-ollama-direction-20261011",
+    "kind": "direction_review",
+    "phase": "G4-local-execution",
+    "stage": "D1-G4",
+    "status": "complete",
+    "summary": "否决第三次同一模型/上下文重试、格式包装和后处理半补丁评分；当前资源边界已足够转G5。",
+    "decision": "按原宏观计划转G5交付适用边界；若改变总token、模型身份或补丁接口，另立计划并三审，不修改现有宏观路线。",
+    "evidence_kind": "artifact",
+    "evidence": ["../docs/week3/data-route/20261011/229_g4_next_question_audit.md", "../docs/week3/data-route/20261011/228_g4_local_ollama_result.md"],
+    "approval_required": false,
+    "supersedes": [],
+    "budget": "同上；同支路两次实质尝试完成",
+    "uncertainty": "预算、模型能力、上下文裁剪各自贡献未分离；没有正式模型效果结论"
+  }
+]

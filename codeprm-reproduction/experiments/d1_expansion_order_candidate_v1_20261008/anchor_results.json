@@ -1,0 +1,120 @@
+[
+  {
+    "id": "empty",
+    "upstream": [],
+    "alternate": [],
+    "pass": true
+  },
+  {
+    "id": "first_and_nonadjacent",
+    "upstream": [
+      {
+        "key": "a",
+        "value": 1
+      },
+      {
+        "key": "b",
+        "value": 4
+      }
+    ],
+    "alternate": [
+      {
+        "key": "a",
+        "value": 1
+      },
+      {
+        "key": "b",
+        "value": 4
+      }
+    ],
+    "pass": true
+  },
+  {
+    "id": "exact_distinct_spelling",
+    "upstream": [
+      {
+        "key": "A",
+        "value": 3
+      },
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "alternate": [
+      {
+        "key": "A",
+        "value": 3
+      },
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "pass": true
+  },
+  {
+    "id": "casefold_same_class",
+    "upstream": [
+      {
+        "key": "A",
+        "value": 3
+      },
+      {
+        "key": "b",
+        "value": 4
+      }
+    ],
+    "alternate": [
+      {
+        "key": "A",
+        "value": 3
+      },
+      {
+        "key": "b",
+        "value": 4
+      }
+    ],
+    "pass": true
+  },
+  {
+    "id": "unicode_casefold",
+    "upstream": [
+      {
+        "key": "ß",
+        "value": 5
+      }
+    ],
+    "alternate": [
+      {
+        "key": "ß",
+        "value": 5
+      }
+    ],
+    "pass": true
+  },
+  {
+    "id": "input_order_not_sort",
+    "upstream": [
+      {
+        "key": "b",
+        "value": 4
+      },
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "alternate": [
+      {
+        "key": "b",
+        "value": 4
+      },
+      {
+        "key": "a",
+        "value": 1
+      }
+    ],
+    "pass": true
+  }
+]

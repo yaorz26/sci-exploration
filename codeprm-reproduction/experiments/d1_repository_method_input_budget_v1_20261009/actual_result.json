@@ -1,0 +1,58 @@
+{
+  "rows": [
+    {
+      "scenario": "whole",
+      "calls": 1,
+      "actual_input_token_counts": [
+        2003
+      ],
+      "total_input_tokens": 2003,
+      "remainder_at6500_before_any_output": 4497,
+      "input_exceeds6500": false,
+      "longest_input": 2003,
+      "each_input_within8192": true
+    },
+    {
+      "scenario": "two_stage",
+      "calls": 4,
+      "actual_input_token_counts": [
+        2001,
+        2009,
+        2009,
+        2006
+      ],
+      "total_input_tokens": 8025,
+      "remainder_at6500_before_any_output": -1525,
+      "input_exceeds6500": true,
+      "longest_input": 2009,
+      "each_input_within8192": true
+    },
+    {
+      "scenario": "three_stage",
+      "calls": 5,
+      "actual_input_token_counts": [
+        2001,
+        1998,
+        2000,
+        2000,
+        2005
+      ],
+      "total_input_tokens": 10004,
+      "remainder_at6500_before_any_output": -3504,
+      "input_exceeds6500": true,
+      "longest_input": 2005,
+      "each_input_within8192": true
+    }
+  ],
+  "tokenizer": {
+    "build": "version: 0.5.0-dev (build 1, commit 631109b34)\nbuilt with Clang 18.1.8 for Windows AMD64",
+    "vocab_only": true,
+    "model_path": "D:\\yaorz\\tools\\ollamaModels\\blobs\\sha256-60e05f2100071479f596b964f89f510f057ce397ea22f2833a0cfe029bfc2463",
+    "model_file_bytes": 4683074048,
+    "dll_sha256": "ac18a06da6978791968d81d9423c763d518b03d61a4426833398f1656150d3b5",
+    "model_hash_status": "blob名称记录上游digest，本次未重算4.6GB文件哈希"
+  },
+  "scope": "每轮重发固定父API上下文的零回答序列；没有计划答案/代码，不代表全部拆分方法或真实模型成绩",
+  "model_calls": 0,
+  "api_calls": 0
+}

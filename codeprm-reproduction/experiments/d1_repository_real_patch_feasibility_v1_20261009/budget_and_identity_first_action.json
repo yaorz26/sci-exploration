@@ -1,0 +1,179 @@
+{
+  "time": "2026-10-09T09:52:19.793027+00:00",
+  "summary_recoverable_calls": 90,
+  "parts": [
+    {
+      "path": "experiments\\d1_project_development_pilot_v1_20261008\\summary.json",
+      "field": "calls",
+      "calls": 8
+    },
+    {
+      "path": "experiments\\d1_project_development_pilot_v2_20261008\\summary.json",
+      "field": "calls",
+      "calls": 17
+    },
+    {
+      "path": "experiments\\d1_costed_pilot_b04_c03_v1_20261008\\summary.json",
+      "field": "api_calls",
+      "calls": 24
+    },
+    {
+      "path": "experiments\\d1_costed_pilot_b03_b05_c04_v1_20261008\\summary.json",
+      "field": "api_calls",
+      "calls": 32
+    },
+    {
+      "path": "experiments\\d1_tokenizer_integration_v1_20261008\\calibration_summary.json",
+      "field": "real_model_calls",
+      "calls": 2
+    },
+    {
+      "path": "experiments\\d1_allin_native_smoke_b03_v1_20261008\\summary.json",
+      "field": "api_calls",
+      "calls": 1
+    },
+    {
+      "path": "experiments\\d1_allin_native_pair_b03_v1_20261008\\summary.json",
+      "field": "api_calls",
+      "calls": 4
+    },
+    {
+      "path": "experiments\\d1_tokenization_preflight_20261008\\generate_count_calibration.json",
+      "field": "saved_rows",
+      "calls": 2
+    }
+  ],
+  "previous_project_tally": "约98/100，原始记录不完整，不能改称精确98",
+  "execution_conservative_charge_before": 99,
+  "planned_max_requests": 1,
+  "execution_charge_after_if_called": 100,
+  "charge_policy": "旧约98再计一调用安全预留；无须补造缺失原始记录。完成后按100/100禁止后续新增，除非用户明确另给新预算。",
+  "local_tags_status": "available",
+  "local_models": {
+    "models": [
+      {
+        "name": "qwen2.5-coder:7b",
+        "model": "qwen2.5-coder:7b",
+        "modified_at": "2026-09-14T15:59:08.762534+08:00",
+        "size": 4683087561,
+        "digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen2",
+          "families": [
+            "qwen2"
+          ],
+          "parameter_size": "7.6B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 32768,
+          "embedding_length": 3584,
+          "runner": "ggml"
+        },
+        "capabilities": [
+          "completion",
+          "tools",
+          "insert"
+        ]
+      },
+      {
+        "name": "qwen2.5-coder:3b",
+        "model": "qwen2.5-coder:3b",
+        "modified_at": "2026-09-04T14:51:59.069851+08:00",
+        "size": 1929912626,
+        "digest": "f72c60cabf6237b07f6e632b2c48d533cef25eda2efbd34bed21c5e9c01e6225",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen2",
+          "families": [
+            "qwen2"
+          ],
+          "parameter_size": "3.1B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 32768,
+          "embedding_length": 2048,
+          "runner": "ggml"
+        },
+        "capabilities": [
+          "completion",
+          "tools",
+          "insert"
+        ]
+      },
+      {
+        "name": "qwen2.5-coder:1.5b",
+        "model": "qwen2.5-coder:1.5b",
+        "modified_at": "2026-09-04T14:30:46.5384255+08:00",
+        "size": 986062089,
+        "digest": "d7372fd828518a4d38b1eb196c673c31a85f2ed302b3d1e406c4c2d1b64a0668",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen2",
+          "families": [
+            "qwen2"
+          ],
+          "parameter_size": "1.5B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 32768,
+          "embedding_length": 1536,
+          "runner": "ggml"
+        },
+        "capabilities": [
+          "completion",
+          "tools",
+          "insert"
+        ]
+      },
+      {
+        "name": "dolphin3-test:latest",
+        "model": "dolphin3-test:latest",
+        "modified_at": "2026-06-17T22:00:16.6475531+08:00",
+        "size": 4920756786,
+        "digest": "212e931745b0b365fb1795435ac01a22c36f4d9758731ae6d58082b68e689240",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "llama",
+          "families": [
+            "llama"
+          ],
+          "parameter_size": "8.0B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 131072,
+          "embedding_length": 4096,
+          "runner": "ggml"
+        },
+        "capabilities": [
+          "completion"
+        ]
+      },
+      {
+        "name": "dolphin3:latest",
+        "model": "dolphin3:latest",
+        "modified_at": "2026-06-17T21:33:42.0374458+08:00",
+        "size": 4920757726,
+        "digest": "d5ab9ae8e1f22619a6be52e5694df422b7183a3883990a000188c363781ecb78",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "llama",
+          "families": [
+            "llama"
+          ],
+          "parameter_size": "8.0B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 131072,
+          "embedding_length": 4096,
+          "runner": "ggml"
+        },
+        "capabilities": [
+          "completion"
+        ]
+      }
+    ]
+  },
+  "model_generation_calls": 0,
+  "scope": "有限可行性调查，metadata请求不生成模型文本"
+}

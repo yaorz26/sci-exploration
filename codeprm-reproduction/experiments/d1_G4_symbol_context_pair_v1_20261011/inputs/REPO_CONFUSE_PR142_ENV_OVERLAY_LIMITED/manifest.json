@@ -1,0 +1,195 @@
+{
+  "id": "REPO_CONFUSE_PR142_ENV_OVERLAY_LIMITED",
+  "selection": [
+    {
+      "file": "confuse/core.py",
+      "sha256": "d9838b0b8646b3c0aad5df295f5e2e682d56b48c283fd7a077c0d81a819bbce7",
+      "symbols": [
+        "Configuration.set_file",
+        "RootView.set"
+      ],
+      "ranges": [
+        [
+          18,
+          18
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          21,
+          21
+        ],
+        [
+          22,
+          22
+        ],
+        [
+          23,
+          23
+        ],
+        [
+          25,
+          25
+        ],
+        [
+          26,
+          26
+        ],
+        [
+          27,
+          27
+        ],
+        [
+          28,
+          28
+        ],
+        [
+          29,
+          29
+        ],
+        [
+          31,
+          31
+        ],
+        [
+          32,
+          32
+        ],
+        [
+          33,
+          33
+        ],
+        [
+          35,
+          35
+        ],
+        [
+          462,
+          463
+        ],
+        [
+          657,
+          668
+        ]
+      ]
+    },
+    {
+      "file": "confuse/sources.py",
+      "sha256": "b9d89a32b5cacdd23982538e4429eedaaf779ad167d1321cb7fb6cbee76df92a",
+      "symbols": [
+        "ConfigSource.__init__"
+      ],
+      "ranges": [
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          12,
+          35
+        ]
+      ]
+    },
+    {
+      "file": "confuse/yaml_util.py",
+      "sha256": "47ee86d9f839300ef436989ba1bac96d894bf9f2085dc7168d6b0ea91c1eb792",
+      "symbols": [
+        "Loader"
+      ],
+      "ranges": [
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          10,
+          71
+        ]
+      ]
+    },
+    {
+      "file": "confuse/__init__.py",
+      "sha256": "d29b4583b616c807873e3b5959b3076ce816430f1c4d63cb0b07646c2c90a7d1",
+      "symbols": [],
+      "ranges": [
+        [
+          1,
+          2
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ]
+      ]
+    }
+  ],
+  "parent_hashes": {
+    "confuse/__init__.py": "d29b4583b616c807873e3b5959b3076ce816430f1c4d63cb0b07646c2c90a7d1",
+    "confuse/core.py": "d9838b0b8646b3c0aad5df295f5e2e682d56b48c283fd7a077c0d81a819bbce7",
+    "confuse/exceptions.py": "fdde86bcee02fc4a8ed9f64c560e7a5974a0037241027af9ca04d65b4baf6815",
+    "confuse/sources.py": "b9d89a32b5cacdd23982538e4429eedaaf779ad167d1321cb7fb6cbee76df92a",
+    "confuse/templates.py": "2714114575a7ef0c715eb90dc623e2f03291214f7d19ba7b7f348eda61f71f9f",
+    "confuse/util.py": "1bfa310c757e5b212b484719257db55227b6738c8cc58d66fe587c819bf48e2a",
+    "confuse/yaml_util.py": "47ee86d9f839300ef436989ba1bac96d894bf9f2085dc7168d6b0ea91c1eb792",
+    "LICENSE": "0b308ae66aaa1412ebbe645bec4002fd262d91e9cdf67b6f198026677ddfafcc"
+  },
+  "requirement_sha256": "4eb2b78047dcf5e326fcb266fc6483ab963a65a2d6a6ce3acc7cc91f79e4dabf",
+  "public_cases_sha256": "2d4e39d914be1d18b3649edb57df502f7235936b5d85f07c5410ff90d30cd294",
+  "formal_labels": null,
+  "split": null,
+  "human_reviews": 0
+}

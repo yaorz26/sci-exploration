@@ -1,0 +1,30 @@
+{
+  "identity": {
+    "build": "version: 0.5.0-dev (build 1, commit 631109b34)\nbuilt with Clang 18.1.8 for Windows AMD64",
+    "vocab_only": true,
+    "model_path": "D:\\yaorz\\tools\\ollamaModels\\blobs\\sha256-60e05f2100071479f596b964f89f510f057ce397ea22f2833a0cfe029bfc2463",
+    "model_file_bytes": 4683074048,
+    "dll_sha256": "8eeb51bbe0cda0ba2864c40abf7d73a13ac92f0857086185b357a95a858aee5b",
+    "model_hash_status": "blob名称记录上游digest，本次未重算4.6GB文件哈希"
+  },
+  "examples": [
+    {
+      "text": "你好，世界。",
+      "raw_tokens": 4,
+      "rendered_tokens": 33
+    },
+    {
+      "text": "def solve(payload):\n    return payload\n",
+      "raw_tokens": 8,
+      "rendered_tokens": 37
+    },
+    {
+      "text": "ASCII 中文 🧪\n<|im_start|>special<|im_end|>",
+      "raw_tokens": 10,
+      "rendered_tokens": 39
+    }
+  ],
+  "seconds": 0.2437696999986656,
+  "real_model_calls": 0,
+  "status": "native_tokenization_only_not_api_calibrated"
+}

@@ -1,0 +1,46 @@
+{
+  "new_inputs": 8,
+  "new_solve_calls": 40,
+  "typed_value_gate_calls": 25,
+  "typed_error_comparison_decisions": 15,
+  "raw_comparison_decisions": 40,
+  "input_comparison_decisions": 40,
+  "scores_out_of_eight": {
+    "correct_whole": {
+      "raw": 8,
+      "typed": 8,
+      "typed_content_without_input": 8,
+      "value_only": 5
+    },
+    "float_count": {
+      "raw": 8,
+      "typed": 3,
+      "typed_content_without_input": 3,
+      "value_only": 0
+    },
+    "numeric_mode_drift": {
+      "raw": 8,
+      "typed": 5,
+      "typed_content_without_input": 5,
+      "value_only": 2
+    },
+    "mutate_after_result": {
+      "raw": 6,
+      "typed": 6,
+      "typed_content_without_input": 8,
+      "value_only": 5
+    },
+    "wrong_exception": {
+      "raw": 5,
+      "typed": 5,
+      "typed_content_without_input": 5,
+      "value_only": 5
+    }
+  },
+  "predictions_all_match": true,
+  "old_diagnostic_reruns": 0,
+  "model_calls": 0,
+  "private_reads": 0,
+  "conclusion": "JSON保留int/float区别；类型门槛必须与正常值/异常分支和输入严格不变合用；原36次不升级v2",
+  "limits": "五程序中四个人为错误控制，共享whole基础；非模型/独立oracle/全域/正式冻结，另两旧参考未v2验证"
+}

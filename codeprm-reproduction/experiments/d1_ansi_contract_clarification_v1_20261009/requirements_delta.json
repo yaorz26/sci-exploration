@@ -1,0 +1,22 @@
+{
+  "clarification": "匹配对象始终是传入的原始text。从左到右在原串上识别完整且不重叠的控制码，一次删除这些原串区间；保留其余原字符的次序。删除后新接合形成的完整控制码不再识别或删除。这一规则只规定输入输出语义，不限定内部函数数量、名称或算法。",
+  "new_examples": [
+    {
+      "id": "CSI_creates_short",
+      "input": {
+        "text": "\u001b\u001b[31mM"
+      },
+      "output": "\u001bM",
+      "stable_output": ""
+    },
+    {
+      "id": "short_creates_CSI",
+      "input": {
+        "text": "\u001b\u001bM[31m"
+      },
+      "output": "\u001b[31m",
+      "stable_output": ""
+    }
+  ],
+  "human_ambiguity_inference": "不能由两个例子区分力不足推出人类确曾误解"
+}

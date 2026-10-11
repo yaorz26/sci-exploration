@@ -1,0 +1,162 @@
+[
+  {
+    "implementation": "reference",
+    "input_id": "valid_base",
+    "outcome": {
+      "value": {
+        "name": "a",
+        "retries": 3,
+        "scores": [
+          1
+        ],
+        "options": {
+          "mode": "safe",
+          "limit": 10
+        }
+      }
+    },
+    "input_unchanged": true,
+    "correct": true,
+    "classification": "expected_value"
+  },
+  {
+    "implementation": "reference",
+    "input_id": "valid_scores_changed",
+    "outcome": {
+      "value": {
+        "name": "a",
+        "retries": 3,
+        "scores": [
+          2
+        ],
+        "options": {
+          "mode": "safe",
+          "limit": 10
+        }
+      }
+    },
+    "input_unchanged": true,
+    "correct": true,
+    "classification": "expected_value"
+  },
+  {
+    "implementation": "reference",
+    "input_id": "rejected_scores_string",
+    "outcome": {
+      "error": "ValueError"
+    },
+    "input_unchanged": true,
+    "correct": true,
+    "classification": "expected_rejection"
+  },
+  {
+    "implementation": "reference",
+    "input_id": "rejected_options_mode",
+    "outcome": {
+      "error": "ValueError"
+    },
+    "input_unchanged": true,
+    "correct": true,
+    "classification": "expected_rejection"
+  },
+  {
+    "implementation": "reference",
+    "input_id": "ignored_extra",
+    "outcome": {
+      "value": {
+        "name": "a",
+        "retries": 3,
+        "scores": [
+          1
+        ],
+        "options": {
+          "mode": "safe",
+          "limit": 10
+        }
+      }
+    },
+    "input_unchanged": true,
+    "correct": true,
+    "classification": "expected_value"
+  },
+  {
+    "implementation": "alternate",
+    "input_id": "valid_base",
+    "outcome": {
+      "value": {
+        "name": "a",
+        "retries": 3,
+        "scores": [
+          1
+        ],
+        "options": {
+          "mode": "safe",
+          "limit": 10
+        }
+      }
+    },
+    "input_unchanged": true,
+    "correct": true,
+    "classification": "expected_value"
+  },
+  {
+    "implementation": "alternate",
+    "input_id": "valid_scores_changed",
+    "outcome": {
+      "value": {
+        "name": "a",
+        "retries": 3,
+        "scores": [
+          2
+        ],
+        "options": {
+          "mode": "safe",
+          "limit": 10
+        }
+      }
+    },
+    "input_unchanged": true,
+    "correct": true,
+    "classification": "expected_value"
+  },
+  {
+    "implementation": "alternate",
+    "input_id": "rejected_scores_string",
+    "outcome": {
+      "error": "ValueError"
+    },
+    "input_unchanged": true,
+    "correct": true,
+    "classification": "expected_rejection"
+  },
+  {
+    "implementation": "alternate",
+    "input_id": "rejected_options_mode",
+    "outcome": {
+      "error": "ValueError"
+    },
+    "input_unchanged": true,
+    "correct": true,
+    "classification": "expected_rejection"
+  },
+  {
+    "implementation": "alternate",
+    "input_id": "ignored_extra",
+    "outcome": {
+      "value": {
+        "name": "a",
+        "retries": 3,
+        "scores": [
+          1
+        ],
+        "options": {
+          "mode": "safe",
+          "limit": 10
+        }
+      }
+    },
+    "input_unchanged": true,
+    "correct": true,
+    "classification": "expected_value"
+  }
+]

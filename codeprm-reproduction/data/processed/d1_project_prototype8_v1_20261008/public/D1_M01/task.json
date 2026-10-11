@@ -1,0 +1,63 @@
+{
+  "task_id": "D1_M01",
+  "requirement": "实现solve(payload)。items为有限JSON列表，width和step为正整数（step默认1），fill默认null。返回定宽窗口列表，每个起点为0,step,2*step等。空items返回[]；items短于width时只返回一个右侧补fill的窗口。其余情况长度L≥width：step<width时保留起点s≤L-width+step-1的窗口，step≥width时保留s<L的窗口。窗口不足width右侧补fill。width或step≤0引发ValueError。只用标准库，内部结构自由。",
+  "entry_point": "solve(payload)",
+  "language": "Python",
+  "allowed_libraries": "仅Python标准库",
+  "public_examples": [
+    {
+      "case_id": "public_1",
+      "input": {
+        "items": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "width": 3
+      },
+      "expected": {
+        "value": [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            2,
+            3,
+            4
+          ],
+          [
+            3,
+            4,
+            5
+          ]
+        ]
+      }
+    },
+    {
+      "case_id": "public_2",
+      "input": {
+        "items": [
+          1,
+          2
+        ],
+        "width": 4,
+        "fill": "x"
+      },
+      "expected": {
+        "value": [
+          [
+            1,
+            2,
+            "x",
+            "x"
+          ]
+        ]
+      }
+    }
+  ],
+  "internal_decomposition": "自由选择，不给定helper名称或数量"
+}

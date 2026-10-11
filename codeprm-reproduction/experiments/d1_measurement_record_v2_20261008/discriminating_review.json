@@ -1,0 +1,207 @@
+{
+  "status": "可表达保存反例，尚无独立语义可靠性验证",
+  "cases": [
+    {
+      "case": "C04两个合法粒度",
+      "old_label_unique": true,
+      "observed_distinction": "实例隔离相等；实例内不同x淘汰不同",
+      "record_ids": [
+        "D1_C04:different_instance",
+        "D1_C04:same_instance_different_key"
+      ],
+      "needed_context": [
+        "entity_definition",
+        "observer",
+        "finite_domain"
+      ],
+      "not_a_label_error": true
+    },
+    {
+      "case": "C03任务与方案状态",
+      "task_id": "D1_C03",
+      "saved_helper_shared_state": [
+        false,
+        false,
+        true
+      ],
+      "needed_context": [
+        "layer",
+        "particular_plan",
+        "state_holders"
+      ],
+      "not_a_task_label_rewrite": true
+    },
+    {
+      "case": "M05与F04旧编码相同但义务不同",
+      "same_old_coded_signature": {
+        "cross_operation_state": "none",
+        "state_scope": "none",
+        "separate_behavior_testability": "yes",
+        "behavior_dependencies": [
+          "ordered_transform",
+          "branch_rules"
+        ]
+      },
+      "record_ids": [
+        "D1_M05:short_foreign_column_domain",
+        "D1_F04:invalid_scores_blocks_whole_output"
+      ],
+      "observed_distinction": "共同有效行域与整题拒绝使局部字段不可观察",
+      "not_a_testability_yes_disproof": true,
+      "needed_context": [
+        "input_domain",
+        "outcome_kind",
+        "projection_applicable"
+      ]
+    },
+    {
+      "case": "B05不同合法方案/变换版本",
+      "plan_record_task": "D1_B05",
+      "needed_context": [
+        "plan_connection",
+        "data_version"
+      ],
+      "not_a_unique_decomposition": true
+    },
+    {
+      "case": "casefold原拼写",
+      "record_ids": [
+        "E_M06:raw_spelling_is_same_entity"
+      ],
+      "needed_context": [
+        "equivalence_rule",
+        "foreign_entity_claim_applicable"
+      ],
+      "not_a_foreign_entity_witness": true
+    },
+    {
+      "case": "错误程序相等关系",
+      "evidence_ref": "experiments/d1_relation_vacuity_v1_20261008/summary.json",
+      "needed_context": [
+        "behavior_conformance",
+        "execution_validity",
+        "relation"
+      ],
+      "not_a_model_score": true
+    },
+    {
+      "case": "预算三层",
+      "needed_context": [
+        "constructed_prompt_scenarios",
+        "given_correct_text",
+        "actual_API_generation_vs_visible_text"
+      ],
+      "not_a_model_ability_proof": true
+    },
+    {
+      "case": "未测任务",
+      "task_ids": [
+        "D1_B01",
+        "D1_M01",
+        "D1_M02",
+        "D1_F01",
+        "D1_F02",
+        "D1_B03",
+        "D1_B05",
+        "D1_B06",
+        "D1_F03"
+      ],
+      "needed_context": [
+        "null_unmeasured",
+        "plan_only_evidence_not_behavior_measurement"
+      ],
+      "not_negative": true
+    },
+    {
+      "case": "来源出现0",
+      "evidence_ref": "experiments/d1_expansion_support_v1_20261008/summary.json",
+      "needed_context": [
+        "registered_evidence_zero_not_semantic_absence",
+        "history_domain",
+        "family_links"
+      ]
+    }
+  ],
+  "old_label_collisions": [
+    {
+      "label_signature": [
+        "none",
+        "none",
+        "yes",
+        [
+          "ordered_transform"
+        ]
+      ],
+      "task_ids": [
+        "D1_B01",
+        "D1_B05"
+      ]
+    },
+    {
+      "label_signature": [
+        "operation_sequence",
+        "global",
+        "partial",
+        [
+          "operation_sequence"
+        ]
+      ],
+      "task_ids": [
+        "D1_B02",
+        "D1_C01",
+        "D1_C02",
+        "D1_M03"
+      ]
+    },
+    {
+      "label_signature": [
+        "none",
+        "none",
+        "partial",
+        [
+          "branch_rules"
+        ]
+      ],
+      "task_ids": [
+        "D1_M01",
+        "D1_F02"
+      ]
+    },
+    {
+      "label_signature": [
+        "none",
+        "none",
+        "no",
+        [
+          "direct",
+          "branch_rules"
+        ]
+      ],
+      "task_ids": [
+        "D1_M02",
+        "D1_F01",
+        "D1_B06",
+        "D1_C05"
+      ]
+    },
+    {
+      "label_signature": [
+        "none",
+        "none",
+        "yes",
+        [
+          "ordered_transform",
+          "branch_rules"
+        ]
+      ],
+      "task_ids": [
+        "D1_M05",
+        "D1_F03",
+        "D1_F04"
+      ]
+    }
+  ],
+  "limits": "旧标签有文字证据，并非完全不含细节；此分析只排除以几个编码字段代替具体问题/方案/域的做法，不证明最小维数或一项二元补充不可能",
+  "human_reviewers": 0,
+  "kappa_computed": false
+}

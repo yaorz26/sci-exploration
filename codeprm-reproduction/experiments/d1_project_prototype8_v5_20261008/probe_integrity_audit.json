@@ -1,0 +1,75 @@
+{
+  "rows": [
+    {
+      "version": "v1",
+      "calls": 8,
+      "candidate_code_text_hashes_unchanged": true,
+      "candidate_raw_hash_newline_notes": [
+        {
+          "task_id": "D1_B01",
+          "arm": "M0",
+          "reason": "写入前LF字符串摘要；Windows落盘CRLF，规范化文本一致"
+        },
+        {
+          "task_id": "D1_B02",
+          "arm": "M0",
+          "reason": "写入前LF字符串摘要；Windows落盘CRLF，规范化文本一致"
+        },
+        {
+          "task_id": "D1_C01",
+          "arm": "M0",
+          "reason": "写入前LF字符串摘要；Windows落盘CRLF，规范化文本一致"
+        },
+        {
+          "task_id": "D1_C02",
+          "arm": "M0",
+          "reason": "写入前LF字符串摘要；Windows落盘CRLF，规范化文本一致"
+        }
+      ],
+      "public_only_prompt_field_scan": true,
+      "script_snapshot_verified": true,
+      "snapshot_raw_byte_match": false
+    },
+    {
+      "version": "v2",
+      "calls": 17,
+      "candidate_code_text_hashes_unchanged": true,
+      "candidate_raw_hash_newline_notes": [
+        {
+          "task_id": "D1_B01",
+          "arm": "M0",
+          "reason": "写入前LF字符串摘要；Windows落盘CRLF，规范化文本一致"
+        },
+        {
+          "task_id": "D1_B02",
+          "arm": "M0",
+          "reason": "写入前LF字符串摘要；Windows落盘CRLF，规范化文本一致"
+        },
+        {
+          "task_id": "D1_B02",
+          "arm": "M2",
+          "reason": "写入前LF字符串摘要；Windows落盘CRLF，规范化文本一致"
+        },
+        {
+          "task_id": "D1_C01",
+          "arm": "M0",
+          "reason": "写入前LF字符串摘要；Windows落盘CRLF，规范化文本一致"
+        },
+        {
+          "task_id": "D1_C02",
+          "arm": "M0",
+          "reason": "写入前LF字符串摘要；Windows落盘CRLF，规范化文本一致"
+        },
+        {
+          "task_id": "D1_C02",
+          "arm": "M2",
+          "reason": "写入前LF字符串摘要；Windows落盘CRLF，规范化文本一致"
+        }
+      ],
+      "public_only_prompt_field_scan": true,
+      "script_snapshot_verified": true,
+      "snapshot_raw_byte_match": true
+    }
+  ],
+  "scope": "公开字段扫描、开发ID隔离和固定代码文本摘要；旧candidate摘要采用写入前LF规范化文本，原记录不改；以后固定LF并按文件字节摘要。不宣称语义无泄漏或模型无污染"
+}

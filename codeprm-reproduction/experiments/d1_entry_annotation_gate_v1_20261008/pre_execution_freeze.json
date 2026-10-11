@@ -1,0 +1,131 @@
+{
+  "forms": [
+    {
+      "id": "D1_B05_baseline",
+      "code": "def solve(payload):\n    tree=_transform(payload['tree'],payload.get('factor',1),payload.get('drop_null',False))\n    matches=_select(tree,payload['threshold'])\n    return {'tree':tree,'matches':matches}\n",
+      "kind": "保存的正确给定入口",
+      "expected_candidate_accept": true,
+      "source": "experiments/d1_method_gate_v1_20261008/D1_B05_baseline_entry.py",
+      "source_sha256": "c490b14eb6b068dc70ef249991f989545df6f1354abfaab05b9fef71056d766f",
+      "public_behavior": "沿用P27，不重评"
+    },
+    {
+      "id": "D1_B05_parameter_annotation",
+      "code": "def solve(payload: dict):\n    tree=_transform(payload['tree'],payload.get('factor',1),payload.get('drop_null',False))\n    matches=_select(tree,payload['threshold'])\n    return {'tree':tree,'matches':matches}\n",
+      "kind": "保存的正确给定入口",
+      "expected_candidate_accept": true,
+      "source": "experiments/d1_method_gate_v1_20261008/D1_B05_parameter_annotation_entry.py",
+      "source_sha256": "9a6c682ccdad945f78c389e74f8776f42a12bf2f49bc7a075ac120b67443fa4c",
+      "public_behavior": "沿用P27，不重评"
+    },
+    {
+      "id": "D1_B05_return_annotation",
+      "code": "def solve(payload) -> object:\n    tree=_transform(payload['tree'],payload.get('factor',1),payload.get('drop_null',False))\n    matches=_select(tree,payload['threshold'])\n    return {'tree':tree,'matches':matches}\n",
+      "kind": "保存的正确给定入口",
+      "expected_candidate_accept": true,
+      "source": "experiments/d1_method_gate_v1_20261008/D1_B05_return_annotation_entry.py",
+      "source_sha256": "c57fa71805fe63e59ecbc7ef91a721e0f663f7d95c47d4fac00b9ee80375712b",
+      "public_behavior": "沿用P27，不重评"
+    },
+    {
+      "id": "D1_C03_baseline",
+      "code": "def solve(payload):\n    from collections import OrderedDict\n    cache=OrderedDict();computations=0;output=[]\n    for op in payload['operations']:\n        if op['op']=='clear': cache.clear();result=None\n        else:\n            args,kwargs=op.get('args',[]),op.get('kwargs',{})\n            canonical_key=_call_key(args,kwargs)\n            cache_key=canonical_key\n            if cache_key in cache:\n                result=cache[cache_key];cache.move_to_end(cache_key)\n            else:\n                result=_compute(args,kwargs);computations+=1\n                if payload['capacity']>0:\n                    if len(cache)==payload['capacity']:cache.popitem(last=False)\n                    cache[cache_key]=result\n        output.append({'result':result,'computations':computations,'size':len(cache)})\n    return output\n",
+      "kind": "保存的正确给定入口",
+      "expected_candidate_accept": true,
+      "source": "experiments/d1_method_gate_v1_20261008/D1_C03_baseline_entry.py",
+      "source_sha256": "e0a18fc5136d6ee4129b619c7001f3d99cd01bdb07527085e224a3648ecea7a1",
+      "public_behavior": "沿用P27，不重评"
+    },
+    {
+      "id": "D1_C03_parameter_annotation",
+      "code": "def solve(payload: dict):\n    from collections import OrderedDict\n    cache=OrderedDict();computations=0;output=[]\n    for op in payload['operations']:\n        if op['op']=='clear': cache.clear();result=None\n        else:\n            args,kwargs=op.get('args',[]),op.get('kwargs',{})\n            canonical_key=_call_key(args,kwargs)\n            cache_key=canonical_key\n            if cache_key in cache:\n                result=cache[cache_key];cache.move_to_end(cache_key)\n            else:\n                result=_compute(args,kwargs);computations+=1\n                if payload['capacity']>0:\n                    if len(cache)==payload['capacity']:cache.popitem(last=False)\n                    cache[cache_key]=result\n        output.append({'result':result,'computations':computations,'size':len(cache)})\n    return output\n",
+      "kind": "保存的正确给定入口",
+      "expected_candidate_accept": true,
+      "source": "experiments/d1_method_gate_v1_20261008/D1_C03_parameter_annotation_entry.py",
+      "source_sha256": "536a45fbf28813ed80d75b0c69666bd4194fb5b33d091064160c3e63c3ba6454",
+      "public_behavior": "沿用P27，不重评"
+    },
+    {
+      "id": "D1_C03_return_annotation",
+      "code": "def solve(payload) -> object:\n    from collections import OrderedDict\n    cache=OrderedDict();computations=0;output=[]\n    for op in payload['operations']:\n        if op['op']=='clear': cache.clear();result=None\n        else:\n            args,kwargs=op.get('args',[]),op.get('kwargs',{})\n            canonical_key=_call_key(args,kwargs)\n            cache_key=canonical_key\n            if cache_key in cache:\n                result=cache[cache_key];cache.move_to_end(cache_key)\n            else:\n                result=_compute(args,kwargs);computations+=1\n                if payload['capacity']>0:\n                    if len(cache)==payload['capacity']:cache.popitem(last=False)\n                    cache[cache_key]=result\n        output.append({'result':result,'computations':computations,'size':len(cache)})\n    return output\n",
+      "kind": "保存的正确给定入口",
+      "expected_candidate_accept": true,
+      "source": "experiments/d1_method_gate_v1_20261008/D1_C03_return_annotation_entry.py",
+      "source_sha256": "be49c3ff79231ca371cbcf2f46b780251e808025592986c7d2387140f273c27c",
+      "public_behavior": "沿用P27，不重评"
+    },
+    {
+      "id": "wrong_name",
+      "code": "def other(payload):\n    return payload\n",
+      "kind": "公开手工调用形状对照",
+      "expected_candidate_accept": false
+    },
+    {
+      "id": "missing_argument",
+      "code": "def solve():\n    return 0\n",
+      "kind": "公开手工调用形状对照",
+      "expected_candidate_accept": false
+    },
+    {
+      "id": "extra_argument",
+      "code": "def solve(payload, extra):\n    return payload\n",
+      "kind": "公开手工调用形状对照",
+      "expected_candidate_accept": false
+    },
+    {
+      "id": "changed_default",
+      "code": "def solve(payload=None):\n    return payload\n",
+      "kind": "公开手工调用形状对照",
+      "expected_candidate_accept": false
+    },
+    {
+      "id": "keyword_only",
+      "code": "def solve(*, payload):\n    return payload\n",
+      "kind": "公开手工调用形状对照",
+      "expected_candidate_accept": false
+    },
+    {
+      "id": "positional_only",
+      "code": "def solve(payload, /):\n    return payload\n",
+      "kind": "公开手工调用形状对照",
+      "expected_candidate_accept": false
+    },
+    {
+      "id": "varargs",
+      "code": "def solve(*payload):\n    return payload\n",
+      "kind": "公开手工调用形状对照",
+      "expected_candidate_accept": false
+    }
+  ],
+  "saved_P9_helpers": [
+    {
+      "helper": {
+        "name": "_is_ansi_code",
+        "signature": "def _is_ansi_code(char):",
+        "contract": "检查单个字符是否为ANSI控制码的一部分。返回True或False。",
+        "depends_on": []
+      },
+      "response_path": "experiments/d1_allin_native_pair_b03_v1_20261008/candidates/D1_B03/M2/requests/002_response.json",
+      "response_sha256": "a651b851cd80303b7afae783ec48b772d2fbf48660595e8c03670bdd9e192259",
+      "code": "import re\n\ndef _is_ansi_code(char):\n    return re.match(r'[\\x1b@-Z\\\\-_]', char) is not None\n"
+    },
+    {
+      "helper": {
+        "name": "_is_ansi_sequence",
+        "signature": "def _is_ansi_sequence(text):",
+        "contract": "检查字符串是否为完整的ANSI控制码序列。返回True或False。",
+        "depends_on": [
+          "_is_ansi_code"
+        ]
+      },
+      "response_path": "experiments/d1_allin_native_pair_b03_v1_20261008/candidates/D1_B03/M2/requests/003_response.json",
+      "response_sha256": "ffe82430da897c066c7286dd59b64d58d99683c1fb411e50b2e646f6f0d2811a",
+      "code": "import re\n\ndef _is_ansi_code(char):\n    return re.match(r'[\\x1b@-Z\\\\-_]', char) is not None\n\ndef _is_ansi_sequence(text):\n    ansi_pattern = re.compile(r'\\x1b[@-Z\\\\-_]|\\x1b\\[[0-?]*[ -/]*[@-~]')\n    return bool(ansi_pattern.match(text))\n"
+    }
+  ],
+  "saved_plan_sha256": "9e616a6fce4f2d0db28747c733a08a0302cb942fc6bc034da7d3c5ae1fa97b37",
+  "saved_ledger_sha256": "81f350ff3056f54c3726cdd3810198809fa146405b221188eefe1fa50003a580",
+  "script_sha256": "2301415a3d6579763d456c6ace7b195241c0f27602b370d56fb7763da25973b8",
+  "expected": "仅入口参数注解变化接受；七形状对照仍拒；P9helper2仍撞名，不恢复成绩",
+  "candidate_only": "正式pipeline未改，helper仍same_signature严格AST"
+}

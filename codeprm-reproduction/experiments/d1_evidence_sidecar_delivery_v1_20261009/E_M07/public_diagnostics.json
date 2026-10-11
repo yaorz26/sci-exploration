@@ -1,0 +1,88 @@
+[
+  {
+    "id": "lower0_upper2",
+    "input": {
+      "data": [
+        0,
+        2
+      ]
+    },
+    "expected": {
+      "value": {
+        "minimum": 0,
+        "maximum": 2
+      }
+    }
+  },
+  {
+    "id": "lower1_upper2",
+    "input": {
+      "data": [
+        1,
+        2,
+        2
+      ]
+    },
+    "expected": {
+      "value": {
+        "minimum": 1,
+        "maximum": 2
+      }
+    }
+  },
+  {
+    "id": "lower0_upper3",
+    "input": {
+      "data": [
+        3,
+        0,
+        2
+      ]
+    },
+    "expected": {
+      "value": {
+        "minimum": 0,
+        "maximum": 3
+      }
+    }
+  },
+  {
+    "id": "lower1_upper3",
+    "input": {
+      "data": [
+        1,
+        3,
+        2
+      ]
+    },
+    "expected": {
+      "value": {
+        "minimum": 1,
+        "maximum": 3
+      }
+    }
+  },
+  {
+    "id": "single_negative",
+    "input": {
+      "data": [
+        -4
+      ]
+    },
+    "expected": {
+      "value": {
+        "minimum": -4,
+        "maximum": -4
+      }
+    }
+  },
+  {
+    "id": "empty_rejection",
+    "input": {
+      "data": []
+    },
+    "expected": {
+      "error": "ValueError"
+    }
+  }
+]

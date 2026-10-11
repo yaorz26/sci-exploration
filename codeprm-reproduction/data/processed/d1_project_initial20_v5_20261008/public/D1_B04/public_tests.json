@@ -1,0 +1,58 @@
+[
+  {
+    "case_id": "public_1",
+    "input": {
+      "query": "a=1&a=2;flag&x=",
+      "operations": [
+        {
+          "op": "set",
+          "key": "a",
+          "value": "x y"
+        }
+      ]
+    },
+    "expected": {
+      "value": {
+        "pairs": [
+          [
+            "flag",
+            null
+          ],
+          [
+            "x",
+            null
+          ],
+          [
+            "a",
+            "x y"
+          ]
+        ],
+        "query": "flag&x&a=x%20y"
+      }
+    }
+  },
+  {
+    "case_id": "public_2",
+    "input": {
+      "query": "",
+      "operations": [
+        {
+          "op": "add",
+          "key": "q",
+          "value": ""
+        }
+      ]
+    },
+    "expected": {
+      "value": {
+        "pairs": [
+          [
+            "q",
+            ""
+          ]
+        ],
+        "query": "q="
+      }
+    }
+  }
+]

@@ -1,0 +1,50 @@
+{
+  "protocol_sha256": "a9420903f7826b9d0d1605130ac0baddae48f0ae384523f3afba0e40c26e7dfc",
+  "public_input_hashes": {
+    "D:\\yaorz\\research\\codeprm-reproduction\\data\\processed\\d1_project_initial20_v5_20261008\\public\\D1_B04\\task.json": "47b39de3c762b029162b30512cd201e60b7b2e71f6d55404320ca9ce61bd63b1",
+    "D:\\yaorz\\research\\codeprm-reproduction\\data\\processed\\d1_project_initial20_v5_20261008\\public\\D1_C03\\task.json": "d5399e4a7d2ff1ee585c2c8ec78831ebfb46723e07e25c7d91da584fc39dabb3"
+  },
+  "rule": "每题每臂固定首候选；所有生成完成后评分；预检不读取private",
+  "candidates": [
+    {
+      "task_id": "D1_B04",
+      "arm": "M0",
+      "candidate_index": 0,
+      "generation_error": null,
+      "per_task_arm_budget": 6500,
+      "generated_token_spend": 1051,
+      "candidate_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_costed_pilot_b04_c03_v1_20261008\\candidates\\D1_B04\\M0\\candidate.py",
+      "candidate_sha256": "14c4b526d72edb41911c08856599765c5011c5ec74fa33435f2771b2eb8166f5"
+    },
+    {
+      "task_id": "D1_B04",
+      "arm": "M2",
+      "candidate_index": 0,
+      "generation_error": null,
+      "per_task_arm_budget": 6500,
+      "generated_token_spend": 5745,
+      "candidate_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_costed_pilot_b04_c03_v1_20261008\\candidates\\D1_B04\\M2\\candidate.py",
+      "candidate_sha256": "917f2650418a00a9141c7fc644d95d1d3d074be3d21a2e2e44618be1659ea27c"
+    },
+    {
+      "task_id": "D1_C03",
+      "arm": "M0",
+      "candidate_index": 0,
+      "generation_error": null,
+      "per_task_arm_budget": 6500,
+      "generated_token_spend": 1029,
+      "candidate_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_costed_pilot_b04_c03_v1_20261008\\candidates\\D1_C03\\M0\\candidate.py",
+      "candidate_sha256": "b452f6bd909dba764d683d325bb9ac4ec3b8d2f04d3f3dd247954a2603b43a02"
+    },
+    {
+      "task_id": "D1_C03",
+      "arm": "M2",
+      "candidate_index": 0,
+      "generation_error": null,
+      "per_task_arm_budget": 6500,
+      "generated_token_spend": 5681,
+      "candidate_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_costed_pilot_b04_c03_v1_20261008\\candidates\\D1_C03\\M2\\candidate.py",
+      "candidate_sha256": "a1687f31d8511232bdf0f05ff42ef0abc16f30d622812e76a27265283f2587e5"
+    }
+  ]
+}

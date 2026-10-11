@@ -1,0 +1,70 @@
+{
+  "simulated": false,
+  "token_limit": 6500,
+  "call_limit": 5,
+  "known_token_spend": 1850,
+  "blocked": false,
+  "calls": [
+    {
+      "call_id": "001",
+      "stage": "plan",
+      "simulated": false,
+      "prompt_token_upper_bound": 433,
+      "assigned_output_cap": 256,
+      "status": "completed",
+      "cost_status": "known",
+      "request": {
+        "path": "001_request.json",
+        "sha256": "020787080c6d827f8699c6816ddd71106690dd17552cb8606b7513b3f32d1bc9"
+      },
+      "response": {
+        "path": "001_response.json",
+        "sha256": "ae709fd4733e9c226541dcc6067dfbc3818e98272bae9b5c67807d70689d21f6"
+      },
+      "prompt_tokens": 433,
+      "output_tokens": 131,
+      "seconds": 2.705077700000402
+    },
+    {
+      "call_id": "002",
+      "stage": "helper_1",
+      "simulated": false,
+      "prompt_token_upper_bound": 560,
+      "assigned_output_cap": 256,
+      "status": "completed",
+      "cost_status": "known",
+      "request": {
+        "path": "002_request.json",
+        "sha256": "5dcf3a8b5bcf2497cc64082e640708554e4034157c49bb4ed5d0b4870c23a1aa"
+      },
+      "response": {
+        "path": "002_response.json",
+        "sha256": "a651b851cd80303b7afae783ec48b772d2fbf48660595e8c03670bdd9e192259"
+      },
+      "prompt_tokens": 560,
+      "output_tokens": 38,
+      "seconds": 0.8467462000007799
+    },
+    {
+      "call_id": "003",
+      "stage": "helper_2",
+      "simulated": false,
+      "prompt_token_upper_bound": 597,
+      "assigned_output_cap": 256,
+      "status": "completed",
+      "cost_status": "known",
+      "request": {
+        "path": "003_request.json",
+        "sha256": "7166e16188a583367eb2120ddc0c74e4b4c78df7547e13cbac8bfe3d7579f73d"
+      },
+      "response": {
+        "path": "003_response.json",
+        "sha256": "ffe82430da897c066c7286dd59b64d58d99683c1fb411e50b2e646f6f0d2811a"
+      },
+      "prompt_tokens": 597,
+      "output_tokens": 91,
+      "seconds": 1.8930008000024827
+    }
+  ],
+  "refusals": []
+}

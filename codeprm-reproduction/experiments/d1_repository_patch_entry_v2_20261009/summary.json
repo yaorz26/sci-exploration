@@ -1,0 +1,484 @@
+{
+  "simulated": true,
+  "model_calls": 0,
+  "api_calls": 0,
+  "human_reviews": 0,
+  "conditions": 6,
+  "project_tasks": 2,
+  "transport_requests": 5,
+  "behavior_workspaces": 3,
+  "behavior_evaluations": 21,
+  "all_predictions_match": true,
+  "selection_freeze_sha256": "03ad094bca39a022f8d78199f0022b1512961dcb4672db0708ddbd95d23bf72a",
+  "candidates": [
+    {
+      "name": "confuse_complete",
+      "simulated": true,
+      "failure_category": null,
+      "error": null,
+      "candidate_workspace": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_repository_patch_entry_v2_20261009\\candidates\\confuse_complete\\workspace",
+      "candidate_hashes": {
+        "confuse/__init__.py": "7a0ad3e38dd881aa18cf67c2eb91a1a3efc50518ca58f49124c028a72484bfb2",
+        "confuse/core.py": "57c720d3dfd0235a0f434471de28ef000bfec9c8020eafb81d9ffbbab5e44466",
+        "confuse/exceptions.py": "fdde86bcee02fc4a8ed9f64c560e7a5974a0037241027af9ca04d65b4baf6815",
+        "confuse/sources.py": "b9d89a32b5cacdd23982538e4429eedaaf779ad167d1321cb7fb6cbee76df92a",
+        "confuse/templates.py": "2714114575a7ef0c715eb90dc623e2f03291214f7d19ba7b7f348eda61f71f9f",
+        "confuse/util.py": "1bfa310c757e5b212b484719257db55227b6738c8cc58d66fe587c819bf48e2a",
+        "confuse/yaml_util.py": "47ee86d9f839300ef436989ba1bac96d894bf9f2085dc7168d6b0ea91c1eb792",
+        "LICENSE": "0b308ae66aaa1412ebbe645bec4002fd262d91e9cdf67b6f198026677ddfafcc"
+      },
+      "behavior": {
+        "workspace": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_repository_patch_entry_v2_20261009\\candidates\\confuse_complete\\workspace",
+        "python": "3.13.7",
+        "pyyaml": "6.0.3",
+        "module": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_repository_patch_entry_v2_20261009\\candidates\\confuse_complete\\workspace\\confuse\\__init__.py",
+        "cases": [
+          {
+            "case": "default_file",
+            "expected": "D:\\Temp\\d1_repo_path__fburxmy\\app\\assets\\a.txt",
+            "actual": "D:\\Temp\\d1_repo_path__fburxmy\\app\\assets\\a.txt",
+            "pass": true
+          },
+          {
+            "case": "source_flag",
+            "expected": "D:\\Temp\\d1_repo_path__fburxmy\\project\\settings\\assets\\a.txt",
+            "actual": "D:\\Temp\\d1_repo_path__fburxmy\\project\\settings\\assets\\a.txt",
+            "pass": true
+          },
+          {
+            "case": "template_flag",
+            "expected": "D:\\Temp\\d1_repo_path__fburxmy\\project\\settings\\assets\\a.txt",
+            "actual": "D:\\Temp\\d1_repo_path__fburxmy\\project\\settings\\assets\\a.txt",
+            "pass": true
+          },
+          {
+            "case": "app_over_source_flag",
+            "expected": "D:\\Temp\\d1_repo_path__fburxmy\\app\\assets\\a.txt",
+            "actual": "D:\\Temp\\d1_repo_path__fburxmy\\app\\assets\\a.txt",
+            "pass": true
+          },
+          {
+            "case": "cwd_over_source_flag",
+            "expected": "D:\\Temp\\d1_repo_path__fburxmy\\override\\assets\\a.txt",
+            "actual": "D:\\Temp\\d1_repo_path__fburxmy\\override\\assets\\a.txt",
+            "pass": true
+          },
+          {
+            "case": "flag_without_filename",
+            "expected": "D:\\Temp\\d1_repo_path__fburxmy\\working\\assets\\a.txt",
+            "actual": "D:\\Temp\\d1_repo_path__fburxmy\\working\\assets\\a.txt",
+            "pass": true
+          },
+          {
+            "case": "absolute_preserved",
+            "expected": "D:\\Temp\\d1_repo_path__fburxmy\\absolute\\file.bin",
+            "actual": "D:\\Temp\\d1_repo_path__fburxmy\\absolute\\file.bin",
+            "pass": true
+          },
+          {
+            "case": "file_loader_flag",
+            "expected": "D:\\Temp\\d1_repo_path__fburxmy\\project\\settings\\assets\\a.txt",
+            "actual": "D:\\Temp\\d1_repo_path__fburxmy\\project\\settings\\assets\\a.txt",
+            "pass": true
+          }
+        ],
+        "passed": 8,
+        "total": 8,
+        "all_pass": true,
+        "scope": "公开研究诊断；非隐藏确认；非模型效果",
+        "evaluator_sha256": "138c07f50905b05df419c3b408cb464aae73cd78a5d2f7b570551f947ebaacb2"
+      },
+      "behavior_executed": true,
+      "changed_files": [
+        "confuse/sources.py",
+        "confuse/templates.py",
+        "confuse/core.py"
+      ],
+      "known_token_spend": 3382,
+      "total_token_spend": 3382,
+      "cost_status": "known",
+      "transport_requests": 1,
+      "ledger_sha256": "1910559dbf691d78c59012c0a594d06cf4037a4efefd32cb7e5066b50e59707c",
+      "parent_unchanged": true,
+      "expected": [
+        null,
+        8,
+        8
+      ],
+      "observed": [
+        null,
+        8,
+        8
+      ],
+      "prediction_match": true
+    },
+    {
+      "name": "confuse_core_omission",
+      "simulated": true,
+      "failure_category": "behavior_failure",
+      "error": null,
+      "candidate_workspace": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_repository_patch_entry_v2_20261009\\candidates\\confuse_core_omission\\workspace",
+      "candidate_hashes": {
+        "confuse/__init__.py": "7a0ad3e38dd881aa18cf67c2eb91a1a3efc50518ca58f49124c028a72484bfb2",
+        "confuse/core.py": "24ce55bef50eb8438941e9f92e283bd1749f5e47b0079213bb59f09ad0c1052c",
+        "confuse/exceptions.py": "fdde86bcee02fc4a8ed9f64c560e7a5974a0037241027af9ca04d65b4baf6815",
+        "confuse/sources.py": "b9d89a32b5cacdd23982538e4429eedaaf779ad167d1321cb7fb6cbee76df92a",
+        "confuse/templates.py": "2714114575a7ef0c715eb90dc623e2f03291214f7d19ba7b7f348eda61f71f9f",
+        "confuse/util.py": "1bfa310c757e5b212b484719257db55227b6738c8cc58d66fe587c819bf48e2a",
+        "confuse/yaml_util.py": "47ee86d9f839300ef436989ba1bac96d894bf9f2085dc7168d6b0ea91c1eb792",
+        "LICENSE": "0b308ae66aaa1412ebbe645bec4002fd262d91e9cdf67b6f198026677ddfafcc"
+      },
+      "behavior": {
+        "workspace": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_repository_patch_entry_v2_20261009\\candidates\\confuse_core_omission\\workspace",
+        "python": "3.13.7",
+        "pyyaml": "6.0.3",
+        "module": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_repository_patch_entry_v2_20261009\\candidates\\confuse_core_omission\\workspace\\confuse\\__init__.py",
+        "cases": [
+          {
+            "case": "default_file",
+            "expected": "D:\\Temp\\d1_repo_path_hoj_1m38\\app\\assets\\a.txt",
+            "actual": "D:\\Temp\\d1_repo_path_hoj_1m38\\app\\assets\\a.txt",
+            "pass": true
+          },
+          {
+            "case": "source_flag",
+            "expected": "D:\\Temp\\d1_repo_path_hoj_1m38\\project\\settings\\assets\\a.txt",
+            "actual": "D:\\Temp\\d1_repo_path_hoj_1m38\\project\\settings\\assets\\a.txt",
+            "pass": true
+          },
+          {
+            "case": "template_flag",
+            "expected": "D:\\Temp\\d1_repo_path_hoj_1m38\\project\\settings\\assets\\a.txt",
+            "actual": "D:\\Temp\\d1_repo_path_hoj_1m38\\project\\settings\\assets\\a.txt",
+            "pass": true
+          },
+          {
+            "case": "app_over_source_flag",
+            "expected": "D:\\Temp\\d1_repo_path_hoj_1m38\\app\\assets\\a.txt",
+            "actual": "D:\\Temp\\d1_repo_path_hoj_1m38\\app\\assets\\a.txt",
+            "pass": true
+          },
+          {
+            "case": "cwd_over_source_flag",
+            "expected": "D:\\Temp\\d1_repo_path_hoj_1m38\\override\\assets\\a.txt",
+            "actual": "D:\\Temp\\d1_repo_path_hoj_1m38\\override\\assets\\a.txt",
+            "pass": true
+          },
+          {
+            "case": "flag_without_filename",
+            "expected": "D:\\Temp\\d1_repo_path_hoj_1m38\\working\\assets\\a.txt",
+            "actual": "D:\\Temp\\d1_repo_path_hoj_1m38\\working\\assets\\a.txt",
+            "pass": true
+          },
+          {
+            "case": "absolute_preserved",
+            "expected": "D:\\Temp\\d1_repo_path_hoj_1m38\\absolute\\file.bin",
+            "actual": "D:\\Temp\\d1_repo_path_hoj_1m38\\absolute\\file.bin",
+            "pass": true
+          },
+          {
+            "case": "file_loader_flag",
+            "expected": "D:\\Temp\\d1_repo_path_hoj_1m38\\project\\settings\\assets\\a.txt",
+            "exception": "TypeError",
+            "message": "Configuration.set_file() got an unexpected keyword argument 'base_for_paths'",
+            "pass": false
+          }
+        ],
+        "passed": 7,
+        "total": 8,
+        "all_pass": false,
+        "scope": "公开研究诊断；非隐藏确认；非模型效果",
+        "evaluator_sha256": "138c07f50905b05df419c3b408cb464aae73cd78a5d2f7b570551f947ebaacb2"
+      },
+      "behavior_executed": true,
+      "changed_files": [
+        "confuse/sources.py",
+        "confuse/templates.py"
+      ],
+      "known_token_spend": 3152,
+      "total_token_spend": 3152,
+      "cost_status": "known",
+      "transport_requests": 1,
+      "ledger_sha256": "335b6505b5393dbf8b95fc2229809d2e8a4babcd410f43e3517c0226a17ba8f6",
+      "parent_unchanged": true,
+      "expected": [
+        "behavior_failure",
+        7,
+        8
+      ],
+      "observed": [
+        "behavior_failure",
+        7,
+        8
+      ],
+      "prediction_match": true
+    },
+    {
+      "name": "confuse_second_file_invalid",
+      "simulated": true,
+      "failure_category": "patch_failure",
+      "error": "PatchFailure: 原行内容不匹配，拒绝模糊应用",
+      "candidate_workspace": null,
+      "candidate_hashes": null,
+      "behavior": null,
+      "behavior_executed": false,
+      "known_token_spend": 3374,
+      "total_token_spend": 3374,
+      "cost_status": "known",
+      "transport_requests": 1,
+      "ledger_sha256": "fa30223b617a76c3e7f725f279f9c1ffb61c7d5b2a65a67109b9016a95d2e306",
+      "parent_unchanged": true,
+      "expected": [
+        "patch_failure",
+        null,
+        null
+      ],
+      "observed": [
+        "patch_failure",
+        null,
+        null
+      ],
+      "prediction_match": true
+    },
+    {
+      "name": "before_request_budget_refusal",
+      "simulated": true,
+      "failure_category": "budget_or_context_failure",
+      "error": "BudgetRefusal: 输入与最少输出无法纳入总预算",
+      "candidate_workspace": null,
+      "candidate_hashes": null,
+      "behavior": null,
+      "behavior_executed": false,
+      "known_token_spend": 0,
+      "total_token_spend": 0,
+      "cost_status": "known",
+      "transport_requests": 0,
+      "ledger_sha256": "51d8302258402630cd2bd209d01b81b576719480c296fcc2213d95e858688281",
+      "parent_unchanged": true,
+      "expected": [
+        "budget_or_context_failure",
+        null,
+        null
+      ],
+      "observed": [
+        "budget_or_context_failure",
+        null,
+        null
+      ],
+      "prediction_match": true
+    },
+    {
+      "name": "missing_response_counts",
+      "simulated": true,
+      "failure_category": "measurement_failure",
+      "error": "ProtocolFailure: 计数缺失或无效，不能用0补填",
+      "candidate_workspace": null,
+      "candidate_hashes": null,
+      "behavior": null,
+      "behavior_executed": false,
+      "known_token_spend": 0,
+      "total_token_spend": null,
+      "cost_status": "unknown",
+      "transport_requests": 1,
+      "ledger_sha256": "4f9757108e1d236e1745063b457f10b48b7b7f607b092098a8df53e18709391b",
+      "parent_unchanged": true,
+      "expected": [
+        "measurement_failure",
+        null,
+        null
+      ],
+      "observed": [
+        "measurement_failure",
+        null,
+        null
+      ],
+      "prediction_match": true
+    },
+    {
+      "name": "cachetools_complete",
+      "simulated": true,
+      "failure_category": null,
+      "error": null,
+      "candidate_workspace": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_repository_patch_entry_v2_20261009\\candidates\\cachetools_complete\\workspace",
+      "candidate_hashes": {
+        "cachetools/__init__.py": "a9dc6d3bf2d69c7ea7cf94f646b64e4d675fda22679f695c5c250d809702b7b4",
+        "cachetools/func.py": "68e55f4a4b8d58c4400e99076462bb2de27f559f30963cdb4702009623ae8408",
+        "cachetools/keys.py": "00e81fa22fa88a804e9c4124d75e7ff6ab341ca212ad89db715e05d21c99d729",
+        "LICENSE": "2f4d2ff05f05c5da3879f40292b7600332d775dc7ed320d43dd42f3cd7d92c9b"
+      },
+      "behavior": {
+        "workspace": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_repository_patch_entry_v2_20261009\\candidates\\cachetools_complete\\workspace",
+        "python": "3.13.7",
+        "cases": [
+          {
+            "case": "empty",
+            "expected_returns": [
+              []
+            ],
+            "actual_returns": [
+              []
+            ],
+            "expected_stored": [],
+            "actual_stored": [],
+            "expected_size": 0,
+            "actual_size": 0,
+            "return_pass": true,
+            "state_pass": true,
+            "pass": true
+          },
+          {
+            "case": "boundary_mixed",
+            "expected_returns": [
+              [
+                [
+                  "a",
+                  1
+                ]
+              ]
+            ],
+            "actual_returns": [
+              [
+                [
+                  "a",
+                  1
+                ]
+              ]
+            ],
+            "expected_stored": [
+              [
+                "b",
+                2
+              ]
+            ],
+            "actual_stored": [
+              [
+                "b",
+                2
+              ]
+            ],
+            "expected_size": 2,
+            "actual_size": 2,
+            "return_pass": true,
+            "state_pass": true,
+            "pass": true
+          },
+          {
+            "case": "repeat",
+            "expected_returns": [
+              [
+                [
+                  "a",
+                  1
+                ]
+              ],
+              []
+            ],
+            "actual_returns": [
+              [
+                [
+                  "a",
+                  1
+                ]
+              ],
+              []
+            ],
+            "expected_stored": [],
+            "actual_stored": [],
+            "expected_size": 0,
+            "actual_size": 0,
+            "return_pass": true,
+            "state_pass": true,
+            "pass": true
+          },
+          {
+            "case": "same_deadline",
+            "expected_returns": [
+              [
+                [
+                  "a",
+                  1
+                ],
+                [
+                  "b",
+                  2
+                ]
+              ]
+            ],
+            "actual_returns": [
+              [
+                [
+                  "a",
+                  1
+                ],
+                [
+                  "b",
+                  2
+                ]
+              ]
+            ],
+            "expected_stored": [],
+            "actual_stored": [],
+            "expected_size": 0,
+            "actual_size": 0,
+            "return_pass": true,
+            "state_pass": true,
+            "pass": true
+          },
+          {
+            "case": "insertion_cleanup",
+            "expected_returns": [
+              []
+            ],
+            "actual_returns": [
+              []
+            ],
+            "expected_stored": [
+              [
+                "b",
+                2
+              ]
+            ],
+            "actual_stored": [
+              [
+                "b",
+                2
+              ]
+            ],
+            "expected_size": 2,
+            "actual_size": 2,
+            "return_pass": true,
+            "state_pass": true,
+            "pass": true
+          }
+        ],
+        "passed": 5,
+        "return_passed": 5,
+        "state_passed": 5,
+        "total": 5,
+        "scope": "公开确定性项目诊断，不要求返回顺序/列表类型，非模型/人工/未见确认"
+      },
+      "behavior_executed": true,
+      "changed_files": [
+        "cachetools/__init__.py"
+      ],
+      "known_token_spend": 1581,
+      "total_token_spend": 1581,
+      "cost_status": "known",
+      "transport_requests": 1,
+      "ledger_sha256": "507ae730aeea2307e82a82e892fb44e9799e7a7a549eb4d2c47c848c166bb01b",
+      "parent_unchanged": true,
+      "expected": [
+        null,
+        5,
+        5
+      ],
+      "observed": [
+        null,
+        5,
+        5
+      ],
+      "prediction_match": true
+    }
+  ],
+  "scope": "必要预算执行入口验证，给定研究答案/缺陷；21旧诊断经新代码路径执行，不新增独立输入或模型效果"
+}

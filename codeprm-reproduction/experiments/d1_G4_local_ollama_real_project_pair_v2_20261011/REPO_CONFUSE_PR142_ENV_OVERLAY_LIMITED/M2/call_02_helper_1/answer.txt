@@ -1,0 +1,73 @@
+```diff
+diff --git a/confuse/sources.py b/confuse/sources.py
+index 3a4b5c6..7d8e9f0 100644
+--- a/confuse/sources.py
++++ b/confuse/sources.py
+@@ -1,6 +1,7 @@
+ from __future__ import division, absolute_import, print_function
+ 
+ from .util import BASESTRING
++from . import yaml_util
+ import os
+ 
+ 
+@@ -10,6 +11,7 @@ class ConfigSource(dict):
+     """A dictionary augmented with metadata about the source of the
+     configuration.
+     """
++    environment = {}
+     def __init__(self, value, filename=None, default=False,
+                  base_for_paths=False):
+         """Create a configuration source from a dictionary.
+@@ -20,6 +22,12 @@ class ConfigSource(dict):
+         self.filename = filename
+         self.default = default
+         self.base_for_paths = base_for_paths if filename is not None else False
++        if filename is None:
++            self._load_environment()
++
++    def _load_environment(self):
++        prefix = self.filename.split('.')[0].upper() + '_'
++        for key, value in os.environ.items():
++            if key.startswith(prefix):
++                self.environment[key[len(prefix):].lower().replace('__', '.')] = value
+ 
+     def __repr__(self):
+         return 'ConfigSource({0!r}, {1!r}, {2!r}, {3!r})'.format(
+@@ -30,6 +38,7 @@ class ConfigSource(dict):
+     @classmethod
+     def of(cls, value):
+         """Given either a dictionary or a `ConfigSource` object, return
+@@ -40,6 +49,7 @@ class ConfigSource(dict):
+ 
+ class YamlSource(ConfigSource):
+     """A configuration data source that reads from a YAML file.
++    """
+ 
+     def __init__(self, filename=None, default=False, base_for_paths=False,
+                  optional=False, loader=yaml_util.Loader):
+@@ -50,6 +60,7 @@ class YamlSource(ConfigSource):
+         self.loader = loader
+         self.optional = optional
+         self.load()
++
+     def load(self):
+         """Load YAML data from the source's filename.
+         """
+@@ -60,6 +71,7 @@ class YamlSource(ConfigSource):
+             value = yaml_util.load_yaml(self.filename,
+                                         loader=self.loader) or {}
+         self.update(value)
++
+ 
+ class ConfigView(object):
+     """A configuration "view" is a query into a program's configuration
+@@ -70,6 +82,7 @@ class ConfigView(object):
+     name = None
+     """The name of the view, depicting the path taken through the
+     configuration in Python-like syntax (e.g., ``foo['bar'][42]``).
++    """
+ 
+     def resolve(self):
+         """The core (internal) data retrieval method. Generates (value,
+@@ -80,6 +93,7 @@

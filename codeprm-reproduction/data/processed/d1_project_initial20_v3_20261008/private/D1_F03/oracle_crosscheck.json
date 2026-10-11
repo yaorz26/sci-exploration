@@ -1,0 +1,227 @@
+{
+  "disagreements": [
+    {
+      "case_id": "public_1",
+      "input": {
+        "sources": [
+          {
+            "a": 1,
+            "x": {
+              "p": 2
+            }
+          },
+          {
+            "a": 9,
+            "b": 3,
+            "x": {
+              "q": 4
+            }
+          }
+        ]
+      },
+      "expected": {
+        "value": {
+          "a": 1,
+          "x": {
+            "p": 2,
+            "q": 4
+          },
+          "b": 3
+        }
+      },
+      "reference": {
+        "value": {
+          "a": 1,
+          "x": {
+            "p": 2,
+            "q": 4
+          },
+          "b": 3
+        }
+      },
+      "alternate": {
+        "value": {
+          "a": 1,
+          "x": {
+            "p": 2,
+            "q": 4
+          },
+          "b": 3
+        }
+      }
+    },
+    {
+      "case_id": "hidden_6",
+      "input": {
+        "sources": [
+          {
+            "x": {}
+          },
+          {
+            "x": {
+              "b": 2
+            }
+          }
+        ]
+      },
+      "expected": {
+        "value": {
+          "x": {
+            "b": 2
+          }
+        }
+      },
+      "reference": {
+        "value": {
+          "x": {
+            "b": 2
+          }
+        }
+      },
+      "alternate": {
+        "value": {
+          "x": {
+            "b": 2
+          }
+        }
+      }
+    },
+    {
+      "case_id": "hidden_7",
+      "input": {
+        "sources": [
+          {
+            "a": {
+              "x": {
+                "z": 1
+              }
+            }
+          },
+          {
+            "a": {
+              "x": {
+                "y": 2
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "value": {
+          "a": {
+            "x": {
+              "z": 1,
+              "y": 2
+            }
+          }
+        }
+      },
+      "reference": {
+        "value": {
+          "a": {
+            "x": {
+              "z": 1,
+              "y": 2
+            }
+          }
+        }
+      },
+      "alternate": {
+        "value": {
+          "a": {
+            "x": {
+              "z": 1,
+              "y": 2
+            }
+          }
+        }
+      }
+    },
+    {
+      "case_id": "hidden_9",
+      "input": {
+        "sources": [
+          {
+            "x": {
+              "p": 1
+            }
+          },
+          {
+            "x": {
+              "p": 2,
+              "q": 3
+            }
+          }
+        ]
+      },
+      "expected": {
+        "value": {
+          "x": {
+            "p": 1,
+            "q": 3
+          }
+        }
+      },
+      "reference": {
+        "value": {
+          "x": {
+            "p": 1,
+            "q": 3
+          }
+        }
+      },
+      "alternate": {
+        "value": {
+          "x": {
+            "p": 1,
+            "q": 3
+          }
+        }
+      }
+    },
+    {
+      "case_id": "hidden_11",
+      "input": {
+        "sources": [
+          {
+            "x": {
+              "a": null
+            }
+          },
+          {
+            "x": {
+              "a": 2,
+              "b": []
+            }
+          }
+        ]
+      },
+      "expected": {
+        "value": {
+          "x": {
+            "a": null,
+            "b": []
+          }
+        }
+      },
+      "reference": {
+        "value": {
+          "x": {
+            "a": null,
+            "b": []
+          }
+        }
+      },
+      "alternate": {
+        "value": {
+          "x": {
+            "a": null,
+            "b": []
+          }
+        }
+      }
+    }
+  ],
+  "manual_public_anchors": 2,
+  "comparison": "上游实现与另一种纯标准库实现；同一作者，不等于独立审查"
+}

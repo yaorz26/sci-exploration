@@ -1,0 +1,42 @@
+{
+  "checked_at": "2026-10-09T07:17:52.134361+00:00",
+  "stage": "D1-P79-repository-candidate-integrity",
+  "candidate": "E_C11",
+  "candidate_files": [
+    "public_examples.json",
+    "requirement.md",
+    "task.json"
+  ],
+  "required_fields": {
+    "task_id": true,
+    "entrypoint": true,
+    "candidate_status": true,
+    "formal_labels": true,
+    "split": true,
+    "human_reviews": true,
+    "published": true
+  },
+  "path_checks": {
+    "public_examples.json": true,
+    "requirement.md": true,
+    "task.json": true
+  },
+  "no_solution_source_in_candidate": true,
+  "model_prompt_source": "candidate/requirement.md",
+  "model_prompt_check": true,
+  "public_examples_count": 6,
+  "public_examples_self_contained": true,
+  "provenance_sidecar_outside_candidate": true,
+  "task_hashes": {
+    "public_examples.json": "979b3ce051fdab94e9c7621d92dc10de7265883c0e3de4e075e7b52a5210368f",
+    "requirement.md": "5af17f4949e96faddf46912f2ebecb5366113493d2f323dba7fd105c62c78910",
+    "task.json": "90e6d4554c22f5ca1b1017cfbb8517a90fbbaf025ccd6b1840bc6b409f88409c"
+  },
+  "formal_labels": null,
+  "split": null,
+  "human_reviews": 0,
+  "model_calls": 0,
+  "private_reads": 0,
+  "published": false,
+  "passed": true
+}

@@ -1,0 +1,10 @@
+实现solve(data)。data包含tree、factor、drop_null、threshold。
+合法域：tree根为dict或list；dict键为字符串；叶仅为精确整数或null，不含bool；
+根深度0，最大深度4，含容器节点最多64，原整数绝对值≤64。
+factor为[-3,3]整数，threshold为[-32,32]整数，drop_null为bool。只要求合法输入域。
+输出恰含tree、matches两字段。tree是把每个整数叶乘factor、按drop_null删除null项后
+得到的新树；删除列表元素后下标连续，保留dict顺序和空容器。不得改变输入。
+按原输入整数值检索并返回该原值，但path采用该整数保留在变换结果树中的位置。这是溯源值和处理后坐标，value不要求等于输出tree在path处的值。
+matches为按dict插入顺序和list下标顺序进行深度优先遍历得到的整数叶记录，
+每条恰含path和value：value≥threshold，path按上文规定使用原输入或变换结果树坐标，
+包含字符串键和整数下标。不强制内部函数数量、接口、遍历次数或执行顺序。

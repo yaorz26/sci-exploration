@@ -1,0 +1,19 @@
+实现计划：
+
+1. **初始化方法 (`__init__`)**:
+   - 接受一个整数参数 `n`，表示生成素数的上限。
+   - 调用 `generate_primes` 方法生成素数列表，并将其存储在 `self.primes` 中。
+
+2. **生成素数方法 (`generate_primes`)**:
+   - 使用 Chandrasekhar sieve 算法生成从 2 到 `n` 之间的所有素数。
+   - 初始化一个布尔数组 `is_prime`，长度为 `n+1`，所有元素初始为 `True`。
+   - 从 2 开始，对于每个数 `i`，如果 `is_prime[i]` 为 `True`，则将其所有倍数标记为 `False`。
+   - 最后，将所有 `is_prime[i]` 为 `True` 的索引收集起来，这些索引即为素数。
+
+3. **获取素数方法 (`get_primes`)**:
+   - 返回 `self.primes` 中存储的素数列表。
+
+实现顺序：
+1. 实现 `__init__` 方法。
+2. 实现 `generate_primes` 方法。
+3. 实现 `get_primes` 方法。

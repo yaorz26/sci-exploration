@@ -1,0 +1,22 @@
+{
+  "status": "post_execution_snapshot",
+  "scope": "有效v4构建/隔离、v2交付复核及契约索引代码的执行后副本；不是执行前冻结，也不冒称早期错误版本源码",
+  "files": [
+    {
+      "name": "audit_package_portability.py",
+      "sha256": "6e46b799d31e5af718befd9914f2cfab9ca225fc23310fc39ef9b879d3a71ad5"
+    },
+    {
+      "name": "package_portable_candidate.py",
+      "sha256": "6311312079ac933a025eea553b9e732ada7cd76ef16c6ef4e092873189cb2801"
+    },
+    {
+      "name": "verify_portable_delivery.py",
+      "sha256": "54ded0f4f19132b0cdb5508c98a90c951c7e2882aae8314cbfcdab05777a7303"
+    },
+    {
+      "name": "audit_contract_traceability.py",
+      "sha256": "d894c5f46eab72c39c7628d6c621ef31e1c6c94309c0e8128c22aa6d33fefce0"
+    }
+  ]
+}

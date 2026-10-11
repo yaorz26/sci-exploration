@@ -1,0 +1,160 @@
+[
+  {
+    "case_id": "mixed_integer_first",
+    "input": {
+      "data": [
+        1,
+        "1",
+        1,
+        "1"
+      ]
+    },
+    "expected": {
+      "value": {
+        "count": 4,
+        "mode": 1
+      }
+    },
+    "reason": "整数1和字符串1各两次，整数先出现"
+  },
+  {
+    "case_id": "mixed_string_first",
+    "input": {
+      "data": [
+        "1",
+        1,
+        "1",
+        1
+      ]
+    },
+    "expected": {
+      "value": {
+        "count": 4,
+        "mode": "1"
+      }
+    },
+    "reason": "各两次，字符串先出现"
+  },
+  {
+    "case_id": "empty_bool_default",
+    "input": {
+      "data": [],
+      "default": false
+    },
+    "expected": {
+      "value": {
+        "count": 0,
+        "mode": false
+      }
+    },
+    "reason": "空数量0，众数返回False原类型"
+  },
+  {
+    "case_id": "empty_null_default",
+    "input": {
+      "data": [],
+      "default": null
+    },
+    "expected": {
+      "value": {
+        "count": 0,
+        "mode": null
+      }
+    },
+    "reason": "空数量0，众数返回null"
+  },
+  {
+    "case_id": "empty_string_default",
+    "input": {
+      "data": [],
+      "default": "空"
+    },
+    "expected": {
+      "value": {
+        "count": 0,
+        "mode": "空"
+      }
+    },
+    "reason": "空数量0，众数返回显式字符串"
+  },
+  {
+    "case_id": "single_string",
+    "input": {
+      "data": [
+        "solo"
+      ]
+    },
+    "expected": {
+      "value": {
+        "count": 1,
+        "mode": "solo"
+      }
+    },
+    "reason": "唯一值频数1，无需default"
+  },
+  {
+    "case_id": "reject_bool_item",
+    "input": {
+      "data": [
+        true
+      ]
+    },
+    "expected": {
+      "error": "TypeError"
+    },
+    "reason": "bool虽为int子类，契约要求精确int或str"
+  },
+  {
+    "case_id": "reject_float_item",
+    "input": {
+      "data": [
+        1.0
+      ]
+    },
+    "expected": {
+      "error": "TypeError"
+    },
+    "reason": "浮点元素不在输入域"
+  },
+  {
+    "case_id": "reject_list_item",
+    "input": {
+      "data": [
+        []
+      ]
+    },
+    "expected": {
+      "error": "TypeError"
+    },
+    "reason": "列表元素不在输入域"
+  },
+  {
+    "case_id": "reject_non_list",
+    "input": {
+      "data": "x"
+    },
+    "expected": {
+      "error": "TypeError"
+    },
+    "reason": "data必须是列表"
+  },
+  {
+    "case_id": "reject_missing_data",
+    "input": {},
+    "expected": {
+      "error": "ValueError"
+    },
+    "reason": "缺data按本次显式适配契约拒绝"
+  },
+  {
+    "case_id": "reject_object_default",
+    "input": {
+      "data": [],
+      "default": {}
+    },
+    "expected": {
+      "error": "TypeError"
+    },
+    "reason": "default只允许有限JSON标量"
+  }
+]

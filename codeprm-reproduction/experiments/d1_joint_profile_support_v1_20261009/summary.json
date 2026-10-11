@@ -1,0 +1,826 @@
+{
+  "status": "联合结构画像频数完成，描述性支撑有限",
+  "inputs": [
+    {
+      "path": "data\\processed\\d1_project_initial20_v5_20261008\\manifest.json",
+      "sha256": "c3593d11ae85cc23545aa91418c2ab3c97a4b005fd5e49963bdc28ae7e6eda9f"
+    },
+    {
+      "path": "experiments\\d1_family_link_audit_v1_20261008.json",
+      "sha256": "34aa268f7077a3fce48affae3293d923f8ed4b4b86906ee6cecec6179f9164e2"
+    }
+  ],
+  "all20": {
+    "tasks": 20,
+    "profiles": 10,
+    "repeated_profiles": 5,
+    "max_frequency": 4,
+    "records": [
+      {
+        "profile": {
+          "behavior_dependencies": [
+            "operation_sequence"
+          ],
+          "state_scope": "global",
+          "separate_behavior_testability": "partial"
+        },
+        "tasks": [
+          "D1_B02",
+          "D1_C01",
+          "D1_C02",
+          "D1_M03"
+        ],
+        "count": 4,
+        "splits": [
+          "development",
+          "reserve"
+        ],
+        "sources": [
+          "mahmoud/boltons",
+          "more-itertools/more-itertools",
+          "tkem/cachetools"
+        ],
+        "explicit_components": [
+          1,
+          5,
+          12
+        ],
+        "function_families": [
+          "cache_lru",
+          "cache_ttl",
+          "ordered_multimap",
+          "seekable_iteration"
+        ]
+      },
+      {
+        "profile": {
+          "behavior_dependencies": [
+            "branch_rules",
+            "direct"
+          ],
+          "state_scope": "none",
+          "separate_behavior_testability": "no"
+        },
+        "tasks": [
+          "D1_M02",
+          "D1_F01",
+          "D1_B06",
+          "D1_C05"
+        ],
+        "count": 4,
+        "splits": [
+          "development",
+          "reserve"
+        ],
+        "sources": [
+          "beetbox/confuse",
+          "mahmoud/boltons",
+          "more-itertools/more-itertools",
+          "tkem/cachetools"
+        ],
+        "explicit_components": [
+          4,
+          5,
+          6,
+          11
+        ],
+        "function_families": [
+          "adjacent_runs",
+          "call_key_equivalence",
+          "nested_path_query",
+          "string_config"
+        ]
+      },
+      {
+        "profile": {
+          "behavior_dependencies": [
+            "branch_rules",
+            "ordered_transform"
+          ],
+          "state_scope": "none",
+          "separate_behavior_testability": "yes"
+        },
+        "tasks": [
+          "D1_M05",
+          "D1_F03",
+          "D1_F04"
+        ],
+        "count": 3,
+        "splits": [
+          "reserve"
+        ],
+        "sources": [
+          "beetbox/confuse",
+          "more-itertools/more-itertools"
+        ],
+        "explicit_components": [
+          8,
+          9,
+          14
+        ],
+        "function_families": [
+          "aligned_column_sort",
+          "layered_config",
+          "object_sequence_validation"
+        ]
+      },
+      {
+        "profile": {
+          "behavior_dependencies": [
+            "ordered_transform"
+          ],
+          "state_scope": "none",
+          "separate_behavior_testability": "yes"
+        },
+        "tasks": [
+          "D1_B01",
+          "D1_B05"
+        ],
+        "count": 2,
+        "splits": [
+          "development"
+        ],
+        "sources": [
+          "mahmoud/boltons"
+        ],
+        "explicit_components": [
+          0,
+          3
+        ],
+        "function_families": [
+          "range_parser",
+          "tree_transform_search"
+        ]
+      },
+      {
+        "profile": {
+          "behavior_dependencies": [
+            "branch_rules"
+          ],
+          "state_scope": "none",
+          "separate_behavior_testability": "partial"
+        },
+        "tasks": [
+          "D1_M01",
+          "D1_F02"
+        ],
+        "count": 2,
+        "splits": [
+          "reserve"
+        ],
+        "sources": [
+          "beetbox/confuse",
+          "more-itertools/more-itertools"
+        ],
+        "explicit_components": [
+          7,
+          10
+        ],
+        "function_families": [
+          "pair_config",
+          "sliding_windows"
+        ]
+      },
+      {
+        "profile": {
+          "behavior_dependencies": [
+            "direct"
+          ],
+          "state_scope": "none",
+          "separate_behavior_testability": "no"
+        },
+        "tasks": [
+          "D1_B03"
+        ],
+        "count": 1,
+        "splits": [
+          "development"
+        ],
+        "sources": [
+          "mahmoud/boltons"
+        ],
+        "explicit_components": [
+          2
+        ],
+        "function_families": [
+          "ansi_cleanup"
+        ]
+      },
+      {
+        "profile": {
+          "behavior_dependencies": [
+            "operation_sequence",
+            "ordered_transform"
+          ],
+          "state_scope": "global",
+          "separate_behavior_testability": "yes"
+        },
+        "tasks": [
+          "D1_B04"
+        ],
+        "count": 1,
+        "splits": [
+          "development"
+        ],
+        "sources": [
+          "mahmoud/boltons"
+        ],
+        "explicit_components": [
+          1
+        ],
+        "function_families": [
+          "query_editing"
+        ]
+      },
+      {
+        "profile": {
+          "behavior_dependencies": [
+            "branch_rules",
+            "operation_sequence"
+          ],
+          "state_scope": "global",
+          "separate_behavior_testability": "yes"
+        },
+        "tasks": [
+          "D1_C03"
+        ],
+        "count": 1,
+        "splits": [
+          "development"
+        ],
+        "sources": [
+          "tkem/cachetools"
+        ],
+        "explicit_components": [
+          5
+        ],
+        "function_families": [
+          "memoized_calls"
+        ]
+      },
+      {
+        "profile": {
+          "behavior_dependencies": [
+            "operation_sequence"
+          ],
+          "state_scope": "partitioned",
+          "separate_behavior_testability": "partial"
+        },
+        "tasks": [
+          "D1_C04"
+        ],
+        "count": 1,
+        "splits": [
+          "development"
+        ],
+        "sources": [
+          "tkem/cachetools"
+        ],
+        "explicit_components": [
+          5
+        ],
+        "function_families": [
+          "instance_method_cache"
+        ]
+      },
+      {
+        "profile": {
+          "behavior_dependencies": [
+            "operation_sequence",
+            "ordered_transform"
+          ],
+          "state_scope": "partitioned",
+          "separate_behavior_testability": "yes"
+        },
+        "tasks": [
+          "D1_M04"
+        ],
+        "count": 1,
+        "splits": [
+          "reserve"
+        ],
+        "sources": [
+          "more-itertools/more-itertools"
+        ],
+        "explicit_components": [
+          13
+        ],
+        "function_families": [
+          "keyed_bucket_reads"
+        ]
+      }
+    ]
+  },
+  "subsets": {
+    "all20": {
+      "tasks": 20,
+      "profiles": 10,
+      "repeated_profile_count": 5,
+      "max_profile_frequency": 4,
+      "records": [
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "branch_rules",
+              "direct"
+            ],
+            "state_scope": "none",
+            "separate_behavior_testability": "no"
+          },
+          "tasks": [
+            "D1_M02",
+            "D1_F01",
+            "D1_B06",
+            "D1_C05"
+          ],
+          "count": 4,
+          "sources": [
+            "beetbox/confuse",
+            "mahmoud/boltons",
+            "more-itertools/more-itertools",
+            "tkem/cachetools"
+          ],
+          "explicit_components": [
+            4,
+            5,
+            6,
+            11
+          ]
+        },
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "operation_sequence"
+            ],
+            "state_scope": "global",
+            "separate_behavior_testability": "partial"
+          },
+          "tasks": [
+            "D1_B02",
+            "D1_C01",
+            "D1_C02",
+            "D1_M03"
+          ],
+          "count": 4,
+          "sources": [
+            "mahmoud/boltons",
+            "more-itertools/more-itertools",
+            "tkem/cachetools"
+          ],
+          "explicit_components": [
+            1,
+            5,
+            12
+          ]
+        },
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "branch_rules",
+              "ordered_transform"
+            ],
+            "state_scope": "none",
+            "separate_behavior_testability": "yes"
+          },
+          "tasks": [
+            "D1_M05",
+            "D1_F03",
+            "D1_F04"
+          ],
+          "count": 3,
+          "sources": [
+            "beetbox/confuse",
+            "more-itertools/more-itertools"
+          ],
+          "explicit_components": [
+            8,
+            9,
+            14
+          ]
+        },
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "branch_rules"
+            ],
+            "state_scope": "none",
+            "separate_behavior_testability": "partial"
+          },
+          "tasks": [
+            "D1_M01",
+            "D1_F02"
+          ],
+          "count": 2,
+          "sources": [
+            "beetbox/confuse",
+            "more-itertools/more-itertools"
+          ],
+          "explicit_components": [
+            7,
+            10
+          ]
+        },
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "ordered_transform"
+            ],
+            "state_scope": "none",
+            "separate_behavior_testability": "yes"
+          },
+          "tasks": [
+            "D1_B01",
+            "D1_B05"
+          ],
+          "count": 2,
+          "sources": [
+            "mahmoud/boltons"
+          ],
+          "explicit_components": [
+            0,
+            3
+          ]
+        },
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "branch_rules",
+              "operation_sequence"
+            ],
+            "state_scope": "global",
+            "separate_behavior_testability": "yes"
+          },
+          "tasks": [
+            "D1_C03"
+          ],
+          "count": 1,
+          "sources": [
+            "tkem/cachetools"
+          ],
+          "explicit_components": [
+            5
+          ]
+        },
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "direct"
+            ],
+            "state_scope": "none",
+            "separate_behavior_testability": "no"
+          },
+          "tasks": [
+            "D1_B03"
+          ],
+          "count": 1,
+          "sources": [
+            "mahmoud/boltons"
+          ],
+          "explicit_components": [
+            2
+          ]
+        },
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "operation_sequence"
+            ],
+            "state_scope": "partitioned",
+            "separate_behavior_testability": "partial"
+          },
+          "tasks": [
+            "D1_C04"
+          ],
+          "count": 1,
+          "sources": [
+            "tkem/cachetools"
+          ],
+          "explicit_components": [
+            5
+          ]
+        },
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "operation_sequence",
+              "ordered_transform"
+            ],
+            "state_scope": "global",
+            "separate_behavior_testability": "yes"
+          },
+          "tasks": [
+            "D1_B04"
+          ],
+          "count": 1,
+          "sources": [
+            "mahmoud/boltons"
+          ],
+          "explicit_components": [
+            1
+          ]
+        },
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "operation_sequence",
+              "ordered_transform"
+            ],
+            "state_scope": "partitioned",
+            "separate_behavior_testability": "yes"
+          },
+          "tasks": [
+            "D1_M04"
+          ],
+          "count": 1,
+          "sources": [
+            "more-itertools/more-itertools"
+          ],
+          "explicit_components": [
+            13
+          ]
+        }
+      ]
+    },
+    "development11": {
+      "tasks": 11,
+      "profiles": 7,
+      "repeated_profile_count": 3,
+      "max_profile_frequency": 3,
+      "records": [
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "operation_sequence"
+            ],
+            "state_scope": "global",
+            "separate_behavior_testability": "partial"
+          },
+          "tasks": [
+            "D1_B02",
+            "D1_C01",
+            "D1_C02"
+          ],
+          "count": 3,
+          "sources": [
+            "mahmoud/boltons",
+            "tkem/cachetools"
+          ],
+          "explicit_components": [
+            1,
+            5
+          ]
+        },
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "branch_rules",
+              "direct"
+            ],
+            "state_scope": "none",
+            "separate_behavior_testability": "no"
+          },
+          "tasks": [
+            "D1_B06",
+            "D1_C05"
+          ],
+          "count": 2,
+          "sources": [
+            "mahmoud/boltons",
+            "tkem/cachetools"
+          ],
+          "explicit_components": [
+            4,
+            5
+          ]
+        },
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "ordered_transform"
+            ],
+            "state_scope": "none",
+            "separate_behavior_testability": "yes"
+          },
+          "tasks": [
+            "D1_B01",
+            "D1_B05"
+          ],
+          "count": 2,
+          "sources": [
+            "mahmoud/boltons"
+          ],
+          "explicit_components": [
+            0,
+            3
+          ]
+        },
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "branch_rules",
+              "operation_sequence"
+            ],
+            "state_scope": "global",
+            "separate_behavior_testability": "yes"
+          },
+          "tasks": [
+            "D1_C03"
+          ],
+          "count": 1,
+          "sources": [
+            "tkem/cachetools"
+          ],
+          "explicit_components": [
+            5
+          ]
+        },
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "direct"
+            ],
+            "state_scope": "none",
+            "separate_behavior_testability": "no"
+          },
+          "tasks": [
+            "D1_B03"
+          ],
+          "count": 1,
+          "sources": [
+            "mahmoud/boltons"
+          ],
+          "explicit_components": [
+            2
+          ]
+        },
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "operation_sequence"
+            ],
+            "state_scope": "partitioned",
+            "separate_behavior_testability": "partial"
+          },
+          "tasks": [
+            "D1_C04"
+          ],
+          "count": 1,
+          "sources": [
+            "tkem/cachetools"
+          ],
+          "explicit_components": [
+            5
+          ]
+        },
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "operation_sequence",
+              "ordered_transform"
+            ],
+            "state_scope": "global",
+            "separate_behavior_testability": "yes"
+          },
+          "tasks": [
+            "D1_B04"
+          ],
+          "count": 1,
+          "sources": [
+            "mahmoud/boltons"
+          ],
+          "explicit_components": [
+            1
+          ]
+        }
+      ]
+    },
+    "reserve9": {
+      "tasks": 9,
+      "profiles": 5,
+      "repeated_profile_count": 3,
+      "max_profile_frequency": 3,
+      "records": [
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "branch_rules",
+              "ordered_transform"
+            ],
+            "state_scope": "none",
+            "separate_behavior_testability": "yes"
+          },
+          "tasks": [
+            "D1_M05",
+            "D1_F03",
+            "D1_F04"
+          ],
+          "count": 3,
+          "sources": [
+            "beetbox/confuse",
+            "more-itertools/more-itertools"
+          ],
+          "explicit_components": [
+            8,
+            9,
+            14
+          ]
+        },
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "branch_rules"
+            ],
+            "state_scope": "none",
+            "separate_behavior_testability": "partial"
+          },
+          "tasks": [
+            "D1_M01",
+            "D1_F02"
+          ],
+          "count": 2,
+          "sources": [
+            "beetbox/confuse",
+            "more-itertools/more-itertools"
+          ],
+          "explicit_components": [
+            7,
+            10
+          ]
+        },
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "branch_rules",
+              "direct"
+            ],
+            "state_scope": "none",
+            "separate_behavior_testability": "no"
+          },
+          "tasks": [
+            "D1_M02",
+            "D1_F01"
+          ],
+          "count": 2,
+          "sources": [
+            "beetbox/confuse",
+            "more-itertools/more-itertools"
+          ],
+          "explicit_components": [
+            6,
+            11
+          ]
+        },
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "operation_sequence"
+            ],
+            "state_scope": "global",
+            "separate_behavior_testability": "partial"
+          },
+          "tasks": [
+            "D1_M03"
+          ],
+          "count": 1,
+          "sources": [
+            "more-itertools/more-itertools"
+          ],
+          "explicit_components": [
+            12
+          ]
+        },
+        {
+          "profile": {
+            "behavior_dependencies": [
+              "operation_sequence",
+              "ordered_transform"
+            ],
+            "state_scope": "partitioned",
+            "separate_behavior_testability": "yes"
+          },
+          "tasks": [
+            "D1_M04"
+          ],
+          "count": 1,
+          "sources": [
+            "more-itertools/more-itertools"
+          ],
+          "explicit_components": [
+            13
+          ]
+        }
+      ]
+    }
+  },
+  "interpretation": "联合画像重复主要落在同一来源/关联组件；开发集画像数接近题数，重复单元少，不能把画像层比较当作独立样本或稳定多因素分层。",
+  "limits": [
+    "画像由人工0初标字段组成，不是新语义真值",
+    "画像重复不等独立任务，来源/组件共变仍存在",
+    "未读取测试/private、未执行任务、不含模型成绩",
+    "不做因果识别/显著性/复杂回归，不改切分或原始标签"
+  ],
+  "model_calls": 0,
+  "API_calls": 0,
+  "hidden_reads": 0,
+  "task_evaluations": 0
+}

@@ -1,0 +1,145 @@
+{
+  "reviewer_id": "ai-reviewer-B-round3",
+  "reviewer_type": "ai_isolated_subagent（非人类，不得当作人工双审）",
+  "round": 3,
+  "basis": "仅依据 review_input_B.json 中 tasks/requirement_chunks（按块顺序拼接全文）、flagged_in_round_2、dimensions、instructions；未读取工作区其它任何文件。",
+  "scores": {
+    "T1": {"需求可理解": 5, "验收可判定": 4, "内部自由": 5, "可纳入正式候选": 4},
+    "T2": {"需求可理解": 4, "验收可判定": 3, "内部自由": 5, "可纳入正式候选": 3},
+    "T3": {"需求可理解": 4, "验收可判定": 3, "内部自由": 5, "可纳入正式候选": 3},
+    "T4": {"需求可理解": 4, "验收可判定": 4, "内部自由": 4, "可纳入正式候选": 4},
+    "T5": {"需求可理解": 4, "验收可判定": 3, "内部自由": 4, "可纳入正式候选": 2}
+  },
+  "flagged_resolution": {
+    "T1": [
+      {
+        "flag": "签名 default=None 与‘未给 default 抛 IndexError’自相矛盾（需哨兵约定）",
+        "resolved": true,
+        "evidence": "v2 把签名改为 pop(default=_MISSING)/peek(default=_MISSING)，并在表前声明 _MISSING 是‘未传入该参数’的哨兵且不等于 None；表中分别给出‘传了 default（含传 None）返回该值’与‘未传 default 抛 IndexError’两种情形，矛盾已消除。"
+      },
+      {
+        "flag": "义务‘更新后移到同优先级队尾’缺最小调用序列",
+        "resolved": true,
+        "evidence": "v2 §二 内嵌最小调用序列：add('a',1)、add('b',1)、再 add('a',1) 后断言 peek()=='b'、len==2、pop()=='b'、peek()=='a'，同优先级更新移到队尾的义务可逐行核对。"
+      }
+    ],
+    "T2": [
+      {
+        "flag": "两种用途的可保留字符被写成同一集合，差异只剩空格",
+        "resolved": true,
+        "evidence": "§三 改为‘显示 to_text()’与‘发送 to_text(full_quote=True)’两列逐字符枚举，两列唯一差异是 U+0020（显示保留、发送编码为 %20），且规则 1—3 明确对两种渲染相同，原先的混写已消除。"
+      },
+      {
+        "flag": "映射视图取用属性名未给、getlist 缺键返回未定义",
+        "resolved": false,
+        "evidence": "§五 只列出映射视图的 keys()/items()/get(key, default=None)/getlist(key)，仍未给出从 URL 对象取到该视图的属性名（是 .query、.params 还是别的），也未定义 getlist 对缺键返回空列表还是抛 KeyError——该 flag 只被解决了一半。"
+      },
+      {
+        "flag": "集合外字符（\" < > \\ 反引号等）行为未定义",
+        "resolved": true,
+        "evidence": "§三 表新增‘其余 ASCII 可打印’一行，把双引号、#、%、<、>、[、反斜杠、]、^、反引号、{、竖线、} 全部规定为两种渲染都编码；连同未保留字符、子分隔符、分隔符、空格、非 ASCII 各行，95 个可打印 ASCII 已被穷尽，原未定义字符已有归宿。"
+      },
+      {
+        "flag": "与上游 boltons 的 full_quote 语义是否一致未交代",
+        "resolved": true,
+        "evidence": "卷首‘资格声明’列出与上游的四处不一致（+ 处理、已有 %XX、重复键取值、映射视图是否解码）并给出实测一致率（最小引用 7/18、完全引用 15/18、两者都一致 6/18），明确声明本任务不是复刻并降级为构建者自定义契约，语义关系已在文内交代。"
+      }
+    ],
+    "T3": [
+      {
+        "flag": "正文没有异常条款，而修订说明自称已明确异常",
+        "resolved": true,
+        "evidence": "§三 新增‘域外输入的约定’表，逐条给出忽略（变量名不以前缀开头、剥前缀后键名为空）与抛 ValueError（空层级片段、父键已是标量、非 YAML 标量值、prefix 为空串或非字符串）两类行为，正文不再缺异常条款。"
+      },
+      {
+        "flag": "‘当前最高优先级’相对调用方直接写的值无口径",
+        "resolved": false,
+        "evidence": "只补了‘在文件来源之后显式加入的环境来源优先级更高’（§二义务 4）和‘放到当前最高优先级’（§一，措辞未变），相对调用方直接用 set() 写入的值、以及在 set_env 之后才加入的来源谁高谁低仍未给口径，参照系依然不完整。"
+      }
+    ],
+    "T4": [
+      {
+        "flag": "需求正文未内嵌公开用例，‘公开用例已给出 keyfunc/valuefunc’无法在文内验证",
+        "resolved": false,
+        "evidence": "正文仍未内嵌任何公开用例；修订说明称 keyfunc/valuefunc 已显式给出，但全文只出现 valuefunc = lambda x: x * factor，keyfunc 的显式形式（按什么函数分组）从未出现，该断言在文内仍不可验证（不过 §三的 6 条义务自足，构建者不依赖该用例即可对齐，故影响限于修订说明的准确性而非功能可判定性）。"
+      }
+    ],
+    "T5": [
+      {
+        "flag": "cwd 一名两义（进程 cwd vs 模板 cwd）",
+        "resolved": true,
+        "evidence": "§一 术语表把‘cwd（模板级）’与‘进程当前工作目录’拆成两行，分别挂到 Filename 构造参数与进程环境，并注明后者只在既无源文件、模板也未给 cwd 时兜底，一名两义已消除（判定表第 2 条与第 8 条亦与此对应）。"
+      },
+      {
+        "flag": "判定表中 relative_to 的位置与开篇‘保持现有行为’并存",
+        "resolved": false,
+        "evidence": "relative_to 虽被固定到判定表第 6 位，但表把模板级 cwd 放在第 2 位，而 §四 最小判定例第 2、3 行（cwd + in_source_dir=True、base_for_paths=True + cwd）要求源级开关压过 cwd，表与例在同一份需求内互斥；‘保持现有默认行为’与表内新优先级也未真正统一。"
+      }
+    ]
+  },
+  "notes": {
+    "T1": {
+      "ambiguities": [
+        "已被 remove 的任务再次 add 是否等同新加入并落在该优先级队尾，正文未明说（义务 2 只覆盖‘已在队列’的任务）。",
+        "再次 add 且改变了优先级时，它在该新优先级组内相对于已有同优先级任务的次序，最小调用序列只演示了同优先级情形。",
+        "add(task, priority=None) 与‘未传 priority 视为 0’是否等价（显式传 None 是否也按 0 处理）只能靠签名默认值推断。",
+        "来源说明自认‘更新后移到同优先级队尾’只有官方实现依据、官方文档未承诺，属已登记未解决边界；若验收基准取自文档语义而非实现，该义务的合法性仍有争议。"
+      ],
+      "would_reject": false,
+      "reject_reason": ""
+    },
+    "T2": {
+      "ambiguities": [
+        "映射视图的取用属性名未给出（第二轮 flag 未解决），构建者与评价器无法在不自行发明 API 的前提下对齐 get/getlist 的调用点。",
+        "getlist(key) 在键不存在时的返回未定义（空列表还是 KeyError）。",
+        "ASCII 控制字符（U+0000—U+001F、U+007F）行为未定义，合法域只说‘普通 ASCII 主机’，是否排除控制字符未写死。",
+        "解析是否做任何规范化（scheme/主机大小写、默认端口、空路径）未说明，判定例只覆盖逐字符渲染。",
+        "‘% 后恰两位十六进制者整段保留’是否保留原大小写（%2F 与 %2f）未写死；items() 的返回类型（列表还是二元组序列）也未指定。"
+      ],
+      "would_reject": true,
+      "reject_reason": "映射视图入口属性名与 getlist 缺键行为未定义（第二轮 flag 未解决），评价器无法写出通过/遗漏判定而不自行发明公开 API；该任务又已声明与上游 boltons 语义不一致，不能退回上游行为兜底，故按现状不予纳入。"
+    },
+    "T3": {
+      "ambiguities": [
+        "A__B 被列为‘空层级片段’须抛 ValueError，但按 sep='__' 它切成 ['A','B']，恰是义务 2‘sep 表示嵌套层级’的正例——同一输入在 §二 合法、在 §三 非法，构建者无法判定（A__ 作为例子是自洽的）。",
+        "set_env 是调用时快照还是每次读取时重读 os.environ；重复调用 set_env 是叠加两个来源还是替换，均未定义。",
+        "标量转换的 YAML 语义版本未写死（例如 yes/no/on 这类 YAML 1.1 布尔写法是否转成布尔值）。",
+        "键名剥前缀后转小写的时机与文件键是否做大小写无关匹配未说明。"
+      ],
+      "would_reject": false,
+      "reject_reason": ""
+    },
+    "T4": {
+      "ambiguities": [
+        "keyfunc 的显式形式与公开用例始终未进入正文（见 flag 未解决），只定义了 valuefunc = lambda x: x * factor。",
+        "义务 4‘已返回值保留’未写判定方式（例如外层结果整体 list() 之后每个 result 是否仍等于该组完整内容）；且 reducefunc 被限定为无副作用的 list/sum 时，‘在该组被外层消费到时调用一次’这一调用时机条款不可独立观测，只能靠结果保留间接体现。",
+        "reducefunc 给定时的惰性程度未定义（是否允许先把输入整段物化），只在无 reducefunc 时禁止永久物化。",
+        "‘共享底层迭代器’的父行为与义务 4 的保留要求并列出现，未给出二者组合时的最小调用序列。"
+      ],
+      "would_reject": false,
+      "reject_reason": ""
+    },
+    "T5": {
+      "ambiguities": [
+        "§三 有序判定表与 §四 最小判定例在 cwd 与源级开关的优先级上互斥：表把 cwd 放在第 2 位，例 2、3 却要求 in_source_dir/base_for_paths 压过 cwd，同一份需求给出两个不同的基准目录。",
+        "Filename(cwd=...) 是否必须为绝对路径未写死（术语表只按绝对路径举例），给出相对 cwd 时的行为未定义。",
+        "第 7 条把‘有 filename 的来源’默认基准定为应用配置目录（而非源文件目录），是否等于开篇‘保持现有默认行为’无法在文内验证（缺父版本行为对照）。",
+        "cwd 的取值类型（str/Path）以及同时给出 in_app_dir=True 与 in_source_dir=True 时的仲裁虽可由表读出，但未被任何判定例覆盖。"
+      ],
+      "would_reject": true,
+      "reject_reason": "§三 有序判定表与 §四 最小判定例在 cwd 与源级开关的优先级上互斥：5 行判定例有 2 行（cwd+in_source_dir、base_for_paths+cwd）无法由表中规则推出，构建者与评价器无法对齐相对路径基准，核心功能的验收不可判定。"
+    }
+  },
+  "overall": {
+    "included_tasks": ["T1", "T3", "T4"],
+    "rejected_tasks": ["T2", "T5"],
+    "flagged_resolution_count": {
+      "T1": "2/2 resolved",
+      "T2": "3/4 resolved（映射视图入口属性名与 getlist 缺键行为未解决）",
+      "T3": "1/2 resolved（最高优先级的参照系未解决）",
+      "T4": "0/1 resolved（公开用例仍未内嵌、keyfunc 显式形式仍缺失，但功能义务自足）",
+      "T5": "1/2 resolved（relative_to 位置已定，但与判定例互斥）"
+    },
+    "summary": "第二轮的核心接口类缺陷多数已被真正修掉：T1 的哨兵约定与最小调用序列都补上了，T2 的字符集与上游资格交代已写实，T3 的异常条款表、T5 的术语分列都是有效修订。但这一轮新出现的两类问题仍会让任务不可用：一是 T5 的有序判定表与同文最小判定例在 cwd 与源级开关的优先级上互斥（5 行例中 2 行无法由表推出），二是 T3 把 A__B 同时当作合法嵌套正例与必须抛 ValueError 的域外情形。此外 T2 第二轮点出的‘映射视图取用属性名未给、getlist 缺键未定义’漏修，T4 的修订说明仍宣称 keyfunc/valuefunc 已显式给出而正文只有 valuefunc。按现状建议：T1 可直接候选，T4 小修文字后可候选，T3 需改正 A__B 示例并补‘当前最高优先级’参照系，T2 与 T5 需修好接口与优先级冲突后再复审。"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "model": "qwen2.5-coder:7b",
+  "created_at": "2026-10-11T07:26:45.8715587Z",
+  "response": "```json\n{\n  \"components\": [\n    {\n      \"name\": \"c1\",\n      \"files\": [\"more_itertools/more.py\"],\n      \"contract\": \"负责处理keyfunc和valuefunc，将输入的可迭代对象分组，并应用valuefunc进行变换。\"\n    },\n    {\n      \"name\": \"c2\",\n      \"files\": [\"more_itertools/more.py\"],\n      \"contract\": \"负责处理reducefunc，对每个分组应用reducefunc进行最终结果的计算，并返回包含key和计算结果的元组。\"\n    }\n  ]\n}\n```",
+  "done": true,
+  "done_reason": "stop",
+  "total_duration": 2877350500,
+  "load_duration": 4742800,
+  "prompt_eval_count": 994,
+  "prompt_eval_cached_count": 880,
+  "prompt_eval_duration": 59115000,
+  "eval_count": 125,
+  "eval_duration": 2762461000
+}

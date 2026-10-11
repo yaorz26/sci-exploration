@@ -1,0 +1,226 @@
+{
+  "status": "pass",
+  "task_count": 8,
+  "contrasts": 552,
+  "passed": 552,
+  "implementation_calls": 2208,
+  "manual_anchors": 18,
+  "finite_grids": [
+    {
+      "task_id": "D1_B02",
+      "target_length": [
+        0,
+        1,
+        2
+      ],
+      "target_actions": [
+        {
+          "op": "add",
+          "key": "a",
+          "value": 1
+        },
+        {
+          "op": "set",
+          "key": "a",
+          "value": 2
+        },
+        {
+          "op": "delete",
+          "key": "a"
+        },
+        {
+          "op": "poplast",
+          "key": "a"
+        }
+      ],
+      "other_actions": [
+        {
+          "op": "add",
+          "key": "b",
+          "value": 1
+        },
+        {
+          "op": "set",
+          "key": "b",
+          "value": 2
+        },
+        {
+          "op": "delete",
+          "key": "b"
+        },
+        {
+          "op": "poplast",
+          "key": "b"
+        }
+      ],
+      "observer": {
+        "op": "getall",
+        "key": "a"
+      },
+      "projection": "multimap_target",
+      "contrasts": 228,
+      "passed": 228
+    },
+    {
+      "task_id": "D1_B04",
+      "target_length": [
+        0,
+        1,
+        2
+      ],
+      "target_actions": [
+        {
+          "op": "add",
+          "key": "a",
+          "value": "1"
+        },
+        {
+          "op": "set",
+          "key": "a",
+          "value": "2"
+        },
+        {
+          "op": "delete",
+          "key": "a"
+        }
+      ],
+      "other_actions": [
+        {
+          "op": "add",
+          "key": "b",
+          "value": "1"
+        },
+        {
+          "op": "set",
+          "key": "b",
+          "value": "2"
+        },
+        {
+          "op": "delete",
+          "key": "b"
+        }
+      ],
+      "observer": null,
+      "projection": "query_target",
+      "contrasts": 102,
+      "passed": 102
+    },
+    {
+      "task_id": "D1_M04",
+      "target_length": [
+        0,
+        1,
+        2
+      ],
+      "target_actions": [
+        {
+          "op": "next",
+          "key": "a"
+        },
+        {
+          "op": "drain",
+          "key": "a"
+        },
+        {
+          "op": "contains",
+          "key": "a"
+        }
+      ],
+      "other_actions": [
+        {
+          "op": "next",
+          "key": "b"
+        },
+        {
+          "op": "drain",
+          "key": "b"
+        },
+        {
+          "op": "contains",
+          "key": "b"
+        }
+      ],
+      "observer": {
+        "op": "next",
+        "key": "a"
+      },
+      "projection": "last_result",
+      "contrasts": 102,
+      "passed": 102
+    },
+    {
+      "task_id": "D1_C04",
+      "target_length": [
+        0,
+        1,
+        2
+      ],
+      "target_actions": [
+        {
+          "op": "call",
+          "instance": "a",
+          "x": 1
+        },
+        {
+          "op": "call",
+          "instance": "a",
+          "x": 2
+        },
+        {
+          "op": "clear",
+          "instance": "a"
+        }
+      ],
+      "other_actions": [
+        {
+          "op": "call",
+          "instance": "b",
+          "x": 1
+        },
+        {
+          "op": "call",
+          "instance": "b",
+          "x": 2
+        },
+        {
+          "op": "clear",
+          "instance": "b"
+        }
+      ],
+      "observer": {
+        "op": "call",
+        "instance": "a",
+        "x": 1
+      },
+      "projection": "instance_target",
+      "contrasts": 102,
+      "passed": 102
+    }
+  ],
+  "failures": [],
+  "model_calls": 0,
+  "seconds": 0.1792172000023129,
+  "python": "3.13.7 (tags/v3.13.7:bcee1c3, Aug 14 2025, 14:15:11) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "dataset_manifest_sha256": "c3593d11ae85cc23545aa91418c2ab3c97a4b005fd5e49963bdc28ae7e6eda9f",
+  "reference_source_hashes": {
+    "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_candidate_delivery_v4_portable_20261008\\dataset\\private\\D1_B02\\reference.py": "3cb55c0a7495f0d1f90b95385a6306e3fb490b968351259e93c3dde89f7e1669",
+    "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_candidate_delivery_v4_portable_20261008\\dataset\\private\\D1_B02\\alternate.py": "2fc61a6836997e0c9b35bcf48d1175ae01f665a208dbeac1bb22e6676332c580",
+    "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_candidate_delivery_v4_portable_20261008\\dataset\\private\\D1_B04\\reference.py": "593e26b66b1018c6cc80ab9af33145629e2e3f585cf9248e196627a6ab3e9f7f",
+    "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_candidate_delivery_v4_portable_20261008\\dataset\\private\\D1_B04\\alternate.py": "be28b1f2823fb1b158b4979b25ef8dc2e9d87e66f209cd8eca69c4592f2efa74",
+    "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_candidate_delivery_v4_portable_20261008\\dataset\\private\\D1_C01\\reference.py": "12ee6dc333c68c0a8c15825ed075ef32eb8ce8b6ce86a1a7222fa6bc59a39ae8",
+    "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_candidate_delivery_v4_portable_20261008\\dataset\\private\\D1_C01\\alternate.py": "18f543e7b2fecb1073bba9998675960ab1d5c3d5009f2742c6225d40272731e3",
+    "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_candidate_delivery_v4_portable_20261008\\dataset\\private\\D1_C02\\reference.py": "19c55b3c128ed4cba47a4857b2d066a81a0baacebb9995642e63ad8b09941629",
+    "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_candidate_delivery_v4_portable_20261008\\dataset\\private\\D1_C02\\alternate.py": "8c500242e94bc151ec76f70f407d743d6342e850c2680bd3872113b5e919a8c7",
+    "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_candidate_delivery_v4_portable_20261008\\dataset\\private\\D1_C03\\reference.py": "2abd0a7113c8b1dee2cf5a3d33839044b96fabf7fcbcbd16c8e416587aececa4",
+    "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_candidate_delivery_v4_portable_20261008\\dataset\\private\\D1_C03\\alternate.py": "360e2b85e6fa92b2e138a5f36ef395d2193390b9815ee46154271d40d71a56c7",
+    "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_candidate_delivery_v4_portable_20261008\\dataset\\private\\D1_C04\\reference.py": "98dcd11bde0ef9dfa5b7b0ca27e0f9db518e343ece63fc0293a928342df826ec",
+    "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_candidate_delivery_v4_portable_20261008\\dataset\\private\\D1_C04\\alternate.py": "a609c25256416ca8ca06611c573df596ae86b19d996f0351d56f78c42f4858f9",
+    "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_candidate_delivery_v4_portable_20261008\\dataset\\private\\D1_M03\\reference.py": "7c6808cf3b78c1a115e4ec69686ba3b8916398424c0e841bed78a6a9b5243930",
+    "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_candidate_delivery_v4_portable_20261008\\dataset\\private\\D1_M03\\alternate.py": "36bdf690ea19d32aa80b217d43c93f58720b588c006ab84051a862bed5e748b2",
+    "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_candidate_delivery_v4_portable_20261008\\dataset\\private\\D1_M04\\reference.py": "73aacf8fb8b8d3e5affb8ed149a1b70e1410159f985a26210bab92abe65e96c2",
+    "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_candidate_delivery_v4_portable_20261008\\dataset\\private\\D1_M04\\alternate.py": "7b33719f4dea80ca1f23e73ab6b4fa088969f7fde177b70064cd77d4d122de96"
+  },
+  "script_sha256": "0b7b1e27636e7939c907eeb6f9d881ff1bb85b81f3caa695ef37f815b4474c99",
+  "scope": "补充语义关系实验，非原307案例，非生成模型成绩/独立人工真值；有限关系通过不证明全域独立；粒度与投影必须明确"
+}

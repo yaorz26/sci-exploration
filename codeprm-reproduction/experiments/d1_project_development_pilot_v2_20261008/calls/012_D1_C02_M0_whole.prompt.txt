@@ -1,0 +1,74 @@
+你要编写Python代码。任务需求与公开示例如下；仅使用标准库，内部结构自由。
+{
+  "task_id": "D1_C02",
+  "requirement": "实现 solve(payload)，接收JSON对象，返回每条操作之后的记录列表。capacity是非负整数，每项占一个容量。键是字符串，值是任意JSON值。operations按顺序执行：put(key,value)新增或替换；get(key)返回值；delete(key)删除；contains(key)返回是否存在；clear清空；snapshot只观察。put/get会把该项视为最近使用，contains和观察不改变最近使用顺序；满容量新增时淘汰最久未使用项。每条记录为{result,items,size}：修改和snapshot的result为null，读取/查询为返回值；不存在的get/delete返回{error:'KeyError'}，capacity为0时put返回{error:'ValueError'}，这些错误不会中断后续操作。items为当前全部[key,value]，按键的字典序排序；size为当前项数。snapshot和每步自动观察都不能改变淘汰顺序。只能使用Python标准库，内部结构自由。\n另有ttl（非负数），每条操作都带time（非递减的数值时间）。每次put设该键过期时刻为time+ttl，替换会刷新；get只刷新最近使用顺序，不延长存活时间。time到达过期时刻即不存在，已过期项不占容量；每步记录只包含未过期项。不能使用真实系统时间。",
+  "entry_point": "solve(payload)",
+  "language": "Python",
+  "allowed_libraries": "仅Python标准库",
+  "public_examples": [
+    {
+      "input": {
+        "capacity": 2,
+        "ttl": 3,
+        "operations": [
+          {
+            "op": "put",
+            "key": "a",
+            "value": 1,
+            "time": 0
+          },
+          {
+            "op": "get",
+            "key": "a",
+            "time": 2
+          },
+          {
+            "op": "get",
+            "key": "a",
+            "time": 3
+          }
+        ]
+      },
+      "output": [
+        {
+          "result": null,
+          "items": [
+            [
+              "a",
+              1
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": 1,
+          "items": [
+            [
+              "a",
+              1
+            ]
+          ],
+          "size": 1
+        },
+        {
+          "result": {
+            "error": "KeyError"
+          },
+          "items": [],
+          "size": 0
+        }
+      ]
+    },
+    {
+      "input": {
+        "capacity": 1,
+        "ttl": 1,
+        "operations": []
+      },
+      "output": []
+    }
+  ],
+  "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。",
+  "internal_decomposition": "自由选择，不给定helper名称或数量"
+}
+直接完整实现solve(payload)，可自行使用辅助函数。只输出Python代码。

@@ -1,0 +1,200 @@
+{
+  "created_at": "2026-10-11T09:15:20.865205+00:00",
+  "purpose": "决策 3：上游 boltons.urlutils 的固定输入实测，判断任务规则表是否与上游一致",
+  "upstream": {
+    "path": "codeprm-reproduction\\data\\raw\\d1_project_v1_20261008\\repositories\\boltons\\boltons\\urlutils.py",
+    "sha256": "0de5f96e627483f3de1dce10fc4e5f8d913a36c800166842cd55970d4ddd0812",
+    "snapshot_repo": "codeprm-reproduction\\data\\raw\\d1_project_v1_20261008\\repositories\\boltons",
+    "source_commit_in_use": "4e5faa3d7e4008d89e0d8bf1ea87b6d9a061a16d（本项目冻结的 boltons 来源快照）",
+    "module_version_string": null
+  },
+  "inputs_count": 18,
+  "agreement": {
+    "minimal_matches": "7/18",
+    "full_matches": "15/18",
+    "both_match": "6/18"
+  },
+  "rows": [
+    {
+      "input": "http://h/p?q=a+b",
+      "upstream_minimal": "http://h/p?q=a b",
+      "upstream_full": "http://h/p?q=a%20b",
+      "local_minimal": "http://h/p?q=a+b",
+      "local_full": "http://h/p?q=a+b",
+      "minimal_matches": false,
+      "full_matches": false
+    },
+    {
+      "input": "http://h/p?q=a%20b",
+      "upstream_minimal": "http://h/p?q=a b",
+      "upstream_full": "http://h/p?q=a%20b",
+      "local_minimal": "http://h/p?q=a%20b",
+      "local_full": "http://h/p?q=a%20b",
+      "minimal_matches": false,
+      "full_matches": true
+    },
+    {
+      "input": "http://h/p?q=100%off",
+      "upstream_minimal": "http://h/p?q=100%off",
+      "upstream_full": "http://h/p?q=100%25off",
+      "local_minimal": "http://h/p?q=100%off",
+      "local_full": "http://h/p?q=100%off",
+      "minimal_matches": true,
+      "full_matches": false
+    },
+    {
+      "input": "http://h/files/report 1.pdf",
+      "upstream_minimal": "http://h/files/report 1.pdf",
+      "upstream_full": "http://h/files/report%201.pdf",
+      "local_minimal": "http://h/files/report 1.pdf",
+      "local_full": "http://h/files/report%201.pdf",
+      "minimal_matches": true,
+      "full_matches": true
+    },
+    {
+      "input": "http://h/p?a=%2Fx%3Fy&b=z",
+      "upstream_minimal": "http://h/p?a=/x?y&b=z",
+      "upstream_full": "http://h/p?a=/x?y&b=z",
+      "local_minimal": "http://h/p?a=%2Fx%3Fy&b=z",
+      "local_full": "http://h/p?a=%2Fx%3Fy&b=z",
+      "minimal_matches": false,
+      "full_matches": false
+    },
+    {
+      "input": "http://h/p?q=a\"b",
+      "upstream_minimal": "http://h/p?q=a\"b",
+      "upstream_full": "http://h/p?q=a%22b",
+      "local_minimal": "http://h/p?q=a%22b",
+      "local_full": "http://h/p?q=a%22b",
+      "minimal_matches": false,
+      "full_matches": true
+    },
+    {
+      "input": "http://h/p?q=a\\b",
+      "upstream_minimal": "http://h/p?q=a\\b",
+      "upstream_full": "http://h/p?q=a%5Cb",
+      "local_minimal": "http://h/p?q=a%5Cb",
+      "local_full": "http://h/p?q=a%5Cb",
+      "minimal_matches": false,
+      "full_matches": true
+    },
+    {
+      "input": "http://h/p?q=a`b",
+      "upstream_minimal": "http://h/p?q=a`b",
+      "upstream_full": "http://h/p?q=a%60b",
+      "local_minimal": "http://h/p?q=a%60b",
+      "local_full": "http://h/p?q=a%60b",
+      "minimal_matches": false,
+      "full_matches": true
+    },
+    {
+      "input": "http://h/p?q=a<b>c",
+      "upstream_minimal": "http://h/p?q=a<b>c",
+      "upstream_full": "http://h/p?q=a%3Cb%3Ec",
+      "local_minimal": "http://h/p?q=a%3Cb%3Ec",
+      "local_full": "http://h/p?q=a%3Cb%3Ec",
+      "minimal_matches": false,
+      "full_matches": true
+    },
+    {
+      "input": "http://h/p?q=a b",
+      "upstream_minimal": "http://h/p?q=a b",
+      "upstream_full": "http://h/p?q=a%20b",
+      "local_minimal": "http://h/p?q=a b",
+      "local_full": "http://h/p?q=a%20b",
+      "minimal_matches": true,
+      "full_matches": true
+    },
+    {
+      "input": "http://h/p?q=中文",
+      "upstream_minimal": "http://h/p?q=中文",
+      "upstream_full": "http://h/p?q=%E4%B8%AD%E6%96%87",
+      "local_minimal": "http://h/p?q=%E4%B8%AD%E6%96%87",
+      "local_full": "http://h/p?q=%E4%B8%AD%E6%96%87",
+      "minimal_matches": false,
+      "full_matches": true
+    },
+    {
+      "input": "http://h/p#frag ment",
+      "upstream_minimal": "http://h/p#frag ment",
+      "upstream_full": "http://h/p#frag%20ment",
+      "local_minimal": "http://h/p#frag ment",
+      "local_full": "http://h/p#frag%20ment",
+      "minimal_matches": true,
+      "full_matches": true
+    },
+    {
+      "input": "http://h/p#a#b",
+      "upstream_minimal": "http://h/p#a%23b",
+      "upstream_full": "http://h/p#a%23b",
+      "local_minimal": "http://h/p#a%23b",
+      "local_full": "http://h/p#a%23b",
+      "minimal_matches": true,
+      "full_matches": true
+    },
+    {
+      "input": "http://h/p/q",
+      "upstream_minimal": "http://h/p/q",
+      "upstream_full": "http://h/p/q",
+      "local_minimal": "http://h/p/q",
+      "local_full": "http://h/p/q",
+      "minimal_matches": true,
+      "full_matches": true
+    },
+    {
+      "input": "http://h/p?q=a|b",
+      "upstream_minimal": "http://h/p?q=a|b",
+      "upstream_full": "http://h/p?q=a%7Cb",
+      "local_minimal": "http://h/p?q=a%7Cb",
+      "local_full": "http://h/p?q=a%7Cb",
+      "minimal_matches": false,
+      "full_matches": true
+    },
+    {
+      "input": "http://h/p?q={x}",
+      "upstream_minimal": "http://h/p?q={x}",
+      "upstream_full": "http://h/p?q=%7Bx%7D",
+      "local_minimal": "http://h/p?q=%7Bx%7D",
+      "local_full": "http://h/p?q=%7Bx%7D",
+      "minimal_matches": false,
+      "full_matches": true
+    },
+    {
+      "input": "http://h/p?q=[y]",
+      "upstream_minimal": "http://h/p?q=%5By%5D",
+      "upstream_full": "http://h/p?q=%5By%5D",
+      "local_minimal": "http://h/p?q=%5By%5D",
+      "local_full": "http://h/p?q=%5By%5D",
+      "minimal_matches": true,
+      "full_matches": true
+    },
+    {
+      "input": "http://h/p?q=a^b",
+      "upstream_minimal": "http://h/p?q=a^b",
+      "upstream_full": "http://h/p?q=a%5Eb",
+      "local_minimal": "http://h/p?q=a%5Eb",
+      "local_full": "http://h/p?q=a%5Eb",
+      "minimal_matches": false,
+      "full_matches": true
+    }
+  ],
+  "full_mode_differences": [
+    {
+      "input": "http://h/p?q=a+b",
+      "upstream_full": "http://h/p?q=a%20b",
+      "local_full": "http://h/p?q=a+b"
+    },
+    {
+      "input": "http://h/p?q=100%off",
+      "upstream_full": "http://h/p?q=100%25off",
+      "local_full": "http://h/p?q=100%off"
+    },
+    {
+      "input": "http://h/p?a=%2Fx%3Fy&b=z",
+      "upstream_full": "http://h/p?a=/x?y&b=z",
+      "local_full": "http://h/p?a=%2Fx%3Fy&b=z"
+    }
+  ],
+  "model_calls": 0,
+  "human_reviews": 0
+}

@@ -1,0 +1,20 @@
+{
+  "source_problems": 48,
+  "partial_prefix_nodes": 103,
+  "rollouts_per_node": 4,
+  "planned_requests": 412,
+  "max_requests": 600,
+  "source_rule": "first structurally valid unique candidate by candidate index per problem",
+  "completed_nodes": 103,
+  "completed_requests": 412,
+  "successful_rollouts": 47,
+  "prompt_tokens": 230120,
+  "output_tokens": 83184,
+  "model_reported_seconds": 1869.0336266,
+  "elapsed_seconds": 2066.2353523,
+  "private_policy": "training split only; tests and feedback absent from prompts",
+  "outputs": {
+    "nodes": "data\\processed\\funprm_exact_prefix_train50_k4_seed42000_20260922_nodes.jsonl",
+    "finals": "data\\processed\\funprm_exact_prefix_train50_k4_seed42000_20260922_finals.jsonl"
+  }
+}

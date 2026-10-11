@@ -1,0 +1,438 @@
+{
+  "created_at": "2026-10-09T03:53:21Z",
+  "cases": [
+    {
+      "case_id": "length_128_mixed_tie",
+      "input": {
+        "data": [
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7,
+          "k",
+          7
+        ]
+      },
+      "expected": {
+        "value": {
+          "count": 128,
+          "mode": "k"
+        }
+      },
+      "reason": "两值各64次，首次k"
+    },
+    {
+      "case_id": "length_129_rejected",
+      "input": {
+        "data": [
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7
+        ]
+      },
+      "expected": {
+        "error": "ValueError"
+      },
+      "reason": "超长度先于统计"
+    },
+    {
+      "case_id": "new_float_default",
+      "input": {
+        "data": [],
+        "default": 4.0
+      },
+      "expected": {
+        "value": {
+          "count": 0,
+          "mode": 4.0
+        }
+      },
+      "reason": "空且float default类型保留"
+    },
+    {
+      "case_id": "integer_mode_with_order",
+      "input": {
+        "data": [
+          9,
+          8,
+          8
+        ]
+      },
+      "expected": {
+        "value": {
+          "count": 3,
+          "mode": 8
+        }
+      },
+      "reason": "8两次且输入次序不得改变"
+    },
+    {
+      "case_id": "new_bool_default",
+      "input": {
+        "data": [],
+        "default": true
+      },
+      "expected": {
+        "value": {
+          "count": 0,
+          "mode": true
+        }
+      },
+      "reason": "True default合法且布尔类型保留"
+    },
+    {
+      "case_id": "extra_field_before_bad_item",
+      "input": {
+        "data": [
+          true
+        ],
+        "extra": 1
+      },
+      "expected": {
+        "error": "ValueError"
+      },
+      "reason": "额外字段先于元素类型"
+    },
+    {
+      "case_id": "data_type_before_default_type",
+      "input": {
+        "data": "bad",
+        "default": []
+      },
+      "expected": {
+        "error": "TypeError"
+      },
+      "reason": "data非列表，在default检查之前拒绝"
+    },
+    {
+      "case_id": "new_integer_default",
+      "input": {
+        "data": [],
+        "default": 7
+      },
+      "expected": {
+        "value": {
+          "count": 0,
+          "mode": 7
+        }
+      },
+      "reason": "空且int default类型保留"
+    }
+  ],
+  "programs": {
+    "correct_whole": "import math\n\ndef _validate(payload):\n    if type(payload) is not dict:\n        raise TypeError(\"payload must be a plain dictionary\")\n    if \"data\" not in payload:\n        raise ValueError(\"missing data\")\n    if set(payload) - {\"data\", \"default\"}:\n        raise ValueError(\"unexpected field\")\n    values = payload[\"data\"]\n    if type(values) is not list:\n        raise TypeError(\"data must be a list\")\n    if len(values) > 128:\n        raise ValueError(\"data exceeds 128 items\")\n    if any(type(value) not in (int, str) for value in values):\n        raise TypeError(\"data items must have exact type int or str\")\n    default = payload.get(\"default\", None)\n    if default is not None and type(default) not in (bool, str, int, float):\n        raise TypeError(\"default must be a JSON scalar\")\n    if type(default) is float and not math.isfinite(default):\n        raise ValueError(\"default must be finite\")\n    return values, default\n\ndef solve(payload):\n    values, default = _validate(payload)\n    frequencies = {}\n    for value in values:\n        frequencies[value] = frequencies.get(value, 0) + 1\n    mode = default\n    if values:\n        highest = max(frequencies.values())\n        for value in values:\n            if frequencies[value] == highest:\n                mode = value\n                break\n    return {\"count\": len(values), \"mode\": mode}\n",
+    "float_count": "import math\n\ndef _validate(payload):\n    if type(payload) is not dict:\n        raise TypeError(\"payload must be a plain dictionary\")\n    if \"data\" not in payload:\n        raise ValueError(\"missing data\")\n    if set(payload) - {\"data\", \"default\"}:\n        raise ValueError(\"unexpected field\")\n    values = payload[\"data\"]\n    if type(values) is not list:\n        raise TypeError(\"data must be a list\")\n    if len(values) > 128:\n        raise ValueError(\"data exceeds 128 items\")\n    if any(type(value) not in (int, str) for value in values):\n        raise TypeError(\"data items must have exact type int or str\")\n    default = payload.get(\"default\", None)\n    if default is not None and type(default) not in (bool, str, int, float):\n        raise TypeError(\"default must be a JSON scalar\")\n    if type(default) is float and not math.isfinite(default):\n        raise ValueError(\"default must be finite\")\n    return values, default\n\ndef solve(payload):\n    values, default = _validate(payload)\n    frequencies = {}\n    for value in values:\n        frequencies[value] = frequencies.get(value, 0) + 1\n    mode = default\n    if values:\n        highest = max(frequencies.values())\n        for value in values:\n            if frequencies[value] == highest:\n                mode = value\n                break\n    return {\"count\": len(values), \"mode\": mode}\n\n_base_solve = solve\ndef solve(payload):\n    result = _base_solve(payload)\n    result[\"count\"] = float(result[\"count\"])\n    return result\n",
+    "numeric_mode_drift": "import math\n\ndef _validate(payload):\n    if type(payload) is not dict:\n        raise TypeError(\"payload must be a plain dictionary\")\n    if \"data\" not in payload:\n        raise ValueError(\"missing data\")\n    if set(payload) - {\"data\", \"default\"}:\n        raise ValueError(\"unexpected field\")\n    values = payload[\"data\"]\n    if type(values) is not list:\n        raise TypeError(\"data must be a list\")\n    if len(values) > 128:\n        raise ValueError(\"data exceeds 128 items\")\n    if any(type(value) not in (int, str) for value in values):\n        raise TypeError(\"data items must have exact type int or str\")\n    default = payload.get(\"default\", None)\n    if default is not None and type(default) not in (bool, str, int, float):\n        raise TypeError(\"default must be a JSON scalar\")\n    if type(default) is float and not math.isfinite(default):\n        raise ValueError(\"default must be finite\")\n    return values, default\n\ndef solve(payload):\n    values, default = _validate(payload)\n    frequencies = {}\n    for value in values:\n        frequencies[value] = frequencies.get(value, 0) + 1\n    mode = default\n    if values:\n        highest = max(frequencies.values())\n        for value in values:\n            if frequencies[value] == highest:\n                mode = value\n                break\n    return {\"count\": len(values), \"mode\": mode}\n\n_base_solve = solve\ndef solve(payload):\n    result = _base_solve(payload)\n    value = result[\"mode\"]\n    if type(value) is int:\n        result[\"mode\"] = float(value)\n    elif type(value) is float and value.is_integer():\n        result[\"mode\"] = int(value)\n    return result\n",
+    "mutate_after_result": "import math\n\ndef _validate(payload):\n    if type(payload) is not dict:\n        raise TypeError(\"payload must be a plain dictionary\")\n    if \"data\" not in payload:\n        raise ValueError(\"missing data\")\n    if set(payload) - {\"data\", \"default\"}:\n        raise ValueError(\"unexpected field\")\n    values = payload[\"data\"]\n    if type(values) is not list:\n        raise TypeError(\"data must be a list\")\n    if len(values) > 128:\n        raise ValueError(\"data exceeds 128 items\")\n    if any(type(value) not in (int, str) for value in values):\n        raise TypeError(\"data items must have exact type int or str\")\n    default = payload.get(\"default\", None)\n    if default is not None and type(default) not in (bool, str, int, float):\n        raise TypeError(\"default must be a JSON scalar\")\n    if type(default) is float and not math.isfinite(default):\n        raise ValueError(\"default must be finite\")\n    return values, default\n\ndef solve(payload):\n    values, default = _validate(payload)\n    frequencies = {}\n    for value in values:\n        frequencies[value] = frequencies.get(value, 0) + 1\n    mode = default\n    if values:\n        highest = max(frequencies.values())\n        for value in values:\n            if frequencies[value] == highest:\n                mode = value\n                break\n    return {\"count\": len(values), \"mode\": mode}\n\n_base_solve = solve\ndef solve(payload):\n    result = _base_solve(payload)\n    payload[\"data\"].reverse()\n    return result\n",
+    "wrong_exception": "import math\n\ndef _validate(payload):\n    if type(payload) is not dict:\n        raise TypeError(\"payload must be a plain dictionary\")\n    if \"data\" not in payload:\n        raise ValueError(\"missing data\")\n    if set(payload) - {\"data\", \"default\"}:\n        raise ValueError(\"unexpected field\")\n    values = payload[\"data\"]\n    if type(values) is not list:\n        raise TypeError(\"data must be a list\")\n    if len(values) > 128:\n        raise ValueError(\"data exceeds 128 items\")\n    if any(type(value) not in (int, str) for value in values):\n        raise TypeError(\"data items must have exact type int or str\")\n    default = payload.get(\"default\", None)\n    if default is not None and type(default) not in (bool, str, int, float):\n        raise TypeError(\"default must be a JSON scalar\")\n    if type(default) is float and not math.isfinite(default):\n        raise ValueError(\"default must be finite\")\n    return values, default\n\ndef solve(payload):\n    values, default = _validate(payload)\n    frequencies = {}\n    for value in values:\n        frequencies[value] = frequencies.get(value, 0) + 1\n    mode = default\n    if values:\n        highest = max(frequencies.values())\n        for value in values:\n            if frequencies[value] == highest:\n                mode = value\n                break\n    return {\"count\": len(values), \"mode\": mode}\n\n_base_solve = solve\ndef solve(payload):\n    try:\n        return _base_solve(payload)\n    except (TypeError, ValueError):\n        raise RuntimeError(\"错误异常类型控制\") from None\n"
+  },
+  "predictions": {
+    "correct_whole": {
+      "raw": 8,
+      "typed": 8,
+      "typed_content_without_input": 8,
+      "value_only": 5
+    },
+    "float_count": {
+      "raw": 8,
+      "typed": 3,
+      "typed_content_without_input": 3,
+      "value_only": 0
+    },
+    "numeric_mode_drift": {
+      "raw": 8,
+      "typed": 5,
+      "typed_content_without_input": 5,
+      "value_only": 2
+    },
+    "mutate_after_result": {
+      "raw": 6,
+      "typed": 6,
+      "typed_content_without_input": 8,
+      "value_only": 5
+    },
+    "wrong_exception": {
+      "raw": 5,
+      "typed": 5,
+      "typed_content_without_input": 5,
+      "value_only": 5
+    }
+  },
+  "source_hashes": {
+    "experiments\\d1_discrete_candidate_boundary_v1_20261009\\candidate\\whole.py": "afb6b27b1058b89faeea7c6027858fe8989ddb934482b46bf9a9c7ff40c603e2",
+    "experiments\\d1_discrete_candidate_boundary_v1_20261009\\candidate\\requirements.md": "1a1653b82eb4c9361b6977cebfed416417c3d5a3bcac5bfa543bbab6a105845c",
+    "experiments\\d1_typed_candidate_gate_v1_20261009\\candidate_v2_delta\\typed_comparison.py": "b5088cf118746800d7ed9dacd75ebbd4756abe03a427034cf298aa0b6f2a2014",
+    "scripts\\d1\\evaluate_candidate.py": "8ecaaae3e58c3e4eef67c3bf22fc329c8465c7655c1174a0b1edccefe1df31f8",
+    "scripts\\d1\\probe_typed_candidate_execution.py": "558d5616c73e42e9a11117e776973957e167117cf8a5d945bffc9ac91300aae6"
+  },
+  "candidate_file_hashes": {
+    "evaluate_typed_candidate.py": "c71b5ca52defc4217c68999d776bcdb3d57c093c25aa0fb3c89763b055ebc0d0",
+    "helpers.py": "87dfb7eb6e36ff5364a01706b300e547f4debec25494fd6198bbc7f17d1ee403",
+    "public_diagnostics_v1_prior_not_rerun.json": "2a74e77b4e355729c9424f07dc507a629d7bb380514f12c59c4190ceb60ed6dc",
+    "public_diagnostics_v2_new.json": "1f03f9db512d71ac056d44a47d7b73f586641024b0e52d6c75c837b6110d7580",
+    "requirements.md": "2ea2d9d4597675a1eb0d6814fa14b169f147bf317c6567dc867c0bcc55ee1eca",
+    "requirements_v1_preserved.md": "1a1653b82eb4c9361b6977cebfed416417c3d5a3bcac5bfa543bbab6a105845c",
+    "source_adapter.py": "d8246ad07b64fb174925e76660249f78b3c919ffec486d796a409673704addc9",
+    "task.json": "93dbe69b2f27a4c9a8f07ea969e474dbfaa86446167d851f51f2acb67588cdb6",
+    "typed_comparison.py": "b5088cf118746800d7ed9dacd75ebbd4756abe03a427034cf298aa0b6f2a2014",
+    "whole.py": "afb6b27b1058b89faeea7c6027858fe8989ddb934482b46bf9a9c7ff40c603e2",
+    "controls\\float_count.py": "4c623c1315b69ca0dd5dc03e050cdec4be424a873053921097b5311eec1534e7",
+    "controls\\mutate_after_result.py": "70aa0d119814bc166336b6444c57863837e1e1c0ef91576634f9806cd67adfe6",
+    "controls\\numeric_mode_drift.py": "4914563be5c79c5362e22f06d129c689982c155d462e8144560b0323661b2d86",
+    "controls\\wrong_exception.py": "69a20d5ffd28805e32b7ba45704f770e92a78d2ca773435f4d80aa9e14ed5fb6",
+    "sources\\LICENSE": "c301912653a8d8c99eab6212aa3aea8d164ea249d8ad53c941e0558a0a5ac1e3",
+    "sources\\statsutils.py": "0c4d05a17b14244a880e5047c1823d1e1e522e6c5ee76c6b47f54d8bde791e68"
+  },
+  "new_solve_upper_limit": 40,
+  "old_diagnostic_reruns": 0,
+  "model_calls": 0,
+  "private_reads": 0
+}

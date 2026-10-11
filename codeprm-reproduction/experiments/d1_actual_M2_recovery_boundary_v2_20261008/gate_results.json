@@ -1,0 +1,60 @@
+[
+  {
+    "id": "wrong_identity_join",
+    "entry": "def solve(payload):\n    sorted_keys = _sorted_keys(payload)\n    result = _gather(payload, list(range(len(sorted_keys))))\n    if not result:\n        return result\n    for position, column in enumerate(payload.get('keys', [0])):\n        result[column] = [row[position] for row in sorted_keys]\n    return result\n",
+    "helpers": "def _sorted_keys(payload):\n    columns = payload['columns']\n    lengths = [len(col) for col in columns]\n    if payload.get('strict', False) and len(set(lengths)) > 1:\n        raise ValueError('unequal lengths')\n    length = min(lengths)\n    keys = payload.get('keys', [0])\n    return sorted([tuple(columns[k][i] for k in keys) for i in range(length)], reverse=payload.get('reverse', False))\n\ndef _gather(payload, indices):\n    if not indices:\n        return []\n    return [[col[i] for i in indices] for col in payload['columns']]",
+    "source": "experiments/d1_interface_information_recovery_v1_20261008/wrong_identity_join.py",
+    "source_sha256": "600fe1845d8267d0ac763fa0949396fc1ba440cc2ea8a71d7a75094adcf6a4b6",
+    "expected_gate_accept": true,
+    "behavior_evidence": "沿用P34，不重新评分",
+    "entry_file": "wrong_identity_join_entry.py",
+    "entry_sha256": "c4949d7881380079462e402a1b2f91429cb7bbf43ebab1785fd95606ac366b72",
+    "accepted_by_actual_entry_and_solve_gates": true,
+    "error": null,
+    "direct_helper_call_names": [
+      "_gather",
+      "_sorted_keys"
+    ],
+    "direct_helper_call_count": 2,
+    "entry_has_sorted_call": false,
+    "full_payload_runtime_argument": true,
+    "expected_gate_accept_match": true
+  },
+  {
+    "id": "original_input_recovery",
+    "entry": "def solve(payload):\n    sorted_keys = _sorted_keys(payload)\n    keys = payload.get('keys', [0])\n    indices = sorted(range(len(sorted_keys)), key=lambda i: tuple(payload['columns'][k][i] for k in keys), reverse=payload.get('reverse', False))\n    assert [tuple(payload['columns'][k][i] for k in keys) for i in indices] == sorted_keys\n    return _gather(payload, indices)\n",
+    "helpers": "def _sorted_keys(payload):\n    columns = payload['columns']\n    lengths = [len(col) for col in columns]\n    if payload.get('strict', False) and len(set(lengths)) > 1:\n        raise ValueError('unequal lengths')\n    length = min(lengths)\n    keys = payload.get('keys', [0])\n    return sorted([tuple(columns[k][i] for k in keys) for i in range(length)], reverse=payload.get('reverse', False))\n\ndef _gather(payload, indices):\n    if not indices:\n        return []\n    return [[col[i] for i in indices] for col in payload['columns']]",
+    "source": "experiments/d1_interface_information_recovery_v1_20261008/original_input_recovery.py",
+    "source_sha256": "6641614ddf5a3d02e9d789e76070b835c6ee7830b504d31c0e96e49a29e98b3a",
+    "expected_gate_accept": true,
+    "behavior_evidence": "沿用P34，不重新评分",
+    "entry_file": "original_input_recovery_entry.py",
+    "entry_sha256": "0522fa1ee5186f9bc7dfc28d9d6e362247fccc71aa28b4638298ff493b5afb1d",
+    "accepted_by_actual_entry_and_solve_gates": true,
+    "error": null,
+    "direct_helper_call_names": [
+      "_gather",
+      "_sorted_keys"
+    ],
+    "direct_helper_call_count": 2,
+    "entry_has_sorted_call": true,
+    "full_payload_runtime_argument": true,
+    "expected_gate_accept_match": true
+  },
+  {
+    "id": "no_helper_prompt_control",
+    "entry": "def solve(payload):\n    columns = payload['columns']\n    lengths = [len(col) for col in columns]\n    if payload.get('strict', False) and len(set(lengths)) > 1:\n        raise ValueError('unequal lengths')\n    length = min(lengths)\n    keys = payload.get('keys', [0])\n    indices = sorted(range(length), key=lambda i: tuple(columns[k][i] for k in keys), reverse=payload.get('reverse', False))\n    return [[col[i] for i in indices] for col in columns] if indices else []\n",
+    "helpers": "def _sorted_keys(payload):\n    columns = payload['columns']\n    lengths = [len(col) for col in columns]\n    if payload.get('strict', False) and len(set(lengths)) > 1:\n        raise ValueError('unequal lengths')\n    length = min(lengths)\n    keys = payload.get('keys', [0])\n    return sorted([tuple(columns[k][i] for k in keys) for i in range(length)], reverse=payload.get('reverse', False))\n\ndef _gather(payload, indices):\n    if not indices:\n        return []\n    return [[col[i] for i in indices] for col in payload['columns']]",
+    "expected_gate_accept": true,
+    "behavior_evidence": "本阶段不求值，不声称通过",
+    "entry_file": "no_helper_prompt_control_entry.py",
+    "entry_sha256": "3deb461b0f1fa6f994427f38dc4da1b448e9acb0426e04751fb03af35549127c",
+    "accepted_by_actual_entry_and_solve_gates": true,
+    "error": null,
+    "direct_helper_call_names": [],
+    "direct_helper_call_count": 0,
+    "entry_has_sorted_call": true,
+    "full_payload_runtime_argument": true,
+    "expected_gate_accept_match": true
+  }
+]

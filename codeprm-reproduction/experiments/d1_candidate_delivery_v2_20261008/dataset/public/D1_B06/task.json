@@ -1,0 +1,63 @@
+{
+  "task_id": "D1_B06",
+  "requirement": "实现solve(payload)。tree为嵌套JSON对象或数组；queries为带path及可选default的对象列表。path为字符串/整数的列表：对象按键查找，数组按整数索引查找，数组的字符串索引可先转int；支持负索引。保证查询不会在字符串叶子之后继续索引。路径任一段找不到、索引越界、不能转换索引或遇到其他不可索引值时，该查询返回default；未给default则返回{error:'missing'}。空路径返回整棵tree。返回按queries顺序排列的结果列表，不改变输入和其他查询。只用标准库，内部结构自由。",
+  "entry_point": "solve(payload)",
+  "language": "Python",
+  "allowed_libraries": "仅Python标准库",
+  "public_examples": [
+    {
+      "input": {
+        "tree": {
+          "a": [
+            {
+              "x": 2
+            }
+          ]
+        },
+        "queries": [
+          {
+            "path": [
+              "a",
+              "0",
+              "x"
+            ]
+          },
+          {
+            "path": [
+              "a",
+              2
+            ],
+            "default": 0
+          }
+        ]
+      },
+      "output": [
+        2,
+        0
+      ]
+    },
+    {
+      "input": {
+        "tree": {},
+        "queries": [
+          {
+            "path": []
+          },
+          {
+            "path": [
+              "x"
+            ]
+          }
+        ]
+      },
+      "output": [
+        {},
+        {
+          "error": "missing"
+        }
+      ]
+    }
+  ],
+  "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。",
+  "internal_decomposition": "自由选择，不给定helper名称或数量"
+}

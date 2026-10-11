@@ -1,0 +1,70 @@
+{
+  "task_id": "D1_F04",
+  "name": "对象字段与数值序列配置校验",
+  "source": {
+    "repository": "beetbox/confuse",
+    "commit": "bf42783301ac4e9c640328ec95486952fd599ce6",
+    "license": "MIT",
+    "file": "confuse/templates.py",
+    "symbol": "MappingTemplate",
+    "line": 177,
+    "source_sha256": "3d402899899c4b919bd1692c434a0dc8e1800ffbfbe59b0bb2a8da3cc9b18030",
+    "license_sha256": "0b308ae66aaa1412ebbe645bec4002fd262d91e9cdf67b6f198026677ddfafcc",
+    "contamination_risk": "unknown",
+    "additional_symbols": [
+      {
+        "file": "confuse/templates.py",
+        "symbol": "Sequence",
+        "line": 208,
+        "source_sha256": "3d402899899c4b919bd1692c434a0dc8e1800ffbfbe59b0bb2a8da3cc9b18030"
+      },
+      {
+        "file": "confuse/templates.py",
+        "symbol": "Integer",
+        "line": 150,
+        "source_sha256": "3d402899899c4b919bd1692c434a0dc8e1800ffbfbe59b0bb2a8da3cc9b18030"
+      },
+      {
+        "file": "confuse/templates.py",
+        "symbol": "String",
+        "line": 277,
+        "source_sha256": "3d402899899c4b919bd1692c434a0dc8e1800ffbfbe59b0bb2a8da3cc9b18030"
+      }
+    ]
+  },
+  "requirement_origin": "上游公开API文档/说明为主，适配器范围与边界补充；已查看实现，需独立泄漏审查",
+  "adaptation": "统一JSON入口和返回值，保留所选功能；不作为完整仓库任务",
+  "split": "reserve",
+  "structure": {
+    "kind": "pipeline",
+    "shared_state": "none",
+    "dependency_evidence": "缺失默认、嵌套字段及逐项类型校验共同决定最终对象或异常",
+    "independent_test_evidence": "数值转换、缺失默认及对象构造有独立行为契约",
+    "status": "单人预标注，尚未取得独立一致性统计"
+  },
+  "function_family": "object_sequence_validation",
+  "public_cases": 2,
+  "private_cases": 14,
+  "status": "候选原型，非冻结确认集",
+  "authoring_seed": 20261008,
+  "structure_v2": {
+    "schema_version": "0.2",
+    "cross_operation_state": "none",
+    "state_scope": "none",
+    "behavior_dependencies": [
+      "ordered_transform",
+      "branch_rules"
+    ],
+    "separate_behavior_testability": "yes",
+    "evidence": "数字转换及默认行为可给单独契约；对象合成或异常传播",
+    "status": "单人初标；依据外部契约，未取得独立人工一致性统计",
+    "legacy_author_description": {
+      "kind": "pipeline",
+      "shared_state": "none",
+      "dependency_evidence": "缺失默认、嵌套字段及逐项类型校验共同决定最终对象或异常",
+      "independent_test_evidence": "数值转换、缺失默认及对象构造有独立行为契约",
+      "status": "单人预标注，尚未取得独立一致性统计"
+    }
+  },
+  "related_families": []
+}

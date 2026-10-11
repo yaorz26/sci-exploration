@@ -1,0 +1,229 @@
+{
+  "anchors": [
+    {
+      "id": "late_block",
+      "sources": [
+        {
+          "x": {
+            "a": 1
+          }
+        },
+        {
+          "x": {
+            "b": 2
+          }
+        },
+        {
+          "x": 0
+        }
+      ],
+      "expected": {
+        "x": {
+          "a": 1
+        }
+      }
+    },
+    {
+      "id": "nested_gate",
+      "sources": [
+        {
+          "x": {
+            "q": {
+              "a": 1
+            },
+            "z": 1
+          }
+        },
+        {
+          "x": {
+            "q": {
+              "b": 2
+            },
+            "z": 2
+          }
+        },
+        {
+          "x": {
+            "q": 0
+          }
+        }
+      ],
+      "expected": {
+        "x": {
+          "q": {
+            "a": 1
+          },
+          "z": 1
+        }
+      }
+    },
+    {
+      "id": "missing_identity",
+      "sources": [
+        {
+          "x": {
+            "a": 1
+          }
+        },
+        {},
+        {
+          "x": {
+            "b": 2
+          }
+        }
+      ],
+      "expected": {
+        "x": {
+          "a": 1,
+          "b": 2
+        }
+      }
+    },
+    {
+      "id": "null_is_value",
+      "sources": [
+        {
+          "x": null
+        },
+        {},
+        {
+          "x": {
+            "a": 1
+          }
+        }
+      ],
+      "expected": {
+        "x": null
+      }
+    },
+    {
+      "id": "array_blocks_whole",
+      "sources": [
+        {
+          "x": {
+            "a": 1
+          }
+        },
+        {
+          "x": [
+            1
+          ]
+        },
+        {
+          "x": {
+            "b": 2
+          }
+        }
+      ],
+      "expected": {
+        "x": {
+          "a": 1
+        }
+      }
+    },
+    {
+      "id": "empty_objects",
+      "sources": [
+        {
+          "x": {}
+        },
+        {},
+        {
+          "x": {}
+        }
+      ],
+      "expected": {
+        "x": {}
+      }
+    }
+  ],
+  "collisions": [
+    {
+      "id": "merged_value_plus_flag_and_count",
+      "left_prefix": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        }
+      ],
+      "right_prefix": [
+        {
+          "a": 1,
+          "b": 2
+        },
+        {}
+      ],
+      "suffix": 0,
+      "projection": [
+        "merged_value",
+        "all_objects",
+        "source_count"
+      ],
+      "prefix_expected": [
+        {
+          "a": 1,
+          "b": 2
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ],
+      "after_suffix_expected": [
+        {
+          "a": 1
+        },
+        {
+          "a": 1,
+          "b": 2
+        }
+      ]
+    },
+    {
+      "id": "first_value_plus_flag_and_count",
+      "left_prefix": [
+        {
+          "a": 1
+        },
+        {
+          "b": 2
+        }
+      ],
+      "right_prefix": [
+        {
+          "a": 1
+        },
+        {}
+      ],
+      "suffix": {},
+      "projection": [
+        "first",
+        "all_objects",
+        "source_count"
+      ],
+      "prefix_expected": [
+        {
+          "a": 1,
+          "b": 2
+        },
+        {
+          "a": 1
+        }
+      ],
+      "after_suffix_expected": [
+        {
+          "a": 1,
+          "b": 2
+        },
+        {
+          "a": 1
+        }
+      ]
+    }
+  ],
+  "domain_source": "experiments/d1_layered_merge_reduction_v1_20261008/grid_results.json",
+  "new_reference_calls": 0,
+  "rule": "公开规则接口诊断；P31隐藏描述暴露已知，非未见确认；缺失单位元None不等于值摘要first=None"
+}

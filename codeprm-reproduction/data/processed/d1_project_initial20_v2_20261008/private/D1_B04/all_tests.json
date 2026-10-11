@@ -1,0 +1,303 @@
+[
+  {
+    "case_id": "public_1",
+    "input": {
+      "query": "a=1&a=2;flag&x=",
+      "operations": [
+        {
+          "op": "set",
+          "key": "a",
+          "value": "x y"
+        }
+      ]
+    },
+    "expected": {
+      "value": {
+        "pairs": [
+          [
+            "flag",
+            null
+          ],
+          [
+            "x",
+            null
+          ],
+          [
+            "a",
+            "x y"
+          ]
+        ],
+        "query": "flag&x&a=x%20y"
+      }
+    }
+  },
+  {
+    "case_id": "public_2",
+    "input": {
+      "query": "",
+      "operations": [
+        {
+          "op": "add",
+          "key": "q",
+          "value": ""
+        }
+      ]
+    },
+    "expected": {
+      "value": {
+        "pairs": [
+          [
+            "q",
+            ""
+          ]
+        ],
+        "query": "q="
+      }
+    }
+  },
+  {
+    "case_id": "hidden_1",
+    "input": {
+      "query": "",
+      "operations": []
+    },
+    "expected": {
+      "value": {
+        "pairs": [],
+        "query": ""
+      }
+    }
+  },
+  {
+    "case_id": "hidden_2",
+    "input": {
+      "query": "&&;;",
+      "operations": []
+    },
+    "expected": {
+      "value": {
+        "pairs": [],
+        "query": ""
+      }
+    }
+  },
+  {
+    "case_id": "hidden_3",
+    "input": {
+      "query": "a=1&a=2",
+      "operations": []
+    },
+    "expected": {
+      "value": {
+        "pairs": [
+          [
+            "a",
+            "1"
+          ],
+          [
+            "a",
+            "2"
+          ]
+        ],
+        "query": "a=1&a=2"
+      }
+    }
+  },
+  {
+    "case_id": "hidden_4",
+    "input": {
+      "query": "q=a+b%2Bc",
+      "operations": []
+    },
+    "expected": {
+      "value": {
+        "pairs": [
+          [
+            "q",
+            "a b+c"
+          ]
+        ],
+        "query": "q=a%20b%2Bc"
+      }
+    }
+  },
+  {
+    "case_id": "hidden_5",
+    "input": {
+      "query": "%E4%BD%A0=%E5%A5%BD",
+      "operations": []
+    },
+    "expected": {
+      "value": {
+        "pairs": [
+          [
+            "你",
+            "好"
+          ]
+        ],
+        "query": "%E4%BD%A0=%E5%A5%BD"
+      }
+    }
+  },
+  {
+    "case_id": "hidden_6",
+    "input": {
+      "query": "a=b=c",
+      "operations": []
+    },
+    "expected": {
+      "value": {
+        "pairs": [
+          [
+            "a",
+            "b=c"
+          ]
+        ],
+        "query": "a=b%3Dc"
+      }
+    }
+  },
+  {
+    "case_id": "hidden_7",
+    "input": {
+      "query": "=v&=",
+      "operations": []
+    },
+    "expected": {
+      "value": {
+        "pairs": [
+          [
+            "",
+            "v"
+          ],
+          [
+            "",
+            null
+          ]
+        ],
+        "query": "=v&"
+      }
+    }
+  },
+  {
+    "case_id": "hidden_8",
+    "input": {
+      "query": "e=e%CC%81",
+      "operations": []
+    },
+    "expected": {
+      "value": {
+        "pairs": [
+          [
+            "e",
+            "é"
+          ]
+        ],
+        "query": "e=%C3%A9"
+      }
+    }
+  },
+  {
+    "case_id": "hidden_9",
+    "input": {
+      "query": "a=1&b=2&a=3",
+      "operations": [
+        {
+          "op": "delete",
+          "key": "a"
+        }
+      ]
+    },
+    "expected": {
+      "value": {
+        "pairs": [
+          [
+            "b",
+            "2"
+          ]
+        ],
+        "query": "b=2"
+      }
+    }
+  },
+  {
+    "case_id": "hidden_10",
+    "input": {
+      "query": "",
+      "operations": [
+        {
+          "op": "delete",
+          "key": "missing"
+        }
+      ]
+    },
+    "expected": {
+      "value": {
+        "pairs": [],
+        "query": ""
+      }
+    }
+  },
+  {
+    "case_id": "hidden_11",
+    "input": {
+      "query": "",
+      "operations": [
+        {
+          "op": "add",
+          "key": "a+b&c",
+          "value": "!$'()*,/:?@[]"
+        }
+      ]
+    },
+    "expected": {
+      "value": {
+        "pairs": [
+          [
+            "a+b&c",
+            "!$'()*,/:?@[]"
+          ]
+        ],
+        "query": "a%2Bb%26c=!$'()*,/:?@%5B%5D"
+      }
+    }
+  },
+  {
+    "case_id": "hidden_12",
+    "input": {
+      "query": "a=1",
+      "operations": [
+        {
+          "op": "add",
+          "key": "a",
+          "value": null
+        },
+        {
+          "op": "set",
+          "key": "a",
+          "value": ""
+        },
+        {
+          "op": "add",
+          "key": "a",
+          "value": "2"
+        }
+      ]
+    },
+    "expected": {
+      "value": {
+        "pairs": [
+          [
+            "a",
+            ""
+          ],
+          [
+            "a",
+            "2"
+          ]
+        ],
+        "query": "a=&a=2"
+      }
+    }
+  }
+]

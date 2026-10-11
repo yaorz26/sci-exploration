@@ -1,0 +1,110 @@
+import numpy as np
+
+
+class DataStatistics2:
+    def __init__(self, data):
+        self.data = np.array(data)
+
+    def get_sum(self):
+        return np.sum(self.data)
+
+    def get_min(self):
+        return np.min(self.data)
+
+    def get_max(self):
+        return np.max(self.data)
+
+    def get_variance(self):
+        return round(np.var(self.data), 2)
+
+    def get_std_deviation(self):
+        return round(np.std(self.data), 2)
+
+    def get_correlation(self):
+        return np.corrcoef(self.data, rowvar=False)
+
+import unittest
+
+
+class DataStatistics2TestGetSum(unittest.TestCase):
+    def test_get_sum_1(self):
+        ds2 = DataStatistics2([1, 2, 3, 4])
+        res = ds2.get_sum()
+        self.assertEqual(res, 10)
+
+    def test_get_sum_2(self):
+        ds2 = DataStatistics2([1, 2, 203, 4])
+        res = ds2.get_sum()
+        self.assertEqual(res, 210)
+
+    def test_get_sum_3(self):
+        ds2 = DataStatistics2([1, 2, 33, 4])
+        res = ds2.get_sum()
+        self.assertEqual(res, 40)
+
+    def test_get_sum_4(self):
+        ds2 = DataStatistics2([1, 2, 333, 4])
+        res = ds2.get_sum()
+        self.assertEqual(res, 340)
+
+    def test_get_sum_5(self):
+        ds2 = DataStatistics2([1, 2, 6, 4])
+        res = ds2.get_sum()
+        self.assertEqual(res, 13)
+
+
+class DataStatistics2TestGetMin(unittest.TestCase):
+    def test_get_min_1(self):
+        ds2 = DataStatistics2([1, 2, 3, 4])
+        res = ds2.get_min()
+        self.assertEqual(res, 1)
+
+    def test_get_min_2(self):
+        ds2 = DataStatistics2([1, 2, 203, 4])
+        res = ds2.get_min()
+        self.assertEqual(res, 1)
+
+    def test_get_min_3(self):
+        ds2 = DataStatistics2([0, -1, -3, 2])
+        res = ds2.get_min()
+        self.assertEqual(res, -3)
+
+    def test_get_min_4(self):
+        ds2 = DataStatistics2([-111, -1, -3, 2])
+        res = ds2.get_min()
+        self.assertEqual(res, -111)
+
+    def test_get_min_5(self):
+        ds2 = DataStatistics2([0, -1111, -3, 2])
+        res = ds2.get_min()
+        self.assertEqual(res, -1111)
+
+
+class DataStatistics2TestGetMax(unittest.TestCase):
+    def test_get_max_1(self):
+        ds2 = DataStatistics2([1, 2, 3, 4])
+        res = ds2.get_max()
+        self.assertEqual(res, 4)
+
+    def test_get_max_2(self):
+        ds2 = DataStatistics2([1, 2, 203, 4])
+        res = ds2.get_max()
+        self.assertEqual(res, 203)
+
+    def test_get_max_3(self):
+        ds2 = DataStatistics2([-1, -4, 3, 2])
+        res = ds2.get_max()
+        self.assertEqual(res, 3)
+
+    def test_get_max_4(self):
+        ds2 = DataStatistics2([-1, 4, 3, 2])
+        res = ds2.get_max()
+        self.assertEqual(res, 4)
+
+    def test_get_max_5(self):
+        ds2 = DataStatistics2([-1, 444, 3, 2])
+        res = ds2.get_max()
+        self.assertEqual(res, 444)
+
+if __name__ == '__main__':
+    unittest.main()

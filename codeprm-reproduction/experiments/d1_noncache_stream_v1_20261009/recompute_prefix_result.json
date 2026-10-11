@@ -1,0 +1,140 @@
+{
+  "variant": "recompute_prefix",
+  "solve_calls": 6,
+  "rows": [
+    {
+      "id": "split_tag",
+      "observed": {
+        "value": {
+          "snapshots": [
+            "",
+            "A",
+            "A"
+          ],
+          "final": "A"
+        }
+      },
+      "expected_final": "A",
+      "terminal_matches": true,
+      "input_unchanged": true,
+      "calls": {
+        "objects": 3,
+        "feed_calls": 3,
+        "get_text_calls": 3,
+        "fed_characters": 15
+      }
+    },
+    {
+      "id": "split_entity",
+      "observed": {
+        "value": {
+          "snapshots": [
+            "",
+            "A & B"
+          ],
+          "final": "A & B"
+        }
+      },
+      "expected_final": "A & B",
+      "terminal_matches": true,
+      "input_unchanged": true,
+      "calls": {
+        "objects": 2,
+        "feed_calls": 2,
+        "get_text_calls": 2,
+        "fed_characters": 14
+      }
+    },
+    {
+      "id": "split_names",
+      "observed": {
+        "value": {
+          "snapshots": [
+            "",
+            "A",
+            "A"
+          ],
+          "final": "A"
+        }
+      },
+      "expected_final": "A",
+      "terminal_matches": true,
+      "input_unchanged": true,
+      "calls": {
+        "objects": 3,
+        "feed_calls": 3,
+        "get_text_calls": 3,
+        "fed_characters": 18
+      }
+    },
+    {
+      "id": "plain_control",
+      "observed": {
+        "value": {
+          "snapshots": [
+            "A",
+            "A B"
+          ],
+          "final": "A B"
+        }
+      },
+      "expected_final": "A B",
+      "terminal_matches": true,
+      "input_unchanged": true,
+      "calls": {
+        "objects": 2,
+        "feed_calls": 2,
+        "get_text_calls": 2,
+        "fed_characters": 4
+      }
+    },
+    {
+      "id": "split_numeric_entity",
+      "observed": {
+        "value": {
+          "snapshots": [
+            "",
+            "A"
+          ],
+          "final": "A"
+        }
+      },
+      "expected_final": "A",
+      "terminal_matches": true,
+      "input_unchanged": true,
+      "calls": {
+        "objects": 2,
+        "feed_calls": 2,
+        "get_text_calls": 2,
+        "fed_characters": 7
+      }
+    },
+    {
+      "id": "split_attribute_quote",
+      "observed": {
+        "value": {
+          "snapshots": [
+            "",
+            "Z"
+          ],
+          "final": "Z"
+        }
+      },
+      "expected_final": "Z",
+      "terminal_matches": true,
+      "input_unchanged": true,
+      "calls": {
+        "objects": 2,
+        "feed_calls": 2,
+        "get_text_calls": 2,
+        "fed_characters": 27
+      }
+    }
+  ],
+  "source_calls": {
+    "objects": 14,
+    "feed_calls": 14,
+    "get_text_calls": 14,
+    "fed_characters": 85
+  }
+}

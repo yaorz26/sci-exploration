@@ -1,0 +1,12 @@
+{
+  "input": "data\\processed\\funprm_train50_f1_qwen25coder_7b_n10_seed42_v1_labeled.jsonl",
+  "output": "data\\processed\\funprm_train50_7b_function_nodes_v2.jsonl",
+  "source_candidates": 500,
+  "function_node_records": 1154,
+  "problems": 48,
+  "skipped": {
+    "invalid": 137,
+    "no_functions": 0
+  },
+  "label_definition": "complete-candidate private pass rate duplicated at each derived function boundary; training split only"
+}

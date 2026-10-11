@@ -1,0 +1,353 @@
+{
+  "created_at": "2026-10-09T12:58:15.512603+00:00",
+  "question": "明示外部义务是否超出当前公开诊断观察范围？",
+  "phase": "G3-contract-integrity",
+  "kind": "exploratory_read_only_support",
+  "records": [
+    {
+      "task": "PR126",
+      "obligation": "ConfigSource文件基准及标志",
+      "observation_state": "observed_in_named_cases",
+      "requirement_evidence": {
+        "path": "data/processed/d1_actual_project_candidate_v2_20261009/public/REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS/requirement.md",
+        "lines": [
+          5
+        ],
+        "fragment": "ConfigSource 和 YamlSource"
+      },
+      "interpretation": "ConfigSource直接构造已测；不能据此推每个来源入口完整。",
+      "observation_evidence": {
+        "path": "data/processed/d1_actual_project_candidate_v2_20261009/evaluation/REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS/evaluate.py",
+        "lines": [
+          58
+        ],
+        "fragment": "config.add(confuse.ConfigSource"
+      }
+    },
+    {
+      "task": "PR126",
+      "obligation": "YamlSource直接构造支持base_for_paths",
+      "observation_state": "not_directly_observed",
+      "requirement_evidence": {
+        "path": "data/processed/d1_actual_project_candidate_v2_20261009/public/REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS/requirement.md",
+        "lines": [
+          5
+        ],
+        "fragment": "ConfigSource 和 YamlSource"
+      },
+      "interpretation": "set_file可能间接调用YamlSource；直接构造的参数支持没有单独观测，不等于该类完全未执行。",
+      "observation_evidence": {
+        "path": "data/processed/d1_actual_project_candidate_v2_20261009/evaluation/REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS/evaluate.py",
+        "lines": [
+          54
+        ],
+        "fragment": "if api == \"set_file\""
+      }
+    },
+    {
+      "task": "PR126",
+      "obligation": "Configuration.set_file支持base_for_paths",
+      "observation_state": "observed_in_named_cases",
+      "requirement_evidence": {
+        "path": "data/processed/d1_actual_project_candidate_v2_20261009/public/REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS/requirement.md",
+        "lines": [
+          7
+        ],
+        "fragment": "Configuration.set_file"
+      },
+      "interpretation": "file_loader_flag覆盖指定入口一次。",
+      "observation_evidence": {
+        "path": "data/processed/d1_actual_project_candidate_v2_20261009/evaluation/REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS/evaluate.py",
+        "lines": [
+          47
+        ],
+        "fragment": "file_loader_flag"
+      }
+    },
+    {
+      "task": "PR126",
+      "obligation": "模板in_source_dir及in_app_dir",
+      "observation_state": "observed_in_named_cases",
+      "requirement_evidence": {
+        "path": "data/processed/d1_actual_project_candidate_v2_20261009/public/REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS/requirement.md",
+        "lines": [
+          6
+        ],
+        "fragment": "Filename 增加可选参数"
+      },
+      "interpretation": "template_flag/app_over_source_flag是有限观察，不是全部优先级组合。",
+      "observation_evidence": {
+        "path": "data/processed/d1_actual_project_candidate_v2_20261009/evaluation/REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS/evaluate.py",
+        "lines": [
+          42
+        ],
+        "fragment": "template_flag"
+      }
+    },
+    {
+      "task": "PR126",
+      "obligation": "cwd、无filename及绝对路径",
+      "observation_state": "observed_in_named_cases",
+      "requirement_evidence": {
+        "path": "data/processed/d1_actual_project_candidate_v2_20261009/public/REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS/requirement.md",
+        "lines": [
+          8
+        ],
+        "fragment": "绝对路径保持不变"
+      },
+      "interpretation": "各有公开场景；未观察relative_to与新标志交叉条件。",
+      "observation_evidence": {
+        "path": "data/processed/d1_actual_project_candidate_v2_20261009/evaluation/REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS/evaluate.py",
+        "lines": [
+          46
+        ],
+        "fragment": "absolute_preserved"
+      }
+    },
+    {
+      "task": "PR126",
+      "obligation": "relative_to保持既有行为",
+      "observation_state": "not_explicitly_observed",
+      "requirement_evidence": {
+        "path": "data/processed/d1_actual_project_candidate_v2_20261009/public/REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS/requirement.md",
+        "lines": [
+          8
+        ],
+        "fragment": "relative_to"
+      },
+      "interpretation": "未显式提供relative_to；记录缺口，禁止自动扩该旁支。"
+    },
+    {
+      "task": "PR142",
+      "obligation": "前缀/小写/嵌套/标量转换",
+      "observation_state": "observed_in_named_cases",
+      "requirement_evidence": {
+        "path": "experiments/d1_G2_confuse_pr142_env_source_v1_20261009/candidate/requirement.md",
+        "lines": [
+          9
+        ],
+        "fragment": "匹配前缀的变量"
+      },
+      "interpretation": "prefixed_scalar及nested场景提供有限观察；并非所有有效YAML标量。",
+      "observation_evidence": {
+        "path": "experiments/d1_G2_confuse_pr142_env_source_v1_20261009/candidate/public_cases.json",
+        "lines": [
+          24
+        ],
+        "fragment": "prefixed_scalar"
+      }
+    },
+    {
+      "task": "PR142",
+      "obligation": "优先级与较低来源回退",
+      "observation_state": "observed_in_named_cases",
+      "requirement_evidence": {
+        "path": "experiments/d1_G2_confuse_pr142_env_source_v1_20261009/candidate/requirement.md",
+        "lines": [
+          11
+        ],
+        "fragment": "具有更高优先级"
+      },
+      "interpretation": "nested_overlay_and_fallback同时观察冲突host和缺省timeout。",
+      "observation_evidence": {
+        "path": "experiments/d1_G2_confuse_pr142_env_source_v1_20261009/candidate/public_cases.json",
+        "lines": [
+          53
+        ],
+        "fragment": "nested_overlay_and_fallback"
+      }
+    },
+    {
+      "task": "PR142",
+      "obligation": "构造时不默认加入环境源",
+      "observation_state": "not_observed",
+      "requirement_evidence": {
+        "path": "experiments/d1_G2_confuse_pr142_env_source_v1_20261009/candidate/requirement.md",
+        "lines": [
+          9
+        ],
+        "fragment": "不在构造配置对象时默认加入"
+      },
+      "interpretation": "所有场景都显式调用set_env；未调用前的配置观察缺失。",
+      "observation_evidence": {
+        "path": "experiments/d1_G2_confuse_pr142_env_source_v1_20261009/candidate/evaluate_env_source.py",
+        "lines": [
+          31
+        ],
+        "fragment": "config.set_env(prefix='D1APP_')"
+      }
+    },
+    {
+      "task": "PR142",
+      "obligation": "无匹配环境变量保持配置",
+      "observation_state": "observed_in_named_cases",
+      "requirement_evidence": {
+        "path": "experiments/d1_G2_confuse_pr142_env_source_v1_20261009/candidate/requirement.md",
+        "lines": [
+          12
+        ],
+        "fragment": "没有匹配环境变量"
+      },
+      "interpretation": "一次无匹配场景。",
+      "observation_evidence": {
+        "path": "experiments/d1_G2_confuse_pr142_env_source_v1_20261009/candidate/public_cases.json",
+        "lines": [
+          5
+        ],
+        "fragment": "no_matching_environment"
+      }
+    },
+    {
+      "task": "PR142",
+      "obligation": "set_env最高优先级入口",
+      "observation_state": "explicit_constructor_constraint",
+      "requirement_evidence": {
+        "path": "experiments/d1_G2_confuse_pr142_env_source_v1_20261009/candidate/requirement.md",
+        "lines": [
+          14
+        ],
+        "fragment": "任务构建者固定的外部调用入口"
+      },
+      "interpretation": "明示构建者调用约束，固定公开入口但不固定helper/内部类/文件。"
+    },
+    {
+      "task": "PR440",
+      "obligation": "相邻组归约与已返回值保留",
+      "observation_state": "observed_in_named_cases",
+      "requirement_evidence": {
+        "path": "experiments/d1_G2_more_pr440_group_lifetime_v1_20261009/candidate/requirement.md",
+        "lines": [
+          7
+        ],
+        "fragment": "reducefunc完成的list/数值结果"
+      },
+      "interpretation": "retained_lists_after_outer_exhaustion和group_sums覆盖有限域。",
+      "observation_evidence": {
+        "path": "experiments/d1_G2_more_pr440_group_lifetime_v1_20261009/candidate/public_cases.json",
+        "lines": [
+          5
+        ],
+        "fragment": "retained_lists_after_outer_exhaustion"
+      }
+    },
+    {
+      "task": "PR440",
+      "obligation": "不归约时共享惰性组",
+      "observation_state": "observed_in_named_cases",
+      "requirement_evidence": {
+        "path": "experiments/d1_G2_more_pr440_group_lifetime_v1_20261009/candidate/requirement.md",
+        "lines": [
+          9
+        ],
+        "fragment": "保留父API的懒组"
+      },
+      "interpretation": "一次外层前进后旧组变空的场景；不证明内存/效率。",
+      "observation_evidence": {
+        "path": "experiments/d1_G2_more_pr440_group_lifetime_v1_20261009/candidate/public_cases.json",
+        "lines": [
+          84
+        ],
+        "fragment": "no_reducer_keeps_parent_lazy_groups"
+      }
+    },
+    {
+      "task": "PR440",
+      "obligation": "keyfunc/valuefunc省略的默认行为",
+      "observation_state": "not_observed",
+      "requirement_evidence": {
+        "path": "experiments/d1_G2_more_pr440_group_lifetime_v1_20261009/candidate/requirement.md",
+        "lines": [
+          9
+        ],
+        "fragment": "keyfunc/valuefunc未提供时"
+      },
+      "interpretation": "评价器每次均提供两回调；不自动补默认组合网格。",
+      "observation_evidence": {
+        "path": "experiments/d1_G2_more_pr440_group_lifetime_v1_20261009/candidate/evaluate_group_lifetime.py",
+        "lines": [
+          19
+        ],
+        "fragment": "kwargs = {'keyfunc': keyfunc, 'valuefunc': valuefunc}"
+      }
+    },
+    {
+      "task": "PR440",
+      "obligation": "有限list/sum域及内部自由",
+      "observation_state": "explicit_scope_and_internal_freedom",
+      "requirement_evidence": {
+        "path": "experiments/d1_G2_more_pr440_group_lifetime_v1_20261009/candidate/requirement.md",
+        "lines": [
+          7
+        ],
+        "fragment": "有限合法域"
+      },
+      "interpretation": "有限域是任务范围，不是要求使用某一种内部实现；不外推任意惰性归约。"
+    },
+    {
+      "task": "CACHE",
+      "obligation": "物理删除与容量在返回前完成",
+      "observation_state": "pending_known_observability_gap",
+      "requirement_evidence": {
+        "path": "data/processed/d1_actual_project_candidate_v2_20261009/pending/REPO_CACHETOOLS_EXPIRED_REPORT/original_requirement.md",
+        "lines": [
+          12
+        ],
+        "fragment": "调用返回之前必须完成"
+      },
+      "interpretation": "沿用已知待解状态，不重跑时点或访问旧源码/评价；不能作为当前完整合格任务。"
+    }
+  ],
+  "tasks_managed": 4,
+  "finite_tasks_read": 3,
+  "selected_followup": "PR126直接YamlSource入口可能可独立遗漏；另三审后只做一个最小反例",
+  "not_selected": [
+    "PR142自动加入控制",
+    "PR440默认回调网格",
+    "cache时点重试",
+    "全域覆盖百分比"
+  ],
+  "result_limit": "静态未观测不证明假通过；需行为反例。三任务均有明示但未直接诊断条款，当前观察不能支持全域验收。",
+  "model_calls": 0,
+  "behavior_calls": 0,
+  "human_reviews": 0,
+  "formal_labels": null,
+  "split": null,
+  "input_hashes": {
+    "path_requirement": {
+      "path": "data/processed/d1_actual_project_candidate_v2_20261009/public/REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS/requirement.md",
+      "sha256": "f63dbd281ccb5bbcafeaa3e5ef625f4ddf3c1b11ce1a31e3530214b3d61e9af2"
+    },
+    "path_evaluator": {
+      "path": "data/processed/d1_actual_project_candidate_v2_20261009/evaluation/REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS/evaluate.py",
+      "sha256": "138c07f50905b05df419c3b408cb464aae73cd78a5d2f7b570551f947ebaacb2"
+    },
+    "env_requirement": {
+      "path": "experiments/d1_G2_confuse_pr142_env_source_v1_20261009/candidate/requirement.md",
+      "sha256": "4eb2b78047dcf5e326fcb266fc6483ab963a65a2d6a6ce3acc7cc91f79e4dabf"
+    },
+    "env_evaluator": {
+      "path": "experiments/d1_G2_confuse_pr142_env_source_v1_20261009/candidate/evaluate_env_source.py",
+      "sha256": "72a0e6d45e1a8e1d6296662107fb76f91115d35a75ae83b1589e3d7b07739da2"
+    },
+    "env_cases": {
+      "path": "experiments/d1_G2_confuse_pr142_env_source_v1_20261009/candidate/public_cases.json",
+      "sha256": "2d4e39d914be1d18b3649edb57df502f7235936b5d85f07c5410ff90d30cd294"
+    },
+    "group_requirement": {
+      "path": "experiments/d1_G2_more_pr440_group_lifetime_v1_20261009/candidate/requirement.md",
+      "sha256": "1e85dc7a5e6f48b1fe08071933235f719b38d505fd965e42891ae0a8d6176364"
+    },
+    "group_evaluator": {
+      "path": "experiments/d1_G2_more_pr440_group_lifetime_v1_20261009/candidate/evaluate_group_lifetime.py",
+      "sha256": "b023f4925b948ffc132e08b58851d053b163de8ef246db37f164e07f92b8704c"
+    },
+    "group_cases": {
+      "path": "experiments/d1_G2_more_pr440_group_lifetime_v1_20261009/candidate/public_cases.json",
+      "sha256": "e5394f20d4624d119949184396c8c4a3e735f8f9bc4f3fb8416161abc6b45c83"
+    },
+    "cache_requirement": {
+      "path": "data/processed/d1_actual_project_candidate_v2_20261009/pending/REPO_CACHETOOLS_EXPIRED_REPORT/original_requirement.md",
+      "sha256": "5eded7d685d9ffba6de3ee5056cdfa890ccbe4b72a042cd7b6551dfbedbe279a"
+    }
+  }
+}

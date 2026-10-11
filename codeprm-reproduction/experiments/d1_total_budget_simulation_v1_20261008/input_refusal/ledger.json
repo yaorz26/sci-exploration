@@ -1,0 +1,20 @@
+{
+  "simulated": true,
+  "token_limit": 10,
+  "call_limit": 2,
+  "known_token_spend": 0,
+  "blocked": false,
+  "calls": [],
+  "refusals": [
+    {
+      "stage": "合成阶段",
+      "reason": "输入与最少输出无法纳入总预算",
+      "before_request": true
+    },
+    {
+      "stage": "合成阶段",
+      "reason": "缺少事先核验的输入token上界",
+      "before_request": true
+    }
+  ]
+}

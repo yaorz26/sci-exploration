@@ -1,0 +1,89 @@
+{
+  "created_at": "2026-10-09T03:02:03.676102+00:00",
+  "task_candidate": "E_B10",
+  "terminal_scores": {
+    "persistent": {
+      "passed": 6,
+      "total": 6
+    },
+    "recompute_prefix": {
+      "passed": 6,
+      "total": 6
+    },
+    "independent_chunks": {
+      "passed": 2,
+      "total": 6
+    }
+  },
+  "legal_trace_comparisons": [
+    {
+      "id": "split_tag",
+      "full_trace_equal": true,
+      "snapshots": 3
+    },
+    {
+      "id": "split_entity",
+      "full_trace_equal": true,
+      "snapshots": 2
+    },
+    {
+      "id": "split_names",
+      "full_trace_equal": true,
+      "snapshots": 3
+    },
+    {
+      "id": "plain_control",
+      "full_trace_equal": true,
+      "snapshots": 2
+    },
+    {
+      "id": "split_numeric_entity",
+      "full_trace_equal": true,
+      "snapshots": 2
+    },
+    {
+      "id": "split_attribute_quote",
+      "full_trace_equal": true,
+      "snapshots": 2
+    }
+  ],
+  "legal_full_traces_equal": 6,
+  "prefix_snapshots_per_legal_structure": 14,
+  "source_calls": {
+    "persistent": {
+      "objects": 6,
+      "feed_calls": 14,
+      "get_text_calls": 14,
+      "fed_characters": 52
+    },
+    "recompute_prefix": {
+      "objects": 14,
+      "feed_calls": 14,
+      "get_text_calls": 14,
+      "fed_characters": 85
+    },
+    "independent_chunks": {
+      "objects": 14,
+      "feed_calls": 14,
+      "get_text_calls": 14,
+      "fed_characters": 52
+    }
+  },
+  "all_inputs_unchanged": true,
+  "new_solve_calls": 18,
+  "legal_structure_families": [
+    "持续解析器",
+    "完整前缀重算"
+  ],
+  "limits": [
+    "同上游解析器，不是三个独立oracle/模型效果",
+    "六有限完整终值，快照同源互证",
+    "底层feed/get_text次数不等任务数或模型token",
+    "分片历史不是容量干扰，也不必强制helper共享可变状态",
+    "候选标签null/未并原20/未正式冻结/真实人工0"
+  ],
+  "model_calls": 0,
+  "API_calls": 0,
+  "hidden_reads": 0,
+  "new_downloads": 0
+}

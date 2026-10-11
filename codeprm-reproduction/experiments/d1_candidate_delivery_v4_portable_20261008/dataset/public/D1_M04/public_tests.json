@@ -1,0 +1,80 @@
+[
+  {
+    "case_id": "public_1",
+    "input": {
+      "items": [
+        {
+          "key": "a",
+          "value": 1
+        },
+        {
+          "key": "b",
+          "value": 2
+        },
+        {
+          "key": "a",
+          "value": 3
+        }
+      ],
+      "operations": [
+        {
+          "op": "contains",
+          "key": "a"
+        },
+        {
+          "op": "next",
+          "key": "a"
+        },
+        {
+          "op": "drain",
+          "key": "b"
+        },
+        {
+          "op": "drain",
+          "key": "a"
+        },
+        {
+          "op": "contains",
+          "key": "a"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        true,
+        1,
+        [
+          2
+        ],
+        [
+          3
+        ],
+        false
+      ]
+    }
+  },
+  {
+    "case_id": "public_2",
+    "input": {
+      "items": [],
+      "operations": [
+        {
+          "op": "next",
+          "key": "x"
+        },
+        {
+          "op": "drain",
+          "key": "x"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "error": "StopIteration"
+        },
+        []
+      ]
+    }
+  }
+]

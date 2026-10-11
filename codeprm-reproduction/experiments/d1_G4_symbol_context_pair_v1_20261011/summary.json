@@ -1,0 +1,140 @@
+{
+  "time": "2026-10-11T07:26:56.826270+00:00",
+  "scope": "research_pool_only_development_smoke",
+  "rows": [
+    {
+      "task_id": "REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS",
+      "method": "M0",
+      "status": "patch_failure",
+      "candidate": {
+        "ok": false,
+        "error": "PatchFailure: 原行内容不匹配，拒绝模糊应用"
+      },
+      "behavior": {
+        "status": "not_run",
+        "conditional_behavior": null,
+        "reason": "patch_failure"
+      },
+      "spent": 3314,
+      "requests_sent": 1,
+      "refusals": [],
+      "cost_known": true,
+      "budget_compliant": true
+    },
+    {
+      "task_id": "REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS",
+      "method": "M2",
+      "status": "budget_refusal",
+      "candidate": null,
+      "behavior": {
+        "status": "not_run",
+        "conditional_behavior": null,
+        "reason": "budget_refusal"
+      },
+      "error": "输入与最少输出无法纳入总预算",
+      "spent": 3686,
+      "requests_sent": 3,
+      "refusals": [
+        {
+          "stage": "assembly",
+          "reason": "输入与最少输出无法纳入总预算",
+          "before_request": true
+        }
+      ],
+      "cost_known": true,
+      "budget_compliant": true
+    },
+    {
+      "task_id": "REPO_CONFUSE_PR142_ENV_OVERLAY_LIMITED",
+      "method": "M0",
+      "status": "patch_failure",
+      "candidate": {
+        "ok": false,
+        "error": "PatchFailure: 目标不是指定包内的规范.py路径"
+      },
+      "behavior": {
+        "status": "not_run",
+        "conditional_behavior": null,
+        "reason": "patch_failure"
+      },
+      "spent": 3570,
+      "requests_sent": 1,
+      "refusals": [],
+      "cost_known": true,
+      "budget_compliant": true
+    },
+    {
+      "task_id": "REPO_CONFUSE_PR142_ENV_OVERLAY_LIMITED",
+      "method": "M2",
+      "status": "budget_refusal",
+      "candidate": null,
+      "behavior": {
+        "status": "not_run",
+        "conditional_behavior": null,
+        "reason": "budget_refusal"
+      },
+      "error": "输入与最少输出无法纳入总预算",
+      "spent": 5810,
+      "requests_sent": 3,
+      "refusals": [
+        {
+          "stage": "assembly",
+          "reason": "输入与最少输出无法纳入总预算",
+          "before_request": true
+        }
+      ],
+      "cost_known": true,
+      "budget_compliant": true
+    },
+    {
+      "task_id": "REPO_MORE_PR440_GROUP_LIFETIME_LIMITED",
+      "method": "M0",
+      "status": "patch_failure",
+      "candidate": {
+        "ok": false,
+        "error": "PatchFailure: 原行内容不匹配，拒绝模糊应用"
+      },
+      "behavior": {
+        "status": "not_run",
+        "conditional_behavior": null,
+        "reason": "patch_failure"
+      },
+      "spent": 2947,
+      "requests_sent": 1,
+      "refusals": [],
+      "cost_known": true,
+      "budget_compliant": true
+    },
+    {
+      "task_id": "REPO_MORE_PR440_GROUP_LIFETIME_LIMITED",
+      "method": "M2",
+      "status": "budget_refusal",
+      "candidate": null,
+      "behavior": {
+        "status": "not_run",
+        "conditional_behavior": null,
+        "reason": "budget_refusal"
+      },
+      "error": "输入与最少输出无法纳入总预算",
+      "spent": 4053,
+      "requests_sent": 2,
+      "refusals": [
+        {
+          "stage": "helper2",
+          "reason": "输入与最少输出无法纳入总预算",
+          "before_request": true
+        }
+      ],
+      "cost_known": true,
+      "budget_compliant": true
+    }
+  ],
+  "model": "qwen2.5-coder:7b",
+  "seed": 20261011,
+  "request_count": 11,
+  "total_known_tokens": 23380,
+  "formal_labels": null,
+  "split": null,
+  "human_reviews": 0,
+  "macro_plan_unchanged": true
+}

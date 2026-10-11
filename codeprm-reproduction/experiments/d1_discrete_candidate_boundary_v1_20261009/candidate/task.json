@@ -1,0 +1,28 @@
+{
+  "task_id": "E_B09",
+  "title": "离散数量与众数报告",
+  "status": "研究池候选，全部诊断公开，未正式冻结",
+  "entry": "solve(payload)",
+  "requirements": "requirements.md",
+  "diagnostics": "public_diagnostics.json",
+  "source": {
+    "repository": "mahmoud/boltons",
+    "commit": "4e5faa3d7e4008d89e0d8bf1ea87b6d9a061a16d",
+    "upstream_module": "boltons/statsutils.py",
+    "module_sha256": "0c4d05a17b14244a880e5047c1823d1e1e522e6c5ee76c6b47f54d8bde791e68",
+    "license": "BSD-3-Clause",
+    "license_file": "sources/LICENSE",
+    "license_sha256": "c301912653a8d8c99eab6212aa3aea8d164ea249d8ad53c941e0558a0a5ac1e3"
+  },
+  "structural_labels": {
+    "dependency": null,
+    "state_scope": null,
+    "independent_testability": null
+  },
+  "related_candidate": "E_B08",
+  "family_note": "同Stats模块/同来源，不是新的独立来源或新增独立样本",
+  "adaptation": "count/default分离；域与异常由候选显式规定；三程序共享校验guard不是三个独立oracle",
+  "human_reviews": 0,
+  "formal_split": null,
+  "source_contamination": "未知"
+}

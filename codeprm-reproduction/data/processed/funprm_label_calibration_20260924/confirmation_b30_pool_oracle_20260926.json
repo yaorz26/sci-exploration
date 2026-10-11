@@ -1,0 +1,1708 @@
+{
+  "posthoc_private_only": true,
+  "selection_private_fields_used": [],
+  "problems": 30,
+  "pool_oracle_all_pass": 8,
+  "pool_oracle_all_pass_rate": 0.26666666666666666,
+  "pool_oracle_mean_pass_rate": 0.538316130241229,
+  "rows": [
+    {
+      "problem_id": "apps-test-4015",
+      "candidate_count": 10,
+      "pool_oracle_private_pass_rate": 0.9230769230769231,
+      "pool_oracle_all_pass": false,
+      "pool_oracle_candidate_index": 0,
+      "candidate_private_rows": [
+        {
+          "candidate_index": 0,
+          "public_pass_rate": 0.9210526315789473,
+          "private_pass_rate": 0.9230769230769231,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 1,
+          "public_pass_rate": 0.8157894736842105,
+          "private_pass_rate": 0.7692307692307693,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 2,
+          "public_pass_rate": 0.7105263157894737,
+          "private_pass_rate": 0.6410256410256411,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 3,
+          "public_pass_rate": 0.8421052631578947,
+          "private_pass_rate": 0.6923076923076923,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 4,
+          "public_pass_rate": 0.9210526315789473,
+          "private_pass_rate": 0.9230769230769231,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 5,
+          "public_pass_rate": 0.9210526315789473,
+          "private_pass_rate": 0.9230769230769231,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 6,
+          "public_pass_rate": 0.7105263157894737,
+          "private_pass_rate": 0.6410256410256411,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 7,
+          "public_pass_rate": 0.8947368421052632,
+          "private_pass_rate": 0.8461538461538461,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 8,
+          "public_pass_rate": 0.9210526315789473,
+          "private_pass_rate": 0.9230769230769231,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 9,
+          "public_pass_rate": 0.7105263157894737,
+          "private_pass_rate": 0.6153846153846154,
+          "private_all_pass": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-test-4016",
+      "candidate_count": 6,
+      "pool_oracle_private_pass_rate": 0.2894736842105263,
+      "pool_oracle_all_pass": false,
+      "pool_oracle_candidate_index": 3,
+      "candidate_private_rows": [
+        {
+          "candidate_index": 0,
+          "public_pass_rate": 0.10810810810810811,
+          "private_pass_rate": 0.10526315789473684,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 1,
+          "public_pass_rate": 0.08108108108108109,
+          "private_pass_rate": 0.13157894736842105,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 3,
+          "public_pass_rate": 0.16216216216216217,
+          "private_pass_rate": 0.2894736842105263,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 4,
+          "public_pass_rate": 0.16216216216216217,
+          "private_pass_rate": 0.2894736842105263,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 6,
+          "public_pass_rate": 0.16216216216216217,
+          "private_pass_rate": 0.2894736842105263,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 9,
+          "public_pass_rate": 0.05405405405405406,
+          "private_pass_rate": 0.10526315789473684,
+          "private_all_pass": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-test-4017",
+      "candidate_count": 10,
+      "pool_oracle_private_pass_rate": 1.0,
+      "pool_oracle_all_pass": true,
+      "pool_oracle_candidate_index": 0,
+      "candidate_private_rows": [
+        {
+          "candidate_index": 0,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 1,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 2,
+          "public_pass_rate": 0.17142857142857143,
+          "private_pass_rate": 0.23529411764705882,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 3,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 4,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 5,
+          "public_pass_rate": 0.17142857142857143,
+          "private_pass_rate": 0.23529411764705882,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 6,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 7,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 8,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 9,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-test-4018",
+      "candidate_count": 7,
+      "pool_oracle_private_pass_rate": 0.4,
+      "pool_oracle_all_pass": false,
+      "pool_oracle_candidate_index": 8,
+      "candidate_private_rows": [
+        {
+          "candidate_index": 0,
+          "public_pass_rate": 0.22857142857142856,
+          "private_pass_rate": 0.2,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 1,
+          "public_pass_rate": 0.37142857142857144,
+          "private_pass_rate": 0.2,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 2,
+          "public_pass_rate": 0.22857142857142856,
+          "private_pass_rate": 0.2,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 3,
+          "public_pass_rate": 0.22857142857142856,
+          "private_pass_rate": 0.2,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 4,
+          "public_pass_rate": 0.22857142857142856,
+          "private_pass_rate": 0.2,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 6,
+          "public_pass_rate": 0.37142857142857144,
+          "private_pass_rate": 0.22857142857142856,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 8,
+          "public_pass_rate": 0.6285714285714286,
+          "private_pass_rate": 0.4,
+          "private_all_pass": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-test-4019",
+      "candidate_count": 0,
+      "pool_oracle_private_pass_rate": 0.0,
+      "pool_oracle_all_pass": false,
+      "pool_oracle_candidate_index": null,
+      "candidate_private_rows": []
+    },
+    {
+      "problem_id": "apps-test-4020",
+      "candidate_count": 10,
+      "pool_oracle_private_pass_rate": 1.0,
+      "pool_oracle_all_pass": true,
+      "pool_oracle_candidate_index": 1,
+      "candidate_private_rows": [
+        {
+          "candidate_index": 0,
+          "public_pass_rate": 0.8181818181818182,
+          "private_pass_rate": 0.5151515151515151,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 1,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 2,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 3,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 4,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 5,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 6,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 7,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 8,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 9,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-test-4021",
+      "candidate_count": 10,
+      "pool_oracle_private_pass_rate": 0.34375,
+      "pool_oracle_all_pass": false,
+      "pool_oracle_candidate_index": 8,
+      "candidate_private_rows": [
+        {
+          "candidate_index": 0,
+          "public_pass_rate": 0.1875,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 1,
+          "public_pass_rate": 0.1875,
+          "private_pass_rate": 0.03125,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 2,
+          "public_pass_rate": 0.1875,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 3,
+          "public_pass_rate": 0.1875,
+          "private_pass_rate": 0.03125,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 4,
+          "public_pass_rate": 0.1875,
+          "private_pass_rate": 0.0625,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 5,
+          "public_pass_rate": 0.25,
+          "private_pass_rate": 0.25,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 6,
+          "public_pass_rate": 0.03125,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 7,
+          "public_pass_rate": 0.25,
+          "private_pass_rate": 0.25,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 8,
+          "public_pass_rate": 0.34375,
+          "private_pass_rate": 0.34375,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 9,
+          "public_pass_rate": 0.1875,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-test-4022",
+      "candidate_count": 4,
+      "pool_oracle_private_pass_rate": 0.6451612903225806,
+      "pool_oracle_all_pass": false,
+      "pool_oracle_candidate_index": 9,
+      "candidate_private_rows": [
+        {
+          "candidate_index": 4,
+          "public_pass_rate": 0.12903225806451613,
+          "private_pass_rate": 0.16129032258064516,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 5,
+          "public_pass_rate": 0.03225806451612903,
+          "private_pass_rate": 0.06451612903225806,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 6,
+          "public_pass_rate": 0.03225806451612903,
+          "private_pass_rate": 0.06451612903225806,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 9,
+          "public_pass_rate": 0.6451612903225806,
+          "private_pass_rate": 0.6451612903225806,
+          "private_all_pass": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-test-4023",
+      "candidate_count": 10,
+      "pool_oracle_private_pass_rate": 0.8333333333333334,
+      "pool_oracle_all_pass": false,
+      "pool_oracle_candidate_index": 3,
+      "candidate_private_rows": [
+        {
+          "candidate_index": 0,
+          "public_pass_rate": 0.6206896551724138,
+          "private_pass_rate": 0.5,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 1,
+          "public_pass_rate": 0.6206896551724138,
+          "private_pass_rate": 0.5,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 2,
+          "public_pass_rate": 0.6206896551724138,
+          "private_pass_rate": 0.5,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 3,
+          "public_pass_rate": 0.7931034482758621,
+          "private_pass_rate": 0.8333333333333334,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 4,
+          "public_pass_rate": 0.5172413793103449,
+          "private_pass_rate": 0.8,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 5,
+          "public_pass_rate": 0.6206896551724138,
+          "private_pass_rate": 0.5,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 6,
+          "public_pass_rate": 0.1724137931034483,
+          "private_pass_rate": 0.06666666666666667,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 7,
+          "public_pass_rate": 0.6206896551724138,
+          "private_pass_rate": 0.5,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 8,
+          "public_pass_rate": 0.1724137931034483,
+          "private_pass_rate": 0.06666666666666667,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 9,
+          "public_pass_rate": 0.6206896551724138,
+          "private_pass_rate": 0.5,
+          "private_all_pass": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-test-4024",
+      "candidate_count": 9,
+      "pool_oracle_private_pass_rate": 0.23333333333333334,
+      "pool_oracle_all_pass": false,
+      "pool_oracle_candidate_index": 3,
+      "candidate_private_rows": [
+        {
+          "candidate_index": 0,
+          "public_pass_rate": 0.27586206896551724,
+          "private_pass_rate": 0.13333333333333333,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 1,
+          "public_pass_rate": 0.27586206896551724,
+          "private_pass_rate": 0.13333333333333333,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 2,
+          "public_pass_rate": 0.27586206896551724,
+          "private_pass_rate": 0.16666666666666666,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 3,
+          "public_pass_rate": 0.5172413793103449,
+          "private_pass_rate": 0.23333333333333334,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 4,
+          "public_pass_rate": 0.27586206896551724,
+          "private_pass_rate": 0.13333333333333333,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 6,
+          "public_pass_rate": 0.3448275862068966,
+          "private_pass_rate": 0.16666666666666666,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 7,
+          "public_pass_rate": 0.27586206896551724,
+          "private_pass_rate": 0.13333333333333333,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 8,
+          "public_pass_rate": 0.27586206896551724,
+          "private_pass_rate": 0.13333333333333333,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 9,
+          "public_pass_rate": 0.3448275862068966,
+          "private_pass_rate": 0.2,
+          "private_all_pass": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-test-4025",
+      "candidate_count": 9,
+      "pool_oracle_private_pass_rate": 0.21428571428571427,
+      "pool_oracle_all_pass": false,
+      "pool_oracle_candidate_index": 5,
+      "candidate_private_rows": [
+        {
+          "candidate_index": 0,
+          "public_pass_rate": 0.0,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 1,
+          "public_pass_rate": 0.17857142857142858,
+          "private_pass_rate": 0.14285714285714285,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 2,
+          "public_pass_rate": 0.07142857142857142,
+          "private_pass_rate": 0.03571428571428571,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 4,
+          "public_pass_rate": 0.0,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 5,
+          "public_pass_rate": 0.21428571428571427,
+          "private_pass_rate": 0.21428571428571427,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 6,
+          "public_pass_rate": 0.0,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 7,
+          "public_pass_rate": 0.0,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 8,
+          "public_pass_rate": 0.07142857142857142,
+          "private_pass_rate": 0.07142857142857142,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 9,
+          "public_pass_rate": 0.0,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-test-4026",
+      "candidate_count": 6,
+      "pool_oracle_private_pass_rate": 0.6071428571428571,
+      "pool_oracle_all_pass": false,
+      "pool_oracle_candidate_index": 1,
+      "candidate_private_rows": [
+        {
+          "candidate_index": 1,
+          "public_pass_rate": 0.35714285714285715,
+          "private_pass_rate": 0.6071428571428571,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 2,
+          "public_pass_rate": 0.39285714285714285,
+          "private_pass_rate": 0.6071428571428571,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 3,
+          "public_pass_rate": 0.32142857142857145,
+          "private_pass_rate": 0.42857142857142855,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 5,
+          "public_pass_rate": 0.0,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 8,
+          "public_pass_rate": 0.32142857142857145,
+          "private_pass_rate": 0.5714285714285714,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 9,
+          "public_pass_rate": 0.35714285714285715,
+          "private_pass_rate": 0.5714285714285714,
+          "private_all_pass": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-test-4027",
+      "candidate_count": 10,
+      "pool_oracle_private_pass_rate": 0.6538461538461539,
+      "pool_oracle_all_pass": false,
+      "pool_oracle_candidate_index": 7,
+      "candidate_private_rows": [
+        {
+          "candidate_index": 0,
+          "public_pass_rate": 0.2222222222222222,
+          "private_pass_rate": 0.11538461538461539,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 1,
+          "public_pass_rate": 0.2222222222222222,
+          "private_pass_rate": 0.11538461538461539,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 2,
+          "public_pass_rate": 0.2222222222222222,
+          "private_pass_rate": 0.11538461538461539,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 3,
+          "public_pass_rate": 0.5925925925925926,
+          "private_pass_rate": 0.5769230769230769,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 4,
+          "public_pass_rate": 0.2222222222222222,
+          "private_pass_rate": 0.07692307692307693,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 5,
+          "public_pass_rate": 0.2222222222222222,
+          "private_pass_rate": 0.11538461538461539,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 6,
+          "public_pass_rate": 0.2222222222222222,
+          "private_pass_rate": 0.07692307692307693,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 7,
+          "public_pass_rate": 0.7037037037037037,
+          "private_pass_rate": 0.6538461538461539,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 8,
+          "public_pass_rate": 0.2222222222222222,
+          "private_pass_rate": 0.11538461538461539,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 9,
+          "public_pass_rate": 0.2222222222222222,
+          "private_pass_rate": 0.11538461538461539,
+          "private_all_pass": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-test-4028",
+      "candidate_count": 3,
+      "pool_oracle_private_pass_rate": 0.11538461538461539,
+      "pool_oracle_all_pass": false,
+      "pool_oracle_candidate_index": 0,
+      "candidate_private_rows": [
+        {
+          "candidate_index": 0,
+          "public_pass_rate": 0.23076923076923078,
+          "private_pass_rate": 0.11538461538461539,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 7,
+          "public_pass_rate": 0.11538461538461539,
+          "private_pass_rate": 0.11538461538461539,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 9,
+          "public_pass_rate": 0.11538461538461539,
+          "private_pass_rate": 0.11538461538461539,
+          "private_all_pass": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-test-4029",
+      "candidate_count": 7,
+      "pool_oracle_private_pass_rate": 0.25,
+      "pool_oracle_all_pass": false,
+      "pool_oracle_candidate_index": 3,
+      "candidate_private_rows": [
+        {
+          "candidate_index": 0,
+          "public_pass_rate": 0.3076923076923077,
+          "private_pass_rate": 0.125,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 1,
+          "public_pass_rate": 0.38461538461538464,
+          "private_pass_rate": 0.16666666666666666,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 3,
+          "public_pass_rate": 0.5,
+          "private_pass_rate": 0.25,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 4,
+          "public_pass_rate": 0.3076923076923077,
+          "private_pass_rate": 0.125,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 6,
+          "public_pass_rate": 0.3076923076923077,
+          "private_pass_rate": 0.08333333333333333,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 7,
+          "public_pass_rate": 0.34615384615384615,
+          "private_pass_rate": 0.125,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 9,
+          "public_pass_rate": 0.38461538461538464,
+          "private_pass_rate": 0.16666666666666666,
+          "private_all_pass": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-test-55",
+      "candidate_count": 8,
+      "pool_oracle_private_pass_rate": 0.29508196721311475,
+      "pool_oracle_all_pass": false,
+      "pool_oracle_candidate_index": 2,
+      "candidate_private_rows": [
+        {
+          "candidate_index": 0,
+          "public_pass_rate": 0.0,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 2,
+          "public_pass_rate": 0.45901639344262296,
+          "private_pass_rate": 0.29508196721311475,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 3,
+          "public_pass_rate": 0.01639344262295082,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 4,
+          "public_pass_rate": 0.03278688524590164,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 5,
+          "public_pass_rate": 0.0,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 7,
+          "public_pass_rate": 0.01639344262295082,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 8,
+          "public_pass_rate": 0.4262295081967213,
+          "private_pass_rate": 0.2786885245901639,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 9,
+          "public_pass_rate": 0.0,
+          "private_pass_rate": 0.01639344262295082,
+          "private_all_pass": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-test-56",
+      "candidate_count": 7,
+      "pool_oracle_private_pass_rate": 0.0,
+      "pool_oracle_all_pass": false,
+      "pool_oracle_candidate_index": 0,
+      "candidate_private_rows": [
+        {
+          "candidate_index": 0,
+          "public_pass_rate": 0.0,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 1,
+          "public_pass_rate": 0.0,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 3,
+          "public_pass_rate": 0.0,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 4,
+          "public_pass_rate": 0.0,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 6,
+          "public_pass_rate": 0.0,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 7,
+          "public_pass_rate": 0.0,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 9,
+          "public_pass_rate": 0.0,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-test-57",
+      "candidate_count": 10,
+      "pool_oracle_private_pass_rate": 1.0,
+      "pool_oracle_all_pass": true,
+      "pool_oracle_candidate_index": 0,
+      "candidate_private_rows": [
+        {
+          "candidate_index": 0,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 1,
+          "public_pass_rate": 0.4,
+          "private_pass_rate": 0.13114754098360656,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 2,
+          "public_pass_rate": 0.4,
+          "private_pass_rate": 0.04918032786885246,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 3,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 4,
+          "public_pass_rate": 0.4,
+          "private_pass_rate": 0.13114754098360656,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 5,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 6,
+          "public_pass_rate": 0.4,
+          "private_pass_rate": 0.13114754098360656,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 7,
+          "public_pass_rate": 0.4,
+          "private_pass_rate": 0.13114754098360656,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 8,
+          "public_pass_rate": 0.4,
+          "private_pass_rate": 0.13114754098360656,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 9,
+          "public_pass_rate": 0.4,
+          "private_pass_rate": 0.13114754098360656,
+          "private_all_pass": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-test-58",
+      "candidate_count": 9,
+      "pool_oracle_private_pass_rate": 0.7833333333333333,
+      "pool_oracle_all_pass": false,
+      "pool_oracle_candidate_index": 0,
+      "candidate_private_rows": [
+        {
+          "candidate_index": 0,
+          "public_pass_rate": 0.8333333333333334,
+          "private_pass_rate": 0.7833333333333333,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 2,
+          "public_pass_rate": 0.8333333333333334,
+          "private_pass_rate": 0.7833333333333333,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 3,
+          "public_pass_rate": 0.8333333333333334,
+          "private_pass_rate": 0.7833333333333333,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 4,
+          "public_pass_rate": 0.8333333333333334,
+          "private_pass_rate": 0.7833333333333333,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 5,
+          "public_pass_rate": 0.8333333333333334,
+          "private_pass_rate": 0.7833333333333333,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 6,
+          "public_pass_rate": 0.8333333333333334,
+          "private_pass_rate": 0.7833333333333333,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 7,
+          "public_pass_rate": 0.8333333333333334,
+          "private_pass_rate": 0.7833333333333333,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 8,
+          "public_pass_rate": 0.05,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 9,
+          "public_pass_rate": 0.8333333333333334,
+          "private_pass_rate": 0.7833333333333333,
+          "private_all_pass": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-test-59",
+      "candidate_count": 5,
+      "pool_oracle_private_pass_rate": 0.8166666666666667,
+      "pool_oracle_all_pass": false,
+      "pool_oracle_candidate_index": 3,
+      "candidate_private_rows": [
+        {
+          "candidate_index": 1,
+          "public_pass_rate": 0.05,
+          "private_pass_rate": 0.03333333333333333,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 3,
+          "public_pass_rate": 0.9833333333333333,
+          "private_pass_rate": 0.8166666666666667,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 5,
+          "public_pass_rate": 0.03333333333333333,
+          "private_pass_rate": 0.21666666666666667,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 7,
+          "public_pass_rate": 0.85,
+          "private_pass_rate": 0.7,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 9,
+          "public_pass_rate": 0.0,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-test-60",
+      "candidate_count": 7,
+      "pool_oracle_private_pass_rate": 0.0,
+      "pool_oracle_all_pass": false,
+      "pool_oracle_candidate_index": 0,
+      "candidate_private_rows": [
+        {
+          "candidate_index": 0,
+          "public_pass_rate": 0.06779661016949153,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 2,
+          "public_pass_rate": 0.05084745762711865,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 4,
+          "public_pass_rate": 0.06779661016949153,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 5,
+          "public_pass_rate": 0.03389830508474576,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 6,
+          "public_pass_rate": 0.0,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 8,
+          "public_pass_rate": 0.03389830508474576,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 9,
+          "public_pass_rate": 0.0,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-test-61",
+      "candidate_count": 10,
+      "pool_oracle_private_pass_rate": 1.0,
+      "pool_oracle_all_pass": true,
+      "pool_oracle_candidate_index": 0,
+      "candidate_private_rows": [
+        {
+          "candidate_index": 0,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 1,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 2,
+          "public_pass_rate": 0.5932203389830508,
+          "private_pass_rate": 0.6101694915254238,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 3,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 4,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 5,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 6,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 7,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 8,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 9,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-test-62",
+      "candidate_count": 7,
+      "pool_oracle_private_pass_rate": 0.5,
+      "pool_oracle_all_pass": false,
+      "pool_oracle_candidate_index": 2,
+      "candidate_private_rows": [
+        {
+          "candidate_index": 0,
+          "public_pass_rate": 0.08620689655172414,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 2,
+          "public_pass_rate": 0.7931034482758621,
+          "private_pass_rate": 0.5,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 3,
+          "public_pass_rate": 0.5172413793103449,
+          "private_pass_rate": 0.3448275862068966,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 6,
+          "public_pass_rate": 0.4482758620689655,
+          "private_pass_rate": 0.46551724137931033,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 7,
+          "public_pass_rate": 0.7413793103448276,
+          "private_pass_rate": 0.43103448275862066,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 8,
+          "public_pass_rate": 0.5172413793103449,
+          "private_pass_rate": 0.5,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 9,
+          "public_pass_rate": 0.4827586206896552,
+          "private_pass_rate": 0.22413793103448276,
+          "private_all_pass": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-test-63",
+      "candidate_count": 9,
+      "pool_oracle_private_pass_rate": 1.0,
+      "pool_oracle_all_pass": true,
+      "pool_oracle_candidate_index": 3,
+      "candidate_private_rows": [
+        {
+          "candidate_index": 0,
+          "public_pass_rate": 0.7068965517241379,
+          "private_pass_rate": 0.5689655172413793,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 1,
+          "public_pass_rate": 0.7068965517241379,
+          "private_pass_rate": 0.603448275862069,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 2,
+          "public_pass_rate": 0.6379310344827587,
+          "private_pass_rate": 0.5172413793103449,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 3,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 4,
+          "public_pass_rate": 0.6379310344827587,
+          "private_pass_rate": 0.5172413793103449,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 5,
+          "public_pass_rate": 0.8103448275862069,
+          "private_pass_rate": 0.6551724137931034,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 6,
+          "public_pass_rate": 0.7413793103448276,
+          "private_pass_rate": 0.603448275862069,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 7,
+          "public_pass_rate": 0.7241379310344828,
+          "private_pass_rate": 0.603448275862069,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 9,
+          "public_pass_rate": 0.22413793103448276,
+          "private_pass_rate": 0.13793103448275862,
+          "private_all_pass": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-test-64",
+      "candidate_count": 9,
+      "pool_oracle_private_pass_rate": 1.0,
+      "pool_oracle_all_pass": true,
+      "pool_oracle_candidate_index": 1,
+      "candidate_private_rows": [
+        {
+          "candidate_index": 0,
+          "public_pass_rate": 0.2982456140350877,
+          "private_pass_rate": 0.3157894736842105,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 1,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 2,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 3,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 5,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 6,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 7,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 8,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 9,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-test-65",
+      "candidate_count": 10,
+      "pool_oracle_private_pass_rate": 1.0,
+      "pool_oracle_all_pass": true,
+      "pool_oracle_candidate_index": 0,
+      "candidate_private_rows": [
+        {
+          "candidate_index": 0,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 1,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 2,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 3,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 4,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 5,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 6,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 7,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 8,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 9,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-test-66",
+      "candidate_count": 8,
+      "pool_oracle_private_pass_rate": 0.017543859649122806,
+      "pool_oracle_all_pass": false,
+      "pool_oracle_candidate_index": 0,
+      "candidate_private_rows": [
+        {
+          "candidate_index": 0,
+          "public_pass_rate": 0.03508771929824561,
+          "private_pass_rate": 0.017543859649122806,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 1,
+          "public_pass_rate": 0.0,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 2,
+          "public_pass_rate": 0.05263157894736842,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 3,
+          "public_pass_rate": 0.05263157894736842,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 4,
+          "public_pass_rate": 0.05263157894736842,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 5,
+          "public_pass_rate": 0.05263157894736842,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 6,
+          "public_pass_rate": 0.0,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 7,
+          "public_pass_rate": 0.05263157894736842,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-test-67",
+      "candidate_count": 10,
+      "pool_oracle_private_pass_rate": 1.0,
+      "pool_oracle_all_pass": true,
+      "pool_oracle_candidate_index": 1,
+      "candidate_private_rows": [
+        {
+          "candidate_index": 0,
+          "public_pass_rate": 0.9298245614035088,
+          "private_pass_rate": 0.9473684210526315,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 1,
+          "public_pass_rate": 0.9298245614035088,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 2,
+          "public_pass_rate": 1.0,
+          "private_pass_rate": 1.0,
+          "private_all_pass": true
+        },
+        {
+          "candidate_index": 3,
+          "public_pass_rate": 0.9122807017543859,
+          "private_pass_rate": 0.9298245614035088,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 4,
+          "public_pass_rate": 0.9298245614035088,
+          "private_pass_rate": 0.9473684210526315,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 5,
+          "public_pass_rate": 0.9298245614035088,
+          "private_pass_rate": 0.9473684210526315,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 6,
+          "public_pass_rate": 0.8596491228070176,
+          "private_pass_rate": 0.47368421052631576,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 7,
+          "public_pass_rate": 0.8421052631578947,
+          "private_pass_rate": 0.6842105263157895,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 8,
+          "public_pass_rate": 0.2631578947368421,
+          "private_pass_rate": 0.6842105263157895,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 9,
+          "public_pass_rate": 0.22807017543859648,
+          "private_pass_rate": 0.5964912280701754,
+          "private_all_pass": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-test-68",
+      "candidate_count": 10,
+      "pool_oracle_private_pass_rate": 0.08771929824561403,
+      "pool_oracle_all_pass": false,
+      "pool_oracle_candidate_index": 7,
+      "candidate_private_rows": [
+        {
+          "candidate_index": 0,
+          "public_pass_rate": 0.19642857142857142,
+          "private_pass_rate": 0.03508771929824561,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 1,
+          "public_pass_rate": 0.23214285714285715,
+          "private_pass_rate": 0.07017543859649122,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 2,
+          "public_pass_rate": 0.16071428571428573,
+          "private_pass_rate": 0.07017543859649122,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 3,
+          "public_pass_rate": 0.19642857142857142,
+          "private_pass_rate": 0.03508771929824561,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 4,
+          "public_pass_rate": 0.26785714285714285,
+          "private_pass_rate": 0.07017543859649122,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 5,
+          "public_pass_rate": 0.21428571428571427,
+          "private_pass_rate": 0.05263157894736842,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 6,
+          "public_pass_rate": 0.14285714285714285,
+          "private_pass_rate": 0.05263157894736842,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 7,
+          "public_pass_rate": 0.21428571428571427,
+          "private_pass_rate": 0.08771929824561403,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 8,
+          "public_pass_rate": 0.19642857142857142,
+          "private_pass_rate": 0.03508771929824561,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 9,
+          "public_pass_rate": 0.23214285714285715,
+          "private_pass_rate": 0.07017543859649122,
+          "private_all_pass": false
+        }
+      ]
+    },
+    {
+      "problem_id": "apps-test-69",
+      "candidate_count": 8,
+      "pool_oracle_private_pass_rate": 0.14035087719298245,
+      "pool_oracle_all_pass": false,
+      "pool_oracle_candidate_index": 8,
+      "candidate_private_rows": [
+        {
+          "candidate_index": 0,
+          "public_pass_rate": 0.03571428571428571,
+          "private_pass_rate": 0.0,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 1,
+          "public_pass_rate": 0.0,
+          "private_pass_rate": 0.05263157894736842,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 3,
+          "public_pass_rate": 0.03571428571428571,
+          "private_pass_rate": 0.03508771929824561,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 4,
+          "public_pass_rate": 0.017857142857142856,
+          "private_pass_rate": 0.017543859649122806,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 6,
+          "public_pass_rate": 0.03571428571428571,
+          "private_pass_rate": 0.05263157894736842,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 7,
+          "public_pass_rate": 0.05357142857142857,
+          "private_pass_rate": 0.017543859649122806,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 8,
+          "public_pass_rate": 0.10714285714285714,
+          "private_pass_rate": 0.14035087719298245,
+          "private_all_pass": false
+        },
+        {
+          "candidate_index": 9,
+          "public_pass_rate": 0.10714285714285714,
+          "private_pass_rate": 0.017543859649122806,
+          "private_all_pass": false
+        }
+      ]
+    }
+  ],
+  "interpretation": "Post-hoc upper bound; this private scan is not a deployable selector and was run only after frozen selection outputs were produced."
+}

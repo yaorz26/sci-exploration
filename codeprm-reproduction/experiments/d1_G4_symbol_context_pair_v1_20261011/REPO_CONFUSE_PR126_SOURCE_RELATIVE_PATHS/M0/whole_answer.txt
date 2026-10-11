@@ -1,0 +1,46 @@
+ ```diff
+--- a/confuse/sources.py
++++ b/confuse/sources.py
+@@ -41,6 +41,7 @@ class ConfigSource(dict):
+     """A dictionary augmented with metadata about the source of the
+     configuration.
+     """
++    def __init__(self, value, filename=None, default=False, base_for_paths=False):
+         super(ConfigSource, self).__init__(value)
+         if (filename is not None
+                 and not isinstance(filename, BASESTRING)):
+@@ -68,6 +69,7 @@ class YamlSource(ConfigSource):
+     """A configuration data source that reads from a YAML file.
+     """
+
++    def __init__(self, filename=None, default=False, base_for_paths=False, optional=False, loader=yaml_util.Loader):
+     """Create a YAML data source by reading data from a file.
+
+     May raise a `ConfigReadError`. However, if `optional` is
+@@ -108,6 +110,7 @@ class Filename(Template):
+     """A template that validates strings as filenames.
+
+     Filenames are returned as absolute, tilde-free paths.
+
++    def __init__(self, default=REQUIRED, cwd=None, relative_to=None, in_app_dir=False, in_source_dir=False):
+     def __repr__(self):
+         args = []
+
+@@ -128,6 +131,7 @@ class Filename(Template):
+     def value(self, view, template=None):
+         try:
+             path, source = view.first()
++            if source.filename and (self.in_source_dir or source.base_for_paths):
++                path = os.path.join(os.path.dirname(source.filename), path)
+         except exceptions.NotFoundError:
+             return self.get_default_value(view.name)
+
+@@ -652,6 +656,7 @@ class Configuration(object):
+     def set_file(self, filename):
+         """Parses the file as YAML and inserts it into the configuration
+         sources with highest priority.
++        """
+         self.set(YamlSource(filename, loader=self.loader))
+
+     def set(self, value):
+```

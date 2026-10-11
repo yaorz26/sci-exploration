@@ -1,0 +1,43 @@
+{
+  "time": "2026-10-11T07:24:24.717037+00:00",
+  "task_ids": [
+    "REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS",
+    "REPO_CONFUSE_PR142_ENV_OVERLAY_LIMITED",
+    "REPO_MORE_PR440_GROUP_LIFETIME_LIMITED"
+  ],
+  "token_limit_per_arm": 6500,
+  "total_request_cap": 15,
+  "freeze": [
+    {
+      "id": "REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS",
+      "files": [
+        "confuse/sources.py",
+        "confuse/templates.py",
+        "confuse/core.py"
+      ],
+      "body_tokens": 2344,
+      "public_tokens": 379
+    },
+    {
+      "id": "REPO_CONFUSE_PR142_ENV_OVERLAY_LIMITED",
+      "files": [
+        "confuse/core.py",
+        "confuse/sources.py",
+        "confuse/yaml_util.py",
+        "confuse/__init__.py"
+      ],
+      "body_tokens": 2096,
+      "public_tokens": 994
+    },
+    {
+      "id": "REPO_MORE_PR440_GROUP_LIFETIME_LIMITED",
+      "files": [
+        "more_itertools/more.py",
+        "more_itertools/__init__.py"
+      ],
+      "body_tokens": 1541,
+      "public_tokens": 856
+    }
+  ],
+  "macro_plan_sha256": "9291e896a6a35203a41e0b27608bcdb0252af7c9e48d29ba90fdad6baf63403c"
+}

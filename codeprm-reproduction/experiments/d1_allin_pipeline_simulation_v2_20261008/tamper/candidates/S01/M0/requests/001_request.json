@@ -1,0 +1,15 @@
+{
+  "model": "synthetic-model",
+  "prompt": "<|im_start|>system\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\n<|im_start|>user\n你要编写Python代码。仅使用标准库，内部结构自由。任务需求与公开例子：\n{\n  \"task_id\": \"S01\",\n  \"requirement\": \"合成任务：将payload.value加1并返回value字典。\"\n}\n直接完整实现solve(payload)，可自行使用辅助函数。只输出Python代码。<|im_end|>\n<|im_start|>assistant\n",
+  "stream": false,
+  "options": {
+    "temperature": 0.2,
+    "seed": 20261008,
+    "num_ctx": 8192,
+    "stop": [
+      "<D1_END>"
+    ],
+    "num_predict": 128
+  },
+  "raw": true
+}

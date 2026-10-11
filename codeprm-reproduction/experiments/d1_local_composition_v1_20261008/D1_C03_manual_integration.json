@@ -1,0 +1,44 @@
+[
+  {
+    "case_id": "composition_key_binding",
+    "input": {
+      "capacity": 2,
+      "operations": [
+        {
+          "op": "call",
+          "kwargs": {
+            "a": 1
+          }
+        },
+        {
+          "op": "call",
+          "kwargs": {
+            "b": 2
+          }
+        },
+        {
+          "op": "clear"
+        }
+      ]
+    },
+    "expected": {
+      "value": [
+        {
+          "result": 1,
+          "computations": 1,
+          "size": 1
+        },
+        {
+          "result": 2,
+          "computations": 2,
+          "size": 2
+        },
+        {
+          "result": null,
+          "computations": 2,
+          "size": 0
+        }
+      ]
+    }
+  }
+]

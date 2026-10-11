@@ -1,0 +1,60 @@
+{
+  "task_id": "D1_C05",
+  "name": "调用参数的类型敏感等价判断",
+  "source": {
+    "repository": "tkem/cachetools",
+    "commit": "9976f1a8076631560f49c5b0dfda7e4d00ee0a4a",
+    "license": "MIT",
+    "file": "src/cachetools/keys.py",
+    "symbol": "hashkey",
+    "line": 37,
+    "source_sha256": "9550bd6914744c2fc6fd211dfb83cdae2d6206b1a1bfcf052d017cb23b39b49e",
+    "license_sha256": "28c000b52b0ee27138a68ef778227e4057046e86b65f62f1cacb99b0cc49e0d2",
+    "contamination_risk": "unknown",
+    "additional_symbols": [
+      {
+        "file": "src/cachetools/keys.py",
+        "symbol": "typedkey",
+        "line": 51,
+        "source_sha256": "9550bd6914744c2fc6fd211dfb83cdae2d6206b1a1bfcf052d017cb23b39b49e"
+      }
+    ]
+  },
+  "requirement_origin": "上游公开API文档/说明为主，适配器范围与边界补充；已查看实现，需独立泄漏审查",
+  "adaptation": "统一JSON入口和返回值，保留所选功能；不作为完整仓库任务",
+  "split": "development",
+  "structure": {
+    "kind": "single_pass_control",
+    "shared_state": "none",
+    "dependency_evidence": "参数位置、关键字名称和值/类型决定两次调用是否同键",
+    "independent_test_evidence": "单一等价契约，类型开关是条件分支",
+    "status": "单人预标注，尚未取得独立一致性统计"
+  },
+  "function_family": "call_key_equivalence",
+  "public_cases": 2,
+  "private_cases": 12,
+  "status": "候选原型，非冻结确认集",
+  "authoring_seed": 20261008,
+  "structure_v2": {
+    "schema_version": "0.2",
+    "cross_operation_state": "none",
+    "state_scope": "none",
+    "behavior_dependencies": [
+      "direct",
+      "branch_rules"
+    ],
+    "separate_behavior_testability": "no",
+    "evidence": "单一调用等价判定，类型开关不自动构成独立阶段",
+    "status": "单人初标；依据外部契约，未取得独立人工一致性统计",
+    "legacy_author_description": {
+      "kind": "single_pass_control",
+      "shared_state": "none",
+      "dependency_evidence": "参数位置、关键字名称和值/类型决定两次调用是否同键",
+      "independent_test_evidence": "单一等价契约，类型开关是条件分支",
+      "status": "单人预标注，尚未取得独立一致性统计"
+    }
+  },
+  "related_families": [
+    "memoized_calls"
+  ]
+}

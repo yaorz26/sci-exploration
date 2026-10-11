@@ -1,0 +1,40 @@
+{
+  "rows": [
+    {
+      "organization": "immediate",
+      "returned_type": "generator",
+      "stored_after_call_before_consumption": [],
+      "returned_pairs": [
+        [
+          "a",
+          1
+        ]
+      ],
+      "stored_after_consumption": [],
+      "post_consumption_observation_accepts": true
+    },
+    {
+      "organization": "deferred",
+      "returned_type": "generator",
+      "stored_after_call_before_consumption": [
+        [
+          "a",
+          1
+        ]
+      ],
+      "returned_pairs": [
+        [
+          "a",
+          1
+        ]
+      ],
+      "stored_after_consumption": [],
+      "post_consumption_observation_accepts": true
+    }
+  ],
+  "unique_new_inputs": 1,
+  "programs": 2,
+  "model_calls": 0,
+  "human_reviews": 0,
+  "conclusion": "消费后观察接纳两者，但调用后真实存储不同；原需求时点未明确，不能直接认延迟版为原题错误"
+}

@@ -1,0 +1,239 @@
+{
+  "created_at": "2026-10-09T05:57:16Z",
+  "question": "四条行为证据行能否支撑主问题A的一轴结构对照？",
+  "rows": [
+    {
+      "task_id": "D1_B01",
+      "name": "编号区间文本转换",
+      "source": "mahmoud/boltons",
+      "source_commit": "4e5faa3d7e4008d89e0d8bf1ea87b6d9a061a16d",
+      "split": "development",
+      "legacy_formal_claims_untouched": {
+        "kind": "pipeline",
+        "shared_state": "none",
+        "dependency_evidence": "输入规范与展开结果依赖，整体无跨调用状态",
+        "independent_test_evidence": "可按数值片段和最终排序分别定义行为测试，未规定被测拆法",
+        "status": "单人预标注，尚未取得独立一致性统计"
+      },
+      "dependency_claim": "ordered_transform",
+      "shared_state_claim": "none_observed_within_saved_domain",
+      "testability_claim": "partial_output_and_local_projection",
+      "evidence_status": "supported_finite",
+      "witness_counts": {
+        "whole_normal": "6/6",
+        "whole_reverse": "6/6",
+        "strong_local_normal": "6/6",
+        "strong_local_reverse": "3/6",
+        "weak_multiset_normal_and_reverse": "6/6",
+        "deduplicate_control": "1/6"
+      },
+      "scope": "固定sorted(expand(payload))接口和八个公开锚点；局部强顺序不是任务固有义务",
+      "reports": [
+        {
+          "path": "docs/week3/data-route/20261009/122_range_local_observability_report.md",
+          "sha256": "e2a321ccefee99d2170503976c201679d25f4629315f3911d0cabfd51db3f108"
+        }
+      ],
+      "provenance": {
+        "manifest": "data\\processed\\d1_project_initial20_v5_20261008\\manifest.json",
+        "manifest_sha256": "c3593d11ae85cc23545aa91418c2ab3c97a4b005fd5e49963bdc28ae7e6eda9f",
+        "human_reviews": 0,
+        "private_reads": 0,
+        "model_calls": 0
+      }
+    },
+    {
+      "task_id": "D1_B03",
+      "name": "日志转义控制码清理",
+      "source": "mahmoud/boltons",
+      "source_commit": "4e5faa3d7e4008d89e0d8bf1ea87b6d9a061a16d",
+      "split": "development",
+      "legacy_formal_claims_untouched": {
+        "kind": "single_pass_control",
+        "shared_state": "none",
+        "dependency_evidence": "识别完整控制码后删除，其余字符原序保留",
+        "independent_test_evidence": "单一清理转换，未指定额外语义阶段",
+        "status": "单人预标注，尚未取得独立一致性统计"
+      },
+      "dependency_claim": "single_pass_input_version",
+      "shared_state_claim": "none_observed_within_saved_domain",
+      "testability_claim": "partial_interface_condition",
+      "evidence_status": "partial",
+      "witness_counts": {
+        "source_single_pass": "6/6",
+        "independent_scan": "6/6",
+        "serial_csi_first": "5/6",
+        "serial_short_first": "5/6",
+        "original_span_interfaces": "12/12",
+        "local_span_matches": "24/24"
+      },
+      "scope": "公开单次删除/原始区间接口的有限规范；原B03题面未显式写single-pass，不能改写正式标签",
+      "reports": [
+        {
+          "path": "docs/week3/data-route/20261009/116_ansi_single_pass_report.md",
+          "sha256": "22d8ae93380e78135318164bec8d26d9ee85db5f481b7ca143d8634053958bda"
+        },
+        {
+          "path": "docs/week3/data-route/20261009/118_ansi_original_spans_report.md",
+          "sha256": "266e249277a994958023d2ac78caaa1b0dcf54206adffb5b236317101323c5d4"
+        }
+      ],
+      "provenance": {
+        "manifest": "data\\processed\\d1_project_initial20_v5_20261008\\manifest.json",
+        "manifest_sha256": "c3593d11ae85cc23545aa91418c2ab3c97a4b005fd5e49963bdc28ae7e6eda9f",
+        "human_reviews": 0,
+        "private_reads": 0,
+        "model_calls": 0
+      }
+    },
+    {
+      "task_id": "D1_B05",
+      "name": "嵌套数据转换与结果路径筛选",
+      "source": "mahmoud/boltons",
+      "source_commit": "4e5faa3d7e4008d89e0d8bf1ea87b6d9a061a16d",
+      "split": "development",
+      "legacy_formal_claims_untouched": {
+        "kind": "pipeline",
+        "shared_state": "none",
+        "dependency_evidence": "筛选必须使用变换后的值和删除后重排的数组路径",
+        "independent_test_evidence": "树转换和变换后路径筛选都有完整输入输出契约",
+        "status": "单人预标注，尚未取得独立一致性统计"
+      },
+      "dependency_claim": "ordered_transform_and_path_mapping",
+      "shared_state_claim": "none_observed_within_saved_domain",
+      "testability_claim": "partial_value_and_path_contract",
+      "evidence_status": "supported_finite",
+      "witness_counts": {
+        "materialize_then_scan": "6/6",
+        "original_tree_actual_product": "6/6",
+        "division_inverse_threshold": "5/6",
+        "original_new_path_trace": "6/6"
+      },
+      "scope": "六个公开锚点和固定路径映射；语义义务不规定唯一物化次序，浮点逆阈值有反例",
+      "reports": [
+        {
+          "path": "docs/week3/data-route/20261009/132_threshold_pullback_report.md",
+          "sha256": "a5cae4076efc41650d3aa6239edbf752a4e019f17db887aaa8df116c6a08bd45"
+        }
+      ],
+      "provenance": {
+        "manifest": "data\\processed\\d1_project_initial20_v5_20261008\\manifest.json",
+        "manifest_sha256": "c3593d11ae85cc23545aa91418c2ab3c97a4b005fd5e49963bdc28ae7e6eda9f",
+        "human_reviews": 0,
+        "private_reads": 0,
+        "model_calls": 0
+      }
+    },
+    {
+      "task_id": "D1_C03",
+      "name": "带计算计数的函数调用缓存",
+      "source": "tkem/cachetools",
+      "source_commit": "9976f1a8076631560f49c5b0dfda7e4d00ee0a4a",
+      "split": "development",
+      "legacy_formal_claims_untouched": {
+        "kind": "stateful",
+        "shared_state": "call_keys_recency_counter",
+        "dependency_evidence": "调用键、命中、最近使用和清空共同影响后续实际计算次数",
+        "independent_test_evidence": "调用等价与数值求和可单测；命中和淘汰须序列验证",
+        "status": "单人预标注，尚未取得独立一致性统计"
+      },
+      "dependency_claim": "operation_sequence",
+      "shared_state_claim": "global_persistent_state_observed_in_variant",
+      "testability_claim": "partial_sequence_required",
+      "evidence_status": "supported_finite",
+      "witness_counts": {
+        "three_plan_variants_original_cases": "33/33 each",
+        "finite_sequences": "2343 sequences × 3 variants",
+        "program_evaluations": "7029",
+        "shared_state_trace": "6/6 update-render calls"
+      },
+      "scope": "固定容量/动作/长度有限域；三个合法实现的方案状态位置不同，不推任务属性或模型收益",
+      "reports": [
+        {
+          "path": "docs/week3/data-route/20261008/46_plan_state_distribution_report.md",
+          "sha256": "5e4130b7a5dda7f912947f67012609bfb4aab06157c13f9498747abe4cb86c38"
+        }
+      ],
+      "provenance": {
+        "manifest": "data\\processed\\d1_project_initial20_v5_20261008\\manifest.json",
+        "manifest_sha256": "c3593d11ae85cc23545aa91418c2ab3c97a4b005fd5e49963bdc28ae7e6eda9f",
+        "human_reviews": 0,
+        "private_reads": 0,
+        "model_calls": 0
+      }
+    }
+  ],
+  "pair_audit": [
+    {
+      "left": "D1_B01",
+      "right": "D1_B03",
+      "same_source_split": true,
+      "same_state_testability": false,
+      "dependency_diff": true,
+      "state_diff": false,
+      "testability_diff": true,
+      "formal_one_axis_contrast": false
+    },
+    {
+      "left": "D1_B01",
+      "right": "D1_B05",
+      "same_source_split": true,
+      "same_state_testability": false,
+      "dependency_diff": true,
+      "state_diff": false,
+      "testability_diff": true,
+      "formal_one_axis_contrast": false
+    },
+    {
+      "left": "D1_B01",
+      "right": "D1_C03",
+      "same_source_split": false,
+      "same_state_testability": false,
+      "dependency_diff": true,
+      "state_diff": true,
+      "testability_diff": true,
+      "formal_one_axis_contrast": false
+    },
+    {
+      "left": "D1_B03",
+      "right": "D1_B05",
+      "same_source_split": true,
+      "same_state_testability": false,
+      "dependency_diff": true,
+      "state_diff": false,
+      "testability_diff": true,
+      "formal_one_axis_contrast": false
+    },
+    {
+      "left": "D1_B03",
+      "right": "D1_C03",
+      "same_source_split": false,
+      "same_state_testability": false,
+      "dependency_diff": true,
+      "state_diff": true,
+      "testability_diff": true,
+      "formal_one_axis_contrast": false
+    },
+    {
+      "left": "D1_B05",
+      "right": "D1_C03",
+      "same_source_split": false,
+      "same_state_testability": false,
+      "dependency_diff": true,
+      "state_diff": true,
+      "testability_diff": true,
+      "formal_one_axis_contrast": false
+    }
+  ],
+  "formal_one_axis_contrast_count": 0,
+  "formal_labels_written": false,
+  "manifest_changed": false,
+  "human_reviews": 0,
+  "model_calls": 0,
+  "private_reads": 0,
+  "limits": [
+    "四行均来自原initial20，行为证据是有限公开域，不能替代人工真值",
+    "证据行不写回manifest，legacy formal claims仅作未修改的对照",
+    "同源同切分但多轴同时变化的配对不算一轴对照"
+  ]
+}

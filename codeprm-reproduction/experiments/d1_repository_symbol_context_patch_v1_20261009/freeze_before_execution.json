@@ -1,0 +1,38 @@
+{
+  "created_at": "2026-10-09T08:57:05.999203+00:00",
+  "extraction": [
+    {
+      "file": "confuse/sources.py",
+      "symbol": "ConfigSource",
+      "line": 8,
+      "end_line": 38,
+      "selection_origin": "公开需求API和父源码；非参考改动选区"
+    },
+    {
+      "file": "confuse/sources.py",
+      "symbol": "YamlSource",
+      "line": 41,
+      "end_line": 68,
+      "selection_origin": "公开需求API和父源码；非参考改动选区"
+    },
+    {
+      "file": "confuse/templates.py",
+      "symbol": "Filename",
+      "line": 459,
+      "end_line": 581,
+      "selection_origin": "公开需求API和父源码；非参考改动选区"
+    },
+    {
+      "file": "confuse/core.py",
+      "symbol": "Configuration.set_file",
+      "line": 652,
+      "end_line": 656,
+      "selection_origin": "公开需求API和父源码；非参考改动选区"
+    }
+  ],
+  "input_sha256": "c308633d17c2212e1a572f9f1d5ee0caf5027f563c8c3bb8aa5ba426fe568507",
+  "research_output_sha256": "4d1528afd80a33373721e8b1ad90649e049af7bc4fa93799b7a582912338e963",
+  "reference_in_input": false,
+  "prediction": "提取上下文+给定正确patch可能在6500内；严格应用应复原三个合并模块",
+  "scope": "给定正确文本容量，非生成结果；不保证信息充分和方法公平"
+}

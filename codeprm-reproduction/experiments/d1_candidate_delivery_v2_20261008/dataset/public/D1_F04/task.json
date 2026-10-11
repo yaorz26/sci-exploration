@@ -1,0 +1,57 @@
+{
+  "task_id": "D1_F04",
+  "requirement": "实现solve(payload)。value为JSON对象，返回仅含name、retries、scores、options的规范对象，忽略其他字段。name必需且为字符串。retries缺失取default_retries（若未给出为3）；scores缺失取[]，否则必须为列表。options缺失取{}，否则必须为对象，返回仅含mode和limit：mode缺失取'safe'，否则须为字符串；limit缺失取10。retries、scores各项、limit若提供，必须为Python整数、浮点或布尔：浮点转int向零截断，整数和布尔原样保留；字符串数字不接受。null视为已提供的非法值而非缺失，任一非法或缺失必需字段引发ValueError，不能返回部分结果。default_retries若给出保证为整数。保证所有数值有限。只用标准库，内部结构自由。",
+  "entry_point": "solve(payload)",
+  "language": "Python",
+  "allowed_libraries": "仅Python标准库",
+  "public_examples": [
+    {
+      "input": {
+        "value": {
+          "name": "demo",
+          "retries": 2.9,
+          "scores": [
+            1.9,
+            -2.9,
+            true
+          ],
+          "options": {
+            "extra": 7
+          }
+        }
+      },
+      "output": {
+        "name": "demo",
+        "retries": 2,
+        "scores": [
+          1,
+          -2,
+          true
+        ],
+        "options": {
+          "mode": "safe",
+          "limit": 10
+        }
+      }
+    },
+    {
+      "input": {
+        "value": {
+          "name": "x"
+        },
+        "default_retries": 5
+      },
+      "output": {
+        "name": "x",
+        "retries": 5,
+        "scores": [],
+        "options": {
+          "mode": "safe",
+          "limit": 10
+        }
+      }
+    }
+  ],
+  "general_contract": "不得修改输入payload及其嵌套内容。测试输入符合已声明的字段与类型，明确要求的异常情形除外；不要求验证未声明的域外输入。",
+  "internal_decomposition": "自由选择，不给定helper名称或数量"
+}

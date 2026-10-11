@@ -1,0 +1,66 @@
+[
+  {
+    "task_id": "D1_B01",
+    "arm": "M0",
+    "candidate_index": 0,
+    "generation_error": null,
+    "allocated_output_cap": 4096,
+    "candidate_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_project_development_pilot_v1_20261008\\candidates\\D1_B01\\M0\\candidate.py",
+    "candidate_sha256": "a7fbbb91841f14180332c331140091521cd15083394732e8ef33fd76bb44abcc"
+  },
+  {
+    "task_id": "D1_B01",
+    "arm": "M2",
+    "candidate_index": 0,
+    "generation_error": "ValueError: dependencies must precede helper",
+    "allocated_output_cap": 4096
+  },
+  {
+    "task_id": "D1_B02",
+    "arm": "M0",
+    "candidate_index": 0,
+    "generation_error": null,
+    "allocated_output_cap": 4096,
+    "candidate_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_project_development_pilot_v1_20261008\\candidates\\D1_B02\\M0\\candidate.py",
+    "candidate_sha256": "830d9ed08d5f02c0d88775ea310fe41d5efd310137800ee8864d22c78138899b"
+  },
+  {
+    "task_id": "D1_B02",
+    "arm": "M2",
+    "candidate_index": 0,
+    "generation_error": "ValueError: invalid or duplicated helper name",
+    "allocated_output_cap": 4096
+  },
+  {
+    "task_id": "D1_C01",
+    "arm": "M0",
+    "candidate_index": 0,
+    "generation_error": null,
+    "allocated_output_cap": 4096,
+    "candidate_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_project_development_pilot_v1_20261008\\candidates\\D1_C01\\M0\\candidate.py",
+    "candidate_sha256": "6a75c371318595cc4995accf477b19223fef093a1ca5949a7b56888ab1549f1f"
+  },
+  {
+    "task_id": "D1_C01",
+    "arm": "M2",
+    "candidate_index": 0,
+    "generation_error": "ValueError: invalid or duplicated helper name",
+    "allocated_output_cap": 4096
+  },
+  {
+    "task_id": "D1_C02",
+    "arm": "M0",
+    "candidate_index": 0,
+    "generation_error": null,
+    "allocated_output_cap": 4096,
+    "candidate_path": "D:\\yaorz\\research\\codeprm-reproduction\\experiments\\d1_project_development_pilot_v1_20261008\\candidates\\D1_C02\\M0\\candidate.py",
+    "candidate_sha256": "29a4a4900671000986fce0729d954d7b7a8a3df8b7bd6f036fef323767d6bf9e"
+  },
+  {
+    "task_id": "D1_C02",
+    "arm": "M2",
+    "candidate_index": 0,
+    "generation_error": "ValueError: invalid or duplicated helper name",
+    "allocated_output_cap": 4096
+  }
+]

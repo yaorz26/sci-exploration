@@ -1,0 +1,67 @@
+{
+  "arm": "M2",
+  "calls": [
+    {
+      "label": "plan",
+      "prompt_eval_count": 4452,
+      "eval_count": 131,
+      "total": 4583,
+      "spent_before": 0,
+      "spent_after": 4583,
+      "status": "ok"
+    },
+    {
+      "label": "helper_1",
+      "prompt_eval_count": 3929,
+      "eval_count": 650,
+      "total": 4579,
+      "spent_before": 4583,
+      "spent_after": 9162,
+      "status": "budget_overrun",
+      "error": "arm cap 6500 exceeded"
+    }
+  ],
+  "spent": 9162,
+  "status": "budget_overrun",
+  "candidate": null,
+  "plan": {
+    "components": [
+      {
+        "name": "EnvironmentVariableSource",
+        "files": [
+          "confuse/sources.py"
+        ],
+        "contract": "A dictionary-like object that represents configuration data sourced from environment variables. It should handle prefix matching, key transformation, and nested keys."
+      },
+      {
+        "name": "ConfigurationEnvironmentMixin",
+        "files": [
+          "confuse/core.py"
+        ],
+        "contract": "A mixin class that adds methods to the Configuration class to handle environment variable sources. It should allow adding environment variable sources with a specified prefix and handle their priority over file sources."
+      }
+    ]
+  },
+  "helpers": [
+    {
+      "component": {
+        "name": "EnvironmentVariableSource",
+        "files": [
+          "confuse/sources.py"
+        ],
+        "contract": "A dictionary-like object that represents configuration data sourced from environment variables. It should handle prefix matching, key transformation, and nested keys."
+      },
+      "answer": "```diff\ndiff --git a/confuse/sources.py b/confuse/sources.py\nindex 3a4b5c6..7d8e9f0 100644\n--- a/confuse/sources.py\n+++ b/confuse/sources.py\n@@ -1,6 +1,7 @@\n from __future__ import division, absolute_import, print_function\n \n from .util import BASESTRING\n+from . import yaml_util\n import os\n \n \n@@ -10,6 +11,7 @@ class ConfigSource(dict):\n     \"\"\"A dictionary augmented with metadata about the source of the\n     configuration.\n     \"\"\"\n+    environment = {}\n     def __init__(self, value, filename=None, default=False,\n                  base_for_paths=False):\n         \"\"\"Create a configuration source from a dictionary.\n@@ -20,6 +22,12 @@ class ConfigSource(dict):\n         self.filename = filename\n         self.default = default\n         self.base_for_paths = base_for_paths if filename is not None else False\n+        if filename is None:\n+            self._load_environment()\n+\n+    def _load_environment(self):\n+        prefix = self.filename.split('.')[0].upper() + '_'\n+        for key, value in os.environ.items():\n+            if key.startswith(prefix):\n+                self.environment[key[len(prefix):].lower().replace('__', '.')] = value\n \n     def __repr__(self):\n         return 'ConfigSource({0!r}, {1!r}, {2!r}, {3!r})'.format(\n@@ -30,6 +38,7 @@ class ConfigSource(dict):\n     @classmethod\n     def of(cls, value):\n         \"\"\"Given either a dictionary or a `ConfigSource` object, return\n@@ -40,6 +49,7 @@ class ConfigSource(dict):\n \n class YamlSource(ConfigSource):\n     \"\"\"A configuration data source that reads from a YAML file.\n+    \"\"\"\n \n     def __init__(self, filename=None, default=False, base_for_paths=False,\n                  optional=False, loader=yaml_util.Loader):\n@@ -50,6 +60,7 @@ class YamlSource(ConfigSource):\n         self.loader = loader\n         self.optional = optional\n         self.load()\n+\n     def load(self):\n         \"\"\"Load YAML data from the source's filename.\n         \"\"\"\n@@ -60,6 +71,7 @@ class YamlSource(ConfigSource):\n             value = yaml_util.load_yaml(self.filename,\n                                         loader=self.loader) or {}\n         self.update(value)\n+\n \n class ConfigView(object):\n     \"\"\"A configuration \"view\" is a query into a program's configuration\n@@ -70,6 +82,7 @@ class ConfigView(object):\n     name = None\n     \"\"\"The name of the view, depicting the path taken through the\n     configuration in Python-like syntax (e.g., ``foo['bar'][42]``).\n+    \"\"\"\n \n     def resolve(self):\n         \"\"\"The core (internal) data retrieval method. Generates (value,\n@@ -80,6 +93,7 @@",
+      "token_row": {
+        "label": "helper_1",
+        "prompt_eval_count": 3929,
+        "eval_count": 650,
+        "total": 4579,
+        "spent_before": 4583,
+        "spent_after": 9162,
+        "status": "budget_overrun",
+        "error": "arm cap 6500 exceeded"
+      }
+    }
+  ]
+}

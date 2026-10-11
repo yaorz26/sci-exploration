@@ -1,0 +1,163 @@
+{
+  "created_at": "2026-10-11T08:57:45.549992+00:00",
+  "phase": "G3",
+  "macro_plan": "RESEARCH_PLAN.md v4 §5 G3（真实盲审与数据切分门）",
+  "purpose": "冻结 G1/G2 的任务版本、公开锚点与来源，作为盲审的固定输入",
+  "candidates": {
+    "PR126": {
+      "package": "confuse",
+      "source": "beetbox/confuse",
+      "commit_parent": "8b69242b8facdd7d1f87113693ea72017d61a0ff",
+      "commit_merge": "2c1f97e7b6aadbeb8bd6f112bd7ef965dbd977b0",
+      "license": "MIT",
+      "requirement": "data/processed/d1_actual_project_candidate_v2_20261009/public/REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS/requirement.md",
+      "evaluator": "data/processed/d1_actual_project_candidate_v2_20261009/evaluation/REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS/evaluate.py",
+      "public_cases": null,
+      "supplementary_anchor": "experiments/d1_G3_pr126_entry_gap_v1_20261009/stage_result.json",
+      "gap_status": "contract-ready（直接 YamlSource 锚点已补）",
+      "material_hashes": {
+        "requirement": {
+          "path": "data/processed/d1_actual_project_candidate_v2_20261009/public/REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS/requirement.md",
+          "exists": true,
+          "sha256": "f63dbd281ccb5bbcafeaa3e5ef625f4ddf3c1b11ce1a31e3530214b3d61e9af2"
+        },
+        "evaluator": {
+          "path": "data/processed/d1_actual_project_candidate_v2_20261009/evaluation/REPO_CONFUSE_PR126_SOURCE_RELATIVE_PATHS/evaluate.py",
+          "exists": true,
+          "sha256": "138c07f50905b05df419c3b408cb464aae73cd78a5d2f7b570551f947ebaacb2"
+        },
+        "supplementary_anchor": {
+          "path": "experiments/d1_G3_pr126_entry_gap_v1_20261009/stage_result.json",
+          "exists": true,
+          "sha256": "ee65c50fce727e6bbe414d129845ac76ae55673fb9bd29244921f5d4b181dedc"
+        }
+      }
+    },
+    "PR142": {
+      "package": "confuse",
+      "source": "beetbox/confuse",
+      "commit_parent": "cd1db04b07db00050900d2f548baf144bb92d261",
+      "commit_merge": "8c8c3df5b539ef45862a7043b31dccac3daf204a",
+      "license": "MIT",
+      "requirement": "experiments/d1_G2_confuse_pr142_env_source_v1_20261009/candidate/requirement.md",
+      "evaluator": "experiments/d1_G2_confuse_pr142_env_source_v1_20261009/candidate/evaluate_env_source.py",
+      "public_cases": "experiments/d1_G2_confuse_pr142_env_source_v1_20261009/candidate/public_cases.json",
+      "gap_status": "research-pool-only with unknown（构造时不默认加入环境源未观测；调用方必须显式 set_env）",
+      "material_hashes": {
+        "requirement": {
+          "path": "experiments/d1_G2_confuse_pr142_env_source_v1_20261009/candidate/requirement.md",
+          "exists": true,
+          "sha256": "4eb2b78047dcf5e326fcb266fc6483ab963a65a2d6a6ce3acc7cc91f79e4dabf"
+        },
+        "evaluator": {
+          "path": "experiments/d1_G2_confuse_pr142_env_source_v1_20261009/candidate/evaluate_env_source.py",
+          "exists": true,
+          "sha256": "72a0e6d45e1a8e1d6296662107fb76f91115d35a75ae83b1589e3d7b07739da2"
+        },
+        "public_cases": {
+          "path": "experiments/d1_G2_confuse_pr142_env_source_v1_20261009/candidate/public_cases.json",
+          "exists": true,
+          "sha256": "2d4e39d914be1d18b3649edb57df502f7235936b5d85f07c5410ff90d30cd294"
+        }
+      }
+    },
+    "PR440": {
+      "package": "more-itertools",
+      "source": "more-itertools/more-itertools",
+      "commit_parent": "38d070c9252d2138dbd86f8f85b9970741401cb6",
+      "commit_merge": "78405e9b24d0ccdd67785136ecd56774f38ae95e",
+      "license": "MIT",
+      "requirement": "experiments/d1_G2_more_pr440_group_lifetime_v1_20261009/candidate/requirement.md",
+      "evaluator": "experiments/d1_G2_more_pr440_group_lifetime_v1_20261009/candidate/evaluate_group_lifetime.py",
+      "public_cases": "experiments/d1_G2_more_pr440_group_lifetime_v1_20261009/candidate/public_cases.json",
+      "gap_status": "research-pool-only with unknown（默认 keyfunc/valuefunc 属可观察性缺口）",
+      "material_hashes": {
+        "requirement": {
+          "path": "experiments/d1_G2_more_pr440_group_lifetime_v1_20261009/candidate/requirement.md",
+          "exists": true,
+          "sha256": "1e85dc7a5e6f48b1fe08071933235f719b38d505fd965e42891ae0a8d6176364"
+        },
+        "evaluator": {
+          "path": "experiments/d1_G2_more_pr440_group_lifetime_v1_20261009/candidate/evaluate_group_lifetime.py",
+          "exists": true,
+          "sha256": "b023f4925b948ffc132e08b58851d053b163de8ef246db37f164e07f92b8704c"
+        },
+        "public_cases": {
+          "path": "experiments/d1_G2_more_pr440_group_lifetime_v1_20261009/candidate/public_cases.json",
+          "exists": true,
+          "sha256": "e5394f20d4624d119949184396c8c4a3e735f8f9bc4f3fb8416161abc6b45c83"
+        }
+      }
+    },
+    "QUEUE_K2": {
+      "package": "boltons-queueutils",
+      "source": "mahmoud/boltons（queueutils 模块）",
+      "commit_parent": "4e5faa3d7e4008d89e0d8bf1ea87b6d9a061a16d",
+      "commit_merge": null,
+      "license": "BSD-3-Clause",
+      "requirement": "experiments/d1_G2_queue_history_candidate_v1_20261011/candidate/requirement.md",
+      "evaluator": "experiments/d1_G2_queue_history_candidate_v1_20261011/candidate/evaluate_queue_history.py",
+      "public_cases": "experiments/d1_G2_queue_history_candidate_v1_20261011/candidate/public_cases.json",
+      "gap_status": "新增 K2 候选（research_pool_only）；未解决边界＝官方文档只承诺更新优先级，未逐字承诺同优先级下的新位置",
+      "material_hashes": {
+        "requirement": {
+          "path": "experiments/d1_G2_queue_history_candidate_v1_20261011/candidate/requirement.md",
+          "exists": true,
+          "sha256": "8fa470a4f09ad71d7db33bef53e0faf4a58fe7d503664973aaf9aaa64edbd008"
+        },
+        "evaluator": {
+          "path": "experiments/d1_G2_queue_history_candidate_v1_20261011/candidate/evaluate_queue_history.py",
+          "exists": true,
+          "sha256": "f285249b06ffa307a05e55eb6f11768d987b45b46733863e341ec891003ecb03"
+        },
+        "public_cases": {
+          "path": "experiments/d1_G2_queue_history_candidate_v1_20261011/candidate/public_cases.json",
+          "exists": true,
+          "sha256": "0f45ad44c8580a175ca63b75fea19de0b2ca8a66704bfea0561eec6dd276d0b9"
+        }
+      }
+    },
+    "URL_K3": {
+      "package": "boltons-urlutils",
+      "source": "mahmoud/boltons（urlutils 模块）",
+      "commit_parent": "4e5faa3d7e4008d89e0d8bf1ea87b6d9a061a16d",
+      "commit_merge": null,
+      "license": "BSD-3-Clause",
+      "requirement": "experiments/d1_G2_url_dual_render_candidate_v1_20261011/candidate/requirement.md",
+      "evaluator": "experiments/d1_G2_url_dual_render_candidate_v1_20261011/candidate/evaluate_url_dual_render.py",
+      "public_cases": "experiments/d1_G2_url_dual_render_candidate_v1_20261011/candidate/public_cases.json",
+      "gap_status": "新增 K3 候选（research_pool_only）；未解决边界＝只覆盖含查询串的 http(s) 有限域",
+      "material_hashes": {
+        "requirement": {
+          "path": "experiments/d1_G2_url_dual_render_candidate_v1_20261011/candidate/requirement.md",
+          "exists": true,
+          "sha256": "628163d1c51eb6ac645887fd25a25112622b76f1880ecef1c8ada2f3c3e70ab9"
+        },
+        "evaluator": {
+          "path": "experiments/d1_G2_url_dual_render_candidate_v1_20261011/candidate/evaluate_url_dual_render.py",
+          "exists": true,
+          "sha256": "96e0180f7ca5ad738777b0d404a6e30058ca474daf289169c9fbd11f5be73747"
+        },
+        "public_cases": {
+          "path": "experiments/d1_G2_url_dual_render_candidate_v1_20261011/candidate/public_cases.json",
+          "exists": true,
+          "sha256": "b9283855768fc04890e1611e5fdf3a946ce3a6045de15660f9fa0676f0fe50ce"
+        }
+      }
+    }
+  },
+  "freeze_discipline": [
+    "冻结后不得改动需求、公开用例与评价器；如需改动则建立新版本目录",
+    "审查者只见需求、公开用例与行为锚点；不见参考实现、正确补丁、模型结果",
+    "在两位真实审查者完成并保留分歧之前，formal_labels 与 split 保持 null"
+  ],
+  "human_reviews": 0,
+  "formal_labels": null,
+  "split": null,
+  "missing_materials": [],
+  "counts": {
+    "candidates": 5,
+    "packages": 4,
+    "materials_hashed": 15
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "status": "targeted_read",
+  "scope_limit": "已读部分证明相关任务设置存在；不能凭定向阅读断言其没有结构标注或本项目为首个。依赖图用于构建任务，不等于比较生成时自主拆分。",
+  "sources": [
+    {
+      "id": "2503.06680",
+      "title": "FEA-Bench",
+      "url": "https://arxiv.org/html/2503.06680v1",
+      "read_scope": "定向阅读方法3.1—3.3，未通读全文",
+      "evidence": [
+        {
+          "section": "3.1",
+          "text_lines": [
+            91,
+            102
+          ],
+          "finding": "推理时给出新增函数/类签名及文档；测试按指定名称调用；gold/test patch不得进入推理。"
+        },
+        {
+          "section": "3.3",
+          "text_lines": [
+            113,
+            118
+          ],
+          "finding": "从PR抽取新组件，要求应用gold patch后测试通过；最终1401任务、83仓库。"
+        }
+      ]
+    },
+    {
+      "id": "2602.10975",
+      "title": "FeatureBench",
+      "url": "https://arxiv.org/html/2602.10975v1",
+      "read_scope": "定向阅读3.1—3.3及4.2.1，未通读全文",
+      "evidence": [
+        {
+          "section": "3.1",
+          "text_lines": [
+            138,
+            143
+          ],
+          "finding": "支持已有仓库修改或从零实现；提供调用路径、函数签名和输入输出。"
+        },
+        {
+          "section": "3.2—3.3",
+          "text_lines": [
+            145,
+            164
+          ],
+          "finding": "运行F2P/P2P，经Python追踪构建函数依赖图并提取实现；过滤后200任务、24仓库，3825候选环境。"
+        },
+        {
+          "section": "4.2.1",
+          "text_lines": [
+            436,
+            458
+          ],
+          "finding": "有接口移除、人工改题及L1仓库/L2从零实现消融；人工对照检验题面质量及对象分类，不等同本项目结构双审。"
+        }
+      ]
+    }
+  ],
+  "download_record": "access_record.json"
+}

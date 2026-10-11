@@ -1,0 +1,362 @@
+[
+  {
+    "id": "empty",
+    "input": {
+      "policy": "LRU",
+      "capacity": 1,
+      "operations": []
+    },
+    "hand_final_record": null
+  },
+  {
+    "id": "read_eviction_LRU",
+    "input": {
+      "policy": "LRU",
+      "capacity": 2,
+      "operations": [
+        {
+          "op": "put",
+          "key": "a",
+          "value": 1
+        },
+        {
+          "op": "put",
+          "key": "b",
+          "value": 2
+        },
+        {
+          "op": "read",
+          "key": "a"
+        },
+        {
+          "op": "put",
+          "key": "c",
+          "value": 3
+        }
+      ]
+    },
+    "hand_final_record": {
+      "result": null,
+      "items": [
+        [
+          "a",
+          1
+        ],
+        [
+          "c",
+          3
+        ]
+      ],
+      "hits": 1,
+      "misses": 0,
+      "soft_misses": 0
+    }
+  },
+  {
+    "id": "rewrite_LRU",
+    "input": {
+      "policy": "LRU",
+      "capacity": 2,
+      "operations": [
+        {
+          "op": "put",
+          "key": "a",
+          "value": 1
+        },
+        {
+          "op": "put",
+          "key": "b",
+          "value": 2
+        },
+        {
+          "op": "put",
+          "key": "a",
+          "value": 3
+        },
+        {
+          "op": "put",
+          "key": "c",
+          "value": 4
+        }
+      ]
+    },
+    "hand_final_record": {
+      "result": null,
+      "items": [
+        [
+          "a",
+          3
+        ],
+        [
+          "c",
+          4
+        ]
+      ],
+      "hits": 0,
+      "misses": 0,
+      "soft_misses": 0
+    }
+  },
+  {
+    "id": "read_eviction_LRI",
+    "input": {
+      "policy": "LRI",
+      "capacity": 2,
+      "operations": [
+        {
+          "op": "put",
+          "key": "a",
+          "value": 1
+        },
+        {
+          "op": "put",
+          "key": "b",
+          "value": 2
+        },
+        {
+          "op": "read",
+          "key": "a"
+        },
+        {
+          "op": "put",
+          "key": "c",
+          "value": 3
+        }
+      ]
+    },
+    "hand_final_record": {
+      "result": null,
+      "items": [
+        [
+          "b",
+          2
+        ],
+        [
+          "c",
+          3
+        ]
+      ],
+      "hits": 1,
+      "misses": 0,
+      "soft_misses": 0
+    }
+  },
+  {
+    "id": "rewrite_LRI",
+    "input": {
+      "policy": "LRI",
+      "capacity": 2,
+      "operations": [
+        {
+          "op": "put",
+          "key": "a",
+          "value": 1
+        },
+        {
+          "op": "put",
+          "key": "b",
+          "value": 2
+        },
+        {
+          "op": "put",
+          "key": "a",
+          "value": 3
+        },
+        {
+          "op": "put",
+          "key": "c",
+          "value": 4
+        }
+      ]
+    },
+    "hand_final_record": {
+      "result": null,
+      "items": [
+        [
+          "a",
+          3
+        ],
+        [
+          "c",
+          4
+        ]
+      ],
+      "hits": 0,
+      "misses": 0,
+      "soft_misses": 0
+    }
+  },
+  {
+    "id": "strict_then_soft",
+    "input": {
+      "policy": "LRU",
+      "capacity": 1,
+      "operations": [
+        {
+          "op": "read",
+          "key": "x"
+        },
+        {
+          "op": "get",
+          "key": "x",
+          "default": 7
+        }
+      ]
+    },
+    "hand_final_record": {
+      "result": 7,
+      "items": [],
+      "hits": 0,
+      "misses": 2,
+      "soft_misses": 1
+    }
+  },
+  {
+    "id": "contains_pop_no_stats",
+    "input": {
+      "policy": "LRU",
+      "capacity": 2,
+      "operations": [
+        {
+          "op": "put",
+          "key": "b",
+          "value": 2
+        },
+        {
+          "op": "put",
+          "key": "a",
+          "value": 1
+        },
+        {
+          "op": "contains",
+          "key": "a"
+        },
+        {
+          "op": "pop",
+          "key": "a"
+        }
+      ]
+    },
+    "hand_final_record": {
+      "result": 1,
+      "items": [
+        [
+          "b",
+          2
+        ]
+      ],
+      "hits": 0,
+      "misses": 0,
+      "soft_misses": 0
+    }
+  },
+  {
+    "id": "clear_keeps_stats",
+    "input": {
+      "policy": "LRU",
+      "capacity": 1,
+      "operations": [
+        {
+          "op": "put",
+          "key": "a",
+          "value": 1
+        },
+        {
+          "op": "read",
+          "key": "a"
+        },
+        {
+          "op": "clear"
+        },
+        {
+          "op": "get",
+          "key": "a",
+          "default": 9
+        }
+      ]
+    },
+    "hand_final_record": {
+      "result": 9,
+      "items": [],
+      "hits": 1,
+      "misses": 1,
+      "soft_misses": 1
+    }
+  },
+  {
+    "id": "capacity_1",
+    "input": {
+      "policy": "LRU",
+      "capacity": 1,
+      "operations": [
+        {
+          "op": "put",
+          "key": "a",
+          "value": 1
+        },
+        {
+          "op": "put",
+          "key": "b",
+          "value": 2
+        },
+        {
+          "op": "read",
+          "key": "a"
+        }
+      ]
+    },
+    "hand_final_record": {
+      "result": {
+        "error": "KeyError"
+      },
+      "items": [
+        [
+          "b",
+          2
+        ]
+      ],
+      "hits": 0,
+      "misses": 1,
+      "soft_misses": 0
+    }
+  },
+  {
+    "id": "capacity_2",
+    "input": {
+      "policy": "LRU",
+      "capacity": 2,
+      "operations": [
+        {
+          "op": "put",
+          "key": "a",
+          "value": 1
+        },
+        {
+          "op": "put",
+          "key": "b",
+          "value": 2
+        },
+        {
+          "op": "read",
+          "key": "a"
+        }
+      ]
+    },
+    "hand_final_record": {
+      "result": 1,
+      "items": [
+        [
+          "a",
+          1
+        ],
+        [
+          "b",
+          2
+        ]
+      ],
+      "hits": 1,
+      "misses": 0,
+      "soft_misses": 0
+    }
+  }
+]

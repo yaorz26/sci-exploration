@@ -1,0 +1,355 @@
+[
+  {
+    "case_id": "hidden_1",
+    "input": {
+      "tree": {},
+      "threshold": 0,
+      "factor": 1,
+      "drop_null": false
+    },
+    "expected": {
+      "value": {
+        "tree": {},
+        "matches": []
+      }
+    }
+  },
+  {
+    "case_id": "hidden_2",
+    "input": {
+      "tree": [
+        null,
+        1,
+        null,
+        3
+      ],
+      "threshold": 2,
+      "factor": 1,
+      "drop_null": true
+    },
+    "expected": {
+      "value": {
+        "tree": [
+          1,
+          3
+        ],
+        "matches": [
+          {
+            "path": [
+              1
+            ],
+            "value": 3
+          }
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "hidden_3",
+    "input": {
+      "tree": {
+        "x": null,
+        "y": {
+          "n": -2
+        }
+      },
+      "threshold": 0,
+      "factor": -2,
+      "drop_null": true
+    },
+    "expected": {
+      "value": {
+        "tree": {
+          "y": {
+            "n": 4
+          }
+        },
+        "matches": [
+          {
+            "path": [
+              "y",
+              "n"
+            ],
+            "value": 4
+          }
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "hidden_4",
+    "input": {
+      "tree": [
+        true,
+        false,
+        0,
+        1
+      ],
+      "threshold": 0,
+      "factor": 3,
+      "drop_null": false
+    },
+    "expected": {
+      "value": {
+        "tree": [
+          true,
+          false,
+          0,
+          3
+        ],
+        "matches": [
+          {
+            "path": [
+              2
+            ],
+            "value": 0
+          },
+          {
+            "path": [
+              3
+            ],
+            "value": 3
+          }
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "hidden_5",
+    "input": {
+      "tree": {
+        "x": [
+          2,
+          {
+            "y": 4
+          }
+        ],
+        "z": 5
+      },
+      "threshold": 4,
+      "factor": 1,
+      "drop_null": false
+    },
+    "expected": {
+      "value": {
+        "tree": {
+          "x": [
+            2,
+            {
+              "y": 4
+            }
+          ],
+          "z": 5
+        },
+        "matches": [
+          {
+            "path": [
+              "x",
+              1,
+              "y"
+            ],
+            "value": 4
+          },
+          {
+            "path": [
+              "z"
+            ],
+            "value": 5
+          }
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "hidden_6",
+    "input": {
+      "tree": [
+        [],
+        {},
+        null
+      ],
+      "threshold": 0,
+      "factor": 0,
+      "drop_null": true
+    },
+    "expected": {
+      "value": {
+        "tree": [
+          [],
+          {}
+        ],
+        "matches": []
+      }
+    }
+  },
+  {
+    "case_id": "hidden_7",
+    "input": {
+      "tree": {
+        "x": 2
+      },
+      "threshold": 4,
+      "factor": 2,
+      "drop_null": false
+    },
+    "expected": {
+      "value": {
+        "tree": {
+          "x": 4
+        },
+        "matches": [
+          {
+            "path": [
+              "x"
+            ],
+            "value": 4
+          }
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "hidden_8",
+    "input": {
+      "tree": {
+        "x": 2
+      },
+      "threshold": 3,
+      "factor": 1,
+      "drop_null": false
+    },
+    "expected": {
+      "value": {
+        "tree": {
+          "x": 2
+        },
+        "matches": []
+      }
+    }
+  },
+  {
+    "case_id": "hidden_9",
+    "input": {
+      "tree": {
+        "x": 1.5,
+        "y": -0.5
+      },
+      "threshold": 0,
+      "factor": 2,
+      "drop_null": false
+    },
+    "expected": {
+      "value": {
+        "tree": {
+          "x": 3.0,
+          "y": -1.0
+        },
+        "matches": [
+          {
+            "path": [
+              "x"
+            ],
+            "value": 3.0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "hidden_10",
+    "input": {
+      "tree": [
+        null,
+        null
+      ],
+      "threshold": 0,
+      "factor": 1,
+      "drop_null": true
+    },
+    "expected": {
+      "value": {
+        "tree": [],
+        "matches": []
+      }
+    }
+  },
+  {
+    "case_id": "hidden_11",
+    "input": {
+      "tree": {
+        "a": null,
+        "b": 0
+      },
+      "threshold": 0,
+      "factor": 0,
+      "drop_null": false
+    },
+    "expected": {
+      "value": {
+        "tree": {
+          "a": null,
+          "b": 0
+        },
+        "matches": [
+          {
+            "path": [
+              "b"
+            ],
+            "value": 0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "case_id": "hidden_12",
+    "input": {
+      "tree": {
+        "a": [
+          null,
+          {
+            "x": [
+              null,
+              3
+            ]
+          }
+        ],
+        "b": 2
+      },
+      "threshold": 2,
+      "factor": 1,
+      "drop_null": true
+    },
+    "expected": {
+      "value": {
+        "tree": {
+          "a": [
+            {
+              "x": [
+                3
+              ]
+            }
+          ],
+          "b": 2
+        },
+        "matches": [
+          {
+            "path": [
+              "a",
+              0,
+              "x",
+              0
+            ],
+            "value": 3
+          },
+          {
+            "path": [
+              "b"
+            ],
+            "value": 2
+          }
+        ]
+      }
+    }
+  }
+]

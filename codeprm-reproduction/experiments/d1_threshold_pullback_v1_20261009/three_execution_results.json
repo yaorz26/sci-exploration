@@ -1,0 +1,618 @@
+{
+  "rows": [
+    {
+      "program": "materialize_then_scan",
+      "id": "positive_drop",
+      "output": {
+        "tree": [
+          6,
+          2
+        ],
+        "matches": [
+          {
+            "path": [
+              0
+            ],
+            "value": 6
+          }
+        ]
+      },
+      "trace": {
+        "selected_result_paths": [
+          [
+            0
+          ]
+        ]
+      },
+      "diagnostic_pass": true,
+      "input_unchanged": true
+    },
+    {
+      "program": "materialize_then_scan",
+      "id": "negative_factor",
+      "output": {
+        "tree": [
+          4,
+          -2,
+          -6
+        ],
+        "matches": [
+          {
+            "path": [
+              0
+            ],
+            "value": 4
+          },
+          {
+            "path": [
+              1
+            ],
+            "value": -2
+          }
+        ]
+      },
+      "trace": {
+        "selected_result_paths": [
+          [
+            0
+          ],
+          [
+            1
+          ]
+        ]
+      },
+      "diagnostic_pass": true,
+      "input_unchanged": true
+    },
+    {
+      "program": "materialize_then_scan",
+      "id": "zero_inclusive_bool",
+      "output": {
+        "tree": {
+          "z": [
+            0,
+            true,
+            0
+          ]
+        },
+        "matches": [
+          {
+            "path": [
+              "z",
+              0
+            ],
+            "value": 0
+          },
+          {
+            "path": [
+              "z",
+              2
+            ],
+            "value": 0
+          }
+        ]
+      },
+      "trace": {
+        "selected_result_paths": [
+          [
+            "z",
+            0
+          ],
+          [
+            "z",
+            2
+          ]
+        ]
+      },
+      "diagnostic_pass": true,
+      "input_unchanged": true
+    },
+    {
+      "program": "materialize_then_scan",
+      "id": "zero_exclusive",
+      "output": {
+        "tree": [
+          0,
+          0
+        ],
+        "matches": []
+      },
+      "trace": {
+        "selected_result_paths": []
+      },
+      "diagnostic_pass": true,
+      "input_unchanged": true
+    },
+    {
+      "program": "materialize_then_scan",
+      "id": "rounded_multiply_boundary",
+      "output": {
+        "tree": [
+          0.30000000000000004
+        ],
+        "matches": [
+          {
+            "path": [
+              0
+            ],
+            "value": 0.30000000000000004
+          }
+        ]
+      },
+      "trace": {
+        "selected_result_paths": [
+          [
+            0
+          ]
+        ]
+      },
+      "diagnostic_pass": true,
+      "input_unchanged": true
+    },
+    {
+      "program": "materialize_then_scan",
+      "id": "binary_exact_control",
+      "output": {
+        "tree": {
+          "k": [
+            1.5,
+            false
+          ]
+        },
+        "matches": [
+          {
+            "path": [
+              "k",
+              0
+            ],
+            "value": 1.5
+          }
+        ]
+      },
+      "trace": {
+        "selected_result_paths": [
+          [
+            "k",
+            0
+          ]
+        ]
+      },
+      "diagnostic_pass": true,
+      "input_unchanged": true
+    },
+    {
+      "program": "original_product_predicate",
+      "id": "positive_drop",
+      "output": {
+        "tree": [
+          6,
+          2
+        ],
+        "matches": [
+          {
+            "path": [
+              0
+            ],
+            "value": 6
+          }
+        ]
+      },
+      "trace": {
+        "selected_original_paths": [
+          [
+            1
+          ]
+        ],
+        "selected_result_paths": [
+          [
+            0
+          ]
+        ],
+        "selection_happened_before_tree_transformation": true
+      },
+      "diagnostic_pass": true,
+      "input_unchanged": true
+    },
+    {
+      "program": "original_product_predicate",
+      "id": "negative_factor",
+      "output": {
+        "tree": [
+          4,
+          -2,
+          -6
+        ],
+        "matches": [
+          {
+            "path": [
+              0
+            ],
+            "value": 4
+          },
+          {
+            "path": [
+              1
+            ],
+            "value": -2
+          }
+        ]
+      },
+      "trace": {
+        "selected_original_paths": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "selected_result_paths": [
+          [
+            0
+          ],
+          [
+            1
+          ]
+        ],
+        "selection_happened_before_tree_transformation": true
+      },
+      "diagnostic_pass": true,
+      "input_unchanged": true
+    },
+    {
+      "program": "original_product_predicate",
+      "id": "zero_inclusive_bool",
+      "output": {
+        "tree": {
+          "z": [
+            0,
+            true,
+            0
+          ]
+        },
+        "matches": [
+          {
+            "path": [
+              "z",
+              0
+            ],
+            "value": 0
+          },
+          {
+            "path": [
+              "z",
+              2
+            ],
+            "value": 0
+          }
+        ]
+      },
+      "trace": {
+        "selected_original_paths": [
+          [
+            "z",
+            1
+          ],
+          [
+            "z",
+            3
+          ]
+        ],
+        "selected_result_paths": [
+          [
+            "z",
+            0
+          ],
+          [
+            "z",
+            2
+          ]
+        ],
+        "selection_happened_before_tree_transformation": true
+      },
+      "diagnostic_pass": true,
+      "input_unchanged": true
+    },
+    {
+      "program": "original_product_predicate",
+      "id": "zero_exclusive",
+      "output": {
+        "tree": [
+          0,
+          0
+        ],
+        "matches": []
+      },
+      "trace": {
+        "selected_original_paths": [],
+        "selected_result_paths": [],
+        "selection_happened_before_tree_transformation": true
+      },
+      "diagnostic_pass": true,
+      "input_unchanged": true
+    },
+    {
+      "program": "original_product_predicate",
+      "id": "rounded_multiply_boundary",
+      "output": {
+        "tree": [
+          0.30000000000000004
+        ],
+        "matches": [
+          {
+            "path": [
+              0
+            ],
+            "value": 0.30000000000000004
+          }
+        ]
+      },
+      "trace": {
+        "selected_original_paths": [
+          [
+            1
+          ]
+        ],
+        "selected_result_paths": [
+          [
+            0
+          ]
+        ],
+        "selection_happened_before_tree_transformation": true
+      },
+      "diagnostic_pass": true,
+      "input_unchanged": true
+    },
+    {
+      "program": "original_product_predicate",
+      "id": "binary_exact_control",
+      "output": {
+        "tree": {
+          "k": [
+            1.5,
+            false
+          ]
+        },
+        "matches": [
+          {
+            "path": [
+              "k",
+              0
+            ],
+            "value": 1.5
+          }
+        ]
+      },
+      "trace": {
+        "selected_original_paths": [
+          [
+            "k",
+            1
+          ]
+        ],
+        "selected_result_paths": [
+          [
+            "k",
+            0
+          ]
+        ],
+        "selection_happened_before_tree_transformation": true
+      },
+      "diagnostic_pass": true,
+      "input_unchanged": true
+    },
+    {
+      "program": "original_division_predicate",
+      "id": "positive_drop",
+      "output": {
+        "tree": [
+          6,
+          2
+        ],
+        "matches": [
+          {
+            "path": [
+              0
+            ],
+            "value": 6
+          }
+        ]
+      },
+      "trace": {
+        "selected_original_paths": [
+          [
+            1
+          ]
+        ],
+        "selected_result_paths": [
+          [
+            0
+          ]
+        ],
+        "selection_happened_before_tree_transformation": true
+      },
+      "diagnostic_pass": true,
+      "input_unchanged": true
+    },
+    {
+      "program": "original_division_predicate",
+      "id": "negative_factor",
+      "output": {
+        "tree": [
+          4,
+          -2,
+          -6
+        ],
+        "matches": [
+          {
+            "path": [
+              0
+            ],
+            "value": 4
+          },
+          {
+            "path": [
+              1
+            ],
+            "value": -2
+          }
+        ]
+      },
+      "trace": {
+        "selected_original_paths": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "selected_result_paths": [
+          [
+            0
+          ],
+          [
+            1
+          ]
+        ],
+        "selection_happened_before_tree_transformation": true
+      },
+      "diagnostic_pass": true,
+      "input_unchanged": true
+    },
+    {
+      "program": "original_division_predicate",
+      "id": "zero_inclusive_bool",
+      "output": {
+        "tree": {
+          "z": [
+            0,
+            true,
+            0
+          ]
+        },
+        "matches": [
+          {
+            "path": [
+              "z",
+              0
+            ],
+            "value": 0
+          },
+          {
+            "path": [
+              "z",
+              2
+            ],
+            "value": 0
+          }
+        ]
+      },
+      "trace": {
+        "selected_original_paths": [
+          [
+            "z",
+            1
+          ],
+          [
+            "z",
+            3
+          ]
+        ],
+        "selected_result_paths": [
+          [
+            "z",
+            0
+          ],
+          [
+            "z",
+            2
+          ]
+        ],
+        "selection_happened_before_tree_transformation": true
+      },
+      "diagnostic_pass": true,
+      "input_unchanged": true
+    },
+    {
+      "program": "original_division_predicate",
+      "id": "zero_exclusive",
+      "output": {
+        "tree": [
+          0,
+          0
+        ],
+        "matches": []
+      },
+      "trace": {
+        "selected_original_paths": [],
+        "selected_result_paths": [],
+        "selection_happened_before_tree_transformation": true
+      },
+      "diagnostic_pass": true,
+      "input_unchanged": true
+    },
+    {
+      "program": "original_division_predicate",
+      "id": "rounded_multiply_boundary",
+      "output": {
+        "tree": [
+          0.30000000000000004
+        ],
+        "matches": []
+      },
+      "trace": {
+        "selected_original_paths": [],
+        "selected_result_paths": [],
+        "selection_happened_before_tree_transformation": true
+      },
+      "diagnostic_pass": false,
+      "input_unchanged": true
+    },
+    {
+      "program": "original_division_predicate",
+      "id": "binary_exact_control",
+      "output": {
+        "tree": {
+          "k": [
+            1.5,
+            false
+          ]
+        },
+        "matches": [
+          {
+            "path": [
+              "k",
+              0
+            ],
+            "value": 1.5
+          }
+        ]
+      },
+      "trace": {
+        "selected_original_paths": [
+          [
+            "k",
+            1
+          ]
+        ],
+        "selected_result_paths": [
+          [
+            "k",
+            0
+          ]
+        ],
+        "selection_happened_before_tree_transformation": true
+      },
+      "diagnostic_pass": true,
+      "input_unchanged": true
+    }
+  ],
+  "solve_calls": 18,
+  "boundary_arithmetic": {
+    "product": 0.30000000000000004,
+    "inverse_threshold": 3.0000000000000004,
+    "product_predicate": true,
+    "division_predicate": false
+  }
+}

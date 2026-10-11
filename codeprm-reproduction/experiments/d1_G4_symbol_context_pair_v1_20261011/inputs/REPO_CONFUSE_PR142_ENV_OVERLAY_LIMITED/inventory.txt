@@ -1,0 +1,4 @@
+confuse/core.py: def set_file(self, filename, base_for_paths=False):
+confuse/core.py: def set(self, value):
+confuse/sources.py: def __init__(self, value, filename=None, default=False, base_for_paths=False):
+confuse/yaml_util.py: class Loader; def _construct_unicode(self, node):; def construct_yaml_map(self, node):; def construct_mapping(self, node, deep=False):; def check_plain(self):; @staticmethod

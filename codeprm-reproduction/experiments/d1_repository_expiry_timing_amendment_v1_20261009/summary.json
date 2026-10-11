@@ -1,0 +1,61 @@
+{
+  "rows": [
+    {
+      "organization": "candidate",
+      "returned_type": "list",
+      "stored_after_call": [],
+      "size_after_call": 0,
+      "returned_pairs": [
+        [
+          "a",
+          1
+        ]
+      ],
+      "stored_after_consumption": [],
+      "call_complete_cleanup_pass": true,
+      "return_pass": true,
+      "pass": true,
+      "scope": "新时点条款的公开增量，不追溯原任务，不证明全域"
+    },
+    {
+      "organization": "immediate",
+      "returned_type": "generator",
+      "stored_after_call": [],
+      "size_after_call": 0,
+      "returned_pairs": [
+        [
+          "a",
+          1
+        ]
+      ],
+      "stored_after_consumption": [],
+      "call_complete_cleanup_pass": true,
+      "return_pass": true,
+      "pass": true,
+      "scope": "新时点条款的公开增量，不追溯原任务，不证明全域"
+    },
+    {
+      "organization": "deferred",
+      "returned_type": "generator",
+      "stored_after_call": [
+        [
+          "a",
+          1
+        ]
+      ],
+      "size_after_call": 1,
+      "returned_pairs": [
+        [
+          "a",
+          1
+        ]
+      ],
+      "stored_after_consumption": [],
+      "call_complete_cleanup_pass": false,
+      "return_pass": true,
+      "pass": false,
+      "scope": "新时点条款的公开增量，不追溯原任务，不证明全域"
+    }
+  ],
+  "scope": "规范增量接纳即时生成器并拒延迟清理，不改原定义或评分"
+}

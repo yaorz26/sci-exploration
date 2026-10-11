@@ -34,6 +34,11 @@ def main() -> None:
     parser.add_argument("--protocol", choices=["json", "skeleton"], default="json")
     parser.add_argument("--prompt-variant", choices=["baseline", "repair_v1"], default="baseline")
     parser.add_argument("--allow-forward-dependencies", action="store_true")
+    parser.add_argument(
+        "--allow-nested-functions",
+        action="store_true",
+        help="Allow nested helper definitions inside an implementation; record this protocol relaxation explicitly.",
+    )
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--decompositions", type=int, default=2)
     parser.add_argument("--implementations", type=int, default=2)
@@ -84,6 +89,7 @@ def main() -> None:
         "protocol": args.protocol,
         "prompt_variant": args.prompt_variant,
         "allow_forward_dependencies": args.allow_forward_dependencies,
+        "allow_nested_functions": args.allow_nested_functions,
         "allow_no_decomposition": args.allow_no_decomposition,
         "decomposition_model": decomposition_model,
         "implementation_model": implementation_model,
@@ -228,7 +234,12 @@ def main() -> None:
                         summary["implementation_requests"] += 1
                         try:
                             impl_record = implementation_generator.generate(
-                                problem, decomposition, target, implementation_index, args.prompt_variant
+                                problem,
+                                decomposition,
+                                target,
+                                implementation_index,
+                                args.prompt_variant,
+                                allow_nested_functions=args.allow_nested_functions,
                             )
                             _add_usage(summary, impl_record.get("usage", {}))
                         except Exception as exc:
@@ -261,7 +272,12 @@ def main() -> None:
                         target.name: choice["code"]
                         for target, choice in zip(decomposition.functions, choices)
                     }
-                    code, compose_meta = compose_program(decomposition, impl_map, problem)
+                    code, compose_meta = compose_program(
+                        decomposition,
+                        impl_map,
+                        problem,
+                        allow_nested_functions=args.allow_nested_functions,
+                    )
                     candidate: dict[str, Any] = {
                         "candidate_id": candidate_id,
                         "problem_id": problem_id,
